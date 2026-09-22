@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+
+# Lazy Ui
+
+*A focused collection of reusable React components for modern interfaces.*
+
+**Built with:**
+
+![Next.js](https://img.shields.io/badge/Next.js-1E202B?style=for-the-badge&logo=nextdotjs&logoColor=ffffff)
+![React](https://img.shields.io/badge/React-1E202B?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-1E202B?style=for-the-badge&logo=typescript&logoColor=3178C6)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-1E202B?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4)
+![Bun](https://img.shields.io/badge/Bun-1E202B?style=for-the-badge&logo=bun&logoColor=ffffff)
+
+</div>
+
+## Overview
+
+Lazy Ui is a small, reusable component library and documentation site built with Next.js, React, TypeScript, and Tailwind CSS. It provides composable interface primitives with a simple API, including buttons that can render as native controls or Next.js links.
+
+## Features
+
+- **Reusable Button API** — Choose `primary`, `secondary`, `ghost`, or `link` variants with custom class merging through `cn`.
+- **Link-aware Buttons** — Render navigation buttons with `type="link"` and `href` while keeping the same visual variants.
+- **Data-driven Navigation** — Keep Navbar and Sidebar destinations in dedicated data files instead of duplicating links in JSX.
+- **Documentation Layout** — Browse introduction, installation, components, and component-specific documentation routes.
+
+## Tech Stack
+
+- **Framework:** Next.js 16, React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Package manager:** Bun
+- **Tooling:** ESLint, shadcn registry tooling
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Bun 1.4+
+- Node.js compatible with the installed Next.js version
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Navigate to the project directory**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+	```bash
+	cd uilib
+	```
 
-## Learn More
+2. **Install dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+	```bash
+	bun install
+	```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Start the development server**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+	```bash
+	bun run dev
+	```
 
-## Deploy on Vercel
+4. **Open the app**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+	Visit [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `bun run dev` | Start the Next.js development server |
+| `bun run build` | Create a production build |
+| `bun run start` | Start the production server |
+| `bun run lint` | Run ESLint |
+| `bun run registry:build` | Build the component registry |
