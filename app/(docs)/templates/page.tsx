@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Icon from '@/components/Icon'
+import Card from '@/components/ui/Card'
 import Container from '@/layout/Container'
 
 const templates = [
@@ -18,11 +19,11 @@ const templates = [
 export default function TemplatesPage() {
   return (
     <Container >
-      <h1 className="flex gap-4 mt-8 text-4xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-5xl">
+      <h1 className="flex gap-4 mt-8 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
         <Icon name="template" size={32} />
         Templates
       </h1>
-      <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
+      <p className="mt-5 max-w-2xl text-lg leading-8 text-base-content/70">
         Practical page structures to help you move from a blank route to a
         useful interface.
       </p>
@@ -31,14 +32,16 @@ export default function TemplatesPage() {
           <Link
             key={template.name}
             href={template.href}
-            className="border border-slate-200 p-6 hover:border-slate-400 dark:border-white/10 dark:hover:border-white/30"
+            className="group block"
           >
-            <h2 className="text-xl font-medium text-slate-900 dark:text-white">
-              {template.name}
-            </h2>
-            <p className="mt-2 leading-7 text-slate-600 dark:text-slate-400">
-              {template.description}
-            </p>
+            <Card className="p-6 transition-colors group-hover:border-primary">
+              <h2 className="text-xl font-medium text-foreground">
+                {template.name}
+              </h2>
+              <p className="mt-2 leading-7 text-base-content/70">
+                {template.description}
+              </p>
+            </Card>
           </Link>
         ))}
       </div>

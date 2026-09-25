@@ -2,7 +2,18 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import Link, { type LinkProps } from 'next/link'
 import { cn } from '@/utils/cn'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'link'
+export type ButtonVariant =
+	| 'primary'
+	| 'base'
+	| 'secondary'
+	| 'accent'
+	| 'neutral'
+	| 'info'
+	| 'success'
+	| 'warning'
+	| 'error'
+	| 'ghost'
+	| 'link'
 
 type StandardButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'type'> & {
 	children?: ReactNode
@@ -21,10 +32,17 @@ type LinkButtonProps = Omit<LinkProps, 'className' | 'children' | 'type'> & {
 export type ButtonProps = StandardButtonProps | LinkButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-100 ",
-  secondary: " border border-slate-700 border-1",
-  ghost: "text-slate-700 hover:bg-slate-100",
-  link: "h-auto p-0 text-slate-900 underline-offset-4 hover:underline",
+	primary: 'border-2 border-primary bg-primary text-primary-content shadow-sm hover:bg-primary/90',
+	base: 'border-2 border-base-300 bg-base-100 text-base-content shadow-sm hover:bg-base-200',
+	secondary: 'border-2 border-secondary bg-secondary text-secondary-content shadow-sm hover:bg-secondary/90',
+	accent: 'border-2 border-accent bg-accent text-accent-content shadow-sm hover:bg-accent/90',
+	neutral: 'border-2 border-neutral bg-neutral text-neutral-content shadow-sm hover:bg-neutral/90',
+	info: 'border-2 border-info bg-info text-info-content shadow-sm hover:bg-info/90',
+	success: 'border-2 border-success bg-success text-success-content shadow-sm hover:bg-success/90',
+	warning: 'border-2 border-warning bg-warning text-warning-content shadow-sm hover:bg-warning/90',
+	error: 'border-2 border-error bg-error text-error-content shadow-sm hover:bg-error/90',
+	ghost: 'text-foreground hover:bg-base-200',
+	link: 'h-auto p-0 text-foreground underline-offset-4 hover:underline',
 };
 
 function isLinkButtonProps(props: ButtonProps): props is LinkButtonProps {
@@ -38,7 +56,7 @@ export default function Button(props: ButtonProps) {
 		return (
       <Link
         className={cn(
-          "inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 px-4 py-2 focus-visible:outline-slate-900",
+		  'inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 px-4 py-2 focus-visible:outline-primary',
           variantStyles[variant],
           className,
         )}
@@ -54,7 +72,7 @@ export default function Button(props: ButtonProps) {
 	return (
 		<button
 			className={cn(
-				'inline-flex items-center justify-center  px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 disabled:pointer-events-none disabled:opacity-50',
+				'inline-flex items-center justify-center px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
 				variantStyles[variant],
 				className,
 			)}

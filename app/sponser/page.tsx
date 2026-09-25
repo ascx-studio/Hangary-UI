@@ -1,7 +1,8 @@
-import Navbar from '@/components/Navbar'
 import Button from '@/components/Button'
-import Icon from '@/components/Icon'
+import Card from '@/components/ui/Card'
+import Logo from '@/components/ui/Logo';
 import Container from '@/layout/Container'
+import Link from 'next/link';
 
 const supportOptions = [
   {
@@ -26,47 +27,44 @@ const supportOptions = [
 
 export default function SponsorPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       <main>
         <Container className="px-6 py-20 md:px-10 md:py-28">
           <div className="max-w-3xl">
-            <Icon name="component" size={32} />
-            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-              Support Lazy UI
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-6xl">
+            <Link
+              href="/"
+            >
+              <Logo className="w-80 h-16" />
+            </Link>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
               Good tools grow through generous people.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
-              Lazy UI is open source and free to use. A star, a contribution,
-              or a thoughtful suggestion helps keep the collection moving.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-base-content/70">
+              Lazy UI is open source and free to use. A star, a contribution, or
+              a thoughtful suggestion helps keep the collection moving.
             </p>
           </div>
 
           <div className="mt-14 grid gap-4 md:grid-cols-3">
             {supportOptions.map((option) => (
-              <article
+              <Card
                 key={option.title}
-                className="flex min-h-56 flex-col border border-slate-200 p-6 dark:border-white/10"
+                className="flex min-h-56 flex-col p-6"
               >
-                <h2 className="text-xl font-medium text-slate-900 dark:text-white">
+                <h2 className="text-xl font-medium text-foreground">
                   {option.title}
                 </h2>
-                <p className="mt-3 flex-1 leading-7 text-slate-600 dark:text-slate-400">
+                <p className="mt-3 flex-1 leading-7 text-base-content/70">
                   {option.description}
                 </p>
-                <Button
-                  variant="secondary"
-                  type="link"
-                  href={option.href}
-                >
+                <Button variant="secondary" type="link" href={option.href}>
                   {option.label}
                 </Button>
-              </article>
+              </Card>
             ))}
           </div>
         </Container>
       </main>
     </div>
-  )
+  );
 }

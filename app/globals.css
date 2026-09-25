@@ -1,26 +1,241 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base */
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.97 0.001 106.424);
+
+  /* Surfaces */
+  --card: oklch(0.205 0.006 50);
+  --card-foreground: oklch(0.97 0.001 106.424);
+
+  --popover: oklch(0.205 0.006 50);
+  --popover-foreground: oklch(0.97 0.001 106.424);
+
+  /* Brand */
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.147 0.004 49.25);
+
+  --secondary: oklch(0.76 0.2 130.85);
+  --secondary-foreground: oklch(0.16 0.02 125);
+
+  /* Muted / Accent */
+  --muted: oklch(0.255 0.008 48);
+  --muted-foreground: oklch(0.72 0.01 70);
+
+  --accent: oklch(0.255 0.008 48);
+  --accent-foreground: oklch(0.97 0.001 106.424);
+
+  /* Destructive */
+  --destructive: oklch(0.64 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Borders / Inputs */
+  --border: oklch(0.31 0.008 50);
+  --input: oklch(0.255 0.008 48);
+  --ring: oklch(0.696 0.17 162.48);
+
+  /* Charts */
+  --chart-1: oklch(0.696 0.17 162.48);
+  --chart-2: oklch(0.76 0.2 130.85);
+  --chart-3: oklch(0.72 0.15 200);
+  --chart-4: oklch(0.7 0.17 80);
+  --chart-5: oklch(0.65 0.19 300);
+
+  /* Sidebar */
+  --sidebar: oklch(0.18 0.005 49.25);
+  --sidebar-foreground: oklch(0.97 0.001 106.424);
+
+  --sidebar-primary: oklch(0.696 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.147 0.004 49.25);
+
+  --sidebar-accent: oklch(0.255 0.008 48);
+  --sidebar-accent-foreground: oklch(0.97 0.001 106.424);
+
+  --sidebar-border: oklch(0.31 0.008 50);
+  --sidebar-ring: oklch(0.696 0.17 162.48);
+
+  /* Fonts */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+
+  --font-serif:
+    ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* Radius */
+  --radius: 0rem;
+
+  /* Shadows */
+  --shadow-x: 0;
+  --shadow-y: 1px;
+  --shadow-blur: 22.5px;
+  --shadow-spread: -14px;
+  --shadow-opacity: 0.28;
+  --shadow-color: oklch(0 0 0);
+
+  --shadow-2xs:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.14);
+
+  --shadow-xs:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.14);
+
+  --shadow-sm:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.28),
+    0 1px 2px -15px hsl(0 0% 0% / 0.28);
+
+  --shadow:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.28),
+    0 1px 2px -15px hsl(0 0% 0% / 0.28);
+
+  --shadow-md:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.28),
+    0 2px 4px -15px hsl(0 0% 0% / 0.28);
+
+  --shadow-lg:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.28),
+    0 4px 6px -15px hsl(0 0% 0% / 0.28);
+
+  --shadow-xl:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.28),
+    0 8px 10px -15px hsl(0 0% 0% / 0.28);
+
+  --shadow-2xl:
+    0 1px 22.5px -14px hsl(0 0% 0% / 0.7);
+
+  --tracking-normal: 0em;
+  --spacing: 0.24rem;
+}
+
+/*
+  Since your site is dark-first, .dark uses the same palette.
+  You can remove this entire block if you don't need theme switching.
+*/
+.dark {
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.97 0.001 106.424);
+
+  --card: oklch(0.205 0.006 50);
+  --card-foreground: oklch(0.97 0.001 106.424);
+
+  --popover: oklch(0.205 0.006 50);
+  --popover-foreground: oklch(0.97 0.001 106.424);
+
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.147 0.004 49.25);
+
+  --secondary: oklch(0.76 0.2 130.85);
+  --secondary-foreground: oklch(0.16 0.02 125);
+
+  --muted: oklch(0.255 0.008 48);
+  --muted-foreground: oklch(0.72 0.01 70);
+
+  --accent: oklch(0.255 0.008 48);
+  --accent-foreground: oklch(0.97 0.001 106.424);
+
+  --destructive: oklch(0.64 0.21 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.31 0.008 50);
+  --input: oklch(0.255 0.008 48);
+  --ring: oklch(0.696 0.17 162.48);
+
+  --chart-1: oklch(0.696 0.17 162.48);
+  --chart-2: oklch(0.76 0.2 130.85);
+  --chart-3: oklch(0.72 0.15 200);
+  --chart-4: oklch(0.7 0.17 80);
+  --chart-5: oklch(0.65 0.19 300);
+
+  --sidebar: oklch(0.18 0.005 49.25);
+  --sidebar-foreground: oklch(0.97 0.001 106.424);
+
+  --sidebar-primary: oklch(0.696 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.147 0.004 49.25);
+
+  --sidebar-accent: oklch(0.255 0.008 48);
+  --sidebar-accent-foreground: oklch(0.97 0.001 106.424);
+
+  --sidebar-border: oklch(0.31 0.008 50);
+  --sidebar-ring: oklch(0.696 0.17 162.48);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }

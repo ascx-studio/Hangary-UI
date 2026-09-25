@@ -1,8 +1,16 @@
-import {cn} from '@/utils/cn';
+import { cn } from "@/utils/cn";
 
-export default function Cointainer({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) {
+export default function Container({
+  children,
+  className,
+}: Readonly<{ children: React.ReactNode; className?: string }>) {
   return (
-    <section className={cn(className, "max-w-6xl mx-auto overflow-x-hidden")}>
+    <section
+      className={cn(
+        "flex w-full max-w-6xl mx-auto flex-col px-6 md:px-10",
+        className,
+      )}
+    >
       {children}
     </section>
   );

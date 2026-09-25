@@ -1,3 +1,6 @@
+import { GitHubDark } from '@ridemountainpig/svgl-react'
+import { Heart } from 'lucide-react';
+
 const sections = {
 	Logo: {
 		label: 'logo',
@@ -14,8 +17,8 @@ export const navSections = [
 	{
 		label: 'General',
 		links: [
-			{ label: 'Sponsor', href: '/sponser', external: false, icon: undefined },
-			{ label: 'GitHub', href: 'https://github.com', external: true, icon: 'github' },
+			{ label: 'Support', href: '/sponser', external: false, icon: Heart },
+			{ label: 'GitHub', href: 'https://github.com', external: true, icon: GitHubDark },
 		],
 	},
 	...Object.values(sections),
