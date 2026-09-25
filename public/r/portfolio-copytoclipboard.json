@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "portfolio-copytoclipboard",
+  "title": "Copytoclipboard",
+  "description": "Copy text to the clipboard and report interaction feedback.",
+  "dependencies": [
+    "react-hot-toast@^2.6.0"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/lib/copytoclipboard.ts",
+      "content": "import { toast } from \"react-hot-toast\";\n\nfunction copyToClipboard(text: string) {\n  if (navigator.clipboard) {\n    navigator.clipboard.writeText(text).then(\n      () => {\n        console.log('Text copied to clipboard');\n        toast.success('Copied to clipboard!', {\n          position: 'top-right',\n        });\n      },\n      (err) => {\n        console.error('Could not copy text: ', err);\n        toast.error('Failed to copy text!', {\n          position: 'top-right',\n        });\n      }\n    );\n  } else {\n    console.warn('Clipboard API not supported');\n  }\n}\n\nexport { copyToClipboard };\n",
+      "type": "registry:lib",
+      "target": "@components/lazy-ui/lib/copytoclipboard.ts"
+    }
+  ],
+  "meta": {
+    "source": "lib/copytoclipboard.ts",
+    "collection": "portfolio",
+    "category": "utils"
+  },
+  "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Mount react-hot-toast Toaster once in your application.",
+  "type": "registry:lib"
+}

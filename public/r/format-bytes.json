@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "format-bytes",
+  "title": "Format bytes",
+  "description": "Format byte counts using binary units such as KiB and MiB.",
+  "files": [
+    {
+      "path": "registry/nova-blue/lib/format-bytes.ts",
+      "content": "const units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB'] as const\n\n/** Format a non-negative byte count using binary (1024-based) units. */\nexport function formatBytes(bytes: number, decimals = 1): string {\n  if (!Number.isFinite(bytes) || bytes < 0) {\n    throw new RangeError('formatBytes expects a finite, non-negative byte count.')\n  }\n  if (!Number.isInteger(decimals) || decimals < 0 || decimals > 6) {\n    throw new RangeError('decimals must be an integer between 0 and 6.')\n  }\n\n  let value = bytes\n  let unit = 0\n  while (value >= 1024 && unit < units.length - 1) {\n    value /= 1024\n    unit += 1\n  }\n  // Promote values that round to the next unit boundary.\n  if (Number(value.toFixed(decimals)) >= 1024 && unit < units.length - 1) {\n    value /= 1024\n    unit += 1\n  }\n  return `${Number(value.toFixed(decimals))} ${units[unit]}`\n}\n",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "category": "utils"
+  },
+  "type": "registry:lib"
+}

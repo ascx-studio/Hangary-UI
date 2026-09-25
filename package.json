@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run registry:build && next build",
     "start": "next start",
     "registry:build": "shadcn build",
-    "lint": "eslint"
+    "lint": "eslint",
+    "registry:check": "node scripts/check-registry.mjs"
   },
   "dependencies": {
     "@ridemountainpig/svgl-react": "^1.0.18",
@@ -16,6 +17,7 @@
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "react-hot-toast": "^2.6.1",
     "shadcn": "^4.21.0"
   },
   "devDependencies": {

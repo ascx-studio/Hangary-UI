@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "portfolio-blog-share",
+  "title": "Blog Share",
+  "description": "Sharing controls for a blog article.",
+  "dependencies": [
+    "lucide-react@^0.447.0",
+    "motion@^12.42.0",
+    "nucleo-social-media@^1.0.2",
+    "react-hot-toast@^2.6.0"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/blocks/blog/blog-share.tsx",
+      "content": "'use client';\n\nimport { Share2 } from 'lucide-react';\nimport { IconXTwitter, IconLinkedin } from 'nucleo-social-media';\nimport * as motion from 'motion/react-client';\nimport { toast } from 'react-hot-toast';\n\ninterface BlogShareProps {\n  title: string;\n  slug: string;\n}\n\nexport function BlogShare({ title, slug }: BlogShareProps) {\n  const url = `https://rajeevpuri.com.np/blog/${slug}`;\n\n  const handleShare = async () => {\n    if (navigator.share) {\n      try {\n        await navigator.share({\n          title: title,\n          text: `Check out this blog post: ${title}`,\n          url: url,\n        });\n      } catch (err) {\n        if ((err as Error).name !== 'AbortError') {\n          console.error('Error sharing:', err);\n        }\n      }\n    } else {\n      navigator.clipboard.writeText(url);\n      toast.success('Link copied to clipboard!', {\n        style: {\n          background: '#18181b',\n          color: '#fff',\n          border: '1px solid #27272a',\n          fontSize: '12px',\n          fontFamily: 'var(--font-mono)',\n        },\n      });\n    }\n  };\n\n  const socialShares = [\n    {\n      name: 'X',\n      icon: <IconXTwitter className=\"size-3.5\" />,\n      href: `https://x.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,\n    },\n    {\n      name: 'LinkedIn',\n      icon: <IconLinkedin className=\"size-3.5\" />,\n      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,\n    },\n  ];\n\n  return (\n    <div className=\"flex items-center gap-2 ml-4 pl-4 \">\n      {socialShares.map((social) => (\n        <motion.a\n          key={social.name}\n          href={social.href}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n          className=\"p-1.5  text-foreground-muted hover:text-primary hover:bg-primary/10 transition-all duration-300 border border-border/50 hover:border-primary/30\"\n          whileHover={{ y: -1 }}\n          whileTap={{ scale: 0.95 }}\n          title={`Share on ${social.name}`}\n        >\n          {social.icon}\n        </motion.a>\n      ))}\n      <motion.button\n        onClick={handleShare}\n        className=\"p-1.5 rounded-sm bg-primary/5 text-foreground-muted hover:text-primary hover:bg-primary/10 transition-all duration-300 border border-border/50 hover:border-primary/30\"\n        whileHover={{ y: -1 }}\n        whileTap={{ scale: 0.95 }}\n        title=\"Share\"\n      >\n        <Share2 className=\"size-3.5\" />\n      </motion.button>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/blocks/blog/blog-share.tsx"
+    },
+    {
+      "path": "registry/nova-blue/styles/portfolio.css",
+      "content": "@theme inline {\n  --color-primary-light: var(--primary);\n  --color-primary-hover: var(--primary);\n  --color-accent-cyan: var(--secondary);\n  --color-accent-purple: var(--primary);\n  --color-info: var(--primary);\n  --shadow-glow: 0 0 20px color-mix(in oklab, var(--primary) 15%, transparent);\n  --shadow-glow-lg: 0 0 30px color-mix(in oklab, var(--primary) 25%, transparent);\n  --font-heading: var(--font-sans);\n}\n\n@layer components {\n  /* Example utility combining the new theme variables */\n  .btn-primary-glow {\n    @apply bg-primary text-primary-foreground shadow-glow hover:shadow-glow-lg\n           transition-all duration-200 active:scale-95;\n  }\n\n  .blog-content > table,\n  .blog-content > .table-wrapper > table {\n    width: 100%;\n    margin: 2rem 0;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border: 1px solid var(--border);\n    background: color-mix(in oklab, var(--background) 60%, transparent);\n    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);\n    font-size: 0.95rem;\n  }\n\n  .blog-content > table[header-row=\"true\"] tbody tr:first-child td,\n  .blog-content > table thead th,\n  .blog-content > .table-wrapper > table[header-row=\"true\"] tbody tr:first-child td,\n  .blog-content > .table-wrapper > table thead th {\n    background: color-mix(in oklab, var(--muted) 40%, transparent);\n    color: var(--foreground);\n    font-size: 0.625rem;\n    font-weight: 700;\n    letter-spacing: 0.18em;\n    text-transform: uppercase;\n  }\n\n  .blog-content > table td,\n  .blog-content > table th,\n  .blog-content > .table-wrapper > table td,\n  .blog-content > .table-wrapper > table th {\n    padding: 0.9rem 1rem;\n    border-bottom: 1px solid var(--border);\n    text-align: left;\n    vertical-align: top;\n    color: var(--muted-foreground);\n  }\n\n  .blog-content > table tr:last-child td,\n  .blog-content > table tr:last-child th,\n  .blog-content > .table-wrapper > table tr:last-child td,\n  .blog-content > .table-wrapper > table tr:last-child th {\n    border-bottom: 0;\n  }\n\n  .blog-content > table td code,\n  .blog-content > table th code,\n  .blog-content > .table-wrapper > table td code,\n  .blog-content > .table-wrapper > table th code {\n    display: inline-block;\n    padding: 0.1rem 0.35rem;\n    border-radius: calc(var(--radius) * 0.45);\n    background: var(--muted);\n    color: var(--foreground);\n    font-family: var(--font-sans);\n    font-size: 0.85em;\n    font-weight: 600;\n  }\n\n\n}\n",
+      "type": "registry:file",
+      "target": "@components/lazy-ui/styles/portfolio.css"
+    }
+  ],
+  "meta": {
+    "source": "components/sections/blog/BlogShare.tsx",
+    "collection": "portfolio",
+    "category": "blocks"
+  },
+  "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Mount react-hot-toast Toaster once in your application.",
+  "type": "registry:block"
+}

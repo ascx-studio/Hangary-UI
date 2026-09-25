@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon",
+  "title": "Icon",
+  "description": "Displays shared interface icons with typed names and Next.js Image optimization.",
+  "files": [
+    {
+      "path": "registry/nova-blue/ui/icon.tsx",
+      "content": "import Image from 'next/image'\n\nexport const iconSources = {\n  component: '/component.svg',\n  template: '/template.svg',\n  shader: '/shader.svg',\n  utility: '/utility.svg',\n} as const\n\nexport type IconName = keyof typeof iconSources\n\nexport type IconProps = Readonly<{\n  name: IconName\n  alt?: string\n  size?: number\n  className?: string\n}>\n\nexport function Icon({\n  name,\n  alt = '',\n  size = 24,\n  className,\n}: IconProps) {\n  return (\n    <Image\n      src={iconSources[name]}\n      alt={alt}\n      width={size}\n      height={size}\n      className={className}\n    />\n  )\n}\n\nexport default Icon\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:ui"
+}

@@ -1,15 +1,19 @@
 export const sidebarLinks = [
 	{
-		title: 'Sections',
+		title: 'Library',
 		links: [
-			{ label: 'Introduction', href: '/docs' },
-			{ label: 'Installation', href: '/docs/installation' },
+			{ label: 'Components', href: '/components' },
+			{ label: 'Blocks', href: '/blocks' },
+			{ label: 'Backgrounds', href: '/shader' },
+			{ label: 'Utility code', href: '/utils' },
+			{ label: 'Templates', href: '/templates' },
 		],
 	},
 	{
-		title: 'Components',
+		title: 'Project',
 		links: [
-			{ label: 'Your component', href: '/docs/components/your-component' },
+			{ label: 'Home', href: '/' },
+			{ label: 'Support', href: '/sponser' },
 		],
 	},
 ] as const

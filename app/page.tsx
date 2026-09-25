@@ -1,6 +1,7 @@
 import Container from "@/layout/Container";
 import Button from "@/components/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -17,9 +18,8 @@ export default function Page() {
               className="h-auto w-[min(100%,25rem)] drop-shadow-2xl"
             />
             <p className="max-w-md text-lg leading-8 font-light text-muted-foreground transition-colors duration-200 hover:text-foreground">
-              Hangry UI is a collection of open-source, accessible, and
-              customizable React components built with Tailwind CSS on top of
-              shadcn/ui.
+              Explore React components, page blocks, backgrounds, and utility
+              code built with Tailwind CSS. Browse the source and make it your own.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button variant="primary" href="/components" type="link">
@@ -33,6 +33,18 @@ export default function Page() {
                 Star on GitHub
               </Button>
             </div>
+            <nav aria-label="Browse the library" className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              {[
+                { href: '/blocks', label: 'Blocks' },
+                { href: '/shader', label: 'Backgrounds' },
+                { href: '/utils', label: 'Utility code' },
+                { href: '/templates', label: 'Templates' },
+              ].map((link) => (
+                <Link key={link.href} href={link.href} className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </Container>

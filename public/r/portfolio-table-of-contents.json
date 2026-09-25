@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "portfolio-table-of-contents",
+  "title": "Table Of Contents",
+  "description": "An article navigation list built from content headings.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/blocks/blog/table-of-contents.tsx",
+      "content": "\"use client\";\n\nimport { useEffect, useState, useRef } from \"react\";\nimport { cn } from \"../../../lib/portfolio/utils\";\n\ninterface HeadingItem {\n  text: string;\n  id: string;\n  level: number;\n}\n\nexport function TableOfContents({ headings }: { headings: HeadingItem[] }) {\n  const [activeId, setActiveId] = useState<string>(\"\");\n  const observer = useRef<IntersectionObserver | null>(null);\n\n  useEffect(() => {\n    const handleObserver = (entries: IntersectionObserverEntry[]) => {\n      const visibleEntries = entries.filter((entry) => entry.isIntersecting);\n\n      if (visibleEntries.length > 0) {\n        // Sort by how close they are to the top of the viewport\n        const sorted = visibleEntries.sort(\n          (a, b) => a.boundingClientRect.top - b.boundingClientRect.top\n        );\n        setActiveId(sorted[0].target.id);\n      }\n    };\n\n    observer.current = new IntersectionObserver(handleObserver, {\n      rootMargin: \"-100px 0px -70% 0px\", // Offset for top nav bar and viewport center focus\n    });\n\n    headings.forEach((heading) => {\n      const el = document.getElementById(heading.id);\n      if (el) observer.current?.observe(el);\n    });\n\n    return () => observer.current?.disconnect();\n  }, [headings]);\n\n  if (headings.length === 0) return null;\n\n  return (\n    <nav className=\"space-y-4 sticky\">\n      <div className=\"relative border-l border-zinc-900 ml-1 py-1 space-y-3.5\">\n        {headings.map((heading) => {\n          const isActive = activeId === heading.id;\n          return (\n            <a\n              key={heading.id}\n              href={`#${heading.id}`}\n              className={cn(\n                \"block font-mono text-[11px] font-medium tracking-wide transition-all duration-normal border-l-2 -ml-px pl-4 hover:text-white leading-relaxed\",\n                heading.level === 3 ? \"pl-8 text-[10px]\" : \"\",\n                isActive\n                  ? \"text-primary border-primary font-bold\"\n                  : \"text-zinc-500 border-transparent\"\n              )}\n            >\n              {heading.text}\n            </a>\n          );\n        })}\n      </div>\n    </nav>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/blocks/blog/table-of-contents.tsx"
+    },
+    {
+      "path": "registry/nova-blue/styles/portfolio.css",
+      "content": "@theme inline {\n  --color-primary-light: var(--primary);\n  --color-primary-hover: var(--primary);\n  --color-accent-cyan: var(--secondary);\n  --color-accent-purple: var(--primary);\n  --color-info: var(--primary);\n  --shadow-glow: 0 0 20px color-mix(in oklab, var(--primary) 15%, transparent);\n  --shadow-glow-lg: 0 0 30px color-mix(in oklab, var(--primary) 25%, transparent);\n  --font-heading: var(--font-sans);\n}\n\n@layer components {\n  /* Example utility combining the new theme variables */\n  .btn-primary-glow {\n    @apply bg-primary text-primary-foreground shadow-glow hover:shadow-glow-lg\n           transition-all duration-200 active:scale-95;\n  }\n\n  .blog-content > table,\n  .blog-content > .table-wrapper > table {\n    width: 100%;\n    margin: 2rem 0;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border: 1px solid var(--border);\n    background: color-mix(in oklab, var(--background) 60%, transparent);\n    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);\n    font-size: 0.95rem;\n  }\n\n  .blog-content > table[header-row=\"true\"] tbody tr:first-child td,\n  .blog-content > table thead th,\n  .blog-content > .table-wrapper > table[header-row=\"true\"] tbody tr:first-child td,\n  .blog-content > .table-wrapper > table thead th {\n    background: color-mix(in oklab, var(--muted) 40%, transparent);\n    color: var(--foreground);\n    font-size: 0.625rem;\n    font-weight: 700;\n    letter-spacing: 0.18em;\n    text-transform: uppercase;\n  }\n\n  .blog-content > table td,\n  .blog-content > table th,\n  .blog-content > .table-wrapper > table td,\n  .blog-content > .table-wrapper > table th {\n    padding: 0.9rem 1rem;\n    border-bottom: 1px solid var(--border);\n    text-align: left;\n    vertical-align: top;\n    color: var(--muted-foreground);\n  }\n\n  .blog-content > table tr:last-child td,\n  .blog-content > table tr:last-child th,\n  .blog-content > .table-wrapper > table tr:last-child td,\n  .blog-content > .table-wrapper > table tr:last-child th {\n    border-bottom: 0;\n  }\n\n  .blog-content > table td code,\n  .blog-content > table th code,\n  .blog-content > .table-wrapper > table td code,\n  .blog-content > .table-wrapper > table th code {\n    display: inline-block;\n    padding: 0.1rem 0.35rem;\n    border-radius: calc(var(--radius) * 0.45);\n    background: var(--muted);\n    color: var(--foreground);\n    font-family: var(--font-sans);\n    font-size: 0.85em;\n    font-weight: 600;\n  }\n\n\n}\n",
+      "type": "registry:file",
+      "target": "@components/lazy-ui/styles/portfolio.css"
+    },
+    {
+      "path": "registry/nova-blue/lib/utils.ts",
+      "content": "export { cn } from \"cn\"\n\nexport const currentYear = new Date().getFullYear().toString();\nexport function formatDate(date: string | Date): string {\n  const dateObj = typeof date === \"string\" ? new Date(date) : date\n  return new Intl.DateTimeFormat(\"en-US\", {\n    year: \"numeric\",\n    month: \"long\",\n    day: \"numeric\",\n  }).format(dateObj)\n}\n",
+      "type": "registry:lib",
+      "target": "@components/lazy-ui/lib/utils.ts"
+    }
+  ],
+  "meta": {
+    "source": "components/sections/blog/TableOfContents.tsx",
+    "collection": "portfolio",
+    "category": "blocks"
+  },
+  "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+  "type": "registry:block"
+}

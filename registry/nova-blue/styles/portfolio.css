@@ -1,0 +1,77 @@
+@theme inline {
+  --color-primary-light: var(--primary);
+  --color-primary-hover: var(--primary);
+  --color-accent-cyan: var(--secondary);
+  --color-accent-purple: var(--primary);
+  --color-info: var(--primary);
+  --shadow-glow: 0 0 20px color-mix(in oklab, var(--primary) 15%, transparent);
+  --shadow-glow-lg: 0 0 30px color-mix(in oklab, var(--primary) 25%, transparent);
+  --font-heading: var(--font-sans);
+}
+
+@layer components {
+  /* Example utility combining the new theme variables */
+  .btn-primary-glow {
+    @apply bg-primary text-primary-foreground shadow-glow hover:shadow-glow-lg
+           transition-all duration-200 active:scale-95;
+  }
+
+  .blog-content > table,
+  .blog-content > .table-wrapper > table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: color-mix(in oklab, var(--background) 60%, transparent);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+    font-size: 0.95rem;
+  }
+
+  .blog-content > table[header-row="true"] tbody tr:first-child td,
+  .blog-content > table thead th,
+  .blog-content > .table-wrapper > table[header-row="true"] tbody tr:first-child td,
+  .blog-content > .table-wrapper > table thead th {
+    background: color-mix(in oklab, var(--muted) 40%, transparent);
+    color: var(--foreground);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .blog-content > table td,
+  .blog-content > table th,
+  .blog-content > .table-wrapper > table td,
+  .blog-content > .table-wrapper > table th {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+    color: var(--muted-foreground);
+  }
+
+  .blog-content > table tr:last-child td,
+  .blog-content > table tr:last-child th,
+  .blog-content > .table-wrapper > table tr:last-child td,
+  .blog-content > .table-wrapper > table tr:last-child th {
+    border-bottom: 0;
+  }
+
+  .blog-content > table td code,
+  .blog-content > table th code,
+  .blog-content > .table-wrapper > table td code,
+  .blog-content > .table-wrapper > table th code {
+    display: inline-block;
+    padding: 0.1rem 0.35rem;
+    border-radius: calc(var(--radius) * 0.45);
+    background: var(--muted);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+
+
+}

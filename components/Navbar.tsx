@@ -22,7 +22,9 @@ export default function Navbar() {
     <Container className="items-center">
       <nav className="flex w-full flex-wrap items-center justify-between gap-y-2 py-3">
         <div className="flex items-center gap-4">
-          <Logo variant="logo" />
+          <Link href="/">
+            <Logo variant="logo" />
+          </Link>
 
           <details className="group relative">
             <summary className="flex cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden  px-3 py-2 text-base font-medium text-foreground transition-colors">

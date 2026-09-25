@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clamp",
+  "title": "Clamp",
+  "description": "Keep a finite number within an inclusive range.",
+  "files": [
+    {
+      "path": "registry/nova-blue/lib/clamp.ts",
+      "content": "/** Keep a finite value within an inclusive range. */\nexport function clamp(value: number, min: number, max: number): number {\n  if (![value, min, max].every(Number.isFinite)) {\n    throw new RangeError('clamp expects finite numbers.')\n  }\n  if (min > max) {\n    throw new RangeError('clamp expects min to be less than or equal to max.')\n  }\n  return Math.min(max, Math.max(min, value))\n}\n",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "category": "utils"
+  },
+  "type": "registry:lib"
+}

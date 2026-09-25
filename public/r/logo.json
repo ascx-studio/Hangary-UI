@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo",
+  "title": "Logo",
+  "description": "Renders the brand logo with support for compact icon and full wordmark variants.",
+  "files": [
+    {
+      "path": "registry/nova-blue/ui/logo.tsx",
+      "content": "import Image, { type ImageProps } from 'next/image'\n\nexport type LogoVariant = 'logo' | 'wordmark'\n\nconst logoVariants: Record<LogoVariant, Pick<ImageProps, 'src' | 'alt' | 'width' | 'height'>> = {\n  logo: {\n    src: '/logo.png',\n    alt: 'Logo',\n    width: 40,\n    height: 40,\n  },\n  wordmark: {\n    src: '/wordmark.png',\n    alt: 'Wordmark',\n    width: 160,\n    height: 40,\n  },\n}\n\nexport type LogoProps = Readonly<{\n  variant?: LogoVariant\n}> &\n  Pick<ImageProps, 'className' | 'priority' | 'sizes'>\n\nexport function Logo({ variant = 'wordmark', ...imageProps }: LogoProps) {\n  const logo = logoVariants[variant]\n\n  return (\n    <Image\n      src={logo.src}\n      alt={logo.alt}\n      width={logo.width}\n      height={logo.height}\n      {...imageProps}\n    />\n  )\n}\n\nexport default Logo\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:ui"
+}

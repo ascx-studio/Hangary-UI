@@ -1,69 +1,48 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import Icon, { type IconName } from '@/components/Icon'
-import Card from '@/components/ui/Card'
+import RegistryCatalog from '@/components/registry/RegistryCatalog'
 import Container from '@/layout/Container'
 
-const components = [
-  {
-    slug: 'button',
-    name: 'Button',
-    description: 'Action controls for links and form submissions.',
-    icon: 'component',
-  },
-  {
-    slug: 'icon',
-    name: 'Icon',
-    description: 'Typed access to the public icon collection.',
-    icon: 'utility',
-  },
-  {
-    slug: 'logo',
-    name: 'Logo',
-    description: 'Responsive logo and wordmark variants.',
-    icon: 'template',
-  },
-] satisfies ReadonlyArray<{
-  slug: string
-  name: string
-  description: string
-  icon: IconName
-}>
+export const metadata: Metadata = {
+  title: 'Components | Lazy UI',
+  description: 'Focused building blocks for your interface. Each component includes interactive live previews, installable shadcn CLI commands, and full source code.',
+}
+
+const coreComponents = [
+  { name: 'Button', slug: 'button', desc: 'Interactive actions, variants & links' },
+  { name: 'Card', slug: 'card', desc: 'Surface container with border & shadow' },
+  { name: 'Badge', slug: 'badge', desc: 'Status labels & category tags' },
+  { name: 'Alert', slug: 'alert', desc: 'Contextual notification banners' },
+  { name: 'Separator', slug: 'separator', desc: 'Horizontal & vertical dividers' },
+  { name: 'Icon', slug: 'icon', desc: 'Optimized interface icons' },
+  { name: 'Logo', slug: 'logo', desc: 'Brand logo & wordmark marks' },
+]
 
 export default function ComponentsPage() {
   return (
-    <Container >
-      <div className="max-w-3xl">
+    <Container className="pb-16">
+      <h1 className="mt-8 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">Components</h1>
+      <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+        Focused building blocks for your interface. Each component includes interactive live previews, installable shadcn CLI commands, and full source code.
+      </p>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-          Components made to compose.
-        </h1>
-        <p className="mt-5 text-lg leading-8 text-muted-foreground">
-          Small, focused building blocks with sensible defaults and room for
-          your own system.
-        </p>
-      </div>
-
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {components.map((component) => (
-          <Card
-            key={component.slug}
-            className="group transition-colors hover:border-primary"
-          >
+      <section className="mt-10" aria-label="Core UI components">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Core UI Primitives</h2>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {coreComponents.map((item) => (
             <Link
-              href={`/components/${component.slug}`}
-              className="block p-6"
+              key={item.slug}
+              href={`/components/${item.slug}`}
+              className="group flex flex-col justify-between rounded-md border border-border bg-card p-4 transition-all hover:border-primary/60 hover:shadow-xs"
             >
-              <Icon name={component.icon} size={24} />
-              <h2 className="mt-8 text-xl font-medium text-card-foreground">
-                {component.name}
-              </h2>
-              <p className="mt-2 leading-7 text-muted-foreground">
-                {component.description}
-              </p>
+              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{item.name}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
             </Link>
-          </Card>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
+
+      <RegistryCatalog category="components" />
     </Container>
   )
 }

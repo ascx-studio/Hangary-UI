@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cn",
+  "title": "cn",
+  "description": "Merge conditional class names and resolve Tailwind conflicts.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/lib/cn.ts",
+      "content": "export { cn } from \"cn\";\n",
+      "type": "registry:lib"
+    }
+  ],
+  "meta": {
+    "category": "utils"
+  },
+  "type": "registry:lib"
+}

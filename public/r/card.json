@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "Displays a card with border and shadow styling matching the Lazy UI theme.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/ui/card.tsx",
+      "content": "import type { HTMLAttributes } from 'react'\nimport { cn } from 'cn'\n\nexport type CardProps = Readonly<HTMLAttributes<HTMLElement>>\n\nexport function Card({ className, ...props }: CardProps) {\n  return (\n    <article\n      className={cn(\n        'block border-2 border-border bg-card text-card-foreground shadow-sm',\n        className,\n      )}\n      {...props}\n    />\n  )\n}\n\nexport default Card\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:ui"
+}

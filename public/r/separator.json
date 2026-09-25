@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "title": "Separator",
+  "description": "Horizontal and vertical dividers with accessible semantics.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/ui/separator.tsx",
+      "content": "import type { ComponentProps } from 'react'\nimport { cn } from 'cn'\n\nexport type SeparatorProps = Omit<ComponentProps<'div'>, 'role' | 'aria-orientation' | 'aria-hidden'> & {\n  orientation?: 'horizontal' | 'vertical'\n  decorative?: boolean\n}\n\nexport function Separator({ className, orientation = 'horizontal', decorative = true, ...props }: SeparatorProps) {\n  return (\n    <div\n      {...props}\n      role={decorative ? 'none' : 'separator'}\n      aria-hidden={decorative ? true : undefined}\n      aria-orientation={decorative ? undefined : orientation}\n      className={cn('shrink-0 bg-border', orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px', className)}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:ui"
+}

@@ -1,26 +1,20 @@
-import Icon from '@/components/Icon'
-import Card from '@/components/ui/Card'
+import type { Metadata } from 'next'
+import RegistryCatalog from '@/components/registry/RegistryCatalog'
 import Container from '@/layout/Container'
+
+export const metadata: Metadata = {
+  title: 'Shaders | Lazy UI',
+  description: 'Visual effects and shader components for your interface. Check each entry for browser requirements and dependencies before adding it to a project.',
+}
 
 export default function ShaderPage() {
   return (
-    <Container>
-      <h1 className="flex gap-4 mt-8 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-        <Icon name="shader" size={32} />
-          Shader experiments
-      </h1>
+    <Container className="pb-16">
+      <h1 className="mt-8 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">Shaders</h1>
       <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
-        A home for lightweight visual experiments that can add atmosphere and
-        motion to an interface.
+        Visual effects and shader components for your interface. Check each entry for browser requirements and dependencies before adding it to a project.
       </p>
-      <Card className="mt-12 border-dashed p-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          Coming next
-        </p>
-        <p className="mt-3 text-muted-foreground">
-          Shader examples will appear here as they are added to the library.
-        </p>
-      </Card>
+      <RegistryCatalog category="shader" />
     </Container>
-  );
+  )
 }

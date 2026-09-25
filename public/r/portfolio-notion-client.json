@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "portfolio-notion-client",
+  "title": "Client",
+  "description": "Server-side Notion client configuration.",
+  "dependencies": [
+    "@notionhq/client@^5.22.0"
+  ],
+  "files": [
+    {
+      "path": "registry/nova-blue/lib/notion/client.ts",
+      "content": "import { Client } from \"@notionhq/client\";\n\nconst token = process.env.NOTION_SECRET || process.env.NOTION_API_KEY;\n\nexport const Notionclient = new Client({ auth: token });\n",
+      "type": "registry:lib",
+      "target": "@components/lazy-ui/lib/notion/client.ts"
+    }
+  ],
+  "meta": {
+    "source": "lib/notion/client.ts",
+    "collection": "portfolio",
+    "category": "utils"
+  },
+  "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Configure NOTION_SECRET (or NOTION_API_KEY), NOTION_DATA_SOURCE_ID and/or NOTION_BLOG_DATA_SOURCE_ID. Keep these helpers server-side; the blog cache functions require cacheComponents: true.",
+  "type": "registry:lib"
+}

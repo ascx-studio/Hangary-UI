@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Imported registry source has its own consumer dependencies; it is not app code.
+    "registry/nova-blue/**",
   ]),
 ]);
 
