@@ -21,8 +21,8 @@ type LinkButtonProps = Omit<LinkProps, 'className' | 'children' | 'type'> & {
 export type ButtonProps = StandardButtonProps | LinkButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-100",
-  secondary: "bg-slate-900 text-white hover:bg-slate-700",
+  primary: "border border-slate-300 bg-white text-slate-900 hover:bg-slate-100 ",
+  secondary: " border border-slate-700 border-1",
   ghost: "text-slate-700 hover:bg-slate-100",
   link: "h-auto p-0 text-slate-900 underline-offset-4 hover:underline",
 };
