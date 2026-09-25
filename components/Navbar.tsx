@@ -22,19 +22,20 @@ export default function Navbar() {
     <Container className="items-center">
       <nav className="flex w-full flex-wrap items-center justify-between gap-y-2 py-3">
         <div className="flex items-center gap-4">
+          <Logo variant="logo" />
+
           <details className="group relative">
-            <summary className="flex cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden  px-3 py-2 text-md font-medium text-white transition-colors h">
-              <Logo variant="logo" />
-              <span className="text-md font-medium">
+            <summary className="flex cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden  px-3 py-2 text-base font-medium text-foreground transition-colors">
+              <span className="text-base font-medium">
                 {currentLink?.label ?? logoSection.label}
               </span>
               <ChevronDown className=" text-foreground transition-transform group-open:rotate-180" />
             </summary>
-            <ul className="absolute left-0 top-full z-50 mt-3 min-w-52 select-none rounded-md bg-base-300 p-2 text-white shadow-xl">
+            <ul className="absolute left-0 top-full z-50 mt-3 min-w-52 select-none rounded-md bg-popover p-2 text-popover-foreground shadow-xl">
               {logoSection.links.map((link) => (
                 <li key={link.href}>
                   <Link
-                    className="flex items-center gap-3 px-3 py-2 text-md font-medium text-white transition-colors hover:bg-base-200 hover:text-primary-content"
+                    className="flex items-center gap-3 px-3 py-2 text-base font-medium text-popover-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                     href={link.href}
                     onClick={closeMenu}
                   >
@@ -51,7 +52,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 aria-label={link.label}
-                className="flex items-center gap-3 px-3 py-2 text-md font-medium text-white transition-colors hover:bg-base-200 hover:text-primary-content"
+                className="flex items-center gap-3 px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                 href={link.href}
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noreferrer" : undefined}

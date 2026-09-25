@@ -8,11 +8,11 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-70 shrink-0 border-r border-base-300 px-6 py-4 text-foreground">
+    <aside className="w-70 shrink-0 border-r border-sidebar-border bg-sidebar px-6 py-4 text-sidebar-foreground">
       <nav aria-label="Documentation navigation" className="space-y-16">
         {sidebarLinks.map((section) => (
           <div key={section.title}>
-            <h2 className="mb-5 text-sm font-normal text-base-content/60">
+            <h2 className="mb-5 text-sm font-normal text-muted-foreground">
               {section.title}
             </h2>
             <ul className="space-y-2">
@@ -20,10 +20,10 @@ export default function Sidebar() {
                 <li key={link.href}>
                   <Button
                     aria-current={pathname === link.href ? 'page' : undefined}
-                    className={`w-full justify-start rounded-none p-2 text-md leading-tight no-underline transition-colors ${
+                    className={`w-full focus-visible:outline-sidebar-ring justify-start rounded-none p-2 text-base leading-tight no-underline transition-colors ${
                       pathname === link.href
-                        ? 'bg-base-300 text-foreground hover:bg-base-300'
-                        : 'text-base-content hover:bg-base-200 hover:no-underline'
+                        ? 'bg-sidebar-accent text-sidebar-accent-foreground hover:bg-sidebar-accent'
+                        : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:no-underline'
                     }`}
                     href={link.href}
                     type="link"

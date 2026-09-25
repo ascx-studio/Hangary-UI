@@ -37,7 +37,7 @@ export default function ComponentsPage() {
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
           Components made to compose.
         </h1>
-        <p className="mt-5 text-lg leading-8 text-base-content/70">
+        <p className="mt-5 text-lg leading-8 text-muted-foreground">
           Small, focused building blocks with sensible defaults and room for
           your own system.
         </p>
@@ -54,10 +54,10 @@ export default function ComponentsPage() {
               className="block p-6"
             >
               <Icon name={component.icon} size={24} />
-              <h2 className="mt-8 text-xl font-medium text-foreground">
+              <h2 className="mt-8 text-xl font-medium text-card-foreground">
                 {component.name}
               </h2>
-              <p className="mt-2 leading-7 text-base-content/70">
+              <p className="mt-2 leading-7 text-muted-foreground">
                 {component.description}
               </p>
             </Link>

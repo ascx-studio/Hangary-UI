@@ -16,7 +16,7 @@ export default function Page() {
               priority
               className="h-auto w-[min(100%,25rem)] drop-shadow-2xl"
             />
-            <p className="max-w-md text-lg leading-8 font-light text-neutral-content/75 transition-colors duration-200 hover:text-neutral-content">
+            <p className="max-w-md text-lg leading-8 font-light text-muted-foreground transition-colors duration-200 hover:text-foreground">
               Hangry UI is a collection of open-source, accessible, and
               customizable React components built with Tailwind CSS on top of
               shadcn/ui.

@@ -23,7 +23,7 @@ export default function TemplatesPage() {
         <Icon name="template" size={32} />
         Templates
       </h1>
-      <p className="mt-5 max-w-2xl text-lg leading-8 text-base-content/70">
+      <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
         Practical page structures to help you move from a blank route to a
         useful interface.
       </p>
@@ -35,10 +35,10 @@ export default function TemplatesPage() {
             className="group block"
           >
             <Card className="p-6 transition-colors group-hover:border-primary">
-              <h2 className="text-xl font-medium text-foreground">
+              <h2 className="text-xl font-medium text-card-foreground">
                 {template.name}
               </h2>
-              <p className="mt-2 leading-7 text-base-content/70">
+              <p className="mt-2 leading-7 text-muted-foreground">
                 {template.description}
               </p>
             </Card>

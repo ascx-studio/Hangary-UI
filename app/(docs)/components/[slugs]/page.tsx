@@ -41,7 +41,7 @@ export default async function ComponentPage({
     <Container >
 
       <div className="mt-10 w-full max-w-5xl">
-        <nav aria-label="Breadcrumb" className="text-sm text-base-content/60">
+        <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
           <ol className="flex items-center gap-2">
             <li>
               <Link className="transition-colors hover:text-foreground" href="/components">

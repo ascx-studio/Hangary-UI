@@ -32,16 +32,16 @@ type LinkButtonProps = Omit<LinkProps, 'className' | 'children' | 'type'> & {
 export type ButtonProps = StandardButtonProps | LinkButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
-	primary: 'border-2 border-primary bg-primary text-primary-content shadow-sm hover:bg-primary/90',
-	base: 'border-2 border-base-300 bg-base-100 text-base-content shadow-sm hover:bg-base-200',
-	secondary: 'border-2 border-secondary bg-secondary text-secondary-content shadow-sm hover:bg-secondary/90',
-	accent: 'border-2 border-accent bg-accent text-accent-content shadow-sm hover:bg-accent/90',
-	neutral: 'border-2 border-neutral bg-neutral text-neutral-content shadow-sm hover:bg-neutral/90',
-	info: 'border-2 border-info bg-info text-info-content shadow-sm hover:bg-info/90',
-	success: 'border-2 border-success bg-success text-success-content shadow-sm hover:bg-success/90',
-	warning: 'border-2 border-warning bg-warning text-warning-content shadow-sm hover:bg-warning/90',
-	error: 'border-2 border-error bg-error text-error-content shadow-sm hover:bg-error/90',
-	ghost: 'text-foreground hover:bg-base-200',
+	primary: 'border-2 border-primary bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',
+	base: 'border-2 border-border bg-background text-foreground shadow-sm hover:bg-muted',
+	secondary: 'border-2 border-secondary bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/90',
+	accent: 'border-2 border-accent bg-accent text-accent-foreground shadow-sm hover:bg-accent/90',
+	neutral: 'border-2 border-border bg-card text-card-foreground shadow-sm hover:bg-card/90',
+	info: 'border-2 border-info bg-info text-info-foreground shadow-sm hover:bg-info/90',
+	success: 'border-2 border-success bg-success text-success-foreground shadow-sm hover:bg-success/90',
+	warning: 'border-2 border-warning bg-warning text-warning-foreground shadow-sm hover:bg-warning/90',
+	error: 'border-2 border-destructive bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
+	ghost: 'text-foreground hover:bg-accent hover:text-accent-foreground',
 	link: 'h-auto p-0 text-foreground underline-offset-4 hover:underline',
 };
 
@@ -56,7 +56,7 @@ export default function Button(props: ButtonProps) {
 		return (
       <Link
         className={cn(
-		  'inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 px-4 py-2 focus-visible:outline-primary',
+		  'inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 px-4 py-2 focus-visible:outline-ring',
           variantStyles[variant],
           className,
         )}
@@ -72,7 +72,7 @@ export default function Button(props: ButtonProps) {
 	return (
 		<button
 			className={cn(
-				'inline-flex items-center justify-center px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
+				'inline-flex items-center justify-center px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50',
 				variantStyles[variant],
 				className,
 			)}
