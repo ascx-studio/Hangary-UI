@@ -1,9 +1,9 @@
-import Items from "../../ui/portfolio/items";
-import ProjectCard from "../../components/portfolio/cards/project-card";
-import Container from "../../components/portfolio/container";
+import Items from "../ui/items";
+import ProjectCard from "../components/cards/project-card";
+import Container from "../components/container";
 import { Suspense } from "react";
-import { DotmSquare11 } from "../../ui/portfolio/dotm-square-11";
-import { getProjectData } from "../../lib/portfolio/projectdata";
+import { DotmSquare11 } from "../ui/dotm-square-11";
+import { getProjectData } from "../lib/projectdata";
 
 interface ProjectsProps {
   list?: number;

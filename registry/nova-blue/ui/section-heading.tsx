@@ -1,5 +1,6 @@
 import React from "react";
-import { cn } from "../../lib/portfolio/utils";
+import { cn } from '../lib/utils'
+
 
 interface SectionHeadingProps {
   children: React.ReactNode;

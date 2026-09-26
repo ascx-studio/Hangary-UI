@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../registry/nova-blue/styles/portfolio.css";
 
 @custom-variant dark (&:is(.dark *));
 

@@ -3,12 +3,12 @@
 import * as motion from "motion/react-client";
 import Link from "next/link";
 import { useState,memo } from "react";
-import Container from "../../components/portfolio/container";
+import Container from "../components/container";
 import MobileMenu from "./mobile-menu";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import Image from "next/image";
-import { navlink as quicklink } from "../../lib/portfolio/data/navlink";
+import { navlink as quicklink } from "../lib/data/navlink";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

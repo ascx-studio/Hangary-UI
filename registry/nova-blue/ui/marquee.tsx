@@ -2,9 +2,9 @@
 
 import * as motion from "motion/react-client";
 import { useMemo } from "react";
-import { language } from "../../lib/portfolio/skills-data";
-import LanguageCard from "../../components/portfolio/cards/language-card";
-import { cn } from "../../lib/portfolio/utils";
+import { language } from "../lib/skills-data";
+import LanguageCard from "../components/cards/language-card";
+import { cn } from "../lib/utils";
 
 function Marquee({ className }: { className?: string } = {}) {
   const tripleLang = useMemo(() => [...language, ...language], []);

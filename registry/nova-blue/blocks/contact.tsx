@@ -1,7 +1,7 @@
 import * as motion from "motion/react-client";
-import Items from "../../ui/portfolio/items";
-import { socialLinks } from "../../lib/portfolio/constants";
-import Container from "../../components/portfolio/container";
+import Items from "../ui/items";
+import { socialLinks } from "../lib/constants";
+import Container from "../components/container";
 import { Mail } from "lucide-react";
 import Service from "./service";
 

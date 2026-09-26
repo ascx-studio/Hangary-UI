@@ -35,7 +35,7 @@ import {
   DevOpsIllustration,
   FullStackIllustration,
   UIUXIllustration,
-} from "../../components/portfolio/illustration/service-illustrations";
+} from "../components/illustration/service-illustrations";
 import { IconXTwitter, IconGithub, IconLinkedin } from "nucleo-social-media";
 
 

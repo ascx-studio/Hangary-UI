@@ -14,7 +14,8 @@
     }
   ],
   "meta": {
-    "category": "components"
+    "category": "components",
+    "preview": "alert"
   },
   "type": "registry:ui"
 }

@@ -1,15 +1,15 @@
 import * as motion from "motion/react-client";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import Container from "../../components/portfolio/container";
-import Socialicons from "../../ui/portfolio/socialicons";
-import CopyCommand from "../../ui/portfolio/copy-command";
-import Marquee from "../../ui/portfolio/marquee";
+import Container from "../components/container";
+import Socialicons from "../ui/socialicons";
+import CopyCommand from "../ui/copy-command";
+import Marquee from "../ui/marquee";
 import { Suspense } from "react";
 
 const TopographicCanvas = dynamic(
   () =>
-    import("../../backgrounds/portfolio/topographic").then((mod) => mod.TopographicCanvas)
+    import("../backgrounds/topographic").then((mod) => mod.TopographicCanvas)
 );
 
 const containerVariants = {

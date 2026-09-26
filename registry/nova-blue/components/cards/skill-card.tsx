@@ -1,6 +1,6 @@
 import * as motion from "motion/react-client";
-import { type Skill } from "../../../lib/portfolio/skills-data";
-import { cn } from "../../../lib/portfolio/utils";
+import { type Skill } from "../../lib/skills-data";
+import { cn } from "../../lib/utils";
 
 interface SkillCardProps {
   skill: Skill;

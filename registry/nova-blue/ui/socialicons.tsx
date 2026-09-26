@@ -1,6 +1,6 @@
 import * as motion from "motion/react-client";
-import { socialLinks } from "../../lib/portfolio/constants";
-import { cn } from "../../lib/portfolio/utils";
+import { socialLinks } from "../lib/constants";
+import { cn } from "../lib/utils";
 
 interface SocialLink {
   name: string;

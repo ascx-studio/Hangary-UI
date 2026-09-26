@@ -2,8 +2,8 @@
 import Link from "next/link";
 import * as motion from "motion/react-client";
 
-import { cn } from "../../lib/portfolio/utils";
-import Container from "../../components/portfolio/container";
+import { cn } from "../lib/utils";
+import Container from "../components/container";
 
 export function NotFound({ className }: Readonly<{ className?: string }>) {
 

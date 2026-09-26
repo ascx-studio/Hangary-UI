@@ -1,8 +1,8 @@
 import * as motion from "motion/react-client";
-import Items from "../../ui/portfolio/items";
-import ServiceCard from "../../components/portfolio/cards/service-card";
-import { services } from "../../lib/portfolio/constants";
-import Container from "../../components/portfolio/container";
+import Items from "../ui/items";
+import ServiceCard from "../components/cards/service-card";
+import { services } from "../lib/constants";
+import Container from "../components/container";
 
 const Service = ({ isPage = false }: { isPage?: boolean }) => {
   const containerVariants = {

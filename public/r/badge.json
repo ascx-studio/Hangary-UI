@@ -14,7 +14,8 @@
     }
   ],
   "meta": {
-    "category": "components"
+    "category": "components",
+    "preview": "badge"
   },
   "type": "registry:ui"
 }

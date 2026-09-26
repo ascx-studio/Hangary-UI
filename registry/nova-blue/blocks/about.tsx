@@ -1,9 +1,9 @@
-import Items from "../../ui/portfolio/items";
-import Container from "../../components/portfolio/container";
-import ProfileCard from "../../ui/portfolio/profile-card";
-import SectionHeading from "../../ui/portfolio/section-heading";
-import { frameworksAndTools,clouds,marketingAndAds } from "../../lib/portfolio/skills-data";
-import SkillCard from "../../components/portfolio/cards/skill-card";
+import Items from "../ui/items";
+import Container from "../components/container";
+import ProfileCard from "../ui/profile-card";
+import SectionHeading from "../ui/section-heading";
+import { frameworksAndTools,clouds,marketingAndAds } from "../lib/skills-data";
+import SkillCard from "../components/cards/skill-card";
 
 const About = async ({ isPage = false }: { isPage?: boolean }) => {
 

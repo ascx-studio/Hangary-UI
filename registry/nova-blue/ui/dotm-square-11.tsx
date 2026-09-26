@@ -3,8 +3,8 @@
 import type { CSSProperties } from "react";
 
 import { DotMatrixBase } from "./dotmatrix-core";
-import { useDotMatrixPhases } from "../../hooks/portfolio/dotmatrix-hooks";
-import { usePrefersReducedMotion } from "../../hooks/portfolio/dotmatrix-hooks";
+import { useDotMatrixPhases } from "../hooks/dotmatrix-hooks";
+import { usePrefersReducedMotion } from "../hooks/dotmatrix-hooks";
 import type {
   DotAnimationResolver,
   DotMatrixCommonProps,

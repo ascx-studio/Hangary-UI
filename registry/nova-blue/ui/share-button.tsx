@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Check, Share, TwitterIcon } from "lucide-react";
+import { ChevronDown, Check, Share } from "lucide-react";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import { toast } from "react-hot-toast";

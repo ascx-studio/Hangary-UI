@@ -11,7 +11,8 @@
     }
   ],
   "meta": {
-    "category": "components"
+    "category": "components",
+    "preview": "logo"
   },
   "type": "registry:ui"
 }

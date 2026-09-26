@@ -1,7 +1,9 @@
 import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 import registry from '@/registry.json'
 import generatedRegistry from '@/public/r/registry.json'
+import packageJson from '@/package.json'
 
 export type RegistryCategory = 'components' | 'blocks' | 'shader' | 'utils'
 
@@ -25,7 +27,15 @@ export type RegistryItem = {
 }
 
 export const registryHomepage = registry.homepage
-const items: RegistryItem[] = registry.items
+const installedPackages = new Set(Object.keys(packageJson.dependencies))
+const packageName = (dependency: string) => dependency.replace(/@[^@/]+$/, '')
+const unavailablePaths = new Set(registry.items.filter(item =>
+  item.dependencies?.some(dependency => !installedPackages.has(packageName(dependency)))
+).map(item => item.files[0]?.path))
+// Keep source entries intact; omit unavailable components from the documentation catalog.
+const items: RegistryItem[] = registry.items.filter(item =>
+  !unavailablePaths.has(item.files[0]?.path) && item.files.every(file => existsSync(path.resolve(process.cwd(), file.path)))
+)
 const generatedNames = new Set(generatedRegistry.items.map((item) => item.name))
 const categories: RegistryCategory[] = ['components', 'blocks', 'shader', 'utils']
 

@@ -223,7 +223,7 @@
           "target": "@components/lazy-ui/blocks/footer.tsx"
         },
         {
-          "path": "registry/nova-blue/assets/lettermark.svg",
+          "path": "public/portfolio/lettermark.svg",
           "type": "registry:file",
           "target": "@components/lazy-ui/assets/lettermark.svg"
         },
@@ -392,7 +392,7 @@
           "target": "@components/lazy-ui/blocks/navbar.tsx"
         },
         {
-          "path": "registry/nova-blue/assets/logo.svg",
+          "path": "public/portfolio/logo.svg",
           "type": "registry:file",
           "target": "@components/lazy-ui/assets/logo.svg"
         },

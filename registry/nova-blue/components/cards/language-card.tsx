@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/portfolio/utils";
+import { cn } from "../../lib/utils";
 
 type Skill = {
   icon: React.ReactNode;

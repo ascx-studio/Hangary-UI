@@ -1,6 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import type { CredlyBadgeItem } from "../../../lib/portfolio/credly";
+import type { CredlyBadgeItem } from "../../lib/credly";
 import Image from "next/image";
 
 export default function CertificateBadge({

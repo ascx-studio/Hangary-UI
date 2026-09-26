@@ -6,8 +6,9 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "../../ui/portfolio/hover-card";
-import { cn } from "../../lib/portfolio/utils";
+} from "../ui/hover-card";
+import { cn } from '../lib/utils'
+
 
 export type TOCItemType = {
   title: React.ReactNode;

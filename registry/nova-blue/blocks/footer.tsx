@@ -1,9 +1,9 @@
 import * as motion from "motion/react-client";
-import { navlink as quicklink } from "../../lib/portfolio/data/navlink";
+import { navlink as quicklink } from "../lib/data/navlink";
 import { Mail } from "lucide-react";
-import Container from "../../components/portfolio/container";
+import Container from "../components/container";
 import { Suspense } from "react";
-import { currentYear } from "../../lib/portfolio/utils";
+import { currentYear } from "../lib/utils";
 import Image from "next/image";
 
 

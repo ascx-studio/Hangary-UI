@@ -49,7 +49,7 @@ import {
   Shopify,
   ElysiaJS,
   TurborepoDark,
-  TanStack,
+  TanStackDark as TanStack,
   ResendDark,
   OpenClaw,
   ApacheKafkaDark,

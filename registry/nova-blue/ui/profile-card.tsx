@@ -1,6 +1,6 @@
 import Socialicons from "./socialicons";
-import LanguageCard from "../../components/portfolio/cards/language-card";
-import { language } from "../../lib/portfolio/skills-data";
+import LanguageCard from "../components/cards/language-card";
+import { language } from "../lib/skills-data";
 import Image from "next/image";
 
 export default function ProfileCard() {

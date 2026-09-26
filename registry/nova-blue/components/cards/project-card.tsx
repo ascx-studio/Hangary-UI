@@ -1,4 +1,4 @@
-import { projectPlaceholder } from "../../../lib/portfolio/project-placeholder";
+import { projectPlaceholder } from "../../lib/project-placeholder";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import {
@@ -17,7 +17,7 @@ import {
   Vue,
   MongoDBDark,
 } from "@ridemountainpig/svgl-react";
-import { Database, Github } from "lucide-react";
+import { Database } from "lucide-react";
 
 interface TechItem {
   id: string;

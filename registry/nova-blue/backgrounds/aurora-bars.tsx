@@ -3,7 +3,8 @@
 import * as React from "react";
 import { motion, useAnimationFrame } from "motion/react";
 
-import { cn } from "../../lib/portfolio/utils";
+import { cn } from '../lib/utils'
+
 
 export interface AuroraBarsProps {
   /** @default 24 */

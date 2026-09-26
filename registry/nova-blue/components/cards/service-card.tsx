@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/portfolio/utils";
+import { cn } from "../../lib/utils";
 import { Activity, ChevronRightIcon, Layers } from "lucide-react";
 import * as motion from "motion/react-client";
 

@@ -4,11 +4,11 @@ import type { CSSProperties } from "react";
 
 // ignore the missing module/type for the side-effect import.
 // @ts-ignore
-import "../../styles/portfolio/dotmatrix-loader.css";
+import "../styles/dotmatrix-loader.css";
 import {
   useDotMatrixPhases,
   usePrefersReducedMotion,
-} from "../../hooks/portfolio/dotmatrix-hooks";
+} from "../hooks/dotmatrix-hooks";
 
 export type MatrixPattern =
   | "diamond"

@@ -1,4 +1,5 @@
-import { cn } from "../../lib/portfolio/utils";
+import { cn } from '../lib/utils'
+
 import * as motion from "motion/react-client";
 import { ReactNode } from "react";
 

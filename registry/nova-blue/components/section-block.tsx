@@ -1,5 +1,5 @@
 import React from "react";
-import SectionHeading from "../../ui/portfolio/section-heading";
+import SectionHeading from "../ui/section-heading";
 
 interface SectionBlockProps {
   title: string;
