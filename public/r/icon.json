@@ -3,11 +3,43 @@
   "name": "icon",
   "title": "Icon",
   "description": "Displays shared interface icons with typed names and Next.js Image optimization.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/ui/icon.tsx",
       "content": "import Image from 'next/image'\n\nexport const iconSources = {\n  component: '/component.svg',\n  template: '/template.svg',\n  shader: '/shader.svg',\n  utility: '/utility.svg',\n} as const\n\nexport type IconName = keyof typeof iconSources\n\nexport type IconProps = Readonly<{\n  name: IconName\n  alt?: string\n  size?: number\n  className?: string\n}>\n\nexport function Icon({\n  name,\n  alt = '',\n  size = 24,\n  className,\n}: IconProps) {\n  return (\n    <Image\n      src={iconSources[name]}\n      alt={alt}\n      width={size}\n      height={size}\n      className={className}\n    />\n  )\n}\n\nexport default Icon\n",
-      "type": "registry:ui"
+      "type": "registry:ui",
+      "target": "@components/lazy-ui/ui/icon.tsx"
+    },
+    {
+      "path": "registry/nova-blue/styles/portfolio.css",
+      "content": "@theme inline {\n  --color-primary-light: var(--primary);\n  --color-primary-hover: var(--primary);\n  --color-accent-cyan: var(--secondary);\n  --color-accent-purple: var(--primary);\n  --color-info: var(--primary);\n  --shadow-glow: 0 0 20px color-mix(in oklab, var(--primary) 15%, transparent);\n  --shadow-glow-lg: 0 0 30px color-mix(in oklab, var(--primary) 25%, transparent);\n  --font-heading: var(--font-sans);\n}\n\n@layer components {\n  /* Example utility combining the new theme variables */\n  .btn-primary-glow {\n    @apply bg-primary text-primary-foreground shadow-glow hover:shadow-glow-lg\n           transition-all duration-200 active:scale-95;\n  }\n\n  .blog-content > table,\n  .blog-content > .table-wrapper > table {\n    width: 100%;\n    margin: 2rem 0;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border: 1px solid var(--border);\n    background: color-mix(in oklab, var(--background) 60%, transparent);\n    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);\n    font-size: 0.95rem;\n  }\n\n  .blog-content > table[header-row=\"true\"] tbody tr:first-child td,\n  .blog-content > table thead th,\n  .blog-content > .table-wrapper > table[header-row=\"true\"] tbody tr:first-child td,\n  .blog-content > .table-wrapper > table thead th {\n    background: color-mix(in oklab, var(--muted) 40%, transparent);\n    color: var(--foreground);\n    font-size: 0.625rem;\n    font-weight: 700;\n    letter-spacing: 0.18em;\n    text-transform: uppercase;\n  }\n\n  .blog-content > table td,\n  .blog-content > table th,\n  .blog-content > .table-wrapper > table td,\n  .blog-content > .table-wrapper > table th {\n    padding: 0.9rem 1rem;\n    border-bottom: 1px solid var(--border);\n    text-align: left;\n    vertical-align: top;\n    color: var(--muted-foreground);\n  }\n\n  .blog-content > table tr:last-child td,\n  .blog-content > table tr:last-child th,\n  .blog-content > .table-wrapper > table tr:last-child td,\n  .blog-content > .table-wrapper > table tr:last-child th {\n    border-bottom: 0;\n  }\n\n  .blog-content > table td code,\n  .blog-content > table th code,\n  .blog-content > .table-wrapper > table td code,\n  .blog-content > .table-wrapper > table th code {\n    display: inline-block;\n    padding: 0.1rem 0.35rem;\n    border-radius: calc(var(--radius) * 0.45);\n    background: var(--muted);\n    color: var(--foreground);\n    font-family: var(--font-sans);\n    font-size: 0.85em;\n    font-weight: 600;\n  }\n\n\n}\n",
+      "type": "registry:file",
+      "target": "@components/lazy-ui/styles/portfolio.css"
+    },
+    {
+      "path": "public/component.svg",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-component preview-icon\"><path d=\"M15.536 11.293a1 1 0 0 0 0 1.414l2.376 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z\"/><path d=\"M2.297 11.293a1 1 0 0 0 0 1.414l2.377 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414L6.088 8.916a1 1 0 0 0-1.414 0z\"/><path d=\"M8.916 17.912a1 1 0 0 0 0 1.415l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.415l-2.377-2.376a1 1 0 0 0-1.414 0z\"/><path d=\"M8.916 4.674a1 1 0 0 0 0 1.414l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z\"/></svg>\n",
+      "type": "registry:file",
+      "target": "public/component.svg"
+    },
+    {
+      "path": "public/shader.svg",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-parasol preview-icon\"><path d=\"M12.5 11.134 18.196 21\"/><path d=\"M20.425 5.299a10 10 0 0 0-16.941 9.78c.183.563.843.774 1.355.478L20.16 6.711c.512-.296.66-.973.264-1.413\"/><path d=\"M21 21H3\"/></svg>\n",
+      "type": "registry:file",
+      "target": "public/shader.svg"
+    },
+    {
+      "path": "public/template.svg",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-layout-template preview-icon\"><rect width=\"18\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"9\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\"/><rect width=\"5\" height=\"7\" x=\"16\" y=\"14\" rx=\"1\"/></svg>\n",
+      "type": "registry:file",
+      "target": "public/template.svg"
+    },
+    {
+      "path": "public/utility.svg",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-square-dashed-text preview-icon\"><path d=\"M14 21h1\"/><path d=\"M14 3h1\"/><path d=\"M19 3a2 2 0 0 1 2 2\"/><path d=\"M21 14v1\"/><path d=\"M21 19a2 2 0 0 1-2 2\"/><path d=\"M21 9v1\"/><path d=\"M3 14v1\"/><path d=\"M3 9v1\"/><path d=\"M5 21a2 2 0 0 1-2-2\"/><path d=\"M5 3a2 2 0 0 0-2 2\"/><path d=\"M7 12h10\"/><path d=\"M7 16h6\"/><path d=\"M7 8h8\"/><path d=\"M9 21h1\"/><path d=\"M9 3h1\"/></svg>\n",
+      "type": "registry:file",
+      "target": "public/utility.svg"
     }
   ],
   "meta": {

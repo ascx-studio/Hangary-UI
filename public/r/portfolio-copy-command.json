@@ -4,7 +4,7 @@
   "title": "Copy Command",
   "description": "A command display with clipboard copying and feedback.",
   "dependencies": [
-    "lucide-react@^0.447.0"
+    "lucide-react@^1.48.0"
   ],
   "files": [
     {

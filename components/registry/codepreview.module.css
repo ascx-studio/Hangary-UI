@@ -1,0 +1,49 @@
+.entrance {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entrance {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.preview {
+  /* Blend theme accents toward the foreground for readable code in either theme. */
+  --code-primary: color-mix(in oklab, var(--primary) 65%, var(--foreground));
+  --code-info: color-mix(in oklab, var(--info) 55%, var(--foreground));
+  --code-warning: color-mix(in oklab, var(--warning) 55%, var(--foreground));
+  --code-destructive: color-mix(in oklab, var(--destructive) 65%, var(--foreground));
+
+  background: var(--card);
+  color: var(--card-foreground);
+  tab-size: 2;
+}
+
+.preview :global(.hljs-comment),
+.preview :global(.hljs-quote) { color: var(--muted-foreground); }
+.preview :global(.hljs-keyword),
+.preview :global(.hljs-selector-tag),
+.preview :global(.hljs-literal) { color: var(--code-primary); }
+.preview :global(.hljs-string),
+.preview :global(.hljs-regexp),
+.preview :global(.hljs-doctag) { color: var(--code-info); }
+.preview :global(.hljs-number),
+.preview :global(.hljs-attr),
+.preview :global(.hljs-attribute),
+.preview :global(.hljs-variable),
+.preview :global(.hljs-property) { color: var(--code-info); }
+.preview :global(.hljs-title),
+.preview :global(.hljs-section) { color: var(--code-primary); }
+.preview :global(.hljs-name),
+.preview :global(.hljs-selector-class),
+.preview :global(.hljs-selector-id) { color: var(--code-primary); }
+.preview :global(.hljs-built_in),
+.preview :global(.hljs-type),
+.preview :global(.hljs-meta),
+.preview :global(.hljs-symbol) { color: var(--code-warning); }
+.preview :global(.hljs-addition) { color: var(--code-primary); }
+.preview :global(.hljs-deletion) { color: var(--code-destructive); }
+.preview :global(.hljs-emphasis) { font-style: italic; }
+.preview :global(.hljs-strong) { font-weight: 700; }

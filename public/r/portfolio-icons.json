@@ -3,6 +3,7 @@
   "name": "portfolio-icons",
   "title": "Icons",
   "description": "A collection of reusable brand and interface SVG icons.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/components/icons.tsx",

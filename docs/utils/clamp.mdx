@@ -2,23 +2,20 @@
 
 Keep a finite number within an inclusive range.
 
-## Usage
+## Installation
 
-```ts
-import { clamp } from "@/lib/clamp"
-
-clamp(120, 0, 100) // 100
-clamp(-10, 0, 100) // 0
+```bash
+npx shadcn@latest add https://ui.rajeevpuri.com.np/r/clamp.json
 ```
+
+## Usage
 
 Use the exports from the installed entry file:
 
 ```text
-registry/nova-blue/lib/clamp.ts
+@/components/lazy-ui/lib/clamp.ts
 ```
 
 ## Setup notes
 
-Bounds are inclusive. Non-finite inputs or a minimum greater than the maximum throw a RangeError.
-
-Install the entry and its dependencies, then adapt the content and styles to your application. The source files below show its exports and supported props.
+Install the entry and its dependencies, then adapt the content and styles to your application.

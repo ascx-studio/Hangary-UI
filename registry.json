@@ -4,25 +4,6 @@
   "homepage": "https://ui.rajeevpuri.com.np",
   "items": [
     {
-      "name": "badge",
-      "type": "registry:ui",
-      "title": "Badge",
-      "description": "Compact labels for status and categories.",
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/badge.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "preview": "badge"
-      }
-    },
-    {
       "name": "alert",
       "type": "registry:ui",
       "title": "Alert",
@@ -33,7 +14,13 @@
       "files": [
         {
           "path": "registry/nova-blue/ui/alert.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/alert.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "meta": {
@@ -42,22 +29,28 @@
       }
     },
     {
-      "name": "separator",
+      "name": "badge",
       "type": "registry:ui",
-      "title": "Separator",
-      "description": "Horizontal and vertical dividers with accessible semantics.",
+      "title": "Badge",
+      "description": "Compact labels for status and categories.",
       "dependencies": [
         "cn@^0.2.6"
       ],
       "files": [
         {
-          "path": "registry/nova-blue/ui/separator.tsx",
-          "type": "registry:ui"
+          "path": "registry/nova-blue/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/badge.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "meta": {
         "category": "components",
-        "preview": "separator"
+        "preview": "badge"
       }
     },
     {
@@ -66,12 +59,25 @@
       "title": "Button",
       "description": "Displays a button or a component that looks like a button with link support.",
       "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
         "cn@^0.2.6"
       ],
       "files": [
         {
           "path": "registry/nova-blue/ui/button.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/button.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "meta": {
@@ -90,62 +96,18 @@
       "files": [
         {
           "path": "registry/nova-blue/ui/card.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "meta": {
         "category": "components",
         "preview": "card"
-      }
-    },
-    {
-      "name": "icon",
-      "type": "registry:ui",
-      "title": "Icon",
-      "description": "Displays shared interface icons with typed names and Next.js Image optimization.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/icon.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "preview": "icon"
-      }
-    },
-    {
-      "name": "logo",
-      "type": "registry:ui",
-      "title": "Logo",
-      "description": "Renders the brand logo with support for compact icon and full wordmark variants.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/logo.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "category": "components",
-        "preview": "logo"
-      }
-    },
-    {
-      "name": "cn",
-      "type": "registry:lib",
-      "title": "cn",
-      "description": "Merge conditional class names and resolve Tailwind conflicts.",
-      "files": [
-        {
-          "path": "registry/nova-blue/lib/cn.ts",
-          "type": "registry:lib"
-        }
-      ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
-      "meta": {
-        "category": "utils"
       }
     },
     {
@@ -156,8 +118,29 @@
       "files": [
         {
           "path": "registry/nova-blue/lib/clamp.ts",
-          "type": "registry:lib"
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/clamp.ts"
         }
+      ],
+      "meta": {
+        "category": "utils"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "cn",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "Merge conditional class names and resolve Tailwind conflicts.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/cn.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/cn.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6"
       ],
       "meta": {
         "category": "utils"
@@ -171,12 +154,422 @@
       "files": [
         {
           "path": "registry/nova-blue/lib/format-bytes.ts",
-          "type": "registry:lib"
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/format-bytes.ts"
         }
       ],
       "meta": {
         "category": "utils"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "Displays shared interface icons with typed names and Next.js Image optimization.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/icon.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/icon.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "public/component.svg",
+          "type": "registry:file",
+          "target": "public/component.svg"
+        },
+        {
+          "path": "public/shader.svg",
+          "type": "registry:file",
+          "target": "public/shader.svg"
+        },
+        {
+          "path": "public/template.svg",
+          "type": "registry:file",
+          "target": "public/template.svg"
+        },
+        {
+          "path": "public/utility.svg",
+          "type": "registry:file",
+          "target": "public/utility.svg"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "preview": "icon"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "logo",
+      "type": "registry:ui",
+      "title": "Logo",
+      "description": "Renders the brand logo with support for compact icon and full wordmark variants.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/logo.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/logo.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "public/logo.png",
+          "type": "registry:file",
+          "target": "public/logo.png"
+        },
+        {
+          "path": "public/wordmark.png",
+          "type": "registry:file",
+          "target": "public/wordmark.png"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "preview": "logo"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "nova-blue-lib-project-placeholder",
+      "type": "registry:lib",
+      "title": "Project Placeholder",
+      "description": "Reusable project-placeholder.ts from the Nova Blue collection.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/project-placeholder.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/project-placeholder.ts"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "utils"
       }
+    },
+    {
+      "name": "nova-blue-styles-dotmatrix-loader",
+      "type": "registry:file",
+      "title": "Dotmatrix Loader",
+      "description": "Reusable dotmatrix-loader.css from the Nova Blue collection.",
+      "files": [
+        {
+          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "utils"
+      }
+    },
+    {
+      "name": "nova-blue-styles-portfolio",
+      "type": "registry:file",
+      "title": "Portfolio",
+      "description": "Reusable portfolio.css from the Nova Blue collection.",
+      "files": [
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "utils"
+      }
+    },
+    {
+      "name": "portfolio-about",
+      "type": "registry:block",
+      "title": "About",
+      "description": "A portfolio about section with personal details and supporting cards.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/about.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/about.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/cards/language-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/language-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/cards/skill-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/skill-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/skills-data.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/skills-data.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/items.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/items.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/profile-card.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/profile-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/section-heading.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/section-heading.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/socialicons.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/socialicons.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
+      "meta": {
+        "source": "components/sections/About.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-aurora-bars",
+      "type": "registry:component",
+      "title": "Aurora Bars",
+      "description": "Animated gradient bars with configurable colors, spacing, and speed.",
+      "files": [
+        {
+          "path": "registry/nova-blue/backgrounds/aurora-bars.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/backgrounds/aurora-bars.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/background/aurora-bars.tsx",
+        "collection": "portfolio",
+        "category": "shader"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^13.4.4"
+      ]
+    },
+    {
+      "name": "portfolio-breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Accessible breadcrumb navigation primitives.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/breadcrumb.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/breadcrumb.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0"
+      ]
+    },
+    {
+      "name": "portfolio-certificate-card",
+      "type": "registry:component",
+      "title": "Certificate Card",
+      "description": "A credential card with badge imagery and certification details.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/cards/certificate-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/certificate-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/credly.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/credly.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
+      "meta": {
+        "source": "components/cards/CertificateCard.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "lucide-react@^1.48.0"
+      ]
+    },
+    {
+      "name": "portfolio-constants",
+      "type": "registry:lib",
+      "title": "Constants",
+      "description": "Shared portfolio constants and configuration values.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "lib/constants.tsx",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-contact",
+      "type": "registry:block",
+      "title": "Contact",
+      "description": "A contact section with booking options and timezone details.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/contact.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/contact.tsx"
+        },
+        {
+          "path": "registry/nova-blue/blocks/service.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/service.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/cards/service-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/service-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/items.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/items.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/sections/Contact.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
     },
     {
       "name": "portfolio-container",
@@ -190,14 +583,14 @@
           "target": "@components/lazy-ui/components/container.tsx"
         },
         {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
@@ -208,8 +601,242 @@
       },
       "dependencies": [
         "cn@^0.2.6",
-        "motion@^12.42.0"
+        "motion@^13.4.4"
       ]
+    },
+    {
+      "name": "portfolio-copy-command",
+      "type": "registry:ui",
+      "title": "Copy Command",
+      "description": "A command display with clipboard copying and feedback.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/copy-command.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/copy-command.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/CopyCommand.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "lucide-react@^1.48.0"
+      ]
+    },
+    {
+      "name": "portfolio-copytoclipboard",
+      "type": "registry:lib",
+      "title": "Copytoclipboard",
+      "description": "Copy text to the clipboard and report interaction feedback.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/copytoclipboard.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/copytoclipboard.ts"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Mount react-hot-toast Toaster once in your application.",
+      "meta": {
+        "source": "lib/copytoclipboard.ts",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": [
+        "react-hot-toast@^2.6.1"
+      ]
+    },
+    {
+      "name": "portfolio-credly",
+      "type": "registry:lib",
+      "title": "Credly",
+      "description": "Fetch and normalize public Credly certification badges.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/credly.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/credly.ts"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
+      "meta": {
+        "source": "lib/credly.ts",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-curl-utils",
+      "type": "registry:lib",
+      "title": "Curl Utils",
+      "description": "ANSI color and text-formatting helpers for terminal-friendly API responses.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/curl-utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/curl-utils.ts"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
+      "meta": {
+        "source": "lib/curl-utils.ts",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-data-footerlink",
+      "type": "registry:lib",
+      "title": "Footerlink",
+      "description": "Editable footer navigation and social link data.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/data/footerlink.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/data/footerlink.ts"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
+      "meta": {
+        "source": "lib/data/Footerlink.ts",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-data-navlink",
+      "type": "registry:lib",
+      "title": "Navlink",
+      "description": "Editable primary navigation link data.",
+      "files": [
+        {
+          "path": "registry/nova-blue/lib/data/navlink.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/data/navlink.ts"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
+      "meta": {
+        "source": "lib/data/Navlink.ts",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-dotm-square-11",
+      "type": "registry:ui",
+      "title": "Dotm Square 11",
+      "description": "A square dot-matrix loading indicator.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/dotm-square-11.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/dotm-square-11.tsx"
+        },
+        {
+          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
+          "type": "registry:hook",
+          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/dotm-square-11.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-dotmatrix-core",
+      "type": "registry:ui",
+      "title": "Dotmatrix Core",
+      "description": "Configurable dot-matrix patterns and animation primitives.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
+        },
+        {
+          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
+          "type": "registry:hook",
+          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/dotmatrix-core.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-dotmatrix-hooks",
+      "type": "registry:hook",
+      "title": "Dotmatrix Hooks",
+      "description": "Hooks for dot-matrix animation phases and reduced-motion preferences.",
+      "files": [
+        {
+          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
+          "type": "registry:hook",
+          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "lib/dotmatrix-hooks.ts",
+        "collection": "portfolio",
+        "category": "utils"
+      },
+      "dependencies": []
     },
     {
       "name": "portfolio-footer",
@@ -223,19 +850,9 @@
           "target": "@components/lazy-ui/blocks/footer.tsx"
         },
         {
-          "path": "public/portfolio/lettermark.svg",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/assets/lettermark.svg"
-        },
-        {
           "path": "registry/nova-blue/components/container.tsx",
           "type": "registry:component",
           "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
         },
         {
           "path": "registry/nova-blue/lib/data/navlink.ts",
@@ -246,6 +863,16 @@
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "public/portfolio/lettermark.svg",
+          "type": "registry:file",
+          "target": "public/portfolio/lettermark.svg"
         }
       ],
       "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
@@ -256,340 +883,8 @@
       },
       "dependencies": [
         "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-icons",
-      "type": "registry:component",
-      "title": "Icons",
-      "description": "A collection of reusable brand and interface SVG icons.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/icons.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/icons.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/Icons.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-logo",
-      "type": "registry:component",
-      "title": "Logo",
-      "description": "A linked portfolio logo with configurable presentation.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/logo.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/logo.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/Logo.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-minmap",
-      "type": "registry:component",
-      "title": "Minmap",
-      "description": "A compact navigation map for jumping between page sections.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/minmap.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/minmap.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/hover-card.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/hover-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/Minmap.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@base-ui/react@^1.6.0",
-        "cn@^0.2.6",
-        "shadcn@^4.21.0"
-      ]
-    },
-    {
-      "name": "portfolio-mobile-menu",
-      "type": "registry:block",
-      "title": "Mobile Menu",
-      "description": "A responsive mobile navigation panel with portfolio links.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/mobile-menu.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/mobile-menu.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/data/navlink.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/data/navlink.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/MobileMenu.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-navbar",
-      "type": "registry:block",
-      "title": "Navbar",
-      "description": "A portfolio navigation bar with desktop links and a mobile menu.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/navbar.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar.tsx"
-        },
-        {
-          "path": "public/portfolio/logo.svg",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/assets/logo.svg"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/mobile-menu.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/mobile-menu.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/data/navlink.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/data/navlink.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
-      "meta": {
-        "source": "components/Navbar.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-not-found",
-      "type": "registry:block",
-      "title": "Not Found",
-      "description": "A ready-to-customize not-found message with a return link.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/not-found.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/not-found.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/Not-found.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-section-block",
-      "type": "registry:component",
-      "title": "Section Block",
-      "description": "A reusable section wrapper for consistent portfolio layouts.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/section-block.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/section-block.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/section-heading.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/section-heading.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/SectionBlock.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "portfolio-terminal-header",
-      "type": "registry:component",
-      "title": "Terminal Header",
-      "description": "A terminal-style header for code and command panels.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/terminal-header.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/terminal-header.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/TerminalHeader.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "portfolio-verified-icon",
-      "type": "registry:component",
-      "title": "Verified Icon",
-      "description": "A small verification mark for profiles and credentials.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/verified-icon.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/verified-icon.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/VerifiedIcon.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-label-cards",
-      "type": "registry:block",
-      "title": "Label Cards",
-      "description": "Labeled cards for presenting AI canvas content.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/label-cards.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/label-cards.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/aicanvas/label-cards.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "motion@^12.42.0"
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4"
       ]
     },
     {
@@ -620,96 +915,70 @@
       ]
     },
     {
-      "name": "portfolio-nebula",
-      "type": "registry:component",
-      "title": "Nebula",
-      "description": "SVG noise overlays and soft light leaks for atmospheric backgrounds.",
+      "name": "portfolio-github",
+      "type": "registry:lib",
+      "title": "Github",
+      "description": "Server helpers for fetching GitHub profile and repository data.",
       "files": [
         {
-          "path": "registry/nova-blue/backgrounds/nebula.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/backgrounds/nebula.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
+          "path": "registry/nova-blue/lib/github.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/github.ts"
         }
       ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
       "meta": {
-        "source": "components/background/Nebula.tsx",
+        "source": "lib/github.ts",
         "collection": "portfolio",
-        "category": "shader"
-      }
+        "category": "utils"
+      },
+      "dependencies": []
     },
     {
-      "name": "portfolio-topographic",
-      "type": "registry:component",
-      "title": "Topographic",
-      "description": "A canvas-based contour-line background driven by procedural noise.",
+      "name": "portfolio-hero",
+      "type": "registry:block",
+      "title": "Hero",
+      "description": "A portfolio introduction with profile details and primary actions.",
       "files": [
+        {
+          "path": "registry/nova-blue/blocks/hero.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/hero.tsx"
+        },
         {
           "path": "registry/nova-blue/backgrounds/topographic.tsx",
           "type": "registry:component",
           "target": "@components/lazy-ui/backgrounds/topographic.tsx"
         },
         {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/background/Topographic.tsx",
-        "collection": "portfolio",
-        "category": "shader"
-      }
-    },
-    {
-      "name": "portfolio-aurora-bars",
-      "type": "registry:component",
-      "title": "Aurora Bars",
-      "description": "Animated gradient bars with configurable colors, spacing, and speed.",
-      "files": [
-        {
-          "path": "registry/nova-blue/backgrounds/aurora-bars.tsx",
+          "path": "registry/nova-blue/components/cards/language-card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/backgrounds/aurora-bars.tsx"
+          "target": "@components/lazy-ui/components/cards/language-card.tsx"
         },
         {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/skills-data.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/skills-data.tsx"
         },
         {
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/background/aurora-bars.tsx",
-        "collection": "portfolio",
-        "category": "shader"
-      },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-certificate-card",
-      "type": "registry:component",
-      "title": "Certificate Card",
-      "description": "A credential card with badge imagery and certification details.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/cards/certificate-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/certificate-card.tsx"
         },
         {
           "path": "registry/nova-blue/styles/portfolio.css",
@@ -717,19 +986,145 @@
           "target": "@components/lazy-ui/styles/portfolio.css"
         },
         {
-          "path": "registry/nova-blue/lib/credly.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/credly.ts"
+          "path": "registry/nova-blue/ui/copy-command.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/copy-command.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/marquee.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/marquee.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/socialicons.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/socialicons.tsx"
         }
       ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
       "meta": {
-        "source": "components/cards/CertificateCard.tsx",
+        "source": "components/sections/Hero.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Hover-triggered content panels built with Base UI.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/hover-card.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/hover-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/hover-card.tsx",
         "collection": "portfolio",
         "category": "components"
       },
       "dependencies": [
-        "lucide-react@^0.447.0"
+        "@base-ui/react@^1.8.0",
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "portfolio-icons",
+      "type": "registry:component",
+      "title": "Icons",
+      "description": "A collection of reusable brand and interface SVG icons.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/icons.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/icons.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/Icons.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-items",
+      "type": "registry:ui",
+      "title": "Items",
+      "description": "An animated numbered heading with supporting description text.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/items.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/items.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/Items.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "motion@^13.4.4"
+      ]
+    },
+    {
+      "name": "portfolio-label-cards",
+      "type": "registry:block",
+      "title": "Label Cards",
+      "description": "Labeled cards for presenting AI canvas content.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/label-cards.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/label-cards.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/aicanvas/label-cards.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "motion@^13.4.4"
       ]
     },
     {
@@ -744,14 +1139,14 @@
           "target": "@components/lazy-ui/components/cards/language-card.tsx"
         },
         {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
@@ -786,1072 +1181,33 @@
         "source": "components/cards/LocationCard.tsx",
         "collection": "portfolio",
         "category": "components"
-      }
+      },
+      "dependencies": []
     },
     {
-      "name": "portfolio-project-card",
+      "name": "portfolio-logo",
       "type": "registry:component",
-      "title": "Project Card",
-      "description": "A project preview with an image, description, and destination link.",
+      "title": "Logo",
+      "description": "A linked portfolio logo with configurable presentation.",
       "files": [
         {
-          "path": "registry/nova-blue/components/cards/project-card.tsx",
+          "path": "registry/nova-blue/components/logo.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/project-card.tsx"
+          "target": "@components/lazy-ui/components/logo.tsx"
         },
         {
           "path": "registry/nova-blue/styles/portfolio.css",
           "type": "registry:file",
           "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/project-placeholder.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/project-placeholder.ts"
         }
       ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
       "meta": {
-        "source": "components/cards/ProjectCard.tsx",
+        "source": "components/Logo.tsx",
         "collection": "portfolio",
         "category": "components"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-service-card",
-      "type": "registry:component",
-      "title": "Service Card",
-      "description": "A service card with an illustration and descriptive content.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/cards/service-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/service-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/cards/ServiceCard.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-skill-card",
-      "type": "registry:component",
-      "title": "Skill Card",
-      "description": "A compact card for presenting a technical skill.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/cards/skill-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/skill-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/skills-data.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/skills-data.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/cards/SkillCard.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-service-illustrations",
-      "type": "registry:component",
-      "title": "Service Illustrations",
-      "description": "Reusable SVG illustrations for service cards.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/illustration/ServiceIllustrations.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-opengraph",
-      "type": "registry:component",
-      "title": "Opengraph",
-      "description": "An Open Graph image layout for social sharing previews.",
-      "files": [
-        {
-          "path": "registry/nova-blue/components/metadata/opengraph.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/metadata/opengraph.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/metadata/Opengraph.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-about",
-      "type": "registry:block",
-      "title": "About",
-      "description": "A portfolio about section with personal details and supporting cards.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/about.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/about.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/language-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/language-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/skill-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/skill-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/items.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/items.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/profile-card.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/profile-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/section-heading.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/section-heading.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/socialicons.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/socialicons.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/skills-data.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/skills-data.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
-      "meta": {
-        "source": "components/sections/About.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-contact",
-      "type": "registry:block",
-      "title": "Contact",
-      "description": "A contact section with booking options and timezone details.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/contact.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/contact.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/service-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/service-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/service.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/service.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/items.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/items.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/Contact.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-hero",
-      "type": "registry:block",
-      "title": "Hero",
-      "description": "A portfolio introduction with profile details and primary actions.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/hero.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/hero.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/backgrounds/topographic.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/backgrounds/topographic.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/language-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/language-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/copy-command.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/copy-command.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/marquee.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/marquee.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/socialicons.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/socialicons.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/skills-data.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/skills-data.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/Hero.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-project",
-      "type": "registry:block",
-      "title": "Project",
-      "description": "A portfolio project grid backed by editable project data.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/project.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/project.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/project-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/project-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/items.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/items.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/dotm-square-11.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/dotm-square-11.tsx"
-        },
-        {
-          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
-          "type": "registry:hook",
-          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/notion/client.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/notion/client.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/notion/database.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/notion/database.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/project-placeholder.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/project-placeholder.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/projectdata.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/projectdata.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure NOTION_SECRET (or NOTION_API_KEY), NOTION_DATA_SOURCE_ID and/or NOTION_BLOG_DATA_SOURCE_ID. Keep these helpers server-side; the blog cache functions require cacheComponents: true. Configure next/image remotePatterns for the external images you use.",
-      "meta": {
-        "source": "components/sections/Project.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@notionhq/client@^5.22.0",
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-service",
-      "type": "registry:block",
-      "title": "Service",
-      "description": "A services section with process and offering cards.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/service.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/service.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/container.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/container.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/service-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/service-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/items.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/items.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/Service.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-blog-body",
-      "type": "registry:block",
-      "title": "Blog Body",
-      "description": "Rich blog content rendering for Notion blocks.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-body.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-body.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/blog/BlogBody.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      }
-    },
-    {
-      "name": "portfolio-blog-code",
-      "type": "registry:block",
-      "title": "Blog Code",
-      "description": "A blog code block with language formatting and copy controls.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-code.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-code.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/blog/BlogCode.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "highlight.js@^11.11.1",
-        "lucide-react@^0.447.0"
-      ]
-    },
-    {
-      "name": "portfolio-blog-heading",
-      "type": "registry:block",
-      "title": "Blog Heading",
-      "description": "A blog heading with a linkable section anchor.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-heading.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-heading.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/blog/BlogHeading.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      }
-    },
-    {
-      "name": "portfolio-blog-picture",
-      "type": "registry:block",
-      "title": "Blog Picture",
-      "description": "A responsive image block for blog articles.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-picture.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-picture.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
-      "meta": {
-        "source": "components/sections/blog/BlogPicture.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      }
-    },
-    {
-      "name": "portfolio-blog-post-card",
-      "type": "registry:block",
-      "title": "Blog Post Card",
-      "description": "An article preview card with publication metadata.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-post-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-post-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/notion/blog.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/notion/blog.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/notion/client.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/notion/client.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure NOTION_SECRET (or NOTION_API_KEY), NOTION_DATA_SOURCE_ID and/or NOTION_BLOG_DATA_SOURCE_ID. Keep these helpers server-side; the blog cache functions require cacheComponents: true.",
-      "meta": {
-        "source": "components/sections/blog/BlogPostCard.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@notionhq/client@^5.22.0",
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "portfolio-blog-share",
-      "type": "registry:block",
-      "title": "Blog Share",
-      "description": "Sharing controls for a blog article.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-share.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-share.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Mount react-hot-toast Toaster once in your application.",
-      "meta": {
-        "source": "components/sections/blog/BlogShare.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2",
-        "react-hot-toast@^2.6.0"
-      ]
-    },
-    {
-      "name": "portfolio-table-of-contents",
-      "type": "registry:block",
-      "title": "Table Of Contents",
-      "description": "An article navigation list built from content headings.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/table-of-contents.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/table-of-contents.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/blog/TableOfContents.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "portfolio-blog",
-      "type": "registry:block",
-      "title": "Blog components",
-      "description": "Shared exports for the portfolio blog building blocks.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/blog/index.ts",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/index.ts"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-body.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-body.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-code.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-code.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-heading.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-heading.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-picture.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-picture.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-post-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-post-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/blog-share.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/blog-share.tsx"
-        },
-        {
-          "path": "registry/nova-blue/blocks/blog/table-of-contents.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/blog/table-of-contents.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/notion/blog.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/notion/blog.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/notion/client.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/notion/client.ts"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Mount react-hot-toast Toaster once in your application. Configure NOTION_SECRET (or NOTION_API_KEY), NOTION_DATA_SOURCE_ID and/or NOTION_BLOG_DATA_SOURCE_ID. Keep these helpers server-side; the blog cache functions require cacheComponents: true. Configure next/image remotePatterns for the external images you use.",
-      "meta": {
-        "source": "components/sections/blog/index.ts",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@notionhq/client@^5.22.0",
-        "cn@^0.2.6",
-        "highlight.js@^11.11.1",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2",
-        "react-hot-toast@^2.6.0"
-      ]
-    },
-    {
-      "name": "portfolio-booking-cards",
-      "type": "registry:block",
-      "title": "Booking Cards",
-      "description": "Contact cards with Cal.com scheduling embeds.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/contact/booking-cards.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/contact/booking-cards.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/section-heading.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/section-heading.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Replace the Cal.com booking links and allow its embed in your CSP.",
-      "meta": {
-        "source": "components/sections/contact/BookingCards.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "@calcom/embed-react@^1.5.3",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-time-zone",
-      "type": "registry:block",
-      "title": "Time Zone",
-      "description": "A live local-time display for a contact section.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/contact/time-zone.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/contact/time-zone.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/location-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/location-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/section-heading.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/section-heading.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/contact/TimeZone.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "portfolio-process-card",
-      "type": "registry:block",
-      "title": "Process Card",
-      "description": "A service-process step with a title and description.",
-      "files": [
-        {
-          "path": "registry/nova-blue/blocks/service/process-card.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/service/process-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/sections/service/ProcessCard.tsx",
-        "collection": "portfolio",
-        "category": "blocks"
-      },
-      "dependencies": [
-        "motion@^12.42.0"
-      ]
-    },
-    {
-      "name": "portfolio-badge",
-      "type": "registry:ui",
-      "title": "Badge",
-      "description": "A styled label for compact status and category text.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/badge.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/badge.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/Badge.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-button",
-      "type": "registry:ui",
-      "title": "Button",
-      "description": "A configurable button with size and visual variants.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/button.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/button.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/Button.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@base-ui/react@^1.6.0",
-        "class-variance-authority@^0.7.1",
-        "cn@^0.2.6",
-        "shadcn@^4.21.0"
-      ]
-    },
-    {
-      "name": "portfolio-copy-command",
-      "type": "registry:ui",
-      "title": "Copy Command",
-      "description": "A command display with clipboard copying and feedback.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/copy-command.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/copy-command.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/CopyCommand.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "lucide-react@^0.447.0"
-      ]
-    },
-    {
-      "name": "portfolio-items",
-      "type": "registry:ui",
-      "title": "Items",
-      "description": "An animated numbered heading with supporting description text.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/items.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/items.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/Items.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "motion@^12.42.0"
-      ]
+      "dependencies": []
     },
     {
       "name": "portfolio-marquee",
@@ -1870,11 +1226,6 @@
           "target": "@components/lazy-ui/components/cards/language-card.tsx"
         },
         {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
           "path": "registry/nova-blue/lib/skills-data.tsx",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/skills-data.tsx"
@@ -1883,6 +1234,11 @@
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
         }
       ],
       "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
@@ -1892,336 +1248,146 @@
         "category": "components"
       },
       "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
+        "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
-        "motion@^12.42.0"
+        "motion@^13.4.4"
       ]
     },
     {
-      "name": "portfolio-profile-card",
-      "type": "registry:ui",
-      "title": "Profile Card",
-      "description": "A profile card for displaying identity and social details.",
+      "name": "portfolio-minmap",
+      "type": "registry:component",
+      "title": "Minmap",
+      "description": "A compact navigation map for jumping between page sections.",
       "files": [
         {
-          "path": "registry/nova-blue/ui/profile-card.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/profile-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/cards/language-card.tsx",
+          "path": "registry/nova-blue/components/minmap.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/cards/language-card.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/socialicons.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/socialicons.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/skills-data.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/skills-data.tsx"
+          "target": "@components/lazy-ui/components/minmap.tsx"
         },
         {
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
-      "meta": {
-        "source": "components/ui/ProfileCard.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-section-heading",
-      "type": "registry:ui",
-      "title": "Section Heading",
-      "description": "A consistent heading layout for portfolio sections.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/section-heading.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/section-heading.tsx"
         },
         {
           "path": "registry/nova-blue/styles/portfolio.css",
           "type": "registry:file",
           "target": "@components/lazy-ui/styles/portfolio.css"
         },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/SectionHeading.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "portfolio-share-button",
-      "type": "registry:ui",
-      "title": "Share Button",
-      "description": "A sharing dropdown with social, AI, and content-copy actions.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/share-button.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/share-button.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Mount react-hot-toast Toaster once in your application.",
-      "meta": {
-        "source": "components/ui/ShareButton.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "react-hot-toast@^2.6.0"
-      ]
-    },
-    {
-      "name": "portfolio-socialicons",
-      "type": "registry:ui",
-      "title": "Socialicons",
-      "description": "Social profile links displayed as icons.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/socialicons.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/socialicons.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/Socialicons.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
-    },
-    {
-      "name": "portfolio-breadcrumb",
-      "type": "registry:ui",
-      "title": "Breadcrumb",
-      "description": "Accessible breadcrumb navigation primitives.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/breadcrumb.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/breadcrumb.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/breadcrumb.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      },
-      "dependencies": [
-        "@base-ui/react@^1.6.0",
-        "cn@^0.2.6",
-        "lucide-react@^0.447.0"
-      ]
-    },
-    {
-      "name": "portfolio-dotm-square-11",
-      "type": "registry:ui",
-      "title": "Dotm Square 11",
-      "description": "A square dot-matrix loading indicator.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/dotm-square-11.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/dotm-square-11.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
-        },
-        {
-          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
-          "type": "registry:hook",
-          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/dotm-square-11.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-dotmatrix-core",
-      "type": "registry:ui",
-      "title": "Dotmatrix Core",
-      "description": "Configurable dot-matrix patterns and animation primitives.",
-      "files": [
-        {
-          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
-          "type": "registry:hook",
-          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
-      "meta": {
-        "source": "components/ui/dotmatrix-core.tsx",
-        "collection": "portfolio",
-        "category": "components"
-      }
-    },
-    {
-      "name": "portfolio-hover-card",
-      "type": "registry:ui",
-      "title": "Hover Card",
-      "description": "Hover-triggered content panels built with Base UI.",
-      "files": [
         {
           "path": "registry/nova-blue/ui/hover-card.tsx",
           "type": "registry:ui",
           "target": "@components/lazy-ui/ui/hover-card.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/Minmap.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "portfolio-mobile-menu",
+      "type": "registry:block",
+      "title": "Mobile Menu",
+      "description": "A responsive mobile navigation panel with portfolio links.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/mobile-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/mobile-menu.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/data/navlink.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/data/navlink.ts"
         },
         {
           "path": "registry/nova-blue/styles/portfolio.css",
           "type": "registry:file",
           "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/MobileMenu.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4"
+      ]
+    },
+    {
+      "name": "portfolio-navbar",
+      "type": "registry:block",
+      "title": "Navbar",
+      "description": "A portfolio navigation bar with desktop links and a mobile menu.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/navbar.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/navbar.tsx"
+        },
+        {
+          "path": "registry/nova-blue/blocks/mobile-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/mobile-menu.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/data/navlink.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/data/navlink.ts"
         },
         {
           "path": "registry/nova-blue/lib/utils.ts",
           "type": "registry:lib",
           "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "public/portfolio/logo.svg",
+          "type": "registry:file",
+          "target": "public/portfolio/logo.svg"
         }
       ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
       "meta": {
-        "source": "components/ui/hover-card.tsx",
+        "source": "components/Navbar.tsx",
         "collection": "portfolio",
-        "category": "components"
+        "category": "blocks"
       },
       "dependencies": [
-        "@base-ui/react@^1.6.0",
         "cn@^0.2.6",
-        "shadcn@^4.21.0"
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4"
       ]
     },
     {
-      "name": "portfolio-constants",
-      "type": "registry:lib",
-      "title": "Constants",
-      "description": "Shared portfolio constants and configuration values.",
+      "name": "portfolio-nebula",
+      "type": "registry:component",
+      "title": "Nebula",
+      "description": "SVG noise overlays and soft light leaks for atmospheric backgrounds.",
       "files": [
         {
-          "path": "registry/nova-blue/lib/constants.tsx",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/constants.tsx"
-        },
-        {
-          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "path": "registry/nova-blue/backgrounds/nebula.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+          "target": "@components/lazy-ui/backgrounds/nebula.tsx"
         },
         {
           "path": "registry/nova-blue/styles/portfolio.css",
@@ -2231,167 +1397,49 @@
       ],
       "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
       "meta": {
-        "source": "lib/constants.tsx",
+        "source": "components/background/Nebula.tsx",
         "collection": "portfolio",
-        "category": "utils"
+        "category": "shader"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
-        "nucleo-social-media@^1.0.2"
-      ]
+      "dependencies": []
     },
     {
-      "name": "portfolio-copytoclipboard",
-      "type": "registry:lib",
-      "title": "Copytoclipboard",
-      "description": "Copy text to the clipboard and report interaction feedback.",
+      "name": "portfolio-not-found",
+      "type": "registry:block",
+      "title": "Not Found",
+      "description": "A ready-to-customize not-found message with a return link.",
       "files": [
         {
-          "path": "registry/nova-blue/lib/copytoclipboard.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/copytoclipboard.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Mount react-hot-toast Toaster once in your application.",
-      "meta": {
-        "source": "lib/copytoclipboard.ts",
-        "collection": "portfolio",
-        "category": "utils"
-      },
-      "dependencies": [
-        "react-hot-toast@^2.6.0"
-      ]
-    },
-    {
-      "name": "portfolio-credly",
-      "type": "registry:lib",
-      "title": "Credly",
-      "description": "Fetch and normalize public Credly certification badges.",
-      "files": [
-        {
-          "path": "registry/nova-blue/lib/credly.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/credly.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
-      "meta": {
-        "source": "lib/credly.ts",
-        "collection": "portfolio",
-        "category": "utils"
-      }
-    },
-    {
-      "name": "portfolio-curl-utils",
-      "type": "registry:lib",
-      "title": "Curl Utils",
-      "description": "ANSI color and text-formatting helpers for terminal-friendly API responses.",
-      "files": [
-        {
-          "path": "registry/nova-blue/lib/curl-utils.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/curl-utils.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
-      "meta": {
-        "source": "lib/curl-utils.ts",
-        "collection": "portfolio",
-        "category": "utils"
-      }
-    },
-    {
-      "name": "portfolio-data-footerlink",
-      "type": "registry:lib",
-      "title": "Footerlink",
-      "description": "Editable footer navigation and social link data.",
-      "files": [
-        {
-          "path": "registry/nova-blue/lib/data/footerlink.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/data/footerlink.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
-      "meta": {
-        "source": "lib/data/Footerlink.ts",
-        "collection": "portfolio",
-        "category": "utils"
-      }
-    },
-    {
-      "name": "portfolio-data-navlink",
-      "type": "registry:lib",
-      "title": "Navlink",
-      "description": "Editable primary navigation link data.",
-      "files": [
-        {
-          "path": "registry/nova-blue/lib/data/navlink.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/data/navlink.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
-      "meta": {
-        "source": "lib/data/Navlink.ts",
-        "collection": "portfolio",
-        "category": "utils"
-      }
-    },
-    {
-      "name": "portfolio-dotmatrix-hooks",
-      "type": "registry:hook",
-      "title": "Dotmatrix Hooks",
-      "description": "Hooks for dot-matrix animation phases and reduced-motion preferences.",
-      "files": [
-        {
-          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
-          "type": "registry:hook",
-          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
+          "path": "registry/nova-blue/blocks/not-found.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/not-found.tsx"
         },
         {
-          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
         },
         {
           "path": "registry/nova-blue/styles/portfolio.css",
           "type": "registry:file",
           "target": "@components/lazy-ui/styles/portfolio.css"
-        },
-        {
-          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
-          "type": "registry:ui",
-          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
         }
       ],
       "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
       "meta": {
-        "source": "lib/dotmatrix-hooks.ts",
+        "source": "components/Not-found.tsx",
         "collection": "portfolio",
-        "category": "utils"
-      }
-    },
-    {
-      "name": "portfolio-github",
-      "type": "registry:lib",
-      "title": "Github",
-      "description": "Server helpers for fetching GitHub profile and repository data.",
-      "files": [
-        {
-          "path": "registry/nova-blue/lib/github.ts",
-          "type": "registry:lib",
-          "target": "@components/lazy-ui/lib/github.ts"
-        }
-      ],
-      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved.",
-      "meta": {
-        "source": "lib/github.ts",
-        "collection": "portfolio",
-        "category": "utils"
-      }
+        "category": "blocks"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^13.4.4"
+      ]
     },
     {
       "name": "portfolio-notion-blog",
@@ -2470,6 +1518,228 @@
       ]
     },
     {
+      "name": "portfolio-opengraph",
+      "type": "registry:component",
+      "title": "Opengraph",
+      "description": "An Open Graph image layout for social sharing previews.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/metadata/opengraph.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/metadata/opengraph.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/metadata/Opengraph.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": []
+    },
+    {
+      "name": "portfolio-profile-card",
+      "type": "registry:ui",
+      "title": "Profile Card",
+      "description": "A profile card for displaying identity and social details.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/profile-card.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/profile-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/cards/language-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/language-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/skills-data.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/skills-data.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/socialicons.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/socialicons.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
+      "meta": {
+        "source": "components/ui/ProfileCard.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-project",
+      "type": "registry:block",
+      "title": "Project",
+      "description": "A portfolio project grid backed by editable project data.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/project.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/project.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/cards/project-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/project-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/hooks/dotmatrix-hooks.ts",
+          "type": "registry:hook",
+          "target": "@components/lazy-ui/hooks/dotmatrix-hooks.ts"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/notion/client.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/notion/client.ts"
+        },
+        {
+          "path": "registry/nova-blue/lib/notion/database.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/notion/database.ts"
+        },
+        {
+          "path": "registry/nova-blue/lib/project-placeholder.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/project-placeholder.ts"
+        },
+        {
+          "path": "registry/nova-blue/lib/projectdata.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/projectdata.ts"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/dotmatrix-loader.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/dotmatrix-loader.css"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/dotm-square-11.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/dotm-square-11.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/dotmatrix-core.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/dotmatrix-core.tsx"
+        },
+        {
+          "path": "registry/nova-blue/ui/items.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/items.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure NOTION_SECRET (or NOTION_API_KEY), NOTION_DATA_SOURCE_ID and/or NOTION_BLOG_DATA_SOURCE_ID. Keep these helpers server-side; the blog cache functions require cacheComponents: true. Configure next/image remotePatterns for the external images you use.",
+      "meta": {
+        "source": "components/sections/Project.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "@notionhq/client@^5.22.0",
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-project-card",
+      "type": "registry:component",
+      "title": "Project Card",
+      "description": "A project preview with an image, description, and destination link.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/cards/project-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/project-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/project-placeholder.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/project-placeholder.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Configure next/image remotePatterns for the external images you use.",
+      "meta": {
+        "source": "components/cards/ProjectCard.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4"
+      ]
+    },
+    {
       "name": "portfolio-projectdata",
       "type": "registry:lib",
       "title": "Projectdata",
@@ -2484,11 +1754,6 @@
           "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
           "type": "registry:component",
           "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
-        },
-        {
-          "path": "registry/nova-blue/styles/portfolio.css",
-          "type": "registry:file",
-          "target": "@components/lazy-ui/styles/portfolio.css"
         },
         {
           "path": "registry/nova-blue/lib/constants.tsx",
@@ -2514,10 +1779,271 @@
       },
       "dependencies": [
         "@notionhq/client@^5.22.0",
-        "@ridemountainpig/svgl-react@^1.0.17",
-        "lucide-react@^0.447.0",
-        "motion@^12.42.0",
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
         "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-section-block",
+      "type": "registry:component",
+      "title": "Section Block",
+      "description": "A reusable section wrapper for consistent portfolio layouts.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/section-block.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/section-block.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/section-heading.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/section-heading.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/SectionBlock.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "portfolio-section-heading",
+      "type": "registry:ui",
+      "title": "Section Heading",
+      "description": "A consistent heading layout for portfolio sections.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/section-heading.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/section-heading.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/SectionHeading.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "portfolio-service",
+      "type": "registry:block",
+      "title": "Service",
+      "description": "A services section with process and offering cards.",
+      "files": [
+        {
+          "path": "registry/nova-blue/blocks/service.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/service.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/cards/service-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/service-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/container.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/container.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        },
+        {
+          "path": "registry/nova-blue/ui/items.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/items.tsx"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/sections/Service.tsx",
+        "collection": "portfolio",
+        "category": "blocks"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-service-card",
+      "type": "registry:component",
+      "title": "Service Card",
+      "description": "A service card with an illustration and descriptive content.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/cards/service-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/service-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/cards/ServiceCard.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4"
+      ]
+    },
+    {
+      "name": "portfolio-service-illustrations",
+      "type": "registry:component",
+      "title": "Service Illustrations",
+      "description": "Reusable SVG illustrations for service cards.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/illustration/ServiceIllustrations.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4"
+      ]
+    },
+    {
+      "name": "portfolio-share-button",
+      "type": "registry:ui",
+      "title": "Share Button",
+      "description": "A sharing dropdown with social, AI, and content-copy actions.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/share-button.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/share-button.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css. Mount react-hot-toast Toaster once in your application.",
+      "meta": {
+        "source": "components/ui/ShareButton.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "react-hot-toast@^2.6.1"
+      ]
+    },
+    {
+      "name": "portfolio-skill-card",
+      "type": "registry:component",
+      "title": "Skill Card",
+      "description": "A compact card for presenting a technical skill.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/cards/skill-card.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/cards/skill-card.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/skills-data.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/skills-data.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/cards/SkillCard.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "motion@^13.4.4"
       ]
     },
     {
@@ -2539,8 +2065,111 @@
         "category": "utils"
       },
       "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.17"
+        "@ridemountainpig/svgl-react@^1.0.18"
       ]
+    },
+    {
+      "name": "portfolio-socialicons",
+      "type": "registry:ui",
+      "title": "Socialicons",
+      "description": "Social profile links displayed as icons.",
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/socialicons.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/socialicons.tsx"
+        },
+        {
+          "path": "registry/nova-blue/components/illustration/service-illustrations.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/illustration/service-illustrations.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/constants.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/constants.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/ui/Socialicons.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^13.4.4",
+        "nucleo-social-media@^1.0.2"
+      ]
+    },
+    {
+      "name": "portfolio-terminal-header",
+      "type": "registry:component",
+      "title": "Terminal Header",
+      "description": "A terminal-style header for code and command panels.",
+      "files": [
+        {
+          "path": "registry/nova-blue/components/terminal-header.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/terminal-header.tsx"
+        },
+        {
+          "path": "registry/nova-blue/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/utils.ts"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/TerminalHeader.tsx",
+        "collection": "portfolio",
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "portfolio-topographic",
+      "type": "registry:component",
+      "title": "Topographic",
+      "description": "A canvas-based contour-line background driven by procedural noise.",
+      "files": [
+        {
+          "path": "registry/nova-blue/backgrounds/topographic.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/backgrounds/topographic.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "docs": "Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.",
+      "meta": {
+        "source": "components/background/Topographic.tsx",
+        "collection": "portfolio",
+        "category": "shader"
+      },
+      "dependencies": []
     },
     {
       "name": "portfolio-types",
@@ -2559,7 +2188,8 @@
         "source": "lib/types.ts",
         "collection": "portfolio",
         "category": "utils"
-      }
+      },
+      "dependencies": []
     },
     {
       "name": "portfolio-utils",
@@ -2582,6 +2212,31 @@
       "dependencies": [
         "cn@^0.2.6"
       ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Horizontal and vertical dividers with accessible semantics.",
+      "dependencies": [
+        "cn@^0.2.6"
+      ],
+      "files": [
+        {
+          "path": "registry/nova-blue/ui/separator.tsx",
+          "type": "registry:ui",
+          "target": "@components/lazy-ui/ui/separator.tsx"
+        },
+        {
+          "path": "registry/nova-blue/styles/portfolio.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/portfolio.css"
+        }
+      ],
+      "meta": {
+        "category": "components",
+        "preview": "separator"
+      }
     }
   ]
 }

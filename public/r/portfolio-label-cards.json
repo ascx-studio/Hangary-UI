@@ -4,7 +4,7 @@
   "title": "Label Cards",
   "description": "Labeled cards for presenting AI canvas content.",
   "dependencies": [
-    "motion@^12.42.0"
+    "motion@^13.4.4"
   ],
   "files": [
     {

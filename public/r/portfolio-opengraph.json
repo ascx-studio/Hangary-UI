@@ -3,6 +3,7 @@
   "name": "portfolio-opengraph",
   "title": "Opengraph",
   "description": "An Open Graph image layout for social sharing previews.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/components/metadata/opengraph.tsx",

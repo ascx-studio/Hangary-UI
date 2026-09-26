@@ -10,7 +10,8 @@
     {
       "path": "registry/nova-blue/lib/cn.ts",
       "content": "export { cn } from \"cn\";\n",
-      "type": "registry:lib"
+      "type": "registry:lib",
+      "target": "@components/lazy-ui/lib/cn.ts"
     }
   ],
   "meta": {

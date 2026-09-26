@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "npm run registry:build && next build",
     "start": "next start",
-    "registry:build": "shadcn build",
+    "registry:build": "bun run registry:update && shadcn build",
     "lint": "eslint",
-    "registry:check": "node scripts/check-registry.mjs"
+    "registry:check": "bun scripts/update-registry.mjs --check && bun scripts/check-registry.mjs",
+    "registry:update": "bun scripts/update-registry.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

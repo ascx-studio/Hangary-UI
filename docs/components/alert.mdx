@@ -1,3 +1,18 @@
+import { Alert, AlertTitle, AlertDescription } from '@/registry/nova-blue/ui/alert'
+
+<Preview>
+  <div className="w-full max-w-xl space-y-3">
+    <Alert>
+      <AlertTitle>Project published</AlertTitle>
+      <AlertDescription>Your latest changes are live. Share your project with the team to collect feedback.</AlertDescription>
+    </Alert>
+    <Alert variant="destructive">
+      <AlertTitle>Upload could not finish</AlertTitle>
+      <AlertDescription>The selected file exceeds the 10 MB limit. Choose a smaller file and try again.</AlertDescription>
+    </Alert>
+  </div>
+</Preview>
+
 ## Overview
 
 Messages with a title, description, and destructive variant.

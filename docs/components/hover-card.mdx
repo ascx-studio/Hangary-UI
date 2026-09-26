@@ -1,0 +1,31 @@
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/registry/nova-blue/ui/hover-card'
+
+<Preview>
+  <div className="text-center">
+    <p className="mb-3 text-sm text-muted-foreground">Meet the person behind the project.</p>
+    <HoverCard>
+      <HoverCardTrigger className="rounded-full border bg-card px-4 py-2 font-medium">@alexmorgan</HoverCardTrigger>
+      <HoverCardContent>
+        <div className="flex items-center gap-3"><span aria-hidden="true" className="grid size-10 place-items-center rounded-full bg-primary/10 text-sm font-semibold text-primary">AM</span><div><p className="font-semibold">Alex Morgan</p><p className="text-xs text-muted-foreground">Designer &amp; developer</p></div></div>
+        <p className="mt-3 text-sm leading-6">Creating accessible tools for people who care about the details.</p>
+        <p className="mt-3 border-t pt-3 text-xs text-muted-foreground">London, UK · Available for collaboration</p>
+      </HoverCardContent>
+    </HoverCard>
+  </div>
+</Preview>
+
+## Overview
+
+Hover-triggered content panels built with Base UI.
+
+## Usage
+
+Use the exports from the installed entry file:
+
+```text
+@components/lazy-ui/ui/hover-card.tsx
+```
+
+## Setup notes
+
+Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.

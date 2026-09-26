@@ -1,3 +1,19 @@
+import { Separator } from '@/registry/nova-blue/ui/separator'
+
+<Preview>
+  <div className="w-full max-w-md rounded-xl border bg-card p-5">
+    <h3 className="font-semibold">Workspace settings</h3>
+    <p className="mt-1 text-sm text-muted-foreground">Manage the details your teammates see.</p>
+    <Separator className="my-4" />
+    <dl className="space-y-3 text-sm">
+      <div className="flex justify-between gap-4"><dt className="text-muted-foreground">Workspace</dt><dd>Design studio</dd></div>
+      <div className="flex justify-between gap-4"><dt className="text-muted-foreground">Members</dt><dd>8 teammates</dd></div>
+    </dl>
+    <Separator className="my-4" />
+    <div className="flex h-5 items-center gap-3 text-sm text-muted-foreground"><span>Profile</span><Separator orientation="vertical" /><span>Notifications</span><Separator orientation="vertical" /><span>Privacy</span></div>
+  </div>
+</Preview>
+
 ## Overview
 
 Horizontal and vertical dividers with accessible semantics.

@@ -3,6 +3,7 @@
   "name": "portfolio-types",
   "title": "Types",
   "description": "Shared TypeScript types for portfolio content and components.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/lib/types.ts",

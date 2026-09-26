@@ -3,6 +3,7 @@
   "name": "portfolio-curl-utils",
   "title": "Curl Utils",
   "description": "ANSI color and text-formatting helpers for terminal-friendly API responses.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/lib/curl-utils.ts",

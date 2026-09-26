@@ -3,6 +3,7 @@
   "name": "portfolio-github",
   "title": "Github",
   "description": "Server helpers for fetching GitHub profile and repository data.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/lib/github.ts",

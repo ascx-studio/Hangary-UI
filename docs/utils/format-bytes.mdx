@@ -2,23 +2,20 @@
 
 Format byte counts using binary units such as KiB and MiB.
 
-## Usage
+## Installation
 
-```ts
-import { formatBytes } from "@/lib/format-bytes"
-
-formatBytes(1536) // "1.5 KiB"
-formatBytes(1048576) // "1 MiB"
+```bash
+npx shadcn@latest add https://ui.rajeevpuri.com.np/r/format-bytes.json
 ```
+
+## Usage
 
 Use the exports from the installed entry file:
 
 ```text
-registry/nova-blue/lib/format-bytes.ts
+@/components/lazy-ui/lib/format-bytes.ts
 ```
 
 ## Setup notes
 
-Uses binary units (1024 bytes per KiB). Precision defaults to one decimal place; pass an integer from 0 to 6. Trailing zeroes are removed. Negative or non-finite byte counts and invalid precision throw a RangeError.
-
-Install the entry and its dependencies, then adapt the content and styles to your application. The source files below show its exports and supported props.
+Install the entry and its dependencies, then adapt the content and styles to your application.

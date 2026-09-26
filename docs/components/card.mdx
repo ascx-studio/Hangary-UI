@@ -1,3 +1,20 @@
+import Card from '@/registry/nova-blue/ui/card'
+
+<Preview>
+  <Card className="w-full max-w-md rounded-xl p-5">
+    <div className="flex items-center justify-between gap-3">
+      <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Featured project</span>
+      <span className="rounded-full bg-primary/10 px-2 py-1 text-xs text-primary">In progress</span>
+    </div>
+    <h3 className="mt-4 text-xl font-semibold">Studio journal</h3>
+    <p className="mt-2 text-sm leading-6 text-muted-foreground">A home for design notes, small experiments, and the ideas behind your next project.</p>
+    <dl className="mt-5 grid grid-cols-2 gap-4 border-t pt-4 text-sm">
+      <div><dt className="text-muted-foreground">Collection</dt><dd className="mt-1 font-medium">12 stories</dd></div>
+      <div><dt className="text-muted-foreground">Built with</dt><dd className="mt-1 font-medium">React &amp; Tailwind</dd></div>
+    </dl>
+  </Card>
+</Preview>
+
 ## Overview
 
 Displays a card with border and shadow styling matching the Lazy UI theme.

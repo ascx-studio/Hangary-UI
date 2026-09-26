@@ -1,13 +1,25 @@
+import PageEntrance from "@/components/PageEntrance";
 import type { Metadata } from 'next'
-import ItemPage from '@/components/registry/ItemPage'
-import TemplatePreview from '@/components/registry/TemplatePreview'
+import Link from 'next/link'
+import Container from '@/layout/Container'
 import Content from '@/docs/templates/portfolio.mdx'
-import { documentationComponents } from '@/components/registry/Documentation'
 
 export const metadata: Metadata = { title: 'Portfolio example | Lazy UI', description: 'A portfolio page composed from Lazy UI components.' }
 
 export default function Page() {
-  return <ItemPage title="Portfolio" description="A clean portfolio page for your introduction, selected work, and next opportunity." category="templates" categoryLabel="Templates" badge="Composition example" preview={<TemplatePreview />}>
-    <section id="documentation" className="scroll-m-24" aria-label="Documentation"><Content components={documentationComponents} /></section>
-  </ItemPage>
+  return (
+    <PageEntrance>
+      <Container className="py-6 md:py-8">
+        <nav aria-label="Breadcrumb" className="mb-5 text-sm text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-2">
+            <li><Link className="hover:text-foreground" href="/templates">Templates</Link></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-foreground">Portfolio</li>
+          </ol>
+        </nav>
+        <h1 className="mb-5 text-4xl font-semibold tracking-tight md:text-5xl">Portfolio</h1>
+        <Content />
+      </Container>
+    </PageEntrance>
+  )
 }

@@ -1,0 +1,27 @@
+import GhostFibers from '@/registry/nova-blue/backgrounds/ghost-fibers'
+
+<Preview className="relative isolate h-96 min-h-0 overflow-hidden bg-zinc-950 p-0 text-white [transform:translateZ(0)] md:min-h-0 md:p-0">
+  <GhostFibers />
+</Preview>
+
+## Overview
+
+A flowing fiber background rendered with a WebGL shader.
+
+## Usage
+
+```tsx
+<div className="h-96 overflow-hidden">
+  <GhostFibers />
+</div>
+```
+
+Use the exports from the installed entry file:
+
+```text
+@components/lazy-ui/backgrounds/ghost-fibers.tsx
+```
+
+## Setup notes
+
+Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.

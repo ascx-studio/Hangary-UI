@@ -3,6 +3,7 @@
   "name": "portfolio-logo",
   "title": "Logo",
   "description": "A linked portfolio logo with configurable presentation.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/components/logo.tsx",

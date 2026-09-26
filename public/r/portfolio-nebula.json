@@ -3,6 +3,7 @@
   "name": "portfolio-nebula",
   "title": "Nebula",
   "description": "SVG noise overlays and soft light leaks for atmospheric backgrounds.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/backgrounds/nebula.tsx",

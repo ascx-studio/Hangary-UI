@@ -1,0 +1,21 @@
+import { Minimap } from '@/registry/nova-blue/components/minmap'
+
+<Preview>
+  <div className="grid w-full grid-cols-2 gap-8"><div><h2 id="demo-intro" className="mb-8 text-2xl">Introduction</h2><h3 id="demo-details">Details</h3></div><Minimap items={[{ title: "Introduction", url: "#demo-intro", depth: 2 }, { title: "Details", url: "#demo-details", depth: 3 }]} /></div>
+</Preview>
+
+## Overview
+
+A compact navigation map for jumping between page sections.
+
+## Usage
+
+Use the exports from the installed entry file:
+
+```text
+@components/lazy-ui/components/minmap.tsx
+```
+
+## Setup notes
+
+Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.

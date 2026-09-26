@@ -1,0 +1,27 @@
+import { AuroraBars } from '@/registry/nova-blue/backgrounds/aurora-bars'
+
+<Preview className="relative isolate h-96 min-h-0 overflow-hidden bg-zinc-950 p-0 text-white [transform:translateZ(0)] md:min-h-0 md:p-0">
+  <AuroraBars />
+</Preview>
+
+## Overview
+
+Animated gradient bars with configurable colors, spacing, and speed.
+
+## Usage
+
+```tsx
+<div className="h-96 overflow-hidden">
+  <AuroraBars barCount={24} speed={0.5} />
+</div>
+```
+
+Use the exports from the installed entry file:
+
+```text
+@components/lazy-ui/backgrounds/aurora-bars.tsx
+```
+
+## Setup notes
+
+Imported from the portfolio project. Customize personal copy, links, social profiles, booking URLs, and data before use. Requires React 19, Next.js 16, Tailwind CSS 4, and shadcn theme variables. Files install under your components alias in lazy-ui/, with their relative imports preserved. Import the installed lazy-ui/styles/portfolio.css in your global stylesheet. For Base UI animation utilities, also import shadcn/tailwind.css.

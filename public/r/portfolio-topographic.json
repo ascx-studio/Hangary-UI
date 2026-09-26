@@ -3,6 +3,7 @@
   "name": "portfolio-topographic",
   "title": "Topographic",
   "description": "A canvas-based contour-line background driven by procedural noise.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/backgrounds/topographic.tsx",

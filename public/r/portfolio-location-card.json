@@ -3,6 +3,7 @@
   "name": "portfolio-location-card",
   "title": "Location Card",
   "description": "A location card for showing where you are based.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/components/cards/location-card.tsx",

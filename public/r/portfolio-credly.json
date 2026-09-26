@@ -3,6 +3,7 @@
   "name": "portfolio-credly",
   "title": "Credly",
   "description": "Fetch and normalize public Credly certification badges.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/lib/credly.ts",

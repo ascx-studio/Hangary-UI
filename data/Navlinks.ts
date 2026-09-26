@@ -9,7 +9,6 @@ const sections = {
 			{ label: 'Blocks', href: '/blocks', external: false, icon: 'template' },
 			{ label: 'Templates', href: '/templates', external: false, icon: 'template' },
 			{ label: 'Backgrounds', href: '/shader', external: false, icon: 'shader' },
-			{ label: 'Utility Code', href: '/utils', external: false, icon: 'utility' },
 		],
 	},
 } as const

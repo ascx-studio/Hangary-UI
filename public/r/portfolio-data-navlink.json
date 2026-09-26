@@ -3,6 +3,7 @@
   "name": "portfolio-data-navlink",
   "title": "Navlink",
   "description": "Editable primary navigation link data.",
+  "dependencies": [],
   "files": [
     {
       "path": "registry/nova-blue/lib/data/navlink.ts",
