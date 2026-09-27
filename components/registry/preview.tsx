@@ -8,7 +8,7 @@ export default function Preview({ children, className, ...props }: PreviewProps)
   return (
     <Card
       aria-label="Component preview"
-      className={cn("mx-auto flex min-h-48 w-full items-center justify-center overflow-x-auto rounded-xl border bg-muted/10 p-4 sm:p-6", className)}
+      className={cn("mx-auto flex flex-col min-h-48 w-full items-center justify-center overflow-hidden  border bg-muted/10 p-4 sm:p-6", className)}
       {...props}
     >
       {children}

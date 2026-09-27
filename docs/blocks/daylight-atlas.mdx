@@ -1,0 +1,27 @@
+export const description = "An interactive field guide that pairs a four chapter timeline with a color shifting aurora shader."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/daylight-atlas.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { DaylightAtlas } from "@/components/lazy-ui/blocks/daylight-atlas"
+
+export default function Example() {
+  return <DaylightAtlas />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. No additional packages or remote assets are required.
+
+Choose a time of day to update the sky color. The shader, timeline, and all local source dependencies install together.

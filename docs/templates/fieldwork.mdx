@@ -1,0 +1,27 @@
+export const description = "A complete editorial landing page with an interactive signal lab, field notes, and responsive navigation."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/fieldwork.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+Use the exports from the installed entry file:
+
+```tsx
+import { Fieldwork } from "@/components/lazy-ui/templates/fieldwork"
+
+export default function Page() {
+  return <Fieldwork />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. Includes the listening-station block, signal dial, and interference shader. Navigation links scroll to sections within the template. The signal lab is visual only and does not play audio.

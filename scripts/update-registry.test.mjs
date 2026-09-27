@@ -5,6 +5,33 @@ import path from 'node:path'
 import { test } from 'node:test'
 import { generateRegistry, planDocumentation, writeDocumentation } from './update-registry.mjs'
 
+test('bundles components and shaders into blocks in the flat registry layout', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-registry-'))
+  const write = (file, content) => {
+    fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
+    fs.writeFileSync(path.join(root, file), content)
+  }
+  try {
+    write('package.json', '{"dependencies":{}}')
+    write('registry.json', JSON.stringify({ name: 'test', homepage: 'https://example.com', items: [] }))
+    write('registry/components/dial.tsx', 'export const Dial = () => null')
+    write('registry/shader/field.tsx', 'export const Field = () => null')
+    write('registry/blocks/station.tsx', 'import { Dial } from "../components/dial"; import { Field } from "../shader/field"; export const Station = () => <><Dial/><Field/></>')
+    const output = generateRegistry(root)
+    assert.equal(output.items.length, 3)
+    const block = output.items.find(item => item.meta.category === 'blocks')
+    assert.equal(block.type, 'registry:block')
+    assert.equal(block.files.length, 3)
+    assert.ok(block.files.some(file => file.target === '@components/lazy-ui/shader/field.tsx'))
+    assert.equal(output.items.find(item => item.name === 'lazy-shader-field').meta.category, 'shader')
+    assert.equal(planDocumentation(root, output).size, 4)
+    write('registry.json', JSON.stringify(output))
+    assert.deepEqual(generateRegistry(root), output)
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true })
+  }
+})
+
 test('syncs entries, dependency closures, assets, and metadata deterministically', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nova-blue-registry-'))
   const write = (file, content) => {

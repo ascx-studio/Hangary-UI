@@ -1,0 +1,25 @@
+export const description = "A complete observatory landing page combining the Daylight Atlas, Orbit Selector, field notes, and revealable invitation ticket."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/daybreak.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { Daybreak } from "@/components/lazy-ui/templates/daybreak"
+
+export default function Page() {
+  return <Daybreak />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. The registry includes the atlas block, aurora shader, timeline and orbit components, invitation ticket, and all local source dependencies. The component sets its own content sections and does not require a special page layout.

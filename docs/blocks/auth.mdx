@@ -1,0 +1,27 @@
+export const description = "A responsive sign-in panel with accessible fields and a safe demo submit state."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/auth.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { AuthBlock } from "@/components/lazy-ui/blocks/auth"
+
+export default function Example() {
+  return <AuthBlock />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. No additional packages or remote assets are required.
+
+UI only. Connect a server-side authentication provider before using this form for real accounts.

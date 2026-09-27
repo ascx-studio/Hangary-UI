@@ -1,0 +1,27 @@
+export const description = "An animated amber topographic field, drawn with a procedural WebGL fragment shader."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/contour-drift.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { ContourDrift } from "@/components/lazy-ui/shader/contour-drift"
+
+export default function Example() {
+  return <div className="h-[480px]"><ContourDrift /></div>
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. No additional packages or remote assets are required.
+
+Give the parent an explicit height. Set `paused` to freeze motion. Supports reduced motion, offscreen suspension, and a gradient fallback.

@@ -1,5 +1,5 @@
 import PageEntrance from "@/components/PageEntrance";
-import Container from "@/layout/Container";
+import Container from "@/components/layout/Container";
 import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";

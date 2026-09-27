@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer",
+  "title": "Studio Footer",
+  "description": "A confident closing section with a contact action, social links, and a compact copyright row.",
+  "dependencies": [
+    "lucide-react@^1.48.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/footer.tsx",
+      "content": "import { ArrowUpRight } from \"lucide-react\";\n\nconst links = [{ label: \"Instagram\", href: \"https://instagram.com\" }, { label: \"LinkedIn\", href: \"https://linkedin.com\" }, { label: \"GitHub\", href: \"https://github.com\" }];\n\nexport function FooterBlock({ brand = \"FORM / FIELD\", email = \"hello@example.com\", className = \"\" }: { brand?: string; email?: string; className?: string }) {\n  return <footer className={`w-full border border-white/15 bg-[#111510] px-6 py-10 text-[#e6eadf] sm:px-10 sm:py-14 ${className}`}>\n    <div className=\"grid gap-10 md:grid-cols-[1fr_auto] md:items-end\"><div><p className=\"font-mono text-[10px] uppercase tracking-[.24em] text-[#a8bd91]\">Have a good one in mind?</p><a href={`mailto:${email}`} className=\"mt-3 inline-flex items-center gap-2 text-3xl font-light tracking-tight hover:text-[#c9e8a7] focus-visible:outline-2\">Let&apos;s make it real <ArrowUpRight size={22} aria-hidden=\"true\" /></a><p className=\"mt-3 text-sm text-white/50\">Independent by nature. Collaborative by design.</p></div><nav aria-label=\"Social links\" className=\"flex flex-wrap gap-x-6 gap-y-2\">{links.map(link => <a key={link.label} href={link.href} target=\"_blank\" rel=\"noreferrer\" className=\"font-mono text-xs text-white/60 underline-offset-4 hover:text-white hover:underline focus-visible:outline-2\">{link.label} ↗</a>)}</nav></div>\n    <div className=\"mt-10 flex flex-wrap justify-between gap-3 border-t border-white/15 pt-4 font-mono text-[10px] uppercase tracking-widest text-white/40\"><span>© {new Date().getFullYear()} {brand}</span><a href=\"#top\" className=\"hover:text-white\">Back to top ↑</a></div>\n  </footer>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/blocks/footer.tsx"
+    }
+  ],
+  "meta": {
+    "category": "blocks"
+  },
+  "type": "registry:block"
+}

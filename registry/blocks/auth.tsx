@@ -1,0 +1,31 @@
+"use client";
+
+import { useId, useState, type FormEvent } from "react";
+
+export function AuthBlock({ brand = "Northstar", className = "" }: { brand?: string; className?: string }) {
+  const [submitted, setSubmitted] = useState(false);
+  const emailId = useId();
+  const passwordId = useId();
+  function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitted(true);
+  }
+  return (
+    <section aria-label="Sign in" className={`grid w-full border border-white/15 bg-[#10141b] text-white md:grid-cols-2 ${className}`}>
+      <div className="flex min-h-72 flex-col justify-between bg-[#c9e8d0] p-7 text-[#15261e] sm:p-10">
+        <span className="font-mono text-xs font-semibold uppercase tracking-[.2em]">{brand} / MEMBERS</span>
+        <div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-[#43634e]">A quieter kind of workspace</p><h2 className="mt-3 max-w-sm text-4xl font-light leading-tight tracking-tight">Good to see you again.</h2><p className="mt-3 max-w-sm text-sm leading-6 text-[#43634e]">Sign in to pick up right where your best ideas left off.</p></div>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-[#43634e]">EST. 2024 — BUILT FOR FOCUS</span>
+      </div>
+      <div className="flex flex-col justify-center p-7 sm:p-10"><p className="font-mono text-[10px] uppercase tracking-[.2em] text-[#c9e8d0]">Member access</p><h3 className="mt-2 text-2xl font-medium">Sign in</h3><p className="mt-2 text-sm text-white/55">Use your email to continue.</p>
+        <form className="mt-7 space-y-4" onSubmit={submit}>
+          <div className="space-y-2"><label htmlFor={emailId} className="text-sm">Email address</label><input required autoComplete="email" id={emailId} name="email" type="email" placeholder="you@example.com" className="w-full border border-white/20 bg-white/5 px-3 py-3 text-sm outline-none placeholder:text-white/35 focus:border-[#c9e8d0] focus-visible:ring-2 focus-visible:ring-[#c9e8d0]" /></div>
+          <div className="space-y-2"><div className="flex justify-between gap-2"><label htmlFor={passwordId} className="text-sm">Password</label><a href="#reset-password" className="text-xs text-[#c9e8d0] underline-offset-4 hover:underline">Forgot password?</a></div><input required autoComplete="current-password" minLength={8} id={passwordId} name="password" type="password" placeholder="8 characters minimum" className="w-full border border-white/20 bg-white/5 px-3 py-3 text-sm outline-none placeholder:text-white/35 focus:border-[#c9e8d0] focus-visible:ring-2 focus-visible:ring-[#c9e8d0]" /></div>
+          <button type="submit" className="w-full bg-[#c9e8d0] px-4 py-3 text-sm font-semibold text-[#15261e] hover:bg-[#dbf1e0] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c9e8d0]">Continue <span aria-hidden="true">→</span></button>
+        </form>
+        <p aria-live="polite" className="mt-4 min-h-5 text-sm text-[#c9e8d0]">{submitted ? "Demo form submitted. Connect your auth provider to sign in." : "New here? Create an account →"}</p>
+        <p className="mt-2 text-xs leading-5 text-white/40">UI example only. No credentials are sent or stored.</p>
+      </div>
+    </section>
+  );
+}

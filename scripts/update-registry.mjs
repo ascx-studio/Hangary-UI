@@ -5,13 +5,14 @@ import { isBuiltin } from 'node:module'
 import ts from 'typescript'
 import { registrySchema } from 'shadcn/schema'
 
-const sourceRoot = 'registry/nova-blue/'
 const supported = /\.(tsx?|jsx?|css|svg)$/
 const compare = (a, b) => a < b ? -1 : a > b ? 1 : 0
 const packageName = (specifier) => specifier.startsWith('@')
   ? specifier.split('/').slice(0, 2).join('/') : specifier.split('/')[0]
+const registrySourceRoot = (root) => fs.existsSync(path.join(root, 'registry/nova-blue')) ? 'registry/nova-blue/' : 'registry/'
 
 export function generateRegistry(root) {
+  const sourceRoot = registrySourceRoot(root)
   const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
   const previous = readJson('registry.json')
   const manifest = readJson('package.json')
@@ -87,10 +88,10 @@ export function generateRegistry(root) {
     const old = existing.get(entry)
     const relative = entry.slice(sourceRoot.length)
     const folder = relative.split('/')[0]
-    const category = folder === 'blocks' ? 'blocks' : folder === 'backgrounds' ? 'shader' : ['lib', 'hooks', 'styles'].includes(folder) ? 'utils' : 'components'
+    const category = folder === 'templates' ? 'templates' : folder === 'blocks' ? 'blocks' : ['backgrounds', 'shader'].includes(folder) ? 'shader' : ['lib', 'hooks', 'styles'].includes(folder) ? 'utils' : 'components'
     let name = old?.name
     if (!name) {
-      name = `nova-blue-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
+      name = `${sourceRoot.includes('nova-blue') ? 'nova-blue' : 'lazy'}-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
       if (usedNames.has(name)) throw new Error(`Registry name collision: ${name}`)
       usedNames.add(name)
     }
@@ -116,9 +117,9 @@ export function generateRegistry(root) {
     return {
       ...old,
       name,
-      type: category === 'blocks' ? 'registry:block' : fileType(entry),
+      type: ['blocks', 'templates'].includes(category) ? 'registry:block' : fileType(entry),
       title: old?.title ?? path.posix.basename(entry).replace(/\.[^.]+$/, '').split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' '),
-      description: old?.description ?? `Reusable ${path.posix.basename(entry)} from the Nova Blue collection.`,
+      description: old?.description ?? `Reusable ${path.posix.basename(entry)} from the Lazy UI collection.`,
       files,
       dependencies: [...dependencies].sort(compare),
       meta: { ...old?.meta, category },
@@ -135,6 +136,7 @@ const markdownText = (value) => String(value)
 
 // Return planned writes so --check can report drift without creating files.
 export function planDocumentation(root, registry) {
+  const sourceRoot = registrySourceRoot(root)
   const docsDirectory = 'docs'
   const writes = new Map()
   const loaders = []
@@ -142,11 +144,11 @@ export function planDocumentation(root, registry) {
   for (const item of registry.items) {
     if (!item.files?.[0]?.path.startsWith(sourceRoot)) continue
     const category = item.meta?.category
-    if (!['components', 'blocks', 'shader', 'utils'].includes(category)) throw new Error(`Unsupported documentation category: ${category}`)
+    if (!['components', 'blocks', 'shader', 'utils', 'templates'].includes(category)) throw new Error(`Unsupported documentation category: ${category}`)
     if (!/^[a-zA-Z0-9_-]+$/.test(item.name)) throw new Error(`Invalid documentation filename: ${item.name}`)
     let basename = item.name.replace(/^portfolio-/, '')
     if (basename !== item.name && registry.items.some(other => other.name === basename && other.meta?.category === category)) {
-      basename = item.files[0].path.slice(sourceRoot.length).replace(/\.[^.]+$/, '').replaceAll('/', '-')
+      basename = item.files[0].path.replace(/^registry\/(?:nova-blue\/)?/, '').replace(/\.[^.]+$/, '').replaceAll('/', '-')
     }
     const relative = `${docsDirectory}/${category}/${basename}.mdx`
     if (docPaths.has(relative)) throw new Error(`Documentation filename collision: ${relative}`)
@@ -194,7 +196,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     if (fs.readFileSync(file, 'utf8') !== output || docs.size) {
       console.error(`Registry or documentation is out of date (${docs.size} documentation files pending). Run bun run registry:update.`)
       process.exitCode = 1
-    } else console.log(`registry.json and docs/ match registry/nova-blue.`)
+    } else console.log(`registry.json and docs/ match registry sources.`)
   } else {
     fs.writeFileSync(file, output)
     writeDocumentation(root, docs)

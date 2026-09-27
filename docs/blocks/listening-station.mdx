@@ -1,0 +1,29 @@
+export const description = "An experimental signal console pairing an interactive tuner with a reactive interference shader."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/listening-station.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+Import the component into your page:
+
+```tsx
+import { ListeningStation } from "@/components/lazy-ui/blocks/listening-station"
+
+export default function Example() {
+  return <ListeningStation />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. The installation includes all local dependencies. No API keys or external assets are needed.
+
+Customize `title` and `className`. The presets and slider update the visual field. This is a visual-only demo; it does not stream audio.

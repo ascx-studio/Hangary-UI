@@ -5,7 +5,6 @@ export const sidebarLinks = [
 			{ label: 'Components', href: '/components' },
 			{ label: 'Blocks', href: '/blocks' },
 			{ label: 'Backgrounds', href: '/shader' },
-			{ label: 'Utility code', href: '/utils' },
 			{ label: 'Templates', href: '/templates' },
 		],
 	},

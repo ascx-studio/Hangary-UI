@@ -1,0 +1,27 @@
+export const description = "A celestial mode picker with orbiting controls and a luminous core."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/orbit-selector.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { OrbitSelector } from "@/components/lazy-ui/components/orbit-selector"
+
+export default function Example() {
+  return <OrbitSelector />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. No additional packages or remote assets are required.
+
+Use `onModeChange` in a client component to respond to Explore, Focus, and Unwind selections.

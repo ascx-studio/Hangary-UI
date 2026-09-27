@@ -5,7 +5,7 @@ import registry from '@/registry.json'
 import generatedRegistry from '@/public/r/registry.json'
 import packageJson from '@/package.json'
 
-export type RegistryCategory = 'components' | 'blocks' | 'shader' | 'utils'
+export type RegistryCategory = 'components' | 'blocks' | 'shader' | 'utils' | 'templates'
 
 export type RegistryFile = {
   path: string
@@ -37,7 +37,7 @@ const items: RegistryItem[] = registry.items.filter(item =>
   !unavailablePaths.has(item.files[0]?.path) && item.files.every(file => existsSync(path.resolve(process.cwd(), file.path)))
 )
 const generatedNames = new Set(generatedRegistry.items.map((item) => item.name))
-const categories: RegistryCategory[] = ['components', 'blocks', 'shader', 'utils']
+const categories: RegistryCategory[] = ['components', 'blocks', 'shader', 'utils', 'templates']
 
 export function getRegistryCategory(item: RegistryItem): RegistryCategory {
   if (categories.includes(item.meta?.category as RegistryCategory)) {

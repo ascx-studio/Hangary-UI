@@ -1,0 +1,27 @@
+export const description = "A softly folded aurora shader with configurable color, stars, and motion controls."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/aurora-veil.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { AuroraVeil } from "@/components/lazy-ui/shader/aurora-veil"
+
+export default function Example() {
+  return <div className="h-[480px]"><AuroraVeil /></div>
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. No additional packages or remote assets are required.
+
+Give the parent an explicit height. Adjust `tint` with an RGB tuple between 0 and 1. The canvas respects reduced motion and suspends offscreen.

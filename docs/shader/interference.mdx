@@ -1,0 +1,29 @@
+export const description = "A living WebGL interference field with concentric lime waves and reduced-motion support."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/interference.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+Import the component into your page:
+
+```tsx
+import { Interference } from "@/components/lazy-ui/shader/interference"
+
+export default function Example() {
+  return <div className="h-80 w-full overflow-hidden rounded-2xl"><Interference /></div>
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. The installation includes all local dependencies. No API keys or external assets are needed.
+
+Give the parent an explicit height. Use `frequency` to change the ring density and `paused` to freeze motion. The shader respects reduced-motion preferences and falls back to a gradient without WebGL.

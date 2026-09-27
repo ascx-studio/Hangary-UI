@@ -8,7 +8,7 @@ import { registrySchema } from 'shadcn/schema'
 const registry = registrySchema.parse(JSON.parse(fs.readFileSync('registry.json', 'utf8')))
 const allFiles = new Set()
 const entryPaths = new Set()
-const categories = new Set(['components', 'blocks', 'shader', 'utils'])
+const categories = new Set(['components', 'blocks', 'shader', 'utils', 'templates'])
 assert.equal(new Set(registry.items.map((item) => item.name)).size, registry.items.length, 'Item names must be unique')
 
 for (const item of registry.items) {
@@ -59,7 +59,7 @@ for (const item of registry.items) {
   }
 }
 
-for (const directory of ['registry/nova-blue']) {
+for (const directory of ['registry']) {
   for (const file of fs.readdirSync(directory, { recursive: true })) {
     if (!/\.(tsx?|css|svg)$/.test(file)) continue
     assert.ok(allFiles.has(`${directory}/${file}`), `Unregistered source: ${directory}/${file}`)

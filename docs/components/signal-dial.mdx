@@ -1,0 +1,29 @@
+export const description = "An analog-inspired frequency tuner with keyboard controls and a luminous scale."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/signal-dial.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+Import the component into your page:
+
+```tsx
+import { SignalDial } from "@/components/lazy-ui/components/signal-dial"
+
+export default function Example() {
+  return <SignalDial />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. The installation includes all local dependencies. No API keys or external assets are needed.
+
+Use `defaultValue` for an uncontrolled dial, or `value` and `onValueChange` inside a client component for controlled tuning. Values range from 0 to 100; `label` names the accessible control.

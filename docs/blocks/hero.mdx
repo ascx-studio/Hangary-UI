@@ -1,0 +1,27 @@
+export const description = "An editorial landing hero with a strong headline, two clear actions, and a quiet visual backdrop."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/hero.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Usage
+
+```tsx
+import { HeroBlock } from "@/components/lazy-ui/blocks/hero"
+
+export default function Example() {
+  return <HeroBlock />
+}
+```
+
+## Setup notes
+
+Requires React and Tailwind CSS 4. No additional packages or remote assets are required.
+
+Customize `eyebrow`, `title`, `description`, and the in-page destinations.

@@ -1,6 +1,6 @@
 import PageEntrance from "@/components/PageEntrance";
 import Logo from '@/components/ui/Logo'
-import Container from '@/layout/Container'
+import Container from '@/components/layout/Container'
 import Link from 'next/link'
 
 const supportOptions = [
