@@ -1,0 +1,22 @@
+export const description = "Shared CSS animations for React 19.3 ViewTransition blocks."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/morph-css.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+<CodePreview code={installCommand} language="bash" />
+
+## Setup
+
+Add the installed stylesheet after Tailwind in your global stylesheet:
+
+```css
+@import "tailwindcss";
+@import "@/components/lazy-ui/styles/morph.css";
+```
+
+The numbered `auth`, `navbar`, and `footer` blocks include this stylesheet as a registry dependency. No animation package is required.

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../registry/styles/morph.css";
 
 @custom-variant dark (&:is(.dark *));
 

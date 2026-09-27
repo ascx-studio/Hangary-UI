@@ -91,7 +91,10 @@ export function generateRegistry(root) {
     const category = folder === 'templates' ? 'templates' : folder === 'blocks' ? 'blocks' : ['backgrounds', 'shader'].includes(folder) ? 'shader' : ['lib', 'hooks', 'styles'].includes(folder) ? 'utils' : 'components'
     let name = old?.name
     if (!name) {
-      name = `${sourceRoot.includes('nova-blue') ? 'nova-blue' : 'lazy'}-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
+      const shortBlockName = /^blocks\/(?:auth\d+|navbar[1-4]|footer[1-4])\.tsx$/.test(relative)
+      name = shortBlockName
+        ? relative.replace(/\.[^.]+$/, '').split('/').at(-1)
+        : `${sourceRoot.includes('nova-blue') ? 'nova-blue' : 'lazy'}-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
       if (usedNames.has(name)) throw new Error(`Registry name collision: ${name}`)
       usedNames.add(name)
     }
@@ -122,6 +125,7 @@ export function generateRegistry(root) {
       description: old?.description ?? `Reusable ${path.posix.basename(entry)} from the Lazy UI collection.`,
       files,
       dependencies: [...dependencies].sort(compare),
+      ...(old?.registryDependencies ? { registryDependencies: old.registryDependencies } : /^(?:auth\d+|navbar[1-4]|footer[1-4])$/.test(name) ? { registryDependencies: ['morph-css'] } : {}),
       meta: { ...old?.meta, category },
     }
   })

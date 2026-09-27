@@ -5,6 +5,7 @@ import { ShaderCanvas } from "../lib/shader-canvas";
 const fragment = `precision mediump float;
 uniform vec2 resolution;
 uniform float time;
+uniform vec3 tint;
 void main(){
   vec2 p=(gl_FragCoord.xy*2.-resolution)/min(resolution.x,resolution.y);
   float t=time*.16;
@@ -12,8 +13,8 @@ void main(){
   terrain+=.45*sin(p.x*4.1+p.y*2.3+t);
   float contour=pow(.5+.5*cos(terrain*19.),22.);
   float broad=.5+.5*sin(terrain*2.-t);
-  vec3 base=mix(vec3(.035,.045,.047),vec3(.21,.105,.04),broad);
-  vec3 color=base+contour*mix(vec3(.29,.19,.075),vec3(.96,.62,.25),broad)*.75;
+  vec3 base=tint*mix(.025,.14,broad);
+  vec3 color=base+contour*tint*mix(.35,1.,broad)*.75;
   color*=1.-.2*min(length(p),2.);
   gl_FragColor=vec4(color,1.);
 }`;

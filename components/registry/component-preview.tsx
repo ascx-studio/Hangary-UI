@@ -1,7 +1,18 @@
-import { AuthBlock } from "@/registry/blocks/auth";
-import { NavbarBlock } from "@/registry/blocks/navbar";
+"use client";
+
+import { Auth1 } from "@/registry/blocks/auth1";
+import { Auth2 } from "@/registry/blocks/auth2";
+import { Auth3 } from "@/registry/blocks/auth3";
+import { Auth4 } from "@/registry/blocks/auth4";
+import { Navbar1 } from "@/registry/blocks/navbar1";
+import { Navbar2 } from "@/registry/blocks/navbar2";
+import { Navbar3 } from "@/registry/blocks/navbar3";
+import { Navbar4 } from "@/registry/blocks/navbar4";
 import { HeroBlock } from "@/registry/blocks/hero";
-import { FooterBlock } from "@/registry/blocks/footer";
+import { Footer1 } from "@/registry/blocks/footer1";
+import { Footer2 } from "@/registry/blocks/footer2";
+import { Footer3 } from "@/registry/blocks/footer3";
+import { Footer4 } from "@/registry/blocks/footer4";
 import { SeasonTimeline } from "@/registry/components/season-timeline";
 import { AuroraVeil } from "@/registry/shader/aurora-veil";
 import { Daybreak } from "@/registry/templates/daybreak";
@@ -13,22 +24,40 @@ import { PrismRibbon } from "@/registry/shader/prism-ribbon";
 import { SignalDial } from "@/registry/components/signal-dial";
 import { ListeningStation } from "@/registry/blocks/listening-station";
 import { Interference } from "@/registry/shader/interference";
+import { DitherField } from "@/registry/shader/dither-field";
 import { Fieldwork } from "@/registry/templates/fieldwork";
 import Preview from "./preview";
-import type { ReactNode } from "react";
 
-export default function ComponentPreview({ name, footer }: { name: string; footer?: ReactNode }) {
-  const shader = ["interference", "contour-drift", "prism-ribbon", "aurora-veil"].includes(name);
+export default function ComponentPreview({ name }: { name: string }) {
+  const shader = ["interference", "contour-drift", "prism-ribbon", "aurora-veil", "dither-field"].includes(name);
   const content = (() => {
     switch (name) {
-      case "auth":
-        return <AuthBlock />;
-      case "navbar":
-        return <NavbarBlock />;
+      case "auth1":
+        return <Auth1 />;
+      case "auth2":
+        return <Auth2 />;
+      case "auth3":
+        return <Auth3 />;
+      case "auth4":
+        return <Auth4 />;
+      case "navbar1":
+        return <Navbar1 />;
+      case "navbar2":
+        return <Navbar2 />;
+      case "navbar3":
+        return <Navbar3 />;
+      case "navbar4":
+        return <Navbar4 />;
       case "hero":
         return <HeroBlock />;
-      case "footer":
-        return <FooterBlock />;
+      case "footer1":
+        return <Footer1 />;
+      case "footer2":
+        return <Footer2 />;
+      case "footer3":
+        return <Footer3 />;
+      case "footer4":
+        return <Footer4 />;
       case "season-timeline":
         return <SeasonTimeline />;
       case "aurora-veil":
@@ -52,6 +81,8 @@ export default function ComponentPreview({ name, footer }: { name: string; foote
         return <ListeningStation />;
       case "interference":
         return <Interference />;
+      case "dither-field":
+        return <DitherField />;
       case "fieldwork":
         return <Fieldwork />;
       default:
@@ -66,7 +97,6 @@ export default function ComponentPreview({ name, footer }: { name: string; foote
           {content}
         </div>
       </div>
-      {footer && <div className="w-full shrink-0 border-t border-border">{footer}</div>}
     </Preview>
   );
 }

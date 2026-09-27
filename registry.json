@@ -26,21 +26,89 @@
       "dependencies": []
     },
     {
-      "name": "auth",
+      "name": "auth1",
       "type": "registry:block",
-      "title": "Authentication",
-      "description": "A responsive sign-in panel with accessible fields and a safe demo submit state.",
+      "title": "Auth 1",
+      "description": "A responsive Northstar sign-in block with accessible fields and a safe demo submit state.",
       "files": [
         {
-          "path": "registry/blocks/auth.tsx",
+          "path": "registry/blocks/auth1.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/auth.tsx"
+          "target": "@components/lazy-ui/blocks/auth1.tsx"
         }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
       ],
       "meta": {
         "category": "blocks"
-      },
-      "dependencies": []
+      }
+    },
+    {
+      "name": "auth2",
+      "type": "registry:block",
+      "title": "Auth 2",
+      "description": "A centered Common Ground sign-in panel with a social sign-in action and accessible email form.",
+      "files": [
+        {
+          "path": "registry/blocks/auth2.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/auth2.tsx"
+        },
+        {
+          "path": "public/logo.png",
+          "type": "registry:file",
+          "target": "public/logo.png"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
+    },
+    {
+      "name": "auth3",
+      "type": "registry:block",
+      "title": "Auth 3",
+      "description": "A create-account experience with a feature sidebar, profile fields, and password setup.",
+      "files": [
+        {
+          "path": "registry/blocks/auth3.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/auth3.tsx"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
+    },
+    {
+      "name": "auth4",
+      "type": "registry:block",
+      "title": "Auth 4",
+      "description": "A passwordless sign-in screen that sends a one-time email link.",
+      "files": [
+        {
+          "path": "registry/blocks/auth4.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/auth4.tsx"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
     },
     {
       "name": "contour-drift",
@@ -144,6 +212,28 @@
       "dependencies": []
     },
     {
+      "name": "dither-field",
+      "type": "registry:component",
+      "title": "Dither Field",
+      "description": "A living ordered-dither shader that turns a shifting light field into crisp pixel patterns.",
+      "files": [
+        {
+          "path": "registry/shader/dither-field.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/shader/dither-field.tsx"
+        },
+        {
+          "path": "registry/lib/shader-canvas.tsx",
+          "type": "registry:lib",
+          "target": "@components/lazy-ui/lib/shader-canvas.tsx"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "fieldwork",
       "type": "registry:block",
       "title": "Fieldwork",
@@ -181,23 +271,90 @@
       "dependencies": []
     },
     {
-      "name": "footer",
+      "name": "footer1",
       "type": "registry:block",
-      "title": "Studio Footer",
-      "description": "A confident closing section with a contact action, social links, and a compact copyright row.",
+      "title": "Footer 1",
+      "description": "A studio footer with contact, social links, and copyright navigation.",
       "files": [
         {
-          "path": "registry/blocks/footer.tsx",
+          "path": "registry/blocks/footer1.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/footer.tsx"
+          "target": "@components/lazy-ui/blocks/footer1.tsx"
         }
+      ],
+      "dependencies": [
+        "lucide-react@^1.48.0"
+      ],
+      "registryDependencies": [
+        "morph-css"
       ],
       "meta": {
         "category": "blocks"
-      },
+      }
+    },
+    {
+      "name": "footer2",
+      "type": "registry:block",
+      "title": "Footer 2",
+      "description": "A compact horizontal footer bar with brand, page links, and copyright details.",
+      "files": [
+        {
+          "path": "registry/blocks/footer2.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/footer2.tsx"
+        }
+      ],
       "dependencies": [
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
+    },
+    {
+      "name": "footer3",
+      "type": "registry:block",
+      "title": "Footer 3",
+      "description": "An editorial newsletter footer with an email signup and journal links.",
+      "files": [
+        {
+          "path": "registry/blocks/footer3.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/footer3.tsx"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
+    },
+    {
+      "name": "footer4",
+      "type": "registry:block",
+      "title": "Footer 4",
+      "description": "A multi-column product footer with company, explore, and help navigation.",
+      "files": [
+        {
+          "path": "registry/blocks/footer4.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/footer4.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@^1.48.0"
+      ],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
     },
     {
       "name": "hero",
@@ -288,21 +445,121 @@
       "dependencies": []
     },
     {
-      "name": "navbar",
-      "type": "registry:block",
-      "title": "Navigation Bar",
-      "description": "A responsive studio navigation bar with a compact mobile menu and clear contact action.",
+      "name": "morph-css",
+      "type": "registry:file",
+      "title": "Morph CSS",
+      "description": "Shared CSS animations for React ViewTransition boundaries.",
       "files": [
         {
-          "path": "registry/blocks/navbar.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar.tsx"
+          "path": "registry/styles/morph.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/styles/morph.css"
         }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "utils"
+      }
+    },
+    {
+      "name": "navbar1",
+      "type": "registry:block",
+      "title": "Navbar 1",
+      "description": "The Lazy UI logo anchors a compact studio navbar with a responsive mobile menu and contact action.",
+      "files": [
+        {
+          "path": "registry/blocks/navbar1.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/navbar1.tsx"
+        },
+        {
+          "path": "public/logo.png",
+          "type": "registry:file",
+          "target": "public/logo.png"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
       ],
       "meta": {
         "category": "blocks"
-      },
-      "dependencies": []
+      }
+    },
+    {
+      "name": "navbar2",
+      "type": "registry:block",
+      "title": "Navbar 2",
+      "description": "A two-row studio navbar pairs the Lazy UI logo with an announcement strip, inline links, and project action.",
+      "files": [
+        {
+          "path": "registry/blocks/navbar2.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/navbar2.tsx"
+        },
+        {
+          "path": "public/logo.png",
+          "type": "registry:file",
+          "target": "public/logo.png"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
+    },
+    {
+      "name": "navbar3",
+      "type": "registry:block",
+      "title": "Navbar 3",
+      "description": "An editorial masthead centers the Lazy UI logo above a publication navigation row.",
+      "files": [
+        {
+          "path": "registry/blocks/navbar3.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/navbar3.tsx"
+        },
+        {
+          "path": "public/logo.png",
+          "type": "registry:file",
+          "target": "public/logo.png"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
+    },
+    {
+      "name": "navbar4",
+      "type": "registry:block",
+      "title": "Navbar 4",
+      "description": "A storefront layout combines the Lazy UI logo, search, shipping notice, category links, and bag count.",
+      "files": [
+        {
+          "path": "registry/blocks/navbar4.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/blocks/navbar4.tsx"
+        },
+        {
+          "path": "public/logo.png",
+          "type": "registry:file",
+          "target": "public/logo.png"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "morph-css"
+      ],
+      "meta": {
+        "category": "blocks"
+      }
     },
     {
       "name": "orbit-selector",

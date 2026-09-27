@@ -20,11 +20,11 @@ export default async function DetailPage({ name, category }: { name: string; cat
     <PageEntrance key={item.name}>
       <Container className="p-4">
         <h1 className="sr-only">{item.title}</h1>
-        <ComponentPreview name={item.name} footer={
-          <ItemDetails title={item.title} description={description} command={command}
+        <ItemDetails title={item.title} name={item.name} registryUrl={registryHomepage} description={description} command={command}
             files={item.files.map(file => file.target ?? file.path)} dependencies={item.dependencies ?? []}
-            documentation={<Content />} />
-        } />
+            documentation={<Content />}>
+          <ComponentPreview name={item.name} />
+        </ItemDetails>
       </Container>
     </PageEntrance>
   );

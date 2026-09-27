@@ -1,16 +1,45 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-export type ShaderCanvasProps = { fragment: string; label: string; className?: string; paused?: boolean; tint?: readonly [number, number, number]; frequency?: number; background?: string };
+export type ShaderTint = readonly [number, number, number] | string;
+export type ShaderCanvasProps = { fragment: string; label: string; className?: string; paused?: boolean; tint?: ShaderTint; frequency?: number; background?: string };
+
+function resolveCssColor(color: string, element: HTMLElement): readonly [number, number, number] {
+  const probe = document.createElement("span");
+  probe.style.color = color;
+  probe.style.position = "absolute";
+  probe.style.visibility = "hidden";
+  element.parentElement?.append(probe);
+  const computed = getComputedStyle(probe).color;
+  probe.remove();
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  if (!context) return [0.5, 0.5, 0.5];
+  context.fillStyle = computed;
+  context.fillRect(0, 0, 1, 1);
+  const pixel = context.getImageData(0, 0, 1, 1).data;
+  return [pixel[0] / 255, pixel[1] / 255, pixel[2] / 255];
+}
 
 /** Shared WebGL surface. Stops animation while hidden or when reduced motion is requested. */
-export function ShaderCanvas({ fragment, label, className = "", paused = false, tint = [0.62, 0.76, 1], frequency = 42, background = "radial-gradient(ellipse at 30% 40%, #796047, #25203a 50%, #0e1018)" }: ShaderCanvasProps) {
+export function ShaderCanvas({ fragment, label, className = "", paused = false, tint = "var(--primary)", frequency = 42, background = "radial-gradient(ellipse at 30% 40%, color-mix(in oklab, var(--primary) 35%, var(--secondary)), var(--secondary) 50%, var(--background))" }: ShaderCanvasProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const elapsedRef = useRef(0);
-  const tintRef = useRef(tint);
+  const tintRef = useRef<readonly [number, number, number]>([0.5, 0.5, 0.5]);
   const frequencyRef = useRef(frequency);
-  useEffect(() => { tintRef.current = tint; }, [tint]);
+  const vertexPositions = useMemo(() => new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), []);
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const updateTint = () => {
+      tintRef.current = typeof tint === "string" ? resolveCssColor(tint, canvas) : tint;
+    };
+    updateTint();
+    const themeObserver = new MutationObserver(updateTint);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class", "style"] });
+    return () => themeObserver.disconnect();
+  }, [tint]);
   useEffect(() => { frequencyRef.current = frequency; }, [frequency]);
   const [stopped, setStopped] = useState(false);
   const [generation, setGeneration] = useState(0);
@@ -39,7 +68,7 @@ export function ShaderCanvas({ fragment, label, className = "", paused = false, 
     if (!buffer) { cleanup(); return; }
     gl.useProgram(program);
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+    gl.bufferData(gl.ARRAY_BUFFER, vertexPositions, gl.STATIC_DRAW);
     const position = gl.getAttribLocation(program, "position");
     gl.enableVertexAttribArray(position);
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
@@ -90,9 +119,8 @@ export function ShaderCanvas({ fragment, label, className = "", paused = false, 
       document.removeEventListener("visibilitychange", refresh); motion.removeEventListener("change", refresh);
       gl.deleteBuffer(buffer); cleanup();
     };
-  }, [fragment, frozen, generation]);
-  return <div className={`relative h-full min-h-64 w-full overflow-hidden bg-[#161320] ${className}`} style={{ backgroundImage: background }}>
-    <canvas ref={ref} aria-hidden="true" className="absolute inset-0 h-full w-full" />
-    <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 bg-linear-to-t from-black/70 to-transparent p-5 pt-12 text-white"><span className="font-mono text-[10px] uppercase tracking-[.2em]">{label}</span><button type="button" aria-pressed={frozen} disabled={paused} onClick={() => setStopped(!stopped)} className="border border-white/30 bg-black/25 px-3 py-2 text-xs backdrop-blur-sm hover:bg-black/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-50">{frozen ? 'Resume motion' : 'Pause motion'}</button></div>
+  }, [fragment, frozen, generation, vertexPositions]);
+  return <div className={`h-full min-h-64 w-full overflow-hidden ${className}`}>
+    <canvas ref={ref} aria-hidden="true" className="inset-0 h-full w-full" />
   </div>;
 }

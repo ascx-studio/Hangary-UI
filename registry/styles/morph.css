@@ -1,0 +1,35 @@
+:root {
+  --morph-exit: 150ms;
+  --morph-enter: 220ms;
+}
+
+::view-transition-old(.morph-exit) {
+  animation: var(--morph-exit) ease-in both morph-leave;
+}
+
+::view-transition-new(.morph-enter) {
+  animation: var(--morph-enter) ease-out both morph-arrive;
+}
+
+@keyframes morph-leave {
+  to {
+    opacity: 0;
+    transform: translateY(-6px) scale(.99);
+    filter: blur(2px);
+  }
+}
+
+@keyframes morph-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.99);
+    filter: blur(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(.morph-exit),
+  ::view-transition-new(.morph-enter) {
+    animation-duration: 1ms;
+  }
+}
