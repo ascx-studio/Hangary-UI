@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import * as motion from "motion/react-client";
 import hljs from "highlight.js/lib/common";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 import styles from "./codepreview.module.css";
 
 type CodePreviewProps = Omit<ComponentProps<"pre">, "children"> & {

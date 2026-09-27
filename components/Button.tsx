@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import Link, { type LinkProps } from 'next/link'
-import { cn } from '@/utils/cn'
+import { cn } from '@/lib/cn'
 
 export type ButtonVariant =
 	| 'primary'

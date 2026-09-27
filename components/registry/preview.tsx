@@ -1,6 +1,6 @@
 import Card from "@/components/ui/Card";
 import type { ComponentProps } from "react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 type PreviewProps = ComponentProps<typeof Card>;
 
