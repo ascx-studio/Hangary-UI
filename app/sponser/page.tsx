@@ -1,4 +1,3 @@
-import PageEntrance from "@/components/PageEntrance";
 import Logo from '@/components/ui/Logo'
 import Container from '@/components/layout/Container'
 import Link from 'next/link'
@@ -45,7 +44,7 @@ const faqs = [
 
 export default function SponsorPage() {
   return (
-    <PageEntrance>
+    <div className="page-entrance w-full min-w-0">
       <div className="min-h-dvh bg-background text-foreground">
         <main>
           <Container className="px-6 py-20 md:px-10 md:py-28">
@@ -120,6 +119,6 @@ export default function SponsorPage() {
           </Container>
         </main>
       </div>
-    </PageEntrance>
+    </div>
   )
 }

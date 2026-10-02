@@ -20,5 +20,5 @@ void main(){
 }`;
 
 export function ContourDrift({ paused = false, className = "" }: { paused?: boolean; className?: string }) {
-  return <ShaderCanvas fragment={fragment} label="Contour drift / living atlas" paused={paused} className={className} />;
+  return <ShaderCanvas fragment={fragment} paused={paused} className={className} />;
 }

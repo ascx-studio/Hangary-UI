@@ -32,5 +32,5 @@ void main() {
 }`;
 
 export function DitherField({ paused = false, className = "" }: { paused?: boolean; className?: string }) {
-  return <ShaderCanvas fragment={fragment} label="Dither field / ordered pixel study" paused={paused} className={className} />;
+  return <ShaderCanvas fragment={fragment} paused={paused} className={className} />;
 }

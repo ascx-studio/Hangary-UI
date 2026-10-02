@@ -3,6 +3,8 @@
 import { useId, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { Check, GripVertical, Info, X } from "lucide-react";
 import { OpenInV0 } from "@/components/open-in-v0";
+import ComponentPreview from "./component-preview";
+import type { PreviewProp } from "./preview-props";
 
 type RegistryItemViewerPanel = "description" | "install";
 
@@ -13,15 +15,18 @@ type RegistryItemViewerProps = {
   description: string;
   documentation: ReactNode;
   command: string;
-  files: string[];
-  dependencies: string[];
-  children: ReactNode;
+  itemProps: PreviewProp[];
 };
 
-export default function RegistryItemViewer({ title, name, registryUrl, description, documentation, command, children }: RegistryItemViewerProps) {
+function defaultPreviewProps(props: PreviewProp[]) {
+  return Object.fromEntries(props.filter(prop => prop.defaultValue !== undefined).map(prop => [prop.name, prop.defaultValue])) as Record<string, string | number | boolean>;
+}
+
+export default function RegistryItemViewer({ title, name, registryUrl, description, documentation, command, itemProps }: RegistryItemViewerProps) {
   const detailsId = useId();
   const [activePanel, setActivePanel] = useState<RegistryItemViewerPanel | null>(null);
   const [installCopyStatus, setInstallCopyStatus] = useState("");
+  const [componentProps, setComponentProps] = useState(() => defaultPreviewProps(itemProps));
   const [actionBarOffset, setActionBarOffset] = useState({ x: 0, y: 0 });
   const previewAreaRef = useRef<HTMLDivElement>(null);
   const actionDragStartRef = useRef<{ pointerX: number; pointerY: number; x: number; y: number; rect: DOMRect; bounds: DOMRect } | null>(null);
@@ -51,6 +56,15 @@ export default function RegistryItemViewer({ title, name, registryUrl, descripti
     setActionBarOffset({
       x: Math.min(Math.max(x, start.x + start.bounds.left - start.rect.left), start.x + start.bounds.right - start.rect.right),
       y: Math.min(Math.max(y, start.y + start.bounds.top - start.rect.top), start.y + start.bounds.bottom - start.rect.bottom),
+    });
+  }
+
+  function setComponentProp(propName: string, value: string | number | boolean | undefined) {
+    setComponentProps(current => {
+      const next = { ...current };
+      if (value === undefined) delete next[propName];
+      else next[propName] = value;
+      return next;
     });
   }
 
@@ -130,7 +144,7 @@ export default function RegistryItemViewer({ title, name, registryUrl, descripti
           </span>
           <OpenInV0 name={name} registryUrl={registryUrl} />
         </div>
-        {children}
+        <ComponentPreview name={name} componentProps={componentProps} />
       </div>
       <aside
         id={`${detailsId}-sidebar`}
@@ -199,6 +213,38 @@ export default function RegistryItemViewer({ title, name, registryUrl, descripti
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               {description}
             </p>
+            {itemProps.length > 0 && (
+              <div className="mt-6 border-t border-border pt-5">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-sm font-medium">Props</h3>
+                  <button type="button" onClick={() => setComponentProps(defaultPreviewProps(itemProps))} className="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-ring">Reset</button>
+                </div>
+                <p className="mt-1 text-xs leading-5 text-muted-foreground">Edit values to update the preview.</p>
+                <div className="mt-4 space-y-4">
+                  {itemProps.map(prop => {
+                    const propId = `${detailsId}-${prop.name}`;
+                    const value = componentProps[prop.name];
+                    return (
+                      <div key={prop.name} className="min-w-0 border-b border-border pb-4 last:border-b-0">
+                        <div className="flex flex-wrap items-baseline justify-between gap-2">
+                          <label htmlFor={prop.control ? propId : undefined} className="font-mono text-xs font-medium">{prop.name}{prop.required ? " *" : ""}</label>
+                          <code className="max-w-full break-all text-[11px] text-muted-foreground">{prop.type}</code>
+                        </div>
+                        {prop.control === "boolean" ? (
+                          <input id={propId} type="checkbox" checked={Boolean(value)} onChange={event => setComponentProp(prop.name, event.target.checked)} className="mt-2 size-4 accent-primary" />
+                        ) : prop.control === "number" ? (
+                          <input id={propId} type="number" step="any" value={typeof value === "number" ? value : ""} onChange={event => setComponentProp(prop.name, event.target.value === "" ? undefined : Number(event.target.value))} placeholder={prop.defaultValue === undefined ? "Optional" : undefined} className="mt-2 w-full border border-border bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-ring" />
+                        ) : prop.control === "text" ? (
+                          <input id={propId} type="text" value={typeof value === "string" ? value : ""} onChange={event => setComponentProp(prop.name, event.target.value)} className="mt-2 w-full border border-border bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-ring" />
+                        ) : (
+                          <p className="mt-2 text-xs text-muted-foreground">Pass this prop in code.</p>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
             <div className="mt-6 min-w-0 max-w-full border-t border-border pt-5 [&_pre]:max-w-full [&_pre]:overflow-x-auto [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto">
               {documentation}
             </div>

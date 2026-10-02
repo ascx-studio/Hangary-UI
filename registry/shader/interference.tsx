@@ -24,10 +24,9 @@ export type InterferenceProps = { frequency?: number; paused?: boolean; classNam
 export function Interference({ frequency = 42, paused = false, className = "" }: InterferenceProps) {
   return <ShaderCanvas
     fragment={fragment}
-    label="Interference field / signal study"
+
     frequency={frequency}
     paused={paused}
     className={className}
-    background="radial-gradient(ellipse at center, color-mix(in oklab, var(--primary) 45%, var(--secondary)), var(--secondary) 70%)"
   />;
 }

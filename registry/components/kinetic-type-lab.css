@@ -29,11 +29,6 @@
   animation-play-state: paused;
 }
 
-.ktl-range {
-  accent-color: #78a626;
-  cursor: pointer;
-}
-
 @keyframes ktl-wave {
   from { transform: translateY(var(--wave-height)); }
   to { transform: translateY(calc(var(--wave-height) * -1)); }

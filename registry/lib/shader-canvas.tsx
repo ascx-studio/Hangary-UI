@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export type ShaderTint = readonly [number, number, number] | string;
-export type ShaderCanvasProps = { fragment: string; label: string; className?: string; paused?: boolean; tint?: ShaderTint; frequency?: number; background?: string };
+export type ShaderCanvasProps = { fragment: string; className?: string; paused?: boolean; tint?: ShaderTint; frequency?: number; };
 
 function resolveCssColor(color: string, element: HTMLElement): readonly [number, number, number] {
   const probe = document.createElement("span");
@@ -23,7 +23,7 @@ function resolveCssColor(color: string, element: HTMLElement): readonly [number,
 }
 
 /** Shared WebGL surface. Stops animation while hidden or when reduced motion is requested. */
-export function ShaderCanvas({ fragment, label, className = "", paused = false, tint = "var(--primary)", frequency = 42, background = "radial-gradient(ellipse at 30% 40%, color-mix(in oklab, var(--primary) 35%, var(--secondary)), var(--secondary) 50%, var(--background))" }: ShaderCanvasProps) {
+export function ShaderCanvas({ fragment, className = "", paused = false, tint = "var(--primary)", frequency = 42 }: ShaderCanvasProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const elapsedRef = useRef(0);
   const tintRef = useRef<readonly [number, number, number]>([0.5, 0.5, 0.5]);
@@ -41,9 +41,7 @@ export function ShaderCanvas({ fragment, label, className = "", paused = false, 
     return () => themeObserver.disconnect();
   }, [tint]);
   useEffect(() => { frequencyRef.current = frequency; }, [frequency]);
-  const [stopped, setStopped] = useState(false);
   const [generation, setGeneration] = useState(0);
-  const frozen = paused || stopped;
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -85,7 +83,7 @@ export function ShaderCanvas({ fragment, label, className = "", paused = false, 
     function draw(now: number) {
       if (!gl || !canvas || lost) return;
       frame = 0;
-      const animate = !frozen && !motion.matches && visible && !document.hidden;
+      const animate = !paused && !motion.matches && visible && !document.hidden;
       if (animate && previous) elapsed += Math.min(now - previous, 50) / 1000;
       elapsedRef.current = elapsed;
       previous = animate ? now : 0;
@@ -119,7 +117,7 @@ export function ShaderCanvas({ fragment, label, className = "", paused = false, 
       document.removeEventListener("visibilitychange", refresh); motion.removeEventListener("change", refresh);
       gl.deleteBuffer(buffer); cleanup();
     };
-  }, [fragment, frozen, generation, vertexPositions]);
+  }, [fragment, paused, generation, vertexPositions]);
   return <div className={`h-full min-h-64 w-full overflow-hidden ${className}`}>
     <canvas ref={ref} aria-hidden="true" className="inset-0 h-full w-full" />
   </div>;

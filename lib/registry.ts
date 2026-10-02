@@ -1,8 +1,6 @@
-import { readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import registry from '@/registry.json'
-import generatedRegistry from '@/public/r/registry.json'
 import packageJson from '@/package.json'
 
 export type RegistryCategory = 'components' | 'blocks' | 'shader' | 'utils'
@@ -36,7 +34,6 @@ const unavailablePaths = new Set(registry.items.filter(item =>
 const items: RegistryItem[] = registry.items.filter(item =>
   !unavailablePaths.has(item.files[0]?.path) && item.files.every(file => existsSync(path.resolve(process.cwd(), file.path)))
 )
-const generatedNames = new Set(generatedRegistry.items.map((item) => item.name))
 const categories: RegistryCategory[] = ['components', 'blocks', 'shader', 'utils']
 
 export function getRegistryCategory(item: RegistryItem): RegistryCategory {
@@ -61,20 +58,4 @@ export function getRegistryItem(name: string, category?: RegistryCategory): Regi
 
 export function getRegistryItemHref(item: RegistryItem): string {
   return `/${getRegistryCategory(item)}/${item.name}`
-}
-
-/** A generated artifact exists locally; this does not assert remote deployment. */
-export function getRegistryItemStatus(item: RegistryItem): 'ready' | 'source-only' {
-  return generatedNames.has(item.name) ? 'ready' : 'source-only'
-}
-
-export async function getRegistrySourceFiles(item: RegistryItem): Promise<Array<RegistryFile & { content: string }>> {
-  const root = process.cwd()
-  return Promise.all(item.files.map(async (file) => {
-    const absolutePath = path.resolve(root, file.path)
-    if (!absolutePath.startsWith(`${root}${path.sep}`)) {
-      throw new Error(`Registry source must be inside the project: ${file.path}`)
-    }
-    return { ...file, content: await readFile(absolutePath, 'utf8') }
-  }))
 }

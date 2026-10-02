@@ -1,59 +1,42 @@
-import PageEntrance from "@/components/PageEntrance";
 import Container from "@/components/layout/Container";
-import Button from "@/components/Button";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   return (
-    <PageEntrance>
-      <>
-        <Container className="relative flex min-h-[90dvh] max-w-7xl w-full flex-col items-center justify-center gap-12 py-4 md:flex-row md:justify-around">
-          <div className="relative z-10 w-full max-w-xl md:mr-auto md:w-1/2">
-            <div className="mt-8 w-full max-w-xl space-y-6 md:mt-0 md:pr-10">
+    <div className="page-entrance w-full min-w-0">
+      <main className="relative isolate min-h-[90dvh] overflow-hidden">
+        <Container className="flex min-h-[calc(100dvh-4rem)] max-w-7xl w-full flex-col justify-center py-12 sm:py-16 md:py-20">
+          <div className="w-full max-w-2xl">
+            <div className="w-full space-y-7">
               <Image
                 src="/wordmark.png"
                 alt="Hangry UI wordmark"
                 width={400}
                 height={100}
                 priority
-                className="h-auto w-[min(100%,25rem)] drop-shadow-2xl"
+                className="h-auto w-[min(100%,28rem)] drop-shadow-2xl"
+                style={{ height: "auto" }}
               />
-              <p className="max-w-md text-lg leading-8 font-light text-muted-foreground transition-colors duration-200 hover:text-foreground">
+              <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">
                 Explore React components, page blocks, backgrounds, and utility
                 code built with Tailwind CSS. Browse the source and make it your own.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button variant="primary" href="/components" type="link">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link href="/components" className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-primary bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                   View Components
-                </Button>
-                <Button
-                  variant="neutral"
-                  type="link"
+                </Link>
+                <Link
                   href="https://github.com/razeevascx/lazy-ui"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-border bg-card px-5 py-2 text-sm font-semibold text-card-foreground shadow-sm transition-colors hover:bg-card/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
                   Star on GitHub
-                </Button>
+                </Link>
               </div>
-              <nav aria-label="Browse the library" className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-                {[
-                  { href: '/blocks', label: 'Blocks' },
-                  { href: '/shader', label: 'Backgrounds' },
-                  { href: '/utils', label: 'Utility code' },
-                ].map((link) => (
-                  <Link key={link.href} href={link.href} className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
             </div>
           </div>
         </Container>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-full bg-[url('/Background.png')] bg-contain bg-right bg-no-repeat bg-linear-to-r from-background to-background/20 opacity-5 md:block md:opacity-40"
-        />
-      </>
-    </PageEntrance>
+      </main>
+    </div>
   );
 }

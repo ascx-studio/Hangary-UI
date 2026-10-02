@@ -171,6 +171,28 @@
       "dependencies": []
     },
     {
+      "name": "kinetic-type-lab",
+      "type": "registry:component",
+      "title": "Kinetic Type Lab",
+      "description": "An animated typography component with configurable text, motion, tempo, and spacing.",
+      "files": [
+        {
+          "path": "registry/components/kinetic-type-lab.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/components/kinetic-type-lab.tsx"
+        },
+        {
+          "path": "registry/components/kinetic-type-lab.css",
+          "type": "registry:file",
+          "target": "@components/lazy-ui/components/kinetic-type-lab.css"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
       "name": "lazy-lib-shader-canvas",
       "type": "registry:lib",
       "title": "Shader Canvas",
@@ -487,7 +509,7 @@
       "name": "studio-footer",
       "type": "registry:block",
       "title": "Studio Footer",
-      "description": "A compact horizontal footer bar with brand, page links, and copyright details.",
+      "description": "A dark studio footer with a strong contact headline, focused navigation, and oversized brand wordmark.",
       "files": [
         {
           "path": "registry/blocks/studio-footer.tsx",
@@ -509,7 +531,7 @@
       "name": "studio-hero",
       "type": "registry:block",
       "title": "Studio Hero",
-      "description": "An editorial landing hero with a strong headline, two clear actions, and a quiet visual backdrop.",
+      "description": "A bold studio landing hero with a luminous grid, oversized headline, two clear actions, and a compact process row.",
       "files": [
         {
           "path": "registry/blocks/studio-hero.tsx",

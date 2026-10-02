@@ -1,9 +1,8 @@
-import Card from "@/components/ui/Card";
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/cn";
 import Container from "@/components/layout/Container";
 
-type PreviewProps = ComponentProps<typeof Card>;
+type PreviewProps = ComponentProps<"section">;
 
 export default function Preview({ children, className, ...props }: PreviewProps) {
   return (

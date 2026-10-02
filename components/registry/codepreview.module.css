@@ -1,11 +1,16 @@
+@keyframes code-entrance {
+  from { opacity: 0.6; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .entrance {
   width: 100%;
+  animation: code-entrance 0.25s ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .entrance {
-    opacity: 1 !important;
-    transform: none !important;
+    animation: none;
   }
 }
 

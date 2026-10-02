@@ -19,5 +19,5 @@ void main(){
 }`;
 
 export function AuroraVeil({ paused = false, tint = "var(--primary)", className = "" }: { paused?: boolean; tint?: ShaderTint; className?: string }) {
-  return <ShaderCanvas fragment={fragment} label="Aurora veil / daylight study" paused={paused} tint={tint} className={className} />;
+  return <ShaderCanvas fragment={fragment} paused={paused} tint={tint} className={className} />;
 }

@@ -67,7 +67,7 @@
 
 .dark {
   color-scheme: dark;
-  --background: oklch(0.1822 0 0);
+  --background: oklch(0% 0 0);
   --foreground: oklch(1.0000 0 0);
   --card: oklch(0.2090 0 0);
   --card-foreground: oklch(1.0000 0 0);
@@ -199,4 +199,15 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+}
+
+@keyframes page-entrance {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+.page-entrance { animation: page-entrance 0.3s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-entrance { animation: none; }
 }

@@ -20,10 +20,11 @@ const logoVariants: Record<LogoVariant, Pick<ImageProps, "src" | "alt" | "width"
 type LogoProps = Readonly<{
   variant?: LogoVariant
 }> &
-  Pick<ImageProps, "className" | "priority" | "sizes">
+  Pick<ImageProps, "className" | "priority" | "sizes" | "style">
 
 export default function Logo({ variant = "wordmark", ...imageProps }: LogoProps) {
   const logo = logoVariants[variant]
+  const { style, ...props } = imageProps
 
   return (
     <Image
@@ -31,7 +32,8 @@ export default function Logo({ variant = "wordmark", ...imageProps }: LogoProps)
       alt={logo.alt}
       width={logo.width}
       height={logo.height}
-      {...imageProps}
+      style={{ height: "auto", ...style }}
+      {...props}
     />
   )
 }

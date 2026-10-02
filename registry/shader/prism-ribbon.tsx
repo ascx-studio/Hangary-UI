@@ -24,5 +24,5 @@ void main(){
 }`;
 
 export function PrismRibbon({ paused = false, className = "" }: { paused?: boolean; className?: string }) {
-  return <ShaderCanvas fragment={fragment} label="Prism ribbon / spectral study" paused={paused} className={className} />;
+  return <ShaderCanvas fragment={fragment} paused={paused} className={className} />;
 }

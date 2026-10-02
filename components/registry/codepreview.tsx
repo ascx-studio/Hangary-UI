@@ -1,5 +1,4 @@
 import type { ComponentProps } from "react";
-import * as motion from "motion/react-client";
 import hljs from "highlight.js/lib/common";
 import { cn } from "@/lib/cn";
 import styles from "./codepreview.module.css";
@@ -22,11 +21,8 @@ export default function CodePreview({
     : null;
 
   return (
-    <motion.div
+    <div
       className={cn(styles.entrance, "min-w-0")}
-      initial={{ opacity: 0.6, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
     >
       <pre
         tabIndex={0}
@@ -48,6 +44,6 @@ export default function CodePreview({
           />
         )}
       </pre>
-    </motion.div>
+    </div>
   );
 }

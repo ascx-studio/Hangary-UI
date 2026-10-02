@@ -3,6 +3,7 @@
     "components": {
       "title": "Components",
       "items": [
+        { "label": "Kinetic Type Lab", "slug": "kinetic-type-lab" },
         { "label": "Orbit Selector", "slug": "orbit-selector" },
         { "label": "Season Timeline", "slug": "season-timeline" },
         { "label": "Secret Ticket", "slug": "secret-ticket" },
@@ -57,6 +58,13 @@
         { "label": "Dither Field", "slug": "dither-field" },
         { "label": "Interference", "slug": "interference" },
         { "label": "Prism Ribbon", "slug": "prism-ribbon" }
+      ]
+    },
+    "utils": {
+      "title": "Utilities",
+      "items": [
+        { "label": "Shader Canvas", "slug": "lazy-lib-shader-canvas" },
+        { "label": "Morph CSS", "slug": "morph-css" }
       ]
     }
   }

@@ -3,7 +3,27 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { test } from 'node:test'
-import { generateRegistry, planDocumentation, writeDocumentation } from './update-registry.mjs'
+import { generateRegistry, planDocumentation, planPreviews, writeDocumentation } from './update-registry.mjs'
+
+test('generates preview imports and editable prop metadata from component signatures', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-preview-props-'))
+  try {
+    const entry = 'registry/components/text-widget.tsx'
+    fs.mkdirSync(path.dirname(path.join(root, entry)), { recursive: true })
+    fs.writeFileSync(path.join(root, entry), 'export function TextWidget({ text = "Hello", speed = 2, paused = false, onChange }: { text?: string; speed?: number; paused?: boolean; onChange?: (value: string) => void }) { return null }')
+    const registry = { items: [{ name: 'text-widget', meta: { category: 'components' }, files: [{ path: entry }] }] }
+    const writes = planPreviews(root, registry)
+    assert.ok(writes.get('components/registry/preview-entries.ts').includes('component: TextWidget'))
+    const props = writes.get('components/registry/preview-props.ts')
+    assert.ok(props.includes('"text","type":"string","required":false,"control":"text","defaultValue":"Hello"'))
+    assert.ok(props.includes('"paused","type":"boolean","required":false,"control":"boolean","defaultValue":false'))
+    assert.ok(props.includes('"onChange","type":"(value: string) => void","required":false,"control":null'))
+    writeDocumentation(root, writes)
+    assert.equal(planPreviews(root, registry).size, 0)
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true })
+  }
+})
 
 test('bundles components and shaders into blocks in the flat registry layout', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-registry-'))
@@ -33,36 +53,34 @@ test('bundles components and shaders into blocks in the flat registry layout', (
 })
 
 test('syncs entries, dependency closures, assets, and metadata deterministically', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nova-blue-registry-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-registry-'))
   const write = (file, content) => {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
     fs.writeFileSync(path.join(root, file), content)
   }
-  const entry = 'registry/nova-blue/ui/example.tsx'
+  const entry = 'registry/ui/example.tsx'
   const item = { name: 'example', type: 'registry:ui', title: 'Custom title', description: 'Keep this description.', files: [{ path: entry, type: 'registry:ui' }], meta: { preview: 'custom' } }
   try {
     write('package.json', JSON.stringify({ dependencies: { '@example/icons': '^2.0.0' } }))
-    write('registry.json', JSON.stringify({ name: 'test', homepage: 'https://example.com', items: [item, { ...item, name: 'duplicate' }, { ...item, name: 'deleted', files: [{ path: 'registry/nova-blue/ui/deleted.tsx', type: 'registry:ui' }] }] }))
+    write('registry.json', JSON.stringify({ name: 'test', homepage: 'https://example.com', items: [item, { ...item, name: 'duplicate' }, { ...item, name: 'deleted', files: [{ path: 'registry/ui/deleted.tsx', type: 'registry:ui' }] }] }))
     write(entry, 'import { helper } from "../lib/helper"; export const Example = () => <img src="/example.svg" />;')
-    write('registry/nova-blue/lib/helper.ts', 'export { other as helper } from "./other";')
-    write('registry/nova-blue/lib/other.ts', 'import "./helper"; import "node:fs"; import "@example/icons/react"; export const other = 1;')
-    write('registry/nova-blue/styles/portfolio.css', '@import "./tokens.css";')
-    write('registry/nova-blue/styles/tokens.css', ':root { --example: green; }')
+    write('registry/lib/helper.ts', 'export { other as helper } from "./other";')
+    write('registry/lib/other.ts', 'import "./helper"; import "node:fs"; import "@example/icons/react"; export const other = 1;')
     write('public/example.svg', '<svg />')
     let output = generateRegistry(root)
-    assert.equal(output.items.length, 5)
+    assert.equal(output.items.length, 3)
     const example = output.items.find(item => item.name === 'example')
     assert.equal(example.title, 'Custom title')
     assert.equal(example.meta.preview, 'custom')
     assert.deepEqual(example.dependencies, ['@example/icons@^2.0.0'])
-    assert.equal(example.files.length, 6)
+    assert.equal(example.files.length, 4)
     assert.ok(example.files.some(file => file.target === 'public/example.svg'))
     assert.equal(new Set(output.items.map(item => item.files[0].path)).size, output.items.length)
     write('registry.json', JSON.stringify(output))
     assert.deepEqual(generateRegistry(root), output)
-    write('registry/nova-blue/ui/new.tsx', 'export default function New() { return null }')
+    write('registry/ui/new.tsx', 'export default function New() { return null }')
     output = generateRegistry(root)
-    assert.ok(output.items.some(item => item.name === 'nova-blue-ui-new'))
+    assert.ok(output.items.some(item => item.name === 'lazy-ui-new'))
     fs.unlinkSync(path.join(root, entry))
     assert.ok(!generateRegistry(root).items.some(item => item.name === 'example'))
     const beforeFailure = fs.readFileSync(path.join(root, 'registry.json'), 'utf8')
@@ -78,14 +96,14 @@ test('syncs entries, dependency closures, assets, and metadata deterministically
 
 test('creates categorized MDX and loaders without replacing edited docs', async () => {
   const { compile } = await import('@mdx-js/mdx')
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nova-blue-docs-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-docs-'))
   const registry = {
     homepage: 'https://example.com/',
     items: ['components', 'blocks', 'shader', 'utils'].map(category => ({
       name: `example-${category}`,
       description: 'Example <Widget> with {children} & content.',
       meta: { category },
-      files: [{ path: 'registry/nova-blue/ui/example.tsx', target: '@components/lazy-ui/ui/example.tsx' }],
+      files: [{ path: 'registry/ui/example.tsx', target: '@components/lazy-ui/ui/example.tsx' }],
     })),
   }
   try {
@@ -112,30 +130,6 @@ test('creates categorized MDX and loaders without replacing edited docs', async 
     assert.ok(fs.readFileSync(edited, 'utf8').includes('Keep this content.'))
     fs.unlinkSync(path.join(root, 'docs/blocks/example-blocks.mdx'))
     assert.ok(planDocumentation(root, registry).has('docs/blocks/example-blocks.mdx'))
-  } finally {
-    fs.rmSync(root, { recursive: true, force: true })
-  }
-})
-
-test('omits portfolio prefixes in doc paths and keeps distinct logo documents', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nova-blue-doc-names-'))
-  try {
-    const registry = {
-      homepage: 'https://example.com',
-      items: [
-        { name: 'portfolio-container', meta: { category: 'components' }, files: [{ path: 'registry/nova-blue/components/container.tsx' }] },
-        { name: 'portfolio-logo', meta: { category: 'components' }, files: [{ path: 'registry/nova-blue/components/logo.tsx' }] },
-        { name: 'logo', meta: { category: 'components' }, files: [{ path: 'registry/nova-blue/ui/logo.tsx' }] },
-      ],
-    }
-    const writes = planDocumentation(root, registry)
-    assert.ok(writes.has('docs/components/container.mdx'))
-    assert.ok(writes.has('docs/components/components-logo.mdx'))
-    assert.ok(writes.has('docs/components/logo.mdx'))
-    assert.ok(![...writes.keys()].some(file => file.includes('/portfolio-')))
-    assert.ok(writes.get('docs/index.ts').includes('"portfolio-container": () => import("@/docs/components/container.mdx")'))
-    writeDocumentation(root, writes)
-    assert.equal(planDocumentation(root, registry).size, 0)
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
   }

@@ -7,6 +7,7 @@ export const documentation = {
   "dither-field": () => import("@/docs/shader/dither-field.mdx"),
   "editorial-navbar": () => import("@/docs/blocks/editorial-navbar.mdx"),
   "interference": () => import("@/docs/shader/interference.mdx"),
+  "kinetic-type-lab": () => import("@/docs/components/kinetic-type-lab.mdx"),
   "lazy-lib-shader-canvas": () => import("@/docs/utils/lazy-lib-shader-canvas.mdx"),
   "listening-station": () => import("@/docs/blocks/listening-station.mdx"),
   "magic-link-sign-in": () => import("@/docs/blocks/magic-link-sign-in.mdx"),

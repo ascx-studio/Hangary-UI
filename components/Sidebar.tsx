@@ -6,7 +6,6 @@ import { ChevronDown, Heart, PanelLeft, PanelLeftClose } from 'lucide-react'
 import { useState } from 'react'
 import { GitHubDark } from '@ridemountainpig/svgl-react'
 import sidebarData from '@/data/sidebar.json'
-import Logo from '@/components/ui/Logo'
 import Icon from '@/components/Icon'
 import { browseSection } from '@/data/Navlinks'
 import type { RegistryCategory } from '@/lib/registry'
@@ -18,7 +17,6 @@ function BrandDropdown() {
 
   return (
     <div className="relative mb-8 flex items-center gap-2 px-2">
-      <Link href="/" aria-label="Hangry UI home" className="shrink-0 rounded-md focus-visible:outline-2 focus-visible:outline-sidebar-ring"><Logo variant="logo" className="size-10 shrink-0" /></Link>
       <details className="group/browse" onKeyDown={event => {
         if (event.key !== 'Escape') return
         event.stopPropagation()
@@ -26,8 +24,8 @@ function BrandDropdown() {
         event.currentTarget.querySelector('summary')?.focus()
       }}>
         <summary aria-label={`Browse library, current section: ${current?.label ?? section.label}`} title={current?.label ?? section.label} className="flex cursor-pointer list-none items-center gap-2 rounded-md px-2 py-2 text-sm font-medium hover:bg-sidebar-accent focus-visible:outline-2 focus-visible:outline-sidebar-ring [&::-webkit-details-marker]:hidden">
-          {current && <Icon name={current.icon} size={18} className="shrink-0" />}
-          <span>{current?.label ?? section.label}</span>
+
+          <span className="text-md">{current?.label ?? section.label}</span>
           <ChevronDown size={18} aria-hidden="true" className="shrink-0 transition-transform group-open/browse:rotate-180 motion-reduce:transition-none" />
         </summary>
         <nav aria-label="Browse library" className="absolute inset-x-0 top-full z-30 mt-2 rounded-lg border border-sidebar-border bg-popover p-2 text-popover-foreground shadow-xl">
@@ -66,13 +64,13 @@ function Navigation({ category }: { category: RegistryCategory }) {
     <nav aria-label="Documentation navigation" className="space-y-10">
       {sections.map(section => (
         <div key={section.title}>
-          <h2 className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-muted-foreground/80">{section.title}</h2>
-          <ul className="space-y-3 pl-8">
+          <h2 className="mb-2 text-sm font-semibold text-muted-foreground/80">{section.title}</h2>
+          <ul className="space-y-3 pl-4">
             {section.links.map(link => {
               const active = pathname === link.href
               return (
                 <li key={link.href}>
-                  <Link href={link.href} aria-current={active ? 'page' : undefined} className={`flex min-w-0 items-center py-0.5 text-[1.0625rem] font-medium leading-8 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sidebar-ring ${active ? 'text-sidebar-foreground' : 'text-muted-foreground hover:text-sidebar-foreground'}`}>
+                  <Link href={link.href} aria-current={active ? 'page' : undefined} className={`flex min-w-0 items-center py-0.5 text-sm font-medium leading-8 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sidebar-ring ${active ? 'text-sidebar-foreground' : 'text-muted-foreground hover:text-sidebar-foreground'}`}>
                     {link.label}
                   </Link>
                 </li>
@@ -89,7 +87,7 @@ function SidebarFooter() {
   const linkClass = "inline-flex items-center gap-2 rounded-sm py-2 text-sm text-muted-foreground hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring"
   return (
     <nav aria-label="Support and community" className="mt-auto flex items-center justify-center gap-3 pt-8">
-      <Link href="/sponser" className={linkClass}><Heart size={16} aria-hidden="true" />Support</Link>
+      <Link href="/support" className={linkClass}><Heart size={16} aria-hidden="true" />Support</Link>
       <span aria-hidden="true" className="text-muted-foreground">|</span>
       <a href="https://github.com/razeevascx/lazy-ui" target="_blank" rel="noreferrer" className={linkClass}><GitHubDark className="size-4" aria-hidden="true" />GitHub</a>
     </nav>
@@ -101,22 +99,22 @@ export default function Sidebar({ category }: { category: RegistryCategory }) {
   return (
     <>
       {desktopOpen ? (
-        <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col overflow-y-auto border-r border-sidebar-border bg-sidebar px-4 py-6 text-sidebar-foreground md:flex">
+        <aside className="sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto border-r border-sidebar-border px-4 py-6 text-sidebar-foreground md:flex">
           <div className="flex items-start justify-between gap-2">
-            <div className="min-w-0 flex-1"><BrandDropdown /></div>
+            <div className="min-w-0 flex-1">
+              <BrandDropdown />
+            </div>
             <button type="button" onClick={() => setDesktopOpen(false)} aria-label="Close sidebar" title="Close sidebar" className="mt-1 inline-flex size-9 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring">
-              <PanelLeftClose size={18} aria-hidden="true" />
+              <PanelLeftClose size={22} aria-hidden="true" />
             </button>
           </div>
           <Navigation category={category} />
           <SidebarFooter />
         </aside>
       ) : (
-        <div className="sticky top-0 hidden h-dvh w-12 shrink-0 flex-col items-center border-r border-sidebar-border bg-sidebar py-4 md:flex">
-          <button type="button" onClick={() => setDesktopOpen(true)} aria-label="Open sidebar" title="Open sidebar" className="inline-flex size-9 items-center justify-center rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring">
-            <PanelLeft size={18} aria-hidden="true" />
-          </button>
-        </div>
+        <button type="button" onClick={() => setDesktopOpen(true)} aria-label="Open sidebar" title="Open sidebar" className="fixed left-4 top-4 z-30 hidden size-10 items-center justify-center rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring md:inline-flex">
+          <PanelLeft size={20} aria-hidden="true" />
+        </button>
       )}
       <details className="group border-b border-sidebar-border bg-sidebar text-sidebar-foreground md:hidden">
         <summary className="flex cursor-pointer list-none items-center gap-3 p-4 focus-visible:outline-2 focus-visible:outline-sidebar-ring [&::-webkit-details-marker]:hidden">

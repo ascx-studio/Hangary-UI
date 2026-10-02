@@ -9,10 +9,9 @@ const supported = /\.(tsx?|jsx?|css|svg)$/
 const compare = (a, b) => a < b ? -1 : a > b ? 1 : 0
 const packageName = (specifier) => specifier.startsWith('@')
   ? specifier.split('/').slice(0, 2).join('/') : specifier.split('/')[0]
-const registrySourceRoot = (root) => fs.existsSync(path.join(root, 'registry/nova-blue')) ? 'registry/nova-blue/' : 'registry/'
 
 export function generateRegistry(root) {
-  const sourceRoot = registrySourceRoot(root)
+  const sourceRoot = 'registry/'
   const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))
   const previous = readJson('registry.json')
   const manifest = readJson('package.json')
@@ -84,7 +83,8 @@ export function generateRegistry(root) {
     return 'registry:component'
   }
   const usedNames = new Set([...unrelated, ...existing.values()].map(item => item.name))
-  const items = sources.map(entry => {
+  const entrySources = sources.filter(file => !file.endsWith('.css') || file.startsWith(`${sourceRoot}styles/`))
+  const items = entrySources.map(entry => {
     const old = existing.get(entry)
     const relative = entry.slice(sourceRoot.length)
     const folder = relative.split('/')[0]
@@ -94,7 +94,7 @@ export function generateRegistry(root) {
       const shortBlockName = folder === 'blocks'
       name = shortBlockName
         ? relative.replace(/\.[^.]+$/, '').split('/').at(-1)
-        : `${sourceRoot.includes('nova-blue') ? 'nova-blue' : 'lazy'}-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
+        : `lazy-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
       if (usedNames.has(name)) throw new Error(`Registry name collision: ${name}`)
       usedNames.add(name)
     }
@@ -110,9 +110,6 @@ export function generateRegistry(root) {
       for (const local of info.local) include(local)
     }
     include(entry)
-    // Portfolio theme utilities are used via class names, not JS imports.
-    const stylesheet = `${sourceRoot}styles/portfolio.css`
-    if (['components', 'blocks', 'shader'].includes(category) && sourceSet.has(stylesheet)) include(stylesheet)
     const files = [entry, ...[...bundled].filter(file => file !== entry).sort(compare)].map(file => ({
       path: file, type: fileType(file), target: `@components/lazy-ui/${file.slice(sourceRoot.length)}`,
     }))
@@ -140,7 +137,7 @@ const markdownText = (value) => String(value)
 
 // Return planned writes so --check can report drift without creating files.
 export function planDocumentation(root, registry) {
-  const sourceRoot = registrySourceRoot(root)
+  const sourceRoot = 'registry/'
   const docsDirectory = 'docs'
   const writes = new Map()
   const loaders = []
@@ -150,8 +147,7 @@ export function planDocumentation(root, registry) {
     const category = item.meta?.category
     if (!['components', 'blocks', 'shader', 'utils'].includes(category)) throw new Error(`Unsupported documentation category: ${category}`)
     if (!/^[a-zA-Z0-9_-]+$/.test(item.name)) throw new Error(`Invalid documentation filename: ${item.name}`)
-    const basename = item.name
-    const relative = `${docsDirectory}/${category}/${basename}.mdx`
+    const relative = `${docsDirectory}/${category}/${item.name}.mdx`
     if (docPaths.has(relative)) throw new Error(`Documentation filename collision: ${relative}`)
     docPaths.add(relative)
     if (!fs.existsSync(path.join(root, relative))) {
@@ -178,6 +174,82 @@ export function planDocumentation(root, registry) {
   return writes
 }
 
+export function planPreviews(root, registry) {
+  const previewItems = registry.items.filter(item => ['components', 'blocks', 'shader'].includes(item.meta?.category))
+  const imports = []
+  const entries = []
+  const propEntries = []
+  for (const item of previewItems) {
+    const entry = item.files[0]?.path
+    if (!entry?.endsWith('.tsx')) throw new Error(`Preview source must be TSX: ${item.name}`)
+    const component = item.name.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join('')
+    const source = ts.createSourceFile(entry, fs.readFileSync(path.join(root, entry), 'utf8'), ts.ScriptTarget.Latest, true)
+    const exported = source.statements.find(statement => ts.isFunctionDeclaration(statement)
+      && statement.name?.text === component
+      && statement.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.ExportKeyword))
+    if (!exported) throw new Error(`Missing preview export ${component}: ${entry}`)
+    const parameter = exported.parameters[0]
+    let propsType = parameter?.type
+    if (propsType && ts.isTypeReferenceNode(propsType)) {
+      const name = propsType.typeName.getText(source)
+      const declaration = source.statements.find(statement => (ts.isTypeAliasDeclaration(statement) || ts.isInterfaceDeclaration(statement)) && statement.name.text === name)
+      propsType = declaration && ts.isTypeAliasDeclaration(declaration) ? declaration.type : declaration
+    }
+    const defaults = new Map()
+    if (parameter?.name && ts.isObjectBindingPattern(parameter.name)) {
+      for (const element of parameter.name.elements) {
+        if (ts.isIdentifier(element.name) && element.initializer) defaults.set(element.name.text, element.initializer)
+      }
+    }
+    const members = propsType && (ts.isTypeLiteralNode(propsType) || ts.isInterfaceDeclaration(propsType)) ? propsType.members : []
+    const props = members.filter(ts.isPropertySignature).map(member => {
+      const name = member.name.getText(source)
+      const type = member.type?.getText(source).replace(/\s+/g, ' ') ?? 'unknown'
+      let control = member.type?.kind === ts.SyntaxKind.StringKeyword ? 'text'
+        : member.type?.kind === ts.SyntaxKind.NumberKeyword ? 'number'
+          : member.type?.kind === ts.SyntaxKind.BooleanKeyword ? 'boolean' : null
+      const initializer = defaults.get(name)
+      let defaultValue
+      if (initializer && ts.isStringLiteralLike(initializer)) defaultValue = initializer.text
+      else if (initializer && (ts.isNumericLiteral(initializer) || ts.isPrefixUnaryExpression(initializer))) {
+        const parsed = Number(initializer.getText(source))
+        if (Number.isFinite(parsed)) defaultValue = parsed
+      } else if (initializer?.kind === ts.SyntaxKind.TrueKeyword) defaultValue = true
+      else if (initializer?.kind === ts.SyntaxKind.FalseKeyword) defaultValue = false
+      if (!control && typeof defaultValue === 'string') control = 'text'
+      else if (!control && typeof defaultValue === 'number') control = 'number'
+      else if (!control && typeof defaultValue === 'boolean') control = 'boolean'
+      return { name, type, required: !member.questionToken && !initializer, control, ...(defaultValue === undefined ? {} : { defaultValue }) }
+    })
+    imports.push(`import { ${component} } from ${JSON.stringify(`@/${entry.replace(/\.tsx$/, '')}`)};`)
+    entries.push(`  ${JSON.stringify(item.name)}: { component: ${component}, category: ${JSON.stringify(item.meta.category)} },`)
+    propEntries.push(`  ${JSON.stringify(item.name)}: ${JSON.stringify(props)},`)
+  }
+  const previewContent = [
+    '// Generated by scripts/update-registry.mjs from registry.json. Do not edit by hand.',
+    'import type { ComponentType } from "react";',
+    ...imports,
+    '',
+    'export const previewEntries: Record<string, { component: ComponentType; category: "components" | "blocks" | "shader" }> = {',
+    ...entries,
+    '};',
+    '',
+  ].join('\n')
+  const propsContent = [
+    '// Generated by scripts/update-registry.mjs from registry component signatures. Do not edit by hand.',
+    'export type PreviewProp = { name: string; type: string; required: boolean; control: "text" | "number" | "boolean" | null; defaultValue?: string | number | boolean };',
+    'export const previewProps: Record<string, PreviewProp[]> = {',
+    ...propEntries,
+    '};',
+    '',
+  ].join('\n')
+  const files = new Map([
+    ['components/registry/preview-entries.ts', previewContent],
+    ['components/registry/preview-props.ts', propsContent],
+  ])
+  return new Map([...files].filter(([relative, content]) => !fs.existsSync(path.join(root, relative)) || fs.readFileSync(path.join(root, relative), 'utf8') !== content))
+}
+
 export function writeDocumentation(root, writes) {
   for (const [relative, content] of writes) {
     const destination = path.join(root, relative)
@@ -192,10 +264,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const file = path.join(root, 'registry.json')
   const registry = generateRegistry(root)
   const output = JSON.stringify(registry, null, 2) + '\n'
-  const docs = planDocumentation(root, registry)
+  const docs = new Map([...planDocumentation(root, registry), ...planPreviews(root, registry)])
   if (process.argv.includes('--check')) {
     if (fs.readFileSync(file, 'utf8') !== output || docs.size) {
-      console.error(`Registry or documentation is out of date (${docs.size} documentation files pending). Run bun run registry:update.`)
+      console.error(`Registry, documentation, or previews are out of date (${docs.size} generated files pending). Run bun run registry:update.`)
       process.exitCode = 1
     } else console.log(`registry.json and docs/ match registry sources.`)
   } else {
