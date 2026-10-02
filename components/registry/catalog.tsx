@@ -5,7 +5,6 @@ import Icon, { type IconName } from "@/components/Icon";
 const categoryIcons: Record<RegistryCategory, IconName> = {
   components: "component",
   blocks: "template",
-  templates: "template",
   shader: "shader",
   utils: "utility",
 };

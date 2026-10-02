@@ -1,0 +1,63 @@
+{
+  "categories": {
+    "components": {
+      "title": "Components",
+      "items": [
+        { "label": "Orbit Selector", "slug": "orbit-selector" },
+        { "label": "Season Timeline", "slug": "season-timeline" },
+        { "label": "Secret Ticket", "slug": "secret-ticket" },
+        { "label": "Signal Dial", "slug": "signal-dial" }
+      ]
+    },
+    "blocks": {
+      "title": "Blocks",
+      "groups": [
+        {
+          "title": "Navbar",
+          "items": [
+            { "label": "Editorial Navbar", "slug": "editorial-navbar" },
+            { "label": "Portfolio Navbar", "slug": "portfolio-navbar" },
+            { "label": "Storefront Navbar", "slug": "storefront-navbar" },
+            { "label": "Studio Navbar", "slug": "studio-navbar" }
+          ]
+        },
+        {
+          "title": "Auth",
+          "items": [
+            { "label": "Split Sign In", "slug": "split-sign-in" },
+            { "label": "Social Sign In", "slug": "social-sign-in" },
+            { "label": "Workspace Sign Up", "slug": "workspace-sign-up" },
+            { "label": "Magic Link Sign In", "slug": "magic-link-sign-in" }
+          ]
+        },
+        {
+          "title": "Footer",
+          "items": [
+            { "label": "Contact Footer", "slug": "contact-footer" },
+            { "label": "Studio Footer", "slug": "studio-footer" },
+            { "label": "Newsletter Footer", "slug": "newsletter-footer" },
+            { "label": "Storefront Footer", "slug": "storefront-footer" }
+          ]
+        },
+        {
+          "title": "Showcase",
+          "items": [
+            { "label": "Daylight Atlas", "slug": "daylight-atlas" },
+            { "label": "Studio Hero", "slug": "studio-hero" },
+            { "label": "Listening Station", "slug": "listening-station" }
+          ]
+        }
+      ]
+    },
+    "shader": {
+      "title": "Backgrounds",
+      "items": [
+        { "label": "Aurora Veil", "slug": "aurora-veil" },
+        { "label": "Contour Drift", "slug": "contour-drift" },
+        { "label": "Dither Field", "slug": "dither-field" },
+        { "label": "Interference", "slug": "interference" },
+        { "label": "Prism Ribbon", "slug": "prism-ribbon" }
+      ]
+    }
+  }
+}

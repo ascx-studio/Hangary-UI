@@ -8,7 +8,7 @@ import { registrySchema } from 'shadcn/schema'
 const registry = registrySchema.parse(JSON.parse(fs.readFileSync('registry.json', 'utf8')))
 const allFiles = new Set()
 const entryPaths = new Set()
-const categories = new Set(['components', 'blocks', 'shader', 'utils', 'templates'])
+const categories = new Set(['components', 'blocks', 'shader', 'utils'])
 assert.equal(new Set(registry.items.map((item) => item.name)).size, registry.items.length, 'Item names must be unique')
 
 for (const item of registry.items) {

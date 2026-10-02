@@ -88,10 +88,10 @@ export function generateRegistry(root) {
     const old = existing.get(entry)
     const relative = entry.slice(sourceRoot.length)
     const folder = relative.split('/')[0]
-    const category = folder === 'templates' ? 'templates' : folder === 'blocks' ? 'blocks' : ['backgrounds', 'shader'].includes(folder) ? 'shader' : ['lib', 'hooks', 'styles'].includes(folder) ? 'utils' : 'components'
+    const category = folder === 'blocks' ? 'blocks' : ['backgrounds', 'shader'].includes(folder) ? 'shader' : ['lib', 'hooks', 'styles'].includes(folder) ? 'utils' : 'components'
     let name = old?.name
     if (!name) {
-      const shortBlockName = /^blocks\/(?:auth\d+|navbar[1-4]|footer[1-4])\.tsx$/.test(relative)
+      const shortBlockName = folder === 'blocks'
       name = shortBlockName
         ? relative.replace(/\.[^.]+$/, '').split('/').at(-1)
         : `${sourceRoot.includes('nova-blue') ? 'nova-blue' : 'lazy'}-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
@@ -120,12 +120,12 @@ export function generateRegistry(root) {
     return {
       ...old,
       name,
-      type: ['blocks', 'templates'].includes(category) ? 'registry:block' : fileType(entry),
+      type: category === 'blocks' ? 'registry:block' : fileType(entry),
       title: old?.title ?? path.posix.basename(entry).replace(/\.[^.]+$/, '').split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' '),
       description: old?.description ?? `Reusable ${path.posix.basename(entry)} from the Lazy UI collection.`,
       files,
       dependencies: [...dependencies].sort(compare),
-      ...(old?.registryDependencies ? { registryDependencies: old.registryDependencies } : /^(?:auth\d+|navbar[1-4]|footer[1-4])$/.test(name) ? { registryDependencies: ['morph-css'] } : {}),
+      ...(old?.registryDependencies ? { registryDependencies: old.registryDependencies } : /^(?:(?:split|social|magic-link)-sign-in|workspace-sign-up|(?:contact|studio|newsletter|storefront)-footer|(?:portfolio|studio|editorial|storefront)-navbar)$/.test(name) ? { registryDependencies: ['morph-css'] } : {}),
       meta: { ...old?.meta, category },
     }
   })
@@ -148,12 +148,9 @@ export function planDocumentation(root, registry) {
   for (const item of registry.items) {
     if (!item.files?.[0]?.path.startsWith(sourceRoot)) continue
     const category = item.meta?.category
-    if (!['components', 'blocks', 'shader', 'utils', 'templates'].includes(category)) throw new Error(`Unsupported documentation category: ${category}`)
+    if (!['components', 'blocks', 'shader', 'utils'].includes(category)) throw new Error(`Unsupported documentation category: ${category}`)
     if (!/^[a-zA-Z0-9_-]+$/.test(item.name)) throw new Error(`Invalid documentation filename: ${item.name}`)
-    let basename = item.name.replace(/^portfolio-/, '')
-    if (basename !== item.name && registry.items.some(other => other.name === basename && other.meta?.category === category)) {
-      basename = item.files[0].path.replace(/^registry\/(?:nova-blue\/)?/, '').replace(/\.[^.]+$/, '').replaceAll('/', '-')
-    }
+    const basename = item.name
     const relative = `${docsDirectory}/${category}/${basename}.mdx`
     if (docPaths.has(relative)) throw new Error(`Documentation filename collision: ${relative}`)
     docPaths.add(relative)

@@ -1,0 +1,25 @@
+export const description = "A create-account experience with a feature sidebar, profile fields, and password setup."
+
+export const installCommand = "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/workspace-sign-up.json"
+
+## Overview
+
+{description}
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ui.rajeevpuri.com.np/r/workspace-sign-up.json
+```
+
+## Usage
+
+```tsx
+import { WorkspaceSignUp } from "@/components/lazy-ui/blocks/workspace-sign-up"
+
+export default function Example() { return <WorkspaceSignUp /> }
+```
+
+## Setup notes
+
+Requires React 19.3 or later and Tailwind CSS 4. Add the shared `morph.css` stylesheet after Tailwind. UI only; connect a server-side authentication provider to create accounts.

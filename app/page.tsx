@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <PageEntrance>
       <>
-        <Container className="relative flex min-h-dvh max-w-7xl w-full flex-col items-center justify-center gap-12 py-4 md:flex-row md:justify-around">
+        <Container className="relative flex min-h-[90dvh] max-w-7xl w-full flex-col items-center justify-center gap-12 py-4 md:flex-row md:justify-around">
           <div className="relative z-10 w-full max-w-xl md:mr-auto md:w-1/2">
             <div className="mt-8 w-full max-w-xl space-y-6 md:mt-0 md:pr-10">
               <Image
@@ -40,7 +40,6 @@ export default function Page() {
                   { href: '/blocks', label: 'Blocks' },
                   { href: '/shader', label: 'Backgrounds' },
                   { href: '/utils', label: 'Utility code' },
-                  { href: '/templates', label: 'Templates' },
                 ].map((link) => (
                   <Link key={link.href} href={link.href} className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                     {link.label}

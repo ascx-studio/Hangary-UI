@@ -5,12 +5,11 @@ import { usePathname } from 'next/navigation'
 import { ChevronDown, Heart, PanelLeft, PanelLeftClose } from 'lucide-react'
 import { useState } from 'react'
 import { GitHubDark } from '@ridemountainpig/svgl-react'
-import { sidebarLinks } from '@/data/Sidebarlinks'
+import sidebarData from '@/data/sidebar.json'
 import Logo from '@/components/ui/Logo'
 import Icon from '@/components/Icon'
 import { browseSection } from '@/data/Navlinks'
-
-type SidebarItem = { label: string; href: string; category: string }
+import type { RegistryCategory } from '@/lib/registry'
 
 function BrandDropdown() {
   const pathname = usePathname()
@@ -48,51 +47,34 @@ function BrandDropdown() {
   )
 }
 
-function Navigation({ items }: { items: SidebarItem[] }) {
+function Navigation({ category }: { category: RegistryCategory }) {
   const pathname = usePathname()
-  const groups = [
-    { label: 'Auth', slug: 'auth' },
-    { label: 'Footer', slug: 'footer' },
-    { label: 'Navbar', slug: 'navbar' },
-  ]
-  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() => Object.fromEntries(groups.map(group => [group.slug, pathname.startsWith(`/blocks/${group.slug}`)])))
-  const category = pathname.split('/')[1]
-  const currentSection = browseSection.links.find(link => link.href === `/${category}`)
-  const groupedItems = items.filter(item => groups.some(group => item.href.match(new RegExp(`^/blocks/${group.slug}\\d+$`))))
-  const groupedPaths = new Set(groupedItems.map(item => item.href))
-  const sections = currentSection ? [
+  const categoryConfig = sidebarData.categories[category as keyof typeof sidebarData.categories]
+  const toLinks = (entries: { label: string; slug: string }[]) =>
+    entries.map(({ label, slug }) => ({ label, href: `/${category}/${slug}` }))
+  const groups = categoryConfig && 'groups' in categoryConfig ? categoryConfig.groups : []
+  const sections = categoryConfig && groups.length ? [
+    ...groups.map(group => ({ title: group.title, links: toLinks(group.items) })),
+  ] : categoryConfig ? [
     {
-      title: currentSection.label,
-      links: [
-        ...items.filter(item => item.category === category && !groupedPaths.has(item.href)),
-        ...(category === 'blocks' ? groups.filter(group => groupedItems.some(item => item.href.startsWith(`/blocks/${group.slug}`))).map(group => ({ label: group.label, href: `/blocks/${group.slug}-menu`, category })) : []),
-      ].sort((a, b) => a.label.localeCompare(b.label)),
+      title: categoryConfig.title,
+      links: 'items' in categoryConfig ? toLinks(categoryConfig.items) : [],
     },
-  ] : sidebarLinks.filter(section => section.title !== 'Project')
+  ] : [{ title: browseSection.sidebarLabel, links: browseSection.links.map(({ label, href }) => ({ label, href })) }]
 
   return (
-    <nav aria-label="Documentation navigation" className="space-y-8">
+    <nav aria-label="Documentation navigation" className="space-y-10">
       {sections.map(section => (
         <div key={section.title}>
-          <h2 className="mb-3 px-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">{section.title}</h2>
-          <ul className="space-y-1">
+          <h2 className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-muted-foreground/80">{section.title}</h2>
+          <ul className="space-y-3 pl-8">
             {section.links.map(link => {
-              const group = groups.find(item => link.href === `/blocks/${item.slug}-menu`)
-              const children = group ? items.filter(item => item.href.match(new RegExp(`^/blocks/${group.slug}\\d+$`))) : []
-              const active = pathname === link.href || Boolean(group && pathname.startsWith(`/blocks/${group.slug}`))
+              const active = pathname === link.href
               return (
                 <li key={link.href}>
-                  {group ? <>
-                    <button type="button" aria-expanded={openGroups[group.slug]} onClick={() => setOpenGroups(open => ({ ...open, [group.slug]: !open[group.slug] }))} className={`flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring ${active ? 'bg-sidebar-accent text-sidebar-accent-foreground' : 'text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground'}`}>
-                      {group.label}
-                      <ChevronDown size={16} aria-hidden="true" className={`transition-transform ${openGroups[group.slug] ? 'rotate-180' : ''} motion-reduce:transition-none`} />
-                    </button>
-                    {openGroups[group.slug] && <div aria-label={`${group.label} blocks`} className="space-y-1 pb-2 pl-6 pt-1">
-                      {children.map(child => <Link key={child.href} href={child.href} aria-current={pathname === child.href ? 'page' : undefined} className="block w-full px-3 py-2 text-left text-sm text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground aria-[current=page]:bg-sidebar-accent aria-[current=page]:text-sidebar-accent-foreground">{child.label}</Link>)}
-                    </div>}
-                  </> : <Link href={link.href} aria-current={active ? 'page' : undefined} className={`flex min-w-0 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring ${active ? 'bg-sidebar-accent text-sidebar-accent-foreground' : 'text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground'}`}>
+                  <Link href={link.href} aria-current={active ? 'page' : undefined} className={`flex min-w-0 items-center py-0.5 text-[1.0625rem] font-medium leading-8 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sidebar-ring ${active ? 'text-sidebar-foreground' : 'text-muted-foreground hover:text-sidebar-foreground'}`}>
                     {link.label}
-                  </Link>}
+                  </Link>
                 </li>
               )
             })}
@@ -114,7 +96,7 @@ function SidebarFooter() {
   )
 }
 
-export default function Sidebar({ items }: { items: SidebarItem[] }) {
+export default function Sidebar({ category }: { category: RegistryCategory }) {
   const [desktopOpen, setDesktopOpen] = useState(true)
   return (
     <>
@@ -126,7 +108,7 @@ export default function Sidebar({ items }: { items: SidebarItem[] }) {
               <PanelLeftClose size={18} aria-hidden="true" />
             </button>
           </div>
-          <Navigation items={items} />
+          <Navigation category={category} />
           <SidebarFooter />
         </aside>
       ) : (
@@ -154,7 +136,7 @@ export default function Sidebar({ items }: { items: SidebarItem[] }) {
           disclosure?.querySelector('summary')?.focus()
         }}>
           <BrandDropdown />
-          <Navigation items={items} />
+          <Navigation category={category} />
           <SidebarFooter />
         </div>
       </details>
