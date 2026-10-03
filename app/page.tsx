@@ -27,7 +27,7 @@ export default function Page() {
                   View Components
                 </Link>
                 <Link
-                  href="https://github.com/razeevascx/lazy-ui"
+                  href="https://github.com/ascx-studio/ui"
                   className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-border bg-card px-5 py-2 text-sm font-semibold text-card-foreground shadow-sm transition-colors hover:bg-card/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
                   Star on GitHub

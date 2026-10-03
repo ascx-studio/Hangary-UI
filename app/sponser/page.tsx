@@ -6,19 +6,19 @@ const supportOptions = [
   {
     title: 'Star the repository',
     description: 'Help more people discover the project and follow its progress.',
-    href: 'https://github.com/razeevascx/lazy-ui',
+    href: 'https://github.com/ascx-studio/ui',
     label: 'Open GitHub',
   },
   {
     title: 'Share the library',
     description: 'Pass Lazy UI along to someone who is building a new interface.',
-    href: 'https://github.com/razeevascx/lazy-ui',
+    href: 'https://github.com/ascx-studio/ui',
     label: 'View repository',
   },
   {
     title: 'Build with us',
     description: 'Suggest an improvement or contribute a useful component to the collection.',
-    href: 'https://github.com/razeevascx/lazy-ui/issues',
+    href: 'https://github.com/ascx-studio/ui/issues',
     label: 'Open an issue',
   },
 ] as const
@@ -109,7 +109,7 @@ export default function SponsorPage() {
               <p className="mt-8 text-sm text-muted-foreground">
                 Have another question?{' '}
                 <Link
-                  href="https://github.com/razeevascx/lazy-ui/issues"
+                  href="https://github.com/ascx-studio/ui/issues"
                   className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                 >
                   Start a conversation on GitHub.

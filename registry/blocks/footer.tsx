@@ -16,7 +16,7 @@ interface FooterProps extends ComponentProps<"footer"> {
   action?: ReactNode;
 }
 
-function FooterLayout({ layout, brand = "Lazy UI", homeHref = "/", description = "Thoughtful components. Less setup. More time to build.", groups = [{ title: "Explore", links: [{ label: "Components", href: "/components" }, { label: "Blocks", href: "/blocks" }] }, { title: "Resources", links: [{ label: "Button", href: "/components/button" }, { label: "Tabs", href: "/components/tabs" }, { label: "Table", href: "/components/table" }] }], githubHref = "https://github.com/razeevascx/lazy-ui", copyright = `© ${new Date().getFullYear()} Lazy UI`, callout, action, className, children, ...props }: FooterProps & { layout: "columns" | "minimal" | "stacked" }) {
+function FooterLayout({ layout, brand = "Lazy UI", homeHref = "/", description = "Thoughtful components. Less setup. More time to build.", groups = [{ title: "Explore", links: [{ label: "Components", href: "/components" }, { label: "Blocks", href: "/blocks" }] }, { title: "Resources", links: [{ label: "Button", href: "/components/button" }, { label: "Tabs", href: "/components/tabs" }, { label: "Table", href: "/components/table" }] }], githubHref = "https://github.com/ascx-studio/ui", copyright = `© ${new Date().getFullYear()} Lazy UI`, callout, action, className, children, ...props }: FooterProps & { layout: "columns" | "minimal" | "stacked" }) {
   return (
     <footer {...props} data-slot="footer" data-layout={layout} className={cn("w-full border border-border bg-background text-foreground", className)}>
       {callout && <div className="border-b border-border p-6 sm:p-8">

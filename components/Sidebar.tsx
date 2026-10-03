@@ -85,7 +85,7 @@ function SidebarFooter() {
     <nav aria-label="Support and community" className="mt-auto flex items-center justify-center gap-3 pt-8">
       <Link href="/support" className={linkClass}><Heart size={16} aria-hidden="true" />Support</Link>
       <span aria-hidden="true" className="text-muted-foreground">|</span>
-      <a href="https://github.com/razeevascx/lazy-ui" target="_blank" rel="noreferrer" className={linkClass}><GitHubDark className="size-4" aria-hidden="true" />GitHub</a>
+      <a href="https://github.com/ascx-studio/ui" target="_blank" rel="noreferrer" className={linkClass}><GitHubDark className="size-4" aria-hidden="true" />GitHub</a>
     </nav>
   )
 }
