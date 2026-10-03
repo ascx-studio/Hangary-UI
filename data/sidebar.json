@@ -3,69 +3,132 @@
     "components": {
       "title": "Components",
       "items": [
-        { "label": "Kinetic Type Lab", "slug": "kinetic-type-lab" },
-        { "label": "Orbit Selector", "slug": "orbit-selector" },
-        { "label": "Season Timeline", "slug": "season-timeline" },
-        { "label": "Secret Ticket", "slug": "secret-ticket" },
-        { "label": "Signal Dial", "slug": "signal-dial" }
+        {
+          "label": "Avatar",
+          "slug": "avatar"
+        },
+        {
+          "label": "Badge",
+          "slug": "badge"
+        },
+        {
+          "label": "Banner",
+          "slug": "banner"
+        },
+        {
+          "label": "Blockquote",
+          "slug": "blockquote"
+        },
+        {
+          "label": "Bottom Sheet",
+          "slug": "bottom-sheet"
+        },
+        {
+          "label": "Breadcrumb",
+          "slug": "breadcrumb"
+        },
+        {
+          "label": "Button",
+          "slug": "button"
+        },
+        {
+          "label": "Card",
+          "slug": "card"
+        },
+        {
+          "label": "Carousel",
+          "slug": "carousel"
+        },
+        {
+          "label": "Code Block",
+          "slug": "code-block"
+        },
+        {
+          "label": "Kbd",
+          "slug": "kbd"
+        },
+        {
+          "label": "Table",
+          "slug": "table"
+        },
+        {
+          "label": "Tabs",
+          "slug": "tabs"
+        }
       ]
     },
     "blocks": {
       "title": "Blocks",
-      "groups": [
+      "items": [
         {
-          "title": "Navbar",
-          "items": [
-            { "label": "Editorial Navbar", "slug": "editorial-navbar" },
-            { "label": "Portfolio Navbar", "slug": "portfolio-navbar" },
-            { "label": "Storefront Navbar", "slug": "storefront-navbar" },
-            { "label": "Studio Navbar", "slug": "studio-navbar" }
-          ]
+          "label": "Centered Navbar",
+          "slug": "navbar",
+          "group": "Navbar"
         },
         {
-          "title": "Auth",
-          "items": [
-            { "label": "Split Sign In", "slug": "split-sign-in" },
-            { "label": "Social Sign In", "slug": "social-sign-in" },
-            { "label": "Workspace Sign Up", "slug": "workspace-sign-up" },
-            { "label": "Magic Link Sign In", "slug": "magic-link-sign-in" }
-          ]
+          "label": "Left-Aligned Navbar",
+          "slug": "navbar-aligned",
+          "group": "Navbar"
         },
         {
-          "title": "Footer",
-          "items": [
-            { "label": "Contact Footer", "slug": "contact-footer" },
-            { "label": "Studio Footer", "slug": "studio-footer" },
-            { "label": "Newsletter Footer", "slug": "newsletter-footer" },
-            { "label": "Storefront Footer", "slug": "storefront-footer" }
-          ]
+          "label": "Floating Navbar",
+          "slug": "navbar-floating",
+          "group": "Navbar"
         },
         {
-          "title": "Showcase",
-          "items": [
-            { "label": "Daylight Atlas", "slug": "daylight-atlas" },
-            { "label": "Studio Hero", "slug": "studio-hero" },
-            { "label": "Listening Station", "slug": "listening-station" }
-          ]
+          "label": "Column Footer",
+          "slug": "footer",
+          "group": "Footer"
+        },
+        {
+          "label": "Minimal Footer",
+          "slug": "footer-minimal",
+          "group": "Footer"
+        },
+        {
+          "label": "Stacked Footer",
+          "slug": "footer-stacked",
+          "group": "Footer"
+        },
+        {
+          "label": "Login",
+          "slug": "login",
+          "group": "Login"
+        },
+        {
+          "label": "Login Split",
+          "slug": "login-split",
+          "group": "Login"
+        },
+        {
+          "label": "Login Minimal",
+          "slug": "login-minimal",
+          "group": "Login"
+        },
+        {
+          "label": "Pricing",
+          "slug": "pricing",
+          "group": "Pricing"
+        },
+        {
+          "label": "Pricing Compact",
+          "slug": "pricing-compact",
+          "group": "Pricing"
+        },
+        {
+          "label": "Pricing Comparison",
+          "slug": "pricing-comparison",
+          "group": "Pricing"
         }
       ]
     },
     "shader": {
       "title": "Backgrounds",
-      "items": [
-        { "label": "Aurora Veil", "slug": "aurora-veil" },
-        { "label": "Contour Drift", "slug": "contour-drift" },
-        { "label": "Dither Field", "slug": "dither-field" },
-        { "label": "Interference", "slug": "interference" },
-        { "label": "Prism Ribbon", "slug": "prism-ribbon" }
-      ]
+      "items": []
     },
     "utils": {
       "title": "Utilities",
-      "items": [
-        { "label": "Shader Canvas", "slug": "lazy-lib-shader-canvas" },
-        { "label": "Morph CSS", "slug": "morph-css" }
-      ]
+      "items": []
     }
   }
 }

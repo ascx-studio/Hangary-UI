@@ -1,7 +1,13 @@
 @import "tailwindcss";
-@import "../registry/styles/morph.css";
+@import "./morph.css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* @layer base{
+*{
+overscroll-behavior: none;
+}
+} */
 
 :root {
   color-scheme: light;

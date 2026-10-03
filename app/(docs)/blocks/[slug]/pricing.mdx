@@ -1,0 +1,110 @@
+import { Pricing } from "@/registry/blocks/pricing";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview className="h-full w-full"><Pricing /></ComponentPreview>
+
+# Pricing
+
+A pricing card grid with featured plans and monthly or yearly billing.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/pricing.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/pricing.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/pricing.json",
+}} />
+
+## Usage
+
+```tsx
+import { Pricing } from "@/components/lazy-ui/blocks/pricing";
+
+<Pricing
+  defaultBilling="yearly"
+  plans={[
+    {
+      name: "Pro",
+      description: "Everything you need to build.",
+      monthlyPrice: 19,
+      yearlyPrice: 15,
+      features: ["Unlimited projects", "Priority support"],
+      href: "/signup?plan=pro",
+      label: "Choose Pro",
+      featured: true,
+    },
+  ]}
+/>
+```
+
+## Other styles
+
+Each pricing style is a separate block. Pricing uses cards, PricingCompact uses horizontal rows, and PricingComparison uses a Table. All three support monthly and yearly billing.
+
+- [Pricing Compact](/blocks/pricing-compact)
+- [Pricing Comparison](/blocks/pricing-comparison)
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"title"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"A plan for every next step\""}</code></TableCell>
+      <TableCell>{"Section heading."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"description"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Start small. Make room as you grow.\""}</code></TableCell>
+      <TableCell>{"Supporting text."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"defaultBilling"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"monthly\" | \"yearly\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"monthly\""}</code></TableCell>
+      <TableCell>{"Initial billing period. Controls allow switching between periods."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"plans"}</code></TableCell>
+      <TableCell><code className="break-words">{"{ name: string; description: string; monthlyPrice: number; yearlyPrice: number; features: string[]; href: string; label?: string; featured?: boolean }[]"}</code></TableCell>
+      <TableCell><code className="break-words">{"Starter, Pro, Team"}</code></TableCell>
+      <TableCell>{"USD prices are per month for each billing period. yearlyPrice × 12 is the annual total; featured highlights a plan."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Additional content beneath the plans."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Additional classes on the section."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"Omit<ComponentProps<\"section\">, \"title\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Native section attributes and event handlers."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4 and the global theme tokens. Borders use `border-border`, with no rounded classes. The registry bundles the existing components used by the block.
+
+Customize the plan data and checkout links. The default plan names, prices, and benefits are sample content; this block does not create subscriptions or charge customers.

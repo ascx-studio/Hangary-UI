@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "title": "Button",
+  "description": "An accessible button with primary, secondary, ghost, destructive, and outline variants.",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/components/button.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\ninterface ButtonProps extends ComponentProps<\"button\"> {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\";\n}\n\nexport function Button({\n  children = \"Get started\",\n  variant = \"primary\",\n  className = \"\",\n  type = \"button\",\n  ...props\n}: ButtonProps = {}) {\n  const styles = {\n    primary: \"bg-emerald-400 text-neutral-950 hover:bg-emerald-300\",\n    secondary: \"bg-neutral-800 text-white hover:bg-neutral-700\",\n    ghost: \"bg-transparent text-foreground hover:bg-muted\",\n    destructive: \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n    outline: \"border border-border text-white hover:bg-neutral-800\",\n  };\n  return (\n    <button\n      type={type}\n      className={`inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 disabled:pointer-events-none disabled:opacity-50 ${styles[variant] ?? styles.primary} ${className}`}\n      {...props}\n    >\n      {children}\n    </button>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/components/button.tsx"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

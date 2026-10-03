@@ -1,0 +1,86 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Badge } from "@/registry/components/badge";
+
+<ComponentPreview className="h-full w-full">
+  <div className="flex flex-wrap items-center justify-center gap-4">
+    <Badge variant="neutral">Neutral</Badge>
+    <Badge variant="info">Info</Badge>
+    <Badge variant="success">Success</Badge>
+    <Badge variant="warning">Warning</Badge>
+    <Badge variant="error">Error</Badge>
+    <Badge variant="blue">Blue</Badge>
+    <Badge variant="purple">Purple</Badge>
+    <Badge variant="pink">Pink</Badge>
+    <Badge variant="teal">Teal</Badge>
+    <Badge variant="orange">Orange</Badge>
+  </div>
+</ComponentPreview>
+
+# Badge
+
+A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/badge.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/badge.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/badge.json",
+}} />
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/lazy-ui/components/badge";
+
+<Badge variant="success">Published</Badge>
+```
+
+## Variants
+
+Use the `variant` prop to choose from: neutral, info, success, warning, error, blue, purple, pink, teal, orange. The preview above shows the available variants together.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"variant"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"blue\" | \"purple\" | \"pink\" | \"teal\" | \"orange\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"success\""}</code></TableCell>
+      <TableCell>{"Badge color."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"New release\""}</code></TableCell>
+      <TableCell>{"Badge content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"ComponentProps<\"span\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Forwards native span attributes, aria-* attributes, and event handlers."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

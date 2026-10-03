@@ -1,0 +1,118 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview className="h-full w-full">
+<div className="w-full space-y-6">
+        <CodeBlock code={'export function greet(name: string) {\n  return `Hello, ${name}!`;\n}'} language="typescript" filename="greet.ts" showLineNumbers />
+        <CodeBlock commands={{ bun: "bun add highlight.js", npm: "npm install highlight.js", pnpm: "pnpm add highlight.js" }} />
+      </div>
+  </ComponentPreview>
+
+# Code Block
+
+A scrollable code block with an optional filename, line numbers, and an icon copy button. Syntax highlighting safely escapes markup and uses global theme colors.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/code-block.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/code-block.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/code-block.json",
+}} />
+
+## Usage
+
+```tsx
+import { CodeBlock } from "@/components/lazy-ui/components/code-block";
+
+<CodeBlock
+  code={'const greeting = "Hello, world!";\nconsole.log(greeting);'}
+  language="javascript"
+  filename="hello.js"
+  showLineNumbers
+/>
+```
+
+## Examples
+
+Use `showLineNumbers` for numbered snippets and `filename` for a file label. Omit both for a plain snippet. The preview above shows a filename and numbered lines.
+
+## Package managers
+
+```tsx
+<CodeBlock commands={{
+  bun: "bun add highlight.js",
+  npm: "npm install highlight.js",
+  pnpm: "pnpm add highlight.js",
+}} />
+```
+
+The Bun, npm, and pnpm buttons switch the displayed command. Copy copies the selected command without line numbers. Optional `packageManager` and `onPackageManagerChange` props allow you to control the selection.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"code"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"const greeting = \"Hello, world!\";\\nconsole.log(greeting);"}</code></TableCell>
+      <TableCell>{"Code to display and copy."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"language"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"javascript\""}</code></TableCell>
+      <TableCell>{"Syntax highlighting language; unknown languages render as plain text."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"filename"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Filename shown in the header."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"showLineNumbers"}</code></TableCell>
+      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
+      <TableCell><code className="break-words">{"false"}</code></TableCell>
+      <TableCell>{"Displays line numbers."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"commands"}</code></TableCell>
+      <TableCell><code className="break-words">{"Record<\"bun\" | \"npm\" | \"pnpm\", string>"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Enables package manager controls and Bash highlighting. Overrides code and language."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"packageManager"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"bun\" | \"npm\" | \"pnpm\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"bun\" (uncontrolled)"}</code></TableCell>
+      <TableCell>{"Controls the selected package manager."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"onPackageManagerChange"}</code></TableCell>
+      <TableCell><code className="break-words">{"(manager: \"bun\" | \"npm\" | \"pnpm\") => void"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Called when the selected package manager changes."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4 and global `border`, `card`, `card-foreground`, `muted`, `muted-foreground`, and `ring` theme tokens. The registry installs highlight.js and lucide-react for highlighting and icons. No rounded classes are included. Copy requires a secure browser context, such as HTTPS or localhost; when copying fails, select the code and copy it manually. JavaScript/JSX, TypeScript/TSX, Bash, JSON, CSS, HTML/XML, and Python are highlighted using highlight.js. Unknown languages display as plain text.

@@ -1,0 +1,68 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Breadcrumb } from "@/registry/components/breadcrumb";
+
+<ComponentPreview className="h-full w-full">
+<div className="flex flex-col gap-8">
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Settings" }]} />
+        <Breadcrumb />
+      </div>
+  </ComponentPreview>
+
+# Breadcrumb
+
+A breadcrumb navigation trail with links and a current-page indicator.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/breadcrumb.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/breadcrumb.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/breadcrumb.json",
+}} />
+
+## Usage
+
+```tsx
+import { Breadcrumb } from "@/components/lazy-ui/components/breadcrumb";
+
+<Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Settings" }]} />
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"items"}</code></TableCell>
+      <TableCell><code className="break-words">{"{ label: string; href?: string }[]"}</code></TableCell>
+      <TableCell><code className="break-words">{"Home → Components → Breadcrumb"}</code></TableCell>
+      <TableCell>{"Navigation items. The final item is the current page; earlier items with href become links."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"ComponentProps<\"nav\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Forwards native nav attributes, aria-* attributes, and event handlers."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

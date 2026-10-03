@@ -1,4 +1,4 @@
-import DetailPage from "@/components/registry/detail-page";
+import { notFound } from "next/navigation";
 import { getRegistryItem, getRegistryItems } from "@/lib/registry";
 
 export function generateStaticParams() {
@@ -13,5 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slugs: st
 
 export default async function Page({ params }: { params: Promise<{ slugs: string }> }) {
   const { slugs } = await params;
-  return <DetailPage name={slugs} category="components" />;
+  if (!getRegistryItem(slugs, "components")) notFound();
+  const { default: Content } = await import(`./${slugs}.mdx`);
+  return <article className="page-entrance w-full min-w-0 px-6 py-10 sm:px-10 md:px-12 md:py-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-6xl"><Content /></article>;
 }

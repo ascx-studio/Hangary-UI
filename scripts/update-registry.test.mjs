@@ -10,7 +10,7 @@ test('generates preview imports and editable prop metadata from component signat
   try {
     const entry = 'registry/components/text-widget.tsx'
     fs.mkdirSync(path.dirname(path.join(root, entry)), { recursive: true })
-    fs.writeFileSync(path.join(root, entry), 'export function TextWidget({ text = "Hello", speed = 2, paused = false, onChange }: { text?: string; speed?: number; paused?: boolean; onChange?: (value: string) => void }) { return null }')
+    fs.writeFileSync(path.join(root, entry), 'export function TextWidget({ text = "Hello", speed = 2, paused = false, variant = "primary", onChange }: { text?: string; speed?: number; paused?: boolean; variant?: "primary" | "outline"; onChange?: (value: string) => void }) { return null }')
     const registry = { items: [{ name: 'text-widget', meta: { category: 'components' }, files: [{ path: entry }] }] }
     const writes = planPreviews(root, registry)
     assert.ok(writes.get('components/registry/preview-entries.ts').includes('component: TextWidget'))
@@ -18,6 +18,7 @@ test('generates preview imports and editable prop metadata from component signat
     assert.ok(props.includes('"text","type":"string","required":false,"control":"text","defaultValue":"Hello"'))
     assert.ok(props.includes('"paused","type":"boolean","required":false,"control":"boolean","defaultValue":false'))
     assert.ok(props.includes('"onChange","type":"(value: string) => void","required":false,"control":null'))
+    assert.ok(props.includes('"options":["primary","outline"],"required":false,"control":"select","defaultValue":"primary"'))
     writeDocumentation(root, writes)
     assert.equal(planPreviews(root, registry).size, 0)
   } finally {
@@ -44,7 +45,7 @@ test('bundles components and shaders into blocks in the flat registry layout', (
     assert.equal(block.files.length, 3)
     assert.ok(block.files.some(file => file.target === '@components/lazy-ui/shader/field.tsx'))
     assert.equal(output.items.find(item => item.name === 'lazy-shader-field').meta.category, 'shader')
-    assert.equal(planDocumentation(root, output).size, 4)
+    assert.equal(planDocumentation(root, output).size, 3)
     write('registry.json', JSON.stringify(output))
     assert.deepEqual(generateRegistry(root), output)
   } finally {
@@ -94,7 +95,7 @@ test('syncs entries, dependency closures, assets, and metadata deterministically
 })
 
 
-test('creates categorized MDX and loaders without replacing edited docs', async () => {
+test('creates colocated MDX without a barrel or replacing edited docs', async () => {
   const { compile } = await import('@mdx-js/mdx')
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-docs-'))
   const registry = {
@@ -108,28 +109,34 @@ test('creates categorized MDX and loaders without replacing edited docs', async 
   }
   try {
     const writes = planDocumentation(root, registry)
-    assert.equal(writes.size, 5)
+    assert.equal(writes.size, 4)
     assert.equal(fs.existsSync(path.join(root, 'docs')), false, 'Planning/checking must not write files')
     for (const [file, content] of writes) {
       if (file.endsWith('.mdx')) await compile(content)
     }
     writeDocumentation(root, writes)
     for (const item of registry.items) {
-      const doc = fs.readFileSync(path.join(root, `docs/${item.meta.category}/${item.name}.mdx`), 'utf8')
+      const doc = fs.readFileSync(path.join(root, `app/(docs)/${item.meta.category}/${item.meta.category === 'components' ? '[slugs]' : '[slug]'}/${item.name}.mdx`), 'utf8')
       assert.ok(doc.includes(`npx shadcn@latest add https://example.com/r/${item.name}.json`))
       assert.ok(doc.includes('@/components/lazy-ui/ui/example.tsx'))
+      assert.ok(doc.indexOf('## Installation') < doc.indexOf('## Usage'))
+      if (item.meta.category !== 'utils') {
+        assert.ok(doc.indexOf('<ComponentPreview className="h-full w-full">') < doc.indexOf('# '))
+        assert.ok(doc.indexOf('</ComponentPreview>') < doc.indexOf('## Installation'))
+      }
     }
-    const edited = path.join(root, 'docs/components/example-components.mdx')
+    const edited = path.join(root, 'app/(docs)/components/[slugs]/example-components.mdx')
     fs.writeFileSync(edited, '# My custom preview\n\n<Preview>Keep this content.</Preview>\n')
     assert.equal(planDocumentation(root, registry).size, 0)
     registry.items.shift()
     const next = planDocumentation(root, registry)
-    assert.equal(next.size, 1)
+    assert.equal(next.size, 0)
     writeDocumentation(root, next)
-    assert.ok(!fs.readFileSync(path.join(root, 'docs/index.ts'), 'utf8').includes('example-components'))
+    assert.equal(fs.existsSync(path.join(root, 'docs')), false)
+    assert.equal(fs.existsSync(path.join(root, 'app/(docs)/index.ts')), false)
     assert.ok(fs.readFileSync(edited, 'utf8').includes('Keep this content.'))
-    fs.unlinkSync(path.join(root, 'docs/blocks/example-blocks.mdx'))
-    assert.ok(planDocumentation(root, registry).has('docs/blocks/example-blocks.mdx'))
+    fs.unlinkSync(path.join(root, 'app/(docs)/blocks/[slug]/example-blocks.mdx'))
+    assert.ok(planDocumentation(root, registry).has('app/(docs)/blocks/[slug]/example-blocks.mdx'))
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
   }

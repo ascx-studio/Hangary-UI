@@ -1,0 +1,171 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption } from "@/registry/components/table";
+
+<ComponentPreview className="h-full w-full">
+  <Table>
+    <TableCaption>A summary of your recent invoices.</TableCaption>
+    <TableHeader>
+      <TableRow>
+        <TableHead>Invoice</TableHead>
+        <TableHead>Status</TableHead>
+        <TableHead>Method</TableHead>
+        <TableHead className="text-right">Amount</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      <TableRow>
+        <TableCell className="font-medium">INV-001</TableCell>
+        <TableCell>Paid</TableCell>
+        <TableCell>Credit card</TableCell>
+        <TableCell className="text-right">$250.00</TableCell>
+      </TableRow>
+      <TableRow data-state="selected">
+        <TableCell className="font-medium">INV-002</TableCell>
+        <TableCell>Pending</TableCell>
+        <TableCell>Bank transfer</TableCell>
+        <TableCell className="text-right">$150.00</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell className="font-medium">INV-003</TableCell>
+        <TableCell>Paid</TableCell>
+        <TableCell>Credit card</TableCell>
+        <TableCell className="text-right">$350.00</TableCell>
+      </TableRow>
+    </TableBody>
+    <TableFooter>
+      <TableRow>
+        <TableCell colSpan={3}>Total</TableCell>
+        <TableCell className="text-right">$750.00</TableCell>
+      </TableRow>
+    </TableFooter>
+  </Table>
+</ComponentPreview>
+
+# Table
+
+A responsive table with composable headers, rows, cells, a caption, and an optional footer. Wide tables scroll horizontally.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/table.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/table.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/table.json",
+}} />
+
+## Usage
+
+```tsx
+import {
+  Table, TableHeader, TableBody, TableRow,
+  TableHead, TableCell, TableCaption,
+} from "@/components/lazy-ui/components/table";
+
+<Table>
+  <TableCaption>Team members and their roles.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Role</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Alex Morgan</TableCell>
+      <TableCell>Designer</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"Table.children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Compose the caption, header, body, and footer."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Table.className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Additional classes on the table element. The wrapper scrolls horizontally."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableHeader / TableBody / TableFooter.children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"TableRow elements within each section."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableRow.children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"TableHead or TableCell elements."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableRow.data-state"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Set to \"selected\" to highlight a row."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableHead.scope"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"col\" | \"row\" | \"colgroup\" | \"rowgroup\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"col\""}</code></TableCell>
+      <TableCell>{"Associates a header with columns or rows."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableHead / TableCell.colSpan"}</code></TableCell>
+      <TableCell><code className="break-words">{"number"}</code></TableCell>
+      <TableCell><code className="break-words">{"1 (browser default)"}</code></TableCell>
+      <TableCell>{"Number of columns a cell spans."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableHead / TableCell.rowSpan"}</code></TableCell>
+      <TableCell><code className="break-words">{"number"}</code></TableCell>
+      <TableCell><code className="break-words">{"1 (browser default)"}</code></TableCell>
+      <TableCell>{"Number of rows a cell spans."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableHead / TableCell.children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Cell content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"TableCaption.children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Accessible description of the table."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Each table part accepts additional classes."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"ComponentProps<\"table\" | \"thead\" | \"tbody\" | \"tfoot\" | \"tr\" | \"th\" | \"td\" | \"caption\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Each part forwards the native attributes and event handlers of its corresponding element."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use the global theme tokens and Tailwind CSS v4. Borders use `border-border`, with no rounded classes. Use `TableHead scope="row"` for row headers, `TableCaption` to describe the table, and `TableFooter` for summary rows. Sorting and pagination can be composed separately.

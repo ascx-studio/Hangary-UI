@@ -1,0 +1,100 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Button } from "@/registry/components/button";
+
+<ComponentPreview className="h-full w-full">
+<div className="flex flex-wrap items-center justify-center gap-4">
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="destructive">Destructive</Button>
+        <Button variant="outline">Outline</Button>
+        <Button disabled>Disabled</Button>
+      </div>
+  </ComponentPreview>
+
+# Button
+
+An accessible button with primary, secondary, ghost, destructive, and outline variants.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/button.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/button.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/button.json",
+}} />
+
+## Usage
+
+```tsx
+import { Button } from "@/components/lazy-ui/components/button";
+
+<Button variant="outline">Continue</Button>
+```
+
+## Variants
+
+Use the `variant` prop to choose from: primary, secondary, ghost, destructive, outline. The preview above shows the available variants together.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"variant"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"primary\""}</code></TableCell>
+      <TableCell>{"Button appearance."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Get started\""}</code></TableCell>
+      <TableCell>{"Button label or content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"type"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"button\" | \"submit\" | \"reset\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"button\""}</code></TableCell>
+      <TableCell>{"Native button behavior."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"disabled"}</code></TableCell>
+      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
+      <TableCell><code className="break-words">{"false"}</code></TableCell>
+      <TableCell>{"Prevents interaction."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"onClick"}</code></TableCell>
+      <TableCell><code className="break-words">{"MouseEventHandler<HTMLButtonElement>"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Called when the button is clicked."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"ComponentProps<\"button\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Forwards native button attributes, aria-* attributes, and event handlers."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

@@ -1,6 +1,11 @@
 import type { ReactNode } from "react";
-import RegistrySidebarLayout from "@/components/layout/RegistrySidebarLayout";
+import Sidebar from "@/components/Sidebar";
 
 export default function BlocksLayout({ children }: { children: ReactNode }) {
-  return <RegistrySidebarLayout category="blocks">{children}</RegistrySidebarLayout>;
+  return (
+    <div data-sidebar-layout className="min-h-dvh md:flex">
+      <Sidebar category="blocks" className="sticky" />
+      <div className="w-full min-w-0 flex-1 bg-background">{children}</div>
+    </div>
+  );
 }

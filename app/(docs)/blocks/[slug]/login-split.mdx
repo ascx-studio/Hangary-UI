@@ -1,0 +1,136 @@
+import { LoginSplit } from "@/registry/blocks/login-split";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview className="h-full w-full p-0 sm:p-0"><LoginSplit /></ComponentPreview>
+
+# Login Split
+
+A login form beside a brand and testimonial panel.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/login-split.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/login-split.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/login-split.json",
+}} />
+
+## Usage
+
+```tsx
+"use client";
+
+import type { ComponentProps } from "react";
+import { LoginSplit } from "@/components/lazy-ui/blocks/login-split";
+
+// Pass your application's authentication handlers to this form.
+export function SignIn(props: Pick<ComponentProps<typeof LoginSplit>,
+  "onSubmit" | "onProviderLogin" | "loading" | "error">) {
+  return <LoginSplit brand="Acme" {...props} />;
+}
+```
+
+## Related blocks
+
+Use [Login](/blocks/login) for the base layout. Each style has its own page, component export, and registry installation.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"title"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Welcome back\""}</code></TableCell>
+      <TableCell>{"Card heading and default form accessible name."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"description"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Sign in to pick up where you left off.\""}</code></TableCell>
+      <TableCell>{"Supporting text."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"brand"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Studio\""}</code></TableCell>
+      <TableCell>{"Brand shown in the split layout."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"showSocial"}</code></TableCell>
+      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
+      <TableCell><code className="break-words">{"true"}</code></TableCell>
+      <TableCell>{"Displays Google and GitHub provider buttons."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"onSubmit"}</code></TableCell>
+      <TableCell><code className="break-words">{"FormEventHandler<HTMLFormElement>"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Receives the validated form event. Native navigation is prevented; read email and password through FormData. Without a handler, submission is disabled."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"onProviderLogin"}</code></TableCell>
+      <TableCell><code className="break-words">{"(provider: \"google\" | \"github\") => void"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Called for provider sign-in. Provider buttons are disabled until this handler is provided."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"loading"}</code></TableCell>
+      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
+      <TableCell><code className="break-words">{"false"}</code></TableCell>
+      <TableCell>{"Disables inputs and buttons and displays the pending state."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"error"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Displays an accessible error Banner."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"forgotPasswordHref"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"/forgot-password\""}</code></TableCell>
+      <TableCell>{"Reset-password link. An empty string hides it."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"signupHref"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"/signup\""}</code></TableCell>
+      <TableCell>{"Registration link. An empty string hides it."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Additional form content above the submit button."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Additional classes on the form."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"Omit<ComponentProps<\"form\">, \"title\" | \"action\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Form attributes and events. onSubmit is composed with preventDefault; action is not supported."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4 and the global theme tokens. Borders use `border-border`, with no rounded classes. The registry bundles the existing components used by the block.
+
+Connect `onSubmit` and `onProviderLogin` to your authentication implementation. These blocks provide the interface; the previews do not submit credentials or authenticate. Handle request state with `loading` and `error`, and customize the reset-password and registration destinations.

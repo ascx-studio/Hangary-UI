@@ -1,0 +1,15 @@
+.lazy-code-block .hljs { color: var(--card-foreground); }
+.lazy-code-block .hljs-comment,
+.lazy-code-block .hljs-quote { color: var(--muted-foreground); font-style: italic; }
+.lazy-code-block .hljs-keyword,
+.lazy-code-block .hljs-selector-tag,
+.lazy-code-block .hljs-tag { color: var(--primary); }
+.lazy-code-block .hljs-string,
+.lazy-code-block .hljs-attr,
+.lazy-code-block .hljs-template-tag { color: var(--info); }
+.lazy-code-block .hljs-number,
+.lazy-code-block .hljs-literal,
+.lazy-code-block .hljs-built_in { color: var(--warning); }
+.lazy-code-block .hljs-title,
+.lazy-code-block .hljs-name,
+.lazy-code-block .hljs-type { color: var(--success); }

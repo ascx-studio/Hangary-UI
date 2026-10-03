@@ -1,0 +1,81 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { BottomSheet } from "@/registry/components/bottom-sheet";
+import { Button } from "@/registry/components/button";
+
+<ComponentPreview className="h-full w-full">
+<div className="flex flex-wrap items-center justify-center gap-4">
+        <BottomSheet triggerLabel="View details" title="Project details" />
+        <BottomSheet triggerLabel="Open quick actions" title="Quick actions"><Button>Create project</Button></BottomSheet>
+      </div>
+  </ComponentPreview>
+
+# Bottom Sheet
+
+A bottom-aligned modal sheet with native focus management and Escape dismissal.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/bottom-sheet.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/bottom-sheet.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/bottom-sheet.json",
+}} />
+
+## Usage
+
+```tsx
+import { BottomSheet } from "@/components/lazy-ui/components/bottom-sheet";
+
+<BottomSheet title="Quick actions"><p>Choose your next step.</p></BottomSheet>
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"triggerLabel"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Open bottom sheet\""}</code></TableCell>
+      <TableCell>{"Label of the button that opens the sheet."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"title"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Make yourself at home\""}</code></TableCell>
+      <TableCell>{"Accessible dialog title."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"description"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"A little space for your next action. Press Escape or close to return.\""}</code></TableCell>
+      <TableCell>{"Accessible dialog description."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Sheet body content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

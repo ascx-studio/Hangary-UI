@@ -1,0 +1,86 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Banner } from "@/registry/components/banner";
+
+<ComponentPreview className="h-full w-full">
+  <div className="w-full space-y-6">
+    <Banner variant="primary" message="Primary — your workspace is ready." />
+    <Banner variant="secondary" message="Secondary — a new update is available." />
+    <Banner variant="ghost" dismissible={false} message="Ghost — scheduled maintenance on Sunday." />
+    <Banner variant="destructive" message="Destructive — something went wrong. Please try again." />
+  </div>
+</ComponentPreview>
+
+# Banner
+
+A dismissible announcement banner with primary, secondary, ghost, and destructive variants.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/banner.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/banner.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/banner.json",
+}} />
+
+## Usage
+
+```tsx
+import { Banner } from "@/components/lazy-ui/components/banner";
+
+<Banner message="Your workspace is ready." />
+```
+
+## Variants
+
+Set `variant` to `primary`, `secondary`, `ghost`, or `destructive`. The preview above shows all four.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"variant"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"primary\" | \"secondary\" | \"ghost\" | \"destructive\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"primary\""}</code></TableCell>
+      <TableCell>{"Banner appearance."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"message"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"A little update. A lot of possibilities. Explore what’s new.\""}</code></TableCell>
+      <TableCell>{"Text shown when children are not provided."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Custom content that replaces message."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"dismissible"}</code></TableCell>
+      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
+      <TableCell><code className="break-words">{"true"}</code></TableCell>
+      <TableCell>{"Displays the dismiss button."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

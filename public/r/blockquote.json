@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blockquote",
+  "title": "Blockquote",
+  "description": "A styled quotation with optional author and source attribution.",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/components/blockquote.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\ninterface BlockquoteProps extends ComponentProps<\"figure\"> {\n  quote?: string;\n  author?: string;\n  source?: string;\n}\n\nexport function Blockquote({ children, quote = \"Simplicity is the ultimate sophistication.\", author = \"Design notes\", source = \"On making things that matter\", className = \"\", ...props }: BlockquoteProps = {}) {\n  return <figure className={`max-w-xl border-l-2 border-border py-2 pl-6 ${className}`} {...props}>\n    <blockquote className=\"text-xl leading-relaxed text-white\">{children ?? quote}</blockquote>\n    {(author || source) && <figcaption className=\"mt-4 text-sm text-neutral-400\">{author}{author && source && \" — \"}{source && <cite>{source}</cite>}</figcaption>}\n  </figure>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/components/blockquote.tsx"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

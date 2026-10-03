@@ -1,0 +1,72 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Carousel } from "@/registry/components/carousel";
+import { Badge } from "@/registry/components/badge";
+
+<ComponentPreview className="h-full w-full">
+<div className="grid w-full gap-8 xl:grid-cols-2">
+        <Carousel />
+        <Carousel label="Project highlights" slides={[
+          <div key="design"><Badge>Design</Badge><p className="mt-4">Make room for ideas.</p></div>,
+          <div key="build"><Badge variant="warning">Build</Badge><p className="mt-4">Bring them to life.</p></div>,
+        ]} />
+      </div>
+  </ComponentPreview>
+
+# Carousel
+
+A manual carousel with previous and next controls and slide announcements.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/carousel.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/carousel.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/carousel.json",
+}} />
+
+## Usage
+
+```tsx
+import { Carousel } from "@/components/lazy-ui/components/carousel";
+
+<Carousel slides={["First slide", "Second slide", "Third slide"]} />
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"slides"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode[]"}</code></TableCell>
+      <TableCell><code className="break-words">{"[\"A fresh perspective.\", \"Space to explore.\", \"Something worth making.\"]"}</code></TableCell>
+      <TableCell>{"Slides to display. An empty array renders nothing."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"label"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Featured collection\""}</code></TableCell>
+      <TableCell>{"Accessible carousel name."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

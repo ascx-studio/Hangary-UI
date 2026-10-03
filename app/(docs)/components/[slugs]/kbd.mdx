@@ -1,0 +1,75 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Kbd } from "@/registry/components/kbd";
+
+<ComponentPreview className="h-full w-full">
+<div className="flex flex-wrap items-center justify-center gap-6">
+        <Kbd>Esc</Kbd>
+        <Kbd>⌘ K</Kbd>
+        <span className="flex items-center gap-2"><Kbd>Ctrl</Kbd><span aria-hidden="true">+</span><Kbd>K</Kbd></span>
+      </div>
+  </ComponentPreview>
+
+# Kbd
+
+A styled keyboard key or shortcut hint.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/kbd.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/kbd.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/kbd.json",
+}} />
+
+## Usage
+
+```tsx
+import { Kbd } from "@/components/lazy-ui/components/kbd";
+
+<Kbd>Ctrl K</Kbd>
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"label"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"⌘ K\""}</code></TableCell>
+      <TableCell>{"Keyboard key or shortcut text."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Custom content that replaces label."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"ComponentProps<\"kbd\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Forwards native kbd attributes, aria-* attributes, and event handlers."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

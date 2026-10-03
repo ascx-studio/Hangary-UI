@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants.",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/components/badge.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\ninterface BadgeProps extends ComponentProps<\"span\"> {\n  variant?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"blue\" | \"purple\" | \"pink\" | \"teal\" | \"orange\";\n}\n\nexport function Badge({ children = \"New release\", variant = \"success\", className = \"\", ...props }: BadgeProps = {}) {\n  const styles = {\n    neutral: \"bg-neutral-800 text-neutral-200\",\n    info: \"bg-sky-400/10 text-sky-300\",\n    success: \"bg-emerald-400/10 text-emerald-300\",\n    warning: \"bg-amber-400/10 text-amber-300\",\n    error: \"bg-red-400/10 text-red-300\",\n    blue: \"bg-blue-400/10 text-blue-300\",\n    purple: \"bg-purple-400/10 text-purple-300\",\n    pink: \"bg-pink-400/10 text-pink-300\",\n    teal: \"bg-teal-400/10 text-teal-300\",\n    orange: \"bg-orange-400/10 text-orange-300\",\n  };\n  return <span className={`inline-flex items-center border border-border px-2.5 py-1 text-xs font-medium ${styles[variant] ?? styles.success} ${className}`} {...props}>{children}</span>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/components/badge.tsx"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

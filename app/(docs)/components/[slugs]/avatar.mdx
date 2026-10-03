@@ -1,0 +1,80 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { Card } from "@/registry/components/card";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Avatar } from "@/registry/components/avatar";
+
+
+  <ComponentPreview className="h-full w-full">
+<div className="flex flex-wrap items-center justify-center gap-6">
+        <Avatar name="Alex Morgan" size={32} />
+        <Avatar name="Alex Morgan" size={48} />
+        <Avatar name="Alex Morgan" size={72} />
+        <Avatar src="/logo.png" name="Lazy UI" />
+      </div>
+  </ComponentPreview>
+
+  # Avatar
+
+A profile image with initials and an image-error fallback.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/avatar.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/avatar.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/avatar.json",
+}} />
+
+
+
+## Usage
+
+```tsx
+import { Avatar } from "@/components/lazy-ui/components/avatar";
+
+<Avatar name="Alex Morgan" src="/avatar.jpg" />
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"src"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Profile image URL. Shows initials if omitted or the image fails."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"name"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Alex Morgan\""}</code></TableCell>
+      <TableCell>{"Accessible name and source for the initials."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"size"}</code></TableCell>
+      <TableCell><code className="break-words">{"number"}</code></TableCell>
+      <TableCell><code className="break-words">{"48"}</code></TableCell>
+      <TableCell>{"Width and height in pixels."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

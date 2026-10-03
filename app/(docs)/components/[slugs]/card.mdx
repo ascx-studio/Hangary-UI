@@ -1,0 +1,100 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { Card } from "@/registry/components/card";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Button } from "@/registry/components/button";
+import { Badge } from "@/registry/components/badge";
+
+<ComponentPreview className="h-full w-full">
+  <div className="grid w-full gap-6 lg:grid-cols-2">
+    <Card variant="primary" title="Primary" description="A prominent card for your next idea." className="max-w-none" />
+    <Card variant="secondary" title="Secondary" description="Everything you need in one place." footer={<Button>Open workspace</Button>} className="max-w-none"><Badge>3 members</Badge></Card>
+    <Card variant="ghost" title="Ghost" description="A subtle card that blends into the page." className="max-w-none" />
+    <Card variant="destructive" title="Destructive" description="Something needs your attention before continuing." className="max-w-none" />
+  </div>
+</ComponentPreview>
+
+# Card
+
+A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.rajeevpuri.com.np/r/card.json",
+  npm: "npx shadcn@latest add https://ui.rajeevpuri.com.np/r/card.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.rajeevpuri.com.np/r/card.json",
+}} />
+
+## Usage
+
+```tsx
+import { Card } from "@/components/lazy-ui/components/card";
+
+<Card title="New project" description="Start with a blank canvas."><p>Your content here.</p></Card>
+```
+
+## Variants
+
+Set `variant` to `primary`, `secondary`, `ghost`, or `destructive`. The preview above shows all four.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code className="break-words">{"variant"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"primary\" | \"secondary\" | \"ghost\" | \"destructive\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"secondary\""}</code></TableCell>
+      <TableCell>{"Card appearance."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"title"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"Room for your next idea\""}</code></TableCell>
+      <TableCell>{"Heading; use an empty string to hide it."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"description"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"A simple starting point for something great. Make it yours.\""}</code></TableCell>
+      <TableCell>{"Supporting text; use an empty string to hide it."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Card body content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"footer"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Content below the body, separated by a border."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"className"}</code></TableCell>
+      <TableCell><code className="break-words">{"string"}</code></TableCell>
+      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
+      <TableCell><code className="break-words">{"ComponentProps<\"article\">"}</code></TableCell>
+      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>{"Forwards native article attributes, aria-* attributes, and event handlers."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.

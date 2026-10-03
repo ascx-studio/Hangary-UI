@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-minimal",
+  "title": "Minimal Footer",
+  "description": "A compact footer with inline navigation and a copyright bar.",
+  "dependencies": [
+    "@ridemountainpig/svgl-react@^1.0.18",
+    "cn@^0.2.6",
+    "lucide-react@^1.48.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/footer-minimal.tsx",
+      "content": "import type { ComponentProps } from \"react\";\nimport { FooterMinimal as Block } from \"./footer\";\n\nexport function FooterMinimal(props: ComponentProps<typeof Block>) {\n  return <Block {...props} />;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/blocks/footer-minimal.tsx"
+    },
+    {
+      "path": "registry/blocks/footer.tsx",
+      "content": "import type { ComponentProps, ReactNode } from \"react\";\nimport { ArrowUpRight } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { GitHubDark } from \"@ridemountainpig/svgl-react\";\nimport { Badge } from \"../components/badge\";\nimport { Card } from \"../components/card\";\n\ninterface FooterProps extends ComponentProps<\"footer\"> {\n  brand?: string;\n  homeHref?: string;\n  description?: string;\n  groups?: { title: string; links: { label: string; href: string }[] }[];\n  githubHref?: string;\n  copyright?: string;\n  callout?: { title: string; description: string; label: string; href: string };\n  action?: ReactNode;\n}\n\nfunction FooterLayout({ layout, brand = \"Lazy UI\", homeHref = \"/\", description = \"Thoughtful components. Less setup. More time to build.\", groups = [{ title: \"Explore\", links: [{ label: \"Components\", href: \"/components\" }, { label: \"Blocks\", href: \"/blocks\" }] }, { title: \"Resources\", links: [{ label: \"Button\", href: \"/components/button\" }, { label: \"Tabs\", href: \"/components/tabs\" }, { label: \"Table\", href: \"/components/table\" }] }], githubHref = \"https://github.com/razeevascx/lazy-ui\", copyright = `© ${new Date().getFullYear()} Lazy UI`, callout, action, className, children, ...props }: FooterProps & { layout: \"columns\" | \"minimal\" | \"stacked\" }) {\n  return (\n    <footer {...props} data-slot=\"footer\" data-layout={layout} className={cn(\"w-full border border-border bg-background text-foreground\", className)}>\n      {callout && <div className=\"border-b border-border p-6 sm:p-8\">\n        <Card title={callout.title} description={callout.description} variant=\"secondary\" className=\"max-w-none!\" footer={action ?? <a href={callout.href} className=\"inline-flex min-h-10 items-center gap-2 text-sm font-medium hover:underline focus-visible:outline-2 focus-visible:outline-ring\">{callout.label}<ArrowUpRight size={16} aria-hidden=\"true\" /></a>} />\n      </div>}\n      <div className={cn(\"gap-10 p-6 sm:p-8\", layout === \"columns\" ? \"grid md:grid-cols-[1.5fr_2fr]\" : layout === \"minimal\" ? \"flex flex-wrap items-center justify-between\" : \"flex flex-col items-center text-center\")}>\n        <div>\n          <a href={homeHref} className=\"text-xl font-semibold focus-visible:outline-2 focus-visible:outline-ring\">{brand}</a>\n          {layout !== \"minimal\" && <p className=\"mt-3 max-w-sm text-sm leading-6 text-muted-foreground\">{description}</p>}\n          {layout !== \"minimal\" && <div className=\"mt-4\"><Badge variant=\"success\">Open source</Badge></div>}\n          {children}\n        </div>\n        <div className={cn(layout === \"minimal\" ? \"flex flex-wrap gap-6\" : \"grid grid-cols-2 gap-8\")}>\n          {groups.map(group => <nav key={group.title} aria-label={group.title}>\n            {layout !== \"minimal\" && <h3 className=\"mb-4 text-sm font-semibold\">{group.title}</h3>}\n            <ul className={layout === \"minimal\" ? \"flex flex-wrap gap-4\" : \"space-y-3\"}>\n              {group.links.map(link => <li key={link.href}><a href={link.href} className=\"text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring\">{link.label}</a></li>)}\n            </ul>\n          </nav>)}\n        </div>\n      </div>\n      <div className=\"flex flex-wrap items-center justify-between gap-4 border-t border-border px-6 py-4 text-xs text-muted-foreground sm:px-8\">\n        <span>{copyright}</span>\n        {githubHref && <a href={githubHref} className=\"inline-flex min-h-9 items-center gap-2 hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring\"><GitHubDark width={16} height={16} aria-hidden=\"true\" />GitHub</a>}\n      </div>\n    </footer>\n  );\n}\n\nexport function Footer(props: FooterProps = {}) {\n  return <FooterLayout {...props} layout=\"columns\" />;\n}\n\nexport function FooterMinimal(props: FooterProps = {}) {\n  return <FooterLayout {...props} layout=\"minimal\" />;\n}\n\nexport function FooterStacked(props: FooterProps = {}) {\n  return <FooterLayout {...props} layout=\"stacked\" />;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/blocks/footer.tsx"
+    },
+    {
+      "path": "registry/components/badge.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\ninterface BadgeProps extends ComponentProps<\"span\"> {\n  variant?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"blue\" | \"purple\" | \"pink\" | \"teal\" | \"orange\";\n}\n\nexport function Badge({ children = \"New release\", variant = \"success\", className = \"\", ...props }: BadgeProps = {}) {\n  const styles = {\n    neutral: \"bg-neutral-800 text-neutral-200\",\n    info: \"bg-sky-400/10 text-sky-300\",\n    success: \"bg-emerald-400/10 text-emerald-300\",\n    warning: \"bg-amber-400/10 text-amber-300\",\n    error: \"bg-red-400/10 text-red-300\",\n    blue: \"bg-blue-400/10 text-blue-300\",\n    purple: \"bg-purple-400/10 text-purple-300\",\n    pink: \"bg-pink-400/10 text-pink-300\",\n    teal: \"bg-teal-400/10 text-teal-300\",\n    orange: \"bg-orange-400/10 text-orange-300\",\n  };\n  return <span className={`inline-flex items-center border border-border px-2.5 py-1 text-xs font-medium ${styles[variant] ?? styles.success} ${className}`} {...props}>{children}</span>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/components/badge.tsx"
+    },
+    {
+      "path": "registry/components/card.tsx",
+      "content": "import type { ComponentProps, ReactNode } from \"react\";\n\ninterface CardProps extends Omit<ComponentProps<\"article\">, \"title\"> {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\";\n  title?: string;\n  description?: string;\n  footer?: ReactNode;\n}\n\nexport function Card({ variant = \"secondary\", title = \"Room for your next idea\", description = \"A simple starting point for something great. Make it yours.\", children, footer, className = \"\", ...props }: CardProps = {}) {\n  const styles = {\n    primary: \"bg-primary text-primary-foreground\",\n    secondary: \"bg-card text-card-foreground\",\n    ghost: \"bg-transparent text-foreground\",\n    destructive: \"bg-destructive text-destructive-foreground\",\n  };\n  return <article className={`w-full max-w-sm border border-border p-6 shadow-sm ${styles[variant] ?? styles.secondary} ${className}`} {...props}>\n    {title && <h3 className=\"text-lg font-semibold\">{title}</h3>}\n    {description && <p className=\"mt-2 text-sm leading-6 opacity-80\">{description}</p>}\n    {children && <div className={title || description || footer ? \"mt-5\" : \"h-full min-h-0\"}>{children}</div>}\n    {footer && <footer className=\"mt-5 border-t border-border pt-4\">{footer}</footer>}\n  </article>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/lazy-ui/components/card.tsx"
+    }
+  ],
+  "meta": {
+    "category": "blocks"
+  },
+  "type": "registry:block"
+}

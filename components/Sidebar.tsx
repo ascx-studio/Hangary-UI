@@ -50,15 +50,11 @@ function Navigation({ category }: { category: RegistryCategory }) {
   const categoryConfig = sidebarData.categories[category as keyof typeof sidebarData.categories]
   const toLinks = (entries: { label: string; slug: string }[]) =>
     entries.map(({ label, slug }) => ({ label, href: `/${category}/${slug}` }))
-  const groups = categoryConfig && 'groups' in categoryConfig ? categoryConfig.groups : []
-  const sections = categoryConfig && groups.length ? [
-    ...groups.map(group => ({ title: group.title, links: toLinks(group.items) })),
-  ] : categoryConfig ? [
-    {
-      title: categoryConfig.title,
-      links: 'items' in categoryConfig ? toLinks(categoryConfig.items) : [],
-    },
-  ] : [{ title: browseSection.sidebarLabel, links: browseSection.links.map(({ label, href }) => ({ label, href })) }]
+  const entries: { label: string; slug: string; group?: string }[] = categoryConfig?.items ?? []
+  const groupTitles = [...new Set(entries.map(item => item.group ?? categoryConfig?.title))]
+  const sections = categoryConfig
+    ? groupTitles.map(title => ({ title, links: toLinks(entries.filter(item => (item.group ?? categoryConfig.title) === title)) }))
+    : [{ title: browseSection.sidebarLabel, links: browseSection.links.map(({ label, href }) => ({ label, href })) }]
 
   return (
     <nav aria-label="Documentation navigation" className="space-y-10">
@@ -94,12 +90,12 @@ function SidebarFooter() {
   )
 }
 
-export default function Sidebar({ category }: { category: RegistryCategory }) {
+export default function Sidebar({ category, className = "" }: { category: RegistryCategory; className?: string }) {
   const [desktopOpen, setDesktopOpen] = useState(true)
   return (
     <>
       {desktopOpen ? (
-        <aside className="sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto border-r border-sidebar-border px-4 py-6 text-sidebar-foreground md:flex">
+        <aside className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto border-r border-sidebar-border px-4 py-6 text-sidebar-foreground md:flex ${className}`}>
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0 flex-1">
               <BrandDropdown />

@@ -30,7 +30,7 @@ export default function CodePreview({
         {...props}
         className={cn(
           styles.preview,
-          "my-3 min-w-0 max-w-full overflow-x-auto rounded-lg border p-4 text-sm leading-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+          "my-3 min-w-0 max-w-full overflow-x-auto border p-4 text-sm leading-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
           className,
         )}
       >
