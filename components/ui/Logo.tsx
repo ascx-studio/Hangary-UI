@@ -13,7 +13,7 @@ const logoVariants: Record<LogoVariant, Pick<ImageProps, "src" | "alt" | "width"
     src: "/wordmark.png",
     alt: "Wordmark",
     width: 160,
-    height: 40,
+    height: 31,
   },
 }
 
