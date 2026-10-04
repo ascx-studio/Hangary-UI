@@ -28,7 +28,7 @@ function LoginLayout({ layout, title = "Welcome back", description = "Sign in to
   const [visible, setVisible] = useState(false);
   return (
     <div data-slot="login" data-layout={layout} className="@container w-full">
-      <div className={cn(layout === "split" && "grid grid-cols-1 border border-border bg-card @xl:min-h-[36rem] @xl:grid-cols-2")}>
+      <div className={cn(layout === "split" && "grid grid-cols-1 border border-border bg-card @xl:min-h-144 @xl:grid-cols-2")}>
       {layout === "split" && <aside className="flex min-w-0 flex-col justify-between gap-10 border-b border-border bg-muted p-8 @xl:border-r @xl:border-b-0">
         <div className="flex items-center gap-3"><span className="text-xl font-semibold">{brand}</span><Badge variant="neutral">Workspace</Badge></div>
         <div><Blockquote quote="A little less friction. A lot more room to create." author="Alex Morgan" source="Designer" /><div className="mt-6"><Avatar name="Alex Morgan" size={40} /></div></div>
