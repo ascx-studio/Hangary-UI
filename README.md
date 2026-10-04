@@ -1,6 +1,6 @@
 <div align="center">
 
-# Lazy Ui
+# Hangry UI
 
 *A focused collection of reusable React components for modern interfaces.*
 
