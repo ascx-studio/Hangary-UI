@@ -24,6 +24,7 @@ export const previewProps: Record<string, PreviewProp[]> = {
   "pricing": [{"name":"title","type":"string","required":false,"control":"text"},{"name":"description","type":"string","required":false,"control":"text"},{"name":"defaultBilling","type":"\"monthly\" | \"yearly\"","options":["monthly","yearly"],"required":false,"control":"select"},{"name":"plans","type":"{ name: string; description: string; monthlyPrice: number; yearlyPrice: number; features: string[]; href: string; label?: string; featured?: boolean }[]","required":false,"control":null}],
   "pricing-compact": [],
   "pricing-comparison": [],
+  "sme-background": [],
   "table": [],
   "tabs": [{"name":"value","type":"string","required":false,"control":"text"},{"name":"defaultValue","type":"string","required":false,"control":"text"},{"name":"onValueChange","type":"(value: string) => void","required":false,"control":null},{"name":"orientation","type":"\"horizontal\" | \"vertical\"","options":["horizontal","vertical"],"required":false,"control":"select","defaultValue":"horizontal"}],
 };

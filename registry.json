@@ -729,6 +729,23 @@
       ]
     },
     {
+      "name": "sme-background",
+      "type": "registry:component",
+      "title": "SME Background",
+      "description": "A layered gradient and grid background for product sections, previews, and hero panels.",
+      "files": [
+        {
+          "path": "registry/shader/sme-background.tsx",
+          "type": "registry:component",
+          "target": "@components/lazy-ui/shader/sme-background.tsx"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "table",
       "type": "registry:component",
       "title": "Table",

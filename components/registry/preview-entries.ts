@@ -23,6 +23,7 @@ import { NavbarFloating } from "@/registry/blocks/navbar-floating";
 import { Pricing } from "@/registry/blocks/pricing";
 import { PricingCompact } from "@/registry/blocks/pricing-compact";
 import { PricingComparison } from "@/registry/blocks/pricing-comparison";
+import { SmeBackground } from "@/registry/shader/sme-background";
 import { Table } from "@/registry/components/table";
 import { Tabs } from "@/registry/components/tabs";
 
@@ -50,6 +51,7 @@ export const previewEntries: Record<string, { component: ComponentType; category
   "pricing": { component: Pricing, category: "blocks" },
   "pricing-compact": { component: PricingCompact, category: "blocks" },
   "pricing-comparison": { component: PricingComparison, category: "blocks" },
+  "sme-background": { component: SmeBackground, category: "shader" },
   "table": { component: Table, category: "components" },
   "tabs": { component: Tabs, category: "components" },
 };

@@ -124,11 +124,13 @@
     },
     "shader": {
       "title": "Backgrounds",
-      "items": []
-    },
-    "utils": {
-      "title": "Utilities",
-      "items": []
+      "items": [
+        {
+          "label": "SME Background",
+          "slug": "sme-background"
+        }
+      ]
     }
+
   }
 }

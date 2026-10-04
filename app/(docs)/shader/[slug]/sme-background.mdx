@@ -1,0 +1,29 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { SmeBackground } from "@/registry/shader/sme-background";
+
+<ComponentPreview><SmeBackground className="h-full w-full"/></ComponentPreview>
+
+# SME Background
+
+A layered gradient and grid background for product sections, previews, and hero panels.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/sme-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/sme-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/sme-background.json",
+}} />
+
+## Usage
+
+Use the exports from the installed entry file:
+
+```text
+@/components/lazy-ui/shader/sme-background.tsx
+```
+
+## Setup notes
+
+Install the entry and its dependencies, then adapt the content and styles to your application.
