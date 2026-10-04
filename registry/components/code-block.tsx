@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js/full/no-external";
 import { Check, Copy, FileCode } from "lucide-react";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
@@ -19,6 +20,10 @@ hljs.registerLanguage("json", json);
 hljs.registerLanguage("css", css);
 hljs.registerLanguage("xml", xml);
 hljs.registerLanguage("python", python);
+
+const isPostHogConfigured = Boolean(
+  process.env.NEXT_PUBLIC_POSTHOG_KEY && process.env.NEXT_PUBLIC_POSTHOG_HOST,
+);
 
 interface CodeBlockProps {
   code?: string;
@@ -45,6 +50,13 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
     try {
       await navigator.clipboard.writeText(displayedCode);
       setCopyResult({ code: displayedCode, success: true });
+      if (isPostHogConfigured) {
+        posthog.capture("code_copied", {
+          content_type: commands ? "installation_command" : "source_code",
+          language: displayedLanguage,
+          package_manager: commands ? selectedManager : undefined,
+        });
+      }
     } catch {
       setCopyResult({ code: displayedCode, success: false });
     }

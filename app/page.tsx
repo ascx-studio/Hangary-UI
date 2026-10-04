@@ -13,7 +13,7 @@ export default function Page() {
                 src="/wordmark.png"
                 alt="Hangry UI wordmark"
                 width={400}
-                height={100}
+                height={78}
                 priority
                 className="h-auto w-[min(100%,28rem)] drop-shadow-2xl"
                 style={{ height: "auto" }}
