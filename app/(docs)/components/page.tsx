@@ -1,7 +1,11 @@
 import Container from '@/components/layout/Container'
 import Catalog from "@/components/registry/catalog";
+import { pageMetadata } from "@/lib/seo";
+import type { ResolvingMetadata } from "next";
 
-export const metadata = { title: 'Components | Hangry UI', description: 'Reusable interface pieces with previews, installation instructions, and source code.' }
+export async function generateMetadata(_props: unknown, parent: ResolvingMetadata) {
+  return pageMetadata('/components', 'React UI Components', 'Reusable React UI components with live previews, installation instructions, and source code. Built with Tailwind CSS for your next interface.', await parent);
+}
 
 export default function Page() {
   return (

@@ -1,6 +1,12 @@
 import Logo from '@/components/ui/Logo'
 import Container from '@/components/layout/Container'
 import Link from 'next/link'
+import { pageMetadata } from '@/lib/seo'
+import type { ResolvingMetadata } from 'next'
+
+export async function generateMetadata(_props: unknown, parent: ResolvingMetadata) {
+  return pageMetadata('/sponser', 'Sponsor Hangry UI', 'Support free React components, documentation, and ongoing maintenance. Sponsor Hangry UI on GitHub or contribute to the collection.', await parent)
+}
 
 const faqs = [
   {

@@ -17,7 +17,7 @@ export function getAnalyticsConsent(): AnalyticsConsent | null {
 }
 
 export function syncAnalyticsConsent() {
-  if (getAnalyticsConsent() !== "accepted") {
+  if (getAnalyticsConsent() === "rejected") {
     if (initialized) posthog.opt_out_capturing();
     return;
   }
@@ -33,12 +33,43 @@ export function syncAnalyticsConsent() {
   posthog.init(key, {
     api_host: "/ingest",
     defaults: "2026-01-30",
+    autocapture: true,
+    capture_pageview: "history_change",
+    capture_pageleave: true,
+    disable_scroll_properties: false,
+    capture_heatmaps: true,
+    rageclick: true,
     capture_exceptions: true,
-    capture_dead_clicks: false,
+    capture_dead_clicks: true,
+    capture_performance: { web_vitals: true, network_timing: true },
     disable_external_dependency_loading: true,
-    disable_session_recording: true,
-    opt_out_capturing_by_default: true,
-    opt_out_persistence_by_default: true,
+    disable_session_recording: false,
+    session_recording: {
+      maskAllInputs: true,
+      blockSelector: 'input[type="hidden"], input[type="file"], [data-private]',
+      maskTextSelector: "[data-sensitive]",
+      recordHeaders: false,
+      recordBody: false,
+    },
+    enable_recording_console_log: false,
+    disable_surveys: false,
+    disable_web_experiments: false,
+    opt_out_capturing_by_default: false,
+    opt_out_persistence_by_default: false,
+    before_send: (event) => {
+      if (!event) return null;
+      // Use the event URL so pageleave keeps the context of the page being left.
+      const url = event.properties?.$current_url;
+      const pathname = new URL(typeof url === "string" ? url : window.location.href).pathname;
+      const [, section, slug] = pathname.split("/");
+      event.properties = {
+        ...event.properties,
+        project_name: "Hangry UI",
+        site_section: section || "home",
+        catalog_item: ["components", "blocks", "shader"].includes(section) ? slug : undefined,
+      };
+      return event;
+    },
     loaded: (client) => client.opt_in_capturing(),
     debug: process.env.NODE_ENV === "development",
   });

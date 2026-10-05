@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import ConsentBanner from "@/components/ConsentBanner";
+import { pageMetadata, siteDescription, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,21 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  ...pageMetadata("/", "React Components, Blocks & Shaders", siteDescription),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Hangry UI - Reusable React Components with Tailwind CSS & shadcn/ui",
+    default: "React Components, Blocks & Shaders | Hangry UI",
     template: "%s | Hangry UI",
   },
-  description:
-    "Explore a collection of high-quality, reusable React components built with Tailwind CSS and powered by shadcn/ui. Enhance your web development with modern, accessible, and customizable UI elements for your projects.",
-  openGraph: {
-    title: "Hangry UI - Reusable React Components with Tailwind CSS & shadcn/ui",
-    description:
-      "Explore a collection of high-quality, reusable React components built with Tailwind CSS and powered by shadcn/ui. ",
-    url: "ui.razeev.com",
-    siteName: "Hangry UI",
-    locale: "en_UK",
-    type: "website",
-  },
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

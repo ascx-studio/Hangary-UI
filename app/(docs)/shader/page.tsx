@@ -1,7 +1,11 @@
 import Container from '@/components/layout/Container'
 import Catalog from "@/components/registry/catalog";
+import { pageMetadata } from "@/lib/seo";
+import type { ResolvingMetadata } from "next";
 
-export const metadata = { title: 'Shaders | Hangry UI', description: 'Animated shaders and visual effects, ready to explore in a live preview.' }
+export async function generateMetadata(_props: unknown, parent: ResolvingMetadata) {
+  return pageMetadata('/shader', 'React Shaders & Background Effects', 'Animated shaders and background effects for React. Explore live previews, copy the source, and add visual effects to your next interface.', await parent);
+}
 
 export default function Page() {
 

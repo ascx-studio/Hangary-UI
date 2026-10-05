@@ -1,14 +1,18 @@
 import Container from "@/components/layout/Container";
 import Link from "next/link";
 import Image from "next/image";
+import JsonLd from "@/components/seo/JsonLd";
+import { siteDescription, siteUrl } from "@/lib/seo";
 
 export default function Page() {
   return (
     <div className="page-entrance w-full min-w-0">
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", name: "Hangry UI", url: siteUrl, description: siteDescription, inLanguage: "en-GB" }} />
       <main className="relative isolate min-h-[90dvh] overflow-hidden">
         <Container className="flex min-h-[90dvh] max-w-7xl w-full flex-col justify-center py-12 sm:py-16 md:py-20">
           <div className="w-full max-w-2xl">
             <div className="w-full space-y-7">
+              <h1 className="sr-only">Hangry UI — React components, blocks, and shaders</h1>
               <Image
                 src="/wordmark.png"
                 alt="Hangry UI wordmark"

@@ -1,14 +1,18 @@
 import DetailPage from "@/components/registry/detail-page";
-import { getRegistryItem, getRegistryItems } from "@/lib/registry";
+import { getRegistryItem, getRegistryItemHref, getRegistryItems } from "@/lib/registry";
+import { pageMetadata } from "@/lib/seo";
+import { notFound } from "next/navigation";
+import type { ResolvingMetadata } from "next";
 
 export function generateStaticParams() {
   return getRegistryItems("blocks").filter(item => !item.meta?.documentationPage).map(item => ({ slug: item.name }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }, parent?: ResolvingMetadata) {
   const { slug } = await params;
   const item = getRegistryItem(slug, "blocks");
-  return { title: item ? `${item.title} | Hangry UI` : "Registry item not found | Hangry UI", description: item?.description };
+  if (!item) notFound();
+  return pageMetadata(getRegistryItemHref(item), item.title, item.description, await parent);
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

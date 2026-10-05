@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ComponentType, type SVGProps } from "react";
+import { memo, useState, type ComponentType, type SVGProps } from "react";
 import { BashDark, Bun, CSSNew, HTML5, JSON as JsonIcon, JavaScript, NPM, PnpmDark, Python, ReactDark, TypeScript, Yarn } from "@ridemountainpig/svgl-react";
 import posthog from "posthog-js/full/no-external";
 import { Check, Copy, FileCode } from "lucide-react";
@@ -70,11 +70,12 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
     try {
       await navigator.clipboard.writeText(displayedCode);
       setCopyResult({ code: displayedCode, success: true });
-      if (isPostHogConfigured) {
+      if (isPostHogConfigured && posthog.has_opted_in_capturing()) {
         posthog.capture("code_copied", {
           content_type: commands ? "installation_command" : "source_code",
           language: displayedLanguage,
           package_manager: commands ? selectedManager : undefined,
+          filename: filename || undefined,
         });
       }
     } catch {
@@ -91,6 +92,9 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
         const next = value as keyof typeof managerIcons;
         setManager(next);
         onPackageManagerChange?.(next);
+        if (isPostHogConfigured && posthog.has_opted_in_capturing()) {
+          posthog.capture("package_manager_selected", { package_manager: next });
+        }
       }} className="gap-0">
         {header}
         {(["bun", "npm", "pnpm", "yarn"] as const).map(option => (
@@ -105,21 +109,15 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
 }
 
 function CodeBlockHeader({ commands, language, filename, copied, onCopy }: { commands: boolean; language: string; filename: string; copied?: boolean; onCopy: () => void }) {
-  const LanguageIcon = languageIcons[language.toLowerCase()] ?? FileCode;
   return (
       <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-2">
-        {commands ? <TabsList aria-label="Package manager">
-          {(["bun", "npm", "pnpm", "yarn"] as const).map(option => {
-            const ManagerIcon = managerIcons[option];
-            return <TabsTrigger key={option} value={option}><ManagerIcon width={16} height={16} aria-hidden="true" focusable="false" className="shrink-0" />{option}</TabsTrigger>;
-          })}
-        </TabsList> : <span className="flex min-w-0 items-center gap-2 font-mono text-xs text-muted-foreground"><LanguageIcon width={16} height={16} aria-hidden="true" focusable="false" className="shrink-0" /><span className="truncate">{filename || language || "Code"}</span></span>}
+        {commands ? <PackageManagerTabs /> : <CodeLanguageLabel language={language} filename={filename} />}
         <button type="button" aria-label="Copy code" title={copied ? "Copied!" : "Copy code"} onClick={onCopy} className="inline-flex size-9 shrink-0 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring">{copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}</button>
       </div>
   );
 }
 
-function CodeBlockContent({ code, language, filename, showLineNumbers, packageManager }: { code: string; language: string; filename: string; showLineNumbers: boolean; packageManager?: string }) {
+const CodeBlockContent = memo(function CodeBlockContent({ code, language, filename, showLineNumbers, packageManager }: { code: string; language: string; filename: string; showLineNumbers: boolean; packageManager?: string }) {
   const highlighted = hljs.getLanguage(language)
     ? hljs.highlight(code, { language, ignoreIllegals: true }).value : undefined;
   return (
@@ -128,4 +126,22 @@ function CodeBlockContent({ code, language, filename, showLineNumbers, packageMa
         {highlighted === undefined ? <code>{code}</code> : <code className={`hljs language-${language}`} dangerouslySetInnerHTML={{ __html: highlighted }} />}
       </pre>
   );
-}
+});
+
+const PackageManagerTabs = memo(function PackageManagerTabs() {
+  return (
+    <TabsList aria-label="Package manager">
+          {(["bun", "npm", "pnpm", "yarn"] as const).map(option => {
+            const ManagerIcon = managerIcons[option];
+            return <TabsTrigger key={option} value={option}><ManagerIcon width={16} height={16} aria-hidden="true" focusable="false" className="shrink-0" />{option}</TabsTrigger>;
+          })}
+        </TabsList>
+  );
+});
+
+const CodeLanguageLabel = memo(function CodeLanguageLabel({ language, filename }: { language: string; filename: string }) {
+  const LanguageIcon = languageIcons[language.toLowerCase()] ?? FileCode;
+  return (
+    <span className="flex min-w-0 items-center gap-2 font-mono text-xs text-muted-foreground"><LanguageIcon width={16} height={16} aria-hidden="true" focusable="false" className="shrink-0" /><span className="truncate">{filename || language || "Code"}</span></span>
+  );
+});
