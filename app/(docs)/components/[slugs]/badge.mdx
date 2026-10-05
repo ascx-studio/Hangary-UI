@@ -4,7 +4,7 @@ import ComponentPreview from "@/components/registry/component-preview";
 import { Badge } from "@/registry/components/badge";
 
 <ComponentPreview className="h-full w-full">
-  <div className="grid items-center justify-center gap-4">
+  <div className="mx-auto grid w-full max-w-4xl grid-cols-2 items-center justify-items-center gap-6 p-4 sm:grid-cols-3 sm:p-8 lg:grid-cols-5 [&>span]:h-12 [&>span]:w-full [&>span]:justify-center [&>span]:px-3 [&>span]:py-0 [&>span]:text-base">
     <Badge variant="neutral">Neutral</Badge>
     <Badge variant="info">Info</Badge>
     <Badge variant="success">Success</Badge>
@@ -28,12 +28,13 @@ A compact badge with neutral, info, success, warning, error, blue, purple, pink,
   bun: "bunx shadcn@latest add https://ui.razeev.com/r/badge.json",
   npm: "npx shadcn@latest add https://ui.razeev.com/r/badge.json",
   pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/badge.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/badge.json",
 }} />
 
 ## Usage
 
 ```tsx
-import { Badge } from "@/components/lazy-ui/components/badge";
+import { Badge } from "@/components/hangry-ui/components/badge";
 
 <Badge variant="success">Published</Badge>
 ```

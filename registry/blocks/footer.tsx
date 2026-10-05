@@ -16,11 +16,11 @@ interface FooterProps extends ComponentProps<"footer"> {
   action?: ReactNode;
 }
 
-function FooterLayout({ layout, brand = "Lazy UI", homeHref = "/", description = "Thoughtful components. Less setup. More time to build.", groups = [{ title: "Explore", links: [{ label: "Components", href: "/components" }, { label: "Blocks", href: "/blocks" }] }, { title: "Resources", links: [{ label: "Button", href: "/components/button" }, { label: "Tabs", href: "/components/tabs" }, { label: "Table", href: "/components/table" }] }], githubHref = "https://github.com/ascx-studio/ui", copyright = `© ${new Date().getFullYear()} Lazy UI`, callout, action, className, children, ...props }: FooterProps & { layout: "columns" | "minimal" | "stacked" }) {
+function FooterLayout({ layout, brand = "Hangry UI", homeHref = "/", description = "Thoughtful components. Less setup. More time to build.", groups = [{ title: "Explore", links: [{ label: "Components", href: "/components" }, { label: "Blocks", href: "/blocks" }] }, { title: "Resources", links: [{ label: "Button", href: "/components/button" }, { label: "Tabs", href: "/components/tabs" }, { label: "Table", href: "/components/table" }] }], githubHref = "https://github.com/ascx-studio/ui", copyright = `© ${new Date().getFullYear()} Hangry UI`, callout, action, className, children, ...props }: FooterProps & { layout: "columns" | "minimal" | "stacked" }) {
   return (
     <footer {...props} data-slot="footer" data-layout={layout} className={cn("w-full border border-border bg-background text-foreground", className)}>
       {callout && <div className="border-b border-border p-6 sm:p-8">
-        <Card title={callout.title} description={callout.description} variant="secondary" className="max-w-none!" footer={action ?? <a href={callout.href} className="inline-flex min-h-10 items-center gap-2 text-sm font-medium hover:underline focus-visible:outline-2 focus-visible:outline-ring">{callout.label}<ArrowUpRight size={16} aria-hidden="true" /></a>} />
+        <Card title={callout.title} description={callout.description} className="max-w-none!" footer={action ?? <a href={callout.href} className="inline-flex min-h-10 items-center gap-2 text-sm font-medium hover:underline focus-visible:outline-2 focus-visible:outline-ring">{callout.label}<ArrowUpRight size={16} aria-hidden="true" /></a>} />
       </div>}
       <div className={cn("gap-10 p-6 sm:p-8", layout === "columns" ? "grid md:grid-cols-[1.5fr_2fr]" : layout === "minimal" ? "flex flex-wrap items-center justify-between" : "flex flex-col items-center text-center")}>
         <div>

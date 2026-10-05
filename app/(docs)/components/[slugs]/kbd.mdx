@@ -4,12 +4,21 @@ import ComponentPreview from "@/components/registry/component-preview";
 import { Kbd } from "@/registry/components/kbd";
 
 <ComponentPreview className="h-full w-full">
-<div className="flex flex-wrap items-center justify-center gap-6">
-        <Kbd>Esc</Kbd>
-        <Kbd>⌘ K</Kbd>
-        <span className="flex items-center gap-2"><Kbd>Ctrl</Kbd><span aria-hidden="true">+</span><Kbd>K</Kbd></span>
-      </div>
-  </ComponentPreview>
+  <div className="mx-auto w-full max-w-lg divide-y divide-border border border-border bg-card px-6 text-card-foreground sm:px-8 [&_kbd]:h-12 [&_kbd]:min-w-12 [&_kbd]:px-4 [&_kbd]:text-base">
+    <div className="flex items-center justify-between gap-6 py-6">
+      <span className="text-sm font-medium">Dismiss</span>
+      <Kbd>Esc</Kbd>
+    </div>
+    <div className="flex items-center justify-between gap-6 py-6">
+      <span className="text-sm font-medium">Search</span>
+      <span className="flex items-center gap-2"><Kbd>⌘</Kbd><span aria-hidden="true" className="text-muted-foreground">+</span><Kbd>K</Kbd></span>
+    </div>
+    <div className="flex items-center justify-between gap-6 py-6">
+      <span className="text-sm font-medium">Quick search</span>
+      <span className="flex items-center gap-2"><Kbd>Ctrl</Kbd><span aria-hidden="true" className="text-muted-foreground">+</span><Kbd>K</Kbd></span>
+    </div>
+  </div>
+</ComponentPreview>
 
 # Kbd
 
@@ -21,12 +30,13 @@ A styled keyboard key or shortcut hint.
   bun: "bunx shadcn@latest add https://ui.razeev.com/r/kbd.json",
   npm: "npx shadcn@latest add https://ui.razeev.com/r/kbd.json",
   pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/kbd.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/kbd.json",
 }} />
 
 ## Usage
 
 ```tsx
-import { Kbd } from "@/components/lazy-ui/components/kbd";
+import { Kbd } from "@/components/hangry-ui/components/kbd";
 
 <Kbd>Ctrl K</Kbd>
 ```

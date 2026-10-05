@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useId, useState, type ComponentProps } from "react";
+import { createContext, useContext, useId, useState, useCallback, useMemo, type ComponentProps } from "react";
 import { cn } from "cn";
 
 interface TabsProps extends Omit<ComponentProps<"div">, "defaultValue" | "onChange"> {
@@ -26,12 +26,13 @@ function useTabs() {
 export function Tabs({ className, value, defaultValue, onValueChange, orientation = "horizontal", children, ...props }: TabsProps) {
   const id = useId();
   const [selected, setSelected] = useState(defaultValue);
-  function select(next: string) {
+  const select = useCallback((next: string) => {
     if (value === undefined) setSelected(next);
     onValueChange?.(next);
-  }
+  }, [value, onValueChange]);
+  const context = useMemo(() => ({ id, value: value ?? selected, orientation, select }), [id, value, selected, orientation, select]);
   return (
-    <TabsContext.Provider value={{ id, value: value ?? selected, orientation, select }}>
+    <TabsContext.Provider value={context}>
       <div {...props} data-slot="tabs" data-orientation={orientation} className={cn("group/tabs flex w-full gap-2 data-[orientation=horizontal]:flex-col", className)}>
         {children}
       </div>
@@ -39,7 +40,7 @@ export function Tabs({ className, value, defaultValue, onValueChange, orientatio
   );
 }
 
-export function tabsListVariants({ variant = "default" }: { variant?: "default" | "line" } = {}) {
+function tabsListVariants({ variant = "default" }: { variant?: "default" | "line" } = {}) {
   return cn(
     "group/tabs-list inline-flex w-fit items-center justify-center p-1 text-muted-foreground group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
     variant === "line" ? "gap-1 bg-transparent" : "bg-muted",

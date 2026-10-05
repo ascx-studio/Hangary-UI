@@ -16,7 +16,7 @@
 
 ## Overview
 
-Lazy Ui is a small, reusable component library and documentation site built with Next.js, React, TypeScript, and Tailwind CSS. It provides composable interface primitives with a simple API, including buttons that can render as native controls or Next.js links.
+Hangry UI is a small, reusable component library and documentation site built with Next.js, React, TypeScript, and Tailwind CSS. It provides composable interface primitives with a simple API, including buttons that can render as native controls or Next.js links.
 
 ## Features
 

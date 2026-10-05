@@ -85,14 +85,19 @@ test('code block highlights known languages and preserves unknown languages as p
   assert.doesNotMatch(plain, /class="hljs /);
 });
 
-test('package-manager commands display the selected manager and provide all three controls', () => {
-  const commands = { bun: 'bun add highlight.js', npm: 'npm install highlight.js', pnpm: 'pnpm add highlight.js' };
-  for (const manager of ['bun', 'npm', 'pnpm'] as const) {
+test('package-manager commands display the selected manager and provide all four controls', () => {
+  const commands = { bun: 'bun add highlight.js', npm: 'npm install highlight.js', pnpm: 'pnpm add highlight.js', yarn: 'yarn add highlight.js' };
+  for (const manager of ['bun', 'npm', 'pnpm', 'yarn'] as const) {
     const html = renderToStaticMarkup(<CodeBlock commands={commands} packageManager={manager} />);
     assert.match(html, new RegExp(`aria-label="${manager} installation command"`));
     assert.ok(html.replace(/<[^>]+>/g, '').includes(commands[manager]));
-    assert.equal((html.match(/aria-pressed="true"/g) ?? []).length, 1);
-    assert.equal((html.match(/aria-pressed="false"/g) ?? []).length, 2);
+    assert.match(html, new RegExp(`<span class="hljs-built_in">${manager}</span>`));
+    assert.equal((html.match(/aria-selected="true"/g) ?? []).length, 1);
+    assert.equal((html.match(/aria-selected="false"/g) ?? []).length, 3);
+    assert.match(html, /role="tablist"/);
+    const tab = html.match(new RegExp(`id="([^"]+)" aria-controls="([^"]+)" aria-selected="true"`));
+    assert.ok(tab);
+    assert.ok(html.includes(`id="${tab[2]}" aria-labelledby="${tab[1]}"`));
     assert.match(html, /aria-label="Copy code"/);
   }
 });

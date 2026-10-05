@@ -4,6 +4,6 @@ export const browseSection = {
   links: [
     { label: "Components", href: "/components", external: false, icon: "component" },
     { label: "Blocks", href: "/blocks", external: false, icon: "template" },
-    { label: "Backgrounds", href: "/shader", external: false, icon: "shader" },
+    { label: "Shaders", href: "/shader", external: false, icon: "shader" },
   ],
 } as const;

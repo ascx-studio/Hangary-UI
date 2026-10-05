@@ -6,7 +6,7 @@ import { test } from 'node:test'
 import { generateRegistry, planDocumentation, planPreviews, writeDocumentation } from './update-registry.mjs'
 
 test('generates preview imports and editable prop metadata from component signatures', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-preview-props-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hangry-preview-props-'))
   try {
     const entry = 'registry/components/text-widget.tsx'
     fs.mkdirSync(path.dirname(path.join(root, entry)), { recursive: true })
@@ -27,7 +27,7 @@ test('generates preview imports and editable prop metadata from component signat
 })
 
 test('bundles components and shaders into blocks in the flat registry layout', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-registry-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hangry-registry-'))
   const write = (file, content) => {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
     fs.writeFileSync(path.join(root, file), content)
@@ -43,8 +43,8 @@ test('bundles components and shaders into blocks in the flat registry layout', (
     const block = output.items.find(item => item.meta.category === 'blocks')
     assert.equal(block.type, 'registry:block')
     assert.equal(block.files.length, 3)
-    assert.ok(block.files.some(file => file.target === '@components/lazy-ui/shader/field.tsx'))
-    assert.equal(output.items.find(item => item.name === 'lazy-shader-field').meta.category, 'shader')
+    assert.ok(block.files.some(file => file.target === '@components/hangry-ui/shader/field.tsx'))
+    assert.equal(output.items.find(item => item.name === 'hangry-shader-field').meta.category, 'shader')
     assert.equal(planDocumentation(root, output).size, 3)
     write('registry.json', JSON.stringify(output))
     assert.deepEqual(generateRegistry(root), output)
@@ -54,7 +54,7 @@ test('bundles components and shaders into blocks in the flat registry layout', (
 })
 
 test('syncs entries, dependency closures, assets, and metadata deterministically', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-registry-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hangry-registry-'))
   const write = (file, content) => {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
     fs.writeFileSync(path.join(root, file), content)
@@ -81,7 +81,7 @@ test('syncs entries, dependency closures, assets, and metadata deterministically
     assert.deepEqual(generateRegistry(root), output)
     write('registry/ui/new.tsx', 'export default function New() { return null }')
     output = generateRegistry(root)
-    assert.ok(output.items.some(item => item.name === 'lazy-ui-new'))
+    assert.ok(output.items.some(item => item.name === 'hangry-ui-new'))
     fs.unlinkSync(path.join(root, entry))
     assert.ok(!generateRegistry(root).items.some(item => item.name === 'example'))
     const beforeFailure = fs.readFileSync(path.join(root, 'registry.json'), 'utf8')
@@ -97,14 +97,14 @@ test('syncs entries, dependency closures, assets, and metadata deterministically
 
 test('creates colocated MDX without a barrel or replacing edited docs', async () => {
   const { compile } = await import('@mdx-js/mdx')
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazy-docs-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hangry-docs-'))
   const registry = {
     homepage: 'https://example.com/',
     items: ['components', 'blocks', 'shader', 'utils'].map(category => ({
       name: `example-${category}`,
       description: 'Example <Widget> with {children} & content.',
       meta: { category },
-      files: [{ path: 'registry/ui/example.tsx', target: '@components/lazy-ui/ui/example.tsx' }],
+      files: [{ path: 'registry/ui/example.tsx', target: '@components/hangry-ui/ui/example.tsx' }],
     })),
   }
   try {
@@ -118,7 +118,7 @@ test('creates colocated MDX without a barrel or replacing edited docs', async ()
     for (const item of registry.items) {
       const doc = fs.readFileSync(path.join(root, `app/(docs)/${item.meta.category}/${item.meta.category === 'components' ? '[slugs]' : '[slug]'}/${item.name}.mdx`), 'utf8')
       assert.ok(doc.includes(`npx shadcn@latest add https://example.com/r/${item.name}.json`))
-      assert.ok(doc.includes('@/components/lazy-ui/ui/example.tsx'))
+      assert.ok(doc.includes('@/components/hangry-ui/ui/example.tsx'))
       assert.ok(doc.indexOf('## Installation') < doc.indexOf('## Usage'))
       if (item.meta.category !== 'utils') {
         assert.ok(doc.indexOf('<ComponentPreview className="h-full w-full">') < doc.indexOf('# '))

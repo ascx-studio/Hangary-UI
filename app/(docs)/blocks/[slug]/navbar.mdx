@@ -1,17 +1,18 @@
 import { Card } from "@/registry/components/card";
 import { Navbar } from "@/registry/blocks/navbar";
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
+import { NavbarAligned } from "@/registry/blocks/navbar-aligned";
+import { NavbarFloating } from "@/registry/blocks/navbar-floating";
 
-<ComponentPreview className="h-full w-full p-0 sm:p-0 [&>div]:m-0">
-  <div className="m-0 flex w-full flex-col gap-0 p-0">
+<ComponentPreview id="navbar">
+  <div className="flex h-full min-w-0 w-full flex-col">
     <Navbar activeHref="/components" />
-    <Card title="" description="" className="m-0! max-w-none! min-h-72 border-t-0 p-0!" />
+    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
   </div>
 </ComponentPreview>
 
-# Centered Navbar
+# Navbar
 
 A navbar with centered desktop links, support and GitHub actions, and a mobile menu.
 
@@ -21,12 +22,13 @@ A navbar with centered desktop links, support and GitHub actions, and a mobile m
   bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar.json",
   npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar.json",
   pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar.json",
 }} />
 
 ## Usage
 
 ```tsx
-import { Navbar } from "@/components/lazy-ui/blocks/navbar";
+import { Navbar } from "@/components/hangry-ui/blocks/navbar";
 
 <Navbar
   brand="Acme"
@@ -37,110 +39,86 @@ import { Navbar } from "@/components/lazy-ui/blocks/navbar";
     { label: "About", href: "/about" },
   ]}
   githubHref="https://github.com/acme"
-  supportHref="/support"
+  supportHref="/sponser"
 />
 ```
 
-## Other styles
+---
 
-Each navbar style is a separate block. The centered Navbar keeps its brand on the left and actions on the right. NavbarAligned places links beside the brand; NavbarFloating adds an inset surface. All styles share the mobile menu behavior.
+<ComponentPreview id="navbar-aligned">
+  <div className="flex h-full min-w-0 w-full flex-col">
+    <NavbarAligned activeHref="/components" />
+    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
+  </div>
+</ComponentPreview>
 
-- [Left-Aligned Navbar](/blocks/navbar-aligned)
-- [Floating Navbar](/blocks/navbar-floating)
+## Navbar
 
-## Props
+A navbar with navigation links beside the brand.
 
-<Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Prop</TableHead>
-      <TableHead>Type</TableHead>
-      <TableHead>Default</TableHead>
-      <TableHead>Description</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell><code className="break-words">{"brand"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"Lazy UI\""}</code></TableCell>
-      <TableCell>{"Brand name on the left."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"logo"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Optional logo alongside the brand name."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"homeHref"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"/\""}</code></TableCell>
-      <TableCell>{"Brand link destination."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"links"}</code></TableCell>
-      <TableCell><code className="break-words">{"{ label: string; href: string }[]"}</code></TableCell>
-      <TableCell><code className="break-words">{"Components, Blocks"}</code></TableCell>
-      <TableCell>{"Links centered on desktop and stacked in the mobile menu."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"activeHref"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Sets aria-current=\"page\" on the matching link."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"announcement"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Displays a Banner above navigation."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"badge"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"Beta\""}</code></TableCell>
-      <TableCell>{"Brand Badge text. An empty string hides it."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"supportHref"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"https://github.com/sponsors/razeevascx"}</code></TableCell>
-      <TableCell>{"Support icon destination. An empty string hides it."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"githubHref"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"https://github.com/ascx-studio/ui"}</code></TableCell>
-      <TableCell>{"GitHub icon destination. An empty string hides it."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"account"}</code></TableCell>
-      <TableCell><code className="break-words">{"{ name: string; src?: string; href: string }"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Optional Avatar with an account link."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"children"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Additional content below navigation."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Additional classes on the header."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
-      <TableCell><code className="break-words">{"ComponentProps<\"header\">"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Native header attributes and event handlers."}</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+### Installation
 
-## Setup notes
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
+}} />
 
-Use Tailwind CSS v4 and the global theme tokens. Borders use `border-border`, with no rounded classes. The registry bundles the components this block uses. Customize the links and content for your application.
+### Usage
+
+```tsx
+import { NavbarAligned } from "@/components/hangry-ui/blocks/navbar-aligned";
+
+<NavbarAligned
+  brand="Acme"
+  badge=""
+  activeHref="/products"
+  links={[
+    { label: "Products", href: "/products" },
+    { label: "About", href: "/about" },
+  ]}
+  githubHref="https://github.com/acme"
+  supportHref="/sponser"
+/>
+```
+
+---
+
+<ComponentPreview id="navbar-floating">
+  <div className="flex h-full min-w-0 w-full flex-col">
+    <NavbarFloating activeHref="/components" />
+    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
+  </div>
+</ComponentPreview>
+
+## Navbar
+
+An inset navbar with a bordered surface and shadow.
+
+### Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+}} />
+
+### Usage
+
+```tsx
+import { NavbarFloating } from "@/components/hangry-ui/blocks/navbar-floating";
+
+<NavbarFloating
+  brand="Acme"
+  badge=""
+  activeHref="/products"
+  links={[
+    { label: "Products", href: "/products" },
+    { label: "About", href: "/about" },
+  ]}
+  githubHref="https://github.com/acme"
+  supportHref="/sponser"
+/>
+```

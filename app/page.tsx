@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div className="page-entrance w-full min-w-0">
       <main className="relative isolate min-h-[90dvh] overflow-hidden">
-        <Container className="flex min-h-[calc(100dvh-4rem)] max-w-7xl w-full flex-col justify-center py-12 sm:py-16 md:py-20">
+        <Container className="flex min-h-[90dvh] max-w-7xl w-full flex-col justify-center py-12 sm:py-16 md:py-20">
           <div className="w-full max-w-2xl">
             <div className="w-full space-y-7">
               <Image
@@ -19,7 +19,7 @@ export default function Page() {
                 style={{ height: "auto" }}
               />
               <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">
-                Explore React components, page blocks, backgrounds, and utility
+                Explore React components, page blocks, shaders, and utility
                 code built with Tailwind CSS. Browse the source and make it your own.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">

@@ -9,7 +9,9 @@ import { browseSection } from "@/data/Navlinks";
 
 export default function Navbar() {
   const pathname = usePathname();
-
+  if (browseSection.links.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))) {
+    return null;
+  }
 
   const iconLinkClass = "inline-flex size-10 shrink-0 items-center justify-center border border-border bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring";
 
@@ -22,13 +24,13 @@ export default function Navbar() {
             aria-label="Hangry UI home"
             className="min-w-0 shrink-0 focus-visible:outline-2 focus-visible:outline-ring lg:col-start-1"
           >
-            <Logo variant="wordmark" className="h-auto w-36 sm:w-40" />
+            <Logo variant="logo" className="size-10" />
           </Link>
           <div className="flex shrink-0 items-center justify-end gap-2 lg:col-start-3 lg:row-start-1">
             <Link
               href="/sponser"
-              aria-label="Support"
-              title="Support"
+              aria-label="Sponser"
+              title="Sponser"
               className={iconLinkClass}
             >
               <Heart size={19} aria-hidden="true" />

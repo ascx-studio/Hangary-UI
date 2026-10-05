@@ -21,7 +21,7 @@ if (!posthogKey) {
 
 export const posthogLoggerProvider = posthogKey && posthogHost
   ? new LoggerProvider({
-      resource: resourceFromAttributes({ "service.name": "lazy-ui-catalog" }),
+      resource: resourceFromAttributes({ "service.name": "hangry-ui-catalog" }),
       processors: [
         new BatchLogRecordProcessor({
           exporter: new OTLPLogExporter({

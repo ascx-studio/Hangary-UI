@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sme-background",
+  "title": "SME Shader",
+  "description": "A layered gradient and grid shader for product sections, previews, and hero panels.",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "registry/shader/sme-background.tsx",
+      "content": "import type { ComponentProps, ReactNode } from \"react\";\n\ntype SmeBackgroundProps = ComponentProps<\"div\"> & {\n  children?: ReactNode;\n};\n\nexport function SmeBackground({\n  children,\n  className = \"\",\n  ...props\n}: SmeBackgroundProps = {}) {\n  return (\n    <div\n      className={`relative isolate min-h-96 overflow-hidden border border-border bg-neutral-950 text-white ${className}`}\n      {...props}\n    >\n      <div\n        aria-hidden=\"true\"\n        className=\"absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,0.35),transparent_30%),radial-gradient(circle_at_80%_0%,rgba(14,165,233,0.28),transparent_28%),linear-gradient(135deg,rgba(24,24,27,0.95),rgba(2,6,23,0.98))]\"\n      />\n      <div\n        aria-hidden=\"true\"\n        className=\"absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[48px_48px] opacity-30\"\n      />\n      {children  }\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/shader/sme-background.tsx"
+    }
+  ],
+  "meta": {
+    "category": "shader"
+  },
+  "type": "registry:component"
+}

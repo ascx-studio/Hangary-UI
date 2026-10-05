@@ -1,4 +1,5 @@
 import { cn } from "cn";
+import type { ComponentProps } from "react";
 
 
 const Ellipses = () => {
@@ -16,13 +17,13 @@ const Ellipses = () => {
 	);
 };
 
-export const Container = ({ children ,className  }: { children: React.ReactNode,className?:string }) => (
-    <div className={cn("relative w-full rounded-lg border px-4 sm:px-6 md:px-8 ",className)}>
+export const Container = ({ children, className, ...props }: ComponentProps<"div">) => (
+    <div {...props} className={cn("relative min-w-0 w-full rounded-lg border px-4 sm:px-6 md:px-8", className)}>
         <div className="absolute left-0 top-4 z-0 h-px w-full bg-border sm:top-6 md:top-8"></div>
         <div className="absolute bottom-4 left-0 z-0 h-px w-full bg-border sm:bottom-6 md:bottom-8"></div>
-        <div className="relative w-full border-x">
+        <div className="relative min-w-0 w-full border-x">
             <Ellipses />
-            <div className="w-full z-20 mx-auto py-8">{children}</div>
+            <div className="relative z-10 flex min-h-0 min-w-0 w-full flex-col py-8">{children}</div>
         </div>
     </div>
 );

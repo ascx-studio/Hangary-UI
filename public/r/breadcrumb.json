@@ -9,7 +9,7 @@
       "path": "registry/components/breadcrumb.tsx",
       "content": "import type { ComponentProps } from \"react\";\n\ninterface BreadcrumbProps extends ComponentProps<\"nav\"> {\n  items?: { label: string; href?: string }[];\n}\n\nexport function Breadcrumb({ items = [{ label: \"Home\", href: \"/\" }, { label: \"Components\", href: \"/components\" }, { label: \"Breadcrumb\" }], className = \"\", ...props }: BreadcrumbProps = {}) {\n  return <nav aria-label=\"Breadcrumb\" className={`text-sm ${className}`} {...props}>\n    <ol className=\"flex flex-wrap items-center gap-2\">\n      {items.map((item, index) => <li key={`${item.label}-${index}`} className=\"flex items-center gap-2\">\n        {index > 0 && <span aria-hidden=\"true\" className=\"text-neutral-600\">/</span>}\n        {item.href && index < items.length - 1 ? <a href={item.href} className=\"text-neutral-400 hover:text-white focus-visible:outline-2 focus-visible:outline-emerald-400\">{item.label}</a> : <span aria-current={index === items.length - 1 ? \"page\" : undefined} className=\"text-white\">{item.label}</span>}\n      </li>)}\n    </ol>\n  </nav>;\n}\n",
       "type": "registry:component",
-      "target": "@components/lazy-ui/components/breadcrumb.tsx"
+      "target": "@components/hangry-ui/components/breadcrumb.tsx"
     }
   ],
   "meta": {

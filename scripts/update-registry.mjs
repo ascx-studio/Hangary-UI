@@ -94,7 +94,7 @@ export function generateRegistry(root) {
       const shortBlockName = folder === 'blocks'
       name = shortBlockName
         ? relative.replace(/\.[^.]+$/, '').split('/').at(-1)
-        : `lazy-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
+        : `hangry-${relative.replace(/\.[^.]+$/, '').replaceAll('/', '-')}`
       if (usedNames.has(name)) throw new Error(`Registry name collision: ${name}`)
       usedNames.add(name)
     }
@@ -111,7 +111,7 @@ export function generateRegistry(root) {
     }
     include(entry)
     const files = [entry, ...[...bundled].filter(file => file !== entry).sort(compare)].map(file => ({
-      path: file, type: fileType(file), target: `@components/lazy-ui/${file.slice(sourceRoot.length)}`,
+      path: file, type: fileType(file), target: `@components/hangry-ui/${file.slice(sourceRoot.length)}`,
     }))
     for (const asset of [...assets].sort(compare)) files.push({ path: asset, type: 'registry:file', target: asset })
     return {
@@ -119,7 +119,7 @@ export function generateRegistry(root) {
       name,
       type: category === 'blocks' ? 'registry:block' : fileType(entry),
       title: old?.title ?? path.posix.basename(entry).replace(/\.[^.]+$/, '').split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' '),
-      description: old?.description ?? `Reusable ${path.posix.basename(entry)} from the Lazy UI collection.`,
+      description: old?.description ?? `Reusable ${path.posix.basename(entry)} from the Hangry UI collection.`,
       files,
       dependencies: [...dependencies].sort(compare),
       ...(old?.registryDependencies ? { registryDependencies: old.registryDependencies } : /^(?:(?:split|social|magic-link)-sign-in|workspace-sign-up|(?:contact|studio|newsletter|storefront)-footer|(?:portfolio|studio|editorial|storefront)-navbar)$/.test(name) ? { registryDependencies: ['morph-css'] } : {}),
@@ -146,6 +146,8 @@ export function planDocumentation(root, registry) {
     const category = item.meta?.category
     if (!['components', 'blocks', 'shader', 'utils'].includes(category)) throw new Error(`Unsupported documentation category: ${category}`)
     if (!/^[a-zA-Z0-9_-]+$/.test(item.name)) throw new Error(`Invalid documentation filename: ${item.name}`)
+    // These variants are documented within their family's existing MDX page.
+    if (item.meta?.documentationPage) continue
     const relative = `${docsDirectory}/${category}/${category === 'components' ? '[slugs]' : '[slug]'}/${item.name}.mdx`
     if (docPaths.has(relative)) throw new Error(`Documentation filename collision: ${relative}`)
     docPaths.add(relative)
@@ -168,6 +170,7 @@ export function planDocumentation(root, registry) {
         `  bun: ${JSON.stringify(command.replace(/^npx\s+/, 'bunx '))},`,
         `  npm: ${JSON.stringify(command)},`,
         `  pnpm: ${JSON.stringify(command.replace(/^npx\s+/, 'pnpm dlx '))},`,
+        `  yarn: ${JSON.stringify(command.replace(/^npx\s+/, 'yarn dlx '))},`,
         '}} />', '',
         '## Usage', '', 'Use the exports from the installed entry file:', '',
         '```text', installedPath, '```', '',

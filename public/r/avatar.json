@@ -9,7 +9,7 @@
       "path": "registry/components/avatar.tsx",
       "content": "\"use client\";\n\nimport { useState } from \"react\";\n\ninterface AvatarProps {\n  src?: string;\n  name?: string;\n  size?: number;\n  className?: string;\n}\n\nexport function Avatar({\n  src,\n  name = \"Alex Morgan\",\n  size = 48,\n  className = \"\",\n}: AvatarProps = {}) {\n  const [failedSrc, setFailedSrc] = useState<string>();\n  const initials = name\n    .trim()\n    .split(/\\s+/)\n    .slice(0, 2)\n    .map((word) => word[0])\n    .join(\"\")\n    .toUpperCase();\n  // Registry consumers can use any React framework and image URL.\n  /* eslint-disable @next/next/no-img-element */\n  return (\n    <span\n      role=\"img\"\n      aria-label={name}\n      style={{ width: size, height: size }}\n      className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-border bg-emerald-400/15 text-sm font-semibold text-emerald-300 ${className}`}\n    >\n      {src && failedSrc !== src ? (\n        <img\n          src={src}\n          alt=\"\"\n          width={size}\n          height={size}\n          onError={() => setFailedSrc(src)}\n          className=\"h-full w-full object-cover\"\n        />\n      ) : (\n        initials || \"?\"\n      )}\n    </span>\n  );\n}\n",
       "type": "registry:component",
-      "target": "@components/lazy-ui/components/avatar.tsx"
+      "target": "@components/hangry-ui/components/avatar.tsx"
     }
   ],
   "meta": {

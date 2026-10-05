@@ -8,7 +8,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = getRegistryItem(slug, "shader");
-  return { title: item ? `${item.title} | Lazy UI` : "Registry item not found | Lazy UI", description: item?.description };
+  return { title: item ? `${item.title} | Hangry UI` : "Registry item not found | Hangry UI", description: item?.description };
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

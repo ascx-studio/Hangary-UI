@@ -1,4 +1,4 @@
-import posthog from "posthog-js/full/no-external";
+import { syncAnalyticsConsent } from "@/lib/analytics-consent";
 
 const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST;
@@ -16,13 +16,5 @@ if (!posthogKey) {
     );
   }
 } else {
-  posthog.init(posthogKey, {
-    api_host: "/ingest",
-    defaults: "2026-01-30",
-    capture_exceptions: true,
-    capture_dead_clicks: false,
-    disable_external_dependency_loading: true,
-    disable_session_recording: true,
-    debug: process.env.NODE_ENV === "development",
-  });
+  syncAnalyticsConsent();
 }

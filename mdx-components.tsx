@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/cn";
 
-export const mdxComponents = {
+const mdxComponents = {
   ComponentPreview,
   CodeBlock,
   Card,

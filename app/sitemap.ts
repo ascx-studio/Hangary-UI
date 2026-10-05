@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...metadata,
     })),
     ...(['components', 'blocks', 'shader'] as const).flatMap((category) =>
-      getRegistryItems(category).map((item) => ({
+      getRegistryItems(category).filter(item => !item.meta?.documentationPage).map((item) => ({
         url: new URL(getRegistryItemHref(item), registryHomepage).toString(),
         changeFrequency: 'monthly' as const,
         priority: 0.6,

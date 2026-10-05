@@ -2,30 +2,9 @@ import Logo from '@/components/ui/Logo'
 import Container from '@/components/layout/Container'
 import Link from 'next/link'
 
-const supportOptions = [
-  {
-    title: 'Star the repository',
-    description: 'Help more people discover the project and follow its progress.',
-    href: 'https://github.com/ascx-studio/ui',
-    label: 'Open GitHub',
-  },
-  {
-    title: 'Share the library',
-    description: 'Pass Lazy UI along to someone who is building a new interface.',
-    href: 'https://github.com/ascx-studio/ui',
-    label: 'View repository',
-  },
-  {
-    title: 'Build with us',
-    description: 'Suggest an improvement or contribute a useful component to the collection.',
-    href: 'https://github.com/ascx-studio/ui/issues',
-    label: 'Open an issue',
-  },
-] as const
-
 const faqs = [
   {
-    question: 'Do I need to pay to use Lazy UI?',
+    question: 'Do I need to pay to use Hangry UI?',
     answer: 'No. The library is free to use, and supporting the project is optional.',
   },
   {
@@ -51,7 +30,7 @@ export default function SponsorPage() {
             <div className="max-w-3xl">
               <Link
                 href="/"
-                aria-label="Lazy UI home"
+                aria-label="Hangry UI home"
                 className="inline-block max-w-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
               >
                 <Logo className="h-auto w-80 max-w-full" />
@@ -60,36 +39,32 @@ export default function SponsorPage() {
                 Good tools grow through generous people.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                Lazy UI is open source and free to use. A star, a contribution, or
-                a thoughtful suggestion helps keep the collection moving.
+                Hangry UI is open source and free to use. Sponsorship, a star, or a
+                contribution helps keep the collection moving.
               </p>
               <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
                 Contributions help improve the components, keep examples useful,
                 and catch bugs in real projects. You can start small: tell us what
                 worked, what was confusing, or what you would like to see next.
               </p>
-            </div>
-
-            <div className="mt-14 grid gap-4 md:grid-cols-3">
-              {supportOptions.map((option) => (
-                <article
-                  key={option.title}
-                  className="flex flex-col border-t border-border py-6 md:pr-6"
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="https://github.com/sponsors/razeevascx"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
                 >
-                  <h2 className="text-xl font-medium">
-                    {option.title}
-                  </h2>
-                  <p className="mt-3 flex-1 leading-7 text-muted-foreground">
-                    {option.description}
-                  </p>
-                  <Link
-                    className="mt-6 self-start text-sm font-medium text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-                    href={option.href}
-                  >
-                    {option.label}
-                  </Link>
-                </article>
-              ))}
+                  Sponsor on GitHub
+                </a>
+                <a
+                  href="https://github.com/ascx-studio/ui"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center bg-neutral-800 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+                >
+                  Star on GitHub
+                </a>
+              </div>
             </div>
 
             <section aria-labelledby="faq-heading" className="mt-12 max-w-3xl border-t border-border pt-10">

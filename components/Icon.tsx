@@ -1,7 +1,7 @@
 
 import Image from 'next/image'
 
-export const iconSources = {
+const iconSources = {
   component: '/component.svg',
   template: '/template.svg',
   shader: '/shader.svg',

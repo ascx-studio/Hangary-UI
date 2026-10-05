@@ -21,7 +21,7 @@ export type RegistryItem = {
   devDependencies?: string[]
   registryDependencies?: string[]
   docs?: string
-  meta?: { category?: string; source?: string; collection?: string; preview?: string }
+  meta?: { category?: string; source?: string; collection?: string; preview?: string; documentationPage?: string }
 }
 
 export const registryHomepage = registry.homepage
@@ -57,5 +57,8 @@ export function getRegistryItem(name: string, category?: RegistryCategory): Regi
 }
 
 export function getRegistryItemHref(item: RegistryItem): string {
+  if (item.meta?.documentationPage) {
+    return `/${getRegistryCategory(item)}/${item.meta.documentationPage}#${item.name}`
+  }
   return `/${getRegistryCategory(item)}/${item.name}`
 }

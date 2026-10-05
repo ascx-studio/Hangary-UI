@@ -6,17 +6,14 @@ import { Button } from "@/registry/components/button";
 import { Badge } from "@/registry/components/badge";
 
 <ComponentPreview className="h-full w-full">
-  <div className="grid w-full gap-6 lg:grid-cols-2">
-    <Card variant="primary" title="Primary" description="A prominent card for your next idea." className="max-w-none" />
-    <Card variant="secondary" title="Secondary" description="Everything you need in one place." footer={<Button>Open workspace</Button>} className="max-w-none"><Badge>3 members</Badge></Card>
-    <Card variant="ghost" title="Ghost" description="A subtle card that blends into the page." className="max-w-none" />
-    <Card variant="destructive" title="Destructive" description="Something needs your attention before continuing." className="max-w-none" />
+  <div className="flex w-full justify-center">
+    <Card title="Your workspace" description="Everything you need in one place." footer={<Button>Open workspace</Button>}><Badge>3 members</Badge></Card>
   </div>
 </ComponentPreview>
 
 # Card
 
-A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer.
+A flexible content card with a title, description, body, and footer.
 
 ## Installation
 
@@ -24,19 +21,16 @@ A flexible content card with primary, secondary, ghost, and destructive variants
   bun: "bunx shadcn@latest add https://ui.razeev.com/r/card.json",
   npm: "npx shadcn@latest add https://ui.razeev.com/r/card.json",
   pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/card.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/card.json",
 }} />
 
 ## Usage
 
 ```tsx
-import { Card } from "@/components/lazy-ui/components/card";
+import { Card } from "@/components/hangry-ui/components/card";
 
 <Card title="New project" description="Start with a blank canvas."><p>Your content here.</p></Card>
 ```
-
-## Variants
-
-Set `variant` to `primary`, `secondary`, `ghost`, or `destructive`. The preview above shows all four.
 
 ## Props
 
@@ -50,12 +44,6 @@ Set `variant` to `primary`, `secondary`, `ghost`, or `destructive`. The preview 
     </TableRow>
   </TableHeader>
   <TableBody>
-    <TableRow>
-      <TableCell><code className="break-words">{"variant"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"primary\" | \"secondary\" | \"ghost\" | \"destructive\""}</code></TableCell>
-      <TableCell><code className="break-words">{"\"secondary\""}</code></TableCell>
-      <TableCell>{"Card appearance."}</TableCell>
-    </TableRow>
     <TableRow>
       <TableCell><code className="break-words">{"title"}</code></TableCell>
       <TableCell><code className="break-words">{"string"}</code></TableCell>

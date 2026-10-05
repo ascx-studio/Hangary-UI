@@ -1,7 +1,7 @@
 import Container from '@/components/layout/Container'
 import Catalog from "@/components/registry/catalog";
 
-export const metadata = { title: 'Blocks | Lazy UI', description: 'Complete sections for your next page. Explore their previews and adapt the details to your project.' }
+export const metadata = { title: 'Blocks | Hangry UI', description: 'Complete sections for your next page. Explore their previews and adapt the details to your project.' }
 
 export default function Page() {
 

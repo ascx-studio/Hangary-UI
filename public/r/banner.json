@@ -9,7 +9,7 @@
       "path": "registry/components/banner.tsx",
       "content": "\"use client\";\n\nimport { useState, type ReactNode } from \"react\";\n\ninterface BannerProps {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\";\n  children?: ReactNode;\n  message?: string;\n  dismissible?: boolean;\n  className?: string;\n}\n\nexport function Banner({ variant = \"primary\", children, message = \"A little update. A lot of possibilities. Explore what's new.\", dismissible = true, className = \"\" }: BannerProps = {}) {\n  const styles = {\n    primary: \"bg-primary text-primary-foreground\",\n    secondary: \"bg-card text-card-foreground\",\n    ghost: \"bg-transparent text-foreground\",\n    destructive: \"bg-destructive text-destructive-foreground\",\n  };\n  const [dismissed, setDismissed] = useState(false);\n  if (dismissed) return null;\n  return <div role=\"status\" className={`flex items-center justify-between gap-4 border border-border px-5 py-4 text-sm ${styles[variant] ?? styles.primary} ${className}`}>\n    <div>{children ?? message}</div>\n    {dismissible && <button type=\"button\" aria-label=\"Dismiss banner\" onClick={() => setDismissed(true)} className=\"flex size-9 shrink-0 items-center justify-center hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-current\"><span aria-hidden=\"true\">×</span></button>}\n  </div>;\n}\n",
       "type": "registry:component",
-      "target": "@components/lazy-ui/components/banner.tsx"
+      "target": "@components/hangry-ui/components/banner.tsx"
     }
   ],
   "meta": {

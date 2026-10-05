@@ -22,7 +22,7 @@ interface NavbarProps extends ComponentProps<"header"> {
   account?: { name: string; src?: string; href: string };
 }
 
-function Navigation({ layout, brand = "Lazy UI", logo, homeHref = "/", links = [{ label: "Components", href: "/components" }, { label: "Blocks", href: "/blocks" }], activeHref, announcement, badge = "Beta", supportHref = "https://github.com/sponsors/razeevascx", githubHref = "https://github.com/ascx-studio/ui", account, className, children, ...props }: NavbarProps & { layout: "centered" | "aligned" | "floating" }) {
+function Navigation({ layout, brand = "Hangry UI", logo, homeHref = "/", links = [{ label: "Components", href: "/components" }, { label: "Blocks", href: "/blocks" }], activeHref, announcement, badge = "Beta", supportHref = "https://github.com/sponsors/razeevascx", githubHref = "https://github.com/ascx-studio/ui", account, className, children, ...props }: NavbarProps & { layout: "centered" | "aligned" | "floating" }) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
   const toggle = useRef<HTMLButtonElement>(null);

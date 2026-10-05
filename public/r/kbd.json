@@ -9,7 +9,7 @@
       "path": "registry/components/kbd.tsx",
       "content": "import type { ComponentProps } from \"react\";\n\ninterface KbdProps extends ComponentProps<\"kbd\"> {\n  label?: string;\n}\n\nexport function Kbd({ children, label = \"⌘ K\", className = \"\", ...props }: KbdProps = {}) {\n  return <kbd className={`inline-flex min-h-7 items-center justify-center border border-border border-b-2 bg-neutral-800 px-2 font-mono text-xs text-neutral-200 ${className}`} {...props}>{children ?? label}</kbd>;\n}\n",
       "type": "registry:component",
-      "target": "@components/lazy-ui/components/kbd.tsx"
+      "target": "@components/hangry-ui/components/kbd.tsx"
     }
   ],
   "meta": {

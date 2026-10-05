@@ -3,7 +3,6 @@ import type { ComponentType } from "react";
 import { Avatar } from "@/registry/components/avatar";
 import { Badge } from "@/registry/components/badge";
 import { Banner } from "@/registry/components/banner";
-import { Blockquote } from "@/registry/components/blockquote";
 import { BottomSheet } from "@/registry/components/bottom-sheet";
 import { Breadcrumb } from "@/registry/components/breadcrumb";
 import { Button } from "@/registry/components/button";
@@ -31,7 +30,6 @@ export const previewEntries: Record<string, { component: ComponentType; category
   "avatar": { component: Avatar, category: "components" },
   "badge": { component: Badge, category: "components" },
   "banner": { component: Banner, category: "components" },
-  "blockquote": { component: Blockquote, category: "components" },
   "bottom-sheet": { component: BottomSheet, category: "components" },
   "breadcrumb": { component: Breadcrumb, category: "components" },
   "button": { component: Button, category: "components" },

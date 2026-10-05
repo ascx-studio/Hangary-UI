@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "lazy-ui",
+  "name": "hangry-ui",
   "homepage": "https://ui.razeev.com",
   "items": [
     {
@@ -12,7 +12,7 @@
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         }
       ],
       "dependencies": [],
@@ -29,7 +29,7 @@
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         }
       ],
       "dependencies": [],
@@ -46,24 +46,7 @@
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
-        }
-      ],
-      "dependencies": [],
-      "meta": {
-        "category": "components"
-      }
-    },
-    {
-      "name": "blockquote",
-      "type": "registry:component",
-      "title": "Blockquote",
-      "description": "A styled quotation with optional author and source attribution.",
-      "files": [
-        {
-          "path": "registry/components/blockquote.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/blockquote.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         }
       ],
       "dependencies": [],
@@ -80,7 +63,7 @@
         {
           "path": "registry/components/bottom-sheet.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/bottom-sheet.tsx"
+          "target": "@components/hangry-ui/components/bottom-sheet.tsx"
         }
       ],
       "dependencies": [],
@@ -97,7 +80,7 @@
         {
           "path": "registry/components/breadcrumb.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/breadcrumb.tsx"
+          "target": "@components/hangry-ui/components/breadcrumb.tsx"
         }
       ],
       "dependencies": [],
@@ -114,7 +97,7 @@
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
       "dependencies": [],
@@ -131,7 +114,7 @@
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "dependencies": [],
@@ -148,7 +131,7 @@
         {
           "path": "registry/components/carousel.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/carousel.tsx"
+          "target": "@components/hangry-ui/components/carousel.tsx"
         }
       ],
       "dependencies": [],
@@ -165,15 +148,22 @@
         {
           "path": "registry/components/code-block.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/code-block.tsx"
+          "target": "@components/hangry-ui/components/code-block.tsx"
         },
         {
           "path": "registry/components/code-block.css",
           "type": "registry:file",
-          "target": "@components/lazy-ui/components/code-block.css"
+          "target": "@components/hangry-ui/components/code-block.css"
+        },
+        {
+          "path": "registry/components/tabs.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/tabs.tsx"
         }
       ],
       "dependencies": [
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6",
         "highlight.js@^11.12.0",
         "lucide-react@^1.48.0",
         "posthog-js@^1.435.8"
@@ -184,24 +174,24 @@
     },
     {
       "name": "footer",
-      "title": "Column Footer",
+      "title": "Footer",
       "type": "registry:block",
-      "description": "A footer with grouped link columns, brand details, and an optional card callout.",
+      "description": "Column, minimal, and stacked footer layouts.",
       "files": [
         {
           "path": "registry/blocks/footer.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/footer.tsx"
+          "target": "@components/hangry-ui/blocks/footer.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "meta": {
@@ -222,26 +212,27 @@
         {
           "path": "registry/blocks/footer-minimal.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/footer-minimal.tsx"
+          "target": "@components/hangry-ui/blocks/footer-minimal.tsx"
         },
         {
           "path": "registry/blocks/footer.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/footer.tsx"
+          "target": "@components/hangry-ui/blocks/footer.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "footer"
       },
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
@@ -258,26 +249,27 @@
         {
           "path": "registry/blocks/footer-stacked.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/footer-stacked.tsx"
+          "target": "@components/hangry-ui/blocks/footer-stacked.tsx"
         },
         {
           "path": "registry/blocks/footer.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/footer.tsx"
+          "target": "@components/hangry-ui/blocks/footer.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "footer"
       },
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
@@ -294,7 +286,7 @@
         {
           "path": "registry/components/kbd.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/kbd.tsx"
+          "target": "@components/hangry-ui/components/kbd.tsx"
         }
       ],
       "dependencies": [],
@@ -311,37 +303,32 @@
         {
           "path": "registry/blocks/login.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/login.tsx"
+          "target": "@components/hangry-ui/blocks/login.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
-        },
-        {
-          "path": "registry/components/blockquote.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/blockquote.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "meta": {
@@ -362,46 +349,42 @@
         {
           "path": "registry/blocks/login-minimal.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/login-minimal.tsx"
+          "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
           "path": "registry/blocks/login.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/login.tsx"
+          "target": "@components/hangry-ui/blocks/login.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
-        },
-        {
-          "path": "registry/components/blockquote.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/blockquote.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "login"
       },
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
@@ -418,46 +401,42 @@
         {
           "path": "registry/blocks/login-split.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/login-split.tsx"
+          "target": "@components/hangry-ui/blocks/login-split.tsx"
         },
         {
           "path": "registry/blocks/login.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/login.tsx"
+          "target": "@components/hangry-ui/blocks/login.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
-        },
-        {
-          "path": "registry/components/blockquote.tsx",
-          "type": "registry:component",
-          "target": "@components/lazy-ui/components/blockquote.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "login"
       },
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
@@ -467,34 +446,34 @@
     },
     {
       "name": "navbar",
-      "title": "Centered Navbar",
+      "title": "Navbar",
       "type": "registry:block",
-      "description": "A navbar with centered desktop links, support and GitHub actions, and a mobile menu.",
+      "description": "Centered, left-aligned, and floating navigation layouts.",
       "files": [
         {
           "path": "registry/blocks/navbar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar.tsx"
+          "target": "@components/hangry-ui/blocks/navbar.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
       "meta": {
@@ -515,36 +494,37 @@
         {
           "path": "registry/blocks/navbar-aligned.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar-aligned.tsx"
+          "target": "@components/hangry-ui/blocks/navbar-aligned.tsx"
         },
         {
           "path": "registry/blocks/navbar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar.tsx"
+          "target": "@components/hangry-ui/blocks/navbar.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "navbar"
       },
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
@@ -561,36 +541,37 @@
         {
           "path": "registry/blocks/navbar-floating.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar-floating.tsx"
+          "target": "@components/hangry-ui/blocks/navbar-floating.tsx"
         },
         {
           "path": "registry/blocks/navbar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/navbar.tsx"
+          "target": "@components/hangry-ui/blocks/navbar.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/avatar.tsx"
+          "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/banner.tsx"
+          "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "navbar"
       },
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
@@ -607,27 +588,27 @@
         {
           "path": "registry/blocks/pricing.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/pricing.tsx"
+          "target": "@components/hangry-ui/blocks/pricing.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         },
         {
           "path": "registry/components/table.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/table.tsx"
+          "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
       "meta": {
@@ -647,36 +628,37 @@
         {
           "path": "registry/blocks/pricing-compact.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/pricing-compact.tsx"
+          "target": "@components/hangry-ui/blocks/pricing-compact.tsx"
         },
         {
           "path": "registry/blocks/pricing.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/pricing.tsx"
+          "target": "@components/hangry-ui/blocks/pricing.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         },
         {
           "path": "registry/components/table.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/table.tsx"
+          "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "pricing"
       },
       "dependencies": [
         "cn@^0.2.6",
@@ -692,36 +674,37 @@
         {
           "path": "registry/blocks/pricing-comparison.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/pricing-comparison.tsx"
+          "target": "@components/hangry-ui/blocks/pricing-comparison.tsx"
         },
         {
           "path": "registry/blocks/pricing.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/blocks/pricing.tsx"
+          "target": "@components/hangry-ui/blocks/pricing.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
           "path": "registry/components/button.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/button.tsx"
+          "target": "@components/hangry-ui/components/button.tsx"
         },
         {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/card.tsx"
+          "target": "@components/hangry-ui/components/card.tsx"
         },
         {
           "path": "registry/components/table.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/table.tsx"
+          "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
       "meta": {
-        "category": "blocks"
+        "category": "blocks",
+        "documentationPage": "pricing"
       },
       "dependencies": [
         "cn@^0.2.6",
@@ -731,13 +714,13 @@
     {
       "name": "sme-background",
       "type": "registry:component",
-      "title": "SME Background",
-      "description": "A layered gradient and grid background for product sections, previews, and hero panels.",
+      "title": "SME Shader",
+      "description": "A layered gradient and grid shader for product sections, previews, and hero panels.",
       "files": [
         {
           "path": "registry/shader/sme-background.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/shader/sme-background.tsx"
+          "target": "@components/hangry-ui/shader/sme-background.tsx"
         }
       ],
       "dependencies": [],
@@ -754,7 +737,7 @@
         {
           "path": "registry/components/table.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/table.tsx"
+          "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
       "dependencies": [
@@ -773,7 +756,7 @@
         {
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
-          "target": "@components/lazy-ui/components/tabs.tsx"
+          "target": "@components/hangry-ui/components/tabs.tsx"
         }
       ],
       "dependencies": [

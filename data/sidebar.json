@@ -16,10 +16,6 @@
           "slug": "banner"
         },
         {
-          "label": "Blockquote",
-          "slug": "blockquote"
-        },
-        {
           "label": "Bottom Sheet",
           "slug": "bottom-sheet"
         },
@@ -61,76 +57,31 @@
       "title": "Blocks",
       "items": [
         {
-          "label": "Centered Navbar",
-          "slug": "navbar",
-          "group": "Navbar"
+          "label": "Navbar",
+          "slug": "navbar"
         },
         {
-          "label": "Left-Aligned Navbar",
-          "slug": "navbar-aligned",
-          "group": "Navbar"
-        },
-        {
-          "label": "Floating Navbar",
-          "slug": "navbar-floating",
-          "group": "Navbar"
-        },
-        {
-          "label": "Column Footer",
-          "slug": "footer",
-          "group": "Footer"
-        },
-        {
-          "label": "Minimal Footer",
-          "slug": "footer-minimal",
-          "group": "Footer"
-        },
-        {
-          "label": "Stacked Footer",
-          "slug": "footer-stacked",
-          "group": "Footer"
+          "label": "Footer",
+          "slug": "footer"
         },
         {
           "label": "Login",
-          "slug": "login",
-          "group": "Login"
-        },
-        {
-          "label": "Login Split",
-          "slug": "login-split",
-          "group": "Login"
-        },
-        {
-          "label": "Login Minimal",
-          "slug": "login-minimal",
-          "group": "Login"
+          "slug": "login"
         },
         {
           "label": "Pricing",
-          "slug": "pricing",
-          "group": "Pricing"
-        },
-        {
-          "label": "Pricing Compact",
-          "slug": "pricing-compact",
-          "group": "Pricing"
-        },
-        {
-          "label": "Pricing Comparison",
-          "slug": "pricing-comparison",
-          "group": "Pricing"
+          "slug": "pricing"
         }
       ]
     },
     "shader": {
-      "title": "Backgrounds",
+      "title": "Shaders",
       "items": [
         {
-          "label": "SME Background",
+          "label": "SME Shader",
           "slug": "sme-background"
         }
       ]
     }
-
   }
 }
