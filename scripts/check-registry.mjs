@@ -16,6 +16,16 @@ for (const item of registry.items) {
   entryPaths.add(item.files[0]?.path)
   assert.ok(categories.has(item.meta?.category), `Missing catalog category: ${item.name}`)
   const files = new Map(item.files.map((file) => [path.resolve(file.path), file]))
+  if (item.meta?.category === 'blocks') {
+    const blocks = item.files.filter(file => file.path.startsWith('registry/blocks/'))
+    const expectedBlocks = ['login', 'login-split'].includes(item.name)
+      ? [item.files[0].path, 'registry/blocks/login-minimal.tsx']
+      : [item.files[0].path]
+    assert.deepEqual(blocks.map(file => file.path), expectedBlocks, `Unexpected block dependencies: ${item.name}`)
+    const entry = ts.createSourceFile(blocks[0].path, fs.readFileSync(blocks[0].path, 'utf8'), ts.ScriptTarget.Latest, true)
+    const exports = entry.statements.filter(node => node.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.ExportKeyword))
+    assert.equal(exports.length, 1, `Block must export only its own variant: ${item.name}`)
+  }
   const targets = item.files.map((file) => file.target).filter(Boolean)
   assert.equal(new Set(targets).size, targets.length, `Duplicate target: ${item.name}`)
 

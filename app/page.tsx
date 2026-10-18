@@ -13,11 +13,12 @@ export default function Page() {
           <div className="w-full max-w-2xl">
             <div className="w-full space-y-7">
               <h1 className="sr-only">Hangry UI — React components, blocks, and shaders</h1>
+
               <Image
-                src="/wordmark.png"
+                src="/wordmark.svg"
                 alt="Hangry UI wordmark"
                 width={400}
-                height={78}
+                height={100}
                 priority
                 className="h-auto w-[min(100%,28rem)] drop-shadow-2xl"
                 style={{ height: "auto" }}
@@ -40,6 +41,14 @@ export default function Page() {
             </div>
           </div>
         </Container>
+        <Image
+          src="/logo.svg"
+          alt="Hangry UI mascot"
+          width={832}
+          height={832}
+          priority
+          className="mx-auto h-auto w-full max-w-lg sm:w-lg lg:absolute lg:left-[50%] lg:top-1/2 lg:-z-10 lg:w-[60vw] lg:max-w-208 lg:-translate-y-1/2"
+        />
       </main>
     </div>
   );

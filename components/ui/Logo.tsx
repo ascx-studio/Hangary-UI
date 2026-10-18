@@ -4,16 +4,16 @@ export type LogoVariant = "logo" | "wordmark"
 
 const logoVariants: Record<LogoVariant, Pick<ImageProps, "src" | "alt" | "width" | "height">> = {
   logo: {
-    src: "/logo.png",
+    src: "/logo.svg",
     alt: "Logo",
     width: 40,
     height: 40,
   },
   wordmark: {
-    src: "/wordmark.png",
+    src: "/wordmark.svg",
     alt: "Wordmark",
     width: 160,
-    height: 31,
+    height: 40,
   },
 }
 

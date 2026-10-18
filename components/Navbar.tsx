@@ -9,7 +9,7 @@ import { browseSection } from "@/data/Navlinks";
 
 export default function Navbar() {
   const pathname = usePathname();
-  if (browseSection.links.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))) {
+  if (pathname === "/" || browseSection.links.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))) {
     return null;
   }
 

@@ -215,16 +215,6 @@
           "target": "@components/hangry-ui/blocks/footer-minimal.tsx"
         },
         {
-          "path": "registry/blocks/footer.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/footer.tsx"
-        },
-        {
-          "path": "registry/components/badge.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/badge.tsx"
-        },
-        {
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
@@ -250,11 +240,6 @@
           "path": "registry/blocks/footer-stacked.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/footer-stacked.tsx"
-        },
-        {
-          "path": "registry/blocks/footer.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/footer.tsx"
         },
         {
           "path": "registry/components/badge.tsx",
@@ -306,14 +291,9 @@
           "target": "@components/hangry-ui/blocks/login.tsx"
         },
         {
-          "path": "registry/components/avatar.tsx",
+          "path": "registry/blocks/login-minimal.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/components/avatar.tsx"
-        },
-        {
-          "path": "registry/components/badge.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
           "path": "registry/components/banner.tsx",
@@ -329,6 +309,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "public/logo.svg",
+          "type": "registry:file",
+          "target": "public/logo.svg"
         }
       ],
       "meta": {
@@ -352,21 +337,6 @@
           "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
-          "path": "registry/blocks/login.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/login.tsx"
-        },
-        {
-          "path": "registry/components/avatar.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/avatar.tsx"
-        },
-        {
-          "path": "registry/components/badge.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/badge.tsx"
-        },
-        {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
@@ -380,6 +350,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "public/logo.svg",
+          "type": "registry:file",
+          "target": "public/logo.svg"
         }
       ],
       "meta": {
@@ -404,9 +379,9 @@
           "target": "@components/hangry-ui/blocks/login-split.tsx"
         },
         {
-          "path": "registry/blocks/login.tsx",
+          "path": "registry/blocks/login-minimal.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/login.tsx"
+          "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
@@ -432,6 +407,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "public/logo.svg",
+          "type": "registry:file",
+          "target": "public/logo.svg"
         }
       ],
       "meta": {
@@ -497,11 +477,6 @@
           "target": "@components/hangry-ui/blocks/navbar-aligned.tsx"
         },
         {
-          "path": "registry/blocks/navbar.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/navbar.tsx"
-        },
-        {
           "path": "registry/components/avatar.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/avatar.tsx"
@@ -542,11 +517,6 @@
           "path": "registry/blocks/navbar-floating.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/navbar-floating.tsx"
-        },
-        {
-          "path": "registry/blocks/navbar.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/navbar.tsx"
         },
         {
           "path": "registry/components/avatar.tsx",
@@ -604,11 +574,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/components/table.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
       "meta": {
@@ -631,11 +596,6 @@
           "target": "@components/hangry-ui/blocks/pricing-compact.tsx"
         },
         {
-          "path": "registry/blocks/pricing.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/pricing.tsx"
-        },
-        {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
@@ -649,11 +609,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/components/table.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
       "meta": {
@@ -677,11 +632,6 @@
           "target": "@components/hangry-ui/blocks/pricing-comparison.tsx"
         },
         {
-          "path": "registry/blocks/pricing.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/pricing.tsx"
-        },
-        {
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
@@ -690,11 +640,6 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
-        },
-        {
-          "path": "registry/components/card.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/card.tsx"
         },
         {
           "path": "registry/components/table.tsx",
