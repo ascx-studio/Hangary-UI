@@ -1,7 +1,38 @@
 import type { ComponentProps } from "react";
-import hljs from "highlight.js/lib/common";
+import { Highlight, type PrismTheme } from "prism-react-renderer";
+import Prism from "prismjs";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-jsx";
+import "prismjs/components/prism-tsx";
+import "prismjs/components/prism-bash";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-css";
+import "prismjs/components/prism-markup";
+import "prismjs/components/prism-python";
 import { cn } from "@/lib/cn";
 import styles from "./codepreview.module.css";
+
+Prism.languages.insertBefore("bash", "function", {
+  command: {
+    pattern: /(^|\s)(?:bunx|bun|npx|npm|pnpm|yarn|shadcn(?:@[^\s]+)?)(?=\s|$)/,
+    lookbehind: true,
+  },
+  url: /\bhttps?:\/\/[^\s"'<>]+/,
+});
+
+const prismTheme: PrismTheme = {
+  plain: { color: "var(--card-foreground)", backgroundColor: "transparent" },
+  styles: [
+    { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "var(--muted-foreground)", fontStyle: "italic" } },
+    { types: ["punctuation", "operator"], style: { color: "var(--muted-foreground)" } },
+    { types: ["keyword", "tag", "selector", "atrule"], style: { color: "var(--code-primary)" } },
+    { types: ["string", "char", "attr-value", "url"], style: { color: "var(--code-info)" } },
+    { types: ["number", "boolean", "constant"], style: { color: "var(--code-warning)" } },
+    { types: ["function", "class-name", "property", "attr-name"], style: { color: "var(--card-foreground)" } },
+    { types: ["builtin", "important", "command"], style: { color: "var(--code-primary)" } },
+  ],
+};
 
 type CodePreviewProps = Omit<ComponentProps<"pre">, "children"> & {
   code: string;
@@ -15,10 +46,7 @@ export default function CodePreview({
   ...props
 }: CodePreviewProps) {
   const normalized = language.toLowerCase();
-  const grammar = normalized === "tsx" ? "typescript" : normalized === "jsx" ? "javascript" : normalized;
-  const highlighted = hljs.getLanguage(grammar)
-    ? hljs.highlight(code, { language: grammar, ignoreIllegals: true }).value
-    : null;
+  const languageId = ({ js: "javascript", ts: "typescript", sh: "bash", shell: "bash", html: "markup", xml: "markup", py: "python" } as Record<string, string>)[normalized] ?? normalized;
 
   return (
     <div
@@ -34,15 +62,18 @@ export default function CodePreview({
           className,
         )}
       >
-        {highlighted === null ? (
-          <code className="font-mono">{code}</code>
-        ) : (
-          <code
-            className={`font-mono language-${normalized}`}
-            // highlight.js escapes source text before adding its token markup.
-            dangerouslySetInnerHTML={{ __html: highlighted }}
-          />
-        )}
+        <Highlight prism={Prism} code={code} language={languageId} theme={prismTheme}>
+          {({ tokens, getLineProps, getTokenProps }) => (
+            <code className={`font-mono language-${normalized}`}>
+              {tokens.map((line, index) => (
+                <span key={index} {...getLineProps({ line })}>
+                  {line.map((token, tokenIndex) => <span key={tokenIndex} {...getTokenProps({ token })} />)}
+                  {index < tokens.length - 1 ? "\n" : null}
+                </span>
+              ))}
+            </code>
+          )}
+        </Highlight>
       </pre>
     </div>
   );

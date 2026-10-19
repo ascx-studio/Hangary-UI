@@ -1,0 +1,95 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { AvatarGroup } from "@/registry/components/avatar-group";
+
+<ComponentPreview className="h-full w-full">
+  <AvatarGroup
+    avatars={[
+      { name: "Alex Morgan" },
+      { name: "Sam Rivera" },
+      { name: "Jordan Lee" },
+      { name: "Taylor Kim" },
+      { name: "Casey Park" },
+    ]}
+  />
+</ComponentPreview>
+
+<DocsReveal>
+# Avatar Group
+
+A stacked group of profile images with initials and an overflow count.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/avatar-group.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/avatar-group.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/avatar-group.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/avatar-group.json",
+}} />
+
+## Usage
+
+```tsx
+import { AvatarGroup } from "@/components/hangry-ui/components/avatar-group";
+
+<AvatarGroup
+  avatars={[
+    { name: "Alex Morgan", src: "/alex.jpg" },
+    { name: "Sam Rivera", src: "/sam.jpg" },
+  ]}
+  max={3}
+  size={40}
+/>
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code>avatars</code></TableCell>
+      <TableCell><code>{"{ name: string; src?: string }[]"}</code></TableCell>
+      <TableCell><code>5 sample people</code></TableCell>
+      <TableCell>People to display. Missing or failed images show initials.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>max</code></TableCell>
+      <TableCell><code>number</code></TableCell>
+      <TableCell><code>4</code></TableCell>
+      <TableCell>Maximum avatars to show before displaying the remaining count.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>size</code></TableCell>
+      <TableCell><code>number</code></TableCell>
+      <TableCell><code>40</code></TableCell>
+      <TableCell>Avatar width and height in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>className</code></TableCell>
+      <TableCell><code>string</code></TableCell>
+      <TableCell><code>""</code></TableCell>
+      <TableCell>Additional classes on the group container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell><code>{"ComponentProps<\"div\">"}</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Forwards standard div attributes and event handlers.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Avatar Group reuses the Avatar component, so install both files when copying it manually. The registry installation includes the dependency automatically.
+</DocsReveal>

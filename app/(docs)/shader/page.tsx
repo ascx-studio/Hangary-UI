@@ -1,3 +1,4 @@
+import { typography } from "@/registry/lib/typography.shared";
 import Container from '@/components/layout/Container'
 import Catalog from "@/components/registry/catalog";
 import { pageMetadata } from "@/lib/seo";
@@ -12,8 +13,8 @@ export default function Page() {
   return (
     <div className="page-entrance w-full min-w-0">
       <Container className="p-4">
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Shaders</h1>
-        <p className="mt-5 text-lg leading-8 text-muted-foreground">Animated shaders and visual effects, ready to explore in a live preview.</p>
+        <h1 className={typography.pageTitle}>Shaders</h1>
+        <p className={`mt-5 ${typography.body}`}>Animated shaders and visual effects, ready to explore in a live preview.</p>
         <Catalog category="shader" />
       </Container>
     </div>

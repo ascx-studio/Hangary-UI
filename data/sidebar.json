@@ -4,52 +4,124 @@
       "title": "Components",
       "items": [
         {
+          "label": "Aspect Ratio",
+          "slug": "aspect-ratio",
+          "description": "A responsive container that preserves a chosen width-to-height ratio."
+        },
+        {
           "label": "Avatar",
-          "slug": "avatar"
+          "slug": "avatar",
+          "description": "A profile image with initials and an image-error fallback."
+        },
+        {
+          "label": "Avatar Group",
+          "slug": "avatar-group",
+          "description": "Overlapping profile images with initials and a count for additional people."
         },
         {
           "label": "Badge",
-          "slug": "badge"
+          "slug": "badge",
+          "description": "A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants."
         },
         {
           "label": "Banner",
-          "slug": "banner"
+          "slug": "banner",
+          "description": "A dismissible status banner with icons and optional descriptions in neutral, info, success, warning, and error variants."
+        },
+        {
+          "label": "Border Highlight",
+          "slug": "border-highlight",
+          "description": "A glowing border that follows your pointer with spring motion."
         },
         {
           "label": "Bottom Sheet",
-          "slug": "bottom-sheet"
+          "slug": "bottom-sheet",
+          "description": "A bottom-aligned modal sheet with native focus management and Escape dismissal."
+        },
+        {
+          "label": "Brand Palette",
+          "slug": "brand-palette",
+          "description": "Six brand color swatches and a green gradient."
         },
         {
           "label": "Breadcrumb",
-          "slug": "breadcrumb"
+          "slug": "breadcrumb",
+          "description": "A breadcrumb navigation trail with links and a current-page indicator."
         },
         {
           "label": "Button",
-          "slug": "button"
+          "slug": "button",
+          "description": "An accessible button with primary, secondary, ghost, destructive, and outline variants."
         },
         {
           "label": "Card",
-          "slug": "card"
+          "slug": "card",
+          "description": "A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer."
         },
         {
           "label": "Carousel",
-          "slug": "carousel"
+          "slug": "carousel",
+          "description": "Animated image slides with swipe support and accessible controls."
         },
         {
           "label": "Code Block",
-          "slug": "code-block"
+          "slug": "code-block",
+          "description": "A scrollable code block with a filename, optional line numbers, and a copy button."
         },
         {
           "label": "Kbd",
-          "slug": "kbd"
+          "slug": "kbd",
+          "description": "A styled keyboard key or shortcut hint."
+        },
+        {
+          "label": "Lightbox",
+          "slug": "lightbox",
+          "description": "Open an image in an accessible modal viewer."
+        },
+        {
+          "label": "Logo Animation",
+          "slug": "logo-animation",
+          "description": "Animated SVG logos with custom artwork and reduced-motion support."
+        },
+        {
+          "label": "Mechanical Keyboard",
+          "slug": "mechanical-keyboard",
+          "description": "A straight keyboard illustration using our green and neutral brand palette."
+        },
+        {
+          "label": "Metal Wallet",
+          "slug": "metal-wallet",
+          "description": "An animated wallet with a translucent pocket and layered cards."
+        },
+        {
+          "label": "Nav Line",
+          "slug": "nav-line",
+          "description": "A wave-shaped navigation rail with spring animations and hover previews."
+        },
+        {
+          "label": "Outline",
+          "slug": "outline",
+          "description": "A keyboard-accessible table of contents with an animated active-heading indicator."
+        },
+        {
+          "label": "Spotlight Reveal",
+          "slug": "spotlight-reveal",
+          "description": "Reveal image color through a pointer-following spotlight."
         },
         {
           "label": "Table",
-          "slug": "table"
+          "slug": "table",
+          "description": "A responsive, composable table with headers, rows, cells, a caption, and an optional footer."
         },
         {
           "label": "Tabs",
-          "slug": "tabs"
+          "slug": "tabs",
+          "description": "A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation."
+        },
+        {
+          "label": "Tooltip",
+          "slug": "tooltip",
+          "description": "Hover and focus previews built with the Card component."
         }
       ]
     },
@@ -58,19 +130,23 @@
       "items": [
         {
           "label": "Navbar",
-          "slug": "navbar"
+          "slug": "navbar",
+          "description": "Centered, left-aligned, and floating navigation layouts."
         },
         {
           "label": "Footer",
-          "slug": "footer"
+          "slug": "footer",
+          "description": "Column, minimal, and stacked footer layouts."
         },
         {
           "label": "Login",
-          "slug": "login"
+          "slug": "login",
+          "description": "A card login form with provider buttons, password visibility, and loading and error states."
         },
         {
           "label": "Pricing",
-          "slug": "pricing"
+          "slug": "pricing",
+          "description": "A pricing card grid with featured plans and monthly or yearly billing."
         }
       ]
     },
@@ -79,7 +155,28 @@
       "items": [
         {
           "label": "SME Shader",
-          "slug": "sme-background"
+          "slug": "sme-background",
+          "description": "A layered gradient and grid shader for product sections, previews, and hero panels."
+        },
+        {
+          "label": "Dot Grid",
+          "slug": "dot-grid-background",
+          "description": "A fading dot pattern for clean landing pages and content sections."
+        },
+        {
+          "label": "Spotlight Grid",
+          "slug": "spotlight-grid-background",
+          "description": "A fine grid illuminated by a soft spotlight from above."
+        },
+        {
+          "label": "Aurora",
+          "slug": "aurora-background",
+          "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow."
+        },
+        {
+          "label": "Beams",
+          "slug": "beams-background",
+          "description": "Diagonal light beams that drift behind your content."
         }
       ]
     }

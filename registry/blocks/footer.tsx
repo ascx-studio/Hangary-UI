@@ -1,3 +1,4 @@
+import { typography } from "../lib/typography.shared";
 import type { ComponentProps, ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "cn";
@@ -35,13 +36,13 @@ export function Footer({ brand = "Hangry UI", homeHref = "/", description = "Tho
     <div className={cn("gap-10 p-6 sm:p-8", "grid md:grid-cols-[1.5fr_2fr]")}>
       <div>
         <a href={homeHref} className="text-xl font-semibold focus-visible:outline-2 focus-visible:outline-ring">{brand}</a>
-        {<p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">{description}</p>}
+        {<p className={`mt-3 max-w-sm ${typography.body}`}>{description}</p>}
         {<div className="mt-4"><Badge variant="success">Open source</Badge></div>}
         {children}
       </div>
       <div className="grid grid-cols-2 gap-8">
         {groups.map(group => <nav key={group.title} aria-label={group.title}>
-          {<h3 className="mb-4 text-sm font-semibold">{group.title}</h3>}
+          {<h3 className={`mb-4 ${typography.subsectionTitle}`}>{group.title}</h3>}
           <ul className="space-y-3">
             {group.links.map(link => <li key={link.href}><a href={link.href} className="text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring">{link.label}</a></li>)}
           </ul>

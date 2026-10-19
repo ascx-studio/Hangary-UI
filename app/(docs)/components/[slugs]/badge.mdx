@@ -4,23 +4,27 @@ import ComponentPreview from "@/components/registry/component-preview";
 import { Badge } from "@/registry/components/badge";
 
 <ComponentPreview className="h-full w-full">
-  <div className="mx-auto grid w-full max-w-4xl grid-cols-2 items-center justify-items-center gap-6 p-4 sm:grid-cols-3 sm:p-8 lg:grid-cols-5 [&>span]:h-12 [&>span]:w-full [&>span]:justify-center [&>span]:px-3 [&>span]:py-0 [&>span]:text-base">
-    <Badge variant="neutral">Neutral</Badge>
-    <Badge variant="info">Info</Badge>
-    <Badge variant="success">Success</Badge>
-    <Badge variant="warning">Warning</Badge>
-    <Badge variant="error">Error</Badge>
-    <Badge variant="blue">Blue</Badge>
-    <Badge variant="purple">Purple</Badge>
-    <Badge variant="pink">Pink</Badge>
-    <Badge variant="teal">Teal</Badge>
-    <Badge variant="orange">Orange</Badge>
+  <div className="flex flex-col items-center gap-3 p-4 sm:p-8 [&_span]:px-4 [&_span]:py-3 [&_span]:text-base sm:[&_span]:text-xl">
+    <div className="flex flex-wrap justify-center gap-3">
+      <Badge variant="pending" />
+      <Badge variant="in-progress" />
+    </div>
+    <div className="flex flex-wrap justify-center gap-3">
+      <Badge variant="submitted" />
+      <Badge variant="in-review" />
+      <Badge variant="success" />
+    </div>
+    <div className="flex flex-wrap justify-center gap-3">
+      <Badge variant="failed" />
+      <Badge variant="expired" />
+    </div>
   </div>
 </ComponentPreview>
 
+<DocsReveal>
 # Badge
 
-A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants.
+Status badges with matching icons, tinted backgrounds, square corners, and a subtle reveal and hover lift that respect reduced-motion preferences.
 
 ## Installation
 
@@ -41,7 +45,7 @@ import { Badge } from "@/components/hangry-ui/components/badge";
 
 ## Variants
 
-Use the `variant` prop to choose from: neutral, info, success, warning, error, blue, purple, pink, teal, orange. The preview above shows the available variants together.
+Use `pending`, `in-progress`, `submitted`, `in-review`, `success`, `failed`, or `expired` for status icons and default labels. The existing color variants remain available: neutral, info, warning, error, blue, purple, pink, teal, orange.
 
 ## Props
 
@@ -57,15 +61,15 @@ Use the `variant` prop to choose from: neutral, info, success, warning, error, b
   <TableBody>
     <TableRow>
       <TableCell><code className="break-words">{"variant"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"blue\" | \"purple\" | \"pink\" | \"teal\" | \"orange\""}</code></TableCell>
+      <TableCell><code className="break-words">{"\"pending\" | \"in-progress\" | \"submitted\" | \"in-review\" | \"failed\" | \"expired\" | \"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"blue\" | \"purple\" | \"pink\" | \"teal\" | \"orange\""}</code></TableCell>
       <TableCell><code className="break-words">{"\"success\""}</code></TableCell>
-      <TableCell>{"Badge color."}</TableCell>
+      <TableCell>{"Badge status or color."}</TableCell>
     </TableRow>
     <TableRow>
       <TableCell><code className="break-words">{"children"}</code></TableCell>
       <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"New release\""}</code></TableCell>
-      <TableCell>{"Badge content."}</TableCell>
+      <TableCell><code className="break-words">{"Status label"}</code></TableCell>
+      <TableCell>{"Overrides the default status label."}</TableCell>
     </TableRow>
     <TableRow>
       <TableCell><code className="break-words">{"className"}</code></TableCell>
@@ -84,4 +88,5 @@ Use the `variant` prop to choose from: neutral, info, success, warning, error, b
 
 ## Setup notes
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+Use Tailwind CSS v4 and lucide-react for the status icons. Badges have square corners and no border. Customize the label with children and styling with `className`.
+</DocsReveal>

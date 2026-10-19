@@ -3,6 +3,7 @@ import { getRegistryItem, getRegistryItemHref, type RegistryCategory } from "@/l
 import { logCatalogDetailRendered } from "@/lib/posthog-logger";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteUrl } from "@/lib/seo";
+import DocsPageEntrance from "@/components/registry/docs-page-entrance";
 
 export default async function DetailPage({ name, category }: { name: string; category: RegistryCategory }) {
   const item = getRegistryItem(name, category);
@@ -13,7 +14,7 @@ export default async function DetailPage({ name, category }: { name: string; cat
   const { default: Content } = await import(`../../app/(docs)/${category}/${folder}/${name}.mdx`);
 
   const categoryTitle = { components: "Components", blocks: "Blocks", shader: "Shaders", utils: "Utilities" }[category];
-  return <article className="page-entrance w-full min-w-0 px-6 py-10 sm:px-10 md:px-12 md:py-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-4xl">
+  return <DocsPageEntrance key={`${category}:${name}`} className="w-full min-w-0 px-6 py-10 sm:px-10 md:px-12 md:py-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-4xl">
     <JsonLd data={{
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -24,5 +25,5 @@ export default async function DetailPage({ name, category }: { name: string; cat
       ],
     }} />
     <Content />
-  </article>;
+  </DocsPageEntrance>;
 }

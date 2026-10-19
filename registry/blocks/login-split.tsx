@@ -1,8 +1,6 @@
 "use client";
 
 import type { ComponentProps, ReactNode } from "react";
-import { Avatar } from "../components/avatar";
-import { Badge } from "../components/badge";
 import { LoginMinimal } from "./login-minimal";
 
 interface LoginProps extends Omit<ComponentProps<"form">, "title" | "action"> {
@@ -27,7 +25,7 @@ export function LoginSplit({ brand = "Studio", ...props }: LoginProps = {}) {
       <div className="grid grid-cols-1 bg-card @xl:min-h-144 @xl:grid-cols-2">
         <aside
           className="relative isolate flex min-w-0 flex-col justify-between gap-4 overflow-hidden border-b border-border bg-cover bg-center bg-no-repeat p-4 text-white @xl:border-r @xl:border-b-0"
-          style={{ backgroundImage: `url("/image.png")` }}
+          style={{ backgroundImage: `url("/2.png")` }}
         >
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-slate-950/30 backdrop-blur-[2px]" />
 

@@ -1,0 +1,58 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import NavLineDemo from "@/components/registry/nav-line-demo";
+
+<ComponentPreview className="h-full w-full"><NavLineDemo /></ComponentPreview>
+
+<DocsReveal>
+# Nav Line
+
+A wave-shaped navigation rail with spring animations, scroll tracking, and hover previews.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/nav-line.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/nav-line.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/nav-line.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/nav-line.json",
+}} />
+
+## Usage
+
+```tsx
+import { NavLine } from "@/components/hangry-ui/components/nav-line";
+
+<NavLine
+  items={[
+    { id: "overview", label: "Overview" },
+    { id: "usage", label: "Usage", card: {
+      title: "Usage",
+      description: "Examples and configuration.",
+    } },
+  ]}
+/>
+
+<section id="overview">Overview content</section>
+<section id="usage">Usage content</section>
+```
+
+## Props
+
+| Prop | Default | Description |
+| --- | --- | --- |
+| `items` | `[]` | Items with unique section IDs and labels. Add `href` for navigation or `card` for a rich preview. |
+| `size` | `"md"` | `"sm"` uses shorter lines for compact sidebars. |
+| `showLabels` | `false` | Show the item titles alongside the lines. Set to `false` for compact sidebar navigation. |
+| `activeId` | Scroll position | Pin the active item, useful for link rails. |
+| `variant` | `"viewport"` | `"viewport"` is fixed on the left and hidden below 1024px. `"contained"` is absolute and visible at every width. |
+| `scrollRootRef` | Window | Ref to the scrolling element for an embedded rail. |
+| `onSectionClick` | — | Called with the target ID and the current section ID. |
+| `className` | — | Additional classes for the navigation root. |
+
+## Setup notes
+
+Uses Next.js Link, React, Tailwind CSS v4, and the `cn` package. Hover previews use the shared Card-based Tooltip component, appear on keyboard focus, and close with Escape. Smooth scrolling respects reduced motion.
+
+For contained mode, put the rail inside a `relative` wrapper and pass a ref to the actual scrolling element. Keep the rail beside that scrolling element so it stays visible. Section IDs must be unique in the document. See the live preview above for an embedded scrolling example.
+</DocsReveal>

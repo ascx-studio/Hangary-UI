@@ -70,6 +70,7 @@ export function SignIn(props: Pick<ComponentProps<typeof LoginSplit>,
 
 <ComponentPreview id="login-minimal" className="h-full w-full"><LoginMinimal showSocial={false} /></ComponentPreview>
 
+<DocsReveal>
 ## Login
 
 An unframed login form for embedding in your own layout.
@@ -97,3 +98,4 @@ export function SignIn(props: Pick<ComponentProps<typeof LoginMinimal>,
   return <LoginMinimal brand="Acme" {...props} />;
 }
 ```
+</DocsReveal>

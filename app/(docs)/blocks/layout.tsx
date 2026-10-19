@@ -1,11 +1,10 @@
 import type { ReactNode } from "react";
-import Sidebar from "@/components/Sidebar";
+import SidebarPageLayout from "@/components/layout/sidebar-page-layout";
 
 export default function BlocksLayout({ children }: { children: ReactNode }) {
   return (
-    <div data-sidebar-layout className="min-h-dvh md:flex">
-      <Sidebar category="blocks" className="sticky" />
-      <div className="w-full min-w-0 flex-1 bg-background">{children}</div>
-    </div>
+    <SidebarPageLayout category="blocks" className="min-h-dvh md:flex" contentClassName="w-full min-w-0 flex-1 bg-background" sidebarClassName="sticky">
+      {children}
+    </SidebarPageLayout>
   );
 }

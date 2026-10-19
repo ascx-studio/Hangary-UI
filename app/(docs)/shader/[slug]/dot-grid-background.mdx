@@ -1,0 +1,53 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { DotGridBackground } from "@/registry/shader/dot-grid-background";
+
+<ComponentPreview fullBleed>
+  <DotGridBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Dot Grid Background
+
+A fading dot pattern for clean landing pages and content sections.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/dot-grid-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/dot-grid-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/dot-grid-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/dot-grid-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { DotGridBackground } from "@/components/hangry-ui/shader/dot-grid-background";
+
+<DotGridBackground dotColor="#34d399" gap={28} dotSize={1.25} className="flex items-center justify-center p-12">
+  <div>
+    <h2>Your headline</h2>
+    <p>Your content stays above the decorative background.</p>
+  </div>
+</DotGridBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `dotColor` | `string` | `var(--muted-foreground)` | Dot color; accepts CSS colors and variables. |
+| `highlightColor` | `string` | `var(--primary)` | Color of the hovered dot and its neighbors. |
+| `gap` | `number` | `24` | Distance between dots in pixels; minimum 4. |
+| `dotSize` | `number` | `1` | Dot radius in pixels; minimum 0.5. |
+| `fade` | `boolean` | `true` | Fade the pattern toward the edges. |
+| `children` | ReactNode | — | Content placed above the decorative layers. |
+| Native div props | ComponentProps | — | Supports `className`, `style`, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Use Tailwind CSS v4 and the existing theme tokens. The root has a minimum height of 24rem; override it with `className` when needed. Decorative layers are hidden from assistive technology and do not intercept clicks. The pattern stays still. A Motion spring fades the highlight in and out. The hovered dot and nearby dots brighten with a soft falloff. The component uses React memo, and pointer tracking uses Motion values without React re-renders.
+
+Hovering highlights the dot beneath the pointer and its neighbors. The dots stay in place, and the highlight fades away when the pointer leaves. Touch devices skip hover effects, and reduced motion skips the spring.
+</DocsReveal>

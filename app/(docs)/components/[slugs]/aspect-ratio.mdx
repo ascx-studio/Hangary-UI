@@ -1,0 +1,42 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { AspectRatio } from "@/registry/components/aspect-ratio";
+
+<ComponentPreview>
+  <div className="w-full max-w-sm">
+    <AspectRatio ratio={16 / 9} className="border border-border bg-muted" />
+  </div>
+</ComponentPreview>
+
+<DocsReveal>
+# Aspect Ratio
+
+A responsive container that preserves a chosen width-to-height ratio.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
+}} />
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@/components/hangry-ui/components/aspect-ratio";
+
+<AspectRatio ratio={9 / 16} className="overflow-hidden border border-border">
+  {/* Image or other content */}
+</AspectRatio>
+```
+
+## Props
+
+`ratio` is the numeric width divided by height and defaults to `1`: use `16 / 9` for landscape, `9 / 16` for portrait, or `1` for a square. Standard div props, children, className, style, and ref are forwarded.
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global border-border token. No rounded classes or additional animation packages are required. Customize content with props and styling with className.
+</DocsReveal>

@@ -1,0 +1,89 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Outline } from "@/registry/components/outline";
+
+<ComponentPreview className="h-full w-full">
+  <Outline
+    items={[
+      { id: "installation", label: "Installation" },
+      { id: "usage", label: "Usage" },
+      { id: "props", label: "Props" },
+      { id: "setup-notes", label: "Setup notes" },
+    ]}
+  />
+</ComponentPreview>
+
+<DocsReveal>
+# Outline
+
+A navigation list with a sliding active indicator. Use items without `href` for headings on the current page, or provide `href` to use the same keyboard-accessible list for routes. The list is one tab stop: arrow keys move between items, Home and End jump to the ends, and Enter or Space activates the selected item.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/outline.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/outline.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/outline.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/outline.json",
+}} />
+
+## Usage
+
+```tsx
+import { Outline } from "@/components/hangry-ui/components/outline";
+
+<Outline
+  items={[
+    { id: "overview", label: "Overview" },
+    { id: "installation", label: "Installation" },
+    { id: "configuration", label: "Configuration" },
+  ]}
+/>
+```
+
+Without `href`, each item points to a heading or element id on the current page, and the active item updates as the page scrolls. Set `href` to make an item a route link; the active state then follows the current route.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code>items</code></TableCell>
+      <TableCell><code>{"{ id: string; label: string; href?: string }[]"}</code></TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Heading ids and labels, or route links when <code>href</code> is supplied.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>title</code></TableCell>
+      <TableCell><code>string</code></TableCell>
+      <TableCell><code>"On this page"</code></TableCell>
+      <TableCell>Visible heading and accessible navigation label.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>variant</code></TableCell>
+      <TableCell><code>"default" | "sidebar"</code></TableCell>
+      <TableCell><code>"default"</code></TableCell>
+      <TableCell>Uses sidebar foreground colors for the heading and active link.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>className</code></TableCell>
+      <TableCell><code>string</code></TableCell>
+      <TableCell><code>""</code></TableCell>
+      <TableCell>Additional classes on the navigation.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Setup notes
+
+Outline uses Motion for its sliding indicator and disables animation when reduced motion is preferred.
+</DocsReveal>

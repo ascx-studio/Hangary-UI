@@ -2,21 +2,25 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
 import { Carousel } from "@/registry/components/carousel";
-import { Badge } from "@/registry/components/badge";
+import Image from "next/image";
 
 <ComponentPreview className="h-full w-full">
-<div className="grid w-full gap-8 xl:grid-cols-2">
-        <Carousel />
-        <Carousel label="Project highlights" slides={[
-          <div key="design"><Badge>Design</Badge><p className="mt-4">Make room for ideas.</p></div>,
-          <div key="build"><Badge variant="warning">Build</Badge><p className="mt-4">Bring them to life.</p></div>,
-        ]} />
-      </div>
-  </ComponentPreview>
+  <div className="flex w-full justify-center">
+  <Carousel label="Monochrome art collection">
+    <Image src="/1.png" alt="Two luminous butterflies on a dark background" fill sizes="(max-width: 640px) 80vw, 384px" priority draggable={false} className="object-cover object-center" />
+    <Image src="/2.png" alt="Abstract white light swirling around a central star" fill sizes="(max-width: 640px) 80vw, 384px" draggable={false} className="object-cover object-center" />
+    <Image src="/3.png" alt="A monochrome star field and glowing nebula" fill sizes="(max-width: 640px) 80vw, 384px" draggable={false} className="object-cover object-center" />
+    <Image src="/4.png" alt="An arrangement of hands rendered in white dots" fill sizes="(max-width: 640px) 80vw, 384px" draggable={false} className="object-cover object-center" />
+    <Image src="/5.png" alt="A figure made from glowing binary digits" fill sizes="(max-width: 640px) 80vw, 384px" draggable={false} className="object-cover object-center" />
+    <Image src="/6.png" alt="A translucent white flower on a black background" fill sizes="(max-width: 640px) 80vw, 384px" draggable={false} className="object-cover object-center" />
+  </Carousel>
+  </div>
+</ComponentPreview>
 
+<DocsReveal>
 # Carousel
 
-A manual carousel with previous and next controls and slide announcements.
+An animated, swipeable carousel with previous/next buttons, direct slide selection, and accessible slide announcements. Slides advance four seconds after each selection, with progress shown on the active dot.
 
 ## Installation
 
@@ -30,9 +34,17 @@ A manual carousel with previous and next controls and slide announcements.
 ## Usage
 
 ```tsx
+import Image from "next/image";
 import { Carousel } from "@/components/hangry-ui/components/carousel";
 
-<Carousel slides={["First slide", "Second slide", "Third slide"]} />
+<Carousel
+  label="Art collection"
+>
+  <Image src="/1.png" alt="Luminous butterflies" fill sizes="384px" draggable={false} className="object-cover" />
+  <Image src="/2.png" alt="Abstract light" fill sizes="384px" draggable={false} className="object-cover" />
+  <Image src="/3.png" alt="Stars and a nebula" fill sizes="384px" draggable={false} className="object-cover" />
+  <Image src="/4.png" alt="Hands in white dots" fill sizes="384px" draggable={false} className="object-cover" />
+</Carousel>
 ```
 
 ## Props
@@ -48,10 +60,10 @@ import { Carousel } from "@/components/hangry-ui/components/carousel";
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code className="break-words">{"slides"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode[]"}</code></TableCell>
-      <TableCell><code className="break-words">{"[\"A fresh perspective.\", \"Space to explore.\", \"Something worth making.\"]"}</code></TableCell>
-      <TableCell>{"Slides to display. An empty array renders nothing."}</TableCell>
+      <TableCell><code className="break-words">{"children"}</code></TableCell>
+      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
+      <TableCell>{"Default text slides"}</TableCell>
+      <TableCell>{"Slide content. Omit children to use the default text slides."}</TableCell>
     </TableRow>
     <TableRow>
       <TableCell><code className="break-words">{"label"}</code></TableCell>
@@ -70,4 +82,7 @@ import { Carousel } from "@/components/hangry-ui/components/carousel";
 
 ## Setup notes
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+Uses Tailwind CSS v4, Motion, Lucide icons, and the shared Button and AspectRatio components. Pass slides as children. Image slides use a portrait 9:16 viewport with `object-cover`. The six preview images live at `public/1.png` through `public/6.png`; supply your own images when installing the component.
+
+Swipe left or right, use the previous/next buttons, or select a slide directly. With a control focused, arrow keys navigate and Home/End select the first/last slide. Reduced motion disables the slide transition. Empty collections render nothing; single-slide collections disable navigation.
+</DocsReveal>

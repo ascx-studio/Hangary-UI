@@ -1,0 +1,67 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { MetalWallet } from "@/registry/components/metal-wallet";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/tabs";
+
+<ComponentPreview className="grid-cols-1">
+  <Tabs defaultValue="spring-green" className="w-[600px] max-w-full items-center">
+    <TabsList variant="line" aria-label="Wallet color" className="max-w-full flex-wrap gap-2">
+      <TabsTrigger value="spring-green">Spring Green</TabsTrigger>
+      <TabsTrigger value="green">Green</TabsTrigger>
+      <TabsTrigger value="dark-green">Dark Green</TabsTrigger>
+      <TabsTrigger value="white">White</TabsTrigger>
+    </TabsList>
+    <TabsContent value="spring-green" className="w-full [&>button]:mx-auto">
+      <MetalWallet />
+    </TabsContent>
+    <TabsContent value="green" className="w-full [&>button]:mx-auto">
+      <MetalWallet color="green" />
+    </TabsContent>
+    <TabsContent value="dark-green" className="w-full [&>button]:mx-auto">
+      <MetalWallet color="dark-green" />
+    </TabsContent>
+    <TabsContent value="white" className="w-full [&>button]:mx-auto">
+      <MetalWallet color="white" />
+    </TabsContent>
+  </Tabs>
+</ComponentPreview>
+
+<DocsReveal>
+# Metal Wallet
+
+A tall wallet with a curved translucent pocket and three upright cards. Hover to move the front cover left, then click or tap to slide it farther left and move the cards to the right.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
+}} />
+
+## Usage
+
+```tsx
+import { MetalWallet } from "@/components/hangry-ui/components/metal-wallet";
+
+<MetalWallet />
+<MetalWallet color="white" size="sm" />
+<MetalWallet color="dark-green" size="lg" label="Dark green card holder" />
+```
+
+## Props
+
+- `color`: `"spring-green"`, `"green"`, `"dark-green"`, or `"white"`. Defaults to `"spring-green"`. The green variations use our global brand tokens.
+- `size`: `"sm"` (390px), `"md"` (480px), or `"lg"` (600px). The frame includes room for the cards on the right and shrinks to fit smaller containers.
+- `className`: Additional classes on the button wrapper.
+- `label`: Accessible button name. Defaults to `"Metal wallet"`.
+
+## Setup notes
+
+The folder geometry is rotated 90 degrees clockwise so its opening faces right. Green variations use the shared brand palette; White uses the original example's colors. The translucent front and inset shadows are preserved.
+
+Motion elements use `motion/react-client`. State and reduced-motion hooks require this component's client boundary. Reduced motion makes state changes immediate. The artwork has a transparent background and unique SVG identifiers for each instance.
+
+Enter, Space, click, or tap toggles the open state, exposed as `aria-pressed`. Escape closes it. Leaving the wallet or moving keyboard focus away resets it. Touch input toggles without hover animation.
+</DocsReveal>

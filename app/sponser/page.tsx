@@ -1,3 +1,4 @@
+import { typography } from "@/registry/lib/typography.shared";
 import Logo from '@/components/ui/Logo'
 import Container from '@/components/layout/Container'
 import Link from 'next/link'
@@ -44,11 +45,11 @@ export default function SponsorPage() {
               <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
                 Good tools grow through generous people.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+              <p className={`mt-6 max-w-2xl ${typography.body}`}>
                 Hangry UI is open source and free to use. Sponsorship, a star, or a
                 contribution helps keep the collection moving.
               </p>
-              <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
+              <p className={`mt-4 max-w-2xl ${typography.body}`}>
                 Contributions help improve the components, keep examples useful,
                 and catch bugs in real projects. You can start small: tell us what
                 worked, what was confusing, or what you would like to see next.
@@ -74,7 +75,7 @@ export default function SponsorPage() {
             </div>
 
             <section aria-labelledby="faq-heading" className="mt-12 max-w-3xl border-t border-border pt-10">
-              <h2 id="faq-heading" className="text-2xl font-semibold tracking-tight">
+              <h2 id="faq-heading" className={typography.sectionTitle}>
                 Frequently asked questions
               </h2>
               <div className="mt-8 divide-y divide-border">
@@ -83,7 +84,7 @@ export default function SponsorPage() {
                     <summary className="cursor-pointer font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                       {question}
                     </summary>
-                    <p className="mt-3 leading-7 text-muted-foreground">{answer}</p>
+                    <p className={`mt-3 ${typography.body}`}>{answer}</p>
                   </details>
                 ))}
               </div>

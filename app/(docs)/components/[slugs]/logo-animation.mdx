@@ -1,0 +1,71 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { LogoAnimation } from "@/registry/components/logo-animation";
+
+<ComponentPreview className="h-full w-full">
+  <div className="flex flex-wrap items-center justify-center gap-12">
+    <div className="grid justify-items-center gap-3">
+      <LogoAnimation size={160} />
+      <span className="text-sm text-muted-foreground">Portfolio logo</span>
+    </div>
+    <div className="grid justify-items-center gap-3">
+      <LogoAnimation size={160} alt="Check mark">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 12 10 18 20 6" fill="none" stroke="currentColor" strokeWidth={2} />
+        </svg>
+      </LogoAnimation>
+      <span className="text-sm text-muted-foreground">Custom SVG path</span>
+    </div>
+  </div>
+</ComponentPreview>
+
+<DocsReveal>
+# Logo Animation
+
+A reusable SVG logo component that animates the vector shapes supplied to it. It defaults to the portfolio logo, but animates custom SVG artwork passed as children.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
+}} />
+
+## Usage
+
+```tsx
+import { LogoAnimation } from "@/components/hangry-ui/components/logo-animation";
+
+function MyBrandLogo() {
+  return <svg viewBox="0 0 24 24"><path d="M4 12 10 18 20 6" fill="none" stroke="currentColor" strokeWidth={2} /></svg>;
+}
+
+<LogoAnimation logo={<MyBrandLogo />} size={64} alt="My brand" />
+```
+
+`logo` accepts an SVG component or inline SVG. Its SVG shapes draw in sequence and filled shapes fade in:
+
+```tsx
+<LogoAnimation logo={<MyBrandLogo />} alt="My brand" width={96} height={48} />
+```
+
+The default portfolio logo is used only when neither `logo` nor `children` is provided. The animation finds SVG paths, circles, ellipses, lines, polygons, polylines, and rectangles in the rendered logo, including shapes nested in groups. Raster logos fade in as a whole. `size` controls a square logo; set `width` and `height` for a custom aspect ratio. `className` styles the wrapper. The drawing animation respects the system reduced-motion preference.
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `logo` | `ReactNode` | Portfolio logo | Any rendered logo component, inline SVG, or image. Vector shapes are drawn individually; other artwork fades in. |
+| `children` | `ReactNode` | — | Alias for `logo`, useful for passing SVG elements directly. |
+| `size` | `number` | `48` | Square logo size in pixels. |
+| `width` | `number` | `size` | SVG width in pixels. |
+| `height` | `number` | `size` | SVG height in pixels. |
+| `alt` | `string` | `"Portfolio logo"` | Accessible description for the logo. |
+| `className` | `string` | — | Additional classes on the wrapper. |
+
+## Setup notes
+
+Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`. The registry entry installs Motion.
+</DocsReveal>

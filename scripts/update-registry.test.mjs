@@ -141,3 +141,34 @@ test('creates colocated MDX without a barrel or replacing edited docs', async ()
     fs.rmSync(root, { recursive: true, force: true })
   }
 })
+
+test('memoized components retain preview exports and prop defaults', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hangry-memo-preview-'))
+  try {
+    const entry = 'registry/components/memo-widget.tsx'
+    fs.mkdirSync(path.dirname(path.join(root, entry)), { recursive: true })
+    fs.writeFileSync(path.join(root, entry), 'import { memo } from "react"; export const MemoWidget = memo(function MemoWidget({ title = "Hello" }: { title?: string } = {}) { return null })')
+    const writes = planPreviews(root, { items: [{ name: 'memo-widget', meta: { category: 'components' }, files: [{ path: entry }] }] })
+    assert.ok(writes.get('components/registry/preview-entries.ts').includes('component: MemoWidget'))
+    assert.ok(writes.get('components/registry/preview-props.ts').includes('"defaultValue":"Hello"'))
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true })
+  }
+})
+
+test('shared helpers bundle with components without creating catalog entries', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hangry-shared-helper-'))
+  try {
+    fs.mkdirSync(path.join(root, 'registry/components'), { recursive: true })
+    fs.mkdirSync(path.join(root, 'registry/lib'), { recursive: true })
+    fs.writeFileSync(path.join(root, 'package.json'), '{"dependencies":{}}')
+    fs.writeFileSync(path.join(root, 'registry.json'), JSON.stringify({ name: 'test', homepage: 'https://example.com', items: [] }))
+    fs.writeFileSync(path.join(root, 'registry/components/example.tsx'), 'import { title } from "../lib/typography.shared"; export function Example() { return <h2 className={title}>Title</h2> }')
+    fs.writeFileSync(path.join(root, 'registry/lib/typography.shared.ts'), 'export const title = "text-2xl"')
+    const registry = generateRegistry(root)
+    assert.equal(registry.items.length, 1)
+    assert.ok(registry.items[0].files.some(file => file.path === 'registry/lib/typography.shared.ts'))
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true })
+  }
+})

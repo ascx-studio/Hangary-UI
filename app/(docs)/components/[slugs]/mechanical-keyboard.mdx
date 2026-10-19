@@ -1,0 +1,41 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { MechanicalKeyboard } from "@/registry/components/mechanical-keyboard";
+
+<ComponentPreview className="grid-cols-1">
+  <MechanicalKeyboard />
+</ComponentPreview>
+
+<DocsReveal>
+# Mechanical Keyboard
+
+A straight keyboard illustration with a dark case, outlined keys, and green brand accents.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/mechanical-keyboard.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/mechanical-keyboard.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/mechanical-keyboard.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/mechanical-keyboard.json",
+}} />
+
+## Usage
+
+```tsx
+import { MechanicalKeyboard } from "@/components/hangry-ui/components/mechanical-keyboard";
+
+<MechanicalKeyboard />
+```
+
+## Props
+
+- `className`: Additional SVG classes. Defaults to a fixed width of 640px, constrained to fit smaller containers.
+- `label`: Accessible image description. Defaults to `"Mechanical keyboard with brand-colored keycaps"`.
+
+## Setup notes
+
+Uses the shared brand color tokens with fallback values. Only the outer border appears at first. After its animation finishes, the shaded case fades in smoothly, then key outlines reveal from top to bottom. Brand colors follow in a left-to-right pass, timed by each key's horizontal position so all rows fill together. The border stays visible and all parts remain in place. The Motion reveal plays once when the keyboard enters the viewport. Reduced motion shows the completed keyboard immediately.
+
+Motion elements use `motion/react-client`, so the component is server-compatible without a client directive. The background is transparent, and each instance has unique SVG identifiers.
+</DocsReveal>

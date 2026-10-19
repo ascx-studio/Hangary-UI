@@ -4,6 +4,49 @@
   "homepage": "https://ui.razeev.com",
   "items": [
     {
+      "name": "aspect-ratio",
+      "title": "Aspect Ratio",
+      "description": "A responsive container that preserves a chosen width-to-height ratio.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/aspect-ratio.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "aurora-background",
+      "title": "Aurora Background",
+      "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/aurora-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/aurora-background.tsx"
+        },
+        {
+          "path": "registry/shader/background-motion.css",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/background-motion.css"
+        }
+      ],
+      "meta": {
+        "category": "shader"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:component",
       "title": "Avatar",
@@ -21,15 +64,20 @@
       }
     },
     {
-      "name": "badge",
+      "name": "avatar-group",
       "type": "registry:component",
-      "title": "Badge",
-      "description": "A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants.",
+      "title": "Avatar Group",
+      "description": "A stacked group of profile images with initials and an overflow count.",
       "files": [
         {
-          "path": "registry/components/badge.tsx",
+          "path": "registry/components/avatar-group.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/components/badge.tsx"
+          "target": "@components/hangry-ui/components/avatar-group.tsx"
+        },
+        {
+          "path": "registry/components/avatar.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/avatar.tsx"
         }
       ],
       "dependencies": [],
@@ -38,10 +86,35 @@
       }
     },
     {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Status badges with matching icons, tinted backgrounds, square corners, and reduced-motion-aware hover animation.",
+      "files": [
+        {
+          "path": "registry/components/badge.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/badge.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0"
+      ],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
       "name": "banner",
       "type": "registry:component",
       "title": "Banner",
-      "description": "A dismissible announcement banner with primary, secondary, ghost, and destructive variants.",
+      "description": "A status banner with matching icons, optional descriptions, and reduced-motion-aware hover animation.",
       "files": [
         {
           "path": "registry/components/banner.tsx",
@@ -49,10 +122,67 @@
           "target": "@components/hangry-ui/components/banner.tsx"
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0"
+      ],
       "meta": {
         "category": "components"
       }
+    },
+    {
+      "name": "beams-background",
+      "title": "Beams Background",
+      "description": "Diagonal light beams that drift behind your content.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/beams-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/beams-background.tsx"
+        },
+        {
+          "path": "registry/shader/background-motion.css",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/background-motion.css"
+        }
+      ],
+      "meta": {
+        "category": "shader"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "border-highlight",
+      "title": "Border Highlight",
+      "description": "A glowing border that follows your pointer with spring motion.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/border-highlight.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/border-highlight.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0"
+      ]
     },
     {
       "name": "bottom-sheet",
@@ -64,12 +194,49 @@
           "path": "registry/components/bottom-sheet.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/bottom-sheet.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0"
+      ],
       "meta": {
         "category": "components"
       }
+    },
+    {
+      "name": "brand-palette",
+      "title": "Brand Palette",
+      "description": "Six brand color swatches and a green gradient.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/brand-palette.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/brand-palette.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
     },
     {
       "name": "breadcrumb",
@@ -115,6 +282,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [],
@@ -126,15 +298,34 @@
       "name": "carousel",
       "type": "registry:component",
       "title": "Carousel",
-      "description": "A manual carousel with previous and next controls and slide announcements.",
+      "description": "An animated, swipeable carousel with direct slide selection and accessible controls.",
       "files": [
         {
           "path": "registry/components/carousel.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/carousel.tsx"
+        },
+        {
+          "path": "registry/components/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/aspect-ratio.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0"
+      ],
       "meta": {
         "category": "components"
       }
@@ -151,26 +342,47 @@
           "target": "@components/hangry-ui/components/code-block.tsx"
         },
         {
-          "path": "registry/components/code-block.css",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/components/code-block.css"
-        },
-        {
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
-        "highlight.js@^11.12.0",
         "lucide-react@^1.48.0",
-        "posthog-js@^1.435.8"
+        "posthog-js@^1.435.8",
+        "prism-react-renderer@^2.4.1",
+        "prismjs@^1.30.0"
       ],
       "meta": {
         "category": "components"
       }
+    },
+    {
+      "name": "dot-grid-background",
+      "title": "Dot Grid Background",
+      "description": "A fading dot pattern for clean landing pages and content sections.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/dot-grid-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/dot-grid-background.tsx"
+        }
+      ],
+      "meta": {
+        "category": "shader"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0"
+      ]
     },
     {
       "name": "footer",
@@ -192,6 +404,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -218,6 +435,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -250,6 +472,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -275,6 +502,31 @@
         }
       ],
       "dependencies": [],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "lightbox",
+      "type": "registry:component",
+      "title": "Lightbox",
+      "description": "Open an image in an accessible, reduced-motion-aware modal viewer.",
+      "files": [
+        {
+          "path": "registry/components/lightbox.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/lightbox.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0"
+      ],
       "meta": {
         "category": "components"
       }
@@ -309,6 +561,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         },
         {
           "path": "public/logo.svg",
@@ -352,6 +609,11 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        },
+        {
           "path": "public/logo.svg",
           "type": "registry:file",
           "target": "public/logo.svg"
@@ -384,16 +646,6 @@
           "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
-          "path": "registry/components/avatar.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/avatar.tsx"
-        },
-        {
-          "path": "registry/components/badge.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/badge.tsx"
-        },
-        {
           "path": "registry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
@@ -407,6 +659,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         },
         {
           "path": "public/logo.svg",
@@ -423,6 +680,129 @@
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
       ]
+    },
+    {
+      "name": "logo-animation",
+      "type": "registry:component",
+      "title": "Logo Animation",
+      "description": "A reusable logo animation that draws SVG shapes and fades in other artwork.",
+      "files": [
+        {
+          "path": "registry/components/logo-animation.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/logo-animation.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "motion@^14.3.0"
+      ]
+    },
+    {
+      "name": "mechanical-keyboard",
+      "title": "Mechanical Keyboard",
+      "description": "A straight keyboard illustration using our green and neutral brand palette.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/mechanical-keyboard.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/mechanical-keyboard.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0"
+      ]
+    },
+    {
+      "name": "metal-wallet",
+      "title": "Metal Wallet",
+      "description": "An animated wallet with a translucent pocket and layered cards.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/metal-wallet.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/metal-wallet.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0"
+      ]
+    },
+    {
+      "name": "nav-line",
+      "type": "registry:component",
+      "title": "Nav Line",
+      "description": "A wave-shaped navigation rail with spring animations and hover previews.",
+      "files": [
+        {
+          "path": "registry/components/nav-line.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/nav-line.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/components/tooltip.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/tooltip.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0"
+      ]
+    },
+    {
+      "name": "outline",
+      "type": "registry:component",
+      "title": "Outline",
+      "description": "A single-page table of contents with active heading tracking, keyboard navigation, and a sliding indicator.",
+      "files": [
+        {
+          "path": "registry/components/outline.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/outline.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "motion@^14.3.0"
+      ],
+      "meta": {
+        "category": "components"
+      }
     },
     {
       "name": "navbar",
@@ -454,6 +834,11 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -495,6 +880,11 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -537,6 +927,11 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -574,6 +969,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -609,6 +1009,11 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -645,6 +1050,11 @@
           "path": "registry/components/table.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/table.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -666,12 +1076,71 @@
           "path": "registry/shader/sme-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/sme-background.tsx"
+        },
+        {
+          "path": "registry/shader/background-motion.css",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/background-motion.css"
         }
       ],
       "dependencies": [],
       "meta": {
         "category": "shader"
       }
+    },
+    {
+      "name": "spotlight-grid-background",
+      "title": "Spotlight Grid Background",
+      "description": "A fine grid illuminated by a soft spotlight from above.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/spotlight-grid-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/spotlight-grid-background.tsx"
+        },
+        {
+          "path": "registry/shader/background-motion.css",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/background-motion.css"
+        }
+      ],
+      "meta": {
+        "category": "shader"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
+    },
+    {
+      "name": "spotlight-reveal",
+      "title": "Spotlight Reveal",
+      "description": "Reveal image color through a pointer-following spotlight.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/spotlight-reveal.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/spotlight-reveal.tsx"
+        },
+        {
+          "path": "public/wordmark-stroke.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-stroke.svg"
+        },
+        {
+          "path": "public/wordmark.svg",
+          "type": "registry:file",
+          "target": "public/wordmark.svg"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0"
+      ]
     },
     {
       "name": "table",
@@ -702,6 +1171,11 @@
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -710,6 +1184,35 @@
       "meta": {
         "category": "components"
       }
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Hover and focus previews built with the Card component.",
+      "files": [
+        {
+          "path": "registry/components/tooltip.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/tooltip.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "dependencies": [
+        "cn@^0.2.6"
+      ]
     }
   ]
 }

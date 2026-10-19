@@ -1,0 +1,52 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { AuroraBackground } from "@/registry/shader/aurora-background";
+
+<ComponentPreview fullBleed>
+  <AuroraBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Aurora Background
+
+Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/aurora-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/aurora-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/aurora-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/aurora-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { AuroraBackground } from "@/components/hangry-ui/shader/aurora-background";
+
+<AuroraBackground colorOne="#f472b6" colorTwo="#818cf8" colorThree="#38bdf8" speed={24} className="flex items-center justify-center p-12">
+  <div>
+    <h2>Your headline</h2>
+    <p>Your content stays above the decorative background.</p>
+  </div>
+</AuroraBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `colorOne` | `string` | `#10b981` | First aurora glow color. |
+| `colorTwo` | `string` | `#06b6d4` | Second aurora glow color. |
+| `colorThree` | `string` | `#8b5cf6` | Third aurora glow color. |
+| `speed` | `number` | `18` | Duration of a drift cycle in seconds; minimum 1. Larger values move more slowly. |
+| `children` | ReactNode | — | Content placed above the decorative layers. |
+| Native div props | ComponentProps | — | Supports `className`, `style`, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Use Tailwind CSS v4 and the existing theme tokens. The root has a minimum height of 24rem; override it with `className` when needed. Decorative layers are hidden from assistive technology and do not intercept clicks. The registry includes the animation stylesheet. Animation stops automatically when reduced motion is enabled. Only transforms animate; there is no JavaScript animation loop.
+
+Hovering gently brightens or moves the decorative layers. The frame and content stay still. Touch devices skip hover effects, and reduced motion disables movement.
+</DocsReveal>

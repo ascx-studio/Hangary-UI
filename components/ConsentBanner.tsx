@@ -1,5 +1,6 @@
 "use client";
 
+import { typography } from "@/registry/lib/typography.shared";
 import { useSyncExternalStore } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/registry/components/button";
@@ -34,7 +35,7 @@ export default function ConsentBanner() {
     >
       <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between gap-3">
-          <h2 id="consent-title" className="text-sm font-semibold">Analytics</h2>
+          <h2 id="consent-title" className={typography.sectionTitle}>Analytics</h2>
           <button
             type="button"
             aria-label="Dismiss analytics notice"
@@ -44,7 +45,7 @@ export default function ConsentBanner() {
             <X size={20} strokeWidth={2} className="shrink-0" aria-hidden="true" />
           </button>
         </div>
-        <p id="consent-description" className="mt-1 text-sm text-muted-foreground">
+        <p id="consent-description" className={`mt-1 ${typography.body}`}>
           Analytics and masked session replay help us improve Hangry UI.
         </p>
       </div>

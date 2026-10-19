@@ -7,28 +7,37 @@ import { siteDescription, siteUrl } from "@/lib/seo";
 export default function Page() {
   return (
     <div className="page-entrance w-full min-w-0">
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", name: "Hangry UI", url: siteUrl, description: siteDescription, inLanguage: "en-GB" }} />
-      <main className="relative isolate min-h-[90dvh] overflow-hidden">
-        <Container className="flex min-h-[90dvh] max-w-7xl w-full flex-col justify-center py-12 sm:py-16 md:py-20">
-          <div className="w-full max-w-2xl">
-            <div className="w-full space-y-7">
-              <h1 className="sr-only">Hangry UI — React components, blocks, and shaders</h1>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Hangry UI",
+          url: siteUrl,
+          description: siteDescription,
+          inLanguage: "en-GB",
+        }}
+      />
+        <Container className="min-h-dvh max-w-7xl w-full gap-12 py-12 sm:py-16 md:py-20">
+          <Image
+            src="/wordmark.svg"
+            alt="Hangry UI wordmark"
+            width={320}
+            height={80}
+            priority
+            className="h-auto w-[min(100%,20rem)] drop-shadow-2xl"
+            style={{ height: "auto" }}
+          />
+          <div className="flex w-full max-w-4xl flex-1 items-center text-left">
+            <div className="w-full space-y-8">
+              <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+               Components, blocks and shaders made with motion
+              </h1>
 
-              <Image
-                src="/wordmark.svg"
-                alt="Hangry UI wordmark"
-                width={400}
-                height={100}
-                priority
-                className="h-auto w-[min(100%,28rem)] drop-shadow-2xl"
-                style={{ height: "auto" }}
-              />
-              <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">
-                Explore React components, page blocks, shaders, and utility
-                code built with Tailwind CSS. Browse the source and make it your own.
-              </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href="/components" className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-primary bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                <Link
+                  href="/components"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-primary bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                >
                   View Components
                 </Link>
                 <Link
@@ -41,15 +50,6 @@ export default function Page() {
             </div>
           </div>
         </Container>
-        <Image
-          src="/logo.svg"
-          alt="Hangry UI mascot"
-          width={832}
-          height={832}
-          priority
-          className="mx-auto h-auto w-full max-w-lg sm:w-lg lg:absolute lg:left-[50%] lg:top-1/2 lg:-z-10 lg:w-[60vw] lg:max-w-208 lg:-translate-y-1/2"
-        />
-      </main>
     </div>
   );
 }

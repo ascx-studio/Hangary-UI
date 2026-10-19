@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useId, useState, useCallback, useMemo, type ComponentProps } from "react";
 import { cn } from "cn";
+import { typography } from "../lib/typography.shared";
 
 interface TabsProps extends Omit<ComponentProps<"div">, "defaultValue" | "onChange"> {
   value?: string;
@@ -89,5 +90,5 @@ export function TabsTrigger({ className, value, disabled, onClick, ...props }: O
 export function TabsContent({ className, value, ...props }: ComponentProps<"div"> & { value: string }) {
   const tabs = useTabs();
   const key = encodeURIComponent(value);
-  return <div {...props} role="tabpanel" id={`${tabs.id}-panel-${key}`} aria-labelledby={`${tabs.id}-tab-${key}`} hidden={tabs.value !== value} tabIndex={0} data-slot="tabs-content" className={cn("min-w-0 flex-1 text-sm leading-6 focus-visible:outline-2 focus-visible:outline-ring", className)} />;
+  return <div {...props} role="tabpanel" id={`${tabs.id}-panel-${key}`} aria-labelledby={`${tabs.id}-tab-${key}`} hidden={tabs.value !== value} tabIndex={0} data-slot="tabs-content" className={cn("min-w-0 flex-1 focus-visible:outline-2 focus-visible:outline-ring", typography.body, className)} />;
 }

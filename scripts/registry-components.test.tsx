@@ -6,6 +6,7 @@ import { Breadcrumb } from '../registry/components/breadcrumb';
 import { Button } from '../registry/components/button';
 import { BottomSheet } from '../registry/components/bottom-sheet';
 import { CodeBlock } from '../registry/components/code-block';
+import { LogoAnimation } from '../registry/components/logo-animation';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../registry/components/tabs';
 import { Carousel } from '../registry/components/carousel';
 import { Navbar } from '../registry/blocks/navbar';
@@ -42,9 +43,26 @@ test('avatar initials handle whitespace and empty names', () => {
   assert.match(renderToStaticMarkup(<Avatar name="" />), />\?<\/span>/);
 });
 
+test('logo animation renders an arbitrary custom logo component', () => {
+  const html = renderToStaticMarkup(<LogoAnimation
+    alt="Custom check mark"
+    width={48}
+    height={48}
+    logo={<CheckMark />}
+  />);
+  assert.match(html, /aria-label="Custom check mark"/);
+  assert.match(html, /viewBox="0 0 24 24"/);
+  assert.match(html, /d="M4 12 10 18 20 6"/);
+});
+
+function CheckMark() {
+  return <svg viewBox="0 0 24 24"><g><path d="M4 12 10 18 20 6" fill="none" stroke="currentColor" strokeWidth={2} /></g></svg>;
+}
+
 test('bottom sheet connects a modal to its accessible title and description', () => {
   const html = renderToStaticMarkup(<BottomSheet title="Quick actions" />);
   assert.match(html, /aria-haspopup="dialog"/);
+  assert.match(html, /<article/);
   const titleId = html.match(/aria-labelledby="([^"]+)"/)?.[1];
   const descriptionId = html.match(/aria-describedby="([^"]+)"/)?.[1];
   assert.ok(titleId && descriptionId);
@@ -54,8 +72,8 @@ test('bottom sheet connects a modal to its accessible title and description', ()
 });
 
 test('carousel handles empty and single-slide collections', () => {
-  assert.equal(renderToStaticMarkup(<Carousel slides={[]} />), '');
-  const html = renderToStaticMarkup(<Carousel slides={['Only slide']} />);
+  assert.equal(renderToStaticMarkup(<Carousel>{null}</Carousel>), '');
+  const html = renderToStaticMarkup(<Carousel>Only slide</Carousel>);
   assert.match(html, /aria-label="1 of 1"/);
   assert.match(html, /Only slide/);
   assert.equal((html.match(/disabled=""/g) ?? []).length, 2);
@@ -68,30 +86,31 @@ test('code block safely renders markup as text with filename and line numbers', 
   assert.match(html.replace(/<[^>]+>/g, ""), /&lt;script&gt;/);
   assert.match(html, /example.html/);
   assert.match(html, /aria-label="Copy code"/);
-  assert.match(html, /aria-hidden="true"[^>]*>1\n2<\/span>/);
-  assert.match(renderToStaticMarkup(<CodeBlock code="" />), /<code[^>]*><\/code>/);
+  assert.match(html, /aria-hidden="true"[^>]*>1<\/span>/);
+  assert.match(html, /aria-hidden="true"[^>]*>2<\/span>/);
+  assert.match(renderToStaticMarkup(<CodeBlock code="" />), /<code[^>]*>/);
 });
 
 
-test('code block highlights known languages and preserves unknown languages as plain text', () => {
+test('code block highlights known languages with Prism and preserves unknown languages as plain text', () => {
   const javascript = renderToStaticMarkup(<CodeBlock code={'const count = 42;'} language="javascript" />);
-  assert.match(javascript, /hljs-keyword/);
-  assert.match(javascript, /hljs-number/);
+  assert.match(javascript, /class="token keyword"/);
+  assert.match(javascript, /class="token number"/);
   const tsx = renderToStaticMarkup(<CodeBlock code={'<Button variant="outline">Go</Button>'} language="tsx" />);
-  assert.match(tsx, /hljs-string/);
-  assert.match(tsx, /hljs-title/);
+  assert.match(tsx, /class="token[^"]*attr-value/);
+  assert.match(tsx, /class="token[^"]*class-name/);
   const plain = renderToStaticMarkup(<CodeBlock code={'<unknown> & text'} language="unknown" />);
   assert.match(plain, /&lt;unknown&gt; &amp; text/);
-  assert.doesNotMatch(plain, /class="hljs /);
+  assert.doesNotMatch(plain, /class="token (?:keyword|number|string|class-name)/);
 });
 
 test('package-manager commands display the selected manager and provide all four controls', () => {
-  const commands = { bun: 'bun add highlight.js', npm: 'npm install highlight.js', pnpm: 'pnpm add highlight.js', yarn: 'yarn add highlight.js' };
+  const commands = { bun: 'bun add prismjs', npm: 'npm install prismjs', pnpm: 'pnpm add prismjs', yarn: 'yarn add prismjs' };
   for (const manager of ['bun', 'npm', 'pnpm', 'yarn'] as const) {
     const html = renderToStaticMarkup(<CodeBlock commands={commands} packageManager={manager} />);
     assert.match(html, new RegExp(`aria-label="${manager} installation command"`));
     assert.ok(html.replace(/<[^>]+>/g, '').includes(commands[manager]));
-    assert.match(html, new RegExp(`<span class="hljs-built_in">${manager}</span>`));
+    assert.match(html, /class="token function"/);
     assert.equal((html.match(/aria-selected="true"/g) ?? []).length, 1);
     assert.equal((html.match(/aria-selected="false"/g) ?? []).length, 3);
     assert.match(html, /role="tablist"/);
@@ -100,6 +119,13 @@ test('package-manager commands display the selected manager and provide all four
     assert.ok(html.includes(`id="${tab[2]}" aria-labelledby="${tab[1]}"`));
     assert.match(html, /aria-label="Copy code"/);
   }
+});
+
+test('bash highlighting marks package executables and registry URLs', () => {
+  const html = renderToStaticMarkup(<CodeBlock code="bunx shadcn@latest add https://ui.razeev.com/r/code-block.json" language="bash" />);
+  assert.match(html, /class="token command"[^>]*>bunx<\/span>/);
+  assert.match(html, /class="token command"[^>]*>shadcn@latest<\/span>/);
+  assert.match(html, /class="token url"[^>]*>https:\/\/ui\.razeev\.com\/r\/code-block\.json<\/span>/);
 });
 
 

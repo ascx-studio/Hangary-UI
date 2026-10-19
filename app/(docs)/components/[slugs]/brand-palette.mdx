@@ -1,0 +1,41 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { BrandPalette } from "@/registry/components/brand-palette";
+
+<ComponentPreview className="grid-cols-1">
+  <BrandPalette />
+</ComponentPreview>
+
+<DocsReveal>
+# Brand Palette
+
+A compact brand color guide with six unlabeled swatches and a green gradient.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
+}} />
+
+## Usage
+
+```tsx
+import { BrandPalette } from "@/components/hangry-ui/components/brand-palette";
+
+<BrandPalette />
+```
+
+## Props
+
+- `colors`: An array of `{ name, hex, foreground, token }` swatches. Defaults to the six Hangry UI brand colors. Use a contrasting `foreground` for readable labels.
+- `className`: Additional section classes. The default width is 640px, constrained to the available space.
+
+## Setup notes
+
+The palette matches the reference in `public/pallet.png` and the brand tokens in `app/globals.css`. Spring Green is the primary accent; Green and Dark Green support it; White, Gray, and Black form the neutral foundation.
+
+The component is static and server-compatible. It does not require a client boundary.
+</DocsReveal>

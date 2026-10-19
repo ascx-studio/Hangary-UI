@@ -3,13 +3,18 @@ import { CodeBlock } from "@/registry/components/code-block";
 import { Card } from "@/registry/components/card";
 import type { MDXComponents } from "mdx/types";
 import ComponentPreview from "@/components/registry/component-preview";
+import DocsReveal from "@/components/registry/docs-reveal";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/cn";
+import { typography } from "@/registry/lib/typography.shared";
+
+
 
 const mdxComponents = {
   ComponentPreview,
+  DocsReveal,
   CodeBlock,
   Card,
   Image: ({
@@ -81,9 +86,9 @@ const mdxComponents = {
   figure: ({ className, ...props }: React.ComponentProps<"figure">) => (
     <figure className={cn(className)} {...props} />
   ),
-  h1: (props) => <h1 {...props} className="mb-8 text-4xl font-semibold tracking-tight sm:text-5xl" />,
-  h2: (props) => <h2 {...props} className="mb-4 mt-10 text-2xl font-semibold tracking-tight" />,
-  h3: (props) => <h3 {...props} className="mb-3 mt-8 text-xl font-semibold" />,
+  h1: (props) => <h1 {...props} className={`mb-8 ${typography.pageTitle}`} />,
+  h2: (props) => <h2 {...props} className={`mb-4 mt-10 ${typography.sectionTitle}`} />,
+  h3: (props) => <h3 {...props} className={`mb-3 mt-8 ${typography.subsectionTitle}`} />,
   h4: ({ className, children, ...props }: React.ComponentProps<"h4">) => (
     <h4
       className={cn(
@@ -130,7 +135,7 @@ const mdxComponents = {
   ol: ({ className, ...props }: React.ComponentProps<"ol">) => (
     <ol className={cn("my-4 ml-6 list-decimal", className)} {...props} />
   ),
-  p: (props) => <p {...props} className="my-4 leading-7 text-muted-foreground" />,
+  p: (props) => <p {...props} className={`my-4 ${typography.body}`} />,
   pre: ({ children, ...props }: ComponentProps<"pre">) => {
     if (isValidElement<ComponentProps<"code">>(children) && typeof children.props.children === "string") {
       const language = /(?:^|\s)language-([^\s]+)/.exec(children.props.className ?? "")?.[1];

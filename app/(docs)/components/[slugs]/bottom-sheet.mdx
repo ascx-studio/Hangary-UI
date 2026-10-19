@@ -11,6 +11,7 @@ import { Button } from "@/registry/components/button";
       </div>
   </ComponentPreview>
 
+<DocsReveal>
 # Bottom Sheet
 
 A bottom-aligned modal sheet with native focus management and Escape dismissal.
@@ -80,3 +81,8 @@ import { BottomSheet } from "@/components/hangry-ui/components/bottom-sheet";
 ## Setup notes
 
 Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+
+Backdrop clicks close the sheet through the native `closedby="any"` attribute where supported. Escape and the close button remain available.
+
+Motion slides a small box up, expands it to the full sheet, then reveals the title, description, and content in sequence. Dismissal finishes the exit animation before restoring focus. Reduced-motion preferences disable the movement.
+</DocsReveal>

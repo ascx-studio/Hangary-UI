@@ -4,34 +4,39 @@ import { memo, useState, type ComponentType, type SVGProps } from "react";
 import { BashDark, Bun, CSSNew, HTML5, JSON as JsonIcon, JavaScript, NPM, PnpmDark, Python, ReactDark, TypeScript, Yarn } from "@ridemountainpig/svgl-react";
 import posthog from "posthog-js/full/no-external";
 import { Check, Copy, FileCode } from "lucide-react";
-import hljs from "highlight.js/lib/core";
-import javascript from "highlight.js/lib/languages/javascript";
-import typescript from "highlight.js/lib/languages/typescript";
-import bash from "highlight.js/lib/languages/bash";
-import json from "highlight.js/lib/languages/json";
-import css from "highlight.js/lib/languages/css";
-import xml from "highlight.js/lib/languages/xml";
-import python from "highlight.js/lib/languages/python";
+import { Highlight, type PrismTheme } from "prism-react-renderer";
+import Prism from "prismjs";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-jsx";
+import "prismjs/components/prism-tsx";
+import "prismjs/components/prism-bash";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-css";
+import "prismjs/components/prism-markup";
+import "prismjs/components/prism-python";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
-import "./code-block.css";
 
-hljs.registerLanguage("javascript", javascript);
-hljs.registerLanguage("typescript", typescript);
-hljs.registerLanguage("bash", highlighter => {
-  const grammar = bash(highlighter);
-  return {
-    ...grammar,
-    contains: [
-      { scope: "built_in", match: /\b(?:bun|bunx|npm|npx|pnpm|yarn)\b/ },
-      { scope: "string", match: /https?:\/\/[^\s"'<>]+/ },
-      ...(grammar.contains ?? []),
-    ],
-  };
+Prism.languages.insertBefore("bash", "function", {
+  command: {
+    pattern: /(^|\s)(?:bunx|bun|npx|npm|pnpm|yarn|shadcn(?:@[^\s]+)?)(?=\s|$)/,
+    lookbehind: true,
+  },
+  url: /\bhttps?:\/\/[^\s"'<>]+/,
 });
-hljs.registerLanguage("json", json);
-hljs.registerLanguage("css", css);
-hljs.registerLanguage("xml", xml);
-hljs.registerLanguage("python", python);
+
+const prismTheme: PrismTheme = {
+  plain: { color: "var(--card-foreground)", backgroundColor: "transparent" },
+  styles: [
+    { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "var(--muted-foreground)", fontStyle: "italic" } },
+    { types: ["punctuation", "operator"], style: { color: "var(--muted-foreground)" } },
+    { types: ["keyword", "tag", "selector", "atrule"], style: { color: "var(--primary)" } },
+    { types: ["string", "char", "attr-value", "url"], style: { color: "var(--info)" } },
+    { types: ["number", "boolean", "constant"], style: { color: "var(--warning)" } },
+    { types: ["function", "class-name", "property", "attr-name"], style: { color: "var(--card-foreground)" } },
+    { types: ["builtin", "important", "command"], style: { color: "var(--primary)" } },
+  ],
+};
 
 const managerIcons = { bun: Bun, npm: NPM, pnpm: PnpmDark, yarn: Yarn };
 const languageIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
@@ -84,10 +89,10 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
   }
 
   const header = <CodeBlockHeader commands={Boolean(commands)} language={displayedLanguage} filename={filename} copied={currentResult?.success} onCopy={copyCode} />;
-  const content = <CodeBlockContent code={displayedCode} language={displayedLanguage} filename={filename} showLineNumbers={showLineNumbers} packageManager={commands ? selectedManager : undefined} />;
+  const content = <CodeBlockRenderer code={displayedCode} language={displayedLanguage} filename={filename} showLineNumbers={showLineNumbers} packageManager={commands ? selectedManager : undefined} />;
 
   return (
-    <div className={`lazy-code-block w-full min-w-0 border border-border bg-card text-card-foreground ${className}`}>
+    <div className={`lazy-code-block w-full min-w-0 bg-card text-card-foreground ${className}`}>
       {commands ? <Tabs value={selectedManager} onValueChange={value => {
         const next = value as keyof typeof managerIcons;
         setManager(next);
@@ -117,14 +122,19 @@ function CodeBlockHeader({ commands, language, filename, copied, onCopy }: { com
   );
 }
 
-const CodeBlockContent = memo(function CodeBlockContent({ code, language, filename, showLineNumbers, packageManager }: { code: string; language: string; filename: string; showLineNumbers: boolean; packageManager?: string }) {
-  const highlighted = hljs.getLanguage(language)
-    ? hljs.highlight(code, { language, ignoreIllegals: true }).value : undefined;
+const CodeBlockRenderer = memo(function CodeBlockRenderer({ code, language, filename, showLineNumbers, packageManager }: { code: string; language: string; filename: string; showLineNumbers: boolean; packageManager?: string }) {
+  const languageId = ({ js: "javascript", ts: "typescript", sh: "bash", shell: "bash", html: "markup", xml: "markup", py: "python" } as Record<string, string>)[language.toLowerCase()] ?? language.toLowerCase();
   return (
-      <pre tabIndex={0} aria-label={filename ? `Code from ${filename}` : packageManager ? `${packageManager} installation command` : `${language || "Plain text"} code`} className="flex max-w-full gap-4 overflow-x-auto p-4 font-mono text-sm leading-6 focus-visible:outline-2 focus-visible:outline-ring">
-        {showLineNumbers && <span aria-hidden="true" className="select-none text-right text-muted-foreground">{code.split("\n").map((_, index) => index + 1).join("\n")}</span>}
-        {highlighted === undefined ? <code>{code}</code> : <code className={`hljs language-${language}`} dangerouslySetInnerHTML={{ __html: highlighted }} />}
-      </pre>
+    <pre tabIndex={0} aria-label={filename ? `Code from ${filename}` : packageManager ? `${packageManager} installation command` : `${language || "Plain text"} code`} className="flex max-w-full gap-4 overflow-x-auto p-4 font-mono text-sm leading-6 focus-visible:outline-2 focus-visible:outline-ring">
+      <Highlight prism={Prism} code={code} language={languageId} theme={prismTheme}>
+        {({ tokens, getLineProps, getTokenProps }) => <code className="min-w-max">
+          {tokens.map((line, index) => <div key={index} {...getLineProps({ line })} className="flex min-w-full">
+            {showLineNumbers && <span aria-hidden="true" className="mr-4 shrink-0 select-none text-right text-muted-foreground">{index + 1}</span>}
+            <span>{line.map((token, key) => <span key={key} {...getTokenProps({ token })} />)}</span>
+          </div>)}
+        </code>}
+      </Highlight>
+    </pre>
   );
 });
 

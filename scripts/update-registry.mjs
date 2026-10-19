@@ -83,7 +83,7 @@ export function generateRegistry(root) {
     return 'registry:component'
   }
   const usedNames = new Set([...unrelated, ...existing.values()].map(item => item.name))
-  const entrySources = sources.filter(file => !file.endsWith('.css') || file.startsWith(`${sourceRoot}styles/`))
+  const entrySources = sources.filter(file => !file.endsWith('.shared.ts') && (!file.endsWith('.css') || file.startsWith(`${sourceRoot}styles/`)))
   const items = entrySources.map(entry => {
     const old = existing.get(entry)
     const relative = entry.slice(sourceRoot.length)
@@ -191,9 +191,19 @@ export function planPreviews(root, registry) {
     if (!entry?.endsWith('.tsx')) throw new Error(`Preview source must be TSX: ${item.name}`)
     const component = item.name.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join('')
     const source = ts.createSourceFile(entry, fs.readFileSync(path.join(root, entry), 'utf8'), ts.ScriptTarget.Latest, true)
-    const exported = source.statements.find(statement => ts.isFunctionDeclaration(statement)
+    let exported = source.statements.find(statement => ts.isFunctionDeclaration(statement)
       && statement.name?.text === component
       && statement.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.ExportKeyword))
+    if (!exported) {
+      const statement = source.statements.find(statement => ts.isVariableStatement(statement)
+        && statement.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.ExportKeyword)
+        && statement.declarationList.declarations.some(declaration => declaration.name.getText(source) === component))
+      const initializer = statement?.declarationList.declarations.find(declaration => declaration.name.getText(source) === component)?.initializer
+      if (initializer && ts.isCallExpression(initializer) && initializer.expression.getText(source) === 'memo') {
+        const render = initializer.arguments[0]
+        if (render && (ts.isFunctionExpression(render) || ts.isArrowFunction(render))) exported = render
+      }
+    }
     if (!exported) throw new Error(`Missing preview export ${component}: ${entry}`)
     const parameter = exported.parameters[0]
     let propsType = parameter?.type

@@ -1,0 +1,51 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { BeamsBackground } from "@/registry/shader/beams-background";
+
+<ComponentPreview fullBleed>
+  <BeamsBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Beams Background
+
+Diagonal light beams that drift behind your content.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/beams-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/beams-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/beams-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/beams-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { BeamsBackground } from "@/components/hangry-ui/shader/beams-background";
+
+<BeamsBackground beamColor="#34d399" accentColor="#facc15" speed={20} className="flex items-center justify-center p-12">
+  <div>
+    <h2>Your headline</h2>
+    <p>Your content stays above the decorative background.</p>
+  </div>
+</BeamsBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `beamColor` | `string` | `#38bdf8` | Primary beam color. |
+| `accentColor` | `string` | `#818cf8` | Secondary beam color. |
+| `speed` | `number` | `14` | Duration of a drift cycle in seconds; minimum 1. |
+| `children` | ReactNode | — | Content placed above the decorative layers. |
+| Native div props | ComponentProps | — | Supports `className`, `style`, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Use Tailwind CSS v4 and the existing theme tokens. The root has a minimum height of 24rem; override it with `className` when needed. Decorative layers are hidden from assistive technology and do not intercept clicks. The registry includes the animation stylesheet. Animation stops automatically when reduced motion is enabled. Only transforms animate; there is no JavaScript animation loop.
+
+Hovering gently brightens or moves the decorative layers. The frame and content stay still. Touch devices skip hover effects, and reduced motion disables movement.
+</DocsReveal>

@@ -1,0 +1,51 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { BorderHighlight } from "@/registry/components/border-highlight";
+import { Card } from "@/registry/components/card";
+import { Button } from "@/registry/components/button";
+
+<ComponentPreview className="grid-cols-1">
+  <BorderHighlight>
+    <Card title="Follow the edge" description="Move your pointer around the card. A soft highlight follows along the border." className="max-w-none border-0 bg-transparent shadow-none">
+      <Button variant="outline">Try keyboard focus</Button>
+    </Card>
+  </BorderHighlight>
+</ComponentPreview>
+
+<DocsReveal>
+# Border Highlight
+
+A glowing border that follows your pointer with spring motion. Wrap cards, project previews, or other content to highlight their edges on hover.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
+}} />
+
+## Usage
+
+```tsx
+import { BorderHighlight } from "@/components/hangry-ui/components/border-highlight";
+
+<BorderHighlight>
+  <a href="/projects">Explore this project</a>
+</BorderHighlight>
+```
+
+## Props
+
+- `children`: Content inside the frame. Defaults to a demo Card.
+- `className`: Additional classes for the frame, including width, padding, and border radius. The highlight inherits the frame's border radius.
+
+The frame defaults to a fixed width of 384px and shrinks to fit smaller containers. Its solid Card background keeps the preview backdrop from showing through.
+
+## Setup notes
+
+Use Tailwind CSS v4 with the shared `border-border` and `primary` tokens. The glow uses a standard arbitrary shadow utility. The component uses Motion elements from `motion/react-client`; pointer handlers and spring hooks require its client boundary.
+
+Touch input does not track the pointer. Reduced motion removes spring smoothing and the highlight fade. Focus inside the frame highlights its full border without moving keyboard focus or adding an extra tab stop. The decorative overlay does not intercept clicks.
+</DocsReveal>
