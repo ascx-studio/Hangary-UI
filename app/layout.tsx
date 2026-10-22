@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "@/components/Navbar";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import ConsentBanner from "@/components/ConsentBanner";
 import { pageMetadata, siteDescription, siteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -10,9 +10,11 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const paperMono = localFont({
+  src: "../public/paper-mono/PaperMono.woff2",
+  variable: "--font-paper-mono",
+  weight: "100 800",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,10 +31,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${paperMono.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
+      <body className="min-h-full flex flex-col font-sans">
         {children}
         <ConsentBanner />
       </body>

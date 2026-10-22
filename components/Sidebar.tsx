@@ -17,7 +17,7 @@ import { getSidebarOpen, getServerSidebarOpen, setSidebarOpen, subscribeSidebarO
 
 const loadFeatures = () => import('./ui/sidebar-motion-features').then(module => module.default)
 
-function Navigation({ category, collapsed = false }: { category: RegistryCategory; collapsed?: boolean }) {
+function Navigation({ category, collapsed = false }: Readonly<{ category: RegistryCategory; collapsed?: boolean }>) {
   const pathname = usePathname()
   const categoryConfig = sidebarData.categories[category as keyof typeof sidebarData.categories]
   const toLinks = (entries: { label: string; slug: string; description?: string }[]) =>
@@ -76,7 +76,7 @@ function SidebarFooter() {
   )
 }
 
-export default function Sidebar({ category, className = "" }: { category: RegistryCategory; className?: string }) {
+export default function Sidebar({ category, className = "" }: Readonly<{ category: RegistryCategory; className?: string }>) {
   const desktopOpen = useSyncExternalStore(subscribeSidebarOpen, getSidebarOpen, getServerSidebarOpen)
   const reducedMotion = useReducedMotion()
   return (

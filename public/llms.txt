@@ -1,0 +1,71 @@
+# Hangry UI
+
+> Hangry UI is a collection of reusable React components, page blocks, and shaders built with Tailwind CSS and Motion. Browse live previews, installation instructions, and source code.
+
+The library is free to use. Components can be installed through the shadcn CLI or adapted from the documented source. Sponsorship is optional. Refer to each component page for its specific API, dependencies, and setup requirements.
+
+## Overview
+
+- [Home](https://ui.razeev.com/): Introduction to Hangry UI.
+- [Components](https://ui.razeev.com/components): Reusable interface components with previews and installation instructions.
+- [Blocks](https://ui.razeev.com/blocks): Complete page sections, including navigation, footers, forms, and pricing.
+- [Shaders](https://ui.razeev.com/shader): Animated backgrounds and visual effects.
+- [Sponsor](https://ui.razeev.com/sponser): Support the project and learn how to contribute.
+
+## Installation
+
+Install a component using its registry URL. For example:
+
+```sh
+npx shadcn@latest add https://ui.razeev.com/r/button.json
+```
+
+Use the installation command on the relevant documentation page for other components and blocks.
+
+## Component documentation
+
+- [Aspect Ratio](https://ui.razeev.com/components/aspect-ratio): A responsive container that preserves a chosen width-to-height ratio.
+- [Avatar Group](https://ui.razeev.com/components/avatar-group): A stacked group of profile images with initials and an overflow count.
+- [Avatar](https://ui.razeev.com/components/avatar): A profile image with initials and an image-error fallback.
+- [Badge](https://ui.razeev.com/components/badge): Status badges with matching icons, tinted backgrounds, square corners, and reduced-motion-aware hover animation.
+- [Banner](https://ui.razeev.com/components/banner): A status banner with matching icons, optional descriptions, and reduced-motion-aware hover animation.
+- [Border Highlight](https://ui.razeev.com/components/border-highlight): A glowing border that follows your pointer with spring motion.
+- [Bottom Sheet](https://ui.razeev.com/components/bottom-sheet): A bottom-aligned modal sheet with native focus management and Escape dismissal.
+- [Brand Palette](https://ui.razeev.com/components/brand-palette): Six brand color swatches and a green gradient.
+- [Breadcrumb](https://ui.razeev.com/components/breadcrumb): A breadcrumb navigation trail with links and a current-page indicator.
+- [Button](https://ui.razeev.com/components/button): An accessible button with primary, secondary, ghost, destructive, and outline variants.
+- [Card](https://ui.razeev.com/components/card): A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer.
+- [Carousel](https://ui.razeev.com/components/carousel): An animated, swipeable carousel with direct slide selection and accessible controls.
+- [Code Block](https://ui.razeev.com/components/code-block): A scrollable code block with a filename, optional line numbers, and a copy button.
+- [Kbd](https://ui.razeev.com/components/kbd): A styled keyboard key or shortcut hint.
+- [Lightbox](https://ui.razeev.com/components/lightbox): Open an image in an accessible, reduced-motion-aware modal viewer.
+- [Logo Animation](https://ui.razeev.com/components/logo-animation): A reusable logo animation that draws SVG shapes and fades in other artwork.
+- [Mechanical Keyboard](https://ui.razeev.com/components/mechanical-keyboard): A straight keyboard illustration using our green and neutral brand palette.
+- [Metal Wallet](https://ui.razeev.com/components/metal-wallet): An animated wallet with a translucent pocket and layered cards.
+- [Nav Line](https://ui.razeev.com/components/nav-line): A wave-shaped navigation rail with spring animations and hover previews.
+- [Outline](https://ui.razeev.com/components/outline): A single-page table of contents with active heading tracking, keyboard navigation, and a sliding indicator.
+- [Spotlight Reveal](https://ui.razeev.com/components/spotlight-reveal): Reveal image color through a pointer-following spotlight.
+- [Table](https://ui.razeev.com/components/table): A responsive, composable table with headers, rows, cells, a caption, and an optional footer.
+- [Tabs](https://ui.razeev.com/components/tabs): A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation.
+- [Tooltip](https://ui.razeev.com/components/tooltip): Hover and focus previews built with the Card component.
+
+## Block documentation
+
+- [Footer](https://ui.razeev.com/blocks/footer): Column, minimal, and stacked footer layouts.
+- [Login](https://ui.razeev.com/blocks/login): A card login form with provider buttons, password visibility, and loading and error states.
+- [Navbar](https://ui.razeev.com/blocks/navbar): Centered, left-aligned, and floating navigation layouts.
+- [Pricing](https://ui.razeev.com/blocks/pricing): A pricing card grid with featured plans and monthly or yearly billing.
+
+## Shader documentation
+
+- [Aurora Background](https://ui.razeev.com/shader/aurora-background): Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.
+- [Beams Background](https://ui.razeev.com/shader/beams-background): Diagonal light beams that drift behind your content.
+- [Dot Grid Background](https://ui.razeev.com/shader/dot-grid-background): A fading dot pattern for clean landing pages and content sections.
+- [SME Shader](https://ui.razeev.com/shader/sme-background): A layered gradient and grid shader for product sections, previews, and hero panels.
+- [Spotlight Grid Background](https://ui.razeev.com/shader/spotlight-grid-background): A fine grid illuminated by a soft spotlight from above.
+
+## Project resources
+
+- [GitHub repository](https://github.com/ascx-studio/ui): Source code and project documentation.
+- [Issues](https://github.com/ascx-studio/ui/issues): Bug reports and component requests.
+- [Sitemap](https://ui.razeev.com/sitemap.xml): Index of public documentation pages.

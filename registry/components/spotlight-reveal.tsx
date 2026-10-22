@@ -30,11 +30,11 @@ export const SpotlightReveal = memo(function SpotlightReveal({
   const mask = useMotionTemplate`radial-gradient(circle 120px at ${x}px ${y}px, black 20%, transparent 100%)`;
 
   function trackPointer(event: PointerEvent<HTMLDivElement>) {
-    if (event.pointerType === "touch") return;
+    if (event.pointerType === "touch" || reducedMotion) return;
     const bounds = event.currentTarget.getBoundingClientRect();
     const nextX = event.clientX - bounds.left;
     const nextY = event.clientY - bounds.top;
-    if (event.type === "pointerenter" || reducedMotion) {
+    if (event.type === "pointerenter") {
       x.jump(nextX);
       y.jump(nextY);
     } else {
@@ -47,12 +47,18 @@ export const SpotlightReveal = memo(function SpotlightReveal({
     <motion.div
       className={cn("group/spotlight relative h-64 w-[640px] max-w-full overflow-hidden", className)}
       initial="rest"
-      whileHover="hover"
+      whileHover={reducedMotion ? undefined : "hover"}
       onPointerEnter={trackPointer}
       onPointerMove={trackPointer}
     >
-      <Image src={artwork} fill unoptimized sizes="640px" alt={alt}
-        className="pointer-events-none select-none object-contain grayscale opacity-40 transition-opacity duration-250 group-hover/spotlight:opacity-[0.12] motion-reduce:transition-none" />
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        variants={{ rest: { opacity: 0.5 }, hover: { opacity: 0.12 } }}
+        transition={{ duration: reducedMotion ? 0 : 0.25 }}
+      >
+        <Image src={artwork} fill unoptimized sizes="(max-width: 896px) 100vw, 896px" alt={alt}
+          className="select-none object-contain" />
+      </motion.div>
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"

@@ -1,5 +1,7 @@
 import { typography } from "@/registry/lib/typography.shared";
-import Logo from '@/components/ui/Logo'
+import Footer from '@/components/layout/Footer'
+import * as motion from 'motion/react-client';
+import { SpotlightReveal } from '@/registry/components/spotlight-reveal'
 import Container from '@/components/layout/Container'
 import Link from 'next/link'
 import { pageMetadata } from '@/lib/seo'
@@ -30,31 +32,68 @@ const faqs = [
 
 export default function SponsorPage() {
   return (
-    <div className="page-entrance w-full min-w-0">
-      <div className="min-h-dvh bg-background text-foreground">
+    <div className="isolate flex min-h-dvh w-full min-w-0 flex-col">
+      <div className="relative z-10 min-h-dvh bg-background text-foreground">
         <main>
           <Container className="px-6 py-20 md:px-10 md:py-28">
-            <div className="max-w-3xl">
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! mx-auto w-full max-w-6xl"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0, ease: [0.22, 1, 0.36, 1] }}
+              >
               <Link
                 href="/"
                 aria-label="Hangry UI home"
-                className="inline-block max-w-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                className="mx-auto block w-full max-w-6xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
               >
-                <Logo className="h-auto w-80 max-w-full" />
+                <SpotlightReveal
+                  src="/wordmark.svg"
+                  alt="Hangry UI"
+                  className="aspect-1337/336 h-auto w-full mask-[linear-gradient(to_bottom,black_35%,transparent_100%)]"
+                />
               </Link>
+              </motion.div>
+            <div className="max-w-3xl">
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! "
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
               <h1 className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
                 Good tools grow through generous people.
               </h1>
+              </motion.div>
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! "
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              >
               <p className={`mt-6 max-w-2xl ${typography.body}`}>
                 Hangry UI is open source and free to use. Sponsorship, a star, or a
                 contribution helps keep the collection moving.
               </p>
+              </motion.div>
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! "
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              >
               <p className={`mt-4 max-w-2xl ${typography.body}`}>
                 Contributions help improve the components, keep examples useful,
                 and catch bugs in real projects. You can start small: tell us what
                 worked, what was confusing, or what you would like to see next.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              </motion.div>
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! mt-6 flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
                 <a
                   href="https://github.com/sponsors/razeevascx"
                   target="_blank"
@@ -71,21 +110,35 @@ export default function SponsorPage() {
                 >
                   Star on GitHub
                 </a>
-              </div>
+              </motion.div>
             </div>
 
             <section aria-labelledby="faq-heading" className="mt-12 max-w-3xl border-t border-border pt-10">
-              <h2 id="faq-heading" className={typography.sectionTitle}>
+              <motion.h2
+                id="faq-heading"
+                className={`${typography.sectionTitle} motion-reduce:opacity-100! motion-reduce:transform-none!`}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5 }}
+              >
                 Frequently asked questions
-              </h2>
+              </motion.h2>
               <div className="mt-8 divide-y divide-border">
-                {faqs.map(({ question, answer }) => (
-                  <details key={question} className="py-4">
+                {faqs.map(({ question, answer }, index) => (
+                  <motion.details
+                    key={question}
+                    className="py-4 motion-reduce:opacity-100! motion-reduce:transform-none!"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                  >
                     <summary className="cursor-pointer font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                       {question}
                     </summary>
                     <p className={`mt-3 ${typography.body}`}>{answer}</p>
-                  </details>
+                  </motion.details>
                 ))}
               </div>
               <p className="mt-8 text-sm text-muted-foreground">
@@ -101,6 +154,7 @@ export default function SponsorPage() {
           </Container>
         </main>
       </div>
+      <Footer />
     </div>
   )
 }

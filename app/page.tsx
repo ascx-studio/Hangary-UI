@@ -1,12 +1,17 @@
 import Container from "@/components/layout/Container";
-import Link from "next/link";
-import Image from "next/image";
+import Footer from "@/components/layout/Footer";
+import * as motion from 'motion/react-client';
+import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
+import { Button } from "@/registry/components/button";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteDescription, siteUrl } from "@/lib/seo";
+import { typography } from "@/registry/lib/typography.shared";
 
 export default function Page() {
   return (
-    <div className="page-entrance w-full min-w-0">
+    <div className="isolate flex min-h-dvh w-full min-w-0 flex-col">
+    <main className="relative z-10 flex min-h-dvh flex-1 flex-col bg-background">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -17,39 +22,67 @@ export default function Page() {
           inLanguage: "en-GB",
         }}
       />
-        <Container className="min-h-dvh max-w-7xl w-full gap-12 py-12 sm:py-16 md:py-20">
-          <Image
-            src="/wordmark.svg"
-            alt="Hangry UI wordmark"
-            width={320}
-            height={80}
-            priority
-            className="h-auto w-[min(100%,20rem)] drop-shadow-2xl"
-            style={{ height: "auto" }}
+        <Container className="max-w-7xl flex-1 items-center justify-center py-20 sm:py-24">
+          <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! w-full max-w-6xl"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0, ease: [0.22, 1, 0.36, 1] }}
+              >
+          <SpotlightReveal
+            variant="default"
+            alt="Hangry UI"
+            className="aspect-1337/336 h-auto w-full max-w-6xl mask-[linear-gradient(to_bottom,black_35%,transparent_100%)]"
           />
-          <div className="flex w-full max-w-4xl flex-1 items-center text-left">
-            <div className="w-full space-y-8">
-              <h1 className="text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-               Components, blocks and shaders made with motion
+          </motion.div>
+          <div className="relative -mt-4 flex w-full flex-col items-start text-left sm:-mt-8 lg:-mt-12">
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! "
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+              <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-foreground  md:text-6xl">
+                Interfaces that move,
+                Details that delight.
               </h1>
-
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Link
+              </motion.div>
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! "
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              >
+              <p className={`mt-7 max-w-xl text-balance ${typography.body}`}>
+                React components, blocks, and shaders crafted with Motion.
+                Build expressive interfaces with details worth slowing down for.
+              </p>
+              </motion.div>
+              <motion.div
+                className="motion-reduce:opacity-100! motion-reduce:transform-none! mt-10 flex flex-col items-start gap-4 sm:flex-row sm:gap-6"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Button
                   href="/components"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-primary bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  variant="primary"
                 >
-                  View Components
-                </Link>
-                <Link
+                  Explore components
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Button>
+                <Button
                   href="https://github.com/ascx-studio/ui"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md border-2 border-border bg-card px-5 py-2 text-sm font-semibold text-card-foreground shadow-sm transition-colors hover:bg-card/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  variant="outline"
                 >
                   Star on GitHub
-                </Link>
-              </div>
-            </div>
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Button>
+              </motion.div>
           </div>
         </Container>
+    </main>
+    <Footer />
     </div>
   );
 }
