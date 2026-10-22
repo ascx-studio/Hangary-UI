@@ -39,6 +39,8 @@ import { SmeBackground } from "@/registry/shader/sme-background";
 import { SpotlightGridBackground } from "@/registry/shader/spotlight-grid-background";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
 import { Table } from "@/registry/components/table";
+import { WordmarkLed } from "@/registry/shader/wordmark-led";
+import { WordmarkLightRay } from "@/registry/shader/wordmark-light-ray";
 import { Tabs } from "@/registry/components/tabs";
 import { Tooltip } from "@/registry/components/tooltip";
 
@@ -82,6 +84,8 @@ export const previewEntries = {
   "spotlight-grid-background": { component: SpotlightGridBackground, category: "shader" },
   "spotlight-reveal": { component: SpotlightReveal, category: "components" },
   "table": { component: Table, category: "components" },
+  "wordmark-led": { component: WordmarkLed, category: "shader" },
+  "wordmark-light-ray": { component: WordmarkLightRay, category: "shader" },
   "tabs": { component: Tabs, category: "components" },
   "tooltip": { component: Tooltip, category: "components" },
 } satisfies Record<string, { component: ComponentType<never>; category: "components" | "blocks" | "shader" }>;

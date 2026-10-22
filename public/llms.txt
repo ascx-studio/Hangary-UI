@@ -4,6 +4,22 @@
 
 The library is free to use. Components can be installed through the shadcn CLI or adapted from the documented source. Sponsorship is optional. Refer to each component page for its specific API, dependencies, and setup requirements.
 
+## When to use this
+
+Use Hangry UI when building a React interface and you need reusable components, complete page sections, or animated backgrounds whose source can live in your project. It is a good fit for landing pages, dashboards, navigation, forms, pricing, and Motion-based visual effects styled with Tailwind CSS. Review the specific component's setup notes and dependencies before selecting it. The examples are interface code, not a hosted authentication, payment, or backend service.
+
+## How agents should use Hangry UI
+
+1. Browse the components, blocks, or shader catalog to select an example that matches the user's task.
+2. Fetch its documentation URL with `Accept: text/markdown` for a text summary, installation command, and source links. Use the HTML page for full API details and previews.
+3. Fetch the installable registry item at `https://ui.razeev.com/r/<item-name>.json`, or run the shadcn command shown on its documentation page when the user has authorized installation.
+4. Inspect the source, check dependencies, and adapt the styling and behavior to the user's project. Verify accessibility and reduced-motion behavior in the resulting interface.
+5. Cite the documentation used and distinguish documented behavior from assumptions. Do not claim compatibility, security guarantees, or support commitments that are not documented.
+
+## Markdown access
+
+Send `Accept: text/markdown` to the homepage, catalog, component, block, shader, or project information URLs for Markdown. HTML remains available with `Accept: text/html`. Unknown page paths return HTTP 404 with a Markdown error message when Markdown is requested. Registry JSON, images, fonts, and other static assets retain their normal formats.
+
 ## Overview
 
 - [Home](https://ui.razeev.com/): Introduction to Hangry UI.
@@ -11,6 +27,7 @@ The library is free to use. Components can be installed through the shadcn CLI o
 - [Blocks](https://ui.razeev.com/blocks): Complete page sections, including navigation, footers, forms, and pricing.
 - [Shaders](https://ui.razeev.com/shader): Animated backgrounds and visual effects.
 - [Sponsor](https://ui.razeev.com/sponser): Support the project and learn how to contribute.
+- [Privacy](https://ui.razeev.com/privacy): Browser storage, analytics, and third-party services.
 
 ## Installation
 

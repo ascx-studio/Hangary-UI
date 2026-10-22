@@ -1,0 +1,34 @@
+import ComponentPreview from "@/components/registry/component-preview";
+import { WordmarkLed } from "@/registry/shader/wordmark-led";
+
+<ComponentPreview fullBleed>
+  <WordmarkLed />
+</ComponentPreview>
+
+<DocsReveal>
+# Wordmark LED
+
+A field of individually pulsing WebGPU LEDs fills the complete wordmark instead of the source example's triangular light area.
+
+## Installation
+
+Install the runtime and matching WGSL compiler packages. The pulled Triangle LED Hero source remains available in the project at `triangle-led-front/`.
+
+```bash
+bun add vgpu @vgpu/wgsl
+```
+
+Configure Next.js with `wgslTurbopackRule()` and add the `@vgpu/wgsl/wgsl-types` reference to a declaration file. See the [vgpu Next.js setup](https://vgpu.dev/docs/nextjs) for the bundler configuration.
+
+## Usage
+
+```tsx
+import { WordmarkLed } from "@/components/hangry-ui/shader/wordmark-led";
+
+<WordmarkLed />
+```
+
+## Requirements
+
+This effect requires a browser with WebGPU support. It automatically stops its render loop and disposes the shader, canvas surface, and GPU device when unmounted. Motion pauses for users who prefer reduced motion.
+</DocsReveal>

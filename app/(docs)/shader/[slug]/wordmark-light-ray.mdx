@@ -1,0 +1,30 @@
+import ComponentPreview from "@/components/registry/component-preview";
+import { WordmarkLightRay } from "@/registry/shader/wordmark-light-ray";
+
+<ComponentPreview fullBleed>
+  <WordmarkLightRay />
+</ComponentPreview>
+
+<DocsReveal>
+# Wordmark Light Ray
+
+Storage-backed WebGPU LED emitters from the Triangle LED Hero shader create a moving ray across the full wordmark. Hover the mark to pull the beam toward the pointer.
+
+## Installation
+
+```bash
+bun add vgpu @vgpu/wgsl
+```
+
+Configure the Next.js WGSL loader with `wgslTurbopackRule()` and add the WGSL type reference as described in the [vgpu Next.js setup](https://vgpu.dev/docs/nextjs).
+
+## Usage
+
+```tsx
+import { WordmarkLightRay } from "@/components/hangry-ui/shader/wordmark-light-ray";
+
+<WordmarkLightRay />
+```
+
+The component uses `/wordmark.svg` as its mask and requires browser WebGPU support. It cleans up the emitter draw, geometry, storage buffer, surface, and GPU device when unmounted. Reduced-motion preferences stop the continuous scan while keeping the pointer response available.
+</DocsReveal>

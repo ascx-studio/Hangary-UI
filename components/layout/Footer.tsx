@@ -1,7 +1,5 @@
-"use client";
+import { memo} from "react";
 
-import { memo, useRef } from "react";
-import { useInView } from "motion/react";
 import * as motion from 'motion/react-client';
 import Link from "next/link";
 import { Heart } from "lucide-react";
@@ -19,7 +17,7 @@ const askPrompt = encodeURIComponent(
   `Using ${siteUrl}, explain why I should use Hangry UI to build web interfaces. Cover its React components, blocks, shaders, animations, installation workflow, and what makes it stand out. Explain what the examples and source code reveal about its design and development approach. Base your answer on the website, cite relevant pages, and distinguish documented features from inference.`,
 );
 const groups = [
-  { title: "Pages", links: [{ label: "Home", href: "/" }, ...browseSection.links] },
+  { title: "Pages", links: [{ label: "Home", href: "/" }, ...browseSection.links, { label: "Sponsor", href: "/sponser" }, { label: "Privacy", href: "/privacy" }] },
   {
     title: "Ask AI",
     links: [
@@ -42,19 +40,18 @@ const groups = [
 ];
 
 const Footer = memo(function Footer() {
-  const entranceRef = useRef<HTMLDivElement>(null);
-  const reachedFooter = useInView(entranceRef, { once: true, margin: "0px 0px -40px 0px" });
+
 
   return (
     <>
-    <div ref={entranceRef} aria-hidden="true" className="pointer-events-none -mb-px h-px w-full shrink-0" />
+    <div  aria-hidden="true" className="pointer-events-none -mb-px h-px w-full shrink-0" />
     <footer className="bottom-0 z-0 w-full shrink-0 overflow-hidden border-t border-border/50 bg-background md:sticky">
       <div className="mx-auto w-full max-w-7xl px-6 pt-14 md:px-10 md:pt-20">
         <div className="grid grid-cols-2 gap-x-6 gap-y-12 pb-14 sm:grid-cols-3 md:gap-x-10 md:pb-20 lg:grid-cols-[1.2fr_repeat(3,minmax(0,1fr))]">
           <motion.div
             className="col-span-2 space-y-5 motion-reduce:opacity-100! motion-reduce:transform-none! sm:col-span-3 lg:col-span-1"
             initial={{ opacity: 0, y: 16 }}
-            animate={reachedFooter ? { opacity: 1, y: 0 } : undefined}
+            animate={ { opacity: 1, y: 0 } }
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link href="/" aria-label="Hangry UI home" className={`${linkClass} inline-block`}>
@@ -68,7 +65,7 @@ const Footer = memo(function Footer() {
               aria-label={`Footer ${title.toLowerCase()}`}
               className="motion-reduce:opacity-100! motion-reduce:transform-none!"
               initial={{ opacity: 0, y: 16 }}
-              animate={reachedFooter ? { opacity: 1, y: 0 } : undefined}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: (index + 1) * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
               <h2 className={typography.sectionTitle}>{title}</h2>
@@ -87,7 +84,7 @@ const Footer = memo(function Footer() {
         <motion.div
           className="flex flex-col gap-6 border-t border-border/50 py-7 motion-reduce:opacity-100! motion-reduce:transform-none! sm:flex-row sm:items-center sm:justify-between"
           initial={{ opacity: 0, y: 12 }}
-          animate={reachedFooter ? { opacity: 1, y: 0 } : undefined}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="flex items-center gap-6">
@@ -113,7 +110,7 @@ const Footer = memo(function Footer() {
         <motion.div
           className="motion-reduce:opacity-100! motion-reduce:transform-none!"
           initial={{ opacity: 0, y: 20 }}
-          animate={reachedFooter ? { opacity: 1, y: 0 } : undefined}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
         <SpotlightReveal

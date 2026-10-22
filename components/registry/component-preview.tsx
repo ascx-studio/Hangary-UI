@@ -15,7 +15,7 @@ export default function ComponentPreview({ children, className, fullBleed = fals
 
   if (fullBleed) {
     return (
-      <SharedPreviewLayout layoutId={layoutId} dataSlot="component-preview" retireLayoutIdAfterAnimation className="mx-auto mb-10 max-w-7xl">
+      <SharedPreviewLayout layoutId={layoutId} dataSlot="component-preview" className="mx-auto mb-10 max-w-7xl">
         <Container className="w-full">
           <section
             {...props}
@@ -31,7 +31,6 @@ export default function ComponentPreview({ children, className, fullBleed = fals
     <SharedPreviewLayout
       layoutId={layoutId}
       dataSlot="component-preview"
-      retireLayoutIdAfterAnimation
       className="mx-auto mb-10 max-w-7xl"
     >
       <Container className="w-full">

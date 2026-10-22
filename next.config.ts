@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import { wgslTurbopackRule } from "@vgpu/wgsl/next";
 
 const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST?.replace(/\/$/, "");
 
@@ -12,6 +13,11 @@ const nextConfig: NextConfig = {
     "/utils/*": ["./registry/**/*"],
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  turbopack: {
+    rules: {
+      "*.wgsl": wgslTurbopackRule({ minify: true }),
+    },
+  },
   async rewrites() {
     return posthogHost
       ? [{ source: "/ingest/:path*", destination: `${posthogHost}/:path*` }]

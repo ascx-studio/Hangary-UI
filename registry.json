@@ -1162,6 +1162,42 @@
       }
     },
     {
+      "name": "wordmark-led",
+      "type": "registry:component",
+      "title": "Wordmark LED",
+      "description": "A pulsing WebGPU LED matrix across the complete wordmark.",
+      "files": [
+        { "path": "registry/shader/wordmark-led.tsx", "type": "registry:component", "target": "@components/hangry-ui/shader/wordmark-led.tsx" },
+        { "path": "registry/shader/wordmark-led.wgsl", "type": "registry:file", "target": "@components/hangry-ui/shader/wordmark-led.wgsl" },
+        { "path": "public/wordmark.svg", "type": "registry:file", "target": "public/wordmark.svg" }
+      ],
+      "dependencies": [
+        "vgpu@^0.6.0",
+        "@vgpu/wgsl@^0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "wordmark-light-ray",
+      "type": "registry:component",
+      "title": "Wordmark Light Ray",
+      "description": "Storage-backed WebGPU LED emitters with a scanning light ray across the wordmark.",
+      "files": [
+        { "path": "registry/shader/wordmark-light-ray.tsx", "type": "registry:component", "target": "@components/hangry-ui/shader/wordmark-light-ray.tsx" },
+        { "path": "registry/shader/wordmark-light-ray.wgsl", "type": "registry:file", "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl" },
+        { "path": "public/wordmark.svg", "type": "registry:file", "target": "public/wordmark.svg" }
+      ],
+      "dependencies": [
+        "vgpu@^0.6.0",
+        "@vgpu/wgsl@^0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "tabs",
       "type": "registry:component",
       "title": "Tabs",
