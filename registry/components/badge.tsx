@@ -1,12 +1,13 @@
 "use client";
 
-import { memo, type ComponentProps } from "react";
+import { memo, type ReactNode } from "react";
 import * as motion from "motion/react-client";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion, type HTMLMotionProps } from "motion/react";
 import { CircleCheck, CircleDashed, CircleX, Clock3, SearchCheck, Send, TriangleAlert } from "lucide-react";
 import { typography } from "../lib/typography.shared";
 
-interface BadgeProps extends ComponentProps<"span"> {
+interface BadgeProps extends Omit<HTMLMotionProps<"span">, "children"> {
+  children?: ReactNode;
   variant?: "pending" | "in-progress" | "submitted" | "in-review" | "success" | "failed" | "expired" | "neutral" | "info" | "warning" | "error" | "blue" | "purple" | "pink" | "teal" | "orange";
 }
 

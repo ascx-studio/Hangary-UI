@@ -42,7 +42,7 @@ import { Table } from "@/registry/components/table";
 import { Tabs } from "@/registry/components/tabs";
 import { Tooltip } from "@/registry/components/tooltip";
 
-export const previewEntries: Record<string, { component: ComponentType; category: "components" | "blocks" | "shader" }> = {
+export const previewEntries = {
   "aspect-ratio": { component: AspectRatio, category: "components" },
   "aurora-background": { component: AuroraBackground, category: "shader" },
   "avatar": { component: Avatar, category: "components" },
@@ -84,4 +84,4 @@ export const previewEntries: Record<string, { component: ComponentType; category
   "table": { component: Table, category: "components" },
   "tabs": { component: Tabs, category: "components" },
   "tooltip": { component: Tooltip, category: "components" },
-};
+} satisfies Record<string, { component: ComponentType<never>; category: "components" | "blocks" | "shader" }>;
