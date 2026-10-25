@@ -856,28 +856,6 @@
       }
     },
     {
-      "name": "avatar-group",
-      "type": "registry:component",
-      "title": "Avatar Group",
-      "description": "A stacked group of profile images with initials and an overflow count.",
-      "files": [
-        {
-          "path": "registry/components/avatar-group.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/avatar-group.tsx"
-        },
-        {
-          "path": "registry/components/avatar.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/avatar.tsx"
-        }
-      ],
-      "dependencies": [],
-      "meta": {
-        "category": "components"
-      }
-    },
-    {
       "name": "badge",
       "type": "registry:component",
       "title": "Badge",
@@ -1365,26 +1343,6 @@
           "color": "var(--muted-foreground)"
         }
       }
-    },
-    {
-      "name": "dot-grid-background",
-      "title": "Dot Grid Background",
-      "description": "A fading dot pattern for clean landing pages and content sections.",
-      "type": "registry:component",
-      "files": [
-        {
-          "path": "registry/shader/dot-grid-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/dot-grid-background.tsx"
-        }
-      ],
-      "meta": {
-        "category": "shader"
-      },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0"
-      ]
     },
     {
       "name": "footer",
@@ -2730,11 +2688,22 @@
           "path": "public/wordmark.svg",
           "type": "registry:file",
           "target": "public/wordmark.svg"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/wordmark-shader.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
         }
       ],
       "dependencies": [
         "vgpu@^0.6.0",
-        "@vgpu/wgsl@^0.6.0"
+        "@vgpu/wgsl@^0.6.0",
+        "motion@^14.3.0"
       ],
       "meta": {
         "category": "shader"
@@ -2760,11 +2729,22 @@
           "path": "public/wordmark.svg",
           "type": "registry:file",
           "target": "public/wordmark.svg"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/wordmark-shader.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
         }
       ],
       "dependencies": [
         "vgpu@^0.6.0",
-        "@vgpu/wgsl@^0.6.0"
+        "@vgpu/wgsl@^0.6.0",
+        "motion@^14.3.0"
       ],
       "meta": {
         "category": "shader"
@@ -2983,6 +2963,670 @@
           "line-height": "1.75rem",
           "color": "var(--muted-foreground)"
         }
+      }
+    },
+    {
+      "name": "dither-background",
+      "title": "Dither Background",
+      "description": "Flowing two-color waves with ordered dithering, adjustable pixel size, and a static fallback.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/dither-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/dither-background.tsx"
+        },
+        {
+          "path": "registry/shader/dither-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/dither-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "dithering-frame-card",
+      "title": "Dithering Frame Card",
+      "description": "A readable content card surrounded by an animated ordered-dither shader frame.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/dithering-frame-card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/dithering-frame-card.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/shader/dither-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/dither-background.tsx"
+        },
+        {
+          "path": "registry/shader/dither-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/dither-background.wgsl"
+        },
+        {
+          "path": "registry/components/shader-frame-card.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/shader-frame-card.shared.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      },
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "dithered-logo",
+      "title": "Dithered Logo",
+      "description": "A configurable logo silhouette filled with the animated ordered-dither shader.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/dithered-logo.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/dithered-logo.tsx"
+        },
+        {
+          "path": "registry/components/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/aspect-ratio.tsx"
+        },
+        {
+          "path": "registry/shader/dither-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/dither-background.tsx"
+        },
+        {
+          "path": "registry/shader/dither-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/dither-background.wgsl"
+        },
+        {
+          "path": "public/logo.svg",
+          "type": "registry:file",
+          "target": "public/logo.svg"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "topographic-contour-map",
+      "title": "Topographic Contour Map",
+      "description": "An animated contour map with elevation palettes, major lines, stable labels, and interactive terrain deformation.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/topographic-contour-map.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/topographic-contour-map.tsx"
+        },
+        {
+          "path": "registry/shader/topographic-contour-map.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/topographic-contour-map.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "light-ray-frame-card",
+      "title": "Light Ray Frame Card",
+      "description": "Curved white strands with glowing pulses flowing around your content.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/light-ray-frame-card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/light-ray-frame-card.tsx"
+        },
+        {
+          "path": "registry/components/shader-frame-card.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/shader-frame-card.shared.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/shader/light-ray-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/light-ray-background.tsx"
+        },
+        {
+          "path": "registry/shader/light-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/light-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/led-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/led-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-ray-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      },
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "led-background",
+      "title": "LED Background",
+      "description": "A luminous LED matrix with a sweeping highlight and a soft glow around the pointer.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/led-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/led-background.tsx"
+        },
+        {
+          "path": "registry/shader/light-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/light-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/led-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/led-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-ray-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "light-ray-background",
+      "title": "Light Ray Background",
+      "description": "Curved white strands with inward light pulses, gentle pointer steering, and a click surge.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/light-ray-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/light-ray-background.tsx"
+        },
+        {
+          "path": "registry/shader/light-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/light-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/led-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/led-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-ray-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "chroma-background",
+      "title": "Chroma Background",
+      "description": "Flowing chromatic ribbons with subtle grain, adjustable hue, and gentle pointer distortion.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/chroma-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/chroma-background.tsx"
+        },
+        {
+          "path": "registry/shader/procedural-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/chroma-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-tunnel-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
+        },
+        {
+          "path": "registry/shader/ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/heatmap-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "light-tunnel-background",
+      "title": "Light Tunnel Background",
+      "description": "Luminous perspective rings recede into a dark vanishing point, with gentle pointer steering.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/light-tunnel-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.tsx"
+        },
+        {
+          "path": "registry/shader/procedural-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/chroma-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-tunnel-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
+        },
+        {
+          "path": "registry/shader/ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/heatmap-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "ascii-background",
+      "title": "ASCII Background",
+      "description": "An animated field of bitmap ASCII characters reveals flowing patterns in emerald light.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/ascii-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/ascii-background.tsx"
+        },
+        {
+          "path": "registry/shader/procedural-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/chroma-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-tunnel-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
+        },
+        {
+          "path": "registry/shader/ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/heatmap-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "heatmap-background",
+      "title": "Heatmap Background",
+      "description": "Flowing thermal colors move from cool blue through green and yellow to hot red.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/heatmap-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/heatmap-background.tsx"
+        },
+        {
+          "path": "registry/shader/procedural-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/chroma-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-tunnel-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
+        },
+        {
+          "path": "registry/shader/ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/heatmap-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "liquid-chrome-background",
+      "title": "Liquid Chrome Background",
+      "description": "Flowing silver folds with studio reflections, sharp metallic highlights, and pointer-driven ripples.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/liquid-chrome-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.tsx"
+        },
+        {
+          "path": "registry/shader/procedural-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/chroma-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-tunnel-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
+        },
+        {
+          "path": "registry/shader/ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/heatmap-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
       }
     }
   ]

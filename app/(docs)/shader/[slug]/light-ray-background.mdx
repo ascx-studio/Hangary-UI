@@ -1,0 +1,50 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { LightRayBackground } from "@/registry/shader/light-ray-background";
+
+<ComponentPreview fullBleed>
+  <LightRayBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Light Ray Background
+
+Curved white strands converge into depth, with glowing pulses traveling inward. Move the pointer to gently steer the tunnel, or press to send a surge through it. Designed for full-width sections with subdued lighting and room for readable content.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { LightRayBackground } from "@/components/hangry-ui/shader/light-ray-background";
+
+<LightRayBackground speed={0.1} interactive className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">Follow the light.</h2>
+</LightRayBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `speed` | `number` | `0.1` | Nonnegative pulse animation speed. Set 0 to stop pulse travel. |
+| `intensity` | `number` | `1` | Background brightness, clamped to 0–2. |
+| `interactive` | `boolean` | `true` | Steer the strands with the pointer and trigger a surge on press. |
+| `children` | `ReactNode` | — | Content displayed above the shader. |
+| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes on the container. |
+
+## Setup notes
+
+The memoized wrapper uses a shared WebGPU renderer and shaders sized for background sections. The container has a minimum height of 24rem, customizable with className. The shader renders at the actual container dimensions with device pixel ratio 1. Thin strands bend organically, with soft pulse tails and a 1.8-second depth reveal. It fills the container without cropping a wordmark-sized canvas.
+
+Renders at 60fps. Reduced motion shows a still frame and disables pointer effects. Touch input skips hover behavior. With speed 0, interaction remains active; also set interactive to false to draw only once. A static CSS radial-strand gradient remains visible without WebGPU. Decorative layers are hidden from assistive technology and do not intercept clicks. GPU resources and listeners are released on unmount.
+
+Use Tailwind CSS v4 and the existing WGSL loader and TypeScript declaration from the [Dither Background setup notes](/shader/dither-background). Installation includes both background shader sources used by the shared renderer. No additional dependencies are introduced.
+</DocsReveal>

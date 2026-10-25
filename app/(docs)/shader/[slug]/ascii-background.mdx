@@ -1,0 +1,52 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { AsciiBackground } from "@/registry/shader/ascii-background";
+
+<ComponentPreview fullBleed>
+  <AsciiBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# ASCII Background
+
+An animated field of bitmap ASCII characters reveals flowing patterns in emerald light. Hover to brighten the character field. Glyphs are rendered in the shader; no font or image is required.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/ascii-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/ascii-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/ascii-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/ascii-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { AsciiBackground } from "@/components/hangry-ui/shader/ascii-background";
+
+<AsciiBackground cellSize={14} speed={0.2} intensity={0.9}
+  className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">A different perspective.</h2>
+</AsciiBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `cellSize` | `number` | `14` | Character cell size in CSS pixels, clamped to 7–40. |
+| `speed` | `number` | `0.2` | Nonnegative ambient animation speed. Set 0 to freeze the ambient field. |
+| `intensity` | `number` | `0.9` | Background brightness, clamped to 0–2. |
+| `interactive` | `boolean` | `true` | Enable the pointer effect. |
+| `children` | `ReactNode` | — | Content displayed above the shader. |
+| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Uses the existing vgpu and Motion dependencies. Renders at the container dimensions with device pixel ratio 1 and a 30fps limit. Reduced motion renders a still frame, redraws on resize, and disables pointer interaction. Touch skips hover effects. Set speed to 0 and interactive to false for demand rendering.
+
+The default minimum height is 24rem; customize sizing with className. Decorative layers are hidden from assistive technology and do not intercept clicks. A static CSS fallback remains visible without WebGPU. The renderer releases GPU resources, observers, pending frames, and listeners on unmount.
+
+Use Tailwind CSS v4 and the WGSL loader and TypeScript declaration from the [Dither Background setup notes](/shader/dither-background).
+</DocsReveal>

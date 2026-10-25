@@ -1,0 +1,65 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { DitheringFrameCard } from "@/registry/components/dithering-frame-card";
+import { CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/registry/components/card";
+import { Button } from "@/registry/components/button";
+
+<ComponentPreview>
+  <DitheringFrameCard frameWidth={16}>
+    <CardHeader>
+      <CardTitle>Ideas with an edge.</CardTitle>
+      <CardDescription>A moving dither frame, with room to make something your own.</CardDescription>
+    </CardHeader>
+    <CardContent><p className="typography-body">A crisp pixel texture surrounds your content while the center stays clear and readable.</p></CardContent>
+    <CardFooter><Button>Start creating</Button></CardFooter>
+  </DitheringFrameCard>
+</ComponentPreview>
+
+<DocsReveal>
+# Dithering Frame Card
+
+A content card surrounded by the animated Dither Background shader. One shader fills the frame while an opaque inner card keeps content readable.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/dithering-frame-card.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/dithering-frame-card.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/dithering-frame-card.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/dithering-frame-card.json",
+}} />
+
+## Usage
+
+```tsx
+import { DitheringFrameCard } from "@/components/hangry-ui/components/dithering-frame-card";
+import { CardHeader, CardTitle, CardDescription, CardContent } from "@/components/hangry-ui/components/card";
+
+<DitheringFrameCard frameWidth={16} pixelSize={3} speed={0.4}>
+  <CardHeader>
+    <CardTitle>Ideas with an edge.</CardTitle>
+    <CardDescription>A dither frame for your next project.</CardDescription>
+  </CardHeader>
+  <CardContent>Your content goes here.</CardContent>
+</DitheringFrameCard>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `frameWidth` | `number` | `12` | Frame thickness in CSS pixels; minimum 0. |
+| `color` | `[number, number, number]` | `[0.02, 0.86, 0.5]` | Shader foreground RGB channels from 0 to 1. |
+| `backgroundColor` | `[number, number, number]` | `[0.02, 0.04, 0.035]` | Shader background RGB channels from 0 to 1. |
+| `pixelSize` | `number` | `3` | Dither cell size in CSS pixels; minimum 1. |
+| `speed` | `number` | `0.4` | Wave speed; 0 produces a still frame. |
+| `contentClassName` | `string` | — | Additional classes for the inner Card. |
+| `children` | `ReactNode` | Example heading and description | Content inside the Card; supports all Card composition parts. |
+| Native div props | `ComponentProps` | — | Classes, styles, and attributes on the outer frame; color is reserved for the shader. |
+
+## Setup notes
+
+Reuses Card and Dither Background without additional dependencies. The memoized client wrapper uses Motion for a staged entrance: the background appears first, the dither border reveals from left to right, and then the inner card fades and rises into place. A subtle 3px lift responds to hover. The card keeps its original scale. The frame follows the card's content height and has a default maximum width of 28rem. Set className to customize the outer layout or contentClassName to customize the inner card.
+
+Reduced motion shows every stage immediately and disables hover movement and displays a still shader frame. A static CSS pattern remains visible without WebGPU, and the decorative frame does not intercept clicks. The WGSL loader and TypeScript declaration described in the [Dither Background setup notes](/shader/dither-background) are required when installing into another project.
+</DocsReveal>

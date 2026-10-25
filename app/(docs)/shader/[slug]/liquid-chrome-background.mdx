@@ -1,0 +1,55 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { LiquidChromeBackground } from "@/registry/shader/liquid-chrome-background";
+
+<ComponentPreview fullBleed>
+  <LiquidChromeBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Liquid Chrome Background
+
+Smooth beveled silver folds reflect soft studio panels with rounded highlights and tone-mapped reflections. Move the pointer to disturb the surface with local ripples while the container stays still.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { LiquidChromeBackground } from "@/components/hangry-ui/shader/liquid-chrome-background";
+
+<LiquidChromeBackground scale={1.6} distortion={0.8} speed={0.2} intensity={0.9} roughness={0.3} exposure={1}
+  className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">A fluid perspective.</h2>
+</LiquidChromeBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `scale` | `number` | `1.6` | Surface frequency, clamped to 0.5–5. Larger values show more folds. |
+| `distortion` | `number` | `0.8` | Domain-warp strength, clamped to 0–2. |
+| `roughness` | `number` | `0.3` | Reflection softness, clamped to 0–1. |
+| `exposure` | `number` | `1` | Tone-mapped lighting exposure, clamped to 0–4. |
+| `speed` | `number` | `0.2` | Nonnegative flow speed. Set 0 to freeze the ambient motion. |
+| `intensity` | `number` | `0.9` | Reflection brightness, clamped to 0–2. |
+| `interactive` | `boolean` | `true` | Add ripples near the pointer. |
+| `children` | `ReactNode` | — | Content placed above the metallic surface. |
+| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Uses procedural surface normals and simulated studio reflections, with no images or environment-map downloads. The shared renderer uses the container dimensions, device pixel ratio capped at 1.5, and a 60fps limit for fluid motion. Surface derivatives and four reflection samples per pixel soften thin highlight edges. Reduced motion renders a still frame, redraws on resize, and disables pointer effects. Touch skips hover effects. For demand rendering, set speed to 0 and interactive to false.
+
+The default minimum height is 24rem; customize it with className. Decorative layers are hidden from assistive technology and do not intercept clicks. A static metallic CSS gradient remains visible without WebGPU. The renderer releases GPU resources, listeners, observers, and pending frames on unmount.
+
+Uses the existing vgpu and Motion dependencies. Follow the [Dither Background setup notes](/shader/dither-background) for the WGSL loader and TypeScript declaration.
+</DocsReveal>

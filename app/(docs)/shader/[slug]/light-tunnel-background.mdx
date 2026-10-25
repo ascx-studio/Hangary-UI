@@ -1,0 +1,52 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { LightTunnelBackground } from "@/registry/shader/light-tunnel-background";
+
+<ComponentPreview fullBleed>
+  <LightTunnelBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Light Tunnel Background
+
+Luminous perspective rings recede into a dark vanishing point, with gentle pointer steering. Hover to steer the vanishing point. The background stays at its original size.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/light-tunnel-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/light-tunnel-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/light-tunnel-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/light-tunnel-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { LightTunnelBackground } from "@/components/hangry-ui/shader/light-tunnel-background";
+
+<LightTunnelBackground rings={5} speed={0.2} intensity={0.9}
+  className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">Into the light.</h2>
+</LightTunnelBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `rings` | `number` | `5` | Ring frequency, clamped to 2–12. |
+| `speed` | `number` | `0.2` | Nonnegative ambient animation speed. Set 0 to freeze the ambient field. |
+| `intensity` | `number` | `0.9` | Background brightness, clamped to 0–2. |
+| `interactive` | `boolean` | `true` | Enable the pointer effect. |
+| `children` | `ReactNode` | — | Content displayed above the shader. |
+| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Uses the existing vgpu and Motion dependencies. Renders at the container dimensions with device pixel ratio 1 and a 30fps limit. Reduced motion renders a still frame, redraws on resize, and disables pointer interaction. Touch skips hover effects. Set speed to 0 and interactive to false for demand rendering.
+
+The default minimum height is 24rem; customize sizing with className. Decorative layers are hidden from assistive technology and do not intercept clicks. A static CSS fallback remains visible without WebGPU. The renderer releases GPU resources, observers, pending frames, and listeners on unmount.
+
+Use Tailwind CSS v4 and the WGSL loader and TypeScript declaration from the [Dither Background setup notes](/shader/dither-background).
+</DocsReveal>

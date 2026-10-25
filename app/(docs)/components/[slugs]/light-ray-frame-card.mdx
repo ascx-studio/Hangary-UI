@@ -1,0 +1,62 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { LightRayFrameCard } from "@/registry/components/light-ray-frame-card";
+import { CardHeader, CardTitle, CardDescription, CardFooter } from "@/registry/components/card";
+import { Button } from "@/registry/components/button";
+
+<ComponentPreview>
+  <LightRayFrameCard frameWidth={16}>
+    <CardHeader>
+      <CardTitle>Follow the light.</CardTitle>
+      <CardDescription>Curved white strands with glowing pulses flowing around your content.</CardDescription>
+    </CardHeader>
+    <CardFooter><Button>Start creating</Button></CardFooter>
+  </LightRayFrameCard>
+</ComponentPreview>
+
+<DocsReveal>
+# Light Ray Frame Card
+
+Curved white strands with glowing pulses flowing around your content. Uses Light Ray Background at a brighter intensity for the frame.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/light-ray-frame-card.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/light-ray-frame-card.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/light-ray-frame-card.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/light-ray-frame-card.json",
+}} />
+
+## Usage
+
+```tsx
+import { LightRayFrameCard } from "@/components/hangry-ui/components/light-ray-frame-card";
+import { CardHeader, CardTitle, CardDescription } from "@/components/hangry-ui/components/card";
+
+<LightRayFrameCard frameWidth={16} speed={1}>
+  <CardHeader>
+    <CardTitle>Your next idea.</CardTitle>
+    <CardDescription>A little light around your content.</CardDescription>
+  </CardHeader>
+</LightRayFrameCard>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `frameWidth` | `number` | `12` | Nonnegative frame thickness in CSS pixels. |
+| `speed` | `number` | `0.1` | Nonnegative animation speed multiplier. Set 0 for a still shader frame. |
+| `contentClassName` | `string` | — | Additional classes on the inner Card. |
+| `children` | `ReactNode` | Example heading and description | Content inside the card; supports all Card composition parts. |
+| Native div and Motion props | `HTMLMotionProps` | — | Attributes, styles, and events on the outer frame. The built-in reveal sequence controls entrance animation. |
+
+## Setup notes
+
+Uses the same shared reveal sequence as Dithering Frame Card: background first, border reveal second, inner card last. A subtle 3px hover lift keeps the card at its original scale. Reduced motion shows all stages immediately, disables the lift, and renders a still shader frame. Speed 0 stops the shader while preserving the entrance animation.
+
+The shader renders at the frame dimensions with aspect-correct light rays. Decorative layers do not intercept clicks. GPU resources and animation loops are released on unmount. A CSS radial-strand gradient remains visible without WebGPU.
+
+Installation includes the shared frame wrapper, renderer, shader sources, and Card. Use Tailwind CSS v4 and the WGSL loader and TypeScript declaration from the [Dither Background setup notes](/shader/dither-background). No additional packages are introduced.
+</DocsReveal>

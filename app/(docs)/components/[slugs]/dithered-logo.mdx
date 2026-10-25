@@ -1,0 +1,59 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { DitheredLogo } from "@/registry/components/dithered-logo";
+
+<ComponentPreview>
+  <DitheredLogo className="max-w-lg" />
+</ComponentPreview>
+
+<DocsReveal>
+# Dithered Logo
+
+A logo silhouette filled with flowing, two-color ordered dithering. Uses the existing Dither Background shader and a CSS image mask.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/dithered-logo.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/dithered-logo.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/dithered-logo.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/dithered-logo.json",
+}} />
+
+## Usage
+
+```tsx
+import { DitheredLogo } from "@/components/hangry-ui/components/dithered-logo";
+
+<DitheredLogo
+  src="/your-logo.svg"
+  alt="Your brand"
+  ratio={2}
+  color={[0.02, 0.86, 0.5]}
+  pixelSize={3}
+  speed={0.4}
+  className="max-w-md"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `src` | `string` | `/logo.svg` | SVG or transparent image used as the alpha mask. |
+| `alt` | `string` | `Hangry UI` | Accessible logo label. Set to an empty string for a decorative logo. |
+| `ratio` | `number` | `2` | Positive width-to-height ratio of the logo container. |
+| `color` | `[number, number, number]` | `[0.02, 0.86, 0.5]` | Foreground RGB channels from 0 to 1. |
+| `backgroundColor` | `[number, number, number]` | `[0.02, 0.04, 0.035]` | Background RGB channels from 0 to 1. |
+| `pixelSize` | `number` | `3` | Dither cell size in CSS pixels; minimum 1. |
+| `speed` | `number` | `0.4` | Wave speed; set to 0 for a still frame. |
+| Native div props | `ComponentProps` | — | Classes, style, IDs, and native attributes. Children are not supported and color is reserved for the shader. |
+
+## Setup notes
+
+Uses AspectRatio and Dither Background with no additional dependencies. The memoized client wrapper tracks the pointer on hover. The dither grid repels around the pointer and springs back on leave. Clicking or tapping sends an expanding ripple through the pattern. The logo mask stays at its original size and position. Hovering does not restart the shader. Reduced motion displays a still frame and disables repulsion and click ripples. A static CSS pattern appears without WebGPU. The default logo asset is included with installation.
+
+Use a transparent image or SVG silhouette. Opaque image backgrounds also become part of the mask. Set ratio to match the asset; the logo is centered and contained without stretching. Same-origin assets are simplest; remote images require appropriate CORS headers for CSS masking. Give a custom logo its own alt text.
+
+The WGSL loader and TypeScript declaration described in the [Dither Background setup notes](/shader/dither-background) are required when installing into another project.
+</DocsReveal>

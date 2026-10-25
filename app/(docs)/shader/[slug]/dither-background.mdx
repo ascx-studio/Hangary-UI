@@ -1,0 +1,58 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { DitherBackground } from "@/registry/shader/dither-background";
+
+<ComponentPreview fullBleed>
+  <DitherBackground interactive className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Dither Background
+
+Flowing two-color waves rendered through a 4×4 Bayer matrix for a crisp, pixelated texture. Move the pointer to repel the pixels, or click or tap to send an expanding ripple through the background. The pattern springs back when the pointer leaves.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/dither-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/dither-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/dither-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/dither-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { DitherBackground } from "@/components/hangry-ui/shader/dither-background";
+
+<DitherBackground
+  color={[0.02, 0.86, 0.5]}
+  backgroundColor={[0.02, 0.04, 0.035]}
+  pixelSize={3}
+  speed={0.4}
+  className="grid place-items-center p-12"
+>
+  <h2 className="typography-section-title text-white">Make something different.</h2>
+</DitherBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `color` | `[number, number, number]` | `[0.02, 0.86, 0.5]` | Foreground RGB channels from 0 to 1. |
+| `backgroundColor` | `[number, number, number]` | `[0.02, 0.04, 0.035]` | Background RGB channels from 0 to 1. |
+| `pixelSize` | `number` | `3` | Pixel cell size in CSS pixels; minimum 1. |
+| `speed` | `number` | `0.4` | Nonnegative wave speed; 0 renders a static frame. |
+| `interactive` | `boolean` | `true` | Repel the grid around the pointer and send a ripple on click or tap. Set false to disable interaction. Reduced motion disables both effects. |
+| `interactionRef` | `RefObject<HTMLElement \| null>` | — | Optional external hover target for masked compositions such as Dithered Logo. |
+| `children` | `ReactNode` | — | Content displayed above the shader. |
+| Native div props | `ComponentProps` | — | Supports className, style, IDs, and accessibility attributes. The native color attribute is replaced by the RGB prop. |
+
+## Setup notes
+
+Use Tailwind CSS v4, Motion, and vgpu. The shader renders at 30fps with device pixel ratio 1 to keep its pixel size consistent across displays. Reduced motion renders a still frame and redraws on resize. With interactive enabled, speed 0 stops ambient waves while pointer repulsion and click ripples remain active. GPU resources, animation frames, and observers are released when the component unmounts. Decorative layers are hidden from assistive technology and do not intercept clicks. Without WebGPU, a static CSS dot pattern remains visible.
+
+The `.wgsl` import requires the existing `@vgpu/wgsl` bundler loader and an ambient WGSL module declaration. For Next.js with Turbopack, add `"*.wgsl": wgslTurbopackRule({ minify: true })` to `turbopack.rules`, importing `wgslTurbopackRule` from `@vgpu/wgsl/next`. For TypeScript, add `declare module "*.wgsl" { const shader: import("@vgpu/wgsl").ShaderSource; export default shader; }` to a declaration file included by your project.
+</DocsReveal>
+

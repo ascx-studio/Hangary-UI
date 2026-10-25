@@ -4,6 +4,12 @@
       "title": "Components",
       "items": [
         {
+          "label": "Accordion",
+          "slug": "accordion",
+          "description": "Expandable sections with native keyboard interaction and single or multiple open items.",
+          "group": "Data Display"
+        },
+        {
           "label": "Aspect Ratio",
           "slug": "aspect-ratio",
           "description": "A responsive container that preserves a chosen width-to-height ratio.",
@@ -13,12 +19,6 @@
           "label": "Avatar",
           "slug": "avatar",
           "description": "A profile image with initials and an image-error fallback.",
-          "group": "Media"
-        },
-        {
-          "label": "Avatar Group",
-          "slug": "avatar-group",
-          "description": "Overlapping profile images with initials and a count for additional people.",
           "group": "Media"
         },
         {
@@ -73,6 +73,12 @@
           "label": "Frame Card",
           "slug": "frame-card",
           "description": "A bordered card with inset guide lines and corner dots, used around component demos.",
+          "group": "Cards"
+        },
+        {
+          "label": "Dithering Frame Card",
+          "slug": "dithering-frame-card",
+          "description": "A readable content card surrounded by an animated ordered-dither shader frame.",
           "group": "Cards"
         },
         {
@@ -200,6 +206,18 @@
           "slug": "toast",
           "description": "Dismissible notifications with status variants, timed dismissal, and reduced-motion transitions.",
           "group": "Feedback & Overlays"
+        },
+        {
+          "label": "Dithered Logo",
+          "slug": "dithered-logo",
+          "description": "A configurable logo silhouette filled with the animated ordered-dither shader.",
+          "group": "Media"
+        },
+        {
+          "label": "Light Ray Frame Card",
+          "slug": "light-ray-frame-card",
+          "description": "Curved white strands with glowing pulses flowing around your content.",
+          "group": "Cards"
         }
       ]
     },
@@ -320,12 +338,6 @@
           "group": "Backgrounds"
         },
         {
-          "label": "Dot Grid",
-          "slug": "dot-grid-background",
-          "description": "A fading dot pattern for clean landing pages and content sections.",
-          "group": "Backgrounds"
-        },
-        {
           "label": "Spotlight Grid",
           "slug": "spotlight-grid-background",
           "description": "A fine grid illuminated by a soft spotlight from above.",
@@ -354,6 +366,60 @@
           "slug": "wordmark-light-ray",
           "description": "A continuous blue-white light ray with a soft glow and fading trail across the wordmark.",
           "group": "Wordmarks"
+        },
+        {
+          "label": "Dither",
+          "slug": "dither-background",
+          "description": "Flowing two-color waves with ordered dithering, adjustable pixel size, and a static fallback.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Topographic Contour Map",
+          "slug": "topographic-contour-map",
+          "description": "An animated contour map with elevation palettes, major lines, stable labels, and interactive terrain deformation.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "LED Background",
+          "slug": "led-background",
+          "description": "A luminous LED matrix with a sweeping highlight and a soft glow around the pointer.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Light Ray Background",
+          "slug": "light-ray-background",
+          "description": "Curved white strands with inward light pulses, gentle pointer steering, and a click surge.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Chroma",
+          "slug": "chroma-background",
+          "description": "Flowing chromatic ribbons with subtle grain, adjustable hue, and gentle pointer distortion.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Light Tunnel",
+          "slug": "light-tunnel-background",
+          "description": "Luminous perspective rings recede into a dark vanishing point, with gentle pointer steering.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "ASCII",
+          "slug": "ascii-background",
+          "description": "An animated field of bitmap ASCII characters reveals flowing patterns in emerald light.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Heatmap",
+          "slug": "heatmap-background",
+          "description": "Flowing thermal colors move from cool blue through green and yellow to hot red.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Liquid Chrome",
+          "slug": "liquid-chrome-background",
+          "description": "Flowing silver folds with studio reflections, sharp metallic highlights, and pointer-driven ripples.",
+          "group": "Backgrounds"
         }
       ]
     }

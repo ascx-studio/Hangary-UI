@@ -1,0 +1,53 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { ChromaBackground } from "@/registry/shader/chroma-background";
+
+<ComponentPreview fullBleed>
+  <ChromaBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Chroma Background
+
+Liquid color ribbons drift through a dark background with subtle film grain. Moving the pointer gently bends the surrounding color field without moving the container.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { ChromaBackground } from "@/components/hangry-ui/shader/chroma-background";
+
+<ChromaBackground speed={0.2} intensity={0.9} hueShift={0} grain={0.035}
+  className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">A little more color.</h2>
+</ChromaBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `speed` | `number` | `0.2` | Nonnegative animation speed. Set 0 to freeze the ambient flow. |
+| `intensity` | `number` | `0.9` | Color brightness, clamped to 0–2. |
+| `hueShift` | `number` | `0` | Color phase offset in degrees. |
+| `grain` | `number` | `0.035` | Static grain strength, clamped to 0–0.2. |
+| `interactive` | `boolean` | `true` | Bend and brighten the color field near the pointer. |
+| `children` | `ReactNode` | — | Content displayed above the shader. |
+| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Uses the existing vgpu and Motion dependencies. The memoized client component renders at 30fps using the actual container size and device pixel ratio 1. Reduced motion disables ambient animation and pointer interaction, rendering a still frame that updates on resize. Touch input skips hover effects. Set speed to 0 and interactive to false for demand rendering without reduced motion.
+
+The default minimum height is 24rem. Customize sizing with className. Decorative layers do not intercept clicks and are hidden from assistive technology. A static CSS gradient remains visible without WebGPU. Animation loops, listeners, observers, and GPU resources are released on unmount.
+
+Use Tailwind CSS v4 and the WGSL loader and ambient TypeScript declaration from the [Dither Background setup notes](/shader/dither-background).
+</DocsReveal>

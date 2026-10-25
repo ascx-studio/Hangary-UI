@@ -1,0 +1,52 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { HeatmapBackground } from "@/registry/shader/heatmap-background";
+
+<ComponentPreview fullBleed>
+  <HeatmapBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Heatmap Background
+
+Flowing thermal colors move from cool blue through green and yellow to hot red. Hover to add heat around the pointer. The temperatures are decorative and do not represent measured data.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/heatmap-background.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/heatmap-background.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/heatmap-background.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/heatmap-background.json",
+}} />
+
+## Usage
+
+```tsx
+import { HeatmapBackground } from "@/components/hangry-ui/shader/heatmap-background";
+
+<HeatmapBackground scale={1.5} speed={0.2} intensity={0.9}
+  className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">Turn up the heat.</h2>
+</HeatmapBackground>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `scale` | `number` | `1.5` | Field frequency, clamped to 0.25–6. |
+| `speed` | `number` | `0.2` | Nonnegative ambient animation speed. Set 0 to freeze the ambient field. |
+| `intensity` | `number` | `0.9` | Background brightness, clamped to 0–2. |
+| `interactive` | `boolean` | `true` | Enable the pointer effect. |
+| `children` | `ReactNode` | — | Content displayed above the shader. |
+| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+
+## Setup notes
+
+Uses the existing vgpu and Motion dependencies. Renders at the container dimensions with device pixel ratio 1 and a 30fps limit. Reduced motion renders a still frame, redraws on resize, and disables pointer interaction. Touch skips hover effects. Set speed to 0 and interactive to false for demand rendering.
+
+The default minimum height is 24rem; customize sizing with className. Decorative layers are hidden from assistive technology and do not intercept clicks. A static CSS fallback remains visible without WebGPU. The renderer releases GPU resources, observers, pending frames, and listeners on unmount.
+
+Use Tailwind CSS v4 and the WGSL loader and TypeScript declaration from the [Dither Background setup notes](/shader/dither-background).
+</DocsReveal>

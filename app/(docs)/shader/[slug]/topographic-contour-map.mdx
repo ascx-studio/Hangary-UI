@@ -1,0 +1,66 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { TopographicContourMap } from "@/registry/shader/topographic-contour-map";
+
+<ComponentPreview fullBleed>
+  <TopographicContourMap className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal>
+# Topographic Contour Map
+
+Animated elevation contours on a near-black canvas, with height-based colors, stronger major lines, and small elevation labels. Hover to raise the terrain; press to create a depression. The left side fades into the background to leave room for content.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
+}} />
+
+## Usage
+
+```tsx
+import { TopographicContourMap } from "@/components/hangry-ui/shader/topographic-contour-map";
+
+<TopographicContourMap
+  colorScheme="amber"
+  showLabels
+  mouseInfluence
+  scale={3}
+  density={24}
+  lineWidth={1}
+  speed={0.08}
+  className="grid place-items-center p-12"
+>
+  <h2 className="typography-section-title text-white">Find your own path.</h2>
+</TopographicContourMap>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `colorScheme` | `"studio"`, `"amber"`, `"teal"`, or `"violet"` | `"amber"` | Height-based low, middle, and high contour colors. |
+| `color` | `[number, number, number]` | — | Optional custom RGB color from 0 to 1; overrides the palette with matching darker and brighter shades. |
+| `mouseInfluence` | `boolean` | `true` | Raise terrain around the pointer; pressing creates a depression. |
+| `showLabels` | `boolean` | `true` | Stable numeric labels projected onto major contours. |
+| `fadeLeft` | `boolean` | `true` | Fade the left side into the background. |
+| `backgroundColor` | `[number, number, number]` | `[0.012, 0.012, 0.012]` | Background RGB channels from 0 to 1. |
+| `scale` | `number` | `3` | Terrain frequency; larger values reveal more terrain. Minimum 0.1. |
+| `density` | `number` | `24` | Contour levels across the height field; clamped to 2–100. |
+| `lineWidth` | `number` | `1` | Minor contour width in CSS pixels; clamped to 0.25–8. Major contours are thicker. |
+| `speed` | `number` | `0.08` | Nonnegative terrain evolution speed. Set 0 to stop ambient animation. |
+| `children` | `ReactNode` | — | Content placed above the shader. |
+| Native div props | `ComponentProps` | — | Classes, style, IDs, and accessibility attributes. Color is reserved for the shader. |
+
+The terrain is generated for decoration; it does not represent a real geographic location. The noise field evolves smoothly over time. Every fourth contour is emphasized. Labels follow their elevation contours and use a built-in bitmap font without additional font dependencies.
+
+## Setup notes
+
+Uses the existing vgpu pipeline and Motion reduced-motion preference. The shader renders at 30fps with device pixel ratio 1. Reduced motion renders a still frame, redrawn on resize, and disables pointer deformation. Speed 0 stops ambient animation while pointer interaction remains active; set mouseInfluence to false as well for demand rendering. GPU resources, observers, and pending frames are released on unmount. A static CSS contour pattern remains visible without WebGPU. Decorative layers are hidden from assistive technology and do not intercept clicks.
+
+Installations require Tailwind CSS v4, the WGSL loader, and an ambient WGSL TypeScript declaration. Follow the [Dither Background setup notes](/shader/dither-background) for the existing Next.js configuration.
+</DocsReveal>

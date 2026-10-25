@@ -41,8 +41,16 @@ Use the installation command on the relevant documentation page for other compon
 
 ## Component documentation
 
+- [Light Ray Frame Card](https://ui.razeev.com/components/light-ray-frame-card): Curved white strands with glowing pulses flowing around your content.
+
+
+- [Dithered Logo](https://ui.razeev.com/components/dithered-logo): A configurable logo silhouette filled with the animated ordered-dither shader.
+
+- [Dithering Frame Card](https://ui.razeev.com/components/dithering-frame-card): A readable content card surrounded by an animated ordered-dither shader frame.
+
+- [Accordion](https://ui.razeev.com/components/accordion): Expandable sections with native keyboard interaction and single or multiple open items.
+
 - [Aspect Ratio](https://ui.razeev.com/components/aspect-ratio): A responsive container that preserves a chosen width-to-height ratio.
-- [Avatar Group](https://ui.razeev.com/components/avatar-group): A stacked group of profile images with initials and an overflow count.
 - [Avatar](https://ui.razeev.com/components/avatar): A profile image with initials and an image-error fallback.
 - [Badge](https://ui.razeev.com/components/badge): Status badges with matching icons, tinted backgrounds, square corners, and reduced-motion-aware hover animation.
 - [Banner](https://ui.razeev.com/components/banner): A status banner with matching icons, optional descriptions, and reduced-motion-aware hover animation.
@@ -75,9 +83,26 @@ Use the installation command on the relevant documentation page for other compon
 
 ## Shader documentation
 
+- [Liquid Chrome Background](https://ui.razeev.com/shader/liquid-chrome-background): Flowing silver folds with studio reflections, sharp metallic highlights, and pointer-driven ripples.
+
+- [Heatmap Background](https://ui.razeev.com/shader/heatmap-background): Flowing thermal colors move from cool blue through green and yellow to hot red.
+
+- [ASCII Background](https://ui.razeev.com/shader/ascii-background): An animated field of bitmap ASCII characters reveals flowing patterns in emerald light.
+
+- [Light Tunnel Background](https://ui.razeev.com/shader/light-tunnel-background): Luminous perspective rings recede into a dark vanishing point, with gentle pointer steering.
+
+- [Chroma Background](https://ui.razeev.com/shader/chroma-background): Flowing chromatic ribbons with subtle grain, adjustable hue, and gentle pointer distortion.
+
+- [Light Ray Background](https://ui.razeev.com/shader/light-ray-background): Curved white strands with inward light pulses, gentle pointer steering, and a click surge.
+
+- [LED Background](https://ui.razeev.com/shader/led-background): A luminous LED matrix with a sweeping highlight and a soft glow around the pointer.
+
+- [Topographic Contour Map](https://ui.razeev.com/shader/topographic-contour-map): An animated contour map with elevation palettes, major lines, stable labels, and interactive terrain deformation.
+
+- [Dither Background](https://ui.razeev.com/shader/dither-background): Flowing two-color waves with ordered dithering, adjustable pixel size, and a static fallback.
+
 - [Aurora Background](https://ui.razeev.com/shader/aurora-background): Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.
 - [Beams Background](https://ui.razeev.com/shader/beams-background): Diagonal light beams that drift behind your content.
-- [Dot Grid Background](https://ui.razeev.com/shader/dot-grid-background): A fading dot pattern for clean landing pages and content sections.
 - [SME Shader](https://ui.razeev.com/shader/sme-background): A layered gradient and grid shader for product sections, previews, and hero panels.
 - [Spotlight Grid Background](https://ui.razeev.com/shader/spotlight-grid-background): A fine grid illuminated by a soft spotlight from above.
 
@@ -86,3 +111,4 @@ Use the installation command on the relevant documentation page for other compon
 - [GitHub repository](https://github.com/ascx-studio/ui): Source code and project documentation.
 - [Issues](https://github.com/ascx-studio/ui/issues): Bug reports and component requests.
 - [Sitemap](https://ui.razeev.com/sitemap.xml): Index of public documentation pages.
+

@@ -20,7 +20,7 @@ type CardProps = {
 const Card = memo(function Card({ title, description, children, footer, className, size = "md", ...props }: CardProps) {
   const hasLegacyContent = Boolean(title || description || footer);
   const classes = cn(
-    "group/card flex w-full max-w-sm flex-col rounded-lg  text-base leading-7  shadow-sm ring-1 ring-border",
+    "group/card flex w-full max-w-sm flex-col rounded-lg border border-border bg-card text-base leading-7 shadow-md inset-shadow-sm inset-shadow-foreground/5",
     "outline-ring focus-visible:outline-[length:var(--focus-ring-width,2px)] focus-visible:outline-offset-[var(--focus-ring-offset,2px)]",
     "[a&]:transition-colors [a&]:duration-[var(--duration-fast,150ms)] [a&]:ease-out [a&]:hover:bg-muted motion-reduce:transition-none",
     cardSizes[size],
