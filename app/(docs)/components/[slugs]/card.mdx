@@ -1,5 +1,4 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
-import { Card } from "@/registry/components/card";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/components/card";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
 import { Button } from "@/registry/components/button";
@@ -7,7 +6,15 @@ import { Badge } from "@/registry/components/badge";
 
 <ComponentPreview className="h-full w-full">
   <div className="flex w-full justify-center">
-    <Card title="Your workspace" description="Everything you need in one place." footer={<Button>Open workspace</Button>}><Badge>3 members</Badge></Card>
+    <Card>
+      <CardHeader>
+        <CardTitle>Your workspace</CardTitle>
+        <CardDescription>Everything you need in one place.</CardDescription>
+        <CardAction><Badge>3 members</Badge></CardAction>
+      </CardHeader>
+      <CardContent>Manage your projects and collaborate with your team.</CardContent>
+      <CardFooter><Button>Open workspace</Button></CardFooter>
+    </Card>
   </div>
 </ComponentPreview>
 
@@ -28,63 +35,48 @@ A flexible content card with a title, description, body, and footer.
 ## Usage
 
 ```tsx
-import { Card } from "@/components/hangry-ui/components/card";
+import { Button } from "@/components/hangry-ui/components/button";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/hangry-ui/components/card";
 
-<Card title="New project" description="Start with a blank canvas."><p>Your content here.</p></Card>
+<Card>
+  <CardHeader>
+    <CardTitle>New project</CardTitle>
+    <CardDescription>Start with a blank canvas.</CardDescription>
+    <CardAction><Button variant="outline">Settings</Button></CardAction>
+  </CardHeader>
+  <CardContent>Your content here.</CardContent>
+  <CardFooter><Button>Create project</Button></CardFooter>
+</Card>
 ```
 
-## Props
+## Sizes and link cards
 
-<Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Prop</TableHead>
-      <TableHead>Type</TableHead>
-      <TableHead>Default</TableHead>
-      <TableHead>Description</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell><code className="break-words">{"title"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"Room for your next idea\""}</code></TableCell>
-      <TableCell>{"Heading; use an empty string to hide it."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"description"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"A simple starting point for something great. Make it yours.\""}</code></TableCell>
-      <TableCell>{"Supporting text; use an empty string to hide it."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"children"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Card body content."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"footer"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Content below the body, separated by a border."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
-      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
-      <TableCell><code className="break-words">{"ComponentProps<\"article\">"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Forwards native article attributes, aria-* attributes, and event handlers."}</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+`size` accepts `"sm"` (16px gap and padding) or `"md"` (24px, the default). Variants use a TypeScript class map with no CVA dependency.
+
+```tsx
+<Card size="sm">
+  <CardContent>A compact card.</CardContent>
+</Card>
+
+<Card as="a" href="/projects" size="md">
+  <CardHeader>
+    <CardTitle>Browse projects</CardTitle>
+    <CardDescription>Open your workspace.</CardDescription>
+  </CardHeader>
+</Card>
+```
+
+Link cards change background on hover and show a keyboard focus outline. Avoid nesting buttons or other links inside a link card. Transitions respect reduced motion.
+
+## Composition
+
+Use `CardHeader` for the heading area, `CardTitle` and `CardDescription` for text, and `CardAction` for a control aligned to the top right. Place body content in `CardContent` and bottom actions in `CardFooter`.
+
+Each component accepts `children`, `className`, and native attributes for its element: `article`, `header`, `h3`, `p`, `div` (action and content), or `footer`.
+
+The legacy `title`, `description`, and `footer` props remain supported. Content is otherwise supplied through children; no default heading or description is inserted.
 
 ## Setup notes
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+Use Tailwind CSS v4. Cards use `ring-border`, a rounded border, and the shared color tokens. Customize `--focus-ring-width`, `--focus-ring-offset`, and `--duration-fast` as needed; defaults are 2px, 2px, and 150ms. No additional packages are required. Compose content with the exported parts and customize styling with `className`.
 </DocsReveal>

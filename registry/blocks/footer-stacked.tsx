@@ -1,4 +1,3 @@
-import { typography } from "../lib/typography.shared";
 import { memo, type ComponentProps, type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "cn";
@@ -37,13 +36,13 @@ export const FooterStacked = memo(function FooterStacked({ brand = "Hangry UI", 
     <div className={cn("gap-10 p-6 sm:p-8", "flex flex-col items-center text-center")}>
       <div>
         <a href={homeHref} className="text-xl font-semibold focus-visible:outline-2 focus-visible:outline-ring">{brand}</a>
-        {<p className={`mt-3 max-w-sm ${typography.body}`}>{description}</p>}
+        {<p className={`mt-3 max-w-sm typography-body`}>{description}</p>}
         {<div className="mt-4"><Badge variant="success">Open source</Badge></div>}
         {children}
       </div>
       <div className="grid grid-cols-2 gap-8">
         {groups.map(group => <nav key={group.title} aria-label={group.title}>
-          {<h3 className={`mb-4 ${typography.subsectionTitle}`}>{group.title}</h3>}
+          {<h3 className={`mb-4 typography-subsection-title`}>{group.title}</h3>}
           <ul className="space-y-3">
             {group.links.map(link => <li key={link.href}><a href={link.href} className="text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring">{link.label}</a></li>)}
           </ul>

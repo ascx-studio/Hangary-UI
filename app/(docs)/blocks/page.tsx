@@ -1,4 +1,3 @@
-import { typography } from "@/registry/lib/typography.shared";
 import Container from '@/components/layout/Container'
 import Catalog from "@/components/registry/catalog";
 import { pageMetadata } from "@/lib/seo";
@@ -13,8 +12,8 @@ export default function Page() {
   return (
     <div className="page-entrance w-full min-w-0">
       <Container className="p-4">
-        <h1 className={typography.pageTitle}>Blocks</h1>
-        <p className={`mt-5 ${typography.body}`}>Complete sections for your next page. Explore their previews and adapt the details to your project.</p>
+        <h1 className={"typography-page-title"}>Blocks</h1>
+        <p className={`mt-5 typography-body`}>Complete sections for your next page. Explore their previews and adapt the details to your project.</p>
         <Catalog category="blocks" />
       </Container>
     </div>

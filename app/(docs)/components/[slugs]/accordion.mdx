@@ -1,0 +1,67 @@
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/registry/components/accordion";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview>
+  <Accordion className="max-w-lg" defaultValue={["customize"]}>
+    <AccordionItem value="accessible">
+      <AccordionTrigger>Does it support keyboard navigation?</AccordionTrigger>
+      <AccordionContent>Yes. Tab to a question and press Enter or Space to expand or collapse its answer.</AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="customize">
+      <AccordionTrigger>Can I customize the design?</AccordionTrigger>
+      <AccordionContent>Use your own content, theme tokens, and className on each part. The source lives in your project.</AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="multiple">
+      <AccordionTrigger>Can I open multiple items?</AccordionTrigger>
+      <AccordionContent>Set multiple on Accordion to keep several answers open at once.</AccordionContent>
+    </AccordionItem>
+  </Accordion>
+</ComponentPreview>
+
+<DocsReveal>
+# Accordion
+
+Expandable sections built with native disclosure elements and a composable API. No additional UI dependency is required.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/accordion.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/accordion.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/accordion.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/accordion.json",
+}} />
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/hangry-ui/components/accordion";
+
+<Accordion defaultValue={["details"]}>
+  <AccordionItem value="details">
+    <AccordionTrigger>How does it work?</AccordionTrigger>
+    <AccordionContent>Click the question to toggle this content.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="customize">
+    <AccordionTrigger>Can I customize it?</AccordionTrigger>
+    <AccordionContent>Style each part with className.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Props
+
+`Accordion` accepts `multiple` (boolean, defaults to false) and `defaultValue` (an array of item values, defaults to empty). With `multiple` disabled, provide at most one default value. Items can always be collapsed.
+
+`AccordionItem` requires a unique string `value`. Place `AccordionTrigger` first inside each item, followed by `AccordionContent`. All parts accept `className`, children, and native attributes for their elements: div, details, summary, and div respectively. The item manages its own native open state; controlled state is not exposed.
+
+## Setup notes
+
+Uses Tailwind CSS v4 and the shared color and typography utilities. Native details and summary elements provide keyboard operation and expanded state to assistive technology. The browser manages opening and closing, with no animated transitions. Single-item mode uses the native details name attribute; each accordion has its own group name.
+</DocsReveal>

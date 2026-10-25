@@ -1,6 +1,5 @@
 "use client";
 
-import { typography } from "../lib/typography.shared";
 import { memo, useId, useRef, type ReactNode } from "react";
 import { X } from "lucide-react";
 import { LazyMotion, domAnimation, useAnimationControls, useReducedMotion } from "motion/react";
@@ -147,7 +146,7 @@ export const BottomSheet = memo(function BottomSheet({
               variants={{ hidden: {}, visible: { transition: { staggerChildren: reducedMotion ? 0 : 0.18 } } }}
             >
               <m.div className="flex items-start justify-between gap-4 pr-12" variants={textVariants} transition={{ duration: reducedMotion ? 0 : 0.45, ease: "easeOut" }}>
-                <h2 id={`${id}-title`} className={typography.sectionTitle}>
+                <h2 id={`${id}-title`} className={"typography-section-title"}>
                   {title}
                 </h2>
 
@@ -156,7 +155,7 @@ export const BottomSheet = memo(function BottomSheet({
                 variants={textVariants}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: "easeOut" }}
                 id={`${id}-description`}
-                className={`mt-3 ${typography.body}`}
+                className={`mt-3 typography-body`}
               >
                 {description}
               </m.p>

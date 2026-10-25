@@ -5,7 +5,6 @@ import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
 import { Card } from "./card";
 import { Button } from "./button";
-import { typography } from "../lib/typography.shared";
 
 export interface CardStackItem {
   id: string;
@@ -67,8 +66,8 @@ export const CardStack = memo(function CardStack({
                   className="p-6 sm:p-10"
                 >
                   <div className="mb-6 h-0.5 w-16 bg-primary" />
-                  <h3 className={`${typography.sectionTitle} text-white!`}>{item.title}</h3>
-                  {item.description && <p className={`mt-3 ${typography.body} text-white/60!`}>{item.description}</p>}
+                  <h3 className={`typography-section-title text-white!`}>{item.title}</h3>
+                  {item.description && <p className={`mt-3 typography-body text-white/60!`}>{item.description}</p>}
                   {item.children ?? (item.src && (
                     // A native image keeps the registry component framework-independent.
                     // eslint-disable-next-line @next/next/no-img-element

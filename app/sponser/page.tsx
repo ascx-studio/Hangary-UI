@@ -1,4 +1,3 @@
-import { typography } from "@/registry/lib/typography.shared";
 import Footer from '@/components/layout/Footer'
 import * as motion from 'motion/react-client';
 import { SpotlightReveal } from '@/registry/components/spotlight-reveal'
@@ -71,7 +70,7 @@ export default function SponsorPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
               >
-              <p className={`mt-6 max-w-2xl ${typography.body}`}>
+              <p className={`mt-6 max-w-2xl typography-body`}>
                 Hangry UI is open source and free to use. Sponsorship, a star, or a
                 contribution helps keep the collection moving.
               </p>
@@ -82,7 +81,7 @@ export default function SponsorPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
               >
-              <p className={`mt-4 max-w-2xl ${typography.body}`}>
+              <p className={`mt-4 max-w-2xl typography-body`}>
                 Contributions help improve the components, keep examples useful,
                 and catch bugs in real projects. You can start small: tell us what
                 worked, what was confusing, or what you would like to see next.
@@ -116,7 +115,7 @@ export default function SponsorPage() {
             <section aria-labelledby="faq-heading" className="mt-12 max-w-3xl border-t border-border pt-10">
               <motion.h2
                 id="faq-heading"
-                className={`${typography.sectionTitle} motion-reduce:opacity-100! motion-reduce:transform-none!`}
+                className={`typography-section-title motion-reduce:opacity-100! motion-reduce:transform-none!`}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -137,7 +136,7 @@ export default function SponsorPage() {
                     <summary className="cursor-pointer font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                       {question}
                     </summary>
-                    <p className={`mt-3 ${typography.body}`}>{answer}</p>
+                    <p className={`mt-3 typography-body`}>{answer}</p>
                   </motion.details>
                 ))}
               </div>

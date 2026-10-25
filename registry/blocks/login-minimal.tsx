@@ -1,6 +1,5 @@
 "use client";
 
-import { typography } from "../lib/typography.shared";
 import { useId, useState, type ComponentProps, type ReactNode } from "react";
 import Image from "next/image";
 import { Eye, EyeOff } from "lucide-react";
@@ -31,8 +30,8 @@ export function LoginMinimal({ title = "Welcome back", description = "Sign in to
     <div>
       <Card title="" description="" className={cn("mx-auto max-w-md!", "border-0! bg-transparent! p-6! @sm:p-10! text-foreground shadow-none!")}>
         {logo && <div className="mb-6">{logo}</div>}
-        {title && <h2 className={typography.sectionTitle}>{title}</h2>}
-        {description && <p className={`mt-2 ${typography.body}`}>{description}</p>}
+        {title && <h2 className={"typography-section-title"}>{title}</h2>}
+        {description && <p className={`mt-2 typography-body`}>{description}</p>}
         <div className="mt-8">
           <LoginForm {...props} title={title} showSocial={showSocial} onProviderLogin={onProviderLogin} loading={loading} error={error} forgotPasswordHref={forgotPasswordHref} signupHref={signupHref} onSubmit={onSubmit} className={className}>{children}</LoginForm>
         </div>

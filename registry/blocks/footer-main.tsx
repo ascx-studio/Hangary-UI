@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Heart } from "lucide-react";
 import { GitHubDark } from "@ridemountainpig/svgl-react";
 import Image from "next/image";
-import { typography } from "../lib/typography.shared";
 import { SpotlightReveal } from "../components/spotlight-reveal";
 import { sampleMainFooterGroups, samplePageLinks } from "../lib/navigation.shared";
 
@@ -54,7 +53,7 @@ export const FooterMain = memo(function FooterMain({
             <Link href={homeHref} aria-label="Hangry UI home" className={`${linkClass} inline-block`}>
               <Image src={logoSrc} alt="Hangry UI" width={160} height={40} className="h-auto w-40" />
             </Link>
-            <p className={typography.caption}>{copyright}</p>
+            <p className={"typography-caption"}>{copyright}</p>
           </motion.div>
           {groups.map(({ title, links }, index) => (
             <motion.nav
@@ -65,7 +64,7 @@ export const FooterMain = memo(function FooterMain({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: (index + 1) * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2 className={typography.sectionTitle}>{title}</h2>
+              <h2 className={"typography-section-title"}>{title}</h2>
               <ul className="mt-6 space-y-5">
                 {links.map(({ label, href }) => (
                   <li key={label}>
@@ -95,7 +94,7 @@ export const FooterMain = memo(function FooterMain({
               <Heart size={23} aria-hidden="true" />
             </Link>
           </div>
-          <p className={typography.caption}>
+          <p className={"typography-caption"}>
             Built by <a href={xHref} className={linkClass}>@razeevascx</a>
           </p>
           <nav aria-label="Footer quick links" className="flex flex-wrap gap-x-6 gap-y-3 text-sm">

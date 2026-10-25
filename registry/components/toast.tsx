@@ -6,7 +6,6 @@ import { AnimatePresence, useReducedMotion } from "motion/react";
 import { CircleCheck, CircleX, Info, TriangleAlert, X } from "lucide-react";
 import { Card } from "./card";
 import { Button } from "./button";
-import { typography } from "../lib/typography.shared";
 import { toast, toastStore, type ToastVariant } from "./toast-store";
 
 export { toast } from "./toast-store";
@@ -86,7 +85,7 @@ export const Toast = memo(function Toast({
               <Icon aria-hidden="true" className={`mt-0.5 size-5 shrink-0 ${color}`} />
               <div className="min-w-0 flex-1" role={variant === "error" ? "alert" : "status"} aria-atomic="true">
                 <p className="text-base font-medium leading-6 text-foreground">{message}</p>
-                {description && <p className={`mt-1 ${typography.body}`}>{description}</p>}
+                {description && <p className={`mt-1 typography-body`}>{description}</p>}
               </div>
               <Button variant="ghost" aria-label="Dismiss notification" onClick={dismiss} className="-mr-1 -mt-1 size-9 min-h-0! shrink-0 p-0!">
                 <X aria-hidden="true" className="size-4" />

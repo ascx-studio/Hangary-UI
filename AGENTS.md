@@ -18,16 +18,16 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Typography hierarchy
 
-Apply the shared scale in `registry/lib/typography.shared.ts` to documentation and all components.
+Apply the shared `typography-*` utilities in `app/globals.css` to documentation and all components.
 The reference is the documentation's “Setup notes” heading and paragraph.
 
-- Page titles: `typography.pageTitle`; hero headings may use the existing larger responsive scale.
-- Section and component titles (including Card and BottomSheet): `typography.sectionTitle` (24px, semibold, tight tracking, foreground).
-- Subsection titles: `typography.subsectionTitle` (20px, semibold).
-- Descriptions and explanatory paragraphs: `typography.body` (16px, 28px line height, muted foreground).
+- Page titles: `typography-page-title`; hero headings may use the existing larger responsive scale.
+- Section and component titles (including Card and BottomSheet): `typography-section-title` (24px, semibold, tight tracking, foreground).
+- Subsection titles: `typography-subsection-title` (20px, semibold).
+- Descriptions and explanatory paragraphs: `typography-body` (16px, 28px line height, muted foreground).
 - Compact controls, navigation labels, code, captions, prices, and semantic status colors retain their purpose-specific styling; do not treat them as section titles or descriptive prose.
 - Keep structural margins/padding separate from typography. Do not invent sizes such as `text-md` or independently restyle titles/descriptions.
-- Registry components must import the shared scale relatively so installation bundles it automatically.
+- Registry components use the shared CSS utilities; include their definitions in registry item CSS metadata so installation adds them to global CSS.
 - Dont build registry unless the user ask for it.
 
-- Tooltip exception: title/plain content uses medium text (`text-base`, 16px); descriptions use small text (`typography.caption`, 14px). Do not use larger headings inside tooltips.
+- Tooltip exception: title/plain content uses medium text (`text-base`, 16px); descriptions use small text (`typography-caption`, 14px). Do not use larger headings inside tooltips.

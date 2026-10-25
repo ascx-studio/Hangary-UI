@@ -1,14 +1,13 @@
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
 import { FrameCard } from "@/registry/components/frame-card";
-import { typography } from "@/registry/lib/typography.shared";
 
 <ComponentPreview className="grid-cols-1 px-6! sm:px-12!">
   <FrameCard className="max-w-lg">
     <div className="flex min-h-64 flex-col items-center justify-center px-4 py-8 text-center sm:px-8">
       <span className="mb-6 text-xs uppercase tracking-[0.2em] text-primary">A little structure</span>
-      <h3 className={typography.sectionTitle}>Give your ideas a frame.</h3>
-      <p className={`mt-3 max-w-xs ${typography.body}`}>The same frame used around every component demo, ready for your own content.</p>
+      <h3 className={"typography-section-title"}>Give your ideas a frame.</h3>
+      <p className={`mt-3 max-w-xs typography-body`}>The same frame used around every component demo, ready for your own content.</p>
     </div>
   </FrameCard>
 </ComponentPreview>

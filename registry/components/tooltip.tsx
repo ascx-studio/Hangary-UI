@@ -1,6 +1,5 @@
 "use client";
 
-import { typography } from "../lib/typography.shared";
 import {
   cloneElement,
   useEffect,
@@ -140,7 +139,7 @@ export function Tooltip({
               {description && (
                 <p
                   className={cn(
-                    typography.caption,
+                    "typography-caption",
                     title && "mt-1.5",
                   )}
                 >

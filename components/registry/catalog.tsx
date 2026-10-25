@@ -1,4 +1,3 @@
-import { typography } from "@/registry/lib/typography.shared";
 import { AspectRatio } from "@/registry/components/aspect-ratio";
 import { getRegistryItemHref, getRegistryItems, type RegistryCategory } from "@/lib/registry";
 import Image from "next/image";
@@ -28,7 +27,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
     <div className="mt-8">
       {groups.map(group => (
         <section key={group.title || "all"} className="mt-12 first:mt-0" aria-label={group.title || category}>
-          {group.title && <h2 className={typography.sectionTitle}>{group.title} [{group.items.length}]</h2>}
+          {group.title && <h2 className={"typography-section-title"}>{group.title} [{group.items.length}]</h2>}
           <ul className="mt-6 grid items-stretch gap-x-0 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((item, index) => (
               <li
@@ -47,7 +46,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                       />
                     </AspectRatio>
                   </SharedPreviewLayout>
-                  <h3 className={`mt-5 ${typography.sectionTitle}`}>{item.title}</h3>
+                  <h3 className={`mt-5 typography-section-title`}>{item.title}</h3>
                 </Link>
               </li>
             ))}

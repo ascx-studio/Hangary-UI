@@ -39,11 +39,6 @@
           "target": "@components/hangry-ui/components/spotlight-reveal.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "public/wordmark.svg",
           "type": "registry:file",
           "target": "public/wordmark.svg"
@@ -67,6 +62,46 @@
       ],
       "meta": {
         "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -89,11 +124,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -102,6 +132,46 @@
       ],
       "meta": {
         "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -124,11 +194,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -137,6 +202,46 @@
       ],
       "meta": {
         "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -159,11 +264,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -172,6 +272,46 @@
       ],
       "meta": {
         "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -196,11 +336,6 @@
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "public/1.png",
           "type": "registry:file",
           "target": "public/1.png"
@@ -211,6 +346,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -228,11 +403,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -240,6 +410,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -262,11 +472,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -274,6 +479,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -337,11 +582,6 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -350,6 +590,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -384,11 +664,6 @@
           "target": "public/3.png"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "public/1.png",
           "type": "registry:file",
           "target": "public/1.png"
@@ -399,6 +674,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -431,11 +746,6 @@
           "path": "public/1.png",
           "type": "registry:file",
           "target": "public/1.png"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -443,6 +753,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -537,11 +887,6 @@
           "path": "registry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -550,6 +895,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -611,11 +996,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -624,7 +1004,47 @@
       "dependencies": [
         "cn@^0.2.6",
         "motion@^14.3.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "bottom-sheet",
@@ -646,11 +1066,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -659,6 +1074,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -724,16 +1179,51 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -756,11 +1246,6 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -770,6 +1255,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -787,11 +1312,6 @@
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -804,6 +1324,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -848,11 +1408,6 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "registry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
@@ -865,7 +1420,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "footer-minimal",
@@ -884,11 +1479,6 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "registry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
@@ -901,7 +1491,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "footer-stacked",
@@ -925,11 +1555,6 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "registry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
@@ -942,7 +1567,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "kbd",
@@ -971,11 +1636,6 @@
           "path": "registry/components/lightbox.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/lightbox.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -984,6 +1644,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -1018,11 +1718,6 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "public/logo.svg",
           "type": "registry:file",
           "target": "public/logo.svg"
@@ -1035,7 +1730,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "login-minimal",
@@ -1064,11 +1799,6 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "public/logo.svg",
           "type": "registry:file",
           "target": "public/logo.svg"
@@ -1081,7 +1811,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "login-split",
@@ -1115,11 +1885,6 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "public/logo.svg",
           "type": "registry:file",
           "target": "public/logo.svg"
@@ -1132,7 +1897,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "logo-animation",
@@ -1218,11 +2023,6 @@
           "path": "registry/components/tooltip.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tooltip.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -1231,7 +2031,47 @@
       "dependencies": [
         "cn@^0.2.6",
         "motion@^14.3.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "outline",
@@ -1243,11 +2083,6 @@
           "path": "registry/components/outline.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/outline.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -1255,6 +2090,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -1289,11 +2164,6 @@
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "registry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
@@ -1306,7 +2176,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "navbar-aligned",
@@ -1340,11 +2250,6 @@
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "registry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
@@ -1357,7 +2262,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "navbar-floating",
@@ -1391,11 +2336,6 @@
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
-        },
-        {
           "path": "registry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
@@ -1408,7 +2348,47 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "pricing",
@@ -1435,11 +2415,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -1448,7 +2423,47 @@
       "dependencies": [
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "pricing-compact",
@@ -1475,11 +2490,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -1488,7 +2498,47 @@
       "dependencies": [
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "pricing-comparison",
@@ -1515,11 +2565,6 @@
           "path": "registry/components/table.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/table.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -1528,7 +2573,47 @@
       "dependencies": [
         "cn@^0.2.6",
         "lucide-react@^1.48.0"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "sme-background",
@@ -1695,11 +2780,6 @@
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "dependencies": [
@@ -1707,6 +2787,46 @@
       ],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -1724,11 +2844,6 @@
           "path": "registry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
@@ -1736,7 +2851,47 @@
       },
       "dependencies": [
         "cn@^0.2.6"
-      ]
+      ],
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
     },
     {
       "name": "not-found",
@@ -1758,15 +2913,76 @@
           "path": "registry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
-        },
-        {
-          "path": "registry/lib/typography.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/lib/typography.shared.ts"
         }
       ],
       "meta": {
         "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-subsection-title": {
+          "font-size": "1.25rem",
+          "line-height": "1.75rem",
+          "font-weight": "600"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        },
+        "@utility typography-caption": {
+          "font-size": "0.875rem",
+          "line-height": "1.5rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
+    },
+    {
+      "name": "accordion",
+      "title": "Accordion",
+      "description": "Composable expandable sections with native keyboard interaction and single or multiple open items.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/accordion.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/accordion.tsx"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6"
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     }
   ]

@@ -1,6 +1,5 @@
 import { memo, type ComponentProps } from "react";
 import { Button } from "../components/button";
-import { typography } from "../lib/typography.shared";
 
 export type NotFoundProps = ComponentProps<"section"> & {
   title?: string;
@@ -48,8 +47,8 @@ export const NotFoundLayout = memo(function NotFoundLayout({
         </div>
         <div className={split ? "flex flex-col justify-center px-6 py-12 sm:px-10 sm:py-20" : terminal ? "max-w-lg" : "mx-auto max-w-lg text-center"}>
           <p className="mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase">404 / Page not found</p>
-          <h2 className={typography.sectionTitle}>{title}</h2>
-          <p className={`mt-4 ${typography.body}`}>{description}</p>
+          <h2 className={"typography-section-title"}>{title}</h2>
+          <p className={`mt-4 typography-body`}>{description}</p>
           <div className={`mt-8 flex flex-wrap gap-3 ${!split && !terminal ? "justify-center" : ""}`}>
             <Button href={homeHref}>{homeLabel}<span aria-hidden="true">↗</span></Button>
             {secondaryHref && <Button href={secondaryHref} variant="ghost">{secondaryLabel}</Button>}

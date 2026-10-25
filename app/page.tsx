@@ -7,7 +7,6 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { ReactDark, Nextjs, TailwindCSS, MotionDark } from "@ridemountainpig/svgl-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteDescription, siteUrl } from "@/lib/seo";
-import { typography } from "@/registry/lib/typography.shared";
 import { contactEmail } from "@/lib/site-content";
 
 export default function Page() {
@@ -82,7 +81,7 @@ export default function Page() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
               >
-              <p className={`mt-7 max-w-xl text-balance ${typography.body}`}>
+              <p className={`mt-7 max-w-xl text-balance typography-body`}>
                 React components, blocks, and shaders crafted with Motion.
                 Build expressive interfaces with details worth slowing down for.
               </p>

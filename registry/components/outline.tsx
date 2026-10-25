@@ -5,7 +5,6 @@ import { LazyMotion, domMax, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { typography } from "../lib/typography.shared";
 
 export interface OutlineItem {
   id: string;
@@ -103,7 +102,7 @@ export const Outline = memo(function Outline({
   return (
     <LazyMotion features={domMax} strict>
     <nav aria-label={title} className={`w-56 ${className}`} {...props}>
-      <h2 className={`mb-3 ${typography.label} ${variant === "sidebar" ? "text-muted-foreground/80" : ""}`}>{title}</h2>
+      <h2 className={`mb-3 typography-label ${variant === "sidebar" ? "text-muted-foreground/80" : ""}`}>{title}</h2>
       <m.ul
         initial={variant === "sidebar" && !reducedMotion ? "hidden" : false}
         animate={variant === "sidebar" ? "visible" : undefined}

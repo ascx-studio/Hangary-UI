@@ -8,7 +8,6 @@ import { Button } from "@/registry/components/button";
 import { LogoAnimation } from "@/registry/components/logo-animation";
 import Logo from "@/components/ui/Logo";
 import Container from "@/components/layout/Container";
-import { typography } from "@/registry/lib/typography.shared";
 
 export default function HomeHero() {
   const [logoFinished, setLogoFinished] = useState(false);
@@ -33,7 +32,7 @@ export default function HomeHero() {
           Interfaces that move,
           Details that delight.
         </h1>
-        <p className={`mt-7 max-w-xl text-balance ${typography.body}`}>
+        <p className={`mt-7 max-w-xl text-balance typography-body`}>
           React components, blocks, and shaders crafted with Motion.
           Build expressive interfaces with details worth slowing down for.
         </p>

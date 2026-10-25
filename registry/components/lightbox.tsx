@@ -4,7 +4,6 @@ import { memo, useEffect, useRef, useState, type ComponentProps } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
 import { X } from "lucide-react";
-import { typography } from "../lib/typography.shared";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -119,7 +118,7 @@ export const Lightbox = memo(function Lightbox({
               />
             </button>
           </div>
-          {caption && <p className={`${typography.caption} text-center text-white`}>{caption}</p>}
+          {caption && <p className={`typography-caption text-center text-white`}>{caption}</p>}
         </motion.div>
       </dialog>
     </>

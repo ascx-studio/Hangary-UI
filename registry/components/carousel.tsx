@@ -7,7 +7,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "cn";
 import { Button } from "./button";
 import { AspectRatio } from "./aspect-ratio";
-import { typography } from "../lib/typography.shared";
 
 interface CarouselProps {
   children?: ReactNode;
@@ -64,7 +63,7 @@ export const Carousel = memo(function Carousel({
               role="group"
               aria-roledescription="slide"
               aria-label={`${index + 1} of ${slides.length}`}
-              className={cn("absolute inset-0 flex touch-pan-y items-center justify-center will-change-transform", typography.sectionTitle)}
+              className={cn("absolute inset-0 flex touch-pan-y items-center justify-center will-change-transform", "typography-section-title")}
               custom={navigation.direction}
               variants={{
                 enter: { opacity: 0, scale: reducedMotion ? 1 : 0.98 },

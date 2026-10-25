@@ -2,7 +2,6 @@ import { memo, useId, type ComponentProps, type ReactNode } from "react";
 import { Plus } from "lucide-react";
 import { cn } from "cn";
 import { Card } from "../components/card";
-import { typography } from "../lib/typography.shared";
 
 export interface FaqItem {
   id: string;
@@ -34,12 +33,12 @@ const FaqEntry = memo(function FaqEntry({ item, name, defaultOpen, card }: {
   const content = (
     <details name={name} open={defaultOpen || undefined} className="group/faq">
       <summary className="cursor-pointer list-none px-5 py-5 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
-        <h3 className={cn(typography.subsectionTitle, "flex items-start justify-between gap-5")}>
+        <h3 className={cn("typography-subsection-title", "flex items-start justify-between gap-5")}>
           <span>{item.question}</span>
           <Plus aria-hidden="true" className="mt-1 size-5 shrink-0 text-muted-foreground group-open/faq:rotate-45 group-open/faq:text-foreground" />
         </h3>
       </summary>
-      <div className={cn("px-5 pb-5", typography.body)}>{item.answer}</div>
+      <div className={cn("px-5 pb-5", "typography-body")}>{item.answer}</div>
     </details>
   );
 
@@ -71,8 +70,8 @@ export const FaqLayout = memo(function FaqLayout({
     >
       <div className={split ? "grid items-start gap-8 @3xl:grid-cols-[2fr_3fr]" : "space-y-8"}>
       <header className={split ? "space-y-3" : "mx-auto max-w-xl space-y-3 text-center"}>
-        <h2 id={`${id}-title`} className={typography.sectionTitle}>{title}</h2>
-        {description && <p className={typography.body}>{description}</p>}
+        <h2 id={`${id}-title`} className={"typography-section-title"}>{title}</h2>
+        {description && <p className={"typography-body"}>{description}</p>}
       </header>
       <div className={layout === "cards" ? "grid gap-3" : "divide-y divide-border border-y border-border"}>
         {items.map(item => (
