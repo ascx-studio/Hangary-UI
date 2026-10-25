@@ -1,4 +1,5 @@
 import registry from "@/registry.json";
+import type { RegistryItem } from "@/lib/registry";
 import { homeOverview, informationPages } from "@/lib/site-content";
 
 const base = registry.homepage.replace(/\/$/, "");
@@ -37,7 +38,7 @@ export function markdownPage(pathname: string): string | undefined {
   }
   const [, category, name, ...extra] = path.split("/");
   if (!["components", "blocks", "shader"].includes(category) || extra.length) return undefined;
-  const items = registry.items.filter(item => item.meta?.category === category);
+  const items: RegistryItem[] = registry.items.filter(item => item.meta?.category === category);
   if (!name) {
     return [`# Hangry UI ${category === "shader" ? "shaders" : category}`, "", "Live previews, installation instructions, and documented source code.", "", ...items.map(item => `- ${link(item.title, `/${category}/${item.meta?.documentationPage ?? item.name}${item.meta?.documentationPage ? `#${item.name}` : ""}`)}: ${item.description}`), ""].join("\n");
   }

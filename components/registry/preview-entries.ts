@@ -16,10 +16,19 @@ import { ScaleCard } from "@/registry/components/scale-card";
 import { CardStack } from "@/registry/components/card-stack";
 import { ToastDemo } from "@/components/registry/toast-demo";
 import { IPhone17 } from "@/registry/components/iphone-17";
+import { FrameCard } from "@/registry/components/frame-card";
+import { BracketCard } from "@/registry/components/bracket-card";
+import { CornerCard } from "@/registry/components/corner-card";
+import { StripedCard } from "@/registry/components/striped-card";
+import { Faq } from "@/registry/blocks/faq";
+import { FaqCards } from "@/registry/blocks/faq-cards";
+import { FaqSplit } from "@/registry/blocks/faq-split";
+import { GuideCard } from "@/registry/components/guide-card";
 import { Card } from "@/registry/components/card";
 import { Carousel } from "@/registry/components/carousel";
 import { CodeBlock } from "@/registry/components/code-block";
 import { DotGridBackground } from "@/registry/shader/dot-grid-background";
+import { FooterMain } from "@/registry/blocks/footer-main";
 import { Footer } from "@/registry/blocks/footer";
 import { FooterMinimal } from "@/registry/blocks/footer-minimal";
 import { FooterStacked } from "@/registry/blocks/footer-stacked";
@@ -48,7 +57,19 @@ import { WordmarkLightRay } from "@/registry/shader/wordmark-light-ray";
 import { Tabs } from "@/registry/components/tabs";
 import { Tooltip } from "@/registry/components/tooltip";
 
+import { NotFound } from "@/registry/blocks/not-found";
+
 export const previewEntries = {
+  "not-found": { component: NotFound, category: "blocks" },
+  "guide-card": { component: GuideCard, category: "components" },
+  "footer-main": { component: FooterMain, category: "blocks" },
+  "faq": { component: Faq, category: "blocks" },
+  "faq-cards": { component: FaqCards, category: "blocks" },
+  "faq-split": { component: FaqSplit, category: "blocks" },
+  "striped-card": { component: StripedCard, category: "components" },
+  "bracket-card": { component: BracketCard, category: "components" },
+  "corner-card": { component: CornerCard, category: "components" },
+  "frame-card": { component: FrameCard, category: "components" },
   "iphone-17": { component: IPhone17, category: "components" },
   "toast": { component: ToastDemo, category: "components" },
   "card-stack": { component: CardStack, category: "components" },

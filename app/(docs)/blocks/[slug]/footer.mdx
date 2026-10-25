@@ -2,8 +2,6 @@ import { Card } from "@/registry/components/card";
 import { Footer } from "@/registry/blocks/footer";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
-import { FooterMinimal } from "@/registry/blocks/footer-minimal";
-import { FooterStacked } from "@/registry/blocks/footer-stacked";
 
 <ComponentPreview id="footer">
   <div className="flex h-full min-w-0 w-full flex-col">
@@ -12,6 +10,7 @@ import { FooterStacked } from "@/registry/blocks/footer-stacked";
   </div>
 </ComponentPreview>
 
+<DocsReveal>
 # Footer
 
 A footer with grouped link columns, brand details, and an optional card callout.
@@ -34,114 +33,28 @@ import { Footer } from "@/components/hangry-ui/blocks/footer";
   brand="Acme"
   description="Tools for your next idea."
   copyright="© 2026 Acme"
-  githubHref="https://github.com/acme"
+  githubHref="#github"
   groups={[
-    { title: "Company", links: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
+    { title: "Pages", links: [
+      { label: "Home", href: "#home" },
+      { label: "Components", href: "#components" },
+      { label: "Blocks", href: "#blocks" },
+    ] },
+    { title: "More", links: [
+      { label: "Shaders", href: "#shaders" },
+      { label: "Sponsor", href: "#sponsor" },
+      { label: "Privacy", href: "#privacy" },
     ] },
   ]}
   callout={{
     title: "Build something new",
     description: "Explore the component collection.",
     label: "Get started",
-    href: "/components",
+    href: "#components",
   }}
 />
 ```
+## Sample navigation
 
----
-
-<ComponentPreview id="footer-minimal">
-  <div className="flex h-full min-w-0 w-full flex-col">
-    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-b-0 p-0!" />
-    <FooterMinimal />
-  </div>
-</ComponentPreview>
-
-## Footer
-
-A compact footer with inline navigation and a copyright bar.
-
-### Installation
-
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
-}} />
-
-### Usage
-
-```tsx
-import { FooterMinimal } from "@/components/hangry-ui/blocks/footer-minimal";
-
-<FooterMinimal
-  brand="Acme"
-  description="Tools for your next idea."
-  copyright="© 2026 Acme"
-  githubHref="https://github.com/acme"
-  groups={[
-    { title: "Company", links: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
-    ] },
-  ]}
-  callout={{
-    title: "Build something new",
-    description: "Explore the component collection.",
-    label: "Get started",
-    href: "/components",
-  }}
-/>
-```
-
----
-
-<ComponentPreview id="footer-stacked">
-  <div className="flex h-full min-w-0 w-full flex-col">
-    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-b-0 p-0!" />
-    <FooterStacked />
-  </div>
-</ComponentPreview>
-
-<DocsReveal>
-## Footer
-
-A centered footer with stacked brand details and navigation.
-
-### Installation
-
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-}} />
-
-### Usage
-
-```tsx
-import { FooterStacked } from "@/components/hangry-ui/blocks/footer-stacked";
-
-<FooterStacked
-  brand="Acme"
-  description="Tools for your next idea."
-  copyright="© 2026 Acme"
-  githubHref="https://github.com/acme"
-  groups={[
-    { title: "Company", links: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
-    ] },
-  ]}
-  callout={{
-    title: "Build something new",
-    description: "Explore the component collection.",
-    label: "Get started",
-    href: "/components",
-  }}
-/>
-```
+The default page labels match the main footer: Home, Components, Blocks, Shaders, Sponsor, and Privacy. Fragment URLs keep the demo on the current page. Replace them with your own routes when using the block.
 </DocsReveal>

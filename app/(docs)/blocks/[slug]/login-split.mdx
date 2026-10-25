@@ -1,0 +1,35 @@
+import { LoginSplit } from "@/registry/blocks/login-split";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview id="login-split" className="h-full w-full p-0 sm:p-0"><LoginSplit /></ComponentPreview>
+
+<DocsReveal>
+# Login Split
+
+A login form beside a brand and testimonial panel.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/login-split.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/login-split.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/login-split.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/login-split.json",
+}} />
+
+## Usage
+
+```tsx
+"use client";
+
+import type { ComponentProps } from "react";
+import { LoginSplit } from "@/components/hangry-ui/blocks/login-split";
+
+// Pass your application's authentication handlers to this form.
+export function SignIn(props: Pick<ComponentProps<typeof LoginSplit>,
+  "onSubmit" | "onProviderLogin" | "loading" | "error">) {
+  return <LoginSplit brand="Acme" {...props} />;
+}
+```
+</DocsReveal>

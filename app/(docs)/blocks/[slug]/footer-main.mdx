@@ -1,0 +1,68 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { FooterMain } from "@/registry/blocks/footer-main";
+
+<ComponentPreview className="grid-cols-1 *:max-w-full!">
+  <div className="w-full"><FooterMain /></div>
+</ComponentPreview>
+
+<DocsReveal>
+# Footer Main
+
+The footer used on the Hangry UI homepage, with page navigation, Ask AI links, social links, credits, and a large spotlight wordmark. The live site and this preview use the same block.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
+}} />
+
+## Usage
+
+```tsx
+import { FooterMain } from "@/components/hangry-ui/blocks/footer-main";
+
+<FooterMain />
+```
+
+```tsx
+<FooterMain
+  logoSrc="/my-wordmark.svg"
+  artSrc="/my-footer-art.svg"
+  copyright="© 2026 Acme."
+  homeHref="#home"
+  githubHref="#github"
+  xHref="#x"
+  sponsorHref="#sponsor"
+  groups={[
+    { title: "Explore", links: [
+      { label: "Home", href: "#home" },
+      { label: "About", href: "#about" },
+    ] },
+  ]}
+  quickLinks={[
+    { label: "Privacy", href: "#privacy" },
+  ]}
+/>
+```
+
+## Props
+
+- `homeHref`, `githubHref`, `xHref`, `sponsorHref`: Brand and social destinations. Defaults are sample fragment links.
+- `groups`: Navigation columns with `title` and `links`. Defaults to the site’s Pages, Ask AI, and Connect groups.
+- `quickLinks`: Links in the lower navigation row.
+- `logoSrc`: Header wordmark. Defaults to `/wordmark.svg`.
+- `artSrc`: Large footer artwork used by SpotlightReveal. Defaults to `/footerart.svg`.
+- `copyright`: Copyright text.
+- `className`: Additional footer classes. Add `md:sticky` to use the site’s sticky positioning.
+- Native footer attributes are forwarded to the footer element.
+
+## Setup notes
+
+Uses Next.js Link and Image, shared typography, Lucide and SVGL icons, Motion, and the existing SpotlightReveal component. The installation includes the wordmark and footer artwork. Default page labels match the main site, but sample links use local fragments. Supply your own routes and social destinations when using the block.
+
+Columns stack on narrow screens. Decorative artwork is hidden from assistive technology. Motion reveal and spotlight effects respect reduced-motion preferences. The footer itself remains server-compatible.
+</DocsReveal>

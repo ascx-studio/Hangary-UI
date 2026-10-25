@@ -1,4 +1,4 @@
-import { memo, useId } from "react";
+import { memo, useId, type ReactNode } from "react";
 
 const finishes = {
   sage: { body: "#bdc8b2", edge: "#747e6b", light: "#e6ebdf", accent: "#789479" },
@@ -12,19 +12,21 @@ interface IPhone17Props {
   color?: keyof typeof finishes;
   className?: string;
   label?: string;
+  children?: ReactNode;
 }
 
 export const IPhone17 = memo(function IPhone17({
   color = "sage",
   className = "",
   label = "iPhone 17 front illustration",
+  children,
 }: IPhone17Props = {}) {
   const id = useId();
   const finish = finishes[color];
   const ref = (name: string) => `url(#${id}-${name})`;
 
   return (
-    <svg role="img" aria-labelledby={`${id}-title`} viewBox="0 0 360 666" fill="none" className={`mx-auto h-auto w-full max-w-sm ${className}`}>
+    <svg role={children != null ? "group" : "img"} aria-labelledby={`${id}-title`} viewBox="0 0 360 666" fill="none" className={`mx-auto h-auto w-full max-w-sm ${className}`}>
       <title id={`${id}-title`}>{label}</title>
       <defs>
         <linearGradient id={`${id}-frame`} x1="0" y1="0" x2="280" y2="580" gradientUnits="userSpaceOnUse">
@@ -59,19 +61,29 @@ export const IPhone17 = memo(function IPhone17({
         <rect width="280" height="586" rx="47" fill={ref("frame")} stroke={finish.light} strokeOpacity="0.6" />
         <rect x="4" y="4" width="272" height="578" rx="43" fill="#080a09" stroke="#151a17" />
         <g clipPath={ref("display")}>
-          <rect x="11" y="11" width="258" height="564" fill={ref("screen")} />
-          <path d="M-60 465C10 205 199 191 279 316c66 103-57 188-141 159-86-30-38-132 29-104 43 18 7 70-19 51" stroke={ref("ribbon")} strokeWidth="91" />
-          <path d="M-60 465C10 205 199 191 279 316c66 103-57 188-141 159-86-30-38-132 29-104 43 18 7 70-19 51" stroke={finish.light} strokeOpacity="0.65" strokeWidth="2" />
-          <rect x="11" y="11" width="258" height="564" fill={ref("glass")} />
-          <text x="140" y="106" textAnchor="middle" fill="#1c302b" fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="500">Wednesday, September 17</text>
-          <text x="140" y="177" textAnchor="middle" fill="#1c302b" fontFamily="system-ui, sans-serif" fontSize="74" fontWeight="600" letterSpacing="-5">9:41</text>
-          <g fill="#fff" fillOpacity="0.16" stroke="#fff" strokeOpacity="0.2">
-            <circle cx="53" cy="527" r="19" /><circle cx="227" cy="527" r="19" />
-          </g>
-          <path d="M49 521h8l-2 5v9h-4v-9l-2-5Zm1-3h6" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
-          <rect x="218" y="522" width="18" height="12" rx="3" stroke="white" strokeWidth="1.5" />
-          <circle cx="227" cy="528" r="3.5" stroke="white" strokeWidth="1.5" />
-          <rect x="221" y="519" width="6" height="3" rx="1" fill="white" />
+          {children != null ? (
+            <foreignObject x="11" y="11" width="258" height="564">
+              <div data-slot="iphone-screen" className="h-full w-full overflow-y-auto bg-background text-foreground [scrollbar-width:none]">
+                {children}
+              </div>
+            </foreignObject>
+          ) : (
+            <g>
+              <rect x="11" y="11" width="258" height="564" fill={ref("screen")} />
+              <path d="M-60 465C10 205 199 191 279 316c66 103-57 188-141 159-86-30-38-132 29-104 43 18 7 70-19 51" stroke={ref("ribbon")} strokeWidth="91" />
+              <path d="M-60 465C10 205 199 191 279 316c66 103-57 188-141 159-86-30-38-132 29-104 43 18 7 70-19 51" stroke={finish.light} strokeOpacity="0.65" strokeWidth="2" />
+              <rect x="11" y="11" width="258" height="564" fill={ref("glass")} />
+              <text x="140" y="106" textAnchor="middle" fill="#1c302b" fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="500">Wednesday, September 17</text>
+              <text x="140" y="177" textAnchor="middle" fill="#1c302b" fontFamily="system-ui, sans-serif" fontSize="74" fontWeight="600" letterSpacing="-5">9:41</text>
+              <g fill="#fff" fillOpacity="0.16" stroke="#fff" strokeOpacity="0.2">
+                <circle cx="53" cy="527" r="19" /><circle cx="227" cy="527" r="19" />
+              </g>
+              <path d="M49 521h8l-2 5v9h-4v-9l-2-5Zm1-3h6" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
+              <rect x="218" y="522" width="18" height="12" rx="3" stroke="white" strokeWidth="1.5" />
+              <circle cx="227" cy="528" r="3.5" stroke="white" strokeWidth="1.5" />
+              <rect x="221" y="519" width="6" height="3" rx="1" fill="white" />
+            </g>
+          )}
         </g>
         <rect x="97" y="21" width="86" height="25" rx="12.5" fill="#030504" />
         <circle cx="170" cy="33.5" r="5" fill={ref("lens")} />

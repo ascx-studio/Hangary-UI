@@ -1,0 +1,46 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { StripedCard } from "@/registry/components/striped-card";
+
+<ComponentPreview className="grid-cols-1 py-24! px-12! sm:px-16! *:m-0! *:max-w-full!">
+  <StripedCard />
+</ComponentPreview>
+
+<DocsReveal>
+# Striped Card
+
+An image card surrounded by four diagonal striped bands. The bands extend past the corners, cross each other, and fade softly at their ends.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
+}} />
+
+## Usage
+
+```tsx
+import { StripedCard } from "@/components/hangry-ui/components/striped-card";
+
+<div className="overflow-hidden px-12 py-24">
+  <StripedCard src="/1.png" alt="Glowing white butterflies" />
+</div>
+```
+
+## Props
+
+- `src`: Image URL. Defaults to `/1.png` from the public directory.
+- `alt`: Image description. Supply alt text matching your own artwork.
+- `children`: Optional React content instead of the image.
+- `className`: Additional classes on the wrapper. Defaults to 288px wide with a 9:10 image ratio.
+- Native div attributes are forwarded to the wrapper.
+
+## Setup notes
+
+Uses the existing Card and AspectRatio components. Stripes follow the border token and work in light and dark themes. The decorative bands do not intercept pointer events and are hidden from assistive technology.
+
+Leave space around the card for the extended stripes and clip overflow on the surrounding section when needed. This static component is memoized and server-compatible, with no animation dependency.
+</DocsReveal>

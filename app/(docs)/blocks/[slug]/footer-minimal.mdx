@@ -1,0 +1,60 @@
+import { Card } from "@/registry/components/card";
+import { FooterMinimal } from "@/registry/blocks/footer-minimal";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview id="footer-minimal">
+  <div className="flex h-full min-w-0 w-full flex-col">
+    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-b-0 p-0!" />
+    <FooterMinimal />
+  </div>
+</ComponentPreview>
+
+<DocsReveal>
+# Footer Minimal
+
+A compact footer with inline navigation and a copyright bar.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/footer-minimal.json",
+}} />
+
+## Usage
+
+```tsx
+import { FooterMinimal } from "@/components/hangry-ui/blocks/footer-minimal";
+
+<FooterMinimal
+  brand="Acme"
+  description="Tools for your next idea."
+  copyright="© 2026 Acme"
+  githubHref="#github"
+  groups={[
+    { title: "Pages", links: [
+      { label: "Home", href: "#home" },
+      { label: "Components", href: "#components" },
+      { label: "Blocks", href: "#blocks" },
+    ] },
+    { title: "More", links: [
+      { label: "Shaders", href: "#shaders" },
+      { label: "Sponsor", href: "#sponsor" },
+      { label: "Privacy", href: "#privacy" },
+    ] },
+  ]}
+  callout={{
+    title: "Build something new",
+    description: "Explore the component collection.",
+    label: "Get started",
+    href: "#components",
+  }}
+/>
+```
+## Sample navigation
+
+The default page labels match the main footer: Home, Components, Blocks, Shaders, Sponsor, and Privacy. Fragment URLs keep the demo on the current page. Replace them with your own routes when using the block.
+</DocsReveal>

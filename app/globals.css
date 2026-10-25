@@ -210,6 +210,14 @@ overscroll-behavior: none;
   * {
     @apply border-border outline-ring/50;
   }
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);

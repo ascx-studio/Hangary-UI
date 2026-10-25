@@ -1,11 +1,13 @@
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
+import { Carousel } from "@/registry/components/carousel";
 import { IPhone17 } from "@/registry/components/iphone-17";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/tabs";
 
 <ComponentPreview className="grid-cols-1 px-6! py-8! *:max-w-full!">
-  <Tabs defaultValue="sage" className="w-full items-center">
+  <Tabs defaultValue="custom" className="w-full items-center">
     <TabsList variant="line" aria-label="iPhone finish" className="max-w-full flex-wrap justify-center">
+      <TabsTrigger value="custom">Carousel</TabsTrigger>
       <TabsTrigger value="sage">Sage</TabsTrigger>
       <TabsTrigger value="lavender">Lavender</TabsTrigger>
       <TabsTrigger value="mist-blue">Mist Blue</TabsTrigger>
@@ -17,13 +19,24 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/
     <TabsContent value="mist-blue" className="w-full"><IPhone17 color="mist-blue" /></TabsContent>
     <TabsContent value="black" className="w-full"><IPhone17 color="black" /></TabsContent>
     <TabsContent value="white" className="w-full"><IPhone17 color="white" /></TabsContent>
+    <TabsContent value="custom" className="w-full">
+      <IPhone17 color="black" label="Interactive carousel inside an iPhone 17">
+        <div className="h-full">
+          <Carousel label="iPhone art gallery" className="relative h-full max-w-none! [&>[data-slot=aspect-ratio]]:h-full [&>[data-slot=aspect-ratio]]:aspect-auto [&>[data-slot=aspect-ratio]]:border-0 [&>div:nth-child(2)]:absolute [&>div:nth-child(2)]:inset-x-3 [&>div:nth-child(2)]:bottom-6 [&>div:nth-child(2)]:z-10 [&>div:nth-child(2)]:mt-0 [&>div:nth-child(2)]:bg-black/50 [&>div:nth-child(2)]:px-2 [&>div:nth-child(2)]:text-white">
+            <img src="/1.png" alt="Luminous white butterflies" draggable={false} className="h-full w-full object-cover" />
+            <img src="/2.png" alt="Abstract swirling white light" draggable={false} className="h-full w-full object-cover" />
+            <img src="/3.png" alt="Stars and a glowing nebula" draggable={false} className="h-full w-full object-cover" />
+          </Carousel>
+        </div>
+      </IPhone17>
+    </TabsContent>
   </Tabs>
 </ComponentPreview>
 
 <DocsReveal>
 # iPhone 17
 
-A detailed SVG illustration with a front-facing view, a contoured frame, glass reflections, Dynamic Island, and an original lock-screen wallpaper.
+A front-facing iPhone frame with a customizable screen. Pass React children to display your own app, image, video, or interactive content; the original lock screen appears when no children are supplied.
 
 ## Installation
 
@@ -40,18 +53,26 @@ A detailed SVG illustration with a front-facing view, a contoured frame, glass r
 import { IPhone17 } from "@/components/hangry-ui/components/iphone-17";
 
 <IPhone17 />
-<IPhone17 color="lavender" className="max-w-lg" />
+<IPhone17 color="lavender" label="My app preview">
+  <div className="min-h-full bg-background p-5 pb-10 pt-16">
+    <h2>Welcome to my app</h2>
+    <p>Your own content goes here.</p>
+  </div>
+</IPhone17>
 ```
+
+The screen scrolls independently when content is taller than the display. Use top and bottom padding to leave space for the Dynamic Island and home indicator. Links, buttons, and form controls inside the screen remain interactive. For state and event handlers, pass a Client Component as children; the phone frame itself remains server-compatible.
 
 ## Props
 
 - `color`: `"sage"`, `"lavender"`, `"mist-blue"`, `"black"`, or `"white"`. Defaults to `"sage"`.
+- `children`: React content for the screen. Omit it to show the default wallpaper and clock.
 - `className`: Additional SVG classes. The illustration scales to its container with a 384px maximum width.
 - `label`: Accessible image description. Defaults to `"iPhone 17 front illustration"`.
 
 ## Setup notes
 
-The illustration is inspired by the standard iPhone 17, using [Apple’s design and finish references](https://www.apple.com/iphone-17/specs/). This is stylized artwork rather than a product render. The frame, front camera, wallpaper, and controls are all SVG, with no image downloads or extra dependencies.
+The illustration is inspired by the standard iPhone 17, using [Apple’s design and finish references](https://www.apple.com/iphone-17/specs/). This is stylized artwork rather than a product render. The frame and default lock screen are SVG. Custom screen content renders as HTML inside a clipped SVG foreignObject, with no extra dependencies.
 
-This static component is server-compatible and uses unique SVG identifiers for each instance. It has a transparent background and scales without losing sharpness.
+The frame is server-compatible and uses unique SVG identifiers for each instance. It has a transparent background and scales without losing sharpness.
 </DocsReveal>

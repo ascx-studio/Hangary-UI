@@ -70,6 +70,30 @@
           "description": "A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer."
         },
         {
+          "label": "Frame Card",
+          "slug": "frame-card",
+          "description": "A bordered card with inset guide lines and corner dots, used around component demos.",
+          "group": "Cards"
+        },
+        {
+          "label": "Guide Card",
+          "slug": "guide-card",
+          "description": "A minimal card with extended guide lines, gapped intersections, and small cross marks.",
+          "group": "Cards"
+        },
+        {
+          "label": "Bracket Card",
+          "slug": "bracket-card",
+          "description": "A dashed inner border with four crisp corner brackets.",
+          "group": "Cards"
+        },
+        {
+          "label": "Corner Card",
+          "slug": "corner-card",
+          "description": "A minimal open frame with long, thin corner brackets.",
+          "group": "Cards"
+        },
+        {
           "label": "Card Stack",
           "slug": "card-stack",
           "description": "Square-edged cards with fine borders and stacked background layers.",
@@ -79,6 +103,12 @@
           "label": "Scale Card",
           "slug": "scale-card",
           "description": "A portrait card framed by fading ruler marks on all four sides.",
+          "group": "Cards"
+        },
+        {
+          "label": "Striped Card",
+          "slug": "striped-card",
+          "description": "An image card with extended diagonal striped borders and fading ends.",
           "group": "Cards"
         },
         {
@@ -114,7 +144,7 @@
         {
           "label": "iPhone 17",
           "slug": "iphone-17",
-          "description": "A front-facing SVG illustration of iPhone 17 in five finishes.",
+          "description": "A front-facing iPhone 17 frame with a customizable screen and five finishes.",
           "group": "Illustrations"
         },
         {
@@ -183,9 +213,39 @@
           "group": "Navigation & Layout"
         },
         {
+          "label": "Navbar Aligned",
+          "slug": "navbar-aligned",
+          "description": "A navbar with navigation links beside the brand.",
+          "group": "Navigation & Layout"
+        },
+        {
+          "label": "Navbar Floating",
+          "slug": "navbar-floating",
+          "description": "An inset navbar with a bordered surface and shadow.",
+          "group": "Navigation & Layout"
+        },
+        {
           "label": "Footer",
           "slug": "footer",
           "description": "Column, minimal, and stacked footer layouts.",
+          "group": "Navigation & Layout"
+        },
+        {
+          "label": "Footer Main",
+          "slug": "footer-main",
+          "description": "The Hangry UI site footer with navigation columns, social links, and spotlight artwork.",
+          "group": "Navigation & Layout"
+        },
+        {
+          "label": "Footer Minimal",
+          "slug": "footer-minimal",
+          "description": "A compact footer with inline navigation and a copyright bar.",
+          "group": "Navigation & Layout"
+        },
+        {
+          "label": "Footer Stacked",
+          "slug": "footer-stacked",
+          "description": "A centered footer with stacked brand details and navigation.",
           "group": "Navigation & Layout"
         },
         {
@@ -195,10 +255,58 @@
           "group": "Forms"
         },
         {
+          "label": "Login Split",
+          "slug": "login-split",
+          "description": "A login form beside a brand and testimonial panel.",
+          "group": "Forms"
+        },
+        {
+          "label": "Login Minimal",
+          "slug": "login-minimal",
+          "description": "An unframed login form for embedding in your own layout.",
+          "group": "Forms"
+        },
+        {
           "label": "Pricing",
           "slug": "pricing",
           "description": "A pricing card grid with featured plans and monthly or yearly billing.",
           "group": "Pricing"
+        },
+        {
+          "label": "Pricing Compact",
+          "slug": "pricing-compact",
+          "description": "Pricing plans presented as compact horizontal rows.",
+          "group": "Pricing"
+        },
+        {
+          "label": "Pricing Comparison",
+          "slug": "pricing-comparison",
+          "description": "A pricing comparison table with billing controls.",
+          "group": "Pricing"
+        },
+        {
+          "label": "FAQ",
+          "slug": "faq",
+          "description": "A divided list of frequently asked questions with expandable answers.",
+          "group": "Content"
+        },
+        {
+          "label": "FAQ Cards",
+          "slug": "faq-cards",
+          "description": "Frequently asked questions presented as individual bordered cards.",
+          "group": "Content"
+        },
+        {
+          "label": "FAQ Split",
+          "slug": "faq-split",
+          "description": "A two-column FAQ with an introduction beside the expandable questions.",
+          "group": "Content"
+        },
+        {
+          "label": "404 Centered",
+          "slug": "not-found",
+          "description": "A centered 404 page with oversized numerals and clear recovery links.",
+          "group": "Error Pages"
         }
       ]
     },

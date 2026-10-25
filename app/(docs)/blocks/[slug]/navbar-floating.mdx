@@ -1,0 +1,51 @@
+import { Card } from "@/registry/components/card";
+import { NavbarFloating } from "@/registry/blocks/navbar-floating";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview id="navbar-floating">
+  <div className="flex h-full min-w-0 w-full flex-col">
+    <NavbarFloating activeHref="#components" />
+    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
+  </div>
+</ComponentPreview>
+
+<DocsReveal>
+# Navbar Floating
+
+An inset navbar with a bordered surface and shadow.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
+}} />
+
+## Usage
+
+```tsx
+import { NavbarFloating } from "@/components/hangry-ui/blocks/navbar-floating";
+
+<NavbarFloating
+  brand="Acme"
+  badge=""
+  activeHref="#components"
+  links={[
+    { label: "Home", href: "#home" },
+    { label: "Components", href: "#components" },
+    { label: "Blocks", href: "#blocks" },
+    { label: "Shaders", href: "#shaders" },
+    { label: "Sponsor", href: "#sponsor" },
+    { label: "Privacy", href: "#privacy" },
+  ]}
+  githubHref="#github"
+  supportHref="#sponsor"
+/>
+```
+## Sample navigation
+
+The default page labels match the main footer: Home, Components, Blocks, Shaders, Sponsor, and Privacy. Fragment URLs keep the demo on the current page. Replace them with your own routes when using the block.
+</DocsReveal>

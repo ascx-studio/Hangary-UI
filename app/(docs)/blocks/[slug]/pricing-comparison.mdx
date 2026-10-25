@@ -1,0 +1,42 @@
+import { PricingComparison } from "@/registry/blocks/pricing-comparison";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview id="pricing-comparison" className="h-full w-full"><PricingComparison defaultBilling="yearly" /></ComponentPreview>
+
+<DocsReveal>
+# Pricing Comparison
+
+A pricing comparison table with billing controls.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
+}} />
+
+## Usage
+
+```tsx
+import { PricingComparison } from "@/components/hangry-ui/blocks/pricing-comparison";
+
+<PricingComparison
+  defaultBilling="yearly"
+  plans={[
+    {
+      name: "Pro",
+      description: "Everything you need to build.",
+      monthlyPrice: 19,
+      yearlyPrice: 15,
+      features: ["Unlimited projects", "Priority support"],
+      href: "/signup?plan=pro",
+      label: "Choose Pro",
+      featured: true,
+    },
+  ]}
+/>
+```
+</DocsReveal>

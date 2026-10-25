@@ -27,6 +27,7 @@ type LogoAnimationProps = {
   /** Accessible description for the logo. */
   alt?: string;
   className?: string;
+  onAnimationComplete?: () => void;
 };
 
 export const LogoAnimation = memo(function LogoAnimation({
@@ -37,6 +38,7 @@ export const LogoAnimation = memo(function LogoAnimation({
   height = size,
   alt = "Portfolio logo",
   className,
+  onAnimationComplete,
 }: LogoAnimationProps = {}) {
   const [scope, animate] = useAnimate<HTMLDivElement>();
   const reduceMotion = useReducedMotion();
@@ -44,17 +46,34 @@ export const LogoAnimation = memo(function LogoAnimation({
 
   useEffect(() => {
     const root = scope.current;
-    if (!root || reduceMotion) return;
+    if (!root) return;
+    if (reduceMotion) {
+      onAnimationComplete?.();
+      return;
+    }
+
+    let cancelled = false;
+    const notifyWhenFinished = (controls: Array<{ finished: Promise<unknown> }>) => {
+      void Promise.all(controls.map((control) => control.finished))
+        .then(() => {
+          if (!cancelled) onAnimationComplete?.();
+        })
+        .catch(() => {});
+    };
 
     const shapes = [...root.querySelectorAll<SVGGeometryElement>(SHAPE_SELECTOR)]
       .filter((shape) => !shape.closest("defs, clipPath, mask, pattern, linearGradient, radialGradient, filter"));
 
     if (shapes.length === 0) {
       const controls = animate(root, { opacity: [0, 1], scale: [0.96, 1] }, { duration: 0.45, ease: "easeOut" });
-      return () => controls.stop();
+      notifyWhenFinished([controls]);
+      return () => {
+        cancelled = true;
+        controls.stop();
+      };
     }
 
-    const controls: Array<{ stop: () => void }> = [];
+    const controls: Array<{ stop: () => void; finished: Promise<unknown> }> = [];
     const originals = shapes.map((shape) => ({
       shape,
       pathLength: shape.getAttribute("pathLength"),
@@ -88,8 +107,10 @@ export const LogoAnimation = memo(function LogoAnimation({
         { duration: 1.1, delay: index * 0.1, ease: [0.42, 0, 0.58, 1] },
       ));
     });
+    notifyWhenFinished(controls);
 
     return () => {
+      cancelled = true;
       controls.forEach((control) => control.stop());
       for (const original of originals) {
         if (original.pathLength === null) original.shape.removeAttribute("pathLength");
@@ -101,7 +122,7 @@ export const LogoAnimation = memo(function LogoAnimation({
         original.shape.style.fillOpacity = original.fillOpacity;
       }
     };
-  }, [animate, artwork, reduceMotion, scope]);
+  }, [animate, artwork, onAnimationComplete, reduceMotion, scope]);
 
   return (
     <div

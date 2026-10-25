@@ -2,7 +2,7 @@
 
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/cn";
-import { Container } from "@/components/cards/card-9";
+import { FrameCard as Container } from "@/registry/components/frame-card";
 import { usePathname } from "next/navigation";
 import SharedPreviewLayout from "@/components/registry/shared-preview-layout";
 

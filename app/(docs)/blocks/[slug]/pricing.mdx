@@ -1,11 +1,10 @@
 import { Pricing } from "@/registry/blocks/pricing";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
-import { PricingCompact } from "@/registry/blocks/pricing-compact";
-import { PricingComparison } from "@/registry/blocks/pricing-comparison";
 
 <ComponentPreview id="pricing" className="h-full w-full"><Pricing /></ComponentPreview>
 
+<DocsReveal>
 # Pricing
 
 A pricing card grid with featured plans and monthly or yearly billing.
@@ -25,85 +24,6 @@ A pricing card grid with featured plans and monthly or yearly billing.
 import { Pricing } from "@/components/hangry-ui/blocks/pricing";
 
 <Pricing
-  defaultBilling="yearly"
-  plans={[
-    {
-      name: "Pro",
-      description: "Everything you need to build.",
-      monthlyPrice: 19,
-      yearlyPrice: 15,
-      features: ["Unlimited projects", "Priority support"],
-      href: "/signup?plan=pro",
-      label: "Choose Pro",
-      featured: true,
-    },
-  ]}
-/>
-```
-
----
-
-<ComponentPreview id="pricing-compact" className="h-full w-full"><PricingCompact /></ComponentPreview>
-
-## Pricing
-
-Pricing plans presented as compact horizontal rows.
-
-### Installation
-
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/pricing-compact.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/pricing-compact.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/pricing-compact.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/pricing-compact.json",
-}} />
-
-### Usage
-
-```tsx
-import { PricingCompact } from "@/components/hangry-ui/blocks/pricing-compact";
-
-<PricingCompact
-  defaultBilling="yearly"
-  plans={[
-    {
-      name: "Pro",
-      description: "Everything you need to build.",
-      monthlyPrice: 19,
-      yearlyPrice: 15,
-      features: ["Unlimited projects", "Priority support"],
-      href: "/signup?plan=pro",
-      label: "Choose Pro",
-      featured: true,
-    },
-  ]}
-/>
-```
-
----
-
-<ComponentPreview id="pricing-comparison" className="h-full w-full"><PricingComparison defaultBilling="yearly" /></ComponentPreview>
-
-<DocsReveal>
-## Pricing
-
-A pricing comparison table with billing controls.
-
-### Installation
-
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-}} />
-
-### Usage
-
-```tsx
-import { PricingComparison } from "@/components/hangry-ui/blocks/pricing-comparison";
-
-<PricingComparison
   defaultBilling="yearly"
   plans={[
     {

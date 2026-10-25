@@ -1,0 +1,55 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { Faq } from "@/registry/blocks/faq";
+
+<ComponentPreview className="grid-cols-1 px-2! py-10! sm:px-8! *:max-w-full!">
+  <Faq defaultOpenId="start" className="max-w-4xl" />
+</ComponentPreview>
+
+<DocsReveal>
+# FAQ
+
+A divided list of frequently asked questions with expandable answers.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/faq.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/faq.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/faq.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/faq.json",
+}} />
+
+## Usage
+
+```tsx
+import { Faq } from "@/components/hangry-ui/blocks/faq";
+
+<Faq />
+
+<Faq
+  title="Good questions. Clear answers."
+  description="Everything you need to know before getting started."
+  defaultOpenId="customize"
+  items={[
+    { id: "customize", question: "Can I use my own content?", answer: "Yes. Replace the questions and answers with your own." },
+    { id: "support", question: "Where can I find help?", answer: <a href="/contact" className="underline">Contact our team</a> },
+  ]}
+/>
+```
+
+## Props
+
+- `title`: Section heading.
+- `description`: Supporting text. Pass an empty string to omit it.
+- `items`: Questions with unique `id`, `question`, and React `answer` content.
+- `multiple`: Allow more than one answer to stay open. Defaults to `false`.
+- `defaultOpenId`: The question to open initially. Defaults to none.
+- `className`: Additional classes on the section. Native section attributes are forwarded.
+
+## Setup notes
+
+Uses native details and summary elements, so keyboard activation, open state, and single-open grouping work without client-side state. Enter or Space toggles a focused question. Links and other controls in answers retain their normal behavior. Each FAQ instance has a unique group name.
+
+Typography and colors follow the shared tokens. The layout adapts to narrow containers. This memoized block is server-compatible, with no animation dependency. The shared FAQ implementation is included during installation.
+</DocsReveal>

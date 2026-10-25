@@ -1,0 +1,56 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { NotFound } from "@/registry/blocks/not-found";
+
+<ComponentPreview className="grid-cols-1 px-2! py-10! sm:px-8! *:max-w-full!">
+  <NotFound className="max-w-4xl" />
+</ComponentPreview>
+
+<DocsReveal>
+# 404 Centered
+
+A centered 404 page with oversized numerals and clear recovery links.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/not-found.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/not-found.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/not-found.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/not-found.json",
+}} />
+
+## Usage
+
+```tsx
+import { NotFound } from "@/components/hangry-ui/blocks/not-found";
+
+export default function NotFoundPage() {
+  return (
+    <NotFound
+      title="We couldn’t find that page."
+      homeHref="/"
+      homeLabel="Back to home"
+      secondaryHref="/contact"
+      secondaryLabel="Contact support"
+    />
+  );
+}
+```
+
+## Props
+
+- `title`: Heading for the recovery message.
+- `description`: Explanation beneath the heading.
+- `homeHref`: Primary destination. Defaults to `/`.
+- `homeLabel`: Primary link text. Defaults to `Back to home`.
+- `secondaryHref`: Optional secondary destination. Omitted by default.
+- `secondaryLabel`: Secondary link text. Defaults to `Contact support`.
+- `className`: Additional section classes. Native section attributes are forwarded.
+
+## Setup notes
+
+Use this block in `app/not-found.tsx` to handle missing pages in a Next.js app, or render it inside your own router’s fallback page. The block renders a section with an h2; add your page’s main landmark and h1 in the surrounding layout as needed. Rendering the block alone does not set an HTTP status code.
+
+Recovery actions are native links with visible keyboard focus. Decorative artwork is hidden from assistive technology. The memoized block is server-compatible and static, with no animation or browser API requirements. Shared typography and Button sources are bundled with installation. Set recovery destinations to routes that exist in your application.
+</DocsReveal>

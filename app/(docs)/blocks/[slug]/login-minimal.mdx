@@ -1,0 +1,35 @@
+import { LoginMinimal } from "@/registry/blocks/login-minimal";
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+
+<ComponentPreview id="login-minimal" className="h-full w-full"><LoginMinimal showSocial={false} /></ComponentPreview>
+
+<DocsReveal>
+# Login Minimal
+
+An unframed login form for embedding in your own layout.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/login-minimal.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/login-minimal.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/login-minimal.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/login-minimal.json",
+}} />
+
+## Usage
+
+```tsx
+"use client";
+
+import type { ComponentProps } from "react";
+import { LoginMinimal } from "@/components/hangry-ui/blocks/login-minimal";
+
+// Pass your application's authentication handlers to this form.
+export function SignIn(props: Pick<ComponentProps<typeof LoginMinimal>,
+  "onSubmit" | "onProviderLogin" | "loading" | "error">) {
+  return <LoginMinimal brand="Acme" {...props} />;
+}
+```
+</DocsReveal>

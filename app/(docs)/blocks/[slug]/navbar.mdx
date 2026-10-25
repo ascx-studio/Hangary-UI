@@ -2,16 +2,15 @@ import { Card } from "@/registry/components/card";
 import { Navbar } from "@/registry/blocks/navbar";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/component-preview";
-import { NavbarAligned } from "@/registry/blocks/navbar-aligned";
-import { NavbarFloating } from "@/registry/blocks/navbar-floating";
 
 <ComponentPreview id="navbar">
   <div className="flex h-full min-w-0 w-full flex-col">
-    <Navbar activeHref="/components" />
+    <Navbar activeHref="#components" />
     <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
   </div>
 </ComponentPreview>
 
+<DocsReveal>
 # Navbar
 
 A navbar with centered desktop links, support and GitHub actions, and a mobile menu.
@@ -33,94 +32,20 @@ import { Navbar } from "@/components/hangry-ui/blocks/navbar";
 <Navbar
   brand="Acme"
   badge=""
-  activeHref="/products"
+  activeHref="#components"
   links={[
-    { label: "Products", href: "/products" },
-    { label: "About", href: "/about" },
+    { label: "Home", href: "#home" },
+    { label: "Components", href: "#components" },
+    { label: "Blocks", href: "#blocks" },
+    { label: "Shaders", href: "#shaders" },
+    { label: "Sponsor", href: "#sponsor" },
+    { label: "Privacy", href: "#privacy" },
   ]}
-  githubHref="https://github.com/acme"
-  supportHref="/sponser"
+  githubHref="#github"
+  supportHref="#sponsor"
 />
 ```
+## Sample navigation
 
----
-
-<ComponentPreview id="navbar-aligned">
-  <div className="flex h-full min-w-0 w-full flex-col">
-    <NavbarAligned activeHref="/components" />
-    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
-  </div>
-</ComponentPreview>
-
-## Navbar
-
-A navbar with navigation links beside the brand.
-
-### Installation
-
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-}} />
-
-### Usage
-
-```tsx
-import { NavbarAligned } from "@/components/hangry-ui/blocks/navbar-aligned";
-
-<NavbarAligned
-  brand="Acme"
-  badge=""
-  activeHref="/products"
-  links={[
-    { label: "Products", href: "/products" },
-    { label: "About", href: "/about" },
-  ]}
-  githubHref="https://github.com/acme"
-  supportHref="/sponser"
-/>
-```
-
----
-
-<ComponentPreview id="navbar-floating">
-  <div className="flex h-full min-w-0 w-full flex-col">
-    <NavbarFloating activeHref="/components" />
-    <Card title="" description="" className="m-0! max-w-none! min-h-72 flex-1 border-t-0 p-0!" />
-  </div>
-</ComponentPreview>
-
-<DocsReveal>
-## Navbar
-
-An inset navbar with a bordered surface and shadow.
-
-### Installation
-
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar-floating.json",
-}} />
-
-### Usage
-
-```tsx
-import { NavbarFloating } from "@/components/hangry-ui/blocks/navbar-floating";
-
-<NavbarFloating
-  brand="Acme"
-  badge=""
-  activeHref="/products"
-  links={[
-    { label: "Products", href: "/products" },
-    { label: "About", href: "/about" },
-  ]}
-  githubHref="https://github.com/acme"
-  supportHref="/sponser"
-/>
-```
+The default page labels match the main footer: Home, Components, Blocks, Shaders, Sponsor, and Privacy. Fragment URLs keep the demo on the current page. Replace them with your own routes when using the block.
 </DocsReveal>
