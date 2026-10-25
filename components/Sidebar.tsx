@@ -23,9 +23,9 @@ function Navigation({ category, collapsed = false }: Readonly<{ category: Regist
   const toLinks = (entries: { label: string; slug: string; description?: string }[]) =>
     entries.map(({ label, slug, description }) => ({ label, description, href: `/${category}/${slug}` }))
   const entries: { label: string; slug: string; description?: string; group?: string }[] = categoryConfig?.items ?? []
-  const groupTitles = [...new Set(entries.map(item => item.group ?? categoryConfig?.title))]
+  const groupTitles = [...new Set(entries.flatMap(item => item.group ? [item.group] : []))]
   const sections = categoryConfig?.items.length
-    ? groupTitles.map(title => ({ title, links: toLinks(entries.filter(item => (item.group ?? categoryConfig.title) === title)) }))
+    ? [{ title: categoryConfig.title, links: toLinks(collapsed ? entries : entries.filter(item => !item.group)) }]
     : [{ title: browseSection.sidebarLabel, links: browseSection.links.map(({ label, href, description }) => ({ label, href, description })) }]
   sections.push({ title: 'Other', links: browseSection.links.map(({ label, href, description }) => ({ label, href, description })) })
 
@@ -52,13 +52,30 @@ function Navigation({ category, collapsed = false }: Readonly<{ category: Regist
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-6">
       {sections.map(section => (
-        <div key={section.title} className={section.title === 'Other' ? 'mt-auto shrink-0 border-t border-sidebar-border pt-4' : 'min-h-0 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'}>
+        <div key={section.title} className={section.title === 'Other' ? 'mt-auto shrink-0 border-t border-sidebar-border pt-4' : 'min-h-0 overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden'}>
           <Outline
             title={section.title}
             variant="sidebar"
             items={section.links.map(link => ({ id: link.href, label: link.label, href: link.href }))}
             className="w-full"
           />
+          {section.title === categoryConfig?.title && groupTitles.map(title => {
+            const links = toLinks(entries.filter(item => item.group === title))
+            return (
+              <details key={title} open={links.some(link => pathname === link.href) || undefined} className="group/subcategory border-l border-border">
+                <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between gap-2 pl-4 text-sm leading-6 text-muted-foreground hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring [&::-webkit-details-marker]:hidden">
+                  {title}
+                  <ChevronDown size={14} aria-hidden="true" className="mr-2 transition-transform group-open/subcategory:rotate-180 motion-reduce:transition-none" />
+                </summary>
+                <Outline
+                  title={title}
+                  variant="sidebar"
+                  items={links.map(link => ({ id: link.href, label: link.label, href: link.href }))}
+                  className="ml-4 w-auto! [&_h2]:sr-only"
+                />
+              </details>
+            )
+          })}
         </div>
       ))}
     </div>
@@ -83,7 +100,7 @@ export default function Sidebar({ category, className = "" }: Readonly<{ categor
     <LazyMotion features={loadFeatures} strict>
       <AnimatePresence initial={false} mode="wait">
       {desktopOpen ? (
-        <m.aside key="expanded" layout layoutRoot initial={false} animate={{ opacity: 1 }} exit={reducedMotion ? undefined : { opacity: 0 }} transition={{ duration: reducedMotion ? 0 : 0.24, ease: "easeOut" }} className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden border-r border-sidebar-border px-4 py-6 text-sidebar-foreground md:flex ${className}`}>
+        <m.aside key="expanded" layout layoutRoot initial={false} animate={{ opacity: 1 }} exit={reducedMotion ? undefined : { opacity: 0 }} transition={{ duration: reducedMotion ? 0 : 0.24, ease: "easeOut" }} className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden border-r border-sidebar-border px-4 py-6 text-sidebar-foreground md:flex ${className}`}>
           <m.div initial={reducedMotion ? false : { opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.18 }} className="mb-6 flex shrink-0 items-center justify-between gap-2">
             <Link href="/" aria-label="Hangry UI home" className="focus-visible:outline-2 focus-visible:outline-ring">
               <Logo variant="wordmark" className="w-36" />
@@ -115,7 +132,7 @@ export default function Sidebar({ category, className = "" }: Readonly<{ categor
           <span className="flex-1 text-sm font-semibold">Library navigation</span>
           <ChevronDown size={18} aria-hidden="true" className="transition-transform group-open:rotate-180 motion-reduce:transition-none" />
         </summary>
-        <div className="max-h-[75dvh] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-4 pb-6" onClick={event => {
+        <div className="max-h-[75dvh] overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden px-4 pb-6" onClick={event => {
           if (!(event.target instanceof Element) || !event.target.closest('a')) return
           const disclosure = event.currentTarget.closest('details')
           disclosure?.removeAttribute('open')

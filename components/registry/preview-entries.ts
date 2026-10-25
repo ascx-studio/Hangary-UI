@@ -12,6 +12,10 @@ import { BottomSheet } from "@/registry/components/bottom-sheet";
 import { BrandPalette } from "@/registry/components/brand-palette";
 import { Breadcrumb } from "@/registry/components/breadcrumb";
 import { Button } from "@/registry/components/button";
+import { ScaleCard } from "@/registry/components/scale-card";
+import { CardStack } from "@/registry/components/card-stack";
+import { ToastDemo } from "@/components/registry/toast-demo";
+import { IPhone17 } from "@/registry/components/iphone-17";
 import { Card } from "@/registry/components/card";
 import { Carousel } from "@/registry/components/carousel";
 import { CodeBlock } from "@/registry/components/code-block";
@@ -45,6 +49,10 @@ import { Tabs } from "@/registry/components/tabs";
 import { Tooltip } from "@/registry/components/tooltip";
 
 export const previewEntries = {
+  "iphone-17": { component: IPhone17, category: "components" },
+  "toast": { component: ToastDemo, category: "components" },
+  "card-stack": { component: CardStack, category: "components" },
+  "scale-card": { component: ScaleCard, category: "components" },
   "aspect-ratio": { component: AspectRatio, category: "components" },
   "aurora-background": { component: AuroraBackground, category: "shader" },
   "avatar": { component: Avatar, category: "components" },

@@ -1,0 +1,45 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { ScaleCard } from "@/registry/components/scale-card";
+
+<ComponentPreview className="grid-cols-1 py-24! px-12! sm:px-16! *:m-0! *:max-w-full!">
+  <ScaleCard />
+</ComponentPreview>
+
+<DocsReveal>
+# Scale Card
+
+An image card framed by ruler marks on all four sides. The extended scales fade at their ends for a drafting-board feel.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
+}} />
+
+## Usage
+
+```tsx
+import { ScaleCard } from "@/components/hangry-ui/components/scale-card";
+
+<div className="overflow-hidden px-16 py-24">
+  <ScaleCard src="/1.png" alt="Glowing white butterflies on a dark background" size={8} />
+</div>
+```
+
+## Props
+
+- `src`: Image URL. Defaults to `/1.png` from the public directory.
+- `alt`: Image description. Provide text describing your own image.
+- `size`: Spacing between ruler marks in pixels. Defaults to `8`.
+- `children`: Optional content to display instead of the image.
+- `className`: Additional classes on the wrapper. Defaults to 288px wide with a 9:10 card ratio.
+- Native div attributes are forwarded to the wrapper.
+
+## Setup notes
+
+Uses the existing Card and AspectRatio components and a reusable Scales SVG pattern. Leave space around the card for the rulers; clip overflow on the surrounding section for narrow screens. Colors follow the shared theme tokens. This static component works without a client boundary or animation dependency.
+</DocsReveal>

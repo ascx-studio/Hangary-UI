@@ -8,7 +8,7 @@ import { WordmarkLightRay } from "@/registry/shader/wordmark-light-ray";
 <DocsReveal>
 # Wordmark Light Ray
 
-Storage-backed WebGPU LED emitters from the Triangle LED Hero shader create a moving ray across the full wordmark. Hover the mark to pull the beam toward the pointer.
+A continuous blue-white light ray sweeps across the wordmark with a bright core, soft glow, and fading trail. Hover the mark to pull the beam toward the pointer.
 
 ## Installation
 
@@ -26,5 +26,5 @@ import { WordmarkLightRay } from "@/components/hangry-ui/shader/wordmark-light-r
 <WordmarkLightRay />
 ```
 
-The component uses `/wordmark.svg` as its mask and requires browser WebGPU support. It cleans up the emitter draw, geometry, storage buffer, surface, and GPU device when unmounted. Reduced-motion preferences stop the continuous scan while keeping the pointer response available.
+The component uses `/wordmark.svg` as its mask and requires browser WebGPU support. It cleans up the shader effect, surface, and GPU device when unmounted. Reduced-motion preferences stop the continuous scan while keeping the pointer response available.
 </DocsReveal>

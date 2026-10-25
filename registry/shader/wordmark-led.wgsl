@@ -21,7 +21,7 @@ fn led_hash(cell: vec2f) -> f32 {
   let pointer_distance = distance(cell + vec2f(0.5), pointer_cell);
   let hover_glow = exp(-pointer_distance * pointer_distance / 20.0) * params.time.w;
   let variation = 0.82 + led_hash(cell) * 0.18;
-  let energy = led * (0.55 + scan * 0.35 + hover_glow * 0.7) * variation;
+  let energy = led * (0.85 + scan * 0.45 + hover_glow * 0.7) * variation;
 
   return vec4f(vec3f(energy), 1.0);
 }

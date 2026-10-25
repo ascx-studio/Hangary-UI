@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import localFont from "next/font/local";
 import ConsentBanner from "@/components/ConsentBanner";
+import { Toaster } from "@/registry/components/toast";
 import { pageMetadata, siteDescription, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col font-sans">
         {children}
         <ConsentBanner />
+        <Toaster />
       </body>
     </html>
   );

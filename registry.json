@@ -4,6 +4,154 @@
   "homepage": "https://ui.razeev.com",
   "items": [
     {
+      "name": "iphone-17",
+      "title": "iPhone 17",
+      "description": "A front-facing SVG illustration of iPhone 17 in five finishes.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/iphone-17.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/iphone-17.tsx"
+        }
+      ],
+      "dependencies": [],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "toast",
+      "title": "Toast",
+      "description": "Dismissible notifications with status variants, timed dismissal, and reduced-motion transitions.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/toast-store.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/components/toast-store.ts"
+        },
+        {
+          "path": "registry/components/toast.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/toast.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "motion@^14.3.0",
+        "lucide-react@^1.48.0"
+      ],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "card-stack",
+      "title": "Card Stack",
+      "description": "Square-edged cards with fine borders and stacked background layers.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/card-stack.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card-stack.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "public/2.png",
+          "type": "registry:file",
+          "target": "public/2.png"
+        },
+        {
+          "path": "public/3.png",
+          "type": "registry:file",
+          "target": "public/3.png"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        },
+        {
+          "path": "public/1.png",
+          "type": "registry:file",
+          "target": "public/1.png"
+        }
+      ],
+      "dependencies": ["motion@^14.3.0"],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
+      "name": "scale-card",
+      "title": "Scale Card",
+      "description": "A portrait card framed by fading ruler marks on all four sides.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/components/scale-card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/scale-card.tsx"
+        },
+        {
+          "path": "registry/components/scales.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/scales.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/components/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/aspect-ratio.tsx"
+        },
+        {
+          "path": "public/1.png",
+          "type": "registry:file",
+          "target": "public/1.png"
+        },
+        {
+          "path": "registry/lib/typography.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/lib/typography.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6"
+      ],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
       "name": "aspect-ratio",
       "title": "Aspect Ratio",
       "description": "A responsive container that preserves a chosen width-to-height ratio.",
@@ -1183,7 +1331,7 @@
       "name": "wordmark-light-ray",
       "type": "registry:component",
       "title": "Wordmark Light Ray",
-      "description": "Storage-backed WebGPU LED emitters with a scanning light ray across the wordmark.",
+      "description": "A continuous blue-white light ray with a soft glow and fading trail across the wordmark.",
       "files": [
         { "path": "registry/shader/wordmark-light-ray.tsx", "type": "registry:component", "target": "@components/hangry-ui/shader/wordmark-light-ray.tsx" },
         { "path": "registry/shader/wordmark-light-ray.wgsl", "type": "registry:file", "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl" },

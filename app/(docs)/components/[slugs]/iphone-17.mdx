@@ -1,0 +1,57 @@
+import { CodeBlock } from "@/registry/components/code-block";
+import ComponentPreview from "@/components/registry/component-preview";
+import { IPhone17 } from "@/registry/components/iphone-17";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/tabs";
+
+<ComponentPreview className="grid-cols-1 px-6! py-8! *:max-w-full!">
+  <Tabs defaultValue="sage" className="w-full items-center">
+    <TabsList variant="line" aria-label="iPhone finish" className="max-w-full flex-wrap justify-center">
+      <TabsTrigger value="sage">Sage</TabsTrigger>
+      <TabsTrigger value="lavender">Lavender</TabsTrigger>
+      <TabsTrigger value="mist-blue">Mist Blue</TabsTrigger>
+      <TabsTrigger value="black">Black</TabsTrigger>
+      <TabsTrigger value="white">White</TabsTrigger>
+    </TabsList>
+    <TabsContent value="sage" className="w-full"><IPhone17 /></TabsContent>
+    <TabsContent value="lavender" className="w-full"><IPhone17 color="lavender" /></TabsContent>
+    <TabsContent value="mist-blue" className="w-full"><IPhone17 color="mist-blue" /></TabsContent>
+    <TabsContent value="black" className="w-full"><IPhone17 color="black" /></TabsContent>
+    <TabsContent value="white" className="w-full"><IPhone17 color="white" /></TabsContent>
+  </Tabs>
+</ComponentPreview>
+
+<DocsReveal>
+# iPhone 17
+
+A detailed SVG illustration with a front-facing view, a contoured frame, glass reflections, Dynamic Island, and an original lock-screen wallpaper.
+
+## Installation
+
+<CodeBlock commands={{
+  bun: "bunx shadcn@latest add https://ui.razeev.com/r/iphone-17.json",
+  npm: "npx shadcn@latest add https://ui.razeev.com/r/iphone-17.json",
+  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/iphone-17.json",
+  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/iphone-17.json",
+}} />
+
+## Usage
+
+```tsx
+import { IPhone17 } from "@/components/hangry-ui/components/iphone-17";
+
+<IPhone17 />
+<IPhone17 color="lavender" className="max-w-lg" />
+```
+
+## Props
+
+- `color`: `"sage"`, `"lavender"`, `"mist-blue"`, `"black"`, or `"white"`. Defaults to `"sage"`.
+- `className`: Additional SVG classes. The illustration scales to its container with a 384px maximum width.
+- `label`: Accessible image description. Defaults to `"iPhone 17 front illustration"`.
+
+## Setup notes
+
+The illustration is inspired by the standard iPhone 17, using [Apple’s design and finish references](https://www.apple.com/iphone-17/specs/). This is stylized artwork rather than a product render. The frame, front camera, wallpaper, and controls are all SVG, with no image downloads or extra dependencies.
+
+This static component is server-compatible and uses unique SVG identifiers for each instance. It has a transparent background and scales without losing sharpness.
+</DocsReveal>

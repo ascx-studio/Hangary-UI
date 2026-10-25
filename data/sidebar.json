@@ -6,122 +6,170 @@
         {
           "label": "Aspect Ratio",
           "slug": "aspect-ratio",
-          "description": "A responsive container that preserves a chosen width-to-height ratio."
+          "description": "A responsive container that preserves a chosen width-to-height ratio.",
+          "group": "Layout"
         },
         {
           "label": "Avatar",
           "slug": "avatar",
-          "description": "A profile image with initials and an image-error fallback."
+          "description": "A profile image with initials and an image-error fallback.",
+          "group": "Media"
         },
         {
           "label": "Avatar Group",
           "slug": "avatar-group",
-          "description": "Overlapping profile images with initials and a count for additional people."
+          "description": "Overlapping profile images with initials and a count for additional people.",
+          "group": "Media"
         },
         {
           "label": "Badge",
           "slug": "badge",
-          "description": "A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants."
+          "description": "A compact badge with neutral, info, success, warning, error, blue, purple, pink, teal, and orange variants.",
+          "group": "Data Display"
         },
         {
           "label": "Banner",
           "slug": "banner",
-          "description": "A dismissible status banner with icons and optional descriptions in neutral, info, success, warning, and error variants."
+          "description": "A dismissible status banner with icons and optional descriptions in neutral, info, success, warning, and error variants.",
+          "group": "Feedback & Overlays"
         },
         {
           "label": "Border Highlight",
           "slug": "border-highlight",
-          "description": "A glowing border that follows your pointer with spring motion."
+          "description": "A glowing border that follows your pointer with spring motion.",
+          "group": "Visual Effects"
         },
         {
           "label": "Bottom Sheet",
           "slug": "bottom-sheet",
-          "description": "A bottom-aligned modal sheet with native focus management and Escape dismissal."
+          "description": "A bottom-aligned modal sheet with native focus management and Escape dismissal.",
+          "group": "Feedback & Overlays"
         },
         {
           "label": "Brand Palette",
           "slug": "brand-palette",
-          "description": "Six brand color swatches and a green gradient."
+          "description": "Six brand color swatches and a green gradient.",
+          "group": "Data Display"
         },
         {
           "label": "Breadcrumb",
           "slug": "breadcrumb",
-          "description": "A breadcrumb navigation trail with links and a current-page indicator."
+          "description": "A breadcrumb navigation trail with links and a current-page indicator.",
+          "group": "Navigation"
         },
         {
           "label": "Button",
           "slug": "button",
-          "description": "An accessible button with primary, secondary, ghost, destructive, and outline variants."
+          "description": "An accessible button with primary, secondary, ghost, destructive, and outline variants.",
+          "group": "Controls"
         },
         {
           "label": "Card",
           "slug": "card",
+          "group": "Cards",
           "description": "A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer."
+        },
+        {
+          "label": "Card Stack",
+          "slug": "card-stack",
+          "description": "Square-edged cards with fine borders and stacked background layers.",
+          "group": "Cards"
+        },
+        {
+          "label": "Scale Card",
+          "slug": "scale-card",
+          "description": "A portrait card framed by fading ruler marks on all four sides.",
+          "group": "Cards"
         },
         {
           "label": "Carousel",
           "slug": "carousel",
-          "description": "Animated image slides with swipe support and accessible controls."
+          "description": "Animated image slides with swipe support and accessible controls.",
+          "group": "Media"
         },
         {
           "label": "Code Block",
           "slug": "code-block",
-          "description": "A scrollable code block with a filename, optional line numbers, and a copy button."
+          "description": "A scrollable code block with a filename, optional line numbers, and a copy button.",
+          "group": "Data Display"
         },
         {
           "label": "Kbd",
           "slug": "kbd",
-          "description": "A styled keyboard key or shortcut hint."
+          "description": "A styled keyboard key or shortcut hint.",
+          "group": "Controls"
         },
         {
           "label": "Lightbox",
           "slug": "lightbox",
-          "description": "Open an image in an accessible modal viewer."
+          "description": "Open an image in an accessible modal viewer.",
+          "group": "Media"
         },
         {
           "label": "Logo Animation",
           "slug": "logo-animation",
-          "description": "Animated SVG logos with custom artwork and reduced-motion support."
+          "description": "Animated SVG logos with custom artwork and reduced-motion support.",
+          "group": "Visual Effects"
+        },
+        {
+          "label": "iPhone 17",
+          "slug": "iphone-17",
+          "description": "A front-facing SVG illustration of iPhone 17 in five finishes.",
+          "group": "Illustrations"
         },
         {
           "label": "Mechanical Keyboard",
           "slug": "mechanical-keyboard",
-          "description": "A straight keyboard illustration using our green and neutral brand palette."
+          "description": "A straight keyboard illustration using our green and neutral brand palette.",
+          "group": "Illustrations"
         },
         {
           "label": "Metal Wallet",
           "slug": "metal-wallet",
+          "group": "Cards",
           "description": "An animated wallet with a translucent pocket and layered cards."
         },
         {
           "label": "Nav Line",
           "slug": "nav-line",
-          "description": "A wave-shaped navigation rail with spring animations and hover previews."
+          "description": "A wave-shaped navigation rail with spring animations and hover previews.",
+          "group": "Navigation"
         },
         {
           "label": "Outline",
           "slug": "outline",
-          "description": "A keyboard-accessible table of contents with an animated active-heading indicator."
+          "description": "A keyboard-accessible table of contents with an animated active-heading indicator.",
+          "group": "Navigation"
         },
         {
           "label": "Spotlight Reveal",
           "slug": "spotlight-reveal",
-          "description": "Reveal image color through a pointer-following spotlight."
+          "description": "Reveal image color through a pointer-following spotlight.",
+          "group": "Visual Effects"
         },
         {
           "label": "Table",
           "slug": "table",
-          "description": "A responsive, composable table with headers, rows, cells, a caption, and an optional footer."
+          "description": "A responsive, composable table with headers, rows, cells, a caption, and an optional footer.",
+          "group": "Data Display"
         },
         {
           "label": "Tabs",
           "slug": "tabs",
-          "description": "A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation."
+          "description": "A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation.",
+          "group": "Navigation"
         },
         {
           "label": "Tooltip",
           "slug": "tooltip",
-          "description": "Hover and focus previews built with the Card component."
+          "description": "Hover and focus previews built with the Card component.",
+          "group": "Feedback & Overlays"
+        },
+        {
+          "label": "Toast",
+          "slug": "toast",
+          "description": "Dismissible notifications with status variants, timed dismissal, and reduced-motion transitions.",
+          "group": "Feedback & Overlays"
         }
       ]
     },
@@ -131,22 +179,26 @@
         {
           "label": "Navbar",
           "slug": "navbar",
-          "description": "Centered, left-aligned, and floating navigation layouts."
+          "description": "Centered, left-aligned, and floating navigation layouts.",
+          "group": "Navigation & Layout"
         },
         {
           "label": "Footer",
           "slug": "footer",
-          "description": "Column, minimal, and stacked footer layouts."
+          "description": "Column, minimal, and stacked footer layouts.",
+          "group": "Navigation & Layout"
         },
         {
           "label": "Login",
           "slug": "login",
-          "description": "A card login form with provider buttons, password visibility, and loading and error states."
+          "description": "A card login form with provider buttons, password visibility, and loading and error states.",
+          "group": "Forms"
         },
         {
           "label": "Pricing",
           "slug": "pricing",
-          "description": "A pricing card grid with featured plans and monthly or yearly billing."
+          "description": "A pricing card grid with featured plans and monthly or yearly billing.",
+          "group": "Pricing"
         }
       ]
     },
@@ -156,27 +208,44 @@
         {
           "label": "SME Shader",
           "slug": "sme-background",
-          "description": "A layered gradient and grid shader for product sections, previews, and hero panels."
+          "description": "A layered gradient and grid shader for product sections, previews, and hero panels.",
+          "group": "Backgrounds"
         },
         {
           "label": "Dot Grid",
           "slug": "dot-grid-background",
-          "description": "A fading dot pattern for clean landing pages and content sections."
+          "description": "A fading dot pattern for clean landing pages and content sections.",
+          "group": "Backgrounds"
         },
         {
           "label": "Spotlight Grid",
           "slug": "spotlight-grid-background",
-          "description": "A fine grid illuminated by a soft spotlight from above."
+          "description": "A fine grid illuminated by a soft spotlight from above.",
+          "group": "Backgrounds"
         },
         {
           "label": "Aurora",
           "slug": "aurora-background",
-          "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow."
+          "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.",
+          "group": "Backgrounds"
         },
         {
           "label": "Beams",
           "slug": "beams-background",
-          "description": "Diagonal light beams that drift behind your content."
+          "description": "Diagonal light beams that drift behind your content.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Wordmark LED",
+          "slug": "wordmark-led",
+          "description": "A bright LED matrix with a sweeping highlight across the wordmark.",
+          "group": "Wordmarks"
+        },
+        {
+          "label": "Wordmark Light Ray",
+          "slug": "wordmark-light-ray",
+          "description": "A continuous blue-white light ray with a soft glow and fading trail across the wordmark.",
+          "group": "Wordmarks"
         }
       ]
     }
