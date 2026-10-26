@@ -303,6 +303,18 @@
           "group": "Pricing"
         },
         {
+          "label": "Pricing Featured",
+          "slug": "pricing-featured",
+          "description": "A focused two-plan pricing block with a highlighted recommended plan.",
+          "group": "Pricing"
+        },
+        {
+          "label": "Pricing Bracket",
+          "slug": "pricing-bracket",
+          "description": "Pricing plans framed with bracket cards.",
+          "group": "Pricing"
+        },
+        {
           "label": "FAQ",
           "slug": "faq",
           "description": "A divided list of frequently asked questions with expandable answers.",
@@ -348,6 +360,36 @@
           "slug": "aurora-background",
           "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.",
           "group": "Backgrounds"
+        },
+        {
+          "label": "Gradient",
+          "slug": "gradient-background",
+          "description": "An animated WebGPU gradient with pointer interaction.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Linear Gradient",
+          "slug": "linear-gradient-background",
+          "description": "A simple top-to-bottom gradient background.",
+          "group": "Gradient"
+        },
+        {
+          "label": "Gradient Grid",
+          "slug": "gradient-grid-background",
+          "description": "A blue top-to-bottom gradient with a tight square grid pattern.",
+          "group": "Gradient"
+        },
+        {
+          "label": "SVG Gradient",
+          "slug": "svg-gradient-background",
+          "description": "A neon SVG gradient card with blurred magenta bands, a white glow, and a tilted tile texture.",
+          "group": "Gradient"
+        },
+        {
+          "label": "Mesh Gradient",
+          "slug": "mesh-gradient-background",
+          "description": "A layered SVG mesh gradient with blurred color pools and a dot texture.",
+          "group": "Gradient"
         },
         {
           "label": "Beams",

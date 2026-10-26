@@ -839,6 +839,106 @@
       ]
     },
     {
+      "name": "gradient-background",
+      "title": "Gradient Background",
+      "description": "An animated WebGPU gradient with pointer interaction.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/gradient-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/gradient-background.tsx"
+        },
+        {
+          "path": "registry/shader/gradient-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/gradient-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@^0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "linear-gradient-background",
+      "title": "Linear Gradient Background",
+      "description": "A simple top-to-bottom gradient background.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/linear-gradient-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/linear-gradient-background.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "gradient-grid-background",
+      "title": "Gradient Grid Background",
+      "description": "A blue top-to-bottom gradient with a tight square grid pattern.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/gradient-grid-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/gradient-grid-background.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "svg-gradient-background",
+      "title": "SVG Gradient Background",
+      "description": "A neon SVG gradient card with blurred magenta bands, a white glow, and a tilted tile texture.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/svg-gradient-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/svg-gradient-background.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "mesh-gradient-background",
+      "title": "Mesh Gradient Background",
+      "description": "A layered SVG mesh gradient with blurred color pools and a dot texture.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/mesh-gradient-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/mesh-gradient-background.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "avatar",
       "type": "registry:component",
       "title": "Avatar",
@@ -2349,6 +2449,41 @@
       }
     },
     {
+      "name": "pricing-featured",
+      "title": "Pricing Featured",
+      "type": "registry:block",
+      "description": "A focused two-plan pricing block with a highlighted recommended plan.",
+      "files": [
+        {
+          "path": "registry/blocks/pricing-featured.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/blocks/pricing-featured.tsx"
+        },
+        {
+          "path": "registry/components/badge.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/badge.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        }
+      ],
+      "meta": {
+        "category": "blocks"
+      },
+      "dependencies": [
+        "cn@^0.2.6",
+        "lucide-react@^1.48.0"
+      ]
+    },
+    {
       "name": "pricing",
       "title": "Pricing",
       "type": "registry:block",
@@ -2422,6 +2557,31 @@
           "color": "var(--muted-foreground)"
         }
       }
+    },
+    {
+      "name": "pricing-bracket",
+      "title": "Pricing Bracket",
+      "type": "registry:block",
+      "description": "Pricing plans framed with bracket cards.",
+      "files": [
+        {
+          "path": "registry/blocks/pricing-bracket.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/blocks/pricing-bracket.tsx"
+        },
+        {
+          "path": "registry/components/bracket-card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/bracket-card.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "meta": { "category": "blocks" },
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"]
     },
     {
       "name": "pricing-compact",

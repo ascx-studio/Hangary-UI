@@ -2,6 +2,11 @@
 import type { ComponentType } from "react";
 import { LiquidChromeBackground } from "@/registry/shader/liquid-chrome-background";
 import { HeatmapBackground } from "@/registry/shader/heatmap-background";
+import { GradientBackground } from "@/registry/shader/gradient-background";
+import { LinearGradientBackground } from "@/registry/shader/linear-gradient-background";
+import { GradientGridBackground } from "@/registry/shader/gradient-grid-background";
+import { SvgGradientBackground } from "@/registry/shader/svg-gradient-background";
+import { MeshGradientBackground } from "@/registry/shader/mesh-gradient-background";
 import { AsciiBackground } from "@/registry/shader/ascii-background";
 import { LightTunnelBackground } from "@/registry/shader/light-tunnel-background";
 import { ChromaBackground } from "@/registry/shader/chroma-background";
@@ -59,6 +64,8 @@ import { NavbarFloating } from "@/registry/blocks/navbar-floating";
 import { Pricing } from "@/registry/blocks/pricing";
 import { PricingCompact } from "@/registry/blocks/pricing-compact";
 import { PricingComparison } from "@/registry/blocks/pricing-comparison";
+import { PricingFeatured } from "@/registry/blocks/pricing-featured";
+import { PricingBracket } from "@/registry/blocks/pricing-bracket";
 import { SmeBackground } from "@/registry/shader/sme-background";
 import { SpotlightGridBackground } from "@/registry/shader/spotlight-grid-background";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
@@ -73,6 +80,11 @@ import { NotFound } from "@/registry/blocks/not-found";
 export const previewEntries = {
   "liquid-chrome-background": { component: LiquidChromeBackground, category: "shader" },
   "heatmap-background": { component: HeatmapBackground, category: "shader" },
+  "gradient-background": { component: GradientBackground, category: "shader" },
+  "linear-gradient-background": { component: LinearGradientBackground, category: "shader" },
+  "gradient-grid-background": { component: GradientGridBackground, category: "shader" },
+  "svg-gradient-background": { component: SvgGradientBackground, category: "shader" },
+  "mesh-gradient-background": { component: MeshGradientBackground, category: "shader" },
   "ascii-background": { component: AsciiBackground, category: "shader" },
   "light-tunnel-background": { component: LightTunnelBackground, category: "shader" },
   "chroma-background": { component: ChromaBackground, category: "shader" },
@@ -131,6 +143,8 @@ export const previewEntries = {
   "pricing": { component: Pricing, category: "blocks" },
   "pricing-compact": { component: PricingCompact, category: "blocks" },
   "pricing-comparison": { component: PricingComparison, category: "blocks" },
+  "pricing-featured": { component: PricingFeatured, category: "blocks" },
+  "pricing-bracket": { component: PricingBracket, category: "blocks" },
   "sme-background": { component: SmeBackground, category: "shader" },
   "spotlight-grid-background": { component: SpotlightGridBackground, category: "shader" },
   "spotlight-reveal": { component: SpotlightReveal, category: "components" },
