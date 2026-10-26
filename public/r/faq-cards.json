@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq-cards",
+  "title": "FAQ Cards",
+  "description": "Frequently asked questions presented as individual bordered cards.",
+  "dependencies": [
+    "cn@^0.2.6",
+    "lucide-react@^1.48.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/faq-cards.tsx",
+      "content": "import { memo } from \"react\";\nimport { FaqLayout, type FaqProps } from \"./faq.shared\";\n\nexport type { FaqItem, FaqProps } from \"./faq.shared\";\n\nexport const FaqCards = memo(function FaqCards(props: FaqProps = {}) {\n  return <FaqLayout {...props} layout=\"cards\" />;\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/blocks/faq-cards.tsx"
+    },
+    {
+      "path": "registry/blocks/faq.shared.tsx",
+      "content": "import { memo, useId, type ComponentProps, type ReactNode } from \"react\";\nimport { Plus } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { Card } from \"../components/card\";\nimport { typography } from \"../lib/typography.shared\";\n\nexport interface FaqItem {\n  id: string;\n  question: string;\n  answer: ReactNode;\n}\n\nexport interface FaqProps extends Omit<ComponentProps<\"section\">, \"title\"> {\n  title?: string;\n  description?: string;\n  items?: readonly FaqItem[];\n  multiple?: boolean;\n  defaultOpenId?: string;\n}\n\nconst defaultItems: readonly FaqItem[] = [\n  { id: \"start\", question: \"How do I get started?\", answer: \"Choose a component, follow its installation steps, and add it to your page. Start small and make it your own.\" },\n  { id: \"customize\", question: \"Can I customize the design?\", answer: \"Yes. Update the content, adjust the Tailwind classes, and use your own theme tokens. The source lives in your project.\" },\n  { id: \"mobile\", question: \"Does it work on smaller screens?\", answer: \"The layout adapts to the space available. Questions wrap naturally, and answers remain readable on phones and tablets.\" },\n  { id: \"content\", question: \"Can answers include more than text?\", answer: \"Absolutely. Pass React content to include links, lists, images, or other components in an answer.\" },\n];\n\nconst FaqEntry = memo(function FaqEntry({ item, name, defaultOpen, card }: {\n  item: FaqItem;\n  name?: string;\n  defaultOpen: boolean;\n  card: boolean;\n}) {\n  const content = (\n    <details name={name} open={defaultOpen || undefined} className=\"group/faq\">\n      <summary className=\"cursor-pointer list-none px-5 py-5 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring [&::-webkit-details-marker]:hidden\">\n        <h3 className={cn(typography.subsectionTitle, \"flex items-start justify-between gap-5\")}>\n          <span>{item.question}</span>\n          <Plus aria-hidden=\"true\" className=\"mt-1 size-5 shrink-0 text-muted-foreground group-open/faq:rotate-45 group-open/faq:text-foreground\" />\n        </h3>\n      </summary>\n      <div className={cn(\"px-5 pb-5\", typography.body)}>{item.answer}</div>\n    </details>\n  );\n\n  return card\n    ? <Card title=\"\" description=\"\" className=\"w-full! max-w-none! p-0! shadow-none!\">{content}</Card>\n    : content;\n});\n\nexport const FaqLayout = memo(function FaqLayout({\n  title = \"A few things you might be wondering.\",\n  description = \"The details, without the guesswork.\",\n  items = defaultItems,\n  layout = \"list\",\n  multiple = false,\n  defaultOpenId,\n  className,\n  ...props\n}: FaqProps & { layout?: \"list\" | \"cards\" | \"split\" } = {}) {\n  const id = useId();\n  const split = layout === \"split\";\n\n  return (\n    <section\n      data-slot=\"faq\"\n      data-layout={layout}\n      {...props}\n      aria-labelledby={props[\"aria-labelledby\"] ?? `${id}-title`}\n      className={cn(\"@container w-full text-foreground\", className)}\n    >\n      <div className={split ? \"grid items-start gap-8 @3xl:grid-cols-[2fr_3fr]\" : \"space-y-8\"}>\n      <header className={split ? \"space-y-3\" : \"mx-auto max-w-xl space-y-3 text-center\"}>\n        <h2 id={`${id}-title`} className={typography.sectionTitle}>{title}</h2>\n        {description && <p className={typography.body}>{description}</p>}\n      </header>\n      <div className={layout === \"cards\" ? \"grid gap-3\" : \"divide-y divide-border border-y border-border\"}>\n        {items.map(item => (\n          <FaqEntry key={item.id} item={item} name={multiple ? undefined : `${id}-questions`} defaultOpen={item.id === defaultOpenId} card={layout === \"cards\"} />\n        ))}\n      </div>\n      </div>\n    </section>\n  );\n});\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/blocks/faq.shared.tsx"
+    },
+    {
+      "path": "registry/components/card.tsx",
+      "content": "import { typography } from \"../lib/typography.shared\";\nimport type { ComponentProps, ReactNode } from \"react\";\n\ninterface CardProps extends Omit<ComponentProps<\"article\">, \"title\"> {\n  title?: string;\n  description?: string;\n  footer?: ReactNode;\n}\n\nexport function Card({ title = \"Room for your next idea\", description = \"A simple starting point for something great. Make it yours.\", children, footer, className = \"\", ...props }: CardProps = {}) {\n  return <article className={`w-full max-w-sm border border-border bg-card p-6 text-base leading-7 text-card-foreground shadow-sm ${className}`} {...props}>\n    {title && <h3 className={typography.sectionTitle}>{title}</h3>}\n    {description && <p className={`mt-2 ${typography.body}`}>{description}</p>}\n    {children && <div className={title || description || footer ? \"mt-5\" : \"h-full min-h-0\"}>{children}</div>}\n    {footer && <footer className=\"mt-5 border-t border-border pt-4\">{footer}</footer>}\n  </article>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/card.tsx"
+    },
+    {
+      "path": "registry/lib/typography.shared.ts",
+      "content": "/** Shared text hierarchy for documentation and component content. */\nexport const typography = {\n  pageTitle: \"text-4xl font-semibold tracking-tight text-foreground sm:text-5xl\",\n  sectionTitle: \"text-2xl font-semibold tracking-tight text-foreground\",\n  subsectionTitle: \"text-xl font-semibold tracking-tight text-foreground\",\n  body: \"text-base leading-7 text-muted-foreground\",\n  label: \"text-sm font-medium\",\n  caption: \"text-sm leading-6 text-muted-foreground\",\n} as const;\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/lib/typography.shared.ts"
+    }
+  ],
+  "meta": {
+    "category": "blocks"
+  },
+  "type": "registry:block"
+}
