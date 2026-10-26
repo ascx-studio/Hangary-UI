@@ -22,6 +22,7 @@
     "@ridemountainpig/svgl-react": "^1.0.18",
     "@types/mdx": "^2.0.14",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "@vgpu/wgsl": "0.6.0",
     "cn": "^0.2.6",
     "lil-gui": "^0.21.0",
