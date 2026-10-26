@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "border-highlight",
+  "title": "Border Highlight",
+  "description": "A glowing border that follows your pointer with spring motion.",
+  "dependencies": [
+    "cn@^0.2.6",
+    "motion@^14.3.0"
+  ],
+  "files": [
+    {
+      "path": "registry/components/border-highlight.tsx",
+      "content": "\"use client\";\n\nimport { memo, type PointerEvent, type ReactNode } from \"react\";\nimport * as motion from 'motion/react-client';\nimport { useMotionTemplate, useReducedMotion, useSpring } from \"motion/react\";\nimport { cn } from \"cn\";\nimport { Card } from \"./card\";\n\nexport type BorderHighlightProps = {\n  children?: ReactNode;\n  className?: string;\n};\n\nexport const BorderHighlight = memo(function BorderHighlight({\n  children = <Card title=\"Follow the edge\" description=\"Move your pointer around this card to reveal a glowing border.\" className=\"max-w-none border-0 bg-transparent shadow-none\" />,\n  className,\n}: BorderHighlightProps = {}) {\n  const reducedMotion = useReducedMotion();\n  const x = useSpring(0, { stiffness: 300, damping: 30 });\n  const y = useSpring(0, { stiffness: 300, damping: 30 });\n  const mask = useMotionTemplate`radial-gradient(circle 180px at ${x}px ${y}px, black 20%, transparent 100%)`;\n\n  function trackPointer(event: PointerEvent<HTMLDivElement>) {\n    if (event.pointerType === \"touch\") return;\n    const bounds = event.currentTarget.getBoundingClientRect();\n    const nextX = event.clientX - bounds.left;\n    const nextY = event.clientY - bounds.top;\n    if (event.type === \"pointerenter\" || reducedMotion) {\n      x.jump(nextX);\n      y.jump(nextY);\n    } else {\n      x.set(nextX);\n      y.set(nextY);\n    }\n  }\n\n  return (\n    <motion.div\n      initial=\"rest\"\n      whileHover=\"hover\"\n      onPointerEnter={trackPointer}\n      onPointerMove={trackPointer}\n      className={cn(\"relative w-96 max-w-full min-w-0 border border-border bg-card p-3 text-card-foreground transition-colors hover:border-border/20 focus-within:border-primary/50 motion-reduce:transition-none md:p-4\", className)}\n    >\n      {children}\n      <motion.div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute -inset-px rounded-[inherit] border-2 border-primary shadow-[0_0_20px_color-mix(in_srgb,var(--primary)_25%,transparent)]\"\n        variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}\n        transition={{ duration: reducedMotion ? 0 : 0.2 }}\n        style={{ maskImage: mask, WebkitMaskImage: mask }}\n      />\n    </motion.div>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/border-highlight.tsx"
+    },
+    {
+      "path": "registry/components/card.tsx",
+      "content": "import { typography } from \"../lib/typography.shared\";\nimport type { ComponentProps, ReactNode } from \"react\";\n\ninterface CardProps extends Omit<ComponentProps<\"article\">, \"title\"> {\n  title?: string;\n  description?: string;\n  footer?: ReactNode;\n}\n\nexport function Card({ title = \"Room for your next idea\", description = \"A simple starting point for something great. Make it yours.\", children, footer, className = \"\", ...props }: CardProps = {}) {\n  return <article className={`w-full max-w-sm border border-border bg-card p-6 text-base leading-7 text-card-foreground shadow-sm ${className}`} {...props}>\n    {title && <h3 className={typography.sectionTitle}>{title}</h3>}\n    {description && <p className={`mt-2 ${typography.body}`}>{description}</p>}\n    {children && <div className={title || description || footer ? \"mt-5\" : \"h-full min-h-0\"}>{children}</div>}\n    {footer && <footer className=\"mt-5 border-t border-border pt-4\">{footer}</footer>}\n  </article>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/card.tsx"
+    },
+    {
+      "path": "registry/lib/typography.shared.ts",
+      "content": "/** Shared text hierarchy for documentation and component content. */\nexport const typography = {\n  pageTitle: \"text-4xl font-semibold tracking-tight text-foreground sm:text-5xl\",\n  sectionTitle: \"text-2xl font-semibold tracking-tight text-foreground\",\n  subsectionTitle: \"text-xl font-semibold tracking-tight text-foreground\",\n  body: \"text-base leading-7 text-muted-foreground\",\n  label: \"text-sm font-medium\",\n  caption: \"text-sm leading-6 text-muted-foreground\",\n} as const;\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/lib/typography.shared.ts"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "not-found",
+  "title": "404 Centered",
+  "description": "A centered 404 page with oversized numerals and clear recovery links.",
+  "files": [
+    {
+      "path": "registry/blocks/not-found.tsx",
+      "content": "import { memo } from \"react\";\nimport { NotFoundLayout, type NotFoundProps } from \"./not-found.shared\";\n\nexport type { NotFoundProps } from \"./not-found.shared\";\n\nexport const NotFound = memo(function NotFound(props: NotFoundProps = {}) {\n  return <NotFoundLayout {...props} layout=\"centered\" />;\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/blocks/not-found.tsx"
+    },
+    {
+      "path": "registry/blocks/not-found.shared.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\nimport { Button } from \"../components/button\";\nimport { typography } from \"../lib/typography.shared\";\n\nexport type NotFoundProps = ComponentProps<\"section\"> & {\n  title?: string;\n  description?: string;\n  homeHref?: string;\n  homeLabel?: string;\n  secondaryHref?: string;\n  secondaryLabel?: string;\n};\n\nexport const NotFoundLayout = memo(function NotFoundLayout({\n  title = \"This page took a wrong turn.\",\n  description = \"The page you’re looking for may have moved, or the link might be a little off. Let’s get you somewhere familiar.\",\n  homeHref = \"/\",\n  homeLabel = \"Back to home\",\n  secondaryHref,\n  secondaryLabel = \"Contact support\",\n  className = \"\",\n  layout = \"centered\",\n  ...props\n}: NotFoundProps & { layout?: \"centered\" | \"split\" | \"terminal\" }) {\n  const split = layout === \"split\";\n  const terminal = layout === \"terminal\";\n  return (\n    <section {...props} className={`w-full min-w-0 overflow-hidden border border-border bg-background text-foreground ${className}`}>\n      {terminal && (\n        <div aria-hidden=\"true\" className=\"flex items-center gap-2 border-b border-border bg-muted/40 px-6 py-4\">\n          <span className=\"size-2 rounded-full bg-muted-foreground/40\" />\n          <span className=\"size-2 rounded-full bg-muted-foreground/40\" />\n          <span className=\"size-2 rounded-full bg-muted-foreground/40\" />\n          <span className=\"ml-3 font-mono text-xs text-muted-foreground\">navigation / request</span>\n        </div>\n      )}\n      <div className={split ? \"grid sm:grid-cols-2\" : \"px-6 py-16 sm:px-12 sm:py-24\"}>\n        <div aria-hidden=\"true\" className={split ? \"flex min-h-64 items-center justify-center border-b border-border bg-muted/30 p-8 sm:border-r sm:border-b-0\" : terminal ? \"mb-10\" : \"mb-8 text-center\"}>\n          {terminal ? (\n            <div className=\"space-y-3 font-mono text-sm\">\n              <p className=\"text-muted-foreground\">$ find requested-page</p>\n              <p className=\"text-emerald-500\">Error 404: resource not found</p>\n              <p className=\"text-muted-foreground\">→ Try a different destination.</p>\n            </div>\n          ) : (\n            <span className=\"select-none font-mono text-[clamp(5rem,18cqw,10rem)] leading-none font-semibold tracking-tighter text-foreground/15\">404<span className=\"text-emerald-500\">.</span></span>\n          )}\n        </div>\n        <div className={split ? \"flex flex-col justify-center px-6 py-12 sm:px-10 sm:py-20\" : terminal ? \"max-w-lg\" : \"mx-auto max-w-lg text-center\"}>\n          <p className=\"mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase\">404 / Page not found</p>\n          <h2 className={typography.sectionTitle}>{title}</h2>\n          <p className={`mt-4 ${typography.body}`}>{description}</p>\n          <div className={`mt-8 flex flex-wrap gap-3 ${!split && !terminal ? \"justify-center\" : \"\"}`}>\n            <Button href={homeHref}>{homeLabel}<span aria-hidden=\"true\">↗</span></Button>\n            {secondaryHref && <Button href={secondaryHref} variant=\"ghost\">{secondaryLabel}</Button>}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n});\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/blocks/not-found.shared.tsx"
+    },
+    {
+      "path": "registry/components/button.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\n\ntype ButtonProps = {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\";\n} & (ComponentProps<\"button\"> & { href?: never } | ComponentProps<\"a\"> & { href: string });\n\nexport const Button = memo(function Button({\n  children = \"Get started\",\n  variant = \"primary\",\n  className = \"\",\n  ...props\n}: ButtonProps = {}) {\n  const styles = {\n    primary: \"bg-emerald-400 text-neutral-950 hover:bg-emerald-300\",\n    secondary: \"bg-neutral-800 text-white hover:bg-neutral-700\",\n    ghost: \"bg-transparent text-foreground hover:bg-muted\",\n    destructive: \"bg-destructive text-destructive-foreground hover:bg-destructive/90\",\n    outline: \"border border-border text-white hover:bg-neutral-800\",\n  };\n  const classes = `inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 disabled:pointer-events-none disabled:opacity-50 ${styles[variant] ?? styles.primary} ${className}`;\n\n  if (props.href !== undefined) {\n    return <a className={classes} {...props}>{children}</a>;\n  }\n\n  return (\n    <button\n      type=\"button\"\n      className={classes}\n      {...props}\n    >\n      {children}\n    </button>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/button.tsx"
+    },
+    {
+      "path": "registry/lib/typography.shared.ts",
+      "content": "/** Shared text hierarchy for documentation and component content. */\nexport const typography = {\n  pageTitle: \"text-4xl font-semibold tracking-tight text-foreground sm:text-5xl\",\n  sectionTitle: \"text-2xl font-semibold tracking-tight text-foreground\",\n  subsectionTitle: \"text-xl font-semibold tracking-tight text-foreground\",\n  body: \"text-base leading-7 text-muted-foreground\",\n  label: \"text-sm font-medium\",\n  caption: \"text-sm leading-6 text-muted-foreground\",\n} as const;\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/lib/typography.shared.ts"
+    }
+  ],
+  "meta": {
+    "category": "blocks"
+  },
+  "type": "registry:block"
+}
