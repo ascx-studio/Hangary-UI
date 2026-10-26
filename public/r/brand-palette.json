@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "brand-palette",
+  "title": "Brand Palette",
+  "description": "Six brand color swatches and a green gradient.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "registry/components/brand-palette.tsx",
+      "content": "import { memo } from \"react\";\nimport { cn } from \"cn\";\n\nexport type BrandColor = {\n  name: string;\n  hex: string;\n  foreground: string;\n  token: string;\n};\n\nexport const brandColors: BrandColor[] = [\n  { name: \"Spring Green\", hex: \"#05dc7f\", foreground: \"#152e2b\", token: \"--color-spring-green\" },\n  { name: \"Green\", hex: \"#00664e\", foreground: \"#dbe3e6\", token: \"--color-brand-green\" },\n  { name: \"Dark Green\", hex: \"#152e2b\", foreground: \"#dbe3e6\", token: \"--color-dark-green\" },\n  { name: \"White\", hex: \"#dbe3e6\", foreground: \"#152e2b\", token: \"--color-palette-white\" },\n  { name: \"Gray\", hex: \"#1f1f1f\", foreground: \"#dbe3e6\", token: \"--color-palette-gray\" },\n  { name: \"Black\", hex: \"#000000\", foreground: \"#dbe3e6\", token: \"--color-black\" },\n];\n\nexport type BrandPaletteProps = {\n  colors?: BrandColor[];\n  className?: string;\n};\n\nexport const BrandPalette = memo(function BrandPalette({\n  colors = brandColors,\n  className,\n}: BrandPaletteProps = {}) {\n  return (\n    <section aria-label=\"Brand color palette\" className={cn(\"w-[640px] max-w-full\", className)}>\n      <ul className=\"grid grid-cols-2 gap-2 sm:grid-cols-3\">\n        {colors.map((color, index) => (\n          <li key={color.token}\n            aria-label={color.name}\n            className={cn(\"flex min-w-0 flex-col items-start justify-end gap-8 border border-white/15 p-4 text-left\", index < 3 ? \"h-52\" : \"h-36\")}\n            style={{ backgroundColor: color.hex, color: color.foreground }}\n          >\n          </li>\n        ))}\n      </ul>\n      <div aria-hidden=\"true\" className=\"mt-2 h-24 border border-border\" style={{ background: \"linear-gradient(120deg, #05dc7f, #00664e 50%, #152e2b)\" }} />\n    </section>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/brand-palette.tsx"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

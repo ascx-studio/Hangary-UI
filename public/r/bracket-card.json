@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bracket-card",
+  "title": "Bracket Card",
+  "description": "A dashed inner border with four crisp corner brackets.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "registry/components/bracket-card.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\nimport { cn } from \"cn\";\nimport { Card } from \"./card\";\n\ninterface BracketCardProps extends ComponentProps<\"div\"> {\n  variant?: \"brackets\" | \"corners\";\n}\n\nexport const BracketCard = memo(function BracketCard({ children, className, variant = \"brackets\", ...props }: BracketCardProps = {}) {\n  return (\n    <div data-slot=\"bracket-card\" className={cn(\"relative min-w-0 w-full p-2\", className)} {...props}>\n      <div aria-hidden=\"true\" className=\"pointer-events-none absolute inset-0 text-foreground/70\">\n          <>\n            <span className={cn(\"absolute left-0 top-0 border-l border-t border-current\", variant === \"corners\" ? \"size-8\" : \"size-6 border-l-2 border-t-2\")} />\n            <span className={cn(\"absolute right-0 top-0 border-r border-t border-current\", variant === \"corners\" ? \"size-8\" : \"size-6 border-r-2 border-t-2\")} />\n            <span className={cn(\"absolute bottom-0 left-0 border-b border-l border-current\", variant === \"corners\" ? \"size-8\" : \"size-6 border-b-2 border-l-2\")} />\n            <span className={cn(\"absolute bottom-0 right-0 border-b border-r border-current\", variant === \"corners\" ? \"size-8\" : \"size-6 border-b-2 border-r-2\")} />\n          </>\n      </div>\n      <Card title=\"\" description=\"\" className={cn(\"w-full! max-w-none! bg-background! p-6! shadow-none! sm:p-8!\", variant === \"brackets\" ? \"border-dashed\" : \"border-transparent!\")}>{children}</Card>\n    </div>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/bracket-card.tsx"
+    },
+    {
+      "path": "registry/components/card.tsx",
+      "content": "import { typography } from \"../lib/typography.shared\";\nimport type { ComponentProps, ReactNode } from \"react\";\n\ninterface CardProps extends Omit<ComponentProps<\"article\">, \"title\"> {\n  title?: string;\n  description?: string;\n  footer?: ReactNode;\n}\n\nexport function Card({ title = \"Room for your next idea\", description = \"A simple starting point for something great. Make it yours.\", children, footer, className = \"\", ...props }: CardProps = {}) {\n  return <article className={`w-full max-w-sm border border-border bg-card p-6 text-base leading-7 text-card-foreground shadow-sm ${className}`} {...props}>\n    {title && <h3 className={typography.sectionTitle}>{title}</h3>}\n    {description && <p className={`mt-2 ${typography.body}`}>{description}</p>}\n    {children && <div className={title || description || footer ? \"mt-5\" : \"h-full min-h-0\"}>{children}</div>}\n    {footer && <footer className=\"mt-5 border-t border-border pt-4\">{footer}</footer>}\n  </article>;\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/card.tsx"
+    },
+    {
+      "path": "registry/lib/typography.shared.ts",
+      "content": "/** Shared text hierarchy for documentation and component content. */\nexport const typography = {\n  pageTitle: \"text-4xl font-semibold tracking-tight text-foreground sm:text-5xl\",\n  sectionTitle: \"text-2xl font-semibold tracking-tight text-foreground\",\n  subsectionTitle: \"text-xl font-semibold tracking-tight text-foreground\",\n  body: \"text-base leading-7 text-muted-foreground\",\n  label: \"text-sm font-medium\",\n  caption: \"text-sm leading-6 text-muted-foreground\",\n} as const;\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/lib/typography.shared.ts"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}
