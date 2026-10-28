@@ -2,7 +2,6 @@
 import type { ComponentType } from "react";
 import { LiquidChromeBackground } from "@/registry/shader/liquid-chrome-background";
 import { HeatmapBackground } from "@/registry/shader/heatmap-background";
-import { GradientBackground } from "@/registry/shader/gradient-background";
 import { LinearGradientBackground } from "@/registry/shader/linear-gradient-background";
 import { GradientGridBackground } from "@/registry/shader/gradient-grid-background";
 import { SvgGradientBackground } from "@/registry/shader/svg-gradient-background";
@@ -19,11 +18,9 @@ import { DitheringFrameCard } from "@/registry/components/dithering-frame-card";
 import { DitherBackground } from "@/registry/shader/dither-background";
 import { Accordion } from "@/registry/components/accordion";
 import { AspectRatio } from "@/registry/components/aspect-ratio";
-import { AuroraBackground } from "@/registry/shader/aurora-background";
 import { Avatar } from "@/registry/components/avatar";
 import { Badge } from "@/registry/components/badge";
 import { Banner } from "@/registry/components/banner";
-import { BeamsBackground } from "@/registry/shader/beams-background";
 import { BorderHighlight } from "@/registry/components/border-highlight";
 import { BottomSheet } from "@/registry/components/bottom-sheet";
 import { BrandPalette } from "@/registry/components/brand-palette";
@@ -66,8 +63,6 @@ import { PricingCompact } from "@/registry/blocks/pricing-compact";
 import { PricingComparison } from "@/registry/blocks/pricing-comparison";
 import { PricingFeatured } from "@/registry/blocks/pricing-featured";
 import { PricingBracket } from "@/registry/blocks/pricing-bracket";
-import { SmeBackground } from "@/registry/shader/sme-background";
-import { SpotlightGridBackground } from "@/registry/shader/spotlight-grid-background";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
 import { Table } from "@/registry/components/table";
 import { WordmarkLed } from "@/registry/shader/wordmark-led";
@@ -80,7 +75,6 @@ import { NotFound } from "@/registry/blocks/not-found";
 export const previewEntries = {
   "liquid-chrome-background": { component: LiquidChromeBackground, category: "shader" },
   "heatmap-background": { component: HeatmapBackground, category: "shader" },
-  "gradient-background": { component: GradientBackground, category: "shader" },
   "linear-gradient-background": { component: LinearGradientBackground, category: "shader" },
   "gradient-grid-background": { component: GradientGridBackground, category: "shader" },
   "svg-gradient-background": { component: SvgGradientBackground, category: "shader" },
@@ -111,11 +105,9 @@ export const previewEntries = {
   "card-stack": { component: CardStack, category: "components" },
   "scale-card": { component: ScaleCard, category: "components" },
   "aspect-ratio": { component: AspectRatio, category: "components" },
-  "aurora-background": { component: AuroraBackground, category: "shader" },
   "avatar": { component: Avatar, category: "components" },
   "badge": { component: Badge, category: "components" },
   "banner": { component: Banner, category: "components" },
-  "beams-background": { component: BeamsBackground, category: "shader" },
   "border-highlight": { component: BorderHighlight, category: "components" },
   "bottom-sheet": { component: BottomSheet, category: "components" },
   "brand-palette": { component: BrandPalette, category: "components" },
@@ -145,8 +137,6 @@ export const previewEntries = {
   "pricing-comparison": { component: PricingComparison, category: "blocks" },
   "pricing-featured": { component: PricingFeatured, category: "blocks" },
   "pricing-bracket": { component: PricingBracket, category: "blocks" },
-  "sme-background": { component: SmeBackground, category: "shader" },
-  "spotlight-grid-background": { component: SpotlightGridBackground, category: "shader" },
   "spotlight-reveal": { component: SpotlightReveal, category: "components" },
   "table": { component: Table, category: "components" },
   "wordmark-led": { component: WordmarkLed, category: "shader" },

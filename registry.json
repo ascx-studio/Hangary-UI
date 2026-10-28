@@ -815,62 +815,6 @@
       ]
     },
     {
-      "name": "aurora-background",
-      "title": "Aurora Background",
-      "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.",
-      "type": "registry:component",
-      "files": [
-        {
-          "path": "registry/shader/aurora-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/aurora-background.tsx"
-        },
-        {
-          "path": "registry/shader/background-motion.css",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/background-motion.css"
-        }
-      ],
-      "meta": {
-        "category": "shader"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
-    },
-    {
-      "name": "gradient-background",
-      "title": "Gradient Background",
-      "description": "An animated WebGPU gradient with pointer interaction.",
-      "type": "registry:component",
-      "files": [
-        {
-          "path": "registry/shader/gradient-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/gradient-background.tsx"
-        },
-        {
-          "path": "registry/shader/gradient-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/gradient-background.wgsl"
-        },
-        {
-          "path": "registry/shader/shader-renderer.shared.ts",
-          "type": "registry:lib",
-          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
-        }
-      ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@^0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
-      "meta": {
-        "category": "shader"
-      }
-    },
-    {
       "name": "linear-gradient-background",
       "title": "Linear Gradient Background",
       "description": "A simple top-to-bottom gradient background.",
@@ -1034,30 +978,6 @@
       "meta": {
         "category": "components"
       }
-    },
-    {
-      "name": "beams-background",
-      "title": "Beams Background",
-      "description": "Diagonal light beams that drift behind your content.",
-      "type": "registry:component",
-      "files": [
-        {
-          "path": "registry/shader/beams-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/beams-background.tsx"
-        },
-        {
-          "path": "registry/shader/background-motion.css",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/background-motion.css"
-        }
-      ],
-      "meta": {
-        "category": "shader"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
     },
     {
       "name": "border-highlight",
@@ -2732,52 +2652,6 @@
           "color": "var(--muted-foreground)"
         }
       }
-    },
-    {
-      "name": "sme-background",
-      "type": "registry:component",
-      "title": "SME Shader",
-      "description": "A layered gradient and grid shader for product sections, previews, and hero panels.",
-      "files": [
-        {
-          "path": "registry/shader/sme-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/sme-background.tsx"
-        },
-        {
-          "path": "registry/shader/background-motion.css",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/background-motion.css"
-        }
-      ],
-      "dependencies": [],
-      "meta": {
-        "category": "shader"
-      }
-    },
-    {
-      "name": "spotlight-grid-background",
-      "title": "Spotlight Grid Background",
-      "description": "A fine grid illuminated by a soft spotlight from above.",
-      "type": "registry:component",
-      "files": [
-        {
-          "path": "registry/shader/spotlight-grid-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/spotlight-grid-background.tsx"
-        },
-        {
-          "path": "registry/shader/background-motion.css",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/background-motion.css"
-        }
-      ],
-      "meta": {
-        "category": "shader"
-      },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
     },
     {
       "name": "spotlight-reveal",

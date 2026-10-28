@@ -344,30 +344,6 @@
       "title": "Shaders",
       "items": [
         {
-          "label": "SME Shader",
-          "slug": "sme-background",
-          "description": "A layered gradient and grid shader for product sections, previews, and hero panels.",
-          "group": "Backgrounds"
-        },
-        {
-          "label": "Spotlight Grid",
-          "slug": "spotlight-grid-background",
-          "description": "A fine grid illuminated by a soft spotlight from above.",
-          "group": "Backgrounds"
-        },
-        {
-          "label": "Aurora",
-          "slug": "aurora-background",
-          "description": "Slow-moving emerald, cyan, and violet gradients with a soft aurora glow.",
-          "group": "Backgrounds"
-        },
-        {
-          "label": "Gradient",
-          "slug": "gradient-background",
-          "description": "An animated WebGPU gradient with pointer interaction.",
-          "group": "Backgrounds"
-        },
-        {
           "label": "Linear Gradient",
           "slug": "linear-gradient-background",
           "description": "A simple top-to-bottom gradient background.",
@@ -390,12 +366,6 @@
           "slug": "mesh-gradient-background",
           "description": "A layered SVG mesh gradient with blurred color pools and a dot texture.",
           "group": "Gradient"
-        },
-        {
-          "label": "Beams",
-          "slug": "beams-background",
-          "description": "Diagonal light beams that drift behind your content.",
-          "group": "Backgrounds"
         },
         {
           "label": "Wordmark LED",
