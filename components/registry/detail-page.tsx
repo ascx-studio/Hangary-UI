@@ -2,7 +2,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { getRegistryItem, getRegistryItemHref, type RegistryCategory } from "@/lib/registry";
 import { logCatalogDetailRendered } from "@/lib/posthog-logger";
 import JsonLd from "@/components/seo/JsonLd";
-import { siteUrl } from "@/lib/seo";
+import { registryStructuredData, siteUrl } from "@/lib/seo";
 import DocsPageEntrance from "@/components/registry/docs-page-entrance";
 
 export default async function DetailPage({ name, category }: { name: string; category: RegistryCategory }) {
@@ -24,6 +24,7 @@ export default async function DetailPage({ name, category }: { name: string; cat
         { "@type": "ListItem", position: 3, name: item.title, item: new URL(getRegistryItemHref(item), siteUrl).href },
       ],
     }} />
+    <JsonLd data={registryStructuredData(item, category, getRegistryItemHref(item))} />
     <Content />
   </DocsPageEntrance>;
 }

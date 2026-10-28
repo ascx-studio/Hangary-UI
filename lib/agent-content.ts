@@ -46,7 +46,7 @@ export function markdownPage(pathname: string): string | undefined {
   if (!documented.length) return undefined;
   return [`# ${documented[0].meta?.documentationPage ? name : documented[0].title}`, "",
     ...documented.flatMap(item => [`## ${item.title}`, "", item.description, "", "### Installation", "", "```sh", `npx shadcn@latest add ${base}/r/${item.name}.json`, "```", "", ...item.files.map(file => `- ${link(file.path, `https://github.com/ascx-studio/ui/blob/main/${file.path}`)}`), ""]),
-    `See ${link("the full documentation", path)} for interactive previews, props, and setup notes.`, ""].join("\n");
+    `See ${link("the full documentation", path)} for interactive previews, props, and installation instructions.`, ""].join("\n");
 }
 
 export const markdownNotFound = `# Page not found\n\nThis page does not exist. Browse the [components](${base}/components), [sitemap](${base}/sitemap.xml), or [agent guidance](${base}/llms.txt) to find the documentation you need.\n`;
