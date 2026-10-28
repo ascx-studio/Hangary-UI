@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { NotFound } from "@/registry/blocks/not-found";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="not-found" />
 
 <ComponentPreview className="grid-cols-1 px-2! py-10! sm:px-8! *:max-w-full!">
   <NotFound className="max-w-4xl" />
 </ComponentPreview>
 
-<DocsReveal>
-# 404 Centered
+<DocsReveal stagger>
 
 A centered 404 page with oversized numerals and clear recovery links.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/not-found.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/not-found.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/not-found.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/not-found.json",
-}} />
+<InstallationMenu name="not-found" />
 
-## Usage
+## How to use
 
 ```tsx
 import { NotFound } from "@/components/hangry-ui/blocks/not-found";
@@ -40,17 +40,21 @@ export default function NotFoundPage() {
 
 ## Props
 
-- `title`: Heading for the recovery message.
-- `description`: Explanation beneath the heading.
-- `homeHref`: Primary destination. Defaults to `/`.
-- `homeLabel`: Primary link text. Defaults to `Back to home`.
-- `secondaryHref`: Optional secondary destination. Omitted by default.
-- `secondaryLabel`: Secondary link text. Defaults to `Contact support`.
-- `className`: Additional section classes. Native section attributes are forwarded.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Heading for the recovery message."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Explanation beneath the heading."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"homeHref"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/"}</code></TableCell><TableCell>{"Primary destination. Defaults to "}<code>{"/"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"homeLabel"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Back to home"}</code></TableCell><TableCell>{"Primary link text. Defaults to "}<code>{"Back to home"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"secondaryHref"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Optional secondary destination. Omitted by default."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"secondaryLabel"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Contact support"}</code></TableCell><TableCell>{"Secondary link text. Defaults to "}<code>{"Contact support"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional section classes. Native section attributes are forwarded."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Use this block in `app/not-found.tsx` to handle missing pages in a Next.js app, or render it inside your own router’s fallback page. The block renders a section with an h2; add your page’s main landmark and h1 in the surrounding layout as needed. Rendering the block alone does not set an HTTP status code.
+<DocsDependencies name="not-found" />
 
-Recovery actions are native links with visible keyboard focus. Decorative artwork is hidden from assistive technology. The memoized block is server-compatible and static, with no animation or browser API requirements. Shared typography and Button sources are bundled with installation. Set recovery destinations to routes that exist in your application.
 </DocsReveal>

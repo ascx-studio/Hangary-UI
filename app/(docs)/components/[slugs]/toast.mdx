@@ -1,105 +1,46 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { ToastDemo } from "@/components/registry/toast-demo";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="toast" />
 
 <ComponentPreview className="grid-cols-1 px-6! py-12! *:max-w-full!">
   <ToastDemo />
 </ComponentPreview>
 
-<DocsReveal>
-# Toast
+<DocsReveal stagger>
 
 A compact notification with neutral, info, success, warning, and error variants. Notifications can close automatically, pause while hovered or focused, and dismiss with the close button or Escape while focused.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/toast.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/toast.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/toast.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/toast.json",
-}} />
+<InstallationMenu name="toast" />
 
-## Add the host once
+## How to use
 
-Import Toaster in your root layout. The layout can remain a Server Component.
+Import the component and add it to your page.
 
 ```tsx
-import { Toaster } from "@/components/hangry-ui/components/toast";
+import { toast } from "@/components/hangry-ui/components/toast-store";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-        <Toaster />
-      </body>
-    </html>
-  );
-}
+<toast />
 ```
 
-## Show notifications anywhere
+## Props
 
-Call `toast()` from browser event handlers, client utilities, or after an asynchronous request. No hook, provider, local state, or Toast element is needed at the call site.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell>Native props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Accepts the native props documented by the component source.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-```tsx
-"use client";
+## Dependencies
 
-import { toast } from "@/components/hangry-ui/components/toast";
-import { Button } from "@/components/hangry-ui/components/button";
+<DocsDependencies name="toast" />
 
-export function SaveButton() {
-  return (
-    <Button onClick={() => toast.success("Changes saved.", {
-      description: "Your workspace is up to date.",
-    })}>
-      Show notification
-    </Button>
-  );
-}
-```
-
-```tsx
-toast("A little update for you.");
-toast.info("An update is available.");
-toast.success("Changes saved.");
-toast.warning("Your session expires soon.");
-toast.error("We couldn’t save your changes.");
-```
-
-Call these functions in client-side code. For a Server Action, return its result and call `toast()` in the client after awaiting it.
-
-## Multiple toasts
-
-Click any status button repeatedly. The same root Toaster displays the three most recent notifications, with smaller cards behind the front notification. Hover or focus the stack to expand it and pause all timers. Each toast dismisses independently; remaining cards move forward. Notifications with different content heights share the front card’s height while collapsed and return to their natural heights when expanded.
-
-## Options and dismissal
-
-`toast(message, options)` returns a notification ID. Each status helper accepts the same options.
-
-- `description`: Optional supporting text.
-- `variant`: `"neutral"`, `"info"`, `"success"`, `"warning"`, or `"error"`. Plain `toast()` defaults to neutral; status helpers set their matching variant.
-- `duration`: Time before dismissal in milliseconds. Defaults to `5000`; use `0` to keep a notification visible until dismissed.
-- `action`: Optional action content.
-
-```tsx
-const id = toast("Uploading your file…", { duration: 0 });
-
-// Later:
-toast.dismiss(id);
-
-// Dismiss all notifications:
-toast.dismiss();
-```
-
-## Standalone Toast
-
-The lower-level `Toast` component remains available for inline notifications. It accepts `message`, `description`, `variant`, `duration`, `action`, and `className`, plus optional controlled `open` / `onOpenChange` and an external `paused` flag. The function API uses the root Toaster, so ordinary notification call sites only import `toast`.
-
-## Setup notes
-
-Uses Card, Button, shared typography, Lucide icons, and Motion. Toaster subscribes to a small shared store with React’s `useSyncExternalStore`, following the observer approach in [Building a toast component](https://emilkowal.ski/ui/building-a-toast-component). It stays mounted across route changes and renders notifications in the bottom-right corner, centered on narrow screens.
-
-Timers pause while the stack is hovered, focused, or the browser tab is hidden, then resume with the remaining time. Error notifications use an alert announcement; other variants use a polite status announcement. Focus is not moved automatically. Reduced motion disables movement and makes transitions immediate.
 </DocsReveal>

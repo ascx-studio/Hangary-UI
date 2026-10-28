@@ -1,6 +1,12 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { CornerCard } from "@/registry/components/corner-card";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="corner-card" />
 
 <ComponentPreview className="grid-cols-1 px-6! py-12! sm:px-12!">
   <CornerCard className="max-w-lg!">
@@ -12,21 +18,15 @@ import { CornerCard } from "@/registry/components/corner-card";
   </CornerCard>
 </ComponentPreview>
 
-<DocsReveal>
-# Corner Card
+<DocsReveal stagger>
 
 A minimal open frame with long, thin corner brackets.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/corner-card.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/corner-card.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/corner-card.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/corner-card.json",
-}} />
+<InstallationMenu name="corner-card" />
 
-## Usage
+## How to use
 
 ```tsx
 import { CornerCard } from "@/components/hangry-ui/components/corner-card";
@@ -38,13 +38,18 @@ import { CornerCard } from "@/components/hangry-ui/components/corner-card";
 
 ## Props
 
-- `children`: Custom React content, including interactive components.
-- `className`: Additional classes on the outer container.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Custom React content, including interactive components."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the outer container."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 - Native div attributes, including `style` and `aria-*`, are forwarded to the wrapper.
 
-## Setup notes
+## Dependencies
 
-Colors follow the shared background, foreground, border, and primary tokens. Decorative elements are hidden from assistive technology and do not intercept pointer events. Content sets the card height; the wrapper shrinks to fit narrow containers.
+<DocsDependencies name="corner-card" />
 
-This static component is memoized and server-compatible, with no animation dependency. The installation includes the existing components it reuses.
 </DocsReveal>

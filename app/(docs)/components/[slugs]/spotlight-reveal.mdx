@@ -1,7 +1,13 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/tabs";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="spotlight-reveal" />
 
 <ComponentPreview className="grid-cols-1">
   <Tabs defaultValue="filled" className="w-[640px] max-w-full">
@@ -18,21 +24,15 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/
   </Tabs>
 </ComponentPreview>
 
-<DocsReveal>
-# Spotlight Reveal
+<DocsReveal stagger>
 
 Reveal an image's color through a soft spotlight that follows your pointer. The rest of the artwork stays dim and grayscale.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/spotlight-reveal.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/spotlight-reveal.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/spotlight-reveal.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/spotlight-reveal.json",
-}} />
+<InstallationMenu name="spotlight-reveal" />
 
-## Usage
+## How to use
 
 ```tsx
 import { SpotlightReveal } from "@/components/hangry-ui/components/spotlight-reveal";
@@ -46,15 +46,19 @@ import { SpotlightReveal } from "@/components/hangry-ui/components/spotlight-rev
 
 ## Props
 
-- `src`: Image URL. Defaults to `/wordmark.svg` from the public directory.
-- `variant`: `"default"` for filled artwork or `"stroke"` for outline-only artwork. Defaults to `"default"`.
-- `strokeSrc`: Outline image URL. Defaults to `/wordmark-stroke.svg`. Supply a matching outline SVG when using custom artwork with `variant="stroke"`.
-- `alt`: Image description. Defaults to an empty string for decorative artwork. Only the base image is announced.
-- `className`: Additional frame classes. Defaults to a fixed width of 640px, a height of 256px, and a transparent background. Shrinks to fit smaller containers.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"src"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/wordmark.svg"}</code></TableCell><TableCell>{"Image URL. Defaults to "}<code>{"/wordmark.svg"}</code>{" from the public directory."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"variant"}</code></TableCell><TableCell><code className="break-words">{"\"default\" | \"stroke\""}</code></TableCell><TableCell><code>{"default"}</code></TableCell><TableCell><code>{"\"default\""}</code>{" for filled artwork or "}<code>{"\"stroke\""}</code>{" for outline-only artwork. Defaults to "}<code>{"\"default\""}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"strokeSrc"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/wordmark-stroke.svg"}</code></TableCell><TableCell>{"Outline image URL. Defaults to "}<code>{"/wordmark-stroke.svg"}</code>{". Supply a matching outline SVG when using custom artwork with "}<code>{"variant=\"stroke\""}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{""}</code></TableCell><TableCell>{"Image description. Defaults to an empty string for decorative artwork. Only the base image is announced."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional frame classes. Defaults to a fixed width of 640px, a height of 256px, and a transparent background. Shrinks to fit smaller containers."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Uses Next.js Image with `unoptimized` so supplied SVGs and remote artwork load directly without an image optimizer or a remote host configuration. Artwork uses `object-contain` to preserve its aspect ratio. Override the frame dimensions with `className`.
+<DocsDependencies name="spotlight-reveal" />
 
-Motion elements come from `motion/react-client`. Pointer handlers and spring hooks require the client boundary. Reduced motion removes spring smoothing and opacity transitions. Touch input keeps the static image, and the effect adds no tab stops. The decorative color layer does not intercept clicks.
 </DocsReveal>

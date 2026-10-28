@@ -1,6 +1,12 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { GuideCard } from "@/registry/components/guide-card";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="guide-card" />
 
 <ComponentPreview className="grid-cols-1 px-2! py-12! sm:px-8! *:max-w-full!">
   <GuideCard className="max-w-xl!">
@@ -12,21 +18,15 @@ import { GuideCard } from "@/registry/components/guide-card";
   </GuideCard>
 </ComponentPreview>
 
-<DocsReveal>
-# Guide Card
+<DocsReveal stagger>
 
 A minimal card framed by extended inset lines and small cross marks. Gaps around each intersection keep the guides separate from the corner markers.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/guide-card.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/guide-card.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/guide-card.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/guide-card.json",
-}} />
+<InstallationMenu name="guide-card" />
 
-## Usage
+## How to use
 
 ```tsx
 import { GuideCard } from "@/components/hangry-ui/components/guide-card";
@@ -38,13 +38,18 @@ import { GuideCard } from "@/components/hangry-ui/components/guide-card";
 
 ## Props
 
-- `children`: Custom React content, including interactive components.
-- `className`: Additional classes on the outer card.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Custom React content, including interactive components."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the outer card."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 - Native div attributes, including `style` and `aria-*`, are forwarded to the wrapper.
 
-## Setup notes
+## Dependencies
 
-The guide lines sit 32px inside the card on small screens and 48px on larger screens. Each intersection has a 24px gap and a small cross marker. Shared border and muted foreground tokens adapt the design to light and dark themes.
+<DocsDependencies name="guide-card" />
 
-Decorative elements are hidden from assistive technology and do not intercept clicks. The background is transparent, and content determines the height. This static, memoized component is server-compatible and has no animation dependency.
 </DocsReveal>

@@ -1,8 +1,14 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/components/card";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Button } from "@/registry/components/button";
 import { Badge } from "@/registry/components/badge";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="card" />
 
 <ComponentPreview className="h-full w-full">
   <div className="flex w-full justify-center">
@@ -18,21 +24,15 @@ import { Badge } from "@/registry/components/badge";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Card
+<DocsReveal stagger>
 
 A flexible content card with a title, description, body, and footer.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/card.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/card.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/card.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/card.json",
-}} />
+<InstallationMenu name="card" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Button } from "@/components/hangry-ui/components/button";
@@ -49,34 +49,19 @@ import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader,
 </Card>
 ```
 
-## Sizes and link cards
+## Props
 
-`size` accepts `"sm"` (16px gap and padding) or `"md"` (24px, the default). Variants use a TypeScript class map with no CVA dependency.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Room for your next idea"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"A simple starting point for something great. Make it yours."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"footer"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-```tsx
-<Card size="sm">
-  <CardContent>A compact card.</CardContent>
-</Card>
+## Dependencies
 
-<Card as="a" href="/projects" size="md">
-  <CardHeader>
-    <CardTitle>Browse projects</CardTitle>
-    <CardDescription>Open your workspace.</CardDescription>
-  </CardHeader>
-</Card>
-```
+<DocsDependencies name="card" />
 
-Link cards change background on hover and show a keyboard focus outline. Avoid nesting buttons or other links inside a link card. Transitions respect reduced motion.
-
-## Composition
-
-Use `CardHeader` for the heading area, `CardTitle` and `CardDescription` for text, and `CardAction` for a control aligned to the top right. Place body content in `CardContent` and bottom actions in `CardFooter`.
-
-Each component accepts `children`, `className`, and native attributes for its element: `article`, `header`, `h3`, `p`, `div` (action and content), or `footer`.
-
-The legacy `title`, `description`, and `footer` props remain supported. Content is otherwise supplied through children; no default heading or description is inserted.
-
-## Setup notes
-
-Use Tailwind CSS v4. Cards use a `border-border` outline, rounded corners, `shadow-md`, and the shared color tokens. Customize `--focus-ring-width`, `--focus-ring-offset`, and `--duration-fast` as needed; defaults are 2px, 2px, and 150ms. No additional packages are required. Compose content with the exported parts and customize styling with `className`.
 </DocsReveal>

@@ -344,6 +344,24 @@
       "title": "Shaders",
       "items": [
         {
+          "label": "Koi Pond",
+          "slug": "koi-pond-background",
+          "description": "Four koi react to the pointer in a green pond with rocks, grass, and click ripples.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Photon Corridor",
+          "slug": "photon-corridor-background",
+          "description": "Monochrome light trails stream through a dark perspective corridor.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Plasma Rift",
+          "slug": "plasma-rift-background",
+          "description": "Cyan and emerald plasma ribbons fold into a dark, flowing vortex.",
+          "group": "Backgrounds"
+        },
+        {
           "label": "Linear Gradient",
           "slug": "linear-gradient-background",
           "description": "A simple top-to-bottom gradient background.",

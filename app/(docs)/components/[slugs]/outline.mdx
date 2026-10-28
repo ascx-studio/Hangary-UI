@@ -1,7 +1,12 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Outline } from "@/registry/components/outline";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="outline" />
 
 <ComponentPreview className="h-full w-full">
   <Outline
@@ -14,21 +19,15 @@ import { Outline } from "@/registry/components/outline";
   />
 </ComponentPreview>
 
-<DocsReveal>
-# Outline
+<DocsReveal stagger>
 
 A navigation list with a sliding active indicator. Use items without `href` for headings on the current page, or provide `href` to use the same keyboard-accessible list for routes. The list is one tab stop: arrow keys move between items, Home and End jump to the ends, and Enter or Space activates the selected item.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/outline.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/outline.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/outline.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/outline.json",
-}} />
+<InstallationMenu name="outline" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Outline } from "@/components/hangry-ui/components/outline";
@@ -83,7 +82,8 @@ Without `href`, each item points to a heading or element id on the current page,
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Outline uses Motion for its sliding indicator and disables animation when reduced motion is preferred.
+<DocsDependencies name="outline" />
+
 </DocsReveal>

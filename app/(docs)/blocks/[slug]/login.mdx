@@ -1,24 +1,24 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { Login } from "@/registry/blocks/login";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="login" />
 
 <ComponentPreview id="login" className="h-full w-full"><Login /></ComponentPreview>
 
-<DocsReveal>
-# Login
+<DocsReveal stagger>
 
 A card login form with provider buttons, password visibility, and loading and error states.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/login.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/login.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/login.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/login.json",
-}} />
+<InstallationMenu name="login" />
 
-## Usage
+## How to use
 
 ```tsx
 "use client";
@@ -32,4 +32,30 @@ export function SignIn(props: Pick<ComponentProps<typeof Login>,
   return <Login brand="Acme" {...props} />;
 }
 ```
+
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"brand"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"logo"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"showSocial"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"onProviderLogin"}</code></TableCell><TableCell><code>{"(provider: \"google\" | \"github\") => void"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"loading"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"error"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"forgotPasswordHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"signupHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"helpHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"termsHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"privacyHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="login" />
+
 </DocsReveal>

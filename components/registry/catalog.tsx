@@ -1,5 +1,6 @@
 import { AspectRatio } from "@/registry/components/aspect-ratio";
 import { getRegistryItemHref, getRegistryItems, type RegistryCategory } from "@/lib/registry";
+import { usesVgpu } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import SharedPreviewLayout from "@/components/registry/shared-preview-layout";
@@ -39,7 +40,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                     <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg border border-border bg-background">
                       <Image
                         src={`/previews/${item.name}.png`}
-                        alt={`${item.title} preview`}
+                        alt={`${item.title} ${category === "shader" && usesVgpu(item) ? "vgpu WebGPU shader" : "React component"} preview`}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="h-full w-full object-cover"
@@ -47,6 +48,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                     </AspectRatio>
                   </SharedPreviewLayout>
                   <h3 className={`mt-5 typography-section-title`}>{item.title}</h3>
+                  {category === "shader" && <p className="mt-2 text-sm leading-6 text-muted-foreground">{usesVgpu(item) ? "vgpu · React · WebGPU" : "React · CSS / SVG"}</p>}
                 </Link>
               </li>
             ))}

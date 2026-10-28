@@ -15,6 +15,7 @@ import "prismjs/components/prism-json";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-markup";
 import "prismjs/components/prism-python";
+import { toast } from "./toast-store";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
 
 Prism.languages.insertBefore("bash", "function", {
@@ -75,6 +76,7 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
     try {
       await navigator.clipboard.writeText(displayedCode);
       setCopyResult({ code: displayedCode, success: true });
+      toast.success(commands ? "Install command copied" : displayedLanguage === "text" ? "Prompt copied" : "Code copied");
       if (isPostHogConfigured && posthog.has_opted_in_capturing()) {
         posthog.capture("code_copied", {
           content_type: commands ? "installation_command" : "source_code",
@@ -85,6 +87,7 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
       }
     } catch {
       setCopyResult({ code: displayedCode, success: false });
+      toast.error("Could not copy. Select the text and copy it manually.");
     }
   }
 

@@ -1,6 +1,12 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { LogoAnimation } from "@/registry/components/logo-animation";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="logo-animation" />
 
 <ComponentPreview className="h-full w-full">
   <div className="flex flex-wrap items-center justify-center gap-12">
@@ -19,21 +25,15 @@ import { LogoAnimation } from "@/registry/components/logo-animation";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Logo Animation
+<DocsReveal stagger>
 
 A reusable SVG logo component that animates the vector shapes supplied to it. It defaults to the portfolio logo, but animates custom SVG artwork passed as children.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/logo-animation.json",
-}} />
+<InstallationMenu name="logo-animation" />
 
-## Usage
+## How to use
 
 ```tsx
 import { LogoAnimation } from "@/components/hangry-ui/components/logo-animation";
@@ -55,17 +55,21 @@ The default portfolio logo is used only when neither `logo` nor `children` is pr
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `logo` | `ReactNode` | Portfolio logo | Any rendered logo component, inline SVG, or image. Vector shapes are drawn individually; other artwork fades in. |
-| `children` | `ReactNode` | — | Alias for `logo`, useful for passing SVG elements directly. |
-| `size` | `number` | `48` | Square logo size in pixels. |
-| `width` | `number` | `size` | SVG width in pixels. |
-| `height` | `number` | `size` | SVG height in pixels. |
-| `alt` | `string` | `"Portfolio logo"` | Accessible description for the logo. |
-| `className` | `string` | — | Additional classes on the wrapper. |
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"logo"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>Portfolio logo</TableCell><TableCell>Any rendered logo component, inline SVG, or image. Vector shapes are drawn individually; other artwork fades in.</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Alias for <code>{"logo"}</code>, useful for passing SVG elements directly.</TableCell></TableRow>
+<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"48"}</code></TableCell><TableCell>Square logo size in pixels.</TableCell></TableRow>
+<TableRow><TableCell><code>{"width"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"size"}</code></TableCell><TableCell>SVG width in pixels.</TableCell></TableRow>
+<TableRow><TableCell><code>{"height"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"size"}</code></TableCell><TableCell>SVG height in pixels.</TableCell></TableRow>
+<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\"Portfolio logo\""}</code></TableCell><TableCell>Accessible description for the logo.</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell>—</TableCell><TableCell>Additional classes on the wrapper.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`. The registry entry installs Motion.
+<DocsDependencies name="logo-animation" />
+
 </DocsReveal>

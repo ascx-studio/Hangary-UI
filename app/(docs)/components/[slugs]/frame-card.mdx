@@ -1,6 +1,12 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { FrameCard } from "@/registry/components/frame-card";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="frame-card" />
 
 <ComponentPreview className="grid-cols-1 px-6! sm:px-12!">
   <FrameCard className="max-w-lg">
@@ -12,21 +18,15 @@ import { FrameCard } from "@/registry/components/frame-card";
   </FrameCard>
 </ComponentPreview>
 
-<DocsReveal>
-# Frame Card
+<DocsReveal stagger>
 
 A bordered container with inset guide lines and four corner dots. This is the same component that wraps the documentation previews.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/frame-card.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/frame-card.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/frame-card.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/frame-card.json",
-}} />
+<InstallationMenu name="frame-card" />
 
-## Usage
+## How to use
 
 ```tsx
 import { FrameCard } from "@/components/hangry-ui/components/frame-card";
@@ -40,13 +40,18 @@ import { FrameCard } from "@/components/hangry-ui/components/frame-card";
 
 ## Props
 
-- `children`: Any React content, including interactive components.
-- `className`: Additional classes on the outer frame. Use it to set width, background, or spacing.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Any React content, including interactive components."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the outer frame. Use it to set width, background, or spacing."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 - Native div attributes, including `style` and `aria-*`, are forwarded to the frame.
 
-## Setup notes
+## Dependencies
 
-The outer frame and inset lines follow the border token. Corner dots use foreground with a background-colored outline. Decorative elements are hidden from assistive technology and do not intercept clicks. The container has responsive inset spacing, a transparent background, and no fixed content height.
+<DocsDependencies name="frame-card" />
 
-This static component is memoized and server-compatible, with no animation dependency. Add your own content padding inside the frame to keep text clear of the guide lines.
 </DocsReveal>

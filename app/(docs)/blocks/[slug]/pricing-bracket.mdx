@@ -1,10 +1,44 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { PricingBracket } from "@/registry/blocks/pricing-bracket";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="pricing-bracket" />
 
 <ComponentPreview id="pricing-bracket" className="h-full w-full"><PricingBracket /></ComponentPreview>
 
-<DocsReveal>
-# Pricing Bracket
+<DocsReveal stagger>
 
 Pricing plans framed with bracket cards.
+
+## Installation
+
+<InstallationMenu name="pricing-bracket" />
+
+## How to use
+
+Import the component and add it to your page.
+
+```tsx
+import { PricingBracket } from "@/components/hangry-ui/blocks/pricing-bracket";
+
+<PricingBracket />
+```
+
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Plans with room to grow"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"A focused set of plans for independent builders and teams."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="pricing-bracket" />
+
 </DocsReveal>

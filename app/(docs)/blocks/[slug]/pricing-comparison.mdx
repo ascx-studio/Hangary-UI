@@ -1,24 +1,24 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { PricingComparison } from "@/registry/blocks/pricing-comparison";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="pricing-comparison" />
 
 <ComponentPreview id="pricing-comparison" className="h-full w-full"><PricingComparison defaultBilling="yearly" /></ComponentPreview>
 
-<DocsReveal>
-# Pricing Comparison
+<DocsReveal stagger>
 
 A pricing comparison table with billing controls.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/pricing-comparison.json",
-}} />
+<InstallationMenu name="pricing-comparison" />
 
-## Usage
+## How to use
 
 ```tsx
 import { PricingComparison } from "@/components/hangry-ui/blocks/pricing-comparison";
@@ -39,4 +39,21 @@ import { PricingComparison } from "@/components/hangry-ui/blocks/pricing-compari
   ]}
 />
 ```
+
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"A plan for every next step"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Start small. Make room as you grow."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"defaultBilling"}</code></TableCell><TableCell><code>{"\"monthly\" | \"yearly\""}</code></TableCell><TableCell><code>{"monthly"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"plans"}</code></TableCell><TableCell><code>{"{ name: string; description: string; monthlyPrice: number; yearlyPrice: number; features: string[]; href: string; label?: string; featured?: boolean; }[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="pricing-comparison" />
+
 </DocsReveal>

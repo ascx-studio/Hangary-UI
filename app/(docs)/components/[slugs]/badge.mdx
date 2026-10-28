@@ -1,7 +1,12 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Badge } from "@/registry/components/badge";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="badge" />
 
 <ComponentPreview className="h-full w-full">
   <div className="flex flex-col items-center gap-3 p-4 sm:p-8 [&_span]:px-4 [&_span]:py-3 [&_span]:text-base sm:[&_span]:text-xl">
@@ -21,31 +26,21 @@ import { Badge } from "@/registry/components/badge";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Badge
+<DocsReveal stagger>
 
 Status badges with matching icons, tinted backgrounds, square corners, and a subtle reveal and hover lift that respect reduced-motion preferences.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/badge.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/badge.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/badge.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/badge.json",
-}} />
+<InstallationMenu name="badge" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Badge } from "@/components/hangry-ui/components/badge";
 
 <Badge variant="success">Published</Badge>
 ```
-
-## Variants
-
-Use `pending`, `in-progress`, `submitted`, `in-review`, `success`, `failed`, or `expired` for status icons and default labels. The existing color variants remain available: neutral, info, warning, error, blue, purple, pink, teal, orange.
 
 ## Props
 
@@ -86,7 +81,8 @@ Use `pending`, `in-progress`, `submitted`, `in-review`, `success`, `failed`, or 
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4 and lucide-react for the status icons. Badges have square corners and no border. Customize the label with children and styling with `className`.
+<DocsDependencies name="badge" />
+
 </DocsReveal>

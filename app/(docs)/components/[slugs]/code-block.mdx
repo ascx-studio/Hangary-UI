@@ -1,6 +1,11 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="code-block" />
 
 <ComponentPreview className="h-full w-full">
 <div className="w-full space-y-6">
@@ -9,21 +14,15 @@ import ComponentPreview from "@/components/registry/component-preview";
       </div>
   </ComponentPreview>
 
-<DocsReveal>
-# Code Block
+<DocsReveal stagger>
 
 A scrollable code block with language and package-manager icons from SVGL, an optional filename, line numbers, and a copy button. `CodeBlock` is the parent component: it composes the header, copy action, package-manager tabs, and a memoized Prism renderer. Syntax highlighting safely escapes markup and uses global theme colors.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/code-block.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/code-block.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/code-block.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/code-block.json",
-}} />
+<InstallationMenu name="code-block" />
 
-## Usage
+## How to use
 
 ```tsx
 import { CodeBlock } from "@/components/hangry-ui/components/code-block";
@@ -35,25 +34,6 @@ import { CodeBlock } from "@/components/hangry-ui/components/code-block";
   showLineNumbers
 />
 ```
-
-## Examples
-
-Use `showLineNumbers` for numbered snippets and `filename` for a file label. Omit both for a plain snippet. The preview above shows a filename and numbered lines.
-
-`CodeBlock` owns the complete layout. Pass source through `code` and the grammar through `language`; the component renders its header and Prism-highlighted code together.
-
-## Package managers
-
-```tsx
-<CodeBlock commands={{
-  bun: "bun add prism-react-renderer prismjs",
-  npm: "npm install prism-react-renderer prismjs",
-  pnpm: "pnpm add prism-react-renderer prismjs",
-  yarn: "yarn add prism-react-renderer prismjs",
-}} />
-```
-
-The Bun, npm, pnpm, and Yarn buttons switch the displayed command. Copy copies the selected command without line numbers. Optional `packageManager` and `onPackageManagerChange` props allow you to control the selection.
 
 ## Props
 
@@ -118,7 +98,8 @@ The Bun, npm, pnpm, and Yarn buttons switch the displayed command. Copy copies t
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4 and global `border`, `card`, `card-foreground`, `muted`, `muted-foreground`, and `ring` theme tokens. The registry uses `prism-react-renderer` and `prismjs` for syntax highlighting and lucide-react for icons. No rounded classes are included. Copy requires a secure browser context, such as HTTPS or localhost; when copying fails, select the code and copy it manually. JavaScript/JSX, TypeScript/TSX, Bash, JSON, CSS, HTML/XML, and Python are highlighted using Prism. Unknown languages display as plain text.
+<DocsDependencies name="code-block" />
+
 </DocsReveal>

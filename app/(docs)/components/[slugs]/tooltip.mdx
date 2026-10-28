@@ -1,6 +1,12 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Tooltip } from "@/registry/components/tooltip";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="tooltip" />
 
 <ComponentPreview className="h-full w-full">
   <div className="flex flex-wrap items-center justify-center gap-8">
@@ -11,21 +17,15 @@ import { Tooltip } from "@/registry/components/tooltip";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Tooltip
+<DocsReveal stagger>
 
 Hover and focus previews built with the Card component.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/tooltip.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/tooltip.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/tooltip.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/tooltip.json",
-}} />
+<InstallationMenu name="tooltip" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Tooltip } from "@/components/hangry-ui/components/tooltip";
@@ -47,22 +47,22 @@ import { Tooltip } from "@/components/hangry-ui/components/tooltip";
 
 ## Props
 
-| Prop | Default | Description |
-| --- | --- | --- |
-| `children` | Demo button | One focusable element that forwards DOM props, such as a button or Next.js Link. |
-| `title` | — | Prominent heading with stronger weight and foreground color. |
-| `description` | — | Supporting text with softer contrast and comfortable line spacing. |
-| `icon` | — | Optional icon in an accent-colored container. |
-| `content` | Demo text when no title or description | Plain tooltip text or extra noninteractive content. |
-| `side` | `"top"` | `"top"`, `"right"`, `"bottom"`, or `"left"`. |
-| `sideOffset` | `10` | Gap from the trigger in pixels. |
-| `className` | — | Additional classes on the Card. |
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell>Demo button</TableCell><TableCell>One focusable element that forwards DOM props, such as a button or Next.js Link.</TableCell></TableRow>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell>—</TableCell><TableCell>Prominent heading with stronger weight and foreground color.</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell>—</TableCell><TableCell>Supporting text with softer contrast and comfortable line spacing.</TableCell></TableRow>
+<TableRow><TableCell><code>{"icon"}</code></TableCell><TableCell>—</TableCell><TableCell>Optional icon in an accent-colored container.</TableCell></TableRow>
+<TableRow><TableCell><code>{"content"}</code></TableCell><TableCell>Demo text when no title or description</TableCell><TableCell>Plain tooltip text or extra noninteractive content.</TableCell></TableRow>
+<TableRow><TableCell><code>{"side"}</code></TableCell><TableCell><code>{"\"top\""}</code></TableCell><TableCell><code>{"\"top\""}</code>, <code>{"\"right\""}</code>, <code>{"\"bottom\""}</code>, or <code>{"\"left\""}</code>.</TableCell></TableRow>
+<TableRow><TableCell><code>{"sideOffset"}</code></TableCell><TableCell><code>{"10"}</code></TableCell><TableCell>Gap from the trigger in pixels.</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell>—</TableCell><TableCell>Additional classes on the Card.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-The registry includes the existing Card component. No tooltip library or provider is required.
+<DocsDependencies name="tooltip" />
 
-The preview opens on hover or keyboard focus, stays open when the pointer moves onto it, and closes with Escape. Existing `aria-describedby` references on the trigger are preserved. Use a popover or dialog for interactive content.
-
-Tooltips are positioned relative to their triggers. Allow overflow on parent containers and choose a side with enough room; this component does not portal or automatically flip at viewport edges.
 </DocsReveal>

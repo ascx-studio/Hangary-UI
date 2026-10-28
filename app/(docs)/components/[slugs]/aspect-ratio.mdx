@@ -1,6 +1,12 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { AspectRatio } from "@/registry/components/aspect-ratio";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="aspect-ratio" />
 
 <ComponentPreview>
   <div className="w-full max-w-sm">
@@ -8,21 +14,15 @@ import { AspectRatio } from "@/registry/components/aspect-ratio";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Aspect Ratio
+<DocsReveal stagger>
 
 A responsive container that preserves a chosen width-to-height ratio.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/aspect-ratio.json",
-}} />
+<InstallationMenu name="aspect-ratio" />
 
-## Usage
+## How to use
 
 ```tsx
 import { AspectRatio } from "@/components/hangry-ui/components/aspect-ratio";
@@ -34,9 +34,17 @@ import { AspectRatio } from "@/components/hangry-ui/components/aspect-ratio";
 
 ## Props
 
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"ratio"}</code></TableCell><TableCell><code className="break-words">{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>{"Optional."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 `ratio` is the numeric width divided by height and defaults to `1`: use `16 / 9` for landscape, `9 / 16` for portrait, or `1` for a square. Standard div props, children, className, style, and ref are forwarded.
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4. Borders use the global border-border token. No rounded classes or additional animation packages are required. Customize content with props and styling with className.
+<DocsDependencies name="aspect-ratio" />
+
 </DocsReveal>

@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { CardStack } from "@/registry/components/card-stack";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="card-stack" />
 
 <ComponentPreview className="grid-cols-1 px-8! py-20! sm:px-16! *:m-0! *:max-w-full!">
   <CardStack />
 </ComponentPreview>
 
-<DocsReveal>
-# Card Stack
+<DocsReveal stagger>
 
 Three square-edged cards with fine borders and layers stacked behind the front card. Select an exposed top edge to bring that card to the front.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/card-stack.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/card-stack.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/card-stack.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/card-stack.json",
-}} />
+<InstallationMenu name="card-stack" />
 
-## Usage
+## How to use
 
 ```tsx
 import { CardStack } from "@/components/hangry-ui/components/card-stack";
@@ -35,11 +35,17 @@ import { CardStack } from "@/components/hangry-ui/components/card-stack";
 
 ## Props
 
-- `items`: Up to three visible layers with unique `id` and `title`, plus optional `description`, `src`, `alt`, or `children`. The selected card displays its content; the remaining cards form selectable background layers. An empty array renders nothing.
-- `label`: Accessible name for the stack. Defaults to `"Card stack"`.
-- `className`: Additional classes on the wrapper. Defaults to full width with a 672px maximum.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"items"}</code></TableCell><TableCell><code className="break-words">{"readonly CardStackItem[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Up to three visible layers with unique "}<code>{"id"}</code>{" and "}<code>{"title"}</code>{", plus optional "}<code>{"description"}</code>{", "}<code>{"src"}</code>{", "}<code>{"alt"}</code>{", or "}<code>{"children"}</code>{". The selected card displays its content; the remaining cards form selectable background layers. An empty array renders nothing."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"label"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Card stack"}</code></TableCell><TableCell>{"Accessible name for the stack. Defaults to "}<code>{"\"Card stack\""}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the wrapper. Defaults to full width with a 672px maximum."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Uses the existing Card component and shared typography. The background layers sit 20px apart vertically and become 5% narrower with each layer, centered behind the front card. The wrapper reserves space above for both layers. Each card has a top-edge button with an accessible name and pressed state. Click or tap an exposed edge, or focus its button and press Enter or Space, to select it. Motion springs animate the selected card into place and fade in its content. Reduced motion makes selection immediate.
+<DocsDependencies name="card-stack" />
+
 </DocsReveal>

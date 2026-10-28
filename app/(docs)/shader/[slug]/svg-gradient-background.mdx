@@ -1,10 +1,43 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { SvgGradientBackground } from "@/registry/shader/svg-gradient-background";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="svg-gradient-background" />
 
 <ComponentPreview id="svg-gradient-background" fullBleed><SvgGradientBackground /></ComponentPreview>
 
-<DocsReveal>
-# SVG Gradient
+<DocsReveal stagger>
 
 A neon SVG gradient card with blurred magenta bands, a white glow, and a tilted tile texture.
+
+## Installation
+
+<InstallationMenu name="svg-gradient-background" />
+
+## How to use
+
+Import the component and add it to your page.
+
+```tsx
+import { SvgGradientBackground } from "@/components/hangry-ui/shader/svg-gradient-background";
+
+<SvgGradientBackground />
+```
+
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell>Native props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Accepts the native props documented by the component source.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="svg-gradient-background" />
+
 </DocsReveal>

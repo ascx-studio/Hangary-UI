@@ -1,7 +1,12 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Lightbox } from "@/registry/components/lightbox";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="lightbox" />
 
 <ComponentPreview className="h-full w-full">
   <div className="mx-auto flex w-full max-w-lg flex-col gap-4">
@@ -20,21 +25,15 @@ import { Lightbox } from "@/registry/components/lightbox";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Lightbox
+<DocsReveal stagger>
 
 Open a full-size image by clicking its thumbnail button, with keyboard and backdrop dismissal.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/lightbox.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/lightbox.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/lightbox.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/lightbox.json",
-}} />
+<InstallationMenu name="lightbox" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Lightbox } from "@/components/hangry-ui/components/lightbox";
@@ -96,7 +95,8 @@ Double-click the image to zoom in, then double-click again to reset. Keyboard us
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Lightbox uses the native dialog element for focus management and Escape dismissal, plus Motion for a reduced-motion-aware reveal.
+<DocsDependencies name="lightbox" />
+
 </DocsReveal>

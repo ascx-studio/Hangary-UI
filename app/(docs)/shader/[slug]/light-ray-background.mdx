@@ -1,26 +1,28 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { LightRayBackground } from "@/registry/shader/light-ray-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="light-ray-background" />
 
 <ComponentPreview fullBleed>
   <LightRayBackground className="h-full w-full" />
 </ComponentPreview>
 
-<DocsReveal>
-# Light Ray Background
+<DocsReveal stagger>
 
 Curved white strands converge into depth, with glowing pulses traveling inward. Move the pointer to gently steer the tunnel, or press to send a surge through it. Designed for full-width sections with subdued lighting and room for readable content.
 
+Light Ray Background is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/light-ray-background.json",
-}} />
+<InstallationMenu name="light-ray-background" />
 
-## Usage
+## How to use
 
 ```tsx
 import { LightRayBackground } from "@/components/hangry-ui/shader/light-ray-background";
@@ -32,19 +34,19 @@ import { LightRayBackground } from "@/components/hangry-ui/shader/light-ray-back
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `speed` | `number` | `0.1` | Nonnegative pulse animation speed. Set 0 to stop pulse travel. |
-| `intensity` | `number` | `1` | Background brightness, clamped to 0–2. |
-| `interactive` | `boolean` | `true` | Steer the strands with the pointer and trigger a surge on press. |
-| `children` | `ReactNode` | — | Content displayed above the shader. |
-| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes on the container. |
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.1"}</code></TableCell><TableCell>Nonnegative pulse animation speed. Set 0 to stop pulse travel.</TableCell></TableRow>
+<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Background brightness, clamped to 0–2.</TableCell></TableRow>
+<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Steer the strands with the pointer and trigger a surge on press.</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content displayed above the shader.</TableCell></TableRow>
+<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes on the container.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-The memoized wrapper uses a shared WebGPU renderer and shaders sized for background sections. The container has a minimum height of 24rem, customizable with className. The shader renders at the actual container dimensions with device pixel ratio 1. Thin strands bend organically, with soft pulse tails and a 1.8-second depth reveal. It fills the container without cropping a wordmark-sized canvas.
+<DocsDependencies name="light-ray-background" />
 
-Renders at 60fps. Reduced motion shows a still frame and disables pointer effects. Touch input skips hover behavior. With speed 0, interaction remains active; also set interactive to false to draw only once. A static CSS radial-strand gradient remains visible without WebGPU. Decorative layers are hidden from assistive technology and do not intercept clicks. GPU resources and listeners are released on unmount.
-
-Use Tailwind CSS v4 and the existing WGSL loader and TypeScript declaration from the [Dither Background setup notes](/shader/dither-background). Installation includes both background shader sources used by the shared renderer. No additional dependencies are introduced.
 </DocsReveal>

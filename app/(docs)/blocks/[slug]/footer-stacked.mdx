@@ -1,7 +1,13 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { Card } from "@/registry/components/card";
 import { FooterStacked } from "@/registry/blocks/footer-stacked";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="footer-stacked" />
 
 <ComponentPreview id="footer-stacked">
   <div className="flex h-full min-w-0 w-full flex-col">
@@ -10,21 +16,15 @@ import ComponentPreview from "@/components/registry/component-preview";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Footer Stacked
+<DocsReveal stagger>
 
 A centered footer with stacked brand details and navigation.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/footer-stacked.json",
-}} />
+<InstallationMenu name="footer-stacked" />
 
-## Usage
+## How to use
 
 ```tsx
 import { FooterStacked } from "@/components/hangry-ui/blocks/footer-stacked";
@@ -54,7 +54,25 @@ import { FooterStacked } from "@/components/hangry-ui/blocks/footer-stacked";
   }}
 />
 ```
-## Sample navigation
 
-The default page labels match the main footer: Home, Components, Blocks, Shaders, Sponsor, and Privacy. Fragment URLs keep the demo on the current page. Replace them with your own routes when using the block.
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"brand"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Hangry UI"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"homeHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#home"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Thoughtful components. Less setup. More time to build."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"groups"}</code></TableCell><TableCell><code>{"{ title: string; links: { label: string; href: string; }[]; }[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"githubHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#github"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"copyright"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"callout"}</code></TableCell><TableCell><code>{"{ title: string; description: string; label: string; href: string; }"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"action"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="footer-stacked" />
+
 </DocsReveal>

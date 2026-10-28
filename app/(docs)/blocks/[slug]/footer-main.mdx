@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { FooterMain } from "@/registry/blocks/footer-main";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="footer-main" />
 
 <ComponentPreview className="grid-cols-1 *:max-w-full!">
   <div className="w-full"><FooterMain /></div>
 </ComponentPreview>
 
-<DocsReveal>
-# Footer Main
+<DocsReveal stagger>
 
 The footer used on the Hangry UI homepage, with page navigation, Ask AI links, social links, credits, and a large spotlight wordmark. The live site and this preview use the same block.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/footer-main.json",
-}} />
+<InstallationMenu name="footer-main" />
 
-## Usage
+## How to use
 
 ```tsx
 import { FooterMain } from "@/components/hangry-ui/blocks/footer-main";
@@ -51,18 +51,23 @@ import { FooterMain } from "@/components/hangry-ui/blocks/footer-main";
 
 ## Props
 
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"groups"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Navigation columns with "}<code>{"title"}</code>{" and "}<code>{"links"}</code>{". Defaults to the site\u2019s Pages, Ask AI, and Connect groups."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"quickLinks"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Links in the lower navigation row."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"logoSrc"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/wordmark.svg"}</code></TableCell><TableCell>{"Header wordmark. Defaults to "}<code>{"/wordmark.svg"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"artSrc"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/footerart.svg"}</code></TableCell><TableCell>{"Large footer artwork used by SpotlightReveal. Defaults to "}<code>{"/footerart.svg"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"copyright"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u00a9 2026 Hangry UI."}</code></TableCell><TableCell>{"Copyright text."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional footer classes. Add "}<code>{"md:sticky"}</code>{" to use the site\u2019s sticky positioning."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 - `homeHref`, `githubHref`, `xHref`, `sponsorHref`: Brand and social destinations. Defaults are sample fragment links.
-- `groups`: Navigation columns with `title` and `links`. Defaults to the site’s Pages, Ask AI, and Connect groups.
-- `quickLinks`: Links in the lower navigation row.
-- `logoSrc`: Header wordmark. Defaults to `/wordmark.svg`.
-- `artSrc`: Large footer artwork used by SpotlightReveal. Defaults to `/footerart.svg`.
-- `copyright`: Copyright text.
-- `className`: Additional footer classes. Add `md:sticky` to use the site’s sticky positioning.
 - Native footer attributes are forwarded to the footer element.
 
-## Setup notes
+## Dependencies
 
-Uses Next.js Link and Image, shared typography, Lucide and SVGL icons, Motion, and the existing SpotlightReveal component. The installation includes the wordmark and footer artwork. Default page labels match the main site, but sample links use local fragments. Supply your own routes and social destinations when using the block.
+<DocsDependencies name="footer-main" />
 
-Columns stack on narrow screens. Decorative artwork is hidden from assistive technology. Motion reveal and spotlight effects respect reduced-motion preferences. The footer itself remains server-compatible.
 </DocsReveal>

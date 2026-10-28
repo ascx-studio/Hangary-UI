@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { ScaleCard } from "@/registry/components/scale-card";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="scale-card" />
 
 <ComponentPreview className="grid-cols-1 py-24! px-12! sm:px-16! *:m-0! *:max-w-full!">
   <ScaleCard />
 </ComponentPreview>
 
-<DocsReveal>
-# Scale Card
+<DocsReveal stagger>
 
 An image card framed by ruler marks on all four sides. The extended scales fade at their ends for a drafting-board feel.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/scale-card.json",
-}} />
+<InstallationMenu name="scale-card" />
 
-## Usage
+## How to use
 
 ```tsx
 import { ScaleCard } from "@/components/hangry-ui/components/scale-card";
@@ -32,14 +32,21 @@ import { ScaleCard } from "@/components/hangry-ui/components/scale-card";
 
 ## Props
 
-- `src`: Image URL. Defaults to `/1.png` from the public directory.
-- `alt`: Image description. Provide text describing your own image.
-- `size`: Spacing between ruler marks in pixels. Defaults to `8`.
-- `children`: Optional content to display instead of the image.
-- `className`: Additional classes on the wrapper. Defaults to 288px wide with a 9:10 card ratio.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"src"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/1.png"}</code></TableCell><TableCell>{"Image URL. Defaults to "}<code>{"/1.png"}</code>{" from the public directory."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Glowing white butterflies on a dark background"}</code></TableCell><TableCell>{"Image description. Provide text describing your own image."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code className="break-words">{"number"}</code></TableCell><TableCell><code>{"8"}</code></TableCell><TableCell>{"Spacing between ruler marks in pixels. Defaults to "}<code>{"8"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Optional content to display instead of the image."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the wrapper. Defaults to 288px wide with a 9:10 card ratio."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 - Native div attributes are forwarded to the wrapper.
 
-## Setup notes
+## Dependencies
 
-Uses the existing Card and AspectRatio components and a reusable Scales SVG pattern. Leave space around the card for the rulers; clip overflow on the surrounding section for narrow screens. Colors follow the shared theme tokens. This static component works without a client boundary or animation dependency.
+<DocsDependencies name="scale-card" />
+
 </DocsReveal>

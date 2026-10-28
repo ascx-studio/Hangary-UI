@@ -1,10 +1,43 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { MeshGradientBackground } from "@/registry/shader/mesh-gradient-background";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="mesh-gradient-background" />
 
 <ComponentPreview id="mesh-gradient-background" fullBleed><MeshGradientBackground /></ComponentPreview>
 
-<DocsReveal>
-# Mesh Gradient
+<DocsReveal stagger>
 
 A layered SVG mesh gradient with blurred color pools, a curved foreground, and a dot texture.
+
+## Installation
+
+<InstallationMenu name="mesh-gradient-background" />
+
+## How to use
+
+Import the component and add it to your page.
+
+```tsx
+import { MeshGradientBackground } from "@/components/hangry-ui/shader/mesh-gradient-background";
+
+<MeshGradientBackground />
+```
+
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell>Native props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Accepts the native props documented by the component source.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="mesh-gradient-background" />
+
 </DocsReveal>

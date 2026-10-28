@@ -1,7 +1,12 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Button } from "@/registry/components/button";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="button" />
 
 <ComponentPreview className="h-full w-full">
 <div className="flex flex-wrap items-center justify-center gap-4">
@@ -14,31 +19,21 @@ import { Button } from "@/registry/components/button";
       </div>
   </ComponentPreview>
 
-<DocsReveal>
-# Button
+<DocsReveal stagger>
 
 An accessible button with primary, secondary, ghost, destructive, and outline variants.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/button.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/button.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/button.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/button.json",
-}} />
+<InstallationMenu name="button" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Button } from "@/components/hangry-ui/components/button";
 
 <Button variant="outline">Continue</Button>
 ```
-
-## Variants
-
-Use the `variant` prop to choose from: primary, secondary, ghost, destructive, outline. The preview above shows the available variants together.
 
 ## Props
 
@@ -97,7 +92,8 @@ Use the `variant` prop to choose from: primary, secondary, ghost, destructive, o
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+<DocsDependencies name="button" />
+
 </DocsReveal>

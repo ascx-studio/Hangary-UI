@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { BrandPalette } from "@/registry/components/brand-palette";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="brand-palette" />
 
 <ComponentPreview className="grid-cols-1">
   <BrandPalette />
 </ComponentPreview>
 
-<DocsReveal>
-# Brand Palette
+<DocsReveal stagger>
 
 A compact brand color guide with six unlabeled swatches and a green gradient.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/brand-palette.json",
-}} />
+<InstallationMenu name="brand-palette" />
 
-## Usage
+## How to use
 
 ```tsx
 import { BrandPalette } from "@/components/hangry-ui/components/brand-palette";
@@ -30,12 +30,16 @@ import { BrandPalette } from "@/components/hangry-ui/components/brand-palette";
 
 ## Props
 
-- `colors`: An array of `{ name, hex, foreground, token }` swatches. Defaults to the six Hangry UI brand colors. Use a contrasting `foreground` for readable labels.
-- `className`: Additional section classes. The default width is 640px, constrained to the available space.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"colors"}</code></TableCell><TableCell><code className="break-words">{"BrandColor[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"An array of "}<code>{"{ name, hex, foreground, token }"}</code>{" swatches. Defaults to the six Hangry UI brand colors. Use a contrasting "}<code>{"foreground"}</code>{" for readable labels."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional section classes. The default width is 640px, constrained to the available space."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-The palette matches the reference in `public/pallet.png` and the brand tokens in `app/globals.css`. Spring Green is the primary accent; Green and Dark Green support it; White, Gray, and Black form the neutral foundation.
+<DocsDependencies name="brand-palette" />
 
-The component is static and server-compatible. It does not require a client boundary.
 </DocsReveal>

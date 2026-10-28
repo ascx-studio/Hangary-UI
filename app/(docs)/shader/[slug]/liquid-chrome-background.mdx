@@ -1,26 +1,28 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { LiquidChromeBackground } from "@/registry/shader/liquid-chrome-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="liquid-chrome-background" />
 
 <ComponentPreview fullBleed>
   <LiquidChromeBackground className="h-full w-full" />
 </ComponentPreview>
 
-<DocsReveal>
-# Liquid Chrome Background
+<DocsReveal stagger>
 
 Smooth beveled silver folds reflect soft studio panels with rounded highlights and tone-mapped reflections. Move the pointer to disturb the surface with local ripples while the container stays still.
 
+Liquid Chrome Background is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/liquid-chrome-background.json",
-}} />
+<InstallationMenu name="liquid-chrome-background" />
 
-## Usage
+## How to use
 
 ```tsx
 import { LiquidChromeBackground } from "@/components/hangry-ui/shader/liquid-chrome-background";
@@ -33,23 +35,23 @@ import { LiquidChromeBackground } from "@/components/hangry-ui/shader/liquid-chr
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `scale` | `number` | `1.6` | Surface frequency, clamped to 0.5–5. Larger values show more folds. |
-| `distortion` | `number` | `0.8` | Domain-warp strength, clamped to 0–2. |
-| `roughness` | `number` | `0.3` | Reflection softness, clamped to 0–1. |
-| `exposure` | `number` | `1` | Tone-mapped lighting exposure, clamped to 0–4. |
-| `speed` | `number` | `0.2` | Nonnegative flow speed. Set 0 to freeze the ambient motion. |
-| `intensity` | `number` | `0.9` | Reflection brightness, clamped to 0–2. |
-| `interactive` | `boolean` | `true` | Add ripples near the pointer. |
-| `children` | `ReactNode` | — | Content placed above the metallic surface. |
-| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"scale"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1.6"}</code></TableCell><TableCell>Surface frequency, clamped to 0.5–5. Larger values show more folds.</TableCell></TableRow>
+<TableRow><TableCell><code>{"distortion"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.8"}</code></TableCell><TableCell>Domain-warp strength, clamped to 0–2.</TableCell></TableRow>
+<TableRow><TableCell><code>{"roughness"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.3"}</code></TableCell><TableCell>Reflection softness, clamped to 0–1.</TableCell></TableRow>
+<TableRow><TableCell><code>{"exposure"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Tone-mapped lighting exposure, clamped to 0–4.</TableCell></TableRow>
+<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.2"}</code></TableCell><TableCell>Nonnegative flow speed. Set 0 to freeze the ambient motion.</TableCell></TableRow>
+<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.9"}</code></TableCell><TableCell>Reflection brightness, clamped to 0–2.</TableCell></TableRow>
+<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Add ripples near the pointer.</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content placed above the metallic surface.</TableCell></TableRow>
+<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Uses procedural surface normals and simulated studio reflections, with no images or environment-map downloads. The shared renderer uses the container dimensions, device pixel ratio capped at 1.5, and a 60fps limit for fluid motion. Surface derivatives and four reflection samples per pixel soften thin highlight edges. Reduced motion renders a still frame, redraws on resize, and disables pointer effects. Touch skips hover effects. For demand rendering, set speed to 0 and interactive to false.
+<DocsDependencies name="liquid-chrome-background" />
 
-The default minimum height is 24rem; customize it with className. Decorative layers are hidden from assistive technology and do not intercept clicks. A static metallic CSS gradient remains visible without WebGPU. The renderer releases GPU resources, listeners, observers, and pending frames on unmount.
-
-Uses the existing vgpu and Motion dependencies. Follow the [Dither Background setup notes](/shader/dither-background) for the WGSL loader and TypeScript declaration.
 </DocsReveal>

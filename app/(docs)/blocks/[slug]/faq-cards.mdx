@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { FaqCards } from "@/registry/blocks/faq-cards";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="faq-cards" />
 
 <ComponentPreview className="grid-cols-1 px-2! py-10! sm:px-8! *:max-w-full!">
   <FaqCards defaultOpenId="start" className="max-w-4xl" />
 </ComponentPreview>
 
-<DocsReveal>
-# FAQ Cards
+<DocsReveal stagger>
 
 Frequently asked questions presented as individual bordered cards.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/faq-cards.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/faq-cards.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/faq-cards.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/faq-cards.json",
-}} />
+<InstallationMenu name="faq-cards" />
 
-## Usage
+## How to use
 
 ```tsx
 import { FaqCards } from "@/components/hangry-ui/blocks/faq-cards";
@@ -40,16 +40,20 @@ import { FaqCards } from "@/components/hangry-ui/blocks/faq-cards";
 
 ## Props
 
-- `title`: Section heading.
-- `description`: Supporting text. Pass an empty string to omit it.
-- `items`: Questions with unique `id`, `question`, and React `answer` content.
-- `multiple`: Allow more than one answer to stay open. Defaults to `false`.
-- `defaultOpenId`: The question to open initially. Defaults to none.
-- `className`: Additional classes on the section. Native section attributes are forwarded.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"A few things you might be wondering."}</code></TableCell><TableCell>{"Section heading."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"The details, without the guesswork."}</code></TableCell><TableCell>{"Supporting text. Pass an empty string to omit it."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"items"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Questions with unique "}<code>{"id"}</code>{", "}<code>{"question"}</code>{", and React "}<code>{"answer"}</code>{" content."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"multiple"}</code></TableCell><TableCell><code className="break-words">{"boolean"}</code></TableCell><TableCell><code>{"false"}</code></TableCell><TableCell>{"Allow more than one answer to stay open. Defaults to "}<code>{"false"}</code>{"."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"defaultOpenId"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"The question to open initially. Defaults to none."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the section. Native section attributes are forwarded."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Uses native details and summary elements, so keyboard activation, open state, and single-open grouping work without client-side state. Enter or Space toggles a focused question. Links and other controls in answers retain their normal behavior. Each FAQ instance has a unique group name.
+<DocsDependencies name="faq-cards" />
 
-Typography and colors follow the shared tokens. The layout adapts to narrow containers. This memoized block is server-compatible, with no animation dependency. The shared FAQ implementation is included during installation.
 </DocsReveal>

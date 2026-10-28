@@ -1,7 +1,13 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { Card } from "@/registry/components/card";
 import { NavbarAligned } from "@/registry/blocks/navbar-aligned";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="navbar-aligned" />
 
 <ComponentPreview id="navbar-aligned">
   <div className="flex h-full min-w-0 w-full flex-col">
@@ -10,21 +16,15 @@ import ComponentPreview from "@/components/registry/component-preview";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Navbar Aligned
+<DocsReveal stagger>
 
 A navbar with navigation links beside the brand.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/navbar-aligned.json",
-}} />
+<InstallationMenu name="navbar-aligned" />
 
-## Usage
+## How to use
 
 ```tsx
 import { NavbarAligned } from "@/components/hangry-ui/blocks/navbar-aligned";
@@ -45,7 +45,27 @@ import { NavbarAligned } from "@/components/hangry-ui/blocks/navbar-aligned";
   supportHref="#sponsor"
 />
 ```
-## Sample navigation
 
-The default page labels match the main footer: Home, Components, Blocks, Shaders, Sponsor, and Privacy. Fragment URLs keep the demo on the current page. Replace them with your own routes when using the block.
+## Props
+
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"brand"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Hangry UI"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"logo"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"homeHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#home"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"links"}</code></TableCell><TableCell><code>{"{ label: string; href: string; }[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"activeHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"announcement"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"badge"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{""}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"supportHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#sponsor"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"githubHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#github"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+<TableRow><TableCell><code>{"account"}</code></TableCell><TableCell><code>{"{ name: string; src?: string; href: string; }"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
+</TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="navbar-aligned" />
+
 </DocsReveal>

@@ -1,7 +1,13 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { MetalWallet } from "@/registry/components/metal-wallet";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/tabs";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="metal-wallet" />
 
 <ComponentPreview className="grid-cols-1">
   <Tabs defaultValue="spring-green" className="w-[600px] max-w-full items-center">
@@ -26,21 +32,15 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/
   </Tabs>
 </ComponentPreview>
 
-<DocsReveal>
-# Metal Wallet
+<DocsReveal stagger>
 
 A tall wallet with a curved translucent pocket and three upright cards. Hover to move the front cover left, then click or tap to slide it farther left and move the cards to the right.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/metal-wallet.json",
-}} />
+<InstallationMenu name="metal-wallet" />
 
-## Usage
+## How to use
 
 ```tsx
 import { MetalWallet } from "@/components/hangry-ui/components/metal-wallet";
@@ -52,16 +52,18 @@ import { MetalWallet } from "@/components/hangry-ui/components/metal-wallet";
 
 ## Props
 
-- `color`: `"spring-green"`, `"green"`, `"dark-green"`, or `"white"`. Defaults to `"spring-green"`. The green variations use our global brand tokens.
-- `size`: `"sm"` (390px), `"md"` (480px), or `"lg"` (600px). The frame includes room for the cards on the right and shrinks to fit smaller containers.
-- `className`: Additional classes on the button wrapper.
-- `label`: Accessible button name. Defaults to `"Metal wallet"`.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"color"}</code></TableCell><TableCell><code className="break-words">{"\"spring-green\" | \"green\" | \"dark-green\" | \"white\""}</code></TableCell><TableCell><code>{"spring-green"}</code></TableCell><TableCell><code>{"\"spring-green\""}</code>{", "}<code>{"\"green\""}</code>{", "}<code>{"\"dark-green\""}</code>{", or "}<code>{"\"white\""}</code>{". Defaults to "}<code>{"\"spring-green\""}</code>{". The green variations use our global brand tokens."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code className="break-words">{"\"sm\" | \"md\" | \"lg\""}</code></TableCell><TableCell><code>{"md"}</code></TableCell><TableCell><code>{"\"sm\""}</code>{" (390px), "}<code>{"\"md\""}</code>{" (480px), or "}<code>{"\"lg\""}</code>{" (600px). The frame includes room for the cards on the right and shrinks to fit smaller containers."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the button wrapper."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"label"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Metal wallet"}</code></TableCell><TableCell>{"Accessible button name. Defaults to "}<code>{"\"Metal wallet\""}</code>{"."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-The folder geometry is rotated 90 degrees clockwise so its opening faces right. Green variations use the shared brand palette; White uses the original example's colors. The translucent front and inset shadows are preserved.
+<DocsDependencies name="metal-wallet" />
 
-Motion elements use `motion/react-client`. State and reduced-motion hooks require this component's client boundary. Reduced motion makes state changes immediate. The artwork has a transparent background and unique SVG identifiers for each instance.
-
-Enter, Space, click, or tap toggles the open state, exposed as `aria-pressed`. Escape closes it. Leaving the wallet or moving keyboard focus away resets it. Touch input toggles without hover animation.
 </DocsReveal>

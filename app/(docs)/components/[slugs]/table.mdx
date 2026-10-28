@@ -1,6 +1,11 @@
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption } from "@/registry/components/table";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="table" />
 
 <ComponentPreview className="h-full w-full">
   <Table>
@@ -42,21 +47,15 @@ import { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableC
   </Table>
 </ComponentPreview>
 
-<DocsReveal>
-# Table
+<DocsReveal stagger>
 
 A responsive table with composable headers, rows, cells, a caption, and an optional footer. Wide tables scroll horizontally.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/table.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/table.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/table.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/table.json",
-}} />
+<InstallationMenu name="table" />
 
-## Usage
+## How to use
 
 ```tsx
 import {
@@ -168,7 +167,8 @@ import {
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Use the global theme tokens and Tailwind CSS v4. Borders use `border-border`, with no rounded classes. Use `TableHead scope="row"` for row headers, `TableCaption` to describe the table, and `TableFooter` for summary rows. Sorting and pagination can be composed separately.
+<DocsDependencies name="table" />
+
 </DocsReveal>

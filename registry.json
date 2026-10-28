@@ -1310,6 +1310,11 @@
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
+        },
+        {
+          "path": "registry/components/toast-store.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/components/toast-store.ts"
         }
       ],
       "dependencies": [
@@ -3423,6 +3428,16 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/plasma-rift-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
       "dependencies": [
@@ -3480,6 +3495,16 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/plasma-rift-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
       "dependencies": [
@@ -3537,6 +3562,16 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/plasma-rift-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
       "dependencies": [
@@ -3594,6 +3629,16 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/plasma-rift-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
       "dependencies": [
@@ -3650,6 +3695,157 @@
         {
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/plasma-rift-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "plasma-rift-background",
+      "title": "Plasma Rift",
+      "description": "Cyan and emerald plasma ribbons fold into a dark, flowing vortex.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/plasma-rift-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.tsx"
+        },
+        {
+          "path": "registry/shader/procedural-background.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
+        },
+        {
+          "path": "registry/shader/chroma-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
+        },
+        {
+          "path": "registry/shader/light-tunnel-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
+        },
+        {
+          "path": "registry/shader/ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/heatmap-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/plasma-rift-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "photon-corridor-background",
+      "title": "Photon Corridor",
+      "description": "Monochrome light trails stream through a dark perspective corridor.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/photon-corridor-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/photon-corridor-background.tsx"
+        },
+        {
+          "path": "registry/shader/photon-corridor-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/photon-corridor-background.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": [
+        "cn@^0.2.6",
+        "motion@^14.3.0",
+        "vgpu@0.6.0",
+        "@vgpu/wgsl@0.6.0"
+      ],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
+      "name": "koi-pond-background",
+      "title": "Koi Pond",
+      "description": "Four koi react to the pointer in a green pond with rocks, grass, and click ripples.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/koi-pond-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/koi-pond-background.tsx"
+        },
+        {
+          "path": "registry/shader/koi-pond-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/koi-pond-background.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:lib",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],

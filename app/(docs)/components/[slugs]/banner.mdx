@@ -1,7 +1,12 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Banner } from "@/registry/components/banner";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="banner" />
 
 <ComponentPreview className="h-full w-full">
   <div className="w-full space-y-6">
@@ -13,21 +18,15 @@ import { Banner } from "@/registry/components/banner";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Banner
+<DocsReveal stagger>
 
 A dismissible status banner with matching icons, optional descriptions, reduced-motion-aware reveal and hover animations, and neutral, info, success, warning, and error variants.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/banner.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/banner.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/banner.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/banner.json",
-}} />
+<InstallationMenu name="banner" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Banner } from "@/components/hangry-ui/components/banner";
@@ -38,10 +37,6 @@ import { Banner } from "@/components/hangry-ui/components/banner";
   description="Upgrade to keep access to all features."
 />
 ```
-
-## Variants
-
-Set `variant` to `neutral`, `info`, `success`, `warning`, or `error`. Each variant includes a matching icon. Add `description` for supporting text.
 
 ## Props
 
@@ -94,7 +89,8 @@ Set `variant` to `neutral`, `info`, `success`, `warning`, or `error`. Each varia
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Status variants use lucide-react icons and tinted backgrounds. Set `message` and the optional `description` to provide the alert text.
+<DocsDependencies name="banner" />
+
 </DocsReveal>

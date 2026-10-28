@@ -21,10 +21,10 @@ const paperMono = localFont({
 });
 
 export const metadata: Metadata = {
-  ...pageMetadata("/", "React Components, Blocks & Shaders", siteDescription),
+  ...pageMetadata("/", "React UI Components & vgpu Shaders", siteDescription),
   metadataBase: new URL(siteUrl),
   title: {
-    default: "React Components, Blocks & Shaders | Hangry UI",
+    default: "React UI Components & vgpu Shaders | Hangry UI",
     template: "%s | Hangry UI",
   },
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION },

@@ -1,11 +1,15 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { Card } from "@/registry/components/card";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Avatar } from "@/registry/components/avatar";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
 
+<DocsHeader name="avatar" />
 
-  <ComponentPreview className="h-full w-full">
+<ComponentPreview className="h-full w-full">
 <div className="flex flex-wrap items-center justify-center gap-6">
         <Avatar name="Alex Morgan" size={32} />
         <Avatar name="Alex Morgan" size={48} />
@@ -14,23 +18,15 @@ import { Avatar } from "@/registry/components/avatar";
       </div>
   </ComponentPreview>
 
-<DocsReveal>
-# Avatar
+<DocsReveal stagger>
 
 A profile image with initials and an image-error fallback.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/avatar.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/avatar.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/avatar.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/avatar.json",
-}} />
+<InstallationMenu name="avatar" />
 
-
-
-## Usage
+## How to use
 
 ```tsx
 import { Avatar } from "@/components/hangry-ui/components/avatar";
@@ -77,7 +73,8 @@ import { Avatar } from "@/components/hangry-ui/components/avatar";
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+<DocsDependencies name="avatar" />
+
 </DocsReveal>

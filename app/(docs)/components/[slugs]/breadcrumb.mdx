@@ -1,7 +1,12 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Breadcrumb } from "@/registry/components/breadcrumb";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="breadcrumb" />
 
 <ComponentPreview className="h-full w-full">
 <div className="flex flex-col gap-8">
@@ -10,21 +15,15 @@ import { Breadcrumb } from "@/registry/components/breadcrumb";
       </div>
   </ComponentPreview>
 
-<DocsReveal>
-# Breadcrumb
+<DocsReveal stagger>
 
 A breadcrumb navigation trail with links and a current-page indicator.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/breadcrumb.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/breadcrumb.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/breadcrumb.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/breadcrumb.json",
-}} />
+<InstallationMenu name="breadcrumb" />
 
-## Usage
+## How to use
 
 ```tsx
 import { Breadcrumb } from "@/components/hangry-ui/components/breadcrumb";
@@ -65,7 +64,8 @@ import { Breadcrumb } from "@/components/hangry-ui/components/breadcrumb";
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4. Borders use the global `border-border` token. No rounded classes or additional packages are required. Customize content with props and styling with `className`.
+<DocsDependencies name="breadcrumb" />
+
 </DocsReveal>

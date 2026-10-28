@@ -1,0 +1,91 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import DitherComponentPreview from "@/components/registry/dither-component-preview";
+import { KoiPondBackground } from "@/registry/shader/koi-pond-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="koi-pond-background" />
+
+<DitherComponentPreview fullBleed>
+  <KoiPondBackground className="h-full w-full" />
+</DitherComponentPreview>
+
+<DocsReveal stagger>
+
+Four koi swim along independent paths through a green pond, with curved bodies, gently paddling fins, and flowing tails. Submerged rocks and grass sit beneath soft, moving water reflections to give the scene depth.
+
+Move your pointer near the fish and they gently steer away. Click or tap to create an expanding water ripple and send nearby koi into a short escape burst before they return to cruising. Adjust the animation speed and brightness, disable interactions, or place your own content above the pond. Reduced-motion preferences display a still scene.
+
+Koi Pond is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
+## Installation
+
+<InstallationMenu name="koi-pond-background" />
+
+## How to use
+
+Import the component and give it a height. Add children to display content over the pond.
+
+```tsx
+import { KoiPondBackground } from "@/components/hangry-ui/shader/koi-pond-background";
+
+export default function Pond() {
+  return (
+    <KoiPondBackground className="grid h-[32rem] place-items-center">
+      <h2 className="typography-section-title text-white">A moment of calm.</h2>
+    </KoiPondBackground>
+  );
+}
+```
+
+## Props
+
+<Table className="min-w-[40rem]">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell className="whitespace-nowrap"><code>speed</code></TableCell>
+      <TableCell className="whitespace-nowrap"><code>number</code></TableCell>
+      <TableCell><code>0.2</code></TableCell>
+      <TableCell className="min-w-64">Animation speed. Set to 0 to pause swimming and ambient water.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="whitespace-nowrap"><code>intensity</code></TableCell>
+      <TableCell className="whitespace-nowrap"><code>number</code></TableCell>
+      <TableCell><code>0.9</code></TableCell>
+      <TableCell className="min-w-64">Scene brightness, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="whitespace-nowrap"><code>interactive</code></TableCell>
+      <TableCell className="whitespace-nowrap"><code>boolean</code></TableCell>
+      <TableCell><code>true</code></TableCell>
+      <TableCell className="min-w-64">Enable fish hover reactions and click/tap ripples.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="whitespace-nowrap"><code>children</code></TableCell>
+      <TableCell className="whitespace-nowrap"><code>ReactNode</code></TableCell>
+      <TableCell><code>—</code></TableCell>
+      <TableCell className="min-w-64">Content displayed above the pond.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="whitespace-nowrap"><code>…props</code></TableCell>
+      <TableCell className="whitespace-nowrap"><code>ComponentProps&lt;&quot;div&quot;&gt;</code></TableCell>
+      <TableCell><code>—</code></TableCell>
+      <TableCell className="min-w-64">Native div attributes, styles, and event handlers.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="koi-pond-background" />
+
+</DocsReveal>

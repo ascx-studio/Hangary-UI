@@ -1,26 +1,28 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { TopographicContourMap } from "@/registry/shader/topographic-contour-map";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="topographic-contour-map" />
 
 <ComponentPreview fullBleed>
   <TopographicContourMap className="h-full w-full" />
 </ComponentPreview>
 
-<DocsReveal>
-# Topographic Contour Map
+<DocsReveal stagger>
 
 Animated elevation contours on a near-black canvas, with height-based colors, stronger major lines, and small elevation labels. Hover to raise the terrain; press to create a depression. The left side fades into the background to leave room for content.
 
+Topographic Contour Map is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/topographic-contour-map.json",
-}} />
+<InstallationMenu name="topographic-contour-map" />
 
-## Usage
+## How to use
 
 ```tsx
 import { TopographicContourMap } from "@/components/hangry-ui/shader/topographic-contour-map";
@@ -41,26 +43,27 @@ import { TopographicContourMap } from "@/components/hangry-ui/shader/topographic
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `colorScheme` | `"studio"`, `"amber"`, `"teal"`, or `"violet"` | `"amber"` | Height-based low, middle, and high contour colors. |
-| `color` | `[number, number, number]` | — | Optional custom RGB color from 0 to 1; overrides the palette with matching darker and brighter shades. |
-| `mouseInfluence` | `boolean` | `true` | Raise terrain around the pointer; pressing creates a depression. |
-| `showLabels` | `boolean` | `true` | Stable numeric labels projected onto major contours. |
-| `fadeLeft` | `boolean` | `true` | Fade the left side into the background. |
-| `backgroundColor` | `[number, number, number]` | `[0.012, 0.012, 0.012]` | Background RGB channels from 0 to 1. |
-| `scale` | `number` | `3` | Terrain frequency; larger values reveal more terrain. Minimum 0.1. |
-| `density` | `number` | `24` | Contour levels across the height field; clamped to 2–100. |
-| `lineWidth` | `number` | `1` | Minor contour width in CSS pixels; clamped to 0.25–8. Major contours are thicker. |
-| `speed` | `number` | `0.08` | Nonnegative terrain evolution speed. Set 0 to stop ambient animation. |
-| `children` | `ReactNode` | — | Content placed above the shader. |
-| Native div props | `ComponentProps` | — | Classes, style, IDs, and accessibility attributes. Color is reserved for the shader. |
-
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"colorScheme"}</code></TableCell><TableCell><code>{"\"studio\""}</code>, <code>{"\"amber\""}</code>, <code>{"\"teal\""}</code>, or <code>{"\"violet\""}</code></TableCell><TableCell><code>{"\"amber\""}</code></TableCell><TableCell>Height-based low, middle, and high contour colors.</TableCell></TableRow>
+<TableRow><TableCell><code>{"color"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell>—</TableCell><TableCell>Optional custom RGB color from 0 to 1; overrides the palette with matching darker and brighter shades.</TableCell></TableRow>
+<TableRow><TableCell><code>{"mouseInfluence"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Raise terrain around the pointer; pressing creates a depression.</TableCell></TableRow>
+<TableRow><TableCell><code>{"showLabels"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Stable numeric labels projected onto major contours.</TableCell></TableRow>
+<TableRow><TableCell><code>{"fadeLeft"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Fade the left side into the background.</TableCell></TableRow>
+<TableRow><TableCell><code>{"backgroundColor"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell><code>{"[0.012, 0.012, 0.012]"}</code></TableCell><TableCell>Background RGB channels from 0 to 1.</TableCell></TableRow>
+<TableRow><TableCell><code>{"scale"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"3"}</code></TableCell><TableCell>Terrain frequency; larger values reveal more terrain. Minimum 0.1.</TableCell></TableRow>
+<TableRow><TableCell><code>{"density"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"24"}</code></TableCell><TableCell>Contour levels across the height field; clamped to 2–100.</TableCell></TableRow>
+<TableRow><TableCell><code>{"lineWidth"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Minor contour width in CSS pixels; clamped to 0.25–8. Major contours are thicker.</TableCell></TableRow>
+<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.08"}</code></TableCell><TableCell>Nonnegative terrain evolution speed. Set 0 to stop ambient animation.</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content placed above the shader.</TableCell></TableRow>
+<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, style, IDs, and accessibility attributes. Color is reserved for the shader.</TableCell></TableRow>
+</TableBody>
+</Table>
 The terrain is generated for decoration; it does not represent a real geographic location. The noise field evolves smoothly over time. Every fourth contour is emphasized. Labels follow their elevation contours and use a built-in bitmap font without additional font dependencies.
 
-## Setup notes
+## Dependencies
 
-Uses the existing vgpu pipeline and Motion reduced-motion preference. The shader renders at 30fps with device pixel ratio 1. Reduced motion renders a still frame, redrawn on resize, and disables pointer deformation. Speed 0 stops ambient animation while pointer interaction remains active; set mouseInfluence to false as well for demand rendering. GPU resources, observers, and pending frames are released on unmount. A static CSS contour pattern remains visible without WebGPU. Decorative layers are hidden from assistive technology and do not intercept clicks.
+<DocsDependencies name="topographic-contour-map" />
 
-Installations require Tailwind CSS v4, the WGSL loader, and an ambient WGSL TypeScript declaration. Follow the [Dither Background setup notes](/shader/dither-background) for the existing Next.js configuration.
 </DocsReveal>

@@ -1,8 +1,13 @@
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Carousel } from "@/registry/components/carousel";
 import Image from "next/image";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="carousel" />
 
 <ComponentPreview className="h-full w-full">
   <div className="flex w-full justify-center">
@@ -17,21 +22,15 @@ import Image from "next/image";
   </div>
 </ComponentPreview>
 
-<DocsReveal>
-# Carousel
+<DocsReveal stagger>
 
 An animated, swipeable carousel with previous/next buttons, direct slide selection, and accessible slide announcements. Slides advance four seconds after each selection, with progress shown on the active dot.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/carousel.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/carousel.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/carousel.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/carousel.json",
-}} />
+<InstallationMenu name="carousel" />
 
-## Usage
+## How to use
 
 ```tsx
 import Image from "next/image";
@@ -80,9 +79,8 @@ import { Carousel } from "@/components/hangry-ui/components/carousel";
   </TableBody>
 </Table>
 
-## Setup notes
+## Dependencies
 
-Uses Tailwind CSS v4, Motion, Lucide icons, and the shared Button and AspectRatio components. Pass slides as children. Image slides use a portrait 9:16 viewport with `object-cover`. The six preview images live at `public/1.png` through `public/6.png`; supply your own images when installing the component.
+<DocsDependencies name="carousel" />
 
-Swipe left or right, use the previous/next buttons, or select a slide directly. With a control focused, arrow keys navigate and Home/End select the first/last slide. Reduced motion disables the slide transition. Empty collections render nothing; single-slide collections disable navigation.
 </DocsReveal>

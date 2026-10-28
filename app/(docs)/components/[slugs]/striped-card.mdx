@@ -1,26 +1,26 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { StripedCard } from "@/registry/components/striped-card";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="striped-card" />
 
 <ComponentPreview className="grid-cols-1 py-24! px-12! sm:px-16! *:m-0! *:max-w-full!">
   <StripedCard />
 </ComponentPreview>
 
-<DocsReveal>
-# Striped Card
+<DocsReveal stagger>
 
 An image card surrounded by four diagonal striped bands. The bands extend past the corners, cross each other, and fade softly at their ends.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/striped-card.json",
-}} />
+<InstallationMenu name="striped-card" />
 
-## Usage
+## How to use
 
 ```tsx
 import { StripedCard } from "@/components/hangry-ui/components/striped-card";
@@ -32,15 +32,20 @@ import { StripedCard } from "@/components/hangry-ui/components/striped-card";
 
 ## Props
 
-- `src`: Image URL. Defaults to `/1.png` from the public directory.
-- `alt`: Image description. Supply alt text matching your own artwork.
-- `children`: Optional React content instead of the image.
-- `className`: Additional classes on the wrapper. Defaults to 288px wide with a 9:10 image ratio.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"src"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/1.png"}</code></TableCell><TableCell>{"Image URL. Defaults to "}<code>{"/1.png"}</code>{" from the public directory."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Glowing white butterflies on a dark background"}</code></TableCell><TableCell>{"Image description. Supply alt text matching your own artwork."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Optional React content instead of the image."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the wrapper. Defaults to 288px wide with a 9:10 image ratio."}</TableCell></TableRow>
+</TableBody>
+</Table>
+
 - Native div attributes are forwarded to the wrapper.
 
-## Setup notes
+## Dependencies
 
-Uses the existing Card and AspectRatio components. Stripes follow the border token and work in light and dark themes. The decorative bands do not intercept pointer events and are hidden from assistive technology.
+<DocsDependencies name="striped-card" />
 
-Leave space around the card for the extended stripes and clip overflow on the surrounding section when needed. This static component is memoized and server-compatible, with no animation dependency.
 </DocsReveal>

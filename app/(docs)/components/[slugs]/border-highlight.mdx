@@ -1,8 +1,14 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { BorderHighlight } from "@/registry/components/border-highlight";
 import { Card } from "@/registry/components/card";
 import { Button } from "@/registry/components/button";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="border-highlight" />
 
 <ComponentPreview className="grid-cols-1">
   <BorderHighlight>
@@ -12,21 +18,15 @@ import { Button } from "@/registry/components/button";
   </BorderHighlight>
 </ComponentPreview>
 
-<DocsReveal>
-# Border Highlight
+<DocsReveal stagger>
 
 A glowing border that follows your pointer with spring motion. Wrap cards, project previews, or other content to highlight their edges on hover.
 
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/border-highlight.json",
-}} />
+<InstallationMenu name="border-highlight" />
 
-## Usage
+## How to use
 
 ```tsx
 import { BorderHighlight } from "@/components/hangry-ui/components/border-highlight";
@@ -38,14 +38,18 @@ import { BorderHighlight } from "@/components/hangry-ui/components/border-highli
 
 ## Props
 
-- `children`: Content inside the frame. Defaults to a demo Card.
-- `className`: Additional classes for the frame, including width, padding, and border radius. The highlight inherits the frame's border radius.
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Content inside the frame. Defaults to a demo Card."}</TableCell></TableRow>
+<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes for the frame, including width, padding, and border radius. The highlight inherits the frame's border radius."}</TableCell></TableRow>
+</TableBody>
+</Table>
 
 The frame defaults to a fixed width of 384px and shrinks to fit smaller containers. Its solid Card background keeps the preview backdrop from showing through.
 
-## Setup notes
+## Dependencies
 
-Use Tailwind CSS v4 with the shared `border-border` and `primary` tokens. The glow uses a standard arbitrary shadow utility. The component uses Motion elements from `motion/react-client`; pointer handlers and spring hooks require its client boundary.
+<DocsDependencies name="border-highlight" />
 
-Touch input does not track the pointer. Reduced motion removes spring smoothing and the highlight fade. Focus inside the frame highlights its full border without moving keyboard focus or adding an extra tab stop. The decorative overlay does not intercept clicks.
 </DocsReveal>

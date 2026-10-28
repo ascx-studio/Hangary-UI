@@ -1,26 +1,28 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
-import ComponentPreview from "@/components/registry/component-preview";
+import ComponentPreview from "@/components/registry/dither-component-preview";
 import { ChromaBackground } from "@/registry/shader/chroma-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="chroma-background" />
 
 <ComponentPreview fullBleed>
   <ChromaBackground className="h-full w-full" />
 </ComponentPreview>
 
-<DocsReveal>
-# Chroma Background
+<DocsReveal stagger>
 
 Liquid color ribbons drift through a dark background with subtle film grain. Moving the pointer gently bends the surrounding color field without moving the container.
 
+Chroma Background is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
 ## Installation
 
-<CodeBlock commands={{
-  bun: "bunx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
-  npm: "npx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
-  pnpm: "pnpm dlx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
-  yarn: "yarn dlx shadcn@latest add https://ui.razeev.com/r/chroma-background.json",
-}} />
+<InstallationMenu name="chroma-background" />
 
-## Usage
+## How to use
 
 ```tsx
 import { ChromaBackground } from "@/components/hangry-ui/shader/chroma-background";
@@ -33,21 +35,21 @@ import { ChromaBackground } from "@/components/hangry-ui/shader/chroma-backgroun
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `speed` | `number` | `0.2` | Nonnegative animation speed. Set 0 to freeze the ambient flow. |
-| `intensity` | `number` | `0.9` | Color brightness, clamped to 0–2. |
-| `hueShift` | `number` | `0` | Color phase offset in degrees. |
-| `grain` | `number` | `0.035` | Static grain strength, clamped to 0–0.2. |
-| `interactive` | `boolean` | `true` | Bend and brighten the color field near the pointer. |
-| `children` | `ReactNode` | — | Content displayed above the shader. |
-| Native div props | `ComponentProps` | — | Classes, styles, IDs, and accessibility attributes. |
+<Table className="min-w-[40rem]">
+<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+<TableBody>
+<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.2"}</code></TableCell><TableCell>Nonnegative animation speed. Set 0 to freeze the ambient flow.</TableCell></TableRow>
+<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.9"}</code></TableCell><TableCell>Color brightness, clamped to 0–2.</TableCell></TableRow>
+<TableRow><TableCell><code>{"hueShift"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0"}</code></TableCell><TableCell>Color phase offset in degrees.</TableCell></TableRow>
+<TableRow><TableCell><code>{"grain"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.035"}</code></TableCell><TableCell>Static grain strength, clamped to 0–0.2.</TableCell></TableRow>
+<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Bend and brighten the color field near the pointer.</TableCell></TableRow>
+<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content displayed above the shader.</TableCell></TableRow>
+<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell></TableRow>
+</TableBody>
+</Table>
 
-## Setup notes
+## Dependencies
 
-Uses the existing vgpu and Motion dependencies. The memoized client component renders at 30fps using the actual container size and device pixel ratio 1. Reduced motion disables ambient animation and pointer interaction, rendering a still frame that updates on resize. Touch input skips hover effects. Set speed to 0 and interactive to false for demand rendering without reduced motion.
+<DocsDependencies name="chroma-background" />
 
-The default minimum height is 24rem. Customize sizing with className. Decorative layers do not intercept clicks and are hidden from assistive technology. A static CSS gradient remains visible without WebGPU. Animation loops, listeners, observers, and GPU resources are released on unmount.
-
-Use Tailwind CSS v4 and the WGSL loader and ambient TypeScript declaration from the [Dither Background setup notes](/shader/dither-background).
 </DocsReveal>
