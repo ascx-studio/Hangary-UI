@@ -19,7 +19,7 @@ export const GradientGridBackground = memo(function GradientGridBackground({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(13,42,86,0.8)_2px,transparent_2px),linear-gradient(to_bottom,rgba(13,42,86,0.8)_2px,transparent_2px)] bg-size-[24px_24px]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(13,42,86,0.8)_2px,transparent_2px),linear-gradient(to_bottom,rgba(13,42,86,0.8)_2px,transparent_2px)] bg-size-[24px_24px]"
       />
       {children}
     </div>

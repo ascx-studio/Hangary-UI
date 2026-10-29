@@ -4,15 +4,18 @@ import { PhotonCorridorBackground } from "@/registry/shader/photon-corridor-back
 import { PlasmaRiftBackground } from "@/registry/shader/plasma-rift-background";
 import type { ComponentType } from "react";
 import { LiquidChromeBackground } from "@/registry/shader/liquid-chrome-background";
+import { LiquidSurfaceBackground } from "@/registry/shader/liquid-surface-background";
 import { HeatmapBackground } from "@/registry/shader/heatmap-background";
 import { LinearGradientBackground } from "@/registry/shader/linear-gradient-background";
 import { GradientGridBackground } from "@/registry/shader/gradient-grid-background";
 import { SvgGradientBackground } from "@/registry/shader/svg-gradient-background";
 import { MeshGradientBackground } from "@/registry/shader/mesh-gradient-background";
+import { PastelMascotBackground } from "@/registry/shader/pastel-mascot-background";
 import { AsciiBackground } from "@/registry/shader/ascii-background";
-import { LightTunnelBackground } from "@/registry/shader/light-tunnel-background";
+import { GradientAsciiBackground } from "@/registry/shader/gradient-ascii-background";
 import { ChromaBackground } from "@/registry/shader/chroma-background";
 import { LightRayBackground } from "@/registry/shader/light-ray-background";
+import { RayFieldBackground } from "@/registry/shader/ray-field-background";
 import { LedBackground } from "@/registry/shader/led-background";
 import { LightRayFrameCard } from "@/registry/components/light-ray-frame-card";
 import { TopographicContourMap } from "@/registry/shader/topographic-contour-map";
@@ -80,15 +83,18 @@ export const previewEntries = {
   "photon-corridor-background": { component: PhotonCorridorBackground, category: "shader" },
   "plasma-rift-background": { component: PlasmaRiftBackground, category: "shader" },
   "liquid-chrome-background": { component: LiquidChromeBackground, category: "shader" },
+  "liquid-surface-background": { component: LiquidSurfaceBackground, category: "shader" },
   "heatmap-background": { component: HeatmapBackground, category: "shader" },
   "linear-gradient-background": { component: LinearGradientBackground, category: "shader" },
   "gradient-grid-background": { component: GradientGridBackground, category: "shader" },
   "svg-gradient-background": { component: SvgGradientBackground, category: "shader" },
   "mesh-gradient-background": { component: MeshGradientBackground, category: "shader" },
+  "pastel-mascot-background": { component: PastelMascotBackground, category: "shader" },
   "ascii-background": { component: AsciiBackground, category: "shader" },
-  "light-tunnel-background": { component: LightTunnelBackground, category: "shader" },
+  "gradient-ascii-background": { component: GradientAsciiBackground, category: "shader" },
   "chroma-background": { component: ChromaBackground, category: "shader" },
   "light-ray-background": { component: LightRayBackground, category: "shader" },
+  "ray-field-background": { component: RayFieldBackground, category: "shader" },
   "led-background": { component: LedBackground, category: "shader" },
   "light-ray-frame-card": { component: LightRayFrameCard, category: "components" },
   "topographic-contour-map": { component: TopographicContourMap, category: "shader" },

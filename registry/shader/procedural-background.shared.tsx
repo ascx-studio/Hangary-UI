@@ -1,17 +1,16 @@
 "use client";
 
 import { memo, type ComponentProps } from "react";
+import * as motion from "motion/react-client";
 import { useReducedMotion, useSpring } from "motion/react";
 import { Canvas } from "./canvas";
 import chromaShader from "./chroma-background.wgsl";
-import lightTunnelShader from "./light-tunnel-background.wgsl";
 import asciiShader from "./ascii-background.wgsl";
 import heatmapShader from "./heatmap-background.wgsl";
 import liquidChromeShader from "./liquid-chrome-background.wgsl";
 
 const shaders = {
   chroma: chromaShader,
-  "light-tunnel": lightTunnelShader,
   ascii: asciiShader,
   heatmap: heatmapShader,
   "liquid-chrome": liquidChromeShader,
@@ -21,8 +20,6 @@ const fallbacks = {
     "linear-gradient(125deg, #080a0e 5%, #818995 20%, #eef3fa 24%, #161a23 31%, #444d5c 55%, #e6edf7 61%, #11151c 69%, #6a7484 85%, #11151b)",
   chroma:
     "radial-gradient(ellipse at 20% 30%, #482171, transparent 65%), radial-gradient(ellipse at 80% 70%, #075364, transparent 65%), linear-gradient(135deg, #160d25, #0c1533)",
-  "light-tunnel":
-    "repeating-radial-gradient(circle at center, #05091b 0 18px, #403a9c 19px 21px, #05091b 24px 45px)",
   ascii: "linear-gradient(135deg, #03130c, #0a2c20, #03130c)",
   heatmap:
     "radial-gradient(ellipse at 40% 35%, #f64b17, #f7c522 20%, #0c997c 45%, #183497 70%, #080c31)",
@@ -70,6 +67,18 @@ export const ProceduralBackground = memo(function ProceduralBackground({
           <pre className="absolute inset-0 overflow-hidden whitespace-pre-wrap p-4 font-mono text-xs leading-4 text-emerald-400/25">
             {" .:-=+*#%@   .::--===+++***##%%@@  ".repeat(250)}
           </pre>
+        ) : variant === "chroma" ? (
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-[-20%]"
+            style={{
+              backgroundImage:
+                "radial-gradient(ellipse at 18% 30%, #e73cff 0%, transparent 42%), radial-gradient(ellipse at 78% 24%, #00d9ff 0%, transparent 45%), radial-gradient(ellipse at 72% 78%, #00ff9d 0%, transparent 42%), linear-gradient(135deg, #160d25, #0c1533)",
+              backgroundSize: "145% 145%",
+            }}
+            animate={reducedMotion ? undefined : { x: ["-8%", "8%", "-8%"], y: ["5%", "-5%", "5%"], rotate: [0, 4, 0] }}
+            transition={reducedMotion ? undefined : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          />
         ) : undefined
       }
       animated={rate > 0 || interactive}

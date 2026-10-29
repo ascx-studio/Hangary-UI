@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useRef, type ReactNode, type ComponentProps } from "react";
 import { useReducedMotion } from "motion/react";
-import { createShaderRenderer } from "./shader-renderer.shared";
+import { createShaderRenderer, type PostProcessOptions } from "./shader-renderer.shared";
 import { cn } from "cn";
 
 type RendererOptions = Parameters<typeof createShaderRenderer>[2];
@@ -15,6 +15,7 @@ export interface CanvasProps extends ComponentProps<"div"> {
   animated?: boolean;
   fps?: number;
   dpr?: number | [number, number];
+  postProcess?: PostProcessOptions;
 }
 
 /** Shared rendering only; consumers own uniforms and pointer behavior. */
@@ -27,6 +28,7 @@ export const Canvas = memo(function Canvas({
   animated = true,
   fps = 30,
   dpr = 1,
+  postProcess,
   className,
   children,
   ...props
@@ -49,13 +51,14 @@ export const Canvas = memo(function Canvas({
       animated: animated && !reducedMotion,
       fps,
       surface: { dpr: minDpr === maxDpr ? minDpr : [minDpr, maxDpr] },
+      postProcess,
     });
     rendererRef.current = renderer;
     return () => {
       renderer.dispose();
       rendererRef.current = null;
     };
-  }, [shader, label, animated, reducedMotion, fps, minDpr, maxDpr]);
+  }, [shader, label, animated, reducedMotion, fps, minDpr, maxDpr, postProcess]);
   return (
     <div
       {...props}

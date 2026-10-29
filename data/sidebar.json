@@ -382,8 +382,14 @@
         {
           "label": "Mesh Gradient",
           "slug": "mesh-gradient-background",
-          "description": "A layered SVG mesh gradient with blurred color pools and a dot texture.",
+          "description": "An animated pastel mesh gradient with pointer interaction and reduced-motion support.",
           "group": "Gradient"
+        },
+        {
+          "label": "Pastel Mascot",
+          "slug": "pastel-mascot-background",
+          "description": "A floating mascot filled with an animated pastel mesh gradient and pointer-tracking eyes.",
+          "group": "Backgrounds"
         },
         {
           "label": "Wordmark LED",
@@ -396,6 +402,12 @@
           "slug": "wordmark-light-ray",
           "description": "A continuous blue-white light ray with a soft glow and fading trail across the wordmark.",
           "group": "Wordmarks"
+        },
+        {
+          "label": "Ray Field",
+          "slug": "ray-field-background",
+          "description": "A sweeping blue-white light ray with a soft glow and fading trail.",
+          "group": "Backgrounds"
         },
         {
           "label": "Dither",
@@ -428,15 +440,15 @@
           "group": "Backgrounds"
         },
         {
-          "label": "Light Tunnel",
-          "slug": "light-tunnel-background",
-          "description": "Luminous perspective rings recede into a dark vanishing point, with gentle pointer steering.",
-          "group": "Backgrounds"
-        },
-        {
           "label": "ASCII",
           "slug": "ascii-background",
           "description": "An animated field of bitmap ASCII characters reveals flowing patterns in emerald light.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Gradient ASCII",
+          "slug": "gradient-ascii-background",
+          "description": "Animated ASCII characters illuminated by a shifting neon gradient.",
           "group": "Backgrounds"
         },
         {
@@ -449,6 +461,12 @@
           "label": "Liquid Chrome",
           "slug": "liquid-chrome-background",
           "description": "Flowing silver folds with studio reflections, sharp metallic highlights, and pointer-driven ripples.",
+          "group": "Backgrounds"
+        },
+        {
+          "label": "Liquid Surface",
+          "slug": "liquid-surface-background",
+          "description": "An interactive liquid surface with metallic reflections, ripples, and iridescent highlights.",
           "group": "Backgrounds"
         }
       ]

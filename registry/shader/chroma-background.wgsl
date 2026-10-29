@@ -12,16 +12,25 @@ struct Config {
   let influence = exp(-dot(cursor, cursor) * 5.0) * cfg.pointer.z;
   p += cursor * influence * 0.45;
   let time = cfg.metrics.z;
-  // Broad domain warps keep color flowing like liquid rather than a flat rainbow.
-  let warp = vec2f(sin(p.y * 1.9 + time * 0.7), cos(p.x * 1.4 - time * 0.6));
-  let q = p + warp * 0.7;
-  let flow = sin(q.x * 1.6 + time * 0.35) + cos(q.y * 1.8 - time * 0.4);
-  let phase = flow * 2.2 + q.x * 0.6 + cfg.settings.x;
-  let spectrum = 0.5 + 0.5 * cos(vec3f(0.0, 2.1, 4.2) + phase);
-  let ribbons = pow(0.5 + 0.5 * sin(flow * 2.1 + q.y), 1.5);
-  let glow = 0.1 + ribbons * 0.65 + influence * 0.12;
-  let vignette = 1.0 - smoothstep(0.3, 1.0, length(uv - 0.5)) * 0.55;
-  var color = vec3f(0.012, 0.008, 0.025) + pow(spectrum, vec3f(1.4)) * glow * vignette * cfg.metrics.w;
+  let warpA = vec2f(
+    sin(p.y * 2.2 + time * 0.55) + cos(p.x * 1.3 - time * 0.35),
+    cos(p.x * 2.0 - time * 0.5) + sin(p.y * 1.5 + time * 0.4)
+  );
+  let q = p + warpA * 0.42;
+  let warpB = vec2f(
+    sin(q.y * 4.5 - time * 0.8),
+    cos(q.x * 4.0 + time * 0.65)
+  );
+  let r = q + warpB * 0.12;
+  let flow = sin(r.x * 2.4 + r.y * 1.7 + time * 0.45) +
+    cos(r.y * 2.8 - r.x * 1.2 - time * 0.32);
+  let bands = 0.5 + 0.5 * sin(flow * 3.0 + r.x * 1.8 + time * 0.25);
+  let phase = flow * 1.7 + bands * 1.2 + cfg.settings.x;
+  let spectrum = 0.5 + 0.5 * cos(vec3f(0.0, 2.094, 4.188) + phase);
+  let ribbons = smoothstep(0.18, 0.82, bands);
+  let glow = 0.08 + ribbons * 0.82 + influence * 0.16;
+  let vignette = 1.0 - smoothstep(0.35, 1.25, length(p)) * 0.5;
+  var color = vec3f(0.008, 0.006, 0.02) + pow(max(spectrum, vec3f(0.0)), vec3f(1.25)) * glow * vignette * cfg.metrics.w;
   let grain = fract(sin(dot(floor(uv * cfg.metrics.xy), vec2f(12.9898, 78.233))) * 43758.5453) - 0.5;
   color += vec3f(grain * cfg.settings.y);
   return vec4f(clamp(color, vec3f(0), vec3f(1)), 1.0);

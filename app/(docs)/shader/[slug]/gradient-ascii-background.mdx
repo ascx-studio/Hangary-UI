@@ -1,0 +1,35 @@
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { GradientAsciiBackground } from "@/registry/shader/gradient-ascii-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="gradient-ascii-background" />
+
+<ComponentPreview fullBleed>
+  <GradientAsciiBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+Animated ASCII characters illuminated by a shifting neon gradient.
+
+## Installation
+
+<InstallationMenu name="gradient-ascii-background" />
+
+## How to use
+
+```tsx
+import { GradientAsciiBackground } from "@/components/hangry-ui/shader/gradient-ascii-background";
+
+<GradientAsciiBackground className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">Gradient signal.</h2>
+</GradientAsciiBackground>;
+```
+
+## Dependencies
+
+<DocsDependencies name="gradient-ascii-background" />
+
+</DocsReveal>

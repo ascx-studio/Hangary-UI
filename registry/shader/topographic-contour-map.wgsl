@@ -2,7 +2,7 @@ struct Config {
   metrics: vec4f, // width, height, terrain scale, time
   contours: vec4f, // density, line width, reserved
   pointer: vec4f, // normalized position, influence, press strength
-  options: vec4f, // labels, left fade, reserved
+  options: vec4f, // reserved (was labels), left fade, reserved
   low: vec4f,
   foreground: vec4f,
   high: vec4f,
@@ -42,17 +42,6 @@ fn palette(height: f32) -> vec3f {
     cfg.high.rgb, max(h * 2.0 - 1.0, 0.0));
 }
 
-fn gradient(pixel: vec2f) -> vec2f {
-  return vec2f(terrain(pixel + vec2f(1, 0)) - terrain(pixel - vec2f(1, 0)),
-    terrain(pixel + vec2f(0, 1)) - terrain(pixel - vec2f(0, 1))) * 0.5;
-}
-
-fn digit(value: u32, pixel: vec2i) -> f32 {
-  if (any(pixel < vec2i(0)) || pixel.x > 2 || pixel.y > 4) { return 0.0; }
-  let glyphs = array<u32, 10>(31599u, 29850u, 29671u, 31207u, 18925u, 31183u, 31695u, 18727u, 31727u, 31215u);
-  return f32((glyphs[min(value, 9u)] >> u32(pixel.y * 3 + pixel.x)) & 1u);
-}
-
 @fragment fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   let pixel = uv * cfg.metrics.xy;
   let height = terrain(pixel);
@@ -62,33 +51,8 @@ fn digit(value: u32, pixel: vec2i) -> f32 {
   let majorLevel = level / 4.0;
   let majorDistance = abs(fract(majorLevel + 0.5) - 0.5) / max(fwidth(majorLevel), 0.0001);
   let major = 1.0 - smoothstep(cfg.contours.y * 0.7, cfg.contours.y * 0.7 + 0.8, majorDistance);
-  var color = mix(cfg.background.rgb, palette(height), max(line * 0.35, major * 0.7));
+  let color = mix(cfg.background.rgb, palette(height), max(line * 0.35, major * 0.7));
 
-  // Stable label anchors are projected onto the nearest major contour.
-  // Only fragments near an anchor do the extra terrain samples.
-  let anchor = (floor(pixel / vec2f(240, 180)) + 0.5) * vec2f(240, 180);
-  if (cfg.options.x > 0.5 && all(abs(pixel - anchor) < vec2f(60, 60))) {
-    let elevation = clamp(round(terrain(anchor) * cfg.contours.x / 4.0) * 4.0 / cfg.contours.x, 0.01, 0.99);
-    var labelPosition = anchor;
-    for (var iteration = 0; iteration < 3; iteration++) {
-      let g = gradient(labelPosition);
-      let correction = g * (terrain(labelPosition) - elevation) / max(dot(g, g), 0.000001);
-      labelPosition -= clamp(correction, vec2f(-15), vec2f(15));
-    }
-    let g = gradient(labelPosition);
-    var tangent = vec2f(-g.y, g.x) / max(length(g), 0.00001);
-    if (tangent.x < 0.0) { tangent = -tangent; }
-    let delta = pixel - labelPosition;
-    let local = vec2f(dot(delta, tangent), dot(delta, vec2f(-tangent.y, tangent.x)));
-    if (all(abs(local) < vec2f(12, 6)) && abs(terrain(labelPosition) - elevation) < 0.002) {
-      let textPixel = vec2i(floor((local + vec2f(7.15, 3.25)) / 1.3));
-      let value = u32(elevation * 999.0);
-      let column = clamp(textPixel.x / 4, 0, 2);
-      let divisor = select(select(1u, 10u, column == 1), 100u, column == 0);
-      let ink = digit((value / divisor) % 10u, vec2i(textPixel.x - column * 4, textPixel.y));
-      color = mix(cfg.background.rgb, palette(elevation), ink * 0.85);
-    }
-  }
   let fade = select(1.0, smoothstep(0.0, 0.65, uv.x), cfg.options.y > 0.5);
   return vec4f(mix(cfg.background.rgb, color, fade), 1.0);
 }

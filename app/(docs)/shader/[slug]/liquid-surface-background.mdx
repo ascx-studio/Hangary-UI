@@ -1,0 +1,75 @@
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/registry/components/table";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { LiquidSurfaceBackground } from "@/registry/shader/liquid-surface-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="liquid-surface-background" />
+
+<ComponentPreview fullBleed>
+  <LiquidSurfaceBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+An animated liquid surface with metallic reflections, iridescent highlights, and pointer-driven ripples.
+
+## Installation
+
+<InstallationMenu name="liquid-surface-background" />
+
+## How to use
+
+```tsx
+import { LiquidSurfaceBackground } from "@/components/hangry-ui/shader/liquid-surface-background";
+
+<LiquidSurfaceBackground className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">Liquid motion.</h2>
+</LiquidSurfaceBackground>;
+```
+
+## Props
+
+<Table className="min-w-[40rem]">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code>{"speed"}</code></TableCell>
+      <TableCell><code>{"number"}</code></TableCell>
+      <TableCell><code>{"0.35"}</code></TableCell>
+      <TableCell>Ambient animation speed. Set to 0 to freeze the surface.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>{"distortion"}</code></TableCell>
+      <TableCell><code>{"number"}</code></TableCell>
+      <TableCell><code>{"0.8"}</code></TableCell>
+      <TableCell>Pointer ripple distortion, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>{"intensity"}</code></TableCell>
+      <TableCell><code>{"number"}</code></TableCell>
+      <TableCell><code>{"1"}</code></TableCell>
+      <TableCell>Surface brightness, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>{"interactive"}</code></TableCell>
+      <TableCell><code>{"boolean"}</code></TableCell>
+      <TableCell><code>{"true"}</code></TableCell>
+      <TableCell>Enable pointer-driven ripples and highlights.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="liquid-surface-background" />
+
+</DocsReveal>

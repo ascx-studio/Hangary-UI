@@ -10,7 +10,7 @@ export type PlasmaRiftBackgroundProps = ProceduralBackgroundProps;
 
 export const PlasmaRiftBackground = memo(function PlasmaRiftBackground({
   speed = 0.2,
-  intensity = 0.9,
+  intensity = 2,
   interactive = true,
   onPointerMove,
   onPointerLeave,
@@ -21,11 +21,13 @@ export const PlasmaRiftBackground = memo(function PlasmaRiftBackground({
   // Smooth the displacement itself, so entry, movement, and exit never snap the vortex.
   const offsetX = useSpring(0, { stiffness: 65, damping: 24 });
   const offsetY = useSpring(0, { stiffness: 65, damping: 24 });
+  const hover = useSpring(0, { stiffness: 180, damping: 24 });
   const rate = Number.isFinite(speed) ? Math.max(0, speed) : 0.2;
   const brightness = Number.isFinite(intensity) ? Math.max(0, Math.min(2, intensity)) : 0.9;
   const leave = () => {
     offsetX.set(0);
     offsetY.set(0);
+    hover.set(0);
   };
   return (
     <Canvas
@@ -39,7 +41,7 @@ export const PlasmaRiftBackground = memo(function PlasmaRiftBackground({
           metrics: [size[0], size[1], time * rate, brightness],
           pointer:
             interactive && !reducedMotion
-              ? [0.5 + offsetX.get(), 0.5 + offsetY.get(), 1, 0]
+              ? [0.5 + offsetX.get(), 0.5 + offsetY.get(), hover.get(), 0]
               : [0.5, 0.5, 0, 0],
           settings: [0, 0, 0, 0],
         },
@@ -61,6 +63,7 @@ export const PlasmaRiftBackground = memo(function PlasmaRiftBackground({
         offsetY.set(
           Math.max(-0.5, Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5)),
         );
+        hover.set(1);
       }}
       onPointerLeave={(event) => {
         onPointerLeave?.(event);

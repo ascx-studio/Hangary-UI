@@ -1,10 +1,11 @@
 import {
-  clock,
   effect,
   frame,
   frameLoop,
   init,
+  sampler,
   surface,
+  target,
   type Frame,
   type SurfaceOptions,
 } from "vgpu";
@@ -12,12 +13,19 @@ import {
 type ShaderSource = Parameters<typeof effect>[1];
 type Bindings = Parameters<ReturnType<typeof effect>["set"]>[0];
 
+export interface PostProcessOptions {
+  label: string;
+  source: ShaderSource;
+  uniforms?: (time: number, size: readonly [number, number]) => Bindings;
+}
+
 interface ShaderRendererOptions {
   label: string;
   uniforms: (time: number, size: readonly [number, number]) => Bindings;
   animated?: boolean;
   fps?: number;
   surface?: SurfaceOptions;
+  postProcess?: PostProcessOptions;
 }
 
 /** Owns one canvas effect. Components supply bindings and retain their own input/UI logic. */
@@ -30,14 +38,19 @@ export function createShaderRenderer(
     animated = true,
     fps = 60,
     surface: surfaceOptions = { dpr: 1 },
+    postProcess,
   }: ShaderRendererOptions,
 ) {
   let disposed = false;
   let gpu: Awaited<ReturnType<typeof init>> | undefined;
-  let target: ReturnType<typeof surface> | undefined;
+  let output: ReturnType<typeof surface> | undefined;
+  let scene: ReturnType<typeof target> | undefined;
+  let sceneSampler: ReturnType<typeof sampler> | undefined;
   let shader: ReturnType<typeof effect> | undefined;
+  let postShader: ReturnType<typeof effect> | undefined;
   let loop: ReturnType<typeof frameLoop> | undefined;
   let observer: ResizeObserver | undefined;
+  let unsubscribeResize: (() => void) | undefined;
   let pendingFrame = 0;
   let draw: ((currentFrame: Frame) => void) | undefined;
   canvas.style.opacity = "0";
@@ -48,8 +61,10 @@ export function createShaderRenderer(
     loop?.stop();
     observer?.disconnect();
     cancelAnimationFrame(pendingFrame);
+    unsubscribeResize?.();
     shader?.dispose();
-    target?.dispose();
+    postShader?.dispose();
+    output?.dispose();
     gpu?.dispose();
   };
   const render = () => {
@@ -66,15 +81,52 @@ export function createShaderRenderer(
       return;
     }
     gpu = initialized;
-    target = surface(gpu, canvas, surfaceOptions);
-    shader = effect(gpu, source, { label, set: uniforms(0, target.size) });
-    await shader.compile(target);
+    output = surface(gpu, canvas, surfaceOptions);
+    scene = postProcess ? target(gpu, { size: output.size }) : undefined;
+    sceneSampler = postProcess
+      ? sampler(gpu, { minFilter: "linear", magFilter: "linear" })
+      : undefined;
+    shader = effect(gpu, source, { label, set: uniforms(0, (scene ?? output).size) });
+    postShader = postProcess
+      ? effect(gpu, postProcess.source, {
+          label: postProcess.label,
+          set: {
+            scene: scene,
+            sceneSampler,
+            ...postProcess.uniforms?.(0, output.size),
+          },
+        })
+      : undefined;
+    await shader.compile(scene ?? output);
+    await postShader?.compile(output);
     if (disposed) return;
-    const time = clock(gpu);
+    const startedAt = performance.now();
+    if (postProcess && output && scene && postShader && sceneSampler) {
+      unsubscribeResize = output.onResize(({ width, height }) => {
+        scene?.resize([width, height]);
+        postShader?.set({
+          scene,
+          sceneSampler,
+          ...postProcess.uniforms?.(0, [width, height]),
+        });
+      });
+    }
     draw = (currentFrame) => {
-      if (!target || !shader || disposed) return;
-      shader.set(uniforms(animated ? time.time : 0, target.size));
-      currentFrame.pass(target, shader);
+      if (!output || !shader || disposed) return;
+      const time = animated ? (performance.now() - startedAt) / 1000 : 0;
+      const renderTarget = scene ?? output;
+      shader.set(uniforms(time, renderTarget.size));
+      if (postShader && scene && sceneSampler) {
+        postShader.set({
+          scene,
+          sceneSampler,
+          ...postProcess?.uniforms?.(time, output.size),
+        });
+        currentFrame.pass(scene, shader);
+        currentFrame.pass(output, postShader);
+      } else {
+        currentFrame.pass(output, shader);
+      }
       canvas.style.opacity = "1";
     };
     if (animated) loop = frameLoop(gpu, draw, { fps });

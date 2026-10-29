@@ -41,6 +41,18 @@ export const previewProps: Record<string, PreviewProp[]> = {
       defaultValue: true,
     },
   ],
+  "liquid-surface-background": [
+    { name: "speed", type: "number", required: false, control: "number", defaultValue: 0.35 },
+    { name: "distortion", type: "number", required: false, control: "number", defaultValue: 0.8 },
+    { name: "intensity", type: "number", required: false, control: "number", defaultValue: 1 },
+    {
+      name: "interactive",
+      type: "boolean",
+      required: false,
+      control: "boolean",
+      defaultValue: true,
+    },
+  ],
   "guide-card": [
     { name: "children", type: "ReactNode", required: false, control: null },
     { name: "className", type: "string", required: false, control: "text" },
@@ -184,7 +196,45 @@ export const previewProps: Record<string, PreviewProp[]> = {
   ],
   "gradient-grid-background": [],
   "svg-gradient-background": [],
-  "mesh-gradient-background": [],
+  "mesh-gradient-background": [
+    { name: "speed", type: "number", required: false, control: "number", defaultValue: 1 },
+    { name: "intensity", type: "number", required: false, control: "number", defaultValue: 1 },
+    {
+      name: "interactive",
+      type: "boolean",
+      required: false,
+      control: "boolean",
+      defaultValue: true,
+    },
+  ],
+  "pastel-mascot-background": [
+    { name: "speed", type: "number", required: false, control: "number", defaultValue: 0.5 },
+    { name: "intensity", type: "number", required: false, control: "number", defaultValue: 1 },
+    {
+      name: "interactive",
+      type: "boolean",
+      required: false,
+      control: "boolean",
+      defaultValue: true,
+    },
+
+  ],
+  "gradient-ascii-background": [
+    { name: "cellSize", type: "number", required: false, control: "number", defaultValue: 14 },
+    { name: "speed", type: "number", required: false, control: "number", defaultValue: 0.2 },
+    { name: "intensity", type: "number", required: false, control: "number", defaultValue: 1 },
+  ],
+  "ray-field-background": [
+    { name: "speed", type: "number", required: false, control: "number", defaultValue: 1 },
+    { name: "intensity", type: "number", required: false, control: "number", defaultValue: 1 },
+    {
+      name: "interactive",
+      type: "boolean",
+      required: false,
+      control: "boolean",
+      defaultValue: true,
+    },
+  ],
   avatar: [
     { name: "src", type: "string", required: false, control: "text" },
     { name: "name", type: "string", required: false, control: "text", defaultValue: "Alex Morgan" },

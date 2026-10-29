@@ -1,68 +1,97 @@
-import { memo, useId, type ComponentProps } from "react";
-import { cn } from "cn";
+"use client";
 
-export type MeshGradientBackgroundProps = ComponentProps<"div">;
+
+
+import { memo, useState, type ComponentProps } from "react";
+import * as motion from "motion/react-client";
+import { useReducedMotion } from "motion/react";
+import { cn } from "cn";
+import { Canvas } from "./canvas";
+import shader from "./pastel-mascot-background.wgsl";
+
+export type MeshGradientBackgroundProps = ComponentProps<"div"> & {
+  speed?: number;
+  intensity?: number;
+  interactive?: boolean;
+};
 
 export const MeshGradientBackground = memo(function MeshGradientBackground({
   className,
   children,
+  speed = 1,
+  intensity = 1,
+  interactive = true,
+  onPointerMove,
+  onPointerLeave,
   ...props
 }: MeshGradientBackgroundProps = {}) {
-  const id = useId();
+  const reducedMotion = useReducedMotion();
+  const [pointer, setPointer] = useState({ x: 0.5, y: 0.5, active: 0 });
+  const rate = Number.isFinite(speed) ? Math.max(0, speed) : 1;
+  const brightness = Number.isFinite(intensity) ? Math.max(0, Math.min(2, intensity)) : 1;
 
   return (
     <div
       {...props}
       data-slot="mesh-gradient-background"
       className={cn(
-        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-[#11152f]",
+        "relative isolate min-h-96 overflow-hidden border border-border bg-[#1a1a2e]",
         className,
       )}
+      onPointerMove={(event) => {
+        onPointerMove?.(event);
+        if (!interactive || reducedMotion || event.pointerType === "touch") return;
+        const bounds = event.currentTarget.getBoundingClientRect();
+        setPointer({
+          x: (event.clientX - bounds.left) / bounds.width,
+          y: (event.clientY - bounds.top) / bounds.height,
+          active: 1,
+        });
+      }}
+      onPointerLeave={(event) => {
+        onPointerLeave?.(event);
+        setPointer({ x: 0.5, y: 0.5, active: 0 });
+      }}
     >
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 1200 700"
-        preserveAspectRatio="xMidYMid slice"
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
-      >
-        <defs>
-          <linearGradient id={`${id}-base`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#11152f" />
-            <stop offset="0.5" stopColor="#25215c" />
-            <stop offset="1" stopColor="#081d3d" />
-          </linearGradient>
-          <radialGradient id={`${id}-pink`}>
-            <stop stopColor="#f472b6" stopOpacity="0.95" />
-            <stop offset="1" stopColor="#f472b6" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id={`${id}-gold`}>
-            <stop stopColor="#facc15" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#facc15" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id={`${id}-cyan`}>
-            <stop stopColor="#22d3ee" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#22d3ee" stopOpacity="0" />
-          </radialGradient>
-          <filter id={`${id}-blur`} x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="55" />
-          </filter>
-          <pattern id={`${id}-dots`} width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.5" fill="#ffffff" fillOpacity="0.16" />
-          </pattern>
-        </defs>
-        <rect width="1200" height="700" fill={`url(#${id}-base)`} />
-        <g filter={`url(#${id}-blur)`}>
-          <ellipse cx="180" cy="120" rx="360" ry="250" fill={`url(#${id}-pink)`} />
-          <ellipse cx="900" cy="90" rx="330" ry="220" fill={`url(#${id}-gold)`} />
-          <ellipse cx="700" cy="620" rx="430" ry="260" fill={`url(#${id}-cyan)`} />
-        </g>
-        <path
-          d="M0 470C190 330 320 560 500 430S820 270 1200 430V700H0Z"
-          fill="#0b1638"
-          fillOpacity="0.42"
-        />
-        <rect width="1200" height="700" fill={`url(#${id}-dots)`} />
-      </svg>
+      <Canvas
+        aria-label="Animated pastel mesh gradient"
+        role="img"
+        shader={shader}
+        label="mesh-gradient-background"
+        fallback="radial-gradient(ellipse at 28% 25%, #ffb3d9, transparent 44%), radial-gradient(ellipse at 72% 30%, #87ceeb, transparent 48%), radial-gradient(ellipse at 55% 75%, #4a90e2, transparent 58%), radial-gradient(ellipse at 20% 72%, #2c3e50, #1a1a2e 72%)"
+        fallbackContent={
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-[-18%]"
+            style={{
+              backgroundImage:
+                "radial-gradient(ellipse at 28% 25%, #ffb3d9 0%, transparent 44%), radial-gradient(ellipse at 72% 30%, #87ceeb 0%, transparent 48%), radial-gradient(ellipse at 55% 75%, #4a90e2 0%, transparent 58%), radial-gradient(ellipse at 20% 72%, #2c3e50 0%, #1a1a2e 72%)",
+              backgroundSize: "140% 140%",
+            }}
+            animate={
+              reducedMotion
+                ? undefined
+                : {
+                    x: ["-6%", "6%", "-6%"],
+                    y: ["-4%", "5%", "-4%"],
+                    scale: [1, 1.08, 1],
+                  }
+            }
+            transition={
+              reducedMotion ? undefined : { duration: 5, repeat: Infinity, ease: "easeInOut" }
+            }
+          />
+        }
+        className="absolute inset-0 -z-10 h-full min-h-0 border-0 bg-transparent"
+        animated={rate > 0}
+        fps={30}
+        uniforms={(time, size) => ({
+          cfg: {
+            metrics: [size[0], size[1], time * rate, brightness],
+            pointer: [pointer.x, pointer.y, interactive && !reducedMotion ? pointer.active : 0, 0],
+          },
+        })}
+      />
       {children}
     </div>
   );

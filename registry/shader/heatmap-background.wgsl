@@ -13,13 +13,17 @@ fn thermal(value: f32) -> vec3f {
   let aspect = cfg.metrics.x / cfg.metrics.y;
   let p = (uv - 0.5) * vec2f(aspect, 1.0) * cfg.settings.x;
   let time = cfg.metrics.z;
-  let warmCenter = vec2f(sin(time * 0.6) * 0.4, cos(time * 0.4) * 0.3);
-  let coldCenter = vec2f(cos(time * 0.35) * 0.5, sin(time * 0.5) * 0.35);
-  let warm = exp(-dot(p - warmCenter, p - warmCenter) * 4.0);
-  let cool = exp(-dot(p - coldCenter, p - coldCenter) * 3.0);
-  let waves = sin(p.x * 3.0 + sin(p.y * 2.8 + time)) * cos(p.y * 2.5 - time * 0.4);
+  let warmCenter = vec2f(sin(time * 0.55) * 0.42, cos(time * 0.38) * 0.32);
+  let warmCenter2 = vec2f(cos(time * 0.3 + 1.5) * 0.5, sin(time * 0.48) * 0.3);
+  let coldCenter = vec2f(cos(time * 0.32) * 0.5, sin(time * 0.44) * 0.38);
+  let warm = exp(-dot(p - warmCenter, p - warmCenter) * 4.5);
+  let warm2 = exp(-dot(p - warmCenter2, p - warmCenter2) * 5.0);
+  let cool = exp(-dot(p - coldCenter, p - coldCenter) * 3.5);
+  let waves = sin(p.x * 3.2 + sin(p.y * 2.6 + time * 0.8)) *
+    cos(p.y * 2.8 - time * 0.5);
+  let ripples = sin(length(p) * 8.0 - time * 1.2) * 0.08;
   let cursor = (uv - cfg.pointer.xy) * vec2f(aspect, 1.0);
   let heat = exp(-dot(cursor, cursor) * 12.0) * cfg.pointer.z * 0.45;
-  let temperature = 0.3 + waves * 0.2 + warm * 0.5 - cool * 0.18 + heat;
+  let temperature = 0.28 + waves * 0.16 + ripples + warm * 0.55 + warm2 * 0.3 - cool * 0.22 + heat;
   return vec4f(thermal(temperature) * cfg.metrics.w, 1.0);
 }

@@ -1,0 +1,35 @@
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { RayFieldBackground } from "@/registry/shader/ray-field-background";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="ray-field-background" />
+
+<ComponentPreview fullBleed>
+  <RayFieldBackground className="h-full w-full" />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A sweeping blue-white light ray with a soft glow and fading trail.
+
+## Installation
+
+<InstallationMenu name="ray-field-background" />
+
+## How to use
+
+```tsx
+import { RayFieldBackground } from "@/components/hangry-ui/shader/ray-field-background";
+
+<RayFieldBackground className="grid place-items-center p-12">
+  <h2 className="typography-section-title text-white">Follow the light.</h2>
+</RayFieldBackground>;
+```
+
+## Dependencies
+
+<DocsDependencies name="ray-field-background" />
+
+</DocsReveal>

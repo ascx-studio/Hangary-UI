@@ -1,0 +1,45 @@
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import { PastelMascotBackground } from "@/registry/shader/pastel-mascot-background";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="pastel-mascot-background" />
+
+<ComponentPreview id="pastel-mascot-background" className="grid-cols-1 py-12!">
+  <PastelMascotBackground className="max-w-60!" />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A floating mascot with an animated pink, sky-blue, and navy mesh gradient. Its eyes follow the pointer, while reduced-motion preferences pause both the shader and float animation.
+
+## Installation
+
+<InstallationMenu name="pastel-mascot-background" />
+
+## How to use
+
+```tsx
+import { PastelMascotBackground } from "@/components/hangry-ui/shader/pastel-mascot-background";
+
+<PastelMascotBackground className="max-w-60" />
+```
+
+## Props
+
+<Table>
+  <TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
+  <TableBody>
+    <TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.5"}</code></TableCell><TableCell>Gradient animation rate; set to 0 to pause.</TableCell></TableRow>
+    <TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Gradient brightness, clamped from 0 to 2.</TableCell></TableRow>
+    <TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Enables pointer-following eye movement.</TableCell></TableRow>
+  </TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="pastel-mascot-background" />
+
+</DocsReveal>

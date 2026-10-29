@@ -28,7 +28,7 @@ export const SvgGradientBackground = memo(function SvgGradientBackground({
         aria-hidden="true"
         viewBox="0 0 160 278"
         preserveAspectRatio="xMidYMid slice"
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full"
       >
         <g clipPath={`url(#${clipId})`}>
           <rect width="160" height="278" rx="20" fill="black" fillOpacity="0.7" />

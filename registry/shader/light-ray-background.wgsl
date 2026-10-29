@@ -1,11 +1,12 @@
 struct Config {
-  metrics: vec4f,
-  pointer: vec4f,
-  animation: vec4f, // drift, reveal threshold, surge depth, surge strength
+  metrics: vec4f,    // x, y: size px · z: pulse clock · w: intensity
+  pointer: vec4f,    // xy: pointer 0..1 (y down) · z: steer strength
+  animation: vec4f,  // drift, reveal threshold, surge depth, surge strength
 };
 @group(0) @binding(0) var<uniform> cfg: Config;
 const TAU = 6.2831853;
 const COUNT = 56.0;
+const FLOW = -1.0;  // 1.0: pulses run into the tunnel, -1.0: out toward the viewer
 fn hash(n: f32) -> f32 { return fract(sin(n * 127.1) * 43758.5453); }
 fn bend_at(depth: f32) -> vec2f {
   let reach = 1.0 - exp(-max(depth, 0.0) * 0.55);
@@ -48,12 +49,15 @@ fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
     let shade = 1.0 + (h3 - 0.5) * 0.9;
     let reach = 1.0 - smoothstep(spacing * 1.4, max(spacing * 2.4, 0.00001), d);
     lines += (1.0 - smoothstep(width - soft, width + soft, d)) * shade;
-    let x = depth * 0.4 - cfg.metrics.z * 8.0 * (0.55 + h2 * 0.6) + h4 * 7.0;
-    let lead = -(fract(x) - 0.5) / 0.4;
+    // FLOW flips the travel direction. The head/tail sides flip with it, so the head always leads.
+    let x = depth * 0.4 - FLOW * cfg.metrics.z * 8.0 * (0.55 + h2 * 0.6) + h4 * 7.0;
+    let lead = -FLOW * (fract(x) - 0.5) / 0.4;
     let lit = select(0.0, 1.0, hash(id * 3.7 + floor(x) * 13.1) <= 0.5);
-    let head = exp(-pow(max(-lead, 0.0) / 0.071232, 2.0)) * smoothstep(-1.25, -1.0, lead);
+    let ahead = max(-lead, 0.0) / 0.071232;
+    let head = exp(-ahead * ahead) * smoothstep(-1.25, -1.0, lead);
     let tail = exp(-max(lead, 0.0) / 0.30912) * (1.0 - smoothstep(0.6875, 1.25, lead));
-    let surge = cfg.animation.w * exp(-pow((depth - cfg.animation.z) / 0.22, 2.0));
+    let off = (depth - cfg.animation.z) / 0.22;
+    let surge = cfg.animation.w * exp(-off * off);
     let pulse = max(select(tail, head, lead < 0.0) * lit, surge);
     let core = 1.5 * width + 0.35;
     let stroke = 1.0 - smoothstep(core - soft, core + soft, d);

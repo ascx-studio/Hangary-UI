@@ -58,9 +58,7 @@
         "lucide-react@^1.48.0",
         "@ridemountainpig/svgl-react@^1.0.18"
       ],
-      "meta": {
-        "category": "blocks"
-      },
+      "meta": { "category": "blocks" },
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -840,16 +838,31 @@
     {
       "name": "mesh-gradient-background",
       "title": "Mesh Gradient Background",
-      "description": "A layered SVG mesh gradient with blurred color pools and a dot texture.",
+      "description": "An animated pastel mesh gradient with pointer interaction and reduced-motion support.",
       "type": "registry:component",
       "files": [
         {
           "path": "registry/shader/mesh-gradient-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/mesh-gradient-background.tsx"
+        },
+        {
+          "path": "registry/shader/pastel-mascot-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/pastel-mascot-background.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": ["cn@^0.2.6"],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -2405,7 +2418,9 @@
           "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
-      "meta": { "category": "blocks" },
+      "meta": {
+        "category": "blocks"
+      },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"]
     },
     {
@@ -3031,6 +3046,38 @@
       }
     },
     {
+      "name": "pastel-mascot-background",
+      "title": "Pastel Mascot Background",
+      "description": "A floating mascot filled with an animated pastel mesh gradient and pointer-tracking eyes.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/pastel-mascot-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/pastel-mascot-background.tsx"
+        },
+        {
+          "path": "registry/shader/pastel-mascot-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/pastel-mascot-background.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "topographic-contour-map",
       "title": "Topographic Contour Map",
       "description": "An animated contour map with elevation palettes, major lines, stable labels, and interactive terrain deformation.",
@@ -3224,6 +3271,38 @@
       }
     },
     {
+      "name": "ray-field-background",
+      "title": "Ray Field Background",
+      "description": "A sweeping blue-white light ray with a soft glow and fading trail.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/ray-field-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/ray-field-background.tsx"
+        },
+        {
+          "path": "registry/shader/wordmark-light-ray.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "chroma-background",
       "title": "Chroma Background",
       "description": "Flowing chromatic ribbons with subtle grain, adjustable hue, and gentle pointer distortion.",
@@ -3243,73 +3322,6 @@
           "path": "registry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
-        },
-        {
-          "path": "registry/shader/light-tunnel-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
-        },
-        {
-          "path": "registry/shader/ascii-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/ascii-background.wgsl"
-        },
-        {
-          "path": "registry/shader/heatmap-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
-        },
-        {
-          "path": "registry/shader/liquid-chrome-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
-        },
-        {
-          "path": "registry/shader/shader-renderer.shared.ts",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
-        },
-        {
-          "path": "registry/shader/canvas.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/canvas.tsx"
-        },
-        {
-          "path": "registry/shader/plasma-rift-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
-        }
-      ],
-      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
-      "meta": {
-        "category": "shader"
-      }
-    },
-    {
-      "name": "light-tunnel-background",
-      "title": "Light Tunnel Background",
-      "description": "Luminous perspective rings recede into a dark vanishing point, with gentle pointer steering.",
-      "type": "registry:component",
-      "files": [
-        {
-          "path": "registry/shader/light-tunnel-background.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.tsx"
-        },
-        {
-          "path": "registry/shader/procedural-background.shared.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
-        },
-        {
-          "path": "registry/shader/chroma-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/chroma-background.wgsl"
-        },
-        {
-          "path": "registry/shader/light-tunnel-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
         },
         {
           "path": "registry/shader/ascii-background.wgsl",
@@ -3369,11 +3381,6 @@
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/light-tunnel-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
-        },
-        {
           "path": "registry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
@@ -3410,6 +3417,38 @@
       }
     },
     {
+      "name": "gradient-ascii-background",
+      "title": "Gradient ASCII Background",
+      "description": "Animated ASCII characters illuminated by a shifting neon gradient.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/gradient-ascii-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/gradient-ascii-background.tsx"
+        },
+        {
+          "path": "registry/shader/gradient-ascii-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/gradient-ascii-background.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "heatmap-background",
       "title": "Heatmap Background",
       "description": "Flowing thermal colors move from cool blue through green and yellow to hot red.",
@@ -3429,11 +3468,6 @@
           "path": "registry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
-        },
-        {
-          "path": "registry/shader/light-tunnel-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
         },
         {
           "path": "registry/shader/ascii-background.wgsl",
@@ -3493,11 +3527,6 @@
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/light-tunnel-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
-        },
-        {
           "path": "registry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
@@ -3534,6 +3563,43 @@
       }
     },
     {
+      "name": "liquid-surface-background",
+      "title": "Liquid Surface Background",
+      "description": "An interactive liquid surface with metallic reflections, ripples, and iridescent highlights.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/shader/liquid-surface-background.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/liquid-surface-background.tsx"
+        },
+        {
+          "path": "registry/shader/liquid-surface-background.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-surface-background.wgsl"
+        },
+        {
+          "path": "registry/shader/liquid-surface-bloom.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/liquid-surface-bloom.wgsl"
+        },
+        {
+          "path": "registry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "registry/shader/shader-renderer.shared.ts",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
+      "meta": {
+        "category": "shader"
+      }
+    },
+    {
       "name": "plasma-rift-background",
       "title": "Plasma Rift",
       "description": "Cyan and emerald plasma ribbons fold into a dark, flowing vortex.",
@@ -3553,11 +3619,6 @@
           "path": "registry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
-        },
-        {
-          "path": "registry/shader/light-tunnel-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-tunnel-background.wgsl"
         },
         {
           "path": "registry/shader/ascii-background.wgsl",

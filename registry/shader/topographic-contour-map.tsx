@@ -56,7 +56,6 @@ export const TopographicContourMap = memo(function TopographicContourMap({
   lineWidth = 1,
   speed = 0.08,
   className,
-  children,
   ...props
 }: TopographicContourMapProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -173,24 +172,13 @@ export const TopographicContourMap = memo(function TopographicContourMap({
       ref={hostRef}
       data-slot="topographic-contour-map"
       className={cn(
-        "hangry-background relative isolate min-h-96 overflow-hidden border border-border",
+        " relative isolate min-h-96 overflow-hidden border border-border",
         className,
       )}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{ backgroundColor: `rgb(${br * 255} ${bg * 255} ${bb * 255})` }}
-      >
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: `repeating-radial-gradient(ellipse at 35% 60%, transparent 0 16px, rgb(${r * 255} ${g * 255} ${b * 255}) 17px 18px, transparent 19px 30px)`,
-          }}
-        />
+
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full opacity-0" />
-      </div>
-      {children}
+
     </div>
   );
 });
