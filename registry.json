@@ -2970,6 +2970,46 @@
       }
     },
     {
+      "name": "error-page",
+      "title": "Hangry 404",
+      "description": "The Hangry 404 page with its confused mascot illustration and recovery links.",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/blocks/error-page.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/blocks/error-page.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6"],
+      "meta": {
+        "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
+    },
+    {
       "name": "accordion",
       "title": "Accordion",
       "description": "Composable expandable sections with native keyboard interaction and single or multiple open items.",

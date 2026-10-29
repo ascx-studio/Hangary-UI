@@ -1,0 +1,78 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { ErrorPage } from "@/registry/blocks/error-page";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="error-page" />
+
+<ComponentPreview className="grid-cols-1 px-2! py-8! sm:px-8! *:max-w-full!">
+  <ErrorPage className="[&_svg]:!mb-6 [&_svg]:!w-40" style={{ minHeight: "28rem" }} />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A custom Hangry 404 page with its confused mascot illustration and recovery links.
+
+## Installation
+
+<InstallationMenu name="error-page" />
+
+## How to use
+
+```tsx
+import { ErrorPage } from "@/components/hangry-ui/blocks/error-page";
+
+export default function NotFound() {
+  return <ErrorPage />;
+}
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>{'""'}</code>
+      </TableCell>
+      <TableCell>Additional classes on the page wrapper.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native props</TableCell>
+      <TableCell>
+        <code>{'ComponentProps<"main">'}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Forwards standard main element attributes.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="error-page" />
+
+</DocsReveal>

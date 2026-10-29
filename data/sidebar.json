@@ -355,6 +355,12 @@
           "slug": "not-found",
           "description": "A centered 404 page with oversized numerals and clear recovery links.",
           "group": "Error Pages"
+        },
+        {
+          "label": "Hangry 404",
+          "slug": "error-page",
+          "description": "The Hangry 404 page with its mascot illustration and recovery links.",
+          "group": "Error Pages"
         }
       ]
     },

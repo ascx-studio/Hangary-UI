@@ -32,11 +32,6 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
       className="mt-12 first:mt-0"
       aria-label={group.title || category}
     >
-      {category !== "components" && group.title && (
-        <h2 className={"typography-section-title"}>
-          {group.title} [{group.items.length}]
-        </h2>
-      )}
       <ul className="mt-6 grid items-stretch gap-x-0 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {group.items.map((item, index) => (
           <li
@@ -75,27 +70,23 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
     </section>
   );
 
-  if (category === "components") {
-    const filters = [{ title: "All", items }, ...groups];
-    return (
-      <Tabs defaultValue="All" className="mt-8">
-        <Card size="sm" className="w-fit max-w-full overflow-x-auto p-0">
-          <TabsList className="bg-transparent" aria-label="Filter components by category">
-            {filters.map((group) => (
-              <TabsTrigger key={group.title} value={group.title}>
-                {group.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </Card>
-        {filters.map((group) => (
-          <TabsContent key={group.title} value={group.title}>
-            {renderGroup(group)}
-          </TabsContent>
-        ))}
-      </Tabs>
-    );
-  }
-
-  return <div className="mt-8">{groups.map(renderGroup)}</div>;
+  const filters = [{ title: "All", items }, ...groups];
+  return (
+    <Tabs defaultValue="All" className="mt-8">
+      <Card size="sm" className="w-fit max-w-full overflow-x-auto p-0">
+        <TabsList className="bg-transparent" aria-label={`Filter ${category} by category`}>
+          {filters.map((group) => (
+            <TabsTrigger key={group.title} value={group.title}>
+              {group.title}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Card>
+      {filters.map((group) => (
+        <TabsContent key={group.title} value={group.title}>
+          {renderGroup(group)}
+        </TabsContent>
+      ))}
+    </Tabs>
+  );
 }

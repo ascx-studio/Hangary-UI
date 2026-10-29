@@ -3,6 +3,14 @@ import { Toc } from "@/registry/components/toc";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
 import DocsDependencies from "@/components/registry/docs-dependencies";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 
 <DocsHeader name="toc" />
 
@@ -41,15 +49,103 @@ import { Toc } from "@/components/hangry-ui/components/toc";
 />;
 ```
 
-Match each item ID to a heading on the page. Add `scroll-mt-24` to headings when using a fixed header. Add `className="sticky top-24"` to keep the card visible beside an article.
+Match each item ID to an element on the page. The TOC highlights every listed target visible in the viewport. `level` controls indentation and marker width: level 1 is the longest, level 2 is shorter, and level 3 is shortest. The docs page also adds its title and preview to the TOC automatically.
 
 ## Props
 
-| Prop      | Type      | Default           | Description                                                  |
-| --------- | --------- | ----------------- | ------------------------------------------------------------ |
-| items     | TocItem[] | Required          | Unique heading IDs, labels, and optional level (1, 2, or 3). |
-| title     | string    | Table of contents | Navigation label and heading.                                |
-| className | string    | Empty             | Additional classes on the navigation.                        |
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>items</code>
+      </TableCell>
+      <TableCell>
+        <code>{"TocItem[]"}</code>
+      </TableCell>
+      <TableCell>Required</TableCell>
+      <TableCell>
+        Ordered links to page elements. Each item has an id, label, and optional level.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>title</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"Table of contents"'}</code>
+      </TableCell>
+      <TableCell>Accessible label for the navigation.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>{'""'}</code>
+      </TableCell>
+      <TableCell>Additional classes applied to the navigation rail.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+### TocItem
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Field</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Required</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>id</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>ID of the target element on the page.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>label</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>Text shown in the expanded table.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>level</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1 | 2 | 3"}</code>
+      </TableCell>
+      <TableCell>No</TableCell>
+      <TableCell>Deeper levels use shorter, indented markers.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
 
 ## Dependencies
 
