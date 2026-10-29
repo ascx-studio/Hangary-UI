@@ -135,7 +135,7 @@ export const previewProps: Record<string, PreviewProp[]> = {
     { name: "defaultOpenId", type: "string", required: false, control: "text" },
   ],
   "striped-card": [
-    { name: "src", type: "string", required: false, control: "text", defaultValue: "/1.png" },
+    { name: "src", type: "string", required: false, control: "text", defaultValue: "/1.webp" },
     {
       name: "alt",
       type: "string",

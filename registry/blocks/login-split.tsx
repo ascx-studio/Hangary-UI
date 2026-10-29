@@ -25,7 +25,7 @@ export function LoginSplit({ brand = "Studio", ...props }: LoginProps = {}) {
       <div className="grid grid-cols-1 bg-card @xl:min-h-144 @xl:grid-cols-2">
         <aside
           className="relative isolate flex min-w-0 flex-col justify-between gap-4 overflow-hidden border-b border-border bg-cover bg-center bg-no-repeat p-4 text-white @xl:border-r @xl:border-b-0"
-          style={{ backgroundImage: `url("/2.png")` }}
+          style={{ backgroundImage: `url("/2.webp")` }}
         >
           <div
             aria-hidden="true"

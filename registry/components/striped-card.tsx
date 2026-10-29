@@ -14,7 +14,7 @@ const stripes = {
 };
 
 export const StripedCard = memo(function StripedCard({
-  src = "/1.png",
+  src = "/1.webp",
   alt = "Glowing white butterflies on a dark background",
   children,
   className,

@@ -11,7 +11,7 @@ interface ScaleCardProps extends ComponentProps<"div"> {
 }
 
 export const ScaleCard = memo(function ScaleCard({
-  src = "/1.png",
+  src = "/1.webp",
   alt = "Glowing white butterflies on a dark background",
   size = 8,
   children,

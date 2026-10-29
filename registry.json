@@ -323,9 +323,9 @@
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
         {
-          "path": "public/1.png",
+          "path": "public/1.webp",
           "type": "registry:file",
-          "target": "public/1.png"
+          "target": "public/1.webp"
         }
       ],
       "dependencies": ["cn@^0.2.6"],
@@ -630,19 +630,19 @@
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "public/2.png",
+          "path": "public/2.webp",
           "type": "registry:file",
-          "target": "public/2.png"
+          "target": "public/2.webp"
         },
         {
-          "path": "public/3.png",
+          "path": "public/3.webp",
           "type": "registry:file",
-          "target": "public/3.png"
+          "target": "public/3.webp"
         },
         {
-          "path": "public/1.png",
+          "path": "public/1.webp",
           "type": "registry:file",
-          "target": "public/1.png"
+          "target": "public/1.webp"
         }
       ],
       "dependencies": ["motion@^14.3.0"],
@@ -717,9 +717,9 @@
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
         {
-          "path": "public/1.png",
+          "path": "public/1.webp",
           "type": "registry:file",
-          "target": "public/1.png"
+          "target": "public/1.webp"
         }
       ],
       "dependencies": ["cn@^0.2.6"],
