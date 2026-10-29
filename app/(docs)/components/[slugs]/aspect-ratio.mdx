@@ -9,8 +9,16 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 <DocsHeader name="aspect-ratio" />
 
 <ComponentPreview>
-  <div className="w-full max-w-sm">
-    <AspectRatio ratio={16 / 9} className="border border-border bg-muted" />
+  <div className="grid w-full max-w-3xl grid-cols-3 items-center gap-4 p-4">
+    <AspectRatio ratio={16 / 9} className="grid place-items-center border border-border bg-card">
+      <span className="text-sm text-muted-foreground">16 : 9</span>
+    </AspectRatio>
+    <AspectRatio className="grid place-items-center border border-border bg-card">
+      <span className="text-sm text-muted-foreground">1 : 1</span>
+    </AspectRatio>
+    <AspectRatio ratio={9 / 16} className="grid place-items-center border border-border bg-card">
+      <span className="text-sm text-muted-foreground">9 : 16</span>
+    </AspectRatio>
   </div>
 </ComponentPreview>
 

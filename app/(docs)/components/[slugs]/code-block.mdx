@@ -16,7 +16,7 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsReveal stagger>
 
-A scrollable code block with language and package-manager icons from SVGL, an optional filename, line numbers, and a copy button. `CodeBlock` is the parent component: it composes the header, copy action, package-manager tabs, and a memoized Prism renderer. Syntax highlighting safely escapes markup and uses global theme colors.
+A scrollable code block framed by Guide Card's lines and corner crosses, with filename or package-manager tabs positioned just above the top border. Includes syntax highlighting, line numbers, and a copy button. Syntax highlighting safely escapes markup and uses global theme colors.
 
 ## Installation
 
@@ -24,16 +24,7 @@ A scrollable code block with language and package-manager icons from SVGL, an op
 
 ## How to use
 
-```tsx
-import { CodeBlock } from "@/components/hangry-ui/components/code-block";
-
-<CodeBlock
-  code={'const greeting = "Hello, world!";\nconsole.log(greeting);'}
-  language="javascript"
-  filename="hello.js"
-  showLineNumbers
-/>
-```
+<CodeBlock filename="Example.tsx" language="tsx" code={"import { CodeBlock } from \"@/components/hangry-ui/components/code-block\";\n\n<CodeBlock\n  code={'const greeting = \"Hello, world!\";\\nconsole.log(greeting);'}\n  language=\"javascript\"\n  filename=\"hello.js\"\n  showLineNumbers\n/>"} />
 
 ## Props
 
@@ -68,8 +59,8 @@ import { CodeBlock } from "@/components/hangry-ui/components/code-block";
     <TableRow>
       <TableCell><code className="break-words">{"showLineNumbers"}</code></TableCell>
       <TableCell><code className="break-words">{"boolean"}</code></TableCell>
-      <TableCell><code className="break-words">{"false"}</code></TableCell>
-      <TableCell>{"Displays line numbers."}</TableCell>
+      <TableCell><code className="break-words">{"true for code; false for commands and plain text"}</code></TableCell>
+      <TableCell>{"Displays line numbers. Override the default for any block."}</TableCell>
     </TableRow>
     <TableRow>
       <TableCell><code className="break-words">{"commands"}</code></TableCell>

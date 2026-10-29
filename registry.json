@@ -1302,6 +1302,11 @@
       "description": "A scrollable code block with a filename, optional line numbers, and a copy button.",
       "files": [
         {
+          "path": "registry/components/guide-card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/guide-card.tsx"
+        },
+        {
           "path": "registry/components/code-block.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/code-block.tsx"
@@ -1321,7 +1326,6 @@
         "@ridemountainpig/svgl-react@^1.0.18",
         "cn@^0.2.6",
         "lucide-react@^1.48.0",
-        "posthog-js@^1.435.8",
         "prism-react-renderer@^2.4.1",
         "prismjs@^1.30.0"
       ],

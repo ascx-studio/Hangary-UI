@@ -23,7 +23,7 @@ const InstallationMenu = memo(function InstallationMenu({ name }: { name: string
     transition: { duration: reducedMotion ? 0 : 0.2 },
   };
   return (
-    <Tabs value={selected} onValueChange={setSelected}>
+    <Tabs value={selected} onValueChange={setSelected} className="relative">
       <TabsList aria-label="Installation package manager">
         <TabsTrigger value="prompt">
           <Sparkles className="size-4 shrink-0" aria-hidden="true" />
@@ -37,13 +37,13 @@ const InstallationMenu = memo(function InstallationMenu({ name }: { name: string
         ))}
       </TabsList>
       {managers.map(({ name: manager, prefix }) => (
-        <TabsContent key={manager} value={manager} className="overflow-hidden border border-border">
+        <TabsContent key={manager} value={manager}>
           {selected === manager && <motion.div key={manager} {...animation}>
             <CodeBlock language="bash" code={`${prefix} shadcn@latest add https://ui.razeev.com/r/${name}.json`} />
           </motion.div>}
         </TabsContent>
       ))}
-      <TabsContent value="prompt" className="overflow-hidden border border-border">
+      <TabsContent value="prompt">
         {selected === "prompt" && <motion.div key="prompt" {...animation}>
         <CodeBlock language="text" code={`Add the ${name} component from Hangry UI to this project.
 

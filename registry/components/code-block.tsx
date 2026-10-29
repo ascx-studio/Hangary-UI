@@ -2,7 +2,6 @@
 
 import { memo, useState, type ComponentType, type SVGProps } from "react";
 import { BashDark, Bun, CSSNew, HTML5, JSON as JsonIcon, JavaScript, NPM, PnpmDark, Python, ReactDark, TypeScript, Yarn } from "@ridemountainpig/svgl-react";
-import posthog from "posthog-js/full/no-external";
 import { Check, Copy, FileCode } from "lucide-react";
 import { Highlight, type PrismTheme } from "prism-react-renderer";
 import Prism from "prismjs";
@@ -17,6 +16,7 @@ import "prismjs/components/prism-markup";
 import "prismjs/components/prism-python";
 import { toast } from "./toast-store";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
+import { GuideCard } from "./guide-card";
 
 Prism.languages.insertBefore("bash", "function", {
   command: {
@@ -49,10 +49,6 @@ const languageIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   json: JsonIcon, python: Python, py: Python,
 };
 
-const isPostHogConfigured = Boolean(
-  process.env.NEXT_PUBLIC_POSTHOG_KEY && process.env.NEXT_PUBLIC_POSTHOG_HOST,
-);
-
 interface CodeBlockProps {
   code?: string;
   language?: string;
@@ -64,7 +60,7 @@ interface CodeBlockProps {
   className?: string;
 }
 
-export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.log(greeting);', language = "javascript", filename = "", showLineNumbers = false, commands, packageManager, onPackageManagerChange, className = "" }: CodeBlockProps = {}) {
+export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.log(greeting);', language = "javascript", filename = "", showLineNumbers, commands, packageManager, onPackageManagerChange, className = "" }: CodeBlockProps = {}) {
   const [manager, setManager] = useState<"bun" | "npm" | "pnpm" | "yarn">("bun");
   const selectedManager = packageManager ?? manager;
   const displayedCode = commands ? commands[selectedManager] : code;
@@ -77,40 +73,41 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
       await navigator.clipboard.writeText(displayedCode);
       setCopyResult({ code: displayedCode, success: true });
       toast.success(commands ? "Install command copied" : displayedLanguage === "text" ? "Prompt copied" : "Code copied");
-      if (isPostHogConfigured && posthog.has_opted_in_capturing()) {
-        posthog.capture("code_copied", {
-          content_type: commands ? "installation_command" : "source_code",
-          language: displayedLanguage,
-          package_manager: commands ? selectedManager : undefined,
-          filename: filename || undefined,
-        });
-      }
     } catch {
       setCopyResult({ code: displayedCode, success: false });
       toast.error("Could not copy. Select the text and copy it manually.");
     }
   }
 
+  const hideHeader = !commands && !filename;
   const header = <CodeBlockHeader commands={Boolean(commands)} language={displayedLanguage} filename={filename} copied={currentResult?.success} onCopy={copyCode} />;
-  const content = <CodeBlockRenderer code={displayedCode} language={displayedLanguage} filename={filename} showLineNumbers={showLineNumbers} packageManager={commands ? selectedManager : undefined} />;
+  const useGuideBorder = !commands && !["text", "bash", "sh", "shell"].includes(displayedLanguage.toLowerCase());
+  const content = <div className={!commands ? "relative pr-12" : undefined}>
+    {!commands && <button type="button" aria-label="Copy code" title={currentResult?.success ? "Copied!" : "Copy code"} onClick={copyCode} className="absolute right-2 top-2 inline-flex size-9 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring">{currentResult?.success ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}</button>}
+    <CodeBlockRenderer code={displayedCode} language={displayedLanguage} filename={filename} showLineNumbers={showLineNumbers ?? (!commands && !["text", "bash", "sh", "shell"].includes(language.toLowerCase()))} packageManager={commands ? selectedManager : undefined} />
+  </div>;
 
   return (
-    <div className={`lazy-code-block w-full min-w-0 bg-card text-card-foreground ${className}`}>
+    <div className={`lazy-code-block relative w-full min-w-0 text-card-foreground ${className}`}>
       {commands ? <Tabs value={selectedManager} onValueChange={value => {
         const next = value as keyof typeof managerIcons;
         setManager(next);
         onPackageManagerChange?.(next);
-        if (isPostHogConfigured && posthog.has_opted_in_capturing()) {
-          posthog.capture("package_manager_selected", { package_manager: next });
-        }
-      }} className="gap-0">
+      }}>
         {header}
         {(["bun", "npm", "pnpm", "yarn"] as const).map(option => (
-          <TabsContent key={option} value={option}>
+          <TabsContent key={option} value={option} className="border border-border">
             {selectedManager === option ? content : null}
           </TabsContent>
         ))}
-      </Tabs> : <>{header}{content}</>}
+      </Tabs> : useGuideBorder ? <GuideCard className="[clip-path:inset(12px)]">
+        {hideHeader ? content : <Tabs value="code" className="gap-0">
+          <TabsList variant="line" aria-label="Code file" className="absolute left-[calc(var(--guide-inset)+8px)] top-[calc(var(--guide-inset)-1.5rem-6px)] z-10 bg-background p-0">
+            <TabsTrigger value="code" className="min-h-5 py-0"><CodeLanguageLabel language={displayedLanguage} filename={filename} /></TabsTrigger>
+          </TabsList>
+          <TabsContent value="code">{content}</TabsContent>
+        </Tabs>}
+      </GuideCard> : <div className="border border-border">{content}</div>}
       <span role="status" className={currentResult && !currentResult.success ? "block border-t border-border px-4 py-2 text-xs text-muted-foreground" : "sr-only"}>{currentResult?.success ? "Code copied to clipboard." : currentResult ? "Could not copy. Select the code and copy it manually." : ""}</span>
     </div>
   );
@@ -118,9 +115,11 @@ export function CodeBlock({ code = 'const greeting = "Hello, world!";\nconsole.l
 
 function CodeBlockHeader({ commands, language, filename, copied, onCopy }: { commands: boolean; language: string; filename: string; copied?: boolean; onCopy: () => void }) {
   return (
-      <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-2">
-        {commands ? <PackageManagerTabs /> : <CodeLanguageLabel language={language} filename={filename} />}
-        <button type="button" aria-label="Copy code" title={copied ? "Copied!" : "Copy code"} onClick={onCopy} className="inline-flex size-9 shrink-0 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring">{copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}</button>
+      <div className="flex items-center justify-between gap-3">
+        {commands ? <PackageManagerTabs /> : !filename && ["text", "bash"].includes(language.toLowerCase()) ? null : <TabsList variant="line" aria-label="Code file">
+          <TabsTrigger value="code"><CodeLanguageLabel language={language} filename={filename} /></TabsTrigger>
+        </TabsList>}
+        <button type="button" aria-label="Copy code" title={copied ? "Copied!" : "Copy code"} onClick={onCopy} className="ml-auto inline-flex size-9 shrink-0 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring">{copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}</button>
       </div>
   );
 }
@@ -143,7 +142,7 @@ const CodeBlockRenderer = memo(function CodeBlockRenderer({ code, language, file
 
 const PackageManagerTabs = memo(function PackageManagerTabs() {
   return (
-    <TabsList aria-label="Package manager">
+    <TabsList variant="line" aria-label="Package manager">
           {(["bun", "npm", "pnpm", "yarn"] as const).map(option => {
             const ManagerIcon = managerIcons[option];
             return <TabsTrigger key={option} value={option}><ManagerIcon width={16} height={16} aria-hidden="true" focusable="false" className="shrink-0" />{option}</TabsTrigger>;

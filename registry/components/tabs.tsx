@@ -43,7 +43,7 @@ export function Tabs({ className, value, defaultValue, onValueChange, orientatio
 function tabsListVariants({ variant = "default" }: { variant?: "default" | "line" } = {}) {
   return cn(
     "group/tabs-list inline-flex w-fit items-center justify-center p-1 text-muted-foreground group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
-    variant === "line" ? "gap-1 bg-transparent" : "bg-muted",
+    variant === "line" ? "gap-1 bg-transparent" : "bg-[#131313]",
   );
 }
 
@@ -76,8 +76,8 @@ export function TabsTrigger({ className, value, disabled, onClick, ...props }: O
   return (
     <button {...props} type="button" role="tab" id={`${tabs.id}-tab-${key}`} aria-controls={`${tabs.id}-panel-${key}`} aria-selected={active} disabled={disabled} tabIndex={active || tabs.value === undefined && !disabled ? 0 : -1} data-slot="tabs-trigger" data-active={active ? "" : undefined}
       className={cn(
-        "relative inline-flex min-h-8 flex-1 items-center justify-center gap-1.5 border border-border px-3 py-1 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start",
-        "data-active:bg-background data-active:text-foreground group-data-[variant=line]/tabs-list:border-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-[variant=line]/tabs-list:data-active:after:opacity-100 group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:-bottom-1 group-data-[orientation=horizontal]/tabs:after:h-0.5 group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5",
+        "relative inline-flex min-h-8 flex-1 items-center justify-center gap-1.5 border border-transparent px-3 py-1 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start",
+        "data-active:bg-[#282727] data-active:text-foreground group-data-[variant=line]/tabs-list:border-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-[variant=line]/tabs-list:data-active:after:opacity-100 group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:-bottom-1 group-data-[orientation=horizontal]/tabs:after:h-0.5 group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5",
         className,
       )} onClick={event => {
         onClick?.(event);
