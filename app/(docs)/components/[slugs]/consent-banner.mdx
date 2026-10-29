@@ -1,0 +1,123 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { ConsentBannerDemo } from "@/components/registry/consent-banner-demo";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="consent-banner" />
+
+<ComponentPreview>
+  <ConsentBannerDemo />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A consent notice with accept and reject actions. The optional close button only dismisses the notice; your app decides whether to save a choice and when to show the banner again.
+
+## Installation
+
+<InstallationMenu name="consent-banner" />
+
+## How to use
+
+```tsx
+import { ConsentBanner } from "@/components/hangry-ui/components/consent-banner";
+
+<ConsentBanner
+  className="fixed bottom-5 left-5 z-50"
+  onAccept={() => saveAnalyticsChoice("accepted")}
+  onReject={() => saveAnalyticsChoice("rejected")}
+  onDismiss={() => setBannerOpen(false)}
+/>;
+```
+
+Save and apply the choice in your own analytics integration. Hide the banner after a choice is made. Dismissal does not call `onAccept` or `onReject`.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>onAccept</code>
+      </TableCell>
+      <TableCell>
+        <code>{"() => void"}</code>
+      </TableCell>
+      <TableCell>Required</TableCell>
+      <TableCell>Called when analytics is accepted.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>onReject</code>
+      </TableCell>
+      <TableCell>
+        <code>{"() => void"}</code>
+      </TableCell>
+      <TableCell>Required</TableCell>
+      <TableCell>Called when analytics is rejected.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>onDismiss</code>
+      </TableCell>
+      <TableCell>
+        <code>{"() => void"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Shows a close button and handles dismissal.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>title</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Analytics</TableCell>
+      <TableCell>Notice heading.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>description</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Built-in message</TableCell>
+      <TableCell>Explanatory text below the heading.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Empty</TableCell>
+      <TableCell>Additional classes, including positioning.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="consent-banner" />
+
+</DocsReveal>

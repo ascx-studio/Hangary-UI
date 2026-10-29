@@ -959,6 +959,47 @@
       }
     },
     {
+      "name": "consent-banner",
+      "type": "registry:component",
+      "title": "Consent Banner",
+      "description": "A compact analytics consent notice with accept, reject, and optional dismiss actions.",
+      "files": [
+        {
+          "path": "registry/components/consent-banner.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/consent-banner.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react@^1.48.0", "cn@^0.2.6"],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
+    },
+    {
       "name": "border-highlight",
       "title": "Border Highlight",
       "description": "A glowing border that follows your pointer with spring motion.",

@@ -34,6 +34,12 @@
           "group": "Feedback & Overlays"
         },
         {
+          "label": "Consent Banner",
+          "slug": "consent-banner",
+          "description": "An analytics consent notice with accept, reject, and optional dismiss actions.",
+          "group": "Feedback & Overlays"
+        },
+        {
           "label": "Border Highlight",
           "slug": "border-highlight",
           "description": "A glowing border that follows your pointer with spring motion.",
