@@ -178,6 +178,12 @@
           "group": "Navigation"
         },
         {
+          "label": "Share Menu",
+          "slug": "share-menu",
+          "description": "A share dropdown with AI links and optional NFC sharing.",
+          "group": "Controls"
+        },
+        {
           "label": "Outline",
           "slug": "outline",
           "description": "A keyboard-accessible table of contents with an animated active-heading indicator.",

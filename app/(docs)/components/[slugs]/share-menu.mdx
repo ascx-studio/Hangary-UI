@@ -1,0 +1,102 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { ShareMenu } from "@/registry/components/share-menu";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="share-menu" />
+
+<ComponentPreview>
+  <ShareMenu title="Share Menu — Hangry UI" url="https://ui.razeev.com/components/share-menu" />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+An icon button that opens a dropdown with Copy link, Other apps, X, ChatGPT, Claude, and Grok. Other apps opens the browser’s native share sheet when supported. NFC sharing appears on browsers that support Web NFC. Markdown and AI actions expect a working `llms.txt` endpoint for the page. NFC requires a compatible device and a writable tag.
+
+## Installation
+
+<InstallationMenu name="share-menu" />
+
+## How to use
+
+```tsx
+import { ShareMenu } from "@/components/hangry-ui/components/share-menu";
+import { Toaster } from "@/components/hangry-ui/components/toast";
+
+<>
+  <ShareMenu title="Share Menu — Hangry UI" url="https://ui.razeev.com/components/share-menu" />
+  <Toaster />
+</>;
+```
+
+Pass an absolute public URL so the social links and native share sheet can open it. Mount `Toaster` once near your app root.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>title</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Current page</TableCell>
+      <TableCell>Title for native sharing; defaults to document.title.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>url</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Current page</TableCell>
+      <TableCell>Absolute URL to share or copy. pageUrl is also accepted.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>text</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Empty</TableCell>
+      <TableCell>Text passed to the native share sheet. pageContent is also accepted.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Empty</TableCell>
+      <TableCell>Additional classes on the action group.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Dependencies
+
+<DocsDependencies name="share-menu" />
+
+</DocsReveal>

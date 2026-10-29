@@ -2031,6 +2031,62 @@
       }
     },
     {
+      "name": "share-menu",
+      "type": "registry:component",
+      "title": "Share Menu",
+      "description": "A share dropdown with AI links, native sharing, copy fallback, and optional NFC.",
+      "files": [
+        {
+          "path": "registry/components/share-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/share-menu.tsx"
+        },
+        {
+          "path": "registry/components/toast.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/toast.tsx"
+        },
+        {
+          "path": "registry/components/toast-store.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/components/toast-store.ts"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0",
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6"
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
+    },
+    {
       "name": "outline",
       "type": "registry:component",
       "title": "Outline",
