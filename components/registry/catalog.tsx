@@ -40,6 +40,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
           >
             <Link href={getRegistryItemHref(item)} className="flex h-full flex-col">
               <SharedPreviewLayout
+                className="opacity-100! pointer-events-auto!"
                 layoutId={
                   category === "components" ? `catalog-preview-${category}-${item.name}` : undefined
                 }
