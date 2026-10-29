@@ -25,8 +25,8 @@ export function pageMetadata(
       type: "website",
       videos: [
         {
-          url: new URL("/opengraph-video.webm", siteUrl).href,
-          type: "video/webm",
+          url: new URL("/opengraph-video.mp4", siteUrl).href,
+          type: "video/mp4",
           width: 2902,
           height: 1668,
         },
