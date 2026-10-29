@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Banner } from "@/registry/components/banner";
@@ -13,8 +20,16 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
     <Banner variant="neutral" message="Neutral — a general update." />
     <Banner variant="info" message="A new software update is available." />
     <Banner variant="success" message="Your changes have been saved." />
-    <Banner variant="warning" message="Your trial expires in 3 days." description="Upgrade to keep access to all features." />
-    <Banner variant="error" message="Payment failed." description="Update your billing information to continue." />
+    <Banner
+      variant="warning"
+      message="Your trial expires in 3 days."
+      description="Upgrade to keep access to all features."
+    />
+    <Banner
+      variant="error"
+      message="Payment failed."
+      description="Update your billing information to continue."
+    />
   </div>
 </ComponentPreview>
 
@@ -35,7 +50,7 @@ import { Banner } from "@/components/hangry-ui/components/banner";
   variant="warning"
   message="Your trial expires in 3 days."
   description="Upgrade to keep access to all features."
-/>
+/>;
 ```
 
 ## Props
@@ -51,39 +66,79 @@ import { Banner } from "@/components/hangry-ui/components/banner";
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code className="break-words">{"variant"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\""}</code></TableCell>
-      <TableCell><code className="break-words">{"\"info\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"variant"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">
+          {'"neutral" | "info" | "success" | "warning" | "error"'}
+        </code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"info"'}</code>
+      </TableCell>
       <TableCell>{"Banner appearance and status color."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"message"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"A little update. A lot of possibilities. Explore what’s new.\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"message"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">
+          {'"A little update. A lot of possibilities. Explore what’s new."'}
+        </code>
+      </TableCell>
       <TableCell>{"Text shown when children are not provided."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"children"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Custom content that replaces message."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"description"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Optional supporting text below the message."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"dismissible"}</code></TableCell>
-      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
-      <TableCell><code className="break-words">{"true"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"dismissible"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"true"}</code>
+      </TableCell>
       <TableCell>{"Displays the dismiss button."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'""'}</code>
+      </TableCell>
       <TableCell>{"Additional CSS classes on the component root."}</TableCell>
     </TableRow>
   </TableBody>

@@ -9,10 +9,26 @@ import topoShader from "./topographic-contour-map.wgsl";
 type Color = readonly [number, number, number];
 const defaultBackground: Color = [0.012, 0.012, 0.012];
 const palettes = {
-  studio: [[0.157, 0.235, 0.275], [0.392, 0.706, 0.824], [0.627, 0.863, 1]],
-  amber: [[1, 0.549, 0.314], [1, 0.745, 0.471], [1, 0.902, 0.706]],
-  teal: [[0.392, 1, 0.941], [0.588, 1, 0.961], [0.784, 1, 1]],
-  violet: [[0.706, 0.549, 1], [0.824, 0.706, 1], [0.941, 0.863, 1]],
+  studio: [
+    [0.157, 0.235, 0.275],
+    [0.392, 0.706, 0.824],
+    [0.627, 0.863, 1],
+  ],
+  amber: [
+    [1, 0.549, 0.314],
+    [1, 0.745, 0.471],
+    [1, 0.902, 0.706],
+  ],
+  teal: [
+    [0.392, 1, 0.941],
+    [0.588, 1, 0.961],
+    [0.784, 1, 1],
+  ],
+  violet: [
+    [0.706, 0.549, 1],
+    [0.824, 0.706, 1],
+    [0.941, 0.863, 1],
+  ],
 } as const;
 
 export interface TopographicContourMapProps extends Omit<ComponentProps<"div">, "color"> {
@@ -53,8 +69,12 @@ export const TopographicContourMap = memo(function TopographicContourMap({
   const levels = Number.isFinite(density) ? Math.min(100, Math.max(2, density)) : 24;
   const width = Number.isFinite(lineWidth) ? Math.min(8, Math.max(0.25, lineWidth)) : 1;
   const rate = Number.isFinite(speed) ? Math.max(0, speed) : 0.08;
-  const [r, g, b] = (color ?? selected[1]).map(channel => Number.isFinite(channel) ? Math.max(0, Math.min(1, channel)) : 0);
-  const [br, bg, bb] = backgroundColor.map(channel => Number.isFinite(channel) ? Math.max(0, Math.min(1, channel)) : 0);
+  const [r, g, b] = (color ?? selected[1]).map((channel) =>
+    Number.isFinite(channel) ? Math.max(0, Math.min(1, channel)) : 0,
+  );
+  const [br, bg, bb] = backgroundColor.map((channel) =>
+    Number.isFinite(channel) ? Math.max(0, Math.min(1, channel)) : 0,
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -69,9 +89,17 @@ export const TopographicContourMap = memo(function TopographicContourMap({
       pointer[1] = (event.clientY - rect.top) / rect.height;
       hover.set(1);
     };
-    const leave = () => { hover.set(0); press.set(0); };
-    const down = (event: PointerEvent) => { track(event); if (event.button === 0 && event.pointerType !== "touch") press.set(1); };
-    const up = () => { press.set(0); };
+    const leave = () => {
+      hover.set(0);
+      press.set(0);
+    };
+    const down = (event: PointerEvent) => {
+      track(event);
+      if (event.button === 0 && event.pointerType !== "touch") press.set(1);
+    };
+    const up = () => {
+      press.set(0);
+    };
     host?.addEventListener("pointermove", track);
     host?.addEventListener("pointerleave", leave);
     host?.addEventListener("pointercancel", leave);
@@ -88,20 +116,78 @@ export const TopographicContourMap = memo(function TopographicContourMap({
       renderer.dispose();
     };
     const renderer = createShaderRenderer(canvas, topoShader, {
-      label: "topographic-contour-map", fps: 30,
+      label: "topographic-contour-map",
+      fps: 30,
       animated: !reducedMotion && (rate > 0 || mouseInfluence),
       uniforms: (time, size) => {
-        pointer = [pointer[0], pointer[1], reducedMotion ? 0 : hover.get(), reducedMotion ? 0 : press.get()];
-        return { cfg: { metrics: [size[0], size[1], zoom, time * rate], contours: [levels, width, 0, 0], pointer, options: [Number(showLabels), Number(fadeLeft), 0, 0], low: [...(color ? [r * 0.5, g * 0.5, b * 0.5] : selected[0]), 1], high: [...(color ? [Math.min(1, r * 1.3), Math.min(1, g * 1.3), Math.min(1, b * 1.3)] : selected[2]), 1], foreground: [r, g, b, 1], background: [br, bg, bb, 1] } };
+        pointer = [
+          pointer[0],
+          pointer[1],
+          reducedMotion ? 0 : hover.get(),
+          reducedMotion ? 0 : press.get(),
+        ];
+        return {
+          cfg: {
+            metrics: [size[0], size[1], zoom, time * rate],
+            contours: [levels, width, 0, 0],
+            pointer,
+            options: [Number(showLabels), Number(fadeLeft), 0, 0],
+            low: [...(color ? [r * 0.5, g * 0.5, b * 0.5] : selected[0]), 1],
+            high: [
+              ...(color
+                ? [Math.min(1, r * 1.3), Math.min(1, g * 1.3), Math.min(1, b * 1.3)]
+                : selected[2]),
+              1,
+            ],
+            foreground: [r, g, b, 1],
+            background: [br, bg, bb, 1],
+          },
+        };
       },
     });
     return cleanup;
-  }, [zoom, levels, width, rate, r, g, b, br, bg, bb, reducedMotion, mouseInfluence, showLabels, fadeLeft, selected, color, hover, press]);
+  }, [
+    zoom,
+    levels,
+    width,
+    rate,
+    r,
+    g,
+    b,
+    br,
+    bg,
+    bb,
+    reducedMotion,
+    mouseInfluence,
+    showLabels,
+    fadeLeft,
+    selected,
+    color,
+    hover,
+    press,
+  ]);
 
   return (
-    <div {...props} ref={hostRef} data-slot="topographic-contour-map" className={cn("hangry-background relative isolate min-h-96 overflow-hidden border border-border", className)}>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" style={{ backgroundColor: `rgb(${br * 255} ${bg * 255} ${bb * 255})` }}>
-        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `repeating-radial-gradient(ellipse at 35% 60%, transparent 0 16px, rgb(${r * 255} ${g * 255} ${b * 255}) 17px 18px, transparent 19px 30px)` }} />
+    <div
+      {...props}
+      ref={hostRef}
+      data-slot="topographic-contour-map"
+      className={cn(
+        "hangry-background relative isolate min-h-96 overflow-hidden border border-border",
+        className,
+      )}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{ backgroundColor: `rgb(${br * 255} ${bg * 255} ${bb * 255})` }}
+      >
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage: `repeating-radial-gradient(ellipse at 35% 60%, transparent 0 16px, rgb(${r * 255} ${g * 255} ${b * 255}) 17px 18px, transparent 19px 30px)`,
+          }}
+        />
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full opacity-0" />
       </div>
       {children}

@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, type PointerEvent, type ReactNode } from "react";
-import * as motion from 'motion/react-client';
+import * as motion from "motion/react-client";
 import { useMotionTemplate, useReducedMotion, useSpring } from "motion/react";
 import { cn } from "cn";
 import { Card } from "./card";
@@ -12,7 +12,13 @@ export type BorderHighlightProps = {
 };
 
 export const BorderHighlight = memo(function BorderHighlight({
-  children = <Card title="Follow the edge" description="Move your pointer around this card to reveal a glowing border." className="max-w-none border-0 bg-transparent shadow-none" />,
+  children = (
+    <Card
+      title="Follow the edge"
+      description="Move your pointer around this card to reveal a glowing border."
+      className="max-w-none border-0 bg-transparent shadow-none"
+    />
+  ),
   className,
 }: BorderHighlightProps = {}) {
   const reducedMotion = useReducedMotion();
@@ -40,7 +46,10 @@ export const BorderHighlight = memo(function BorderHighlight({
       whileHover="hover"
       onPointerEnter={trackPointer}
       onPointerMove={trackPointer}
-      className={cn("relative w-96 max-w-full min-w-0 border border-border bg-card p-3 text-card-foreground transition-colors hover:border-border/20 focus-within:border-primary/50 motion-reduce:transition-none md:p-4", className)}
+      className={cn(
+        "relative w-96 max-w-full min-w-0 border border-border bg-card p-3 text-card-foreground transition-colors hover:border-border/20 focus-within:border-primary/50 motion-reduce:transition-none md:p-4",
+        className,
+      )}
     >
       {children}
       <motion.div

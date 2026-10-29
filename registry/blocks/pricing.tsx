@@ -42,11 +42,7 @@ export const Pricing = memo(function Pricing({
       description: "For ideas ready to grow.",
       monthlyPrice: 19,
       yearlyPrice: 15,
-      features: [
-        "Unlimited workspaces",
-        "All components and blocks",
-        "Priority support",
-      ],
+      features: ["Unlimited workspaces", "All components and blocks", "Priority support"],
       href: "/signup?plan=pro",
       featured: true,
     },
@@ -55,11 +51,7 @@ export const Pricing = memo(function Pricing({
       description: "For building together.",
       monthlyPrice: 49,
       yearlyPrice: 39,
-      features: [
-        "Everything in Pro",
-        "Team collaboration",
-        "Dedicated support",
-      ],
+      features: ["Everything in Pro", "Team collaboration", "Dedicated support"],
       href: "/signup?plan=team",
     },
   ],
@@ -86,11 +78,7 @@ export const Pricing = memo(function Pricing({
         </h2>
         <p className={`mt-3 typography-body`}>{description}</p>
       </div>
-      <div
-        role="group"
-        aria-label="Billing period"
-        className="flex justify-center gap-1"
-      >
+      <div role="group" aria-label="Billing period" className="flex justify-center gap-1">
         <Button
           variant={billing === "monthly" ? "primary" : "secondary"}
           aria-pressed={billing === "monthly"}
@@ -106,10 +94,7 @@ export const Pricing = memo(function Pricing({
           Yearly
         </Button>
       </div>
-      <p
-        aria-live="polite"
-        className="text-center text-xs text-muted-foreground"
-      >
+      <p aria-live="polite" className="text-center text-xs text-muted-foreground">
         {billing === "yearly"
           ? "Monthly prices shown. Billed once a year."
           : "Billed monthly. Switch to yearly for lower monthly prices."}
@@ -136,20 +121,13 @@ export const Pricing = memo(function Pricing({
               <div>
                 <div>
                   <div className="flex flex-wrap items-center gap-3">
-                    <h3 className={"typography-subsection-title"}>
-                      {plan.name}
-                    </h3>
+                    <h3 className={"typography-subsection-title"}>{plan.name}</h3>
                     {plan.featured && <Badge variant="info">Popular</Badge>}
                   </div>
                   <p className={`mt-2 typography-body`}>{plan.description}</p>
                   <p className="mt-5">
-                    <span className="text-3xl font-semibold">
-                      ${price(plan)}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {" "}
-                      / month
-                    </span>
+                    <span className="text-3xl font-semibold">${price(plan)}</span>
+                    <span className="text-xs text-muted-foreground"> / month</span>
                   </p>
                   {billing === "yearly" && (
                     <p className="mt-1 text-xs text-muted-foreground">

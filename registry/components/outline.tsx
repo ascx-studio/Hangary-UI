@@ -1,6 +1,14 @@
 "use client";
 
-import { memo, useEffect, useId, useRef, useState, type ComponentProps, type KeyboardEvent } from "react";
+import {
+  memo,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ComponentProps,
+  type KeyboardEvent,
+} from "react";
 import { LazyMotion, domMax, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import Link from "next/link";
@@ -101,56 +109,74 @@ export const Outline = memo(function Outline({
 
   return (
     <LazyMotion features={domMax} strict>
-    <nav aria-label={title} className={`w-56 ${className}`} {...props}>
-      <h2 className={`mb-3 typography-label ${variant === "sidebar" ? "text-muted-foreground/80" : ""}`}>{title}</h2>
-      <m.ul
-        initial={variant === "sidebar" && !reducedMotion ? "hidden" : false}
-        animate={variant === "sidebar" ? "visible" : undefined}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: reducedMotion ? 0 : 0.035 } },
-        }}
-        className="relative space-y-1 before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-border before:content-['']"
-      >
-        {items.map((item, index) => {
-          const active = item.href
-            ? pathname === item.href || pathname.startsWith(`${item.href}/`)
-            : item.id === activeId;
-          return (
-            <m.li
-              key={item.id}
-              variants={{
-                hidden: { opacity: 0, y: reducedMotion ? 0 : 4 },
-                visible: { opacity: 1, y: 0, transition: { duration: reducedMotion ? 0 : 0.14 } },
-              }}
-              className="relative min-h-8 pl-4"
-            >
-              {active && (
-                <m.span
-                  layoutId={`outline-indicator-${indicatorId}`}
-                  aria-hidden="true"
-                  transition={{ duration: reducedMotion ? 0 : 0.22, ease: "easeOut" }}
-                  className="absolute inset-y-0 left-0 z-10 w-0.5 bg-primary"
-                />
-              )}
-              <Link
-                ref={(element) => { links.current[index] = element; }}
-                href={item.href ?? `#${encodeURIComponent(item.id)}`}
-                aria-current={active ? (item.href ? "page" : "location") : undefined}
-                tabIndex={(routeNavigation ? (focusedId ?? items.find((entry) => entry.href === pathname || pathname.startsWith(`${entry.href}/`))?.id) : activeId) === item.id ? 0 : -1}
-                onClick={(event) => {
-                  if (item.href) return;
-                  event.preventDefault();
-                  activate(item);
+      <nav aria-label={title} className={`w-56 ${className}`} {...props}>
+        <h2
+          className={`mb-3 typography-label ${variant === "sidebar" ? "text-muted-foreground/80" : ""}`}
+        >
+          {title}
+        </h2>
+        <m.ul
+          initial={variant === "sidebar" && !reducedMotion ? "hidden" : false}
+          animate={variant === "sidebar" ? "visible" : undefined}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: reducedMotion ? 0 : 0.035 } },
+          }}
+          className="relative space-y-1 before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-border before:content-['']"
+        >
+          {items.map((item, index) => {
+            const active = item.href
+              ? pathname === item.href || pathname.startsWith(`${item.href}/`)
+              : item.id === activeId;
+            return (
+              <m.li
+                key={item.id}
+                variants={{
+                  hidden: { opacity: 0, y: reducedMotion ? 0 : 4 },
+                  visible: { opacity: 1, y: 0, transition: { duration: reducedMotion ? 0 : 0.14 } },
                 }}
-                onKeyDown={(event) => handleKeyDown(event, index)}
-                className={`flex min-h-8 items-center text-sm leading-6 focus-visible:outline-2 focus-visible:outline-offset-2 ${variant === "sidebar" ? "focus-visible:outline-sidebar-ring" : "focus-visible:outline-ring"} ${active ? `font-medium ${variant === "sidebar" ? "text-sidebar-foreground" : "text-foreground"}` : `text-muted-foreground ${variant === "sidebar" ? "hover:text-sidebar-foreground" : "hover:text-foreground"}`}`}
-              >{item.label}</Link>
-            </m.li>
-          );
-        })}
-      </m.ul>
-    </nav>
+                className="relative min-h-8 pl-4"
+              >
+                {active && (
+                  <m.span
+                    layoutId={`outline-indicator-${indicatorId}`}
+                    aria-hidden="true"
+                    transition={{ duration: reducedMotion ? 0 : 0.22, ease: "easeOut" }}
+                    className="absolute inset-y-0 left-0 z-10 w-0.5 bg-primary"
+                  />
+                )}
+                <Link
+                  ref={(element) => {
+                    links.current[index] = element;
+                  }}
+                  href={item.href ?? `#${encodeURIComponent(item.id)}`}
+                  aria-current={active ? (item.href ? "page" : "location") : undefined}
+                  tabIndex={
+                    (routeNavigation
+                      ? (focusedId ??
+                        items.find(
+                          (entry) =>
+                            entry.href === pathname || pathname.startsWith(`${entry.href}/`),
+                        )?.id)
+                      : activeId) === item.id
+                      ? 0
+                      : -1
+                  }
+                  onClick={(event) => {
+                    if (item.href) return;
+                    event.preventDefault();
+                    activate(item);
+                  }}
+                  onKeyDown={(event) => handleKeyDown(event, index)}
+                  className={`flex min-h-8 items-center text-sm leading-6 focus-visible:outline-2 focus-visible:outline-offset-2 ${variant === "sidebar" ? "focus-visible:outline-sidebar-ring" : "focus-visible:outline-ring"} ${active ? `font-medium ${variant === "sidebar" ? "text-sidebar-foreground" : "text-foreground"}` : `text-muted-foreground ${variant === "sidebar" ? "hover:text-sidebar-foreground" : "hover:text-foreground"}`}`}
+                >
+                  {item.label}
+                </Link>
+              </m.li>
+            );
+          })}
+        </m.ul>
+      </nav>
     </LazyMotion>
   );
 });

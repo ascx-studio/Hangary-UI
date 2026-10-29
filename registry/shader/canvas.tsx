@@ -19,8 +19,17 @@ export interface CanvasProps extends ComponentProps<"div"> {
 
 /** Shared rendering only; consumers own uniforms and pointer behavior. */
 export const Canvas = memo(function Canvas({
-  shader, label = "shader-canvas", fallback, fallbackContent, uniforms,
-  animated = true, fps = 30, dpr = 1, className, children, ...props
+  shader,
+  label = "shader-canvas",
+  fallback,
+  fallbackContent,
+  uniforms,
+  animated = true,
+  fps = 30,
+  dpr = 1,
+  className,
+  children,
+  ...props
 }: CanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const latestUniforms = useRef(uniforms);
@@ -35,15 +44,27 @@ export const Canvas = memo(function Canvas({
   useEffect(() => {
     if (!canvasRef.current) return;
     const renderer = createShaderRenderer(canvasRef.current, shader, {
-      label, uniforms: (time, size) => latestUniforms.current(time, size),
-      animated: animated && !reducedMotion, fps,
+      label,
+      uniforms: (time, size) => latestUniforms.current(time, size),
+      animated: animated && !reducedMotion,
+      fps,
       surface: { dpr: minDpr === maxDpr ? minDpr : [minDpr, maxDpr] },
     });
     rendererRef.current = renderer;
-    return () => { renderer.dispose(); rendererRef.current = null; };
+    return () => {
+      renderer.dispose();
+      rendererRef.current = null;
+    };
   }, [shader, label, animated, reducedMotion, fps, minDpr, maxDpr]);
   return (
-    <div {...props} data-slot={label} className={cn("hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-black", className)}>
+    <div
+      {...props}
+      data-slot={label}
+      className={cn(
+        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-black",
+        className,
+      )}
+    >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0" style={{ backgroundImage: fallback }} />
         {fallbackContent}

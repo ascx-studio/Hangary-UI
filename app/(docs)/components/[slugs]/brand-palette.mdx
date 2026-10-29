@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { BrandPalette } from "@/registry/components/brand-palette";
@@ -25,17 +32,56 @@ A compact brand color guide with six unlabeled swatches and a green gradient.
 ```tsx
 import { BrandPalette } from "@/components/hangry-ui/components/brand-palette";
 
-<BrandPalette />
+<BrandPalette />;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"colors"}</code></TableCell><TableCell><code className="break-words">{"BrandColor[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"An array of "}<code>{"{ name, hex, foreground, token }"}</code>{" swatches. Defaults to the six Hangry UI brand colors. Use a contrasting "}<code>{"foreground"}</code>{" for readable labels."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional section classes. The default width is 640px, constrained to the available space."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"colors"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"BrandColor[]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"An array of "}
+        <code>{"{ name, hex, foreground, token }"}</code>
+        {" swatches. Defaults to the six Hangry UI brand colors. Use a contrasting "}
+        <code>{"foreground"}</code>
+        {" for readable labels."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {
+          "Additional section classes. The default width is 640px, constrained to the available space."
+        }
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

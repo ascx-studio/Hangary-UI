@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { ToastDemo } from "@/components/registry/toast-demo";
@@ -27,16 +34,30 @@ Import the component and add it to your page.
 ```tsx
 import { toast } from "@/components/hangry-ui/components/toast-store";
 
-<toast />
+<toast />;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell>Native props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Accepts the native props documented by the component source.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Native props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Accepts the native props documented by the component source.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

@@ -1,8 +1,21 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { DitheringFrameCard } from "@/registry/components/dithering-frame-card";
-import { CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/registry/components/card";
+import {
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/registry/components/card";
 import { Button } from "@/registry/components/button";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
@@ -14,10 +27,18 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
   <DitheringFrameCard frameWidth={16}>
     <CardHeader>
       <CardTitle>Ideas with an edge.</CardTitle>
-      <CardDescription>A moving dither frame, with room to make something your own.</CardDescription>
+      <CardDescription>
+        A moving dither frame, with room to make something your own.
+      </CardDescription>
     </CardHeader>
-    <CardContent><p className="typography-body">A crisp pixel texture surrounds your content while the center stays clear and readable.</p></CardContent>
-    <CardFooter><Button>Start creating</Button></CardFooter>
+    <CardContent>
+      <p className="typography-body">
+        A crisp pixel texture surrounds your content while the center stays clear and readable.
+      </p>
+    </CardContent>
+    <CardFooter>
+      <Button>Start creating</Button>
+    </CardFooter>
   </DitheringFrameCard>
 </ComponentPreview>
 
@@ -33,7 +54,12 @@ A content card surrounded by the animated Dither Background shader. One shader f
 
 ```tsx
 import { DitheringFrameCard } from "@/components/hangry-ui/components/dithering-frame-card";
-import { CardHeader, CardTitle, CardDescription, CardContent } from "@/components/hangry-ui/components/card";
+import {
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/hangry-ui/components/card";
 
 <DitheringFrameCard frameWidth={16} pixelSize={3} speed={0.4}>
   <CardHeader>
@@ -41,23 +67,112 @@ import { CardHeader, CardTitle, CardDescription, CardContent } from "@/component
     <CardDescription>A dither frame for your next project.</CardDescription>
   </CardHeader>
   <CardContent>Your content goes here.</CardContent>
-</DitheringFrameCard>
+</DitheringFrameCard>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"frameWidth"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"12"}</code></TableCell><TableCell>Frame thickness in CSS pixels; minimum 0.</TableCell></TableRow>
-<TableRow><TableCell><code>{"color"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell><code>{"[0.02, 0.86, 0.5]"}</code></TableCell><TableCell>Shader foreground RGB channels from 0 to 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"backgroundColor"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell><code>{"[0.02, 0.04, 0.035]"}</code></TableCell><TableCell>Shader background RGB channels from 0 to 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"pixelSize"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"3"}</code></TableCell><TableCell>Dither cell size in CSS pixels; minimum 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.4"}</code></TableCell><TableCell>Wave speed; 0 produces a still frame.</TableCell></TableRow>
-<TableRow><TableCell><code>{"contentClassName"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell>—</TableCell><TableCell>Additional classes for the inner Card.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>Example heading and description</TableCell><TableCell>Content inside the Card; supports all Card composition parts.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, and attributes on the outer frame; color is reserved for the shader.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"frameWidth"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"12"}</code>
+      </TableCell>
+      <TableCell>Frame thickness in CSS pixels; minimum 0.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"color"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[number, number, number]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[0.02, 0.86, 0.5]"}</code>
+      </TableCell>
+      <TableCell>Shader foreground RGB channels from 0 to 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"backgroundColor"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[number, number, number]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[0.02, 0.04, 0.035]"}</code>
+      </TableCell>
+      <TableCell>Shader background RGB channels from 0 to 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"pixelSize"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"3"}</code>
+      </TableCell>
+      <TableCell>Dither cell size in CSS pixels; minimum 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.4"}</code>
+      </TableCell>
+      <TableCell>Wave speed; 0 produces a still frame.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"contentClassName"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional classes for the inner Card.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>Example heading and description</TableCell>
+      <TableCell>Content inside the Card; supports all Card composition parts.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        Classes, styles, and attributes on the outer frame; color is reserved for the shader.
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

@@ -68,7 +68,11 @@ const InstallActions = memo(function InstallActions({ name }: { name: string }) 
             )
           }
         >
-          {copied === "AI prompt" ? <Check className="size-5" aria-hidden="true" /> : <Sparkles className="size-5" aria-hidden="true" />}
+          {copied === "AI prompt" ? (
+            <Check className="size-5" aria-hidden="true" />
+          ) : (
+            <Sparkles className="size-5" aria-hidden="true" />
+          )}
           Prompt
         </Button>
       </Tooltip>
@@ -85,7 +89,11 @@ const InstallActions = memo(function InstallActions({ name }: { name: string }) 
               )
             }
           >
-            {copied === `${manager} install command` ? <Check className="size-5" aria-hidden="true" /> : <Icon className="size-5" aria-hidden="true" />}
+            {copied === `${manager} install command` ? (
+              <Check className="size-5" aria-hidden="true" />
+            ) : (
+              <Icon className="size-5" aria-hidden="true" />
+            )}
             {manager}
           </Button>
         </Tooltip>
@@ -97,30 +105,27 @@ const InstallActions = memo(function InstallActions({ name }: { name: string }) 
             <ChevronDown className="size-4" aria-hidden="true" />
           </summary>
           <div className="absolute right-0 top-full z-20 min-w-32 border border-border bg-card p-1 shadow-lg">
-            {(
-              Object.entries(managers) as [
-                Manager,
-                (typeof managers)[Manager],
-              ][]
-            ).map(([option, { icon: OptionIcon }]) => (
-              <button
-                key={option}
-                type="button"
-                aria-current={manager === option ? "true" : undefined}
-                onClick={() => {
-                  setManager(option);
-                  if (menuRef.current) menuRef.current.open = false;
-                  void copy(
-                    `${managers[option].prefix} shadcn@latest add https://ui.razeev.com/r/${name}.json`,
-                    `${option} install command`,
-                  );
-                }}
-                className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
-              >
-                <OptionIcon className="size-4" aria-hidden="true" />
-                {option}
-              </button>
-            ))}
+            {(Object.entries(managers) as [Manager, (typeof managers)[Manager]][]).map(
+              ([option, { icon: OptionIcon }]) => (
+                <button
+                  key={option}
+                  type="button"
+                  aria-current={manager === option ? "true" : undefined}
+                  onClick={() => {
+                    setManager(option);
+                    if (menuRef.current) menuRef.current.open = false;
+                    void copy(
+                      `${managers[option].prefix} shadcn@latest add https://ui.razeev.com/r/${name}.json`,
+                      `${option} install command`,
+                    );
+                  }}
+                  className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
+                >
+                  <OptionIcon className="size-4" aria-hidden="true" />
+                  {option}
+                </button>
+              ),
+            )}
           </div>
         </details>
       </div>

@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Outline } from "@/registry/components/outline";
@@ -38,7 +45,7 @@ import { Outline } from "@/components/hangry-ui/components/outline";
     { id: "installation", label: "Installation" },
     { id: "configuration", label: "Configuration" },
   ]}
-/>
+/>;
 ```
 
 Without `href`, each item points to a heading or element id on the current page, and the active item updates as the page scrolls. Set `href` to make an item a route link; the active state then follows the current route.
@@ -56,27 +63,51 @@ Without `href`, each item points to a heading or element id on the current page,
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code>items</code></TableCell>
-      <TableCell><code>{"{ id: string; label: string; href?: string }[]"}</code></TableCell>
+      <TableCell>
+        <code>items</code>
+      </TableCell>
+      <TableCell>
+        <code>{"{ id: string; label: string; href?: string }[]"}</code>
+      </TableCell>
       <TableCell>—</TableCell>
-      <TableCell>Heading ids and labels, or route links when <code>href</code> is supplied.</TableCell>
+      <TableCell>
+        Heading ids and labels, or route links when <code>href</code> is supplied.
+      </TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>title</code></TableCell>
-      <TableCell><code>string</code></TableCell>
-      <TableCell><code>"On this page"</code></TableCell>
+      <TableCell>
+        <code>title</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>"On this page"</code>
+      </TableCell>
       <TableCell>Visible heading and accessible navigation label.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>variant</code></TableCell>
-      <TableCell><code>"default" | "sidebar"</code></TableCell>
-      <TableCell><code>"default"</code></TableCell>
+      <TableCell>
+        <code>variant</code>
+      </TableCell>
+      <TableCell>
+        <code>"default" | "sidebar"</code>
+      </TableCell>
+      <TableCell>
+        <code>"default"</code>
+      </TableCell>
       <TableCell>Uses sidebar foreground colors for the heading and active link.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>className</code></TableCell>
-      <TableCell><code>string</code></TableCell>
-      <TableCell><code>""</code></TableCell>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>""</code>
+      </TableCell>
       <TableCell>Additional classes on the navigation.</TableCell>
     </TableRow>
   </TableBody>

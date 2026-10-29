@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Kbd } from "@/registry/components/kbd";
@@ -16,11 +23,23 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
     </div>
     <div className="flex items-center justify-between gap-6 py-6">
       <span className="text-sm font-medium">Search</span>
-      <span className="flex items-center gap-2"><Kbd>⌘</Kbd><span aria-hidden="true" className="text-muted-foreground">+</span><Kbd>K</Kbd></span>
+      <span className="flex items-center gap-2">
+        <Kbd>⌘</Kbd>
+        <span aria-hidden="true" className="text-muted-foreground">
+          +
+        </span>
+        <Kbd>K</Kbd>
+      </span>
     </div>
     <div className="flex items-center justify-between gap-6 py-6">
       <span className="text-sm font-medium">Quick search</span>
-      <span className="flex items-center gap-2"><Kbd>Ctrl</Kbd><span aria-hidden="true" className="text-muted-foreground">+</span><Kbd>K</Kbd></span>
+      <span className="flex items-center gap-2">
+        <Kbd>Ctrl</Kbd>
+        <span aria-hidden="true" className="text-muted-foreground">
+          +
+        </span>
+        <Kbd>K</Kbd>
+      </span>
     </div>
   </div>
 </ComponentPreview>
@@ -38,7 +57,7 @@ A styled keyboard key or shortcut hint.
 ```tsx
 import { Kbd } from "@/components/hangry-ui/components/kbd";
 
-<Kbd>Ctrl K</Kbd>
+<Kbd>Ctrl K</Kbd>;
 ```
 
 ## Props
@@ -54,28 +73,54 @@ import { Kbd } from "@/components/hangry-ui/components/kbd";
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code className="break-words">{"label"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"⌘ K\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"label"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"⌘ K"'}</code>
+      </TableCell>
       <TableCell>{"Keyboard key or shortcut text."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"children"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Custom content that replaces label."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'""'}</code>
+      </TableCell>
       <TableCell>{"Additional CSS classes on the component root."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
-      <TableCell><code className="break-words">{"ComponentProps<\"kbd\">"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Forwards native kbd attributes, aria-* attributes, and event handlers."}</TableCell>
+      <TableCell>
+        <code className="break-words">{"Native props"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'ComponentProps<"kbd">'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
+      <TableCell>
+        {"Forwards native kbd attributes, aria-* attributes, and event handlers."}
+      </TableCell>
     </TableRow>
   </TableBody>
 </Table>

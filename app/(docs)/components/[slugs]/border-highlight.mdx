@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { BorderHighlight } from "@/registry/components/border-highlight";
@@ -12,7 +19,11 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <ComponentPreview className="grid-cols-1">
   <BorderHighlight>
-    <Card title="Follow the edge" description="Move your pointer around the card. A soft highlight follows along the border." className="max-w-none border-0 bg-transparent shadow-none">
+    <Card
+      title="Follow the edge"
+      description="Move your pointer around the card. A soft highlight follows along the border."
+      className="max-w-none border-0 bg-transparent shadow-none"
+    >
       <Button variant="outline">Try keyboard focus</Button>
     </Card>
   </BorderHighlight>
@@ -33,17 +44,50 @@ import { BorderHighlight } from "@/components/hangry-ui/components/border-highli
 
 <BorderHighlight>
   <a href="/projects">Explore this project</a>
-</BorderHighlight>
+</BorderHighlight>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Content inside the frame. Defaults to a demo Card."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes for the frame, including width, padding, and border radius. The highlight inherits the frame's border radius."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Content inside the frame. Defaults to a demo Card."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {
+          "Additional classes for the frame, including width, padding, and border radius. The highlight inherits the frame's border radius."
+        }
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 The frame defaults to a fixed width of 384px and shrinks to fit smaller containers. Its solid Card background keeps the preview backdrop from showing through.

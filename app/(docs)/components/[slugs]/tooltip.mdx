@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Tooltip } from "@/registry/components/tooltip";
@@ -10,9 +17,20 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <ComponentPreview className="h-full w-full">
   <div className="flex flex-wrap items-center justify-center gap-8">
-    <Tooltip content="Copy to clipboard"><button type="button" className="border border-border px-4 py-2 text-sm">Simple tooltip</button></Tooltip>
-    <Tooltip side="bottom" title="Copy component" description="Copy the source code and make it your own." icon={<span>⌘</span>}>
-      <button type="button" className="border border-border px-4 py-2 text-sm">Title and description</button>
+    <Tooltip content="Copy to clipboard">
+      <button type="button" className="border border-border px-4 py-2 text-sm">
+        Simple tooltip
+      </button>
+    </Tooltip>
+    <Tooltip
+      side="bottom"
+      title="Copy component"
+      description="Copy the source code and make it your own."
+      icon={<span>⌘</span>}
+    >
+      <button type="button" className="border border-border px-4 py-2 text-sm">
+        Title and description
+      </button>
     </Tooltip>
   </div>
 </ComponentPreview>
@@ -48,17 +66,80 @@ import { Tooltip } from "@/components/hangry-ui/components/tooltip";
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell>Demo button</TableCell><TableCell>One focusable element that forwards DOM props, such as a button or Next.js Link.</TableCell></TableRow>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell>—</TableCell><TableCell>Prominent heading with stronger weight and foreground color.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell>—</TableCell><TableCell>Supporting text with softer contrast and comfortable line spacing.</TableCell></TableRow>
-<TableRow><TableCell><code>{"icon"}</code></TableCell><TableCell>—</TableCell><TableCell>Optional icon in an accent-colored container.</TableCell></TableRow>
-<TableRow><TableCell><code>{"content"}</code></TableCell><TableCell>Demo text when no title or description</TableCell><TableCell>Plain tooltip text or extra noninteractive content.</TableCell></TableRow>
-<TableRow><TableCell><code>{"side"}</code></TableCell><TableCell><code>{"\"top\""}</code></TableCell><TableCell><code>{"\"top\""}</code>, <code>{"\"right\""}</code>, <code>{"\"bottom\""}</code>, or <code>{"\"left\""}</code>.</TableCell></TableRow>
-<TableRow><TableCell><code>{"sideOffset"}</code></TableCell><TableCell><code>{"10"}</code></TableCell><TableCell>Gap from the trigger in pixels.</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell>—</TableCell><TableCell>Additional classes on the Card.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>Demo button</TableCell>
+      <TableCell>
+        One focusable element that forwards DOM props, such as a button or Next.js Link.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Prominent heading with stronger weight and foreground color.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Supporting text with softer contrast and comfortable line spacing.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"icon"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Optional icon in an accent-colored container.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"content"}</code>
+      </TableCell>
+      <TableCell>Demo text when no title or description</TableCell>
+      <TableCell>Plain tooltip text or extra noninteractive content.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"side"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"top"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"top"'}</code>, <code>{'"right"'}</code>, <code>{'"bottom"'}</code>, or{" "}
+        <code>{'"left"'}</code>.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"sideOffset"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"10"}</code>
+      </TableCell>
+      <TableCell>Gap from the trigger in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional classes on the Card.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { Pricing } from "@/registry/blocks/pricing";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
@@ -8,7 +15,9 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsHeader name="pricing" />
 
-<ComponentPreview id="pricing" className="h-full w-full"><Pricing /></ComponentPreview>
+<ComponentPreview id="pricing" className="h-full w-full">
+  <Pricing />
+</ComponentPreview>
 
 <DocsReveal stagger>
 
@@ -37,19 +46,74 @@ import { Pricing } from "@/components/hangry-ui/blocks/pricing";
       featured: true,
     },
   ]}
-/>
+/>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"A plan for every next step"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Start small. Make room as you grow."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"defaultBilling"}</code></TableCell><TableCell><code>{"\"monthly\" | \"yearly\""}</code></TableCell><TableCell><code>{"monthly"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"plans"}</code></TableCell><TableCell><code>{"{ name: string; description: string; monthlyPrice: number; yearlyPrice: number; features: string[]; href: string; label?: string; featured?: boolean; }[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"A plan for every next step"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Start small. Make room as you grow."}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"defaultBilling"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"monthly" | "yearly"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"monthly"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"plans"}</code>
+      </TableCell>
+      <TableCell>
+        <code>
+          {
+            "{ name: string; description: string; monthlyPrice: number; yearlyPrice: number; features: string[]; href: string; label?: string; featured?: boolean; }[]"
+          }
+        </code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

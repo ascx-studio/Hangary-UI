@@ -1,45 +1,76 @@
 .hangry-aurora-layer {
   animation: hangry-aurora-drift var(--background-speed, 18s) ease-in-out infinite alternate;
 }
-.hangry-aurora-layer:nth-child(2) { animation-delay: -6s; animation-direction: alternate-reverse; }
-.hangry-aurora-layer:nth-child(3) { animation-delay: -12s; }
+.hangry-aurora-layer:nth-child(2) {
+  animation-delay: -6s;
+  animation-direction: alternate-reverse;
+}
+.hangry-aurora-layer:nth-child(3) {
+  animation-delay: -12s;
+}
 @keyframes hangry-aurora-drift {
-  from { transform: translate3d(-12%, -8%, 0) rotate(-12deg) scale(1); }
-  to { transform: translate3d(12%, 10%, 0) rotate(12deg) scale(1.15); }
+  from {
+    transform: translate3d(-12%, -8%, 0) rotate(-12deg) scale(1);
+  }
+  to {
+    transform: translate3d(12%, 10%, 0) rotate(12deg) scale(1.15);
+  }
 }
 .hangry-beams-layer {
   animation: hangry-beams-drift var(--background-speed, 14s) ease-in-out infinite alternate;
 }
 @keyframes hangry-beams-drift {
-  from { transform: translate3d(-8%, -5%, 0) rotate(-25deg); }
-  to { transform: translate3d(8%, 5%, 0) rotate(-25deg); }
+  from {
+    transform: translate3d(-8%, -5%, 0) rotate(-25deg);
+  }
+  to {
+    transform: translate3d(8%, 5%, 0) rotate(-25deg);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hangry-aurora-layer, .hangry-beams-layer { animation: none; }
-  .hangry-beams-layer { transform: rotate(-25deg); }
+  .hangry-aurora-layer,
+  .hangry-beams-layer {
+    animation: none;
+  }
+  .hangry-beams-layer {
+    transform: rotate(-25deg);
+  }
 }
 
 /* Hover only changes decorative layers, leaving the frame and content still. */
 .hangry-background [data-background-layer] {
-  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms ease;
 }
-.hangry-aurora-layer, .hangry-beams-layer { transition: opacity 500ms ease; }
+.hangry-aurora-layer,
+.hangry-beams-layer {
+  transition: opacity 500ms ease;
+}
 
 @media (hover: hover) and (pointer: fine) {
   .hangry-background:is(:hover, :focus-within) [data-background-layer="spotlight"] {
     opacity: 0.45;
     transform: translate3d(0, 2%, 0) scale(1.08);
   }
-  .hangry-background:is(:hover, :focus-within) [data-background-layer="grid"] { transform: scale(1.025); }
+  .hangry-background:is(:hover, :focus-within) [data-background-layer="grid"] {
+    transform: scale(1.025);
+  }
   .hangry-background:is(:hover, :focus-within) [data-background-layer="aurora"] {
     transform: translate3d(0, -2%, 0) scale(1.04);
   }
-  .hangry-background:is(:hover, :focus-within) .hangry-aurora-layer { opacity: 0.65; }
+  .hangry-background:is(:hover, :focus-within) .hangry-aurora-layer {
+    opacity: 0.65;
+  }
   .hangry-background:is(:hover, :focus-within) [data-background-layer="beams"] {
     transform: translate3d(1.5%, 0, 0) scale(1.04);
   }
-  .hangry-background:is(:hover, :focus-within) .hangry-beams-layer { opacity: 0.6; }
-  .hangry-background:is(:hover, :focus-within) [data-background-layer="sme"] { transform: scale(1.05); }
+  .hangry-background:is(:hover, :focus-within) .hangry-beams-layer {
+    opacity: 0.6;
+  }
+  .hangry-background:is(:hover, :focus-within) [data-background-layer="sme"] {
+    transform: scale(1.05);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -48,5 +79,8 @@
     transition: none;
     transform: none;
   }
-  .hangry-aurora-layer, .hangry-beams-layer { transition: none; }
+  .hangry-aurora-layer,
+  .hangry-beams-layer {
+    transition: none;
+  }
 }

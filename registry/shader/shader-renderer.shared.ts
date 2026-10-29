@@ -1,4 +1,13 @@
-import { clock, effect, frame, frameLoop, init, surface, type Frame, type SurfaceOptions } from "vgpu";
+import {
+  clock,
+  effect,
+  frame,
+  frameLoop,
+  init,
+  surface,
+  type Frame,
+  type SurfaceOptions,
+} from "vgpu";
 
 type ShaderSource = Parameters<typeof effect>[1];
 type Bindings = Parameters<ReturnType<typeof effect>["set"]>[0];
@@ -12,9 +21,17 @@ interface ShaderRendererOptions {
 }
 
 /** Owns one canvas effect. Components supply bindings and retain their own input/UI logic. */
-export function createShaderRenderer(canvas: HTMLCanvasElement, source: ShaderSource, {
-  label, uniforms, animated = true, fps = 60, surface: surfaceOptions = { dpr: 1 },
-}: ShaderRendererOptions) {
+export function createShaderRenderer(
+  canvas: HTMLCanvasElement,
+  source: ShaderSource,
+  {
+    label,
+    uniforms,
+    animated = true,
+    fps = 60,
+    surface: surfaceOptions = { dpr: 1 },
+  }: ShaderRendererOptions,
+) {
   let disposed = false;
   let gpu: Awaited<ReturnType<typeof init>> | undefined;
   let target: ReturnType<typeof surface> | undefined;
@@ -44,7 +61,10 @@ export function createShaderRenderer(canvas: HTMLCanvasElement, source: ShaderSo
   };
   const start = async () => {
     const initialized = await init();
-    if (disposed) { initialized.dispose(); return; }
+    if (disposed) {
+      initialized.dispose();
+      return;
+    }
     gpu = initialized;
     target = surface(gpu, canvas, surfaceOptions);
     shader = effect(gpu, source, { label, set: uniforms(0, target.size) });

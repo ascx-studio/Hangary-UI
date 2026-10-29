@@ -1,5 +1,20 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/components/card";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/components/card";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Button } from "@/registry/components/button";
@@ -16,10 +31,14 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
       <CardHeader>
         <CardTitle>Your workspace</CardTitle>
         <CardDescription>Everything you need in one place.</CardDescription>
-        <CardAction><Badge>3 members</Badge></CardAction>
+        <CardAction>
+          <Badge>3 members</Badge>
+        </CardAction>
       </CardHeader>
       <CardContent>Manage your projects and collaborate with your team.</CardContent>
-      <CardFooter><Button>Open workspace</Button></CardFooter>
+      <CardFooter>
+        <Button>Open workspace</Button>
+      </CardFooter>
     </Card>
   </div>
 </ComponentPreview>
@@ -36,28 +55,80 @@ A flexible content card with a title, description, body, and footer.
 
 ```tsx
 import { Button } from "@/components/hangry-ui/components/button";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/hangry-ui/components/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/hangry-ui/components/card";
 
 <Card>
   <CardHeader>
     <CardTitle>New project</CardTitle>
     <CardDescription>Start with a blank canvas.</CardDescription>
-    <CardAction><Button variant="outline">Settings</Button></CardAction>
+    <CardAction>
+      <Button variant="outline">Settings</Button>
+    </CardAction>
   </CardHeader>
   <CardContent>Your content here.</CardContent>
-  <CardFooter><Button>Create project</Button></CardFooter>
-</Card>
+  <CardFooter>
+    <Button>Create project</Button>
+  </CardFooter>
+</Card>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Room for your next idea"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"A simple starting point for something great. Make it yours."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"footer"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Room for your next idea"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"A simple starting point for something great. Make it yours."}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"footer"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

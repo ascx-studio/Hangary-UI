@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { ChromaBackground } from "@/registry/shader/chroma-background";
@@ -27,25 +34,108 @@ Chroma Background is a vgpu-powered React UI component that renders a WGSL shade
 ```tsx
 import { ChromaBackground } from "@/components/hangry-ui/shader/chroma-background";
 
-<ChromaBackground speed={0.2} intensity={0.9} hueShift={0} grain={0.035}
-  className="grid place-items-center p-12">
+<ChromaBackground
+  speed={0.2}
+  intensity={0.9}
+  hueShift={0}
+  grain={0.035}
+  className="grid place-items-center p-12"
+>
   <h2 className="typography-section-title text-white">A little more color.</h2>
-</ChromaBackground>
+</ChromaBackground>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.2"}</code></TableCell><TableCell>Nonnegative animation speed. Set 0 to freeze the ambient flow.</TableCell></TableRow>
-<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.9"}</code></TableCell><TableCell>Color brightness, clamped to 0–2.</TableCell></TableRow>
-<TableRow><TableCell><code>{"hueShift"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0"}</code></TableCell><TableCell>Color phase offset in degrees.</TableCell></TableRow>
-<TableRow><TableCell><code>{"grain"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.035"}</code></TableCell><TableCell>Static grain strength, clamped to 0–0.2.</TableCell></TableRow>
-<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Bend and brighten the color field near the pointer.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content displayed above the shader.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.2"}</code>
+      </TableCell>
+      <TableCell>Nonnegative animation speed. Set 0 to freeze the ambient flow.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"intensity"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.9"}</code>
+      </TableCell>
+      <TableCell>Color brightness, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"hueShift"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0"}</code>
+      </TableCell>
+      <TableCell>Color phase offset in degrees.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"grain"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.035"}</code>
+      </TableCell>
+      <TableCell>Static grain strength, clamped to 0–0.2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"interactive"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Bend and brighten the color field near the pointer.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Content displayed above the shader.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

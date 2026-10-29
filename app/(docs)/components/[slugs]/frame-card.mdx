@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { FrameCard } from "@/registry/components/frame-card";
@@ -11,9 +18,13 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 <ComponentPreview className="grid-cols-1 px-6! sm:px-12!">
   <FrameCard className="max-w-lg">
     <div className="flex min-h-64 flex-col items-center justify-center px-4 py-8 text-center sm:px-8">
-      <span className="mb-6 text-xs uppercase tracking-[0.2em] text-primary">A little structure</span>
+      <span className="mb-6 text-xs uppercase tracking-[0.2em] text-primary">
+        A little structure
+      </span>
       <h3 className={"typography-section-title"}>Give your ideas a frame.</h3>
-      <p className={`mt-3 max-w-xs typography-body`}>The same frame used around every component demo, ready for your own content.</p>
+      <p className={`mt-3 max-w-xs typography-body`}>
+        The same frame used around every component demo, ready for your own content.
+      </p>
     </div>
   </FrameCard>
 </ComponentPreview>
@@ -32,20 +43,49 @@ A bordered container with inset guide lines and four corner dots. This is the sa
 import { FrameCard } from "@/components/hangry-ui/components/frame-card";
 
 <FrameCard className="max-w-xl">
-  <div className="p-6">
-    Your content goes here.
-  </div>
-</FrameCard>
+  <div className="p-6">Your content goes here.</div>
+</FrameCard>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Any React content, including interactive components."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the outer frame. Use it to set width, background, or spacing."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Any React content, including interactive components."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Additional classes on the outer frame. Use it to set width, background, or spacing."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 - Native div attributes, including `style` and `aria-*`, are forwarded to the frame.

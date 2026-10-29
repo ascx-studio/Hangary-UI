@@ -1,7 +1,15 @@
 import { cn } from "@/lib/cn";
 import { V0Dark } from "@ridemountainpig/svgl-react";
 
-export function OpenInV0({ name, registryUrl, className }: { name: string; registryUrl: string; className?: string }) {
+export function OpenInV0({
+  name,
+  registryUrl,
+  className,
+}: {
+  name: string;
+  registryUrl: string;
+  className?: string;
+}) {
   const itemUrl = `${registryUrl.replace(/\/$/, "")}/r/${name}.json`;
 
   return (
@@ -15,7 +23,7 @@ export function OpenInV0({ name, registryUrl, className }: { name: string; regis
         className,
       )}
     >
-      <V0Dark  aria-hidden="true" />
+      <V0Dark aria-hidden="true" />
     </a>
   );
 }

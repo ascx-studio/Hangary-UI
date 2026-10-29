@@ -2,7 +2,7 @@
 
 import { memo, type PointerEvent } from "react";
 import Image from "next/image";
-import * as motion from 'motion/react-client';
+import * as motion from "motion/react-client";
 import { useMotionTemplate, useReducedMotion, useSpring } from "motion/react";
 import { cn } from "cn";
 
@@ -45,7 +45,10 @@ export const SpotlightReveal = memo(function SpotlightReveal({
 
   return (
     <motion.div
-      className={cn("group/spotlight relative h-64 w-[640px] max-w-full overflow-hidden", className)}
+      className={cn(
+        "group/spotlight relative h-64 w-[640px] max-w-full overflow-hidden",
+        className,
+      )}
       initial="rest"
       whileHover={reducedMotion ? undefined : "hover"}
       onPointerEnter={trackPointer}
@@ -56,8 +59,14 @@ export const SpotlightReveal = memo(function SpotlightReveal({
         variants={{ rest: { opacity: 0.5 }, hover: { opacity: 0.12 } }}
         transition={{ duration: reducedMotion ? 0 : 0.25 }}
       >
-        <Image src={artwork} fill unoptimized sizes="(max-width: 896px) 100vw, 896px" alt={alt}
-          className="select-none object-contain" />
+        <Image
+          src={artwork}
+          fill
+          unoptimized
+          sizes="(max-width: 896px) 100vw, 896px"
+          alt={alt}
+          className="select-none object-contain"
+        />
       </motion.div>
       <motion.div
         aria-hidden="true"
@@ -66,7 +75,14 @@ export const SpotlightReveal = memo(function SpotlightReveal({
         transition={{ duration: reducedMotion ? 0 : 0.25 }}
         style={{ maskImage: mask, WebkitMaskImage: mask }}
       >
-        <Image src={artwork} fill unoptimized sizes="640px" alt="" className="select-none object-contain" />
+        <Image
+          src={artwork}
+          fill
+          unoptimized
+          sizes="640px"
+          alt=""
+          className="select-none object-contain"
+        />
       </motion.div>
     </motion.div>
   );

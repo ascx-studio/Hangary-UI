@@ -41,7 +41,7 @@ overscroll-behavior: none;
   --warning: oklch(0.82 0.16 80);
   --warning-foreground: oklch(0.1822 0 0);
   --destructive: oklch(0.5931 0.2338 25.4165);
-  --destructive-foreground: oklch(1.0000 0 0);
+  --destructive-foreground: oklch(1 0 0);
   --border: color-mix(in srgb, var(--color-dark-green) 20%, var(--background));
   --input: var(--border);
   --ring: var(--color-brand-green);
@@ -59,7 +59,7 @@ overscroll-behavior: none;
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
   --font-sans: var(--font-geist-sans), sans-serif;
-  --font-serif: 'Georgia', serif;
+  --font-serif: "Georgia", serif;
   --font-mono: var(--font-paper-mono), monospace;
   --radius: 0rem;
   --shadow-x: 0px;
@@ -70,11 +70,11 @@ overscroll-behavior: none;
   --shadow-color: #000000;
   --shadow-2xs: 0px 4px 10px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0px 4px 10px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow-md: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
-  --shadow-lg: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
-  --shadow-xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-sm: 0px 4px 10px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0px 4px 10px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0px 4px 10px 0px hsl(0 0% 0% / 0.1), 0px 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0px 4px 10px 0px hsl(0 0% 0% / 0.1), 0px 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.1), 0px 8px 10px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0px 4px 10px 0px hsl(0 0% 0% / 0.25);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
@@ -103,7 +103,7 @@ overscroll-behavior: none;
   --warning: oklch(0.82 0.16 80);
   --warning-foreground: oklch(0.1822 0 0);
   --destructive: oklch(0.5931 0.2338 25.4165);
-  --destructive-foreground: oklch(1.0000 0 0);
+  --destructive-foreground: oklch(1 0 0);
   --border: color-mix(in srgb, var(--color-palette-white) 12%, var(--card));
   --input: var(--border);
   --ring: var(--color-spring-green);
@@ -121,7 +121,7 @@ overscroll-behavior: none;
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
   --font-sans: var(--font-geist-sans), sans-serif;
-  --font-serif: 'Georgia', serif;
+  --font-serif: "Georgia", serif;
   --font-mono: var(--font-paper-mono), monospace;
   --radius: 0rem;
   --shadow-x: 0px;
@@ -132,11 +132,11 @@ overscroll-behavior: none;
   --shadow-color: #000000;
   --shadow-2xs: 0px 10px 20px 0px hsl(0 0% 0% / 0.25);
   --shadow-xs: 0px 10px 20px 0px hsl(0 0% 0% / 0.25);
-  --shadow-sm: 0px 10px 20px 0px hsl(0 0% 0% / 0.50), 0px 1px 2px -1px hsl(0 0% 0% / 0.50);
-  --shadow: 0px 10px 20px 0px hsl(0 0% 0% / 0.50), 0px 1px 2px -1px hsl(0 0% 0% / 0.50);
-  --shadow-md: 0px 10px 20px 0px hsl(0 0% 0% / 0.50), 0px 2px 4px -1px hsl(0 0% 0% / 0.50);
-  --shadow-lg: 0px 10px 20px 0px hsl(0 0% 0% / 0.50), 0px 4px 6px -1px hsl(0 0% 0% / 0.50);
-  --shadow-xl: 0px 10px 20px 0px hsl(0 0% 0% / 0.50), 0px 8px 10px -1px hsl(0 0% 0% / 0.50);
+  --shadow-sm: 0px 10px 20px 0px hsl(0 0% 0% / 0.5), 0px 1px 2px -1px hsl(0 0% 0% / 0.5);
+  --shadow: 0px 10px 20px 0px hsl(0 0% 0% / 0.5), 0px 1px 2px -1px hsl(0 0% 0% / 0.5);
+  --shadow-md: 0px 10px 20px 0px hsl(0 0% 0% / 0.5), 0px 2px 4px -1px hsl(0 0% 0% / 0.5);
+  --shadow-lg: 0px 10px 20px 0px hsl(0 0% 0% / 0.5), 0px 4px 6px -1px hsl(0 0% 0% / 0.5);
+  --shadow-xl: 0px 10px 20px 0px hsl(0 0% 0% / 0.5), 0px 8px 10px -1px hsl(0 0% 0% / 0.5);
   --shadow-2xl: 0px 10px 20px 0px hsl(0 0% 0% / 1.25);
 }
 
@@ -225,14 +225,22 @@ overscroll-behavior: none;
 }
 
 @keyframes page-entrance {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.page-entrance { animation: page-entrance 0.3s ease-out; }
+.page-entrance {
+  animation: page-entrance 0.3s ease-out;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .page-entrance { animation: none; }
+  .page-entrance {
+    animation: none;
+  }
 }
 
 /* Shared typography for documentation and component content. */

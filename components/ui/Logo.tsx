@@ -1,6 +1,6 @@
-import Image, { type ImageProps } from "next/image"
+import Image, { type ImageProps } from "next/image";
 
-export type LogoVariant = "logo" | "wordmark"
+export type LogoVariant = "logo" | "wordmark";
 
 const logoVariants: Record<LogoVariant, Pick<ImageProps, "src" | "alt" | "width" | "height">> = {
   logo: {
@@ -15,16 +15,16 @@ const logoVariants: Record<LogoVariant, Pick<ImageProps, "src" | "alt" | "width"
     width: 160,
     height: 40,
   },
-}
+};
 
 type LogoProps = Readonly<{
-  variant?: LogoVariant
+  variant?: LogoVariant;
 }> &
-  Pick<ImageProps, "className" | "priority" | "sizes" | "style">
+  Pick<ImageProps, "className" | "priority" | "sizes" | "style">;
 
 export default function Logo({ variant = "wordmark", ...imageProps }: LogoProps) {
-  const logo = logoVariants[variant]
-  const { style, ...props } = imageProps
+  const logo = logoVariants[variant];
+  const { style, ...props } = imageProps;
 
   return (
     <Image
@@ -35,5 +35,5 @@ export default function Logo({ variant = "wordmark", ...imageProps }: LogoProps)
       style={{ height: "auto", ...style }}
       {...props}
     />
-  )
+  );
 }

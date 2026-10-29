@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/components/tabs";
@@ -14,27 +21,43 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
       <TabsList aria-label="Default tabs example">
         <TabsTrigger value="overview">Overview</TabsTrigger>
         <TabsTrigger value="activity">Activity</TabsTrigger>
-        <TabsTrigger value="settings" disabled>Settings</TabsTrigger>
+        <TabsTrigger value="settings" disabled>
+          Settings
+        </TabsTrigger>
       </TabsList>
-      <TabsContent value="overview" className="border border-border p-6">Your workspace at a glance. Keep your projects and ideas in one place.</TabsContent>
-      <TabsContent value="activity" className="border border-border p-6">Your latest updates and recent project activity appear here.</TabsContent>
-      <TabsContent value="settings" className="border border-border p-6">Manage your workspace preferences.</TabsContent>
+      <TabsContent value="overview" className="border border-border p-6">
+        Your workspace at a glance. Keep your projects and ideas in one place.
+      </TabsContent>
+      <TabsContent value="activity" className="border border-border p-6">
+        Your latest updates and recent project activity appear here.
+      </TabsContent>
+      <TabsContent value="settings" className="border border-border p-6">
+        Manage your workspace preferences.
+      </TabsContent>
     </Tabs>
     <Tabs defaultValue="account">
       <TabsList variant="line" aria-label="Line tabs example">
         <TabsTrigger value="account">Account</TabsTrigger>
         <TabsTrigger value="notifications">Notifications</TabsTrigger>
       </TabsList>
-      <TabsContent value="account" className="border border-border p-6">Manage your account details and personal preferences.</TabsContent>
-      <TabsContent value="notifications" className="border border-border p-6">Choose which updates you want to receive.</TabsContent>
+      <TabsContent value="account" className="border border-border p-6">
+        Manage your account details and personal preferences.
+      </TabsContent>
+      <TabsContent value="notifications" className="border border-border p-6">
+        Choose which updates you want to receive.
+      </TabsContent>
     </Tabs>
     <Tabs defaultValue="profile" orientation="vertical">
       <TabsList variant="line" aria-label="Vertical tabs example">
         <TabsTrigger value="profile">Profile</TabsTrigger>
         <TabsTrigger value="security">Security</TabsTrigger>
       </TabsList>
-      <TabsContent value="profile" className="border border-border p-6">Update your public profile and display name.</TabsContent>
-      <TabsContent value="security" className="border border-border p-6">Manage your password and sign-in preferences.</TabsContent>
+      <TabsContent value="profile" className="border border-border p-6">
+        Update your public profile and display name.
+      </TabsContent>
+      <TabsContent value="security" className="border border-border p-6">
+        Manage your password and sign-in preferences.
+      </TabsContent>
     </Tabs>
   </div>
 </ComponentPreview>
@@ -59,7 +82,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/hangry-ui
   </TabsList>
   <TabsContent value="overview">Your project overview.</TabsContent>
   <TabsContent value="settings">Your project settings.</TabsContent>
-</Tabs>
+</Tabs>;
 ```
 
 ## Props
@@ -75,76 +98,152 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/hangry-ui
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code className="break-words">{"Tabs.value"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"Tabs.value"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Controlled selected tab value."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"Tabs.defaultValue"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"Tabs.defaultValue"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Initial selected tab for uncontrolled usage."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"Tabs.onValueChange"}</code></TableCell>
-      <TableCell><code className="break-words">{"(value: string) => void"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"Tabs.onValueChange"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"(value: string) => void"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Called when a tab is selected."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"Tabs.orientation"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"horizontal\" | \"vertical\""}</code></TableCell>
-      <TableCell><code className="break-words">{"\"horizontal\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"Tabs.orientation"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"horizontal" | "vertical"'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"horizontal"'}</code>
+      </TableCell>
       <TableCell>{"List direction and arrow key behavior."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"TabsList.variant"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"default\" | \"line\""}</code></TableCell>
-      <TableCell><code className="break-words">{"\"default\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"TabsList.variant"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"default" | "line"'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"default"'}</code>
+      </TableCell>
       <TableCell>{"Muted background or an active underline."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"TabsList.aria-label"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"TabsList.aria-label"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Accessible name for the tab list."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"TabsTrigger.value (required)"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"TabsTrigger.value (required)"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Unique tab value, matching a panel value."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"TabsTrigger.disabled"}</code></TableCell>
-      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
-      <TableCell><code className="break-words">{"false"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"TabsTrigger.disabled"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"false"}</code>
+      </TableCell>
       <TableCell>{"Prevents selection and skips this tab during arrow navigation."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"TabsContent.value (required)"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"TabsContent.value (required)"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Value of the trigger associated with this panel."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"children"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Compose tab lists, triggers, and panel content."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Additional classes on each part."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
-      <TableCell><code className="break-words">{"ComponentProps<\"div\"> / ComponentProps<\"button\">"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Root, list, and content accept div props; triggers accept button props. Roles, IDs, and selection attributes are managed internally."}</TableCell>
+      <TableCell>
+        <code className="break-words">{"Native props"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'ComponentProps<"div"> / ComponentProps<"button">'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
+      <TableCell>
+        {
+          "Root, list, and content accept div props; triggers accept button props. Roles, IDs, and selection attributes are managed internally."
+        }
+      </TableCell>
     </TableRow>
   </TableBody>
 </Table>

@@ -2,7 +2,7 @@ import { memo, type ComponentProps } from "react";
 
 type ButtonProps = {
   variant?: "primary" | "secondary" | "ghost" | "destructive" | "outline";
-} & (ComponentProps<"button"> & { href?: never } | ComponentProps<"a"> & { href: string });
+} & ((ComponentProps<"button"> & { href?: never }) | (ComponentProps<"a"> & { href: string }));
 
 export const Button = memo(function Button({
   children = "Get started",
@@ -20,15 +20,15 @@ export const Button = memo(function Button({
   const classes = `inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 disabled:pointer-events-none disabled:opacity-50 ${styles[variant] ?? styles.primary} ${className}`;
 
   if (props.href !== undefined) {
-    return <a className={classes} {...props}>{children}</a>;
+    return (
+      <a className={classes} {...props}>
+        {children}
+      </a>
+    );
   }
 
   return (
-    <button
-      type="button"
-      className={classes}
-      {...props}
-    >
+    <button type="button" className={classes} {...props}>
       {children}
     </button>
   );

@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { TopographicContourMap } from "@/registry/shader/topographic-contour-map";
@@ -38,29 +45,170 @@ import { TopographicContourMap } from "@/components/hangry-ui/shader/topographic
   className="grid place-items-center p-12"
 >
   <h2 className="typography-section-title text-white">Find your own path.</h2>
-</TopographicContourMap>
+</TopographicContourMap>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"colorScheme"}</code></TableCell><TableCell><code>{"\"studio\""}</code>, <code>{"\"amber\""}</code>, <code>{"\"teal\""}</code>, or <code>{"\"violet\""}</code></TableCell><TableCell><code>{"\"amber\""}</code></TableCell><TableCell>Height-based low, middle, and high contour colors.</TableCell></TableRow>
-<TableRow><TableCell><code>{"color"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell>—</TableCell><TableCell>Optional custom RGB color from 0 to 1; overrides the palette with matching darker and brighter shades.</TableCell></TableRow>
-<TableRow><TableCell><code>{"mouseInfluence"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Raise terrain around the pointer; pressing creates a depression.</TableCell></TableRow>
-<TableRow><TableCell><code>{"showLabels"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Stable numeric labels projected onto major contours.</TableCell></TableRow>
-<TableRow><TableCell><code>{"fadeLeft"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Fade the left side into the background.</TableCell></TableRow>
-<TableRow><TableCell><code>{"backgroundColor"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell><code>{"[0.012, 0.012, 0.012]"}</code></TableCell><TableCell>Background RGB channels from 0 to 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"scale"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"3"}</code></TableCell><TableCell>Terrain frequency; larger values reveal more terrain. Minimum 0.1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"density"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"24"}</code></TableCell><TableCell>Contour levels across the height field; clamped to 2–100.</TableCell></TableRow>
-<TableRow><TableCell><code>{"lineWidth"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Minor contour width in CSS pixels; clamped to 0.25–8. Major contours are thicker.</TableCell></TableRow>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.08"}</code></TableCell><TableCell>Nonnegative terrain evolution speed. Set 0 to stop ambient animation.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content placed above the shader.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, style, IDs, and accessibility attributes. Color is reserved for the shader.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"colorScheme"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"studio"'}</code>, <code>{'"amber"'}</code>, <code>{'"teal"'}</code>, or{" "}
+        <code>{'"violet"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"amber"'}</code>
+      </TableCell>
+      <TableCell>Height-based low, middle, and high contour colors.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"color"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[number, number, number]"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        Optional custom RGB color from 0 to 1; overrides the palette with matching darker and
+        brighter shades.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"mouseInfluence"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Raise terrain around the pointer; pressing creates a depression.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"showLabels"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Stable numeric labels projected onto major contours.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"fadeLeft"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Fade the left side into the background.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"backgroundColor"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[number, number, number]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[0.012, 0.012, 0.012]"}</code>
+      </TableCell>
+      <TableCell>Background RGB channels from 0 to 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"scale"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"3"}</code>
+      </TableCell>
+      <TableCell>Terrain frequency; larger values reveal more terrain. Minimum 0.1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"density"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"24"}</code>
+      </TableCell>
+      <TableCell>Contour levels across the height field; clamped to 2–100.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"lineWidth"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1"}</code>
+      </TableCell>
+      <TableCell>
+        Minor contour width in CSS pixels; clamped to 0.25–8. Major contours are thicker.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.08"}</code>
+      </TableCell>
+      <TableCell>Nonnegative terrain evolution speed. Set 0 to stop ambient animation.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Content placed above the shader.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        Classes, style, IDs, and accessibility attributes. Color is reserved for the shader.
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
-The terrain is generated for decoration; it does not represent a real geographic location. The noise field evolves smoothly over time. Every fourth contour is emphasized. Labels follow their elevation contours and use a built-in bitmap font without additional font dependencies.
+The terrain is generated for decoration; it does not represent a real geographic location. The noise
+field evolves smoothly over time. Every fourth contour is emphasized. Labels follow their elevation
+contours and use a built-in bitmap font without additional font dependencies.
 
 ## Dependencies
 

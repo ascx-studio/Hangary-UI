@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import NavLineDemo from "@/components/registry/nav-line-demo";
@@ -8,7 +15,9 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsHeader name="nav-line" />
 
-<ComponentPreview className="h-full w-full"><NavLineDemo /></ComponentPreview>
+<ComponentPreview className="h-full w-full">
+  <NavLineDemo />
+</ComponentPreview>
 
 <DocsReveal stagger>
 
@@ -40,17 +49,90 @@ import { NavLine } from "@/components/hangry-ui/components/nav-line";
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"items"}</code></TableCell><TableCell><code>{"[]"}</code></TableCell><TableCell>Items with unique section IDs and labels. Add <code>{"href"}</code> for navigation or <code>{"card"}</code> for a rich preview.</TableCell></TableRow>
-<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code>{"\"md\""}</code></TableCell><TableCell><code>{"\"sm\""}</code> uses shorter lines for compact sidebars.</TableCell></TableRow>
-<TableRow><TableCell><code>{"showLabels"}</code></TableCell><TableCell><code>{"false"}</code></TableCell><TableCell>Show the item titles alongside the lines. Set to <code>{"false"}</code> for compact sidebar navigation.</TableCell></TableRow>
-<TableRow><TableCell><code>{"activeId"}</code></TableCell><TableCell>Scroll position</TableCell><TableCell>Pin the active item, useful for link rails.</TableCell></TableRow>
-<TableRow><TableCell><code>{"variant"}</code></TableCell><TableCell><code>{"\"viewport\""}</code></TableCell><TableCell><code>{"\"viewport\""}</code> is fixed on the left and hidden below 1024px. <code>{"\"contained\""}</code> is absolute and visible at every width.</TableCell></TableRow>
-<TableRow><TableCell><code>{"scrollRootRef"}</code></TableCell><TableCell>Window</TableCell><TableCell>Ref to the scrolling element for an embedded rail.</TableCell></TableRow>
-<TableRow><TableCell><code>{"onSectionClick"}</code></TableCell><TableCell>—</TableCell><TableCell>Called with the target ID and the current section ID.</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell>—</TableCell><TableCell>Additional classes for the navigation root.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"items"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[]"}</code>
+      </TableCell>
+      <TableCell>
+        Items with unique section IDs and labels. Add <code>{"href"}</code> for navigation or{" "}
+        <code>{"card"}</code> for a rich preview.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"size"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"md"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"sm"'}</code> uses shorter lines for compact sidebars.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"showLabels"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"false"}</code>
+      </TableCell>
+      <TableCell>
+        Show the item titles alongside the lines. Set to <code>{"false"}</code> for compact sidebar
+        navigation.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"activeId"}</code>
+      </TableCell>
+      <TableCell>Scroll position</TableCell>
+      <TableCell>Pin the active item, useful for link rails.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"variant"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"viewport"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"viewport"'}</code> is fixed on the left and hidden below 1024px.{" "}
+        <code>{'"contained"'}</code> is absolute and visible at every width.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"scrollRootRef"}</code>
+      </TableCell>
+      <TableCell>Window</TableCell>
+      <TableCell>Ref to the scrolling element for an embedded rail.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"onSectionClick"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Called with the target ID and the current section ID.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional classes for the navigation root.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

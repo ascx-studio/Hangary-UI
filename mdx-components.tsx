@@ -9,21 +9,12 @@ import Link from "next/link";
 
 import { cn } from "@/lib/cn";
 
-
-
 const mdxComponents = {
   ComponentPreview,
   DocsReveal,
   CodeBlock,
   Card,
-  Image: ({
-    src,
-    className,
-    width,
-    height,
-    alt,
-    ...props
-  }: React.ComponentProps<typeof Image>) => (
+  Image: ({ src, className, width, height, alt, ...props }: React.ComponentProps<typeof Image>) => (
     <Image
       className={cn("border", className)}
       src={src}
@@ -34,10 +25,7 @@ const mdxComponents = {
     />
   ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
-    <Link
-      className={cn("font-medium underline underline-offset-4", className)}
-      {...props}
-    />
+    <Link className={cn("font-medium underline underline-offset-4", className)} {...props} />
   ),
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
@@ -50,10 +38,7 @@ const mdxComponents = {
   ),
   Step: ({ className, children, ...props }: React.ComponentProps<"h3">) => (
     <h3
-      className={cn(
-        "mt-6 scroll-m-32 font-heading text-lg font-medium tracking-tight",
-        className,
-      )}
+      className={cn("mt-6 scroll-m-32 font-heading text-lg font-medium tracking-tight", className)}
       {...props}
     >
       {children}
@@ -66,18 +51,12 @@ const mdxComponents = {
     />
   ),
   a: ({ className, children, ...props }: React.ComponentProps<"a">) => (
-    <a
-      className={cn("font-medium underline underline-offset-4", className)}
-      {...props}
-    >
+    <a className={cn("font-medium underline underline-offset-4", className)} {...props}>
       {children}
     </a>
   ),
   blockquote: ({ className, ...props }: React.ComponentProps<"blockquote">) => (
-    <blockquote
-      className={cn("mt-6 border-l-2 pl-6 italic", className)}
-      {...props}
-    />
+    <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)} {...props} />
   ),
   code: ({ className, ...props }: React.ComponentProps<"code">) => (
     <code className={cn("bg-muted px-1.5 py-0.5 font-mono text-sm", className)} {...props} />
@@ -101,10 +80,7 @@ const mdxComponents = {
   ),
   h5: ({ className, children, ...props }: React.ComponentProps<"h5">) => (
     <h5
-      className={cn(
-        "mt-6 scroll-m-28 text-base font-medium tracking-tight",
-        className,
-      )}
+      className={cn("mt-6 scroll-m-28 text-base font-medium tracking-tight", className)}
       {...props}
     >
       {children}
@@ -112,18 +88,13 @@ const mdxComponents = {
   ),
   h6: ({ className, children, ...props }: React.ComponentProps<"h6">) => (
     <h6
-      className={cn(
-        "mt-6 scroll-m-28 text-base font-medium tracking-tight",
-        className,
-      )}
+      className={cn("mt-6 scroll-m-28 text-base font-medium tracking-tight", className)}
       {...props}
     >
       {children}
     </h6>
   ),
-  hr: ({ ...props }: React.ComponentProps<"hr">) => (
-    <hr className="my-4 md:my-8" {...props} />
-  ),
+  hr: ({ ...props }: React.ComponentProps<"hr">) => <hr className="my-4 md:my-8" {...props} />,
   img: ({ className, alt, ...props }: React.ComponentProps<"img">) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img className={cn("", className)} alt={alt} {...props} />
@@ -136,9 +107,18 @@ const mdxComponents = {
   ),
   p: (props) => <p {...props} className={`my-4 typography-body`} />,
   pre: ({ children, ...props }: ComponentProps<"pre">) => {
-    if (isValidElement<ComponentProps<"code">>(children) && typeof children.props.children === "string") {
+    if (
+      isValidElement<ComponentProps<"code">>(children) &&
+      typeof children.props.children === "string"
+    ) {
       const language = /(?:^|\s)language-([^\s]+)/.exec(children.props.className ?? "")?.[1];
-      return <CodeBlock code={children.props.children.replace(/\n$/, "")} language={language} className={props.className} />;
+      return (
+        <CodeBlock
+          code={children.props.children.replace(/\n$/, "")}
+          language={language}
+          className={props.className}
+        />
+      );
     }
     return <pre {...props}>{children}</pre>;
   },

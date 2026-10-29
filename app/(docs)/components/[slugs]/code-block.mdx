@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import DocsHeader from "@/components/registry/docs-header";
@@ -8,11 +15,23 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 <DocsHeader name="code-block" />
 
 <ComponentPreview className="h-full w-full">
-<div className="w-full space-y-6">
-        <CodeBlock code={'export function greet(name: string) {\n  return `Hello, ${name}!`;\n}'} language="typescript" filename="greet.ts" showLineNumbers />
-        <CodeBlock commands={{ bun: "bun add prism-react-renderer prismjs", npm: "npm install prism-react-renderer prismjs", pnpm: "pnpm add prism-react-renderer prismjs", yarn: "yarn add prism-react-renderer prismjs" }} />
-      </div>
-  </ComponentPreview>
+  <div className="w-full space-y-6">
+    <CodeBlock
+      code={"export function greet(name: string) {\n  return `Hello, ${name}!`;\n}"}
+      language="typescript"
+      filename="greet.ts"
+      showLineNumbers
+    />
+    <CodeBlock
+      commands={{
+        bun: "bun add prism-react-renderer prismjs",
+        npm: "npm install prism-react-renderer prismjs",
+        pnpm: "pnpm add prism-react-renderer prismjs",
+        yarn: "yarn add prism-react-renderer prismjs",
+      }}
+    />
+  </div>
+</ComponentPreview>
 
 <DocsReveal stagger>
 
@@ -24,7 +43,13 @@ A scrollable code block framed by Guide Card's lines and corner crosses, with fi
 
 ## How to use
 
-<CodeBlock filename="Example.tsx" language="tsx" code={"import { CodeBlock } from \"@/components/hangry-ui/components/code-block\";\n\n<CodeBlock\n  code={'const greeting = \"Hello, world!\";\\nconsole.log(greeting);'}\n  language=\"javascript\"\n  filename=\"hello.js\"\n  showLineNumbers\n/>"} />
+<CodeBlock
+  filename="Example.tsx"
+  language="tsx"
+  code={
+    'import { CodeBlock } from "@/components/hangry-ui/components/code-block";\n\n<CodeBlock\n  code={\'const greeting = "Hello, world!";\\nconsole.log(greeting);\'}\n  language="javascript"\n  filename="hello.js"\n  showLineNumbers\n/>'
+  }
+/>
 
 ## Props
 
@@ -39,51 +64,105 @@ A scrollable code block framed by Guide Card's lines and corner crosses, with fi
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code className="break-words">{"code"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"const greeting = \"Hello, world!\";\\nconsole.log(greeting);"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"code"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">
+          {'const greeting = "Hello, world!";\\nconsole.log(greeting);'}
+        </code>
+      </TableCell>
       <TableCell>{"Code to display and copy."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"language"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"javascript\""}</code></TableCell>
-      <TableCell>{"Syntax highlighting language; unknown languages render as plain text."}</TableCell>
+      <TableCell>
+        <code className="break-words">{"language"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"javascript"'}</code>
+      </TableCell>
+      <TableCell>
+        {"Syntax highlighting language; unknown languages render as plain text."}
+      </TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"filename"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"filename"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'""'}</code>
+      </TableCell>
       <TableCell>{"Filename shown in the header."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"showLineNumbers"}</code></TableCell>
-      <TableCell><code className="break-words">{"boolean"}</code></TableCell>
-      <TableCell><code className="break-words">{"true for code; false for commands and plain text"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"showLineNumbers"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"true for code; false for commands and plain text"}</code>
+      </TableCell>
       <TableCell>{"Displays line numbers. Override the default for any block."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"commands"}</code></TableCell>
-      <TableCell><code className="break-words">{"Record<\"bun\" | \"npm\" | \"pnpm\" | \"yarn\", string>"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Enables package manager controls and Bash highlighting. Overrides code and language."}</TableCell>
+      <TableCell>
+        <code className="break-words">{"commands"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'Record<"bun" | "npm" | "pnpm" | "yarn", string>'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
+      <TableCell>
+        {"Enables package manager controls and Bash highlighting. Overrides code and language."}
+      </TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"packageManager"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"bun\" | \"npm\" | \"pnpm\" | \"yarn\""}</code></TableCell>
-      <TableCell><code className="break-words">{"\"bun\" (uncontrolled)"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"packageManager"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"bun" | "npm" | "pnpm" | "yarn"'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"bun" (uncontrolled)'}</code>
+      </TableCell>
       <TableCell>{"Controls the selected package manager."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"onPackageManagerChange"}</code></TableCell>
-      <TableCell><code className="break-words">{"(manager: \"bun\" | \"npm\" | \"pnpm\" | \"yarn\") => void"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"onPackageManagerChange"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'(manager: "bun" | "npm" | "pnpm" | "yarn") => void'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
       <TableCell>{"Called when the selected package manager changes."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'""'}</code>
+      </TableCell>
       <TableCell>{"Additional CSS classes on the component root."}</TableCell>
     </TableRow>
   </TableBody>

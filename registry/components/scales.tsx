@@ -22,7 +22,13 @@ export const Scales = memo(function Scales({
       {...props}
     >
       <defs>
-        <pattern id={id} width={spacing * 5} height="32" patternUnits="userSpaceOnUse" patternTransform={orientation === "vertical" ? "rotate(90)" : undefined}>
+        <pattern
+          id={id}
+          width={spacing * 5}
+          height="32"
+          patternUnits="userSpaceOnUse"
+          patternTransform={orientation === "vertical" ? "rotate(90)" : undefined}
+        >
           <path
             d={`M0 0V32 M${spacing} 10V22 M${spacing * 2} 10V22 M${spacing * 3} 10V22 M${spacing * 4} 10V22`}
             fill="none"

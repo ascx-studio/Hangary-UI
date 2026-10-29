@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Lightbox } from "@/registry/components/lightbox";
@@ -11,16 +18,32 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 <ComponentPreview className="h-full w-full">
   <div className="mx-auto flex w-full max-w-lg flex-col gap-4">
     <div className="flex items-center justify-center">
-      <Lightbox src="/1.png" alt="Two luminous butterflies on a dark background" caption="Butterflies" />
+      <Lightbox
+        src="/1.png"
+        alt="Two luminous butterflies on a dark background"
+        caption="Butterflies"
+      />
     </div>
     <div className="flex items-center justify-center">
-      <Lightbox src="/2.png" alt="Abstract white light swirling around a central star" caption="Abstract light" />
+      <Lightbox
+        src="/2.png"
+        alt="Abstract white light swirling around a central star"
+        caption="Abstract light"
+      />
     </div>
     <div className="flex items-center justify-center">
-      <Lightbox src="/3.png" alt="A monochrome star field and glowing nebula" caption="Stars and nebula" />
+      <Lightbox
+        src="/3.png"
+        alt="A monochrome star field and glowing nebula"
+        caption="Stars and nebula"
+      />
     </div>
     <div className="flex items-center justify-center">
-      <Lightbox src="/4.png" alt="An arrangement of hands rendered in white dots" caption="Hands in white dots" />
+      <Lightbox
+        src="/4.png"
+        alt="An arrangement of hands rendered in white dots"
+        caption="Hands in white dots"
+      />
     </div>
   </div>
 </ComponentPreview>
@@ -43,7 +66,7 @@ import { Lightbox } from "@/components/hangry-ui/components/lightbox";
   alt="A monochrome moth against a dark background"
   caption="A closer look"
   triggerLabel="View moth"
-/>
+/>;
 ```
 
 Press Escape or click outside the image to close it. The close button is keyboard accessible.
@@ -63,33 +86,57 @@ Double-click the image to zoom in, then double-click again to reset. Keyboard us
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code>src</code></TableCell>
-      <TableCell><code>string</code></TableCell>
+      <TableCell>
+        <code>src</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
       <TableCell>—</TableCell>
       <TableCell>Image shown in the thumbnail button and modal viewer.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>alt</code></TableCell>
-      <TableCell><code>string</code></TableCell>
+      <TableCell>
+        <code>alt</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
       <TableCell>—</TableCell>
       <TableCell>Alternative text and accessible trigger label.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>caption</code></TableCell>
-      <TableCell><code>string</code></TableCell>
+      <TableCell>
+        <code>caption</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
       <TableCell>—</TableCell>
       <TableCell>Optional text shown below the enlarged image.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>triggerLabel</code></TableCell>
-      <TableCell><code>string</code></TableCell>
-      <TableCell><code>"View image"</code></TableCell>
+      <TableCell>
+        <code>triggerLabel</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>"View image"</code>
+      </TableCell>
       <TableCell>Text shown on the button that opens the viewer.</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code>className</code></TableCell>
-      <TableCell><code>string</code></TableCell>
-      <TableCell><code>""</code></TableCell>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>""</code>
+      </TableCell>
       <TableCell>Additional classes on the thumbnail button.</TableCell>
     </TableRow>
   </TableBody>

@@ -10,5 +10,12 @@ const uniforms = (time: number, x: number, y: number, hovering: boolean) => ({
 });
 
 export const WordmarkLightRay = memo(function WordmarkLightRay() {
-  return <WordmarkShader shader={lightRayShader} label="wordmark-light-ray" uniforms={uniforms} surface={surface} />;
+  return (
+    <WordmarkShader
+      shader={lightRayShader}
+      label="wordmark-light-ray"
+      uniforms={uniforms}
+      surface={surface}
+    />
+  );
 });

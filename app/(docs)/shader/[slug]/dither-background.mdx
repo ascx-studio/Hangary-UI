@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { DitherBackground } from "@/registry/shader/dither-background";
@@ -35,23 +42,118 @@ import { DitherBackground } from "@/components/hangry-ui/shader/dither-backgroun
   className="grid place-items-center p-12"
 >
   <h2 className="typography-section-title text-white">Make something different.</h2>
-</DitherBackground>
+</DitherBackground>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"color"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell><code>{"[0.02, 0.86, 0.5]"}</code></TableCell><TableCell>Foreground RGB channels from 0 to 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"backgroundColor"}</code></TableCell><TableCell><code>{"[number, number, number]"}</code></TableCell><TableCell><code>{"[0.02, 0.04, 0.035]"}</code></TableCell><TableCell>Background RGB channels from 0 to 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"pixelSize"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"3"}</code></TableCell><TableCell>Pixel cell size in CSS pixels; minimum 1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.4"}</code></TableCell><TableCell>Nonnegative wave speed; 0 renders a static frame.</TableCell></TableRow>
-<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Repel the grid around the pointer and send a ripple on click or tap. Set false to disable interaction. Reduced motion disables both effects.</TableCell></TableRow>
-<TableRow><TableCell><code>{"interactionRef"}</code></TableCell><TableCell><code>{"RefObject<HTMLElement | null>"}</code></TableCell><TableCell>—</TableCell><TableCell>Optional external hover target for masked compositions such as Dithered Logo.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content displayed above the shader.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Supports className, style, IDs, and accessibility attributes. The native color attribute is replaced by the RGB prop.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"color"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[number, number, number]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[0.02, 0.86, 0.5]"}</code>
+      </TableCell>
+      <TableCell>Foreground RGB channels from 0 to 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"backgroundColor"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[number, number, number]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[0.02, 0.04, 0.035]"}</code>
+      </TableCell>
+      <TableCell>Background RGB channels from 0 to 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"pixelSize"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"3"}</code>
+      </TableCell>
+      <TableCell>Pixel cell size in CSS pixels; minimum 1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.4"}</code>
+      </TableCell>
+      <TableCell>Nonnegative wave speed; 0 renders a static frame.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"interactive"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>
+        Repel the grid around the pointer and send a ripple on click or tap. Set false to disable
+        interaction. Reduced motion disables both effects.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"interactionRef"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"RefObject<HTMLElement | null>"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        Optional external hover target for masked compositions such as Dithered Logo.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Content displayed above the shader.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        Supports className, style, IDs, and accessibility attributes. The native color attribute is
+        replaced by the RGB prop.
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

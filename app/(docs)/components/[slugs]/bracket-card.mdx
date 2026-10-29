@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { BracketCard } from "@/registry/components/bracket-card";
@@ -13,7 +20,9 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
     <div className="flex min-h-48 flex-col items-center justify-center text-center">
       <span className="mb-5 text-xs uppercase tracking-[0.2em] text-primary">Bracket Card</span>
       <h3 className={"typography-section-title"}>Keep the focus.</h3>
-      <p className={`mt-3 max-w-xs typography-body`}>A quiet frame that puts your content in the spotlight.</p>
+      <p className={`mt-3 max-w-xs typography-body`}>
+        A quiet frame that puts your content in the spotlight.
+      </p>
     </div>
   </BracketCard>
 </ComponentPreview>
@@ -31,20 +40,63 @@ A dashed inner border with four crisp corner brackets.
 ```tsx
 import { BracketCard } from "@/components/hangry-ui/components/bracket-card";
 
-<BracketCard className="max-w-lg">
-  Your content goes here.
-</BracketCard>
+<BracketCard className="max-w-lg">Your content goes here.</BracketCard>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"variant"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell><code>{"\"brackets\""}</code>{" (default) or "}<code>{"\"corners\""}</code>{". Corner Card provides the latter style as a standalone component."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Custom React content, including interactive components."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the outer container."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"variant"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"See description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"brackets"'}</code>
+        {" (default) or "}
+        <code>{'"corners"'}</code>
+        {". Corner Card provides the latter style as a standalone component."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Custom React content, including interactive components."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Additional classes on the outer container."}</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 - Native div attributes, including `style` and `aria-*`, are forwarded to the wrapper.

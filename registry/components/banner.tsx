@@ -59,7 +59,16 @@ export const Banner = memo(function Banner({
         <div className="font-semibold">{children ?? message}</div>
         {description && <p className="mt-1 text-sm leading-6 opacity-90">{description}</p>}
       </div>
-      {dismissible && <button type="button" aria-label="Dismiss banner" onClick={() => setDismissed(true)} className="flex size-9 shrink-0 items-center justify-center hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-current"><span aria-hidden="true">×</span></button>}
+      {dismissible && (
+        <button
+          type="button"
+          aria-label="Dismiss banner"
+          onClick={() => setDismissed(true)}
+          className="flex size-9 shrink-0 items-center justify-center hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-current"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      )}
     </motion.div>
   );
 });

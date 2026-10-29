@@ -7,11 +7,7 @@ const DocsPageEntrance = memo(function DocsPageEntrance({
   children: ReactNode;
   className?: string;
 }) {
-  return (
-    <article className={className}>
-      {children}
-    </article>
-  );
+  return <article className={className}>{children}</article>;
 });
 
 export default DocsPageEntrance;

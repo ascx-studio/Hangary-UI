@@ -19,9 +19,7 @@ const nextConfig: NextConfig = {
     },
   },
   async rewrites() {
-    return posthogHost
-      ? [{ source: "/ingest/:path*", destination: `${posthogHost}/:path*` }]
-      : [];
+    return posthogHost ? [{ source: "/ingest/:path*", destination: `${posthogHost}/:path*` }] : [];
   },
 };
 

@@ -22,9 +22,7 @@ const SidebarPageLayout = memo(function SidebarPageLayout({
     <LayoutGroup id="documentation-sidebar-layout">
       <div data-sidebar-layout className={className}>
         <Sidebar category={category} className={sidebarClassName} />
-        <div className={contentClassName}>
-          {children}
-        </div>
+        <div className={contentClassName}>{children}</div>
       </div>
     </LayoutGroup>
   );

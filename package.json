@@ -8,6 +8,8 @@
     "start": "next start",
     "registry:build": "shadcn build",
     "lint": "eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "shader:check": "bun scripts/check-shaders.mjs",
     "registry:check": "bun scripts/update-registry.mjs --check && bun scripts/check-registry.mjs",
     "registry:update": "bun scripts/update-registry.mjs"
@@ -45,6 +47,7 @@
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.3.4",
+    "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   },

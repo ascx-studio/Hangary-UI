@@ -30,11 +30,21 @@ export const PricingBracket = memo(function PricingBracket({
         {plans.map((plan) => (
           <BracketCard key={plan.name}>
             <h3 className="typography-subsection-title">{plan.name}</h3>
-            <p className="mt-4 text-4xl font-semibold">{plan.price}<span className="text-sm text-muted-foreground"> / month</span></p>
+            <p className="mt-4 text-4xl font-semibold">
+              {plan.price}
+              <span className="text-sm text-muted-foreground"> / month</span>
+            </p>
             <ul className="mt-6 space-y-3 text-sm">
-              {plan.features.map((feature) => <li key={feature} className="flex gap-2"><Check size={16} className="mt-0.5 text-primary" aria-hidden="true" />{feature}</li>)}
+              {plan.features.map((feature) => (
+                <li key={feature} className="flex gap-2">
+                  <Check size={16} className="mt-0.5 text-primary" aria-hidden="true" />
+                  {feature}
+                </li>
+              ))}
             </ul>
-            <Button href="/signup" variant="outline" className="mt-8 w-full">Choose {plan.name}</Button>
+            <Button href="/signup" variant="outline" className="mt-8 w-full">
+              Choose {plan.name}
+            </Button>
           </BracketCard>
         ))}
       </div>

@@ -1,5 +1,17 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/registry/components/accordion";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/registry/components/accordion";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import DocsHeader from "@/components/registry/docs-header";
@@ -12,15 +24,22 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
   <Accordion className="max-w-lg" defaultValue={["customize"]}>
     <AccordionItem value="accessible">
       <AccordionTrigger>Does it support keyboard navigation?</AccordionTrigger>
-      <AccordionContent>Yes. Tab to a question and press Enter or Space to expand or collapse its answer.</AccordionContent>
+      <AccordionContent>
+        Yes. Tab to a question and press Enter or Space to expand or collapse its answer.
+      </AccordionContent>
     </AccordionItem>
     <AccordionItem value="customize">
       <AccordionTrigger>Can I customize the design?</AccordionTrigger>
-      <AccordionContent>Use your own content, theme tokens, and className on each part. The source lives in your project.</AccordionContent>
+      <AccordionContent>
+        Use your own content, theme tokens, and className on each part. The source lives in your
+        project.
+      </AccordionContent>
     </AccordionItem>
     <AccordionItem value="multiple">
       <AccordionTrigger>Can I open multiple items?</AccordionTrigger>
-      <AccordionContent>Set multiple on Accordion to keep several answers open at once.</AccordionContent>
+      <AccordionContent>
+        Set multiple on Accordion to keep several answers open at once.
+      </AccordionContent>
     </AccordionItem>
   </Accordion>
 </ComponentPreview>
@@ -52,20 +71,82 @@ import {
     <AccordionTrigger>Can I customize it?</AccordionTrigger>
     <AccordionContent>Style each part with className.</AccordionContent>
   </AccordionItem>
-</Accordion>
+</Accordion>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"multiple"}</code></TableCell><TableCell><code className="break-words">{"boolean"}</code></TableCell><TableCell><code>{"false"}</code></TableCell><TableCell>{"Allow multiple items to stay open."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"defaultValue"}</code></TableCell><TableCell><code className="break-words">{"readonly string[]"}</code></TableCell><TableCell><code>{"[]"}</code></TableCell><TableCell>{"Item values expanded initially."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"AccordionItem.value"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Required"}</code></TableCell><TableCell>{"Unique value identifying each item."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Accordion items, triggers, and content."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes for each part."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"multiple"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"false"}</code>
+      </TableCell>
+      <TableCell>{"Allow multiple items to stay open."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"defaultValue"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"readonly string[]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"[]"}</code>
+      </TableCell>
+      <TableCell>{"Item values expanded initially."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"AccordionItem.value"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Required"}</code>
+      </TableCell>
+      <TableCell>{"Unique value identifying each item."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Accordion items, triggers, and content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Additional classes for each part."}</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 `Accordion` accepts `multiple` (boolean, defaults to false) and `defaultValue` (an array of item values, defaults to empty). With `multiple` disabled, provide at most one default value. Items can always be collapsed.

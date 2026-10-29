@@ -2,7 +2,7 @@
 
 # Hangry UI
 
-*A focused collection of reusable React components for modern interfaces.*
+_A focused collection of reusable React components for modern interfaces._
 
 **Built with:**
 
@@ -44,33 +44,33 @@ Hangry UI is a small, reusable component library and documentation site built wi
 
 1. **Navigate to the project directory**
 
-	```bash
-	cd uilib
-	```
+   ```bash
+   cd uilib
+   ```
 
 2. **Install dependencies**
 
-	```bash
-	bun install
-	```
+   ```bash
+   bun install
+   ```
 
 3. **Start the development server**
 
-	```bash
-	bun run dev
-	```
+   ```bash
+   bun run dev
+   ```
 
 4. **Open the app**
 
-	Visit [http://localhost:3000](http://localhost:3000).
+   Visit [http://localhost:3000](http://localhost:3000).
 
 ## Available Scripts
 
-| Command | Description |
-| --- | --- |
-| `bun run dev` | Start the Next.js development server |
-| `bun run build` | Create a production build |
-| `bun run start` | Start the production server |
-| `bun run lint` | Run ESLint |
-| `bun run registry:build` | Build the component registry |
+| Command                  | Description                               |
+| ------------------------ | ----------------------------------------- |
+| `bun run dev`            | Start the Next.js development server      |
+| `bun run build`          | Create a production build                 |
+| `bun run start`          | Start the production server               |
+| `bun run lint`           | Run ESLint                                |
+| `bun run registry:build` | Build the component registry              |
 | `bun run registry:check` | Validate registry source without building |

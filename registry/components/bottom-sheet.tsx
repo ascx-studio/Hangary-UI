@@ -30,7 +30,11 @@ export const BottomSheet = memo(function BottomSheet({
   const closing = useRef(false);
 
   const textVariants = {
-    hidden: { opacity: 0, y: reducedMotion ? 0 : 12, transition: { duration: reducedMotion ? 0 : 0.12 } },
+    hidden: {
+      opacity: 0,
+      y: reducedMotion ? 0 : 12,
+      transition: { duration: reducedMotion ? 0 : 0.12 },
+    },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -96,21 +100,17 @@ export const BottomSheet = memo(function BottomSheet({
   return (
     <LazyMotion features={domAnimation} strict>
       <div className={className}>
-        <Button
-          type="button"
-          aria-haspopup="dialog"
-          onClick={() => void openSheet()}
-        >
+        <Button type="button" aria-haspopup="dialog" onClick={() => void openSheet()}>
           {triggerLabel}
         </Button>
         <m.dialog
-          ref={node => {
+          ref={(node) => {
             dialog.current = node;
             node?.setAttribute("closedby", "any");
           }}
           initial={{ y: "100%", opacity: 0 }}
           animate={animation}
-          onCancel={event => {
+          onCancel={(event) => {
             event.preventDefault();
             void closeSheet();
           }}
@@ -123,7 +123,10 @@ export const BottomSheet = memo(function BottomSheet({
               className="absolute right-3 top-3 z-10"
               initial="hidden"
               animate={textAnimation}
-              variants={{ hidden: { opacity: 0, visibility: "hidden" }, visible: { opacity: 1, visibility: "visible" } }}
+              variants={{
+                hidden: { opacity: 0, visibility: "hidden" },
+                visible: { opacity: 1, visibility: "visible" },
+              }}
               transition={{ duration: reducedMotion ? 0 : 0.15 }}
             >
               <Button
@@ -136,20 +139,23 @@ export const BottomSheet = memo(function BottomSheet({
                 <X aria-hidden="true" size={24} />
               </Button>
             </m.div>
-            <div
-              aria-hidden="true"
-              className="mx-auto mb-6 h-1 w-10 bg-muted-foreground/40"
-            />
+            <div aria-hidden="true" className="mx-auto mb-6 h-1 w-10 bg-muted-foreground/40" />
             <m.div
               initial="hidden"
               animate={textAnimation}
-              variants={{ hidden: {}, visible: { transition: { staggerChildren: reducedMotion ? 0 : 0.18 } } }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: reducedMotion ? 0 : 0.18 } },
+              }}
             >
-              <m.div className="flex items-start justify-between gap-4 pr-12" variants={textVariants} transition={{ duration: reducedMotion ? 0 : 0.45, ease: "easeOut" }}>
+              <m.div
+                className="flex items-start justify-between gap-4 pr-12"
+                variants={textVariants}
+                transition={{ duration: reducedMotion ? 0 : 0.45, ease: "easeOut" }}
+              >
                 <h2 id={`${id}-title`} className={"typography-section-title"}>
                   {title}
                 </h2>
-
               </m.div>
               <m.p
                 variants={textVariants}
@@ -159,7 +165,15 @@ export const BottomSheet = memo(function BottomSheet({
               >
                 {description}
               </m.p>
-              {children && <m.div className="mt-6" variants={textVariants} transition={{ duration: reducedMotion ? 0 : 0.45, ease: "easeOut" }}>{children}</m.div>}
+              {children && (
+                <m.div
+                  className="mt-6"
+                  variants={textVariants}
+                  transition={{ duration: reducedMotion ? 0 : 0.45, ease: "easeOut" }}
+                >
+                  {children}
+                </m.div>
+              )}
             </m.div>
           </Card>
         </m.dialog>

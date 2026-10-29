@@ -27,9 +27,10 @@ export function LoginSplit({ brand = "Studio", ...props }: LoginProps = {}) {
           className="relative isolate flex min-w-0 flex-col justify-between gap-4 overflow-hidden border-b border-border bg-cover bg-center bg-no-repeat p-4 text-white @xl:border-r @xl:border-b-0"
           style={{ backgroundImage: `url("/2.png")` }}
         >
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-slate-950/30 backdrop-blur-[2px]" />
-
-
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-slate-950/30 backdrop-blur-[2px]"
+          />
         </aside>
         <div className="min-w-0 @xl:flex @xl:flex-col @xl:justify-center">
           <LoginMinimal {...props} brand={brand} />

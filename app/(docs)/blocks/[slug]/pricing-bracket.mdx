@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { PricingBracket } from "@/registry/blocks/pricing-bracket";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import DocsHeader from "@/components/registry/docs-header";
@@ -7,7 +14,9 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsHeader name="pricing-bracket" />
 
-<ComponentPreview id="pricing-bracket" className="h-full w-full"><PricingBracket /></ComponentPreview>
+<ComponentPreview id="pricing-bracket" className="h-full w-full">
+  <PricingBracket />
+</ComponentPreview>
 
 <DocsReveal stagger>
 
@@ -24,17 +33,46 @@ Import the component and add it to your page.
 ```tsx
 import { PricingBracket } from "@/components/hangry-ui/blocks/pricing-bracket";
 
-<PricingBracket />
+<PricingBracket />;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Plans with room to grow"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"A focused set of plans for independent builders and teams."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Plans with room to grow"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"A focused set of plans for independent builders and teams."}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

@@ -46,10 +46,15 @@ const ProximityDash = memo(function ProximityDash({
     <m.span
       aria-hidden="true"
       data-nav-line=""
-      className={cn("block h-px shrink-0 transition-colors group-hover:bg-foreground group-focus-visible:bg-foreground group-aria-[current=page]:bg-foreground group-aria-[current=location]:bg-foreground", highlighted ? "bg-foreground" : "bg-muted-foreground/40")}
+      className={cn(
+        "block h-px shrink-0 transition-colors group-hover:bg-foreground group-focus-visible:bg-foreground group-aria-[current=page]:bg-foreground group-aria-[current=location]:bg-foreground",
+        highlighted ? "bg-foreground" : "bg-muted-foreground/40",
+      )}
       initial={false}
       animate={{ width }}
-      transition={reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 320, damping: 34, mass: 0.7 }}
+      transition={
+        reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 320, damping: 34, mass: 0.7 }
+      }
     />
   );
 });
@@ -68,16 +73,22 @@ export const NavLine = memo(function NavLine({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [proximityIndex, setProximityIndex] = useState<number | null>(null);
   const [tracked, setTracked] = useState(() => items[0]?.id ?? "");
-  const active = activeId ?? (items.some(item => item.id === tracked) ? tracked : items[0]?.id);
-  const scrollIds = useMemo(() => items.filter(item => !item.href).map(item => item.id), [items]);
+  const active = activeId ?? (items.some((item) => item.id === tracked) ? tracked : items[0]?.id);
+  const scrollIds = useMemo(
+    () => items.filter((item) => !item.href).map((item) => item.id),
+    [items],
+  );
 
   useEffect(() => {
     if (!scrollIds.length || activeId !== undefined) return;
 
     const startTracking = () => {
       const scrollRoot = scrollRootRef?.current ?? null;
-      const targets = scrollIds.map(id => document.getElementById(id))
-        .filter((target): target is HTMLElement => Boolean(target && (!scrollRoot || scrollRoot.contains(target))));
+      const targets = scrollIds
+        .map((id) => document.getElementById(id))
+        .filter((target): target is HTMLElement =>
+          Boolean(target && (!scrollRoot || scrollRoot.contains(target))),
+        );
       if (!targets.length) return () => {};
 
       const visible = new Set<HTMLElement>();
@@ -97,15 +108,18 @@ export const NavLine = memo(function NavLine({
         }
         if (closest) setTracked(closest.id);
       };
-      const observer = new IntersectionObserver(entries => {
-        for (const entry of entries) {
-          const target = entry.target as HTMLElement;
-          if (entry.isIntersecting) visible.add(target);
-          else visible.delete(target);
-        }
-        pickClosest();
-      }, { root: scrollRoot, rootMargin: "-25% 0px -45% 0px", threshold: 0 });
-      targets.forEach(target => observer.observe(target));
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            const target = entry.target as HTMLElement;
+            if (entry.isIntersecting) visible.add(target);
+            else visible.delete(target);
+          }
+          pickClosest();
+        },
+        { root: scrollRoot, rootMargin: "-25% 0px -45% 0px", threshold: 0 },
+      );
+      targets.forEach((target) => observer.observe(target));
 
       const onScroll = () => {
         const scrollHeight = scrollRoot?.scrollHeight ?? document.documentElement.scrollHeight;
@@ -149,17 +163,26 @@ export const NavLine = memo(function NavLine({
     if (!target || (scrollRoot && !scrollRoot.contains(target))) return;
     onSectionClick?.(id, active);
     setTracked(id);
-    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth";
     if (scrollRoot) {
       scrollRoot.scrollTo({
-        top: scrollRoot.scrollTop + target.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top - scrollRoot.clientTop,
+        top:
+          scrollRoot.scrollTop +
+          target.getBoundingClientRect().top -
+          scrollRoot.getBoundingClientRect().top -
+          scrollRoot.clientTop,
         behavior,
       });
     } else target.scrollIntoView({ behavior, block: "start" });
   };
 
   const widths = LINE_WIDTHS[size];
-  const activeIndex = Math.max(0, items.findIndex(item => item.id === active));
+  const activeIndex = Math.max(
+    0,
+    items.findIndex((item) => item.id === active),
+  );
   const trackPointer = (event: React.PointerEvent<HTMLElement>) => {
     const dashes = [...event.currentTarget.querySelectorAll<HTMLElement>("[data-nav-line]")];
     let closestIndex: number | null = null;
@@ -177,50 +200,103 @@ export const NavLine = memo(function NavLine({
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <nav aria-label="Sections" onPointerMove={trackPointer} onPointerLeave={() => { setHoveredIndex(null); setProximityIndex(null); }} className={cn(
-        "top-1/2 left-0 z-30 -translate-y-1/2 flex-col items-start gap-2",
-        variant === "contained" ? "absolute flex" : "fixed hidden lg:flex",
-        className,
-      )}>
-        <div aria-hidden="true" className="absolute inset-y-1 left-0 border-l border-dashed border-border/60" />
+      <nav
+        aria-label="Sections"
+        onPointerMove={trackPointer}
+        onPointerLeave={() => {
+          setHoveredIndex(null);
+          setProximityIndex(null);
+        }}
+        className={cn(
+          "top-1/2 left-0 z-30 -translate-y-1/2 flex-col items-start gap-2",
+          variant === "contained" ? "absolute flex" : "fixed hidden lg:flex",
+          className,
+        )}
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-1 left-0 border-l border-dashed border-border/60"
+        />
         {items.map((item, index) => {
           const isActive = active === item.id;
           const isSelected = isActive || hoveredIndex === index || proximityIndex === index;
           const activeWidth = widths[Math.min(Math.abs(activeIndex - index), widths.length - 1)];
           const hoverIndex = proximityIndex ?? hoveredIndex;
-          const hoverWidth = hoverIndex === null ? 0 : widths[Math.min(Math.abs(hoverIndex - index), widths.length - 1)];
+          const hoverWidth =
+            hoverIndex === null
+              ? 0
+              : widths[Math.min(Math.abs(hoverIndex - index), widths.length - 1)];
           const width = Math.max(activeWidth, hoverWidth);
           const highlighted = isSelected;
-          const rowClass = "group relative -my-1.5 flex cursor-pointer items-center gap-3 py-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
-          const contents = <>
-            <ProximityDash width={width} reducedMotion={reducedMotion} highlighted={highlighted} />
-            {showLabels && <span data-nav-label="" className="whitespace-nowrap text-sm text-muted-foreground transition-colors group-hover:text-foreground group-focus-visible:text-foreground group-aria-[current=page]:text-foreground group-aria-[current=location]:text-foreground motion-reduce:transition-none">{item.label}</span>}
-          </>;
+          const rowClass =
+            "group relative -my-1.5 flex cursor-pointer items-center gap-3 py-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+          const contents = (
+            <>
+              <ProximityDash
+                width={width}
+                reducedMotion={reducedMotion}
+                highlighted={highlighted}
+              />
+              {showLabels && (
+                <span
+                  data-nav-label=""
+                  className="whitespace-nowrap text-sm text-muted-foreground transition-colors group-hover:text-foreground group-focus-visible:text-foreground group-aria-[current=page]:text-foreground group-aria-[current=location]:text-foreground motion-reduce:transition-none"
+                >
+                  {item.label}
+                </span>
+              )}
+            </>
+          );
           return (
-              <Tooltip key={item.id} side="right" sideOffset={10}
-                className={item.card ? "w-60" : undefined}
-                title={item.card?.title} description={item.card?.description} icon={item.card?.icon}
-                content={item.card ? undefined : item.label}
-              >
-                {item.href ? (
-                  <MotionLink href={item.href} aria-label={item.label} aria-current={isActive ? "page" : undefined}
-                    initial={variant === "contained" && !reducedMotion ? { opacity: 0, y: 5 } : false}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: reducedMotion ? 0 : 0.16, delay: variant === "contained" && !reducedMotion ? index * 0.03 : 0 }}
-                    className={rowClass} onHoverStart={() => setHoveredIndex(index)} onFocus={() => setHoveredIndex(index)} onBlur={() => setHoveredIndex(null)}>
-                    {contents}
-                  </MotionLink>
-                ) : (
-                  <m.button type="button" aria-label={item.label} aria-current={isActive ? "location" : undefined}
-                    initial={variant === "contained" && !reducedMotion ? { opacity: 0, y: 5 } : false}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: reducedMotion ? 0 : 0.16, delay: variant === "contained" && !reducedMotion ? index * 0.03 : 0 }}
-                    onClick={() => scrollTo(item.id)} className={rowClass} onHoverStart={() => setHoveredIndex(index)} onFocus={() => setHoveredIndex(index)} onBlur={() => setHoveredIndex(null)}>
-                    {contents}
-                  </m.button>
-                )}
-              </Tooltip>
-
+            <Tooltip
+              key={item.id}
+              side="right"
+              sideOffset={10}
+              className={item.card ? "w-60" : undefined}
+              title={item.card?.title}
+              description={item.card?.description}
+              icon={item.card?.icon}
+              content={item.card ? undefined : item.label}
+            >
+              {item.href ? (
+                <MotionLink
+                  href={item.href}
+                  aria-label={item.label}
+                  aria-current={isActive ? "page" : undefined}
+                  initial={variant === "contained" && !reducedMotion ? { opacity: 0, y: 5 } : false}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: reducedMotion ? 0 : 0.16,
+                    delay: variant === "contained" && !reducedMotion ? index * 0.03 : 0,
+                  }}
+                  className={rowClass}
+                  onHoverStart={() => setHoveredIndex(index)}
+                  onFocus={() => setHoveredIndex(index)}
+                  onBlur={() => setHoveredIndex(null)}
+                >
+                  {contents}
+                </MotionLink>
+              ) : (
+                <m.button
+                  type="button"
+                  aria-label={item.label}
+                  aria-current={isActive ? "location" : undefined}
+                  initial={variant === "contained" && !reducedMotion ? { opacity: 0, y: 5 } : false}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: reducedMotion ? 0 : 0.16,
+                    delay: variant === "contained" && !reducedMotion ? index * 0.03 : 0,
+                  }}
+                  onClick={() => scrollTo(item.id)}
+                  className={rowClass}
+                  onHoverStart={() => setHoveredIndex(index)}
+                  onFocus={() => setHoveredIndex(index)}
+                  onBlur={() => setHoveredIndex(null)}
+                >
+                  {contents}
+                </m.button>
+              )}
+            </Tooltip>
           );
         })}
       </nav>

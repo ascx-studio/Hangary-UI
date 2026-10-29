@@ -84,7 +84,11 @@ export const Lightbox = memo(function Lightbox({
         />
         <motion.div
           initial={reducedMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}
-          animate={open || reducedMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 12, scale: 0.98 }}
+          animate={
+            open || reducedMotion
+              ? { opacity: 1, y: 0, scale: 1 }
+              : { opacity: 0, y: 12, scale: 0.98 }
+          }
           transition={{ duration: reducedMotion ? 0 : 0.22, ease: "easeOut" }}
           className="relative z-10 flex max-h-[90dvh] max-w-[92vw] flex-col items-center gap-3 pt-12"
         >
@@ -101,11 +105,11 @@ export const Lightbox = memo(function Lightbox({
               type="button"
               aria-label={zoom > 1 ? "Reset image zoom" : "Zoom image"}
               title="Double-click to zoom or reset"
-              onDoubleClick={() => setZoom((value) => value > 1 ? 1 : 2)}
+              onDoubleClick={() => setZoom((value) => (value > 1 ? 1 : 2))}
               onKeyDown={(event) => {
                 if (event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
-                setZoom((value) => value > 1 ? 1 : 2);
+                setZoom((value) => (value > 1 ? 1 : 2));
               }}
               data-zoomed={zoom > 1}
               className="block cursor-zoom-in border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-ring data-[zoomed=true]:cursor-zoom-out"
@@ -114,7 +118,10 @@ export const Lightbox = memo(function Lightbox({
                 src={src}
                 alt={alt}
                 className="max-h-[82dvh] max-w-[92vw] origin-center object-contain"
-                style={{ transform: `scale(${zoom})`, transition: reducedMotion ? "none" : "transform 180ms ease-out" }}
+                style={{
+                  transform: `scale(${zoom})`,
+                  transition: reducedMotion ? "none" : "transform 180ms ease-out",
+                }}
               />
             </button>
           </div>

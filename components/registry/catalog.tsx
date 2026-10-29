@@ -7,28 +7,36 @@ import SharedPreviewLayout from "@/components/registry/shared-preview-layout";
 import sidebarData from "@/data/sidebar.json";
 
 export default function Catalog({ category }: Readonly<{ category: RegistryCategory }>) {
-  const items = getRegistryItems(category).filter(item => !item.meta?.documentationPage);
-  const componentItems = new Map(items.map(item => [item.name, item]));
+  const items = getRegistryItems(category).filter((item) => !item.meta?.documentationPage);
+  const componentItems = new Map(items.map((item) => [item.name, item]));
   const sidebarCategory = sidebarData.categories[category as keyof typeof sidebarData.categories];
   const groups = sidebarCategory
-    ? [...new Set(sidebarCategory.items.flatMap(item => item.group ? [item.group] : []))]
-        .map(title => ({
+    ? [...new Set(sidebarCategory.items.flatMap((item) => (item.group ? [item.group] : [])))]
+        .map((title) => ({
           title,
           items: sidebarCategory.items
-            .filter(item => item.group === title)
-            .flatMap(item => {
+            .filter((item) => item.group === title)
+            .flatMap((item) => {
               const registryItem = componentItems.get(item.slug);
               return registryItem ? [registryItem] : [];
             }),
         }))
-        .filter(group => group.items.length)
+        .filter((group) => group.items.length)
     : [{ title: "", items }];
 
   return (
     <div className="mt-8">
-      {groups.map(group => (
-        <section key={group.title || "all"} className="mt-12 first:mt-0" aria-label={group.title || category}>
-          {group.title && <h2 className={"typography-section-title"}>{group.title} [{group.items.length}]</h2>}
+      {groups.map((group) => (
+        <section
+          key={group.title || "all"}
+          className="mt-12 first:mt-0"
+          aria-label={group.title || category}
+        >
+          {group.title && (
+            <h2 className={"typography-section-title"}>
+              {group.title} [{group.items.length}]
+            </h2>
+          )}
           <ul className="mt-6 grid items-stretch gap-x-0 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((item, index) => (
               <li
@@ -36,8 +44,17 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                 className={`min-w-0 ${index % 2 === 1 ? "sm:border-l sm:border-border sm:pl-6" : "sm:pr-6"} ${index % 3 === 0 ? "lg:border-l-0 lg:pl-0 lg:pr-8" : index % 3 === 1 ? "lg:border-l lg:border-border lg:pl-8 lg:pr-8" : "lg:border-l lg:border-border lg:pl-8 lg:pr-0"}`}
               >
                 <Link href={getRegistryItemHref(item)} className="flex h-full flex-col">
-                  <SharedPreviewLayout layoutId={category === "components" ? `catalog-preview-${category}-${item.name}` : undefined}>
-                    <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg border border-border bg-background">
+                  <SharedPreviewLayout
+                    layoutId={
+                      category === "components"
+                        ? `catalog-preview-${category}-${item.name}`
+                        : undefined
+                    }
+                  >
+                    <AspectRatio
+                      ratio={16 / 9}
+                      className="overflow-hidden rounded-lg border border-border bg-background"
+                    >
                       <Image
                         src={`/previews/${item.name}.png`}
                         alt={`${item.title} ${category === "shader" && usesVgpu(item) ? "vgpu WebGPU shader" : "React component"} preview`}
@@ -48,7 +65,11 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                     </AspectRatio>
                   </SharedPreviewLayout>
                   <h3 className={`mt-5 typography-section-title`}>{item.title}</h3>
-                  {category === "shader" && <p className="mt-2 text-sm leading-6 text-muted-foreground">{usesVgpu(item) ? "vgpu · React · WebGPU" : "React · CSS / SVG"}</p>}
+                  {category === "shader" && (
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {usesVgpu(item) ? "vgpu · React · WebGPU" : "React · CSS / SVG"}
+                    </p>
+                  )}
                 </Link>
               </li>
             ))}

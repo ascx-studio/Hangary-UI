@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { LoginSplit } from "@/registry/blocks/login-split";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
@@ -8,7 +15,9 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsHeader name="login-split" />
 
-<ComponentPreview id="login-split" className="h-full w-full p-0 sm:p-0"><LoginSplit /></ComponentPreview>
+<ComponentPreview id="login-split" className="h-full w-full p-0 sm:p-0">
+  <LoginSplit />
+</ComponentPreview>
 
 <DocsReveal stagger>
 
@@ -27,8 +36,12 @@ import type { ComponentProps } from "react";
 import { LoginSplit } from "@/components/hangry-ui/blocks/login-split";
 
 // Pass your application's authentication handlers to this form.
-export function SignIn(props: Pick<ComponentProps<typeof LoginSplit>,
-  "onSubmit" | "onProviderLogin" | "loading" | "error">) {
+export function SignIn(
+  props: Pick<
+    ComponentProps<typeof LoginSplit>,
+    "onSubmit" | "onProviderLogin" | "loading" | "error"
+  >,
+) {
   return <LoginSplit brand="Acme" {...props} />;
 }
 ```
@@ -36,22 +49,172 @@ export function SignIn(props: Pick<ComponentProps<typeof LoginSplit>,
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"brand"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Studio"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"logo"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"showSocial"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"onProviderLogin"}</code></TableCell><TableCell><code>{"(provider: \"google\" | \"github\") => void"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"loading"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"error"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"forgotPasswordHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"signupHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"helpHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"termsHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"privacyHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"brand"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Studio"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"logo"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"showSocial"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"onProviderLogin"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'(provider: "google" | "github") => void'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"loading"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"error"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"forgotPasswordHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"signupHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"helpHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"termsHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"privacyHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

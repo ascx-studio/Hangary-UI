@@ -25,33 +25,85 @@ interface LoginProps extends Omit<ComponentProps<"form">, "title" | "action"> {
   privacyHref?: string;
 }
 
-export function LoginMinimal({ title = "Welcome back", description = "Sign in to pick up where you left off.", brand = "Studio", logo = <Image src="/logo.svg" alt={`${brand} logo`} width={40} height={40} className="size-10" />, showSocial = true, onProviderLogin, loading = false, error, forgotPasswordHref = "/forgot-password", signupHref = "/signup", helpHref = "/help", termsHref = "/terms", privacyHref = "/privacy", onSubmit, className, children, ...props }: LoginProps = {}) {
-  return (<div data-slot="login" data-layout="minimal" className="@container w-full">
-    <div>
-      <Card title="" description="" className={cn("mx-auto max-w-md!", "border-0! bg-transparent! p-6! @sm:p-10! text-foreground shadow-none!")}>
-        {logo && <div className="mb-6">{logo}</div>}
-        {title && <h2 className={"typography-section-title"}>{title}</h2>}
-        {description && <p className={`mt-2 typography-body`}>{description}</p>}
-        <div className="mt-8">
-          <LoginForm {...props} title={title} showSocial={showSocial} onProviderLogin={onProviderLogin} loading={loading} error={error} forgotPasswordHref={forgotPasswordHref} signupHref={signupHref} onSubmit={onSubmit} className={className}>{children}</LoginForm>
-        </div>
-        {(helpHref || termsHref || privacyHref) && (
-          <footer className="mt-8">
-            <nav aria-label="Login resources" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs leading-6 text-muted-foreground">
-              {[["Help", helpHref], ["Terms", termsHref], ["Privacy", privacyHref]].filter(([, href]) => href).map(([label, href], index) => (
-                <span key={label} className="inline-flex items-center gap-3">
-                  {index > 0 && <span aria-hidden="true">/</span>}
-                  <a href={href} className="transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring">
-                    {label}
-                  </a>
-                </span>
-              ))}
-            </nav>
-          </footer>
-        )}
-      </Card>
+export function LoginMinimal({
+  title = "Welcome back",
+  description = "Sign in to pick up where you left off.",
+  brand = "Studio",
+  logo = <Image src="/logo.svg" alt={`${brand} logo`} width={40} height={40} className="size-10" />,
+  showSocial = true,
+  onProviderLogin,
+  loading = false,
+  error,
+  forgotPasswordHref = "/forgot-password",
+  signupHref = "/signup",
+  helpHref = "/help",
+  termsHref = "/terms",
+  privacyHref = "/privacy",
+  onSubmit,
+  className,
+  children,
+  ...props
+}: LoginProps = {}) {
+  return (
+    <div data-slot="login" data-layout="minimal" className="@container w-full">
+      <div>
+        <Card
+          title=""
+          description=""
+          className={cn(
+            "mx-auto max-w-md!",
+            "border-0! bg-transparent! p-6! @sm:p-10! text-foreground shadow-none!",
+          )}
+        >
+          {logo && <div className="mb-6">{logo}</div>}
+          {title && <h2 className={"typography-section-title"}>{title}</h2>}
+          {description && <p className={`mt-2 typography-body`}>{description}</p>}
+          <div className="mt-8">
+            <LoginForm
+              {...props}
+              title={title}
+              showSocial={showSocial}
+              onProviderLogin={onProviderLogin}
+              loading={loading}
+              error={error}
+              forgotPasswordHref={forgotPasswordHref}
+              signupHref={signupHref}
+              onSubmit={onSubmit}
+              className={className}
+            >
+              {children}
+            </LoginForm>
+          </div>
+          {(helpHref || termsHref || privacyHref) && (
+            <footer className="mt-8">
+              <nav
+                aria-label="Login resources"
+                className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs leading-6 text-muted-foreground"
+              >
+                {[
+                  ["Help", helpHref],
+                  ["Terms", termsHref],
+                  ["Privacy", privacyHref],
+                ]
+                  .filter(([, href]) => href)
+                  .map(([label, href], index) => (
+                    <span key={label} className="inline-flex items-center gap-3">
+                      {index > 0 && <span aria-hidden="true">/</span>}
+                      <a
+                        href={href}
+                        className="transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                      >
+                        {label}
+                      </a>
+                    </span>
+                  ))}
+              </nav>
+            </footer>
+          )}
+        </Card>
+      </div>
     </div>
-  </div>);
+  );
 }
 function LoginForm({
   title,
@@ -126,11 +178,7 @@ function LoginForm({
           className="min-h-11 w-full border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-ring disabled:opacity-50"
         />
       </div>
-      <PasswordField
-        id={id}
-        loading={loading}
-        forgotPasswordHref={forgotPasswordHref}
-      />
+      <PasswordField id={id} loading={loading} forgotPasswordHref={forgotPasswordHref} />
       {children}
       <Button
         type="submit"
@@ -197,11 +245,7 @@ function PasswordField({
           aria-pressed={visible}
           onClick={() => setVisible(!visible)}
         >
-          {visible ? (
-            <EyeOff size={16} aria-hidden="true" />
-          ) : (
-            <Eye size={16} aria-hidden="true" />
-          )}
+          {visible ? <EyeOff size={16} aria-hidden="true" /> : <Eye size={16} aria-hidden="true" />}
         </Button>
       </div>
     </div>

@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { MetalWallet } from "@/registry/components/metal-wallet";
@@ -53,13 +60,88 @@ import { MetalWallet } from "@/components/hangry-ui/components/metal-wallet";
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"color"}</code></TableCell><TableCell><code className="break-words">{"\"spring-green\" | \"green\" | \"dark-green\" | \"white\""}</code></TableCell><TableCell><code>{"spring-green"}</code></TableCell><TableCell><code>{"\"spring-green\""}</code>{", "}<code>{"\"green\""}</code>{", "}<code>{"\"dark-green\""}</code>{", or "}<code>{"\"white\""}</code>{". Defaults to "}<code>{"\"spring-green\""}</code>{". The green variations use our global brand tokens."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code className="break-words">{"\"sm\" | \"md\" | \"lg\""}</code></TableCell><TableCell><code>{"md"}</code></TableCell><TableCell><code>{"\"sm\""}</code>{" (390px), "}<code>{"\"md\""}</code>{" (480px), or "}<code>{"\"lg\""}</code>{" (600px). The frame includes room for the cards on the right and shrinks to fit smaller containers."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the button wrapper."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"label"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Metal wallet"}</code></TableCell><TableCell>{"Accessible button name. Defaults to "}<code>{"\"Metal wallet\""}</code>{"."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"color"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"spring-green" | "green" | "dark-green" | "white"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"spring-green"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"spring-green"'}</code>
+        {", "}
+        <code>{'"green"'}</code>
+        {", "}
+        <code>{'"dark-green"'}</code>
+        {", or "}
+        <code>{'"white"'}</code>
+        {". Defaults to "}
+        <code>{'"spring-green"'}</code>
+        {". The green variations use our global brand tokens."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"size"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"sm" | "md" | "lg"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"md"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"sm"'}</code>
+        {" (390px), "}
+        <code>{'"md"'}</code>
+        {" (480px), or "}
+        <code>{'"lg"'}</code>
+        {
+          " (600px). The frame includes room for the cards on the right and shrinks to fit smaller containers."
+        }
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Additional classes on the button wrapper."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"label"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Metal wallet"}</code>
+      </TableCell>
+      <TableCell>
+        {"Accessible button name. Defaults to "}
+        <code>{'"Metal wallet"'}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

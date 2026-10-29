@@ -15,22 +15,48 @@ const corners = [
   "right-[var(--guide-inset)] bottom-[var(--guide-inset)] translate-x-1/2 translate-y-1/2",
 ];
 
-export const GuideCard = memo(function GuideCard({ children, className, ...props }: ComponentProps<"div"> = {}) {
+export const GuideCard = memo(function GuideCard({
+  children,
+  className,
+  ...props
+}: ComponentProps<"div"> = {}) {
   return (
-    <div data-slot="guide-card" className={cn("relative isolate min-w-0 w-full [--guide-inset:2rem] sm:[--guide-inset:3rem]", className)} {...props}>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 text-muted-foreground/40">
+    <div
+      data-slot="guide-card"
+      className={cn(
+        "relative isolate min-w-0 w-full [--guide-inset:2rem] sm:[--guide-inset:3rem]",
+        className,
+      )}
+      {...props}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 text-muted-foreground/40"
+      >
         {lines.map(({ position, vertical }) => (
           <div
             key={position}
             className={`absolute grid gap-6 ${vertical ? "w-px" : "h-px"} ${position}`}
             style={vertical ? { gridTemplateRows: tracks } : { gridTemplateColumns: tracks }}
           >
-            <span className="bg-border" /><span className="bg-border" /><span className="bg-border" />
+            <span className="bg-border" />
+            <span className="bg-border" />
+            <span className="bg-border" />
           </div>
         ))}
-        {corners.map(position => (
-          <svg key={position} viewBox="0 0 24 24" fill="none" className={`absolute size-6 ${position}`}>
-            <path d="M5 12H19M12 5V19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        {corners.map((position) => (
+          <svg
+            key={position}
+            viewBox="0 0 24 24"
+            fill="none"
+            className={`absolute size-6 ${position}`}
+          >
+            <path
+              d="M5 12H19M12 5V19"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
           </svg>
         ))}
       </div>

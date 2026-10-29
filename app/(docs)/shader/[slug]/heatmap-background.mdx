@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { HeatmapBackground } from "@/registry/shader/heatmap-background";
@@ -27,24 +34,90 @@ Heatmap Background is a vgpu-powered React UI component that renders a WGSL shad
 ```tsx
 import { HeatmapBackground } from "@/components/hangry-ui/shader/heatmap-background";
 
-<HeatmapBackground scale={1.5} speed={0.2} intensity={0.9}
-  className="grid place-items-center p-12">
+<HeatmapBackground scale={1.5} speed={0.2} intensity={0.9} className="grid place-items-center p-12">
   <h2 className="typography-section-title text-white">Turn up the heat.</h2>
-</HeatmapBackground>
+</HeatmapBackground>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"scale"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1.5"}</code></TableCell><TableCell>Field frequency, clamped to 0.25–6.</TableCell></TableRow>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.2"}</code></TableCell><TableCell>Nonnegative ambient animation speed. Set 0 to freeze the ambient field.</TableCell></TableRow>
-<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.9"}</code></TableCell><TableCell>Background brightness, clamped to 0–2.</TableCell></TableRow>
-<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Enable the pointer effect.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content displayed above the shader.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"scale"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1.5"}</code>
+      </TableCell>
+      <TableCell>Field frequency, clamped to 0.25–6.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.2"}</code>
+      </TableCell>
+      <TableCell>Nonnegative ambient animation speed. Set 0 to freeze the ambient field.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"intensity"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.9"}</code>
+      </TableCell>
+      <TableCell>Background brightness, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"interactive"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Enable the pointer effect.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Content displayed above the shader.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { LiquidChromeBackground } from "@/registry/shader/liquid-chrome-background";
@@ -27,27 +34,134 @@ Liquid Chrome Background is a vgpu-powered React UI component that renders a WGS
 ```tsx
 import { LiquidChromeBackground } from "@/components/hangry-ui/shader/liquid-chrome-background";
 
-<LiquidChromeBackground scale={1.6} distortion={0.8} speed={0.2} intensity={0.9} roughness={0.3} exposure={1}
-  className="grid place-items-center p-12">
+<LiquidChromeBackground
+  scale={1.6}
+  distortion={0.8}
+  speed={0.2}
+  intensity={0.9}
+  roughness={0.3}
+  exposure={1}
+  className="grid place-items-center p-12"
+>
   <h2 className="typography-section-title text-white">A fluid perspective.</h2>
-</LiquidChromeBackground>
+</LiquidChromeBackground>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"scale"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1.6"}</code></TableCell><TableCell>Surface frequency, clamped to 0.5–5. Larger values show more folds.</TableCell></TableRow>
-<TableRow><TableCell><code>{"distortion"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.8"}</code></TableCell><TableCell>Domain-warp strength, clamped to 0–2.</TableCell></TableRow>
-<TableRow><TableCell><code>{"roughness"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.3"}</code></TableCell><TableCell>Reflection softness, clamped to 0–1.</TableCell></TableRow>
-<TableRow><TableCell><code>{"exposure"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Tone-mapped lighting exposure, clamped to 0–4.</TableCell></TableRow>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.2"}</code></TableCell><TableCell>Nonnegative flow speed. Set 0 to freeze the ambient motion.</TableCell></TableRow>
-<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.9"}</code></TableCell><TableCell>Reflection brightness, clamped to 0–2.</TableCell></TableRow>
-<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Add ripples near the pointer.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content placed above the metallic surface.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"scale"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1.6"}</code>
+      </TableCell>
+      <TableCell>Surface frequency, clamped to 0.5–5. Larger values show more folds.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"distortion"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.8"}</code>
+      </TableCell>
+      <TableCell>Domain-warp strength, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"roughness"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.3"}</code>
+      </TableCell>
+      <TableCell>Reflection softness, clamped to 0–1.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"exposure"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1"}</code>
+      </TableCell>
+      <TableCell>Tone-mapped lighting exposure, clamped to 0–4.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.2"}</code>
+      </TableCell>
+      <TableCell>Nonnegative flow speed. Set 0 to freeze the ambient motion.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"intensity"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.9"}</code>
+      </TableCell>
+      <TableCell>Reflection brightness, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"interactive"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Add ripples near the pointer.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Content placed above the metallic surface.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Classes, styles, IDs, and accessibility attributes.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

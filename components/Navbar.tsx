@@ -9,11 +9,15 @@ import { browseSection } from "@/data/Navlinks";
 
 export default function Navbar() {
   const pathname = usePathname();
-  if (pathname === "/" || browseSection.links.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))) {
+  if (
+    pathname === "/" ||
+    browseSection.links.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))
+  ) {
     return null;
   }
 
-  const iconLinkClass = "inline-flex size-10 shrink-0 items-center justify-center border border-border bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring";
+  const iconLinkClass =
+    "inline-flex size-10 shrink-0 items-center justify-center border border-border bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring";
 
   return (
     <header className=" top-0 z-40 w-dvw overflow-x-clip px-2 py-2  sm:px-3 sm:py-3">
@@ -27,12 +31,7 @@ export default function Navbar() {
             <Logo variant="logo" className="size-10" />
           </Link>
           <div className="flex shrink-0 items-center justify-end gap-2 lg:col-start-3 lg:row-start-1">
-            <Link
-              href="/sponser"
-              aria-label="Sponser"
-              title="Sponser"
-              className={iconLinkClass}
-            >
+            <Link href="/sponser" aria-label="Sponser" title="Sponser" className={iconLinkClass}>
               <Heart size={19} aria-hidden="true" />
             </Link>
             <a
@@ -46,17 +45,25 @@ export default function Navbar() {
               <GitHubDark className="size-5" aria-hidden="true" />
             </a>
             <details className="group relative lg:hidden">
-              <summary aria-label="Toggle navigation menu" className={`${iconLinkClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}>
+              <summary
+                aria-label="Toggle navigation menu"
+                className={`${iconLinkClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
+              >
                 <Menu size={20} aria-hidden="true" className="group-open:hidden" />
                 <X size={20} aria-hidden="true" className="hidden group-open:block" />
               </summary>
-              <nav aria-label="Main navigation" className="absolute right-0 top-full z-50 mt-2 flex min-w-48 flex-col border border-border bg-card p-2 text-sm shadow-xl">
+              <nav
+                aria-label="Main navigation"
+                className="absolute right-0 top-full z-50 mt-2 flex min-w-48 flex-col border border-border bg-card p-2 text-sm shadow-xl"
+              >
                 {browseSection.links.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     aria-current={pathname === link.href ? "page" : undefined}
-                    onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")}
+                    onClick={(event) =>
+                      event.currentTarget.closest("details")?.removeAttribute("open")
+                    }
                     className="px-3 py-2.5 font-medium text-muted-foreground hover:bg-accent hover:text-foreground aria-[current=page]:bg-accent aria-[current=page]:text-foreground"
                   >
                     {link.label}

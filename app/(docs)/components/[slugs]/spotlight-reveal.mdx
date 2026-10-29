@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
@@ -47,14 +54,101 @@ import { SpotlightReveal } from "@/components/hangry-ui/components/spotlight-rev
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"src"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/wordmark.svg"}</code></TableCell><TableCell>{"Image URL. Defaults to "}<code>{"/wordmark.svg"}</code>{" from the public directory."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"variant"}</code></TableCell><TableCell><code className="break-words">{"\"default\" | \"stroke\""}</code></TableCell><TableCell><code>{"default"}</code></TableCell><TableCell><code>{"\"default\""}</code>{" for filled artwork or "}<code>{"\"stroke\""}</code>{" for outline-only artwork. Defaults to "}<code>{"\"default\""}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"strokeSrc"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/wordmark-stroke.svg"}</code></TableCell><TableCell>{"Outline image URL. Defaults to "}<code>{"/wordmark-stroke.svg"}</code>{". Supply a matching outline SVG when using custom artwork with "}<code>{"variant=\"stroke\""}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{""}</code></TableCell><TableCell>{"Image description. Defaults to an empty string for decorative artwork. Only the base image is announced."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional frame classes. Defaults to a fixed width of 640px, a height of 256px, and a transparent background. Shrinks to fit smaller containers."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"src"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"/wordmark.svg"}</code>
+      </TableCell>
+      <TableCell>
+        {"Image URL. Defaults to "}
+        <code>{"/wordmark.svg"}</code>
+        {" from the public directory."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"variant"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"default" | "stroke"'}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"default"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"default"'}</code>
+        {" for filled artwork or "}
+        <code>{'"stroke"'}</code>
+        {" for outline-only artwork. Defaults to "}
+        <code>{'"default"'}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"strokeSrc"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"/wordmark-stroke.svg"}</code>
+      </TableCell>
+      <TableCell>
+        {"Outline image URL. Defaults to "}
+        <code>{"/wordmark-stroke.svg"}</code>
+        {". Supply a matching outline SVG when using custom artwork with "}
+        <code>{'variant="stroke"'}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"alt"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{""}</code>
+      </TableCell>
+      <TableCell>
+        {
+          "Image description. Defaults to an empty string for decorative artwork. Only the base image is announced."
+        }
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {
+          "Additional frame classes. Defaults to a fixed width of 640px, a height of 256px, and a transparent background. Shrinks to fit smaller containers."
+        }
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

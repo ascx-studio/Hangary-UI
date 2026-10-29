@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { MechanicalKeyboard } from "@/registry/components/mechanical-keyboard";
@@ -25,17 +32,54 @@ A straight keyboard illustration with a dark case, outlined keys, and green bran
 ```tsx
 import { MechanicalKeyboard } from "@/components/hangry-ui/components/mechanical-keyboard";
 
-<MechanicalKeyboard />
+<MechanicalKeyboard />;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional SVG classes. Defaults to a fixed width of 640px, constrained to fit smaller containers."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"label"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Mechanical keyboard with brand-colored keycaps"}</code></TableCell><TableCell>{"Accessible image description. Defaults to "}<code>{"\"Mechanical keyboard with brand-colored keycaps\""}</code>{"."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {
+          "Additional SVG classes. Defaults to a fixed width of 640px, constrained to fit smaller containers."
+        }
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"label"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Mechanical keyboard with brand-colored keycaps"}</code>
+      </TableCell>
+      <TableCell>
+        {"Accessible image description. Defaults to "}
+        <code>{'"Mechanical keyboard with brand-colored keycaps"'}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

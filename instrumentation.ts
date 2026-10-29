@@ -19,22 +19,23 @@ if (!posthogKey) {
   }
 }
 
-export const posthogLoggerProvider = posthogKey && posthogHost
-  ? new LoggerProvider({
-      resource: resourceFromAttributes({ "service.name": "hangry-ui-catalog" }),
-      processors: [
-        new BatchLogRecordProcessor({
-          exporter: new OTLPLogExporter({
-            url: `${posthogHost}/i/v1/logs`,
-            headers: {
-              Authorization: `Bearer ${posthogKey}`,
-              "Content-Type": "application/json",
-            },
+export const posthogLoggerProvider =
+  posthogKey && posthogHost
+    ? new LoggerProvider({
+        resource: resourceFromAttributes({ "service.name": "hangry-ui-catalog" }),
+        processors: [
+          new BatchLogRecordProcessor({
+            exporter: new OTLPLogExporter({
+              url: `${posthogHost}/i/v1/logs`,
+              headers: {
+                Authorization: `Bearer ${posthogKey}`,
+                "Content-Type": "application/json",
+              },
+            }),
           }),
-        }),
-      ],
-    })
-  : undefined;
+        ],
+      })
+    : undefined;
 
 export function register() {
   // The provider is deliberately not global: only this integration's logger uses it.

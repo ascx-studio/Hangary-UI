@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { LogoAnimation } from "@/registry/components/logo-animation";
@@ -39,10 +46,14 @@ A reusable SVG logo component that animates the vector shapes supplied to it. It
 import { LogoAnimation } from "@/components/hangry-ui/components/logo-animation";
 
 function MyBrandLogo() {
-  return <svg viewBox="0 0 24 24"><path d="M4 12 10 18 20 6" fill="none" stroke="currentColor" strokeWidth={2} /></svg>;
+  return (
+    <svg viewBox="0 0 24 24">
+      <path d="M4 12 10 18 20 6" fill="none" stroke="currentColor" strokeWidth={2} />
+    </svg>
+  );
 }
 
-<LogoAnimation logo={<MyBrandLogo />} size={64} alt="My brand" />
+<LogoAnimation logo={<MyBrandLogo />} size={64} alt="My brand" />;
 ```
 
 `logo` accepts an SVG component or inline SVG. Its SVG shapes draw in sequence and filled shapes fade in:
@@ -56,16 +67,99 @@ The default portfolio logo is used only when neither `logo` nor `children` is pr
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"logo"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>Portfolio logo</TableCell><TableCell>Any rendered logo component, inline SVG, or image. Vector shapes are drawn individually; other artwork fades in.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Alias for <code>{"logo"}</code>, useful for passing SVG elements directly.</TableCell></TableRow>
-<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"48"}</code></TableCell><TableCell>Square logo size in pixels.</TableCell></TableRow>
-<TableRow><TableCell><code>{"width"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"size"}</code></TableCell><TableCell>SVG width in pixels.</TableCell></TableRow>
-<TableRow><TableCell><code>{"height"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"size"}</code></TableCell><TableCell>SVG height in pixels.</TableCell></TableRow>
-<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\"Portfolio logo\""}</code></TableCell><TableCell>Accessible description for the logo.</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell>—</TableCell><TableCell>Additional classes on the wrapper.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"logo"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>Portfolio logo</TableCell>
+      <TableCell>
+        Any rendered logo component, inline SVG, or image. Vector shapes are drawn individually;
+        other artwork fades in.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        Alias for <code>{"logo"}</code>, useful for passing SVG elements directly.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"size"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"48"}</code>
+      </TableCell>
+      <TableCell>Square logo size in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"width"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"size"}</code>
+      </TableCell>
+      <TableCell>SVG width in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"height"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"size"}</code>
+      </TableCell>
+      <TableCell>SVG height in pixels.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"alt"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"Portfolio logo"'}</code>
+      </TableCell>
+      <TableCell>Accessible description for the logo.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional classes on the wrapper.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

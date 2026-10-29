@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { Badge } from "@/registry/components/badge";
@@ -39,7 +46,7 @@ Status badges with matching icons, tinted backgrounds, square corners, and a sub
 ```tsx
 import { Badge } from "@/components/hangry-ui/components/badge";
 
-<Badge variant="success">Published</Badge>
+<Badge variant="success">Published</Badge>;
 ```
 
 ## Props
@@ -55,28 +62,58 @@ import { Badge } from "@/components/hangry-ui/components/badge";
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableCell><code className="break-words">{"variant"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"pending\" | \"in-progress\" | \"submitted\" | \"in-review\" | \"failed\" | \"expired\" | \"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"blue\" | \"purple\" | \"pink\" | \"teal\" | \"orange\""}</code></TableCell>
-      <TableCell><code className="break-words">{"\"success\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"variant"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">
+          {
+            '"pending" | "in-progress" | "submitted" | "in-review" | "failed" | "expired" | "neutral" | "info" | "success" | "warning" | "error" | "blue" | "purple" | "pink" | "teal" | "orange"'
+          }
+        </code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"success"'}</code>
+      </TableCell>
       <TableCell>{"Badge status or color."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"children"}</code></TableCell>
-      <TableCell><code className="break-words">{"ReactNode"}</code></TableCell>
-      <TableCell><code className="break-words">{"Status label"}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"Status label"}</code>
+      </TableCell>
       <TableCell>{"Overrides the default status label."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"className"}</code></TableCell>
-      <TableCell><code className="break-words">{"string"}</code></TableCell>
-      <TableCell><code className="break-words">{"\"\""}</code></TableCell>
+      <TableCell>
+        <code className="break-words">{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'""'}</code>
+      </TableCell>
       <TableCell>{"Additional CSS classes on the component root."}</TableCell>
     </TableRow>
     <TableRow>
-      <TableCell><code className="break-words">{"Native props"}</code></TableCell>
-      <TableCell><code className="break-words">{"ComponentProps<\"span\">"}</code></TableCell>
-      <TableCell><code className="break-words">{"—"}</code></TableCell>
-      <TableCell>{"Forwards native span attributes, aria-* attributes, and event handlers."}</TableCell>
+      <TableCell>
+        <code className="break-words">{"Native props"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'ComponentProps<"span">'}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
+      <TableCell>
+        {"Forwards native span attributes, aria-* attributes, and event handlers."}
+      </TableCell>
     </TableRow>
   </TableBody>
 </Table>

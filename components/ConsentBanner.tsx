@@ -34,7 +34,9 @@ export default function ConsentBanner() {
     >
       <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between gap-3">
-          <h2 id="consent-title" className={"typography-section-title"}>Analytics</h2>
+          <h2 id="consent-title" className={"typography-section-title"}>
+            Analytics
+          </h2>
           <button
             type="button"
             aria-label="Dismiss analytics notice"
@@ -49,8 +51,12 @@ export default function ConsentBanner() {
         </p>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
-        <Button variant="secondary" onClick={() => choose("rejected")}>Reject analytics</Button>
-        <Button variant="primary" onClick={() => choose("accepted")}>Accept analytics</Button>
+        <Button variant="secondary" onClick={() => choose("rejected")}>
+          Reject analytics
+        </Button>
+        <Button variant="primary" onClick={() => choose("accepted")}>
+          Accept analytics
+        </Button>
       </div>
     </section>
   );

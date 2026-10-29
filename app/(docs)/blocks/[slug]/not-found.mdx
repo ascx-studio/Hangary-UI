@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { NotFound } from "@/registry/blocks/not-found";
@@ -41,16 +48,114 @@ export default function NotFoundPage() {
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Heading for the recovery message."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Explanation beneath the heading."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"homeHref"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/"}</code></TableCell><TableCell>{"Primary destination. Defaults to "}<code>{"/"}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"homeLabel"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Back to home"}</code></TableCell><TableCell>{"Primary link text. Defaults to "}<code>{"Back to home"}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"secondaryHref"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Optional secondary destination. Omitted by default."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"secondaryLabel"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Contact support"}</code></TableCell><TableCell>{"Secondary link text. Defaults to "}<code>{"Contact support"}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional section classes. Native section attributes are forwarded."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Heading for the recovery message."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Explanation beneath the heading."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"homeHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"/"}</code>
+      </TableCell>
+      <TableCell>
+        {"Primary destination. Defaults to "}
+        <code>{"/"}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"homeLabel"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Back to home"}</code>
+      </TableCell>
+      <TableCell>
+        {"Primary link text. Defaults to "}
+        <code>{"Back to home"}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"secondaryHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Optional secondary destination. Omitted by default."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"secondaryLabel"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Contact support"}</code>
+      </TableCell>
+      <TableCell>
+        {"Secondary link text. Defaults to "}
+        <code>{"Contact support"}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Additional section classes. Native section attributes are forwarded."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

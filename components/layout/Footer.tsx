@@ -9,7 +9,15 @@ const askPrompt = encodeURIComponent(
   `Using ${siteUrl}, explain why I should use Hangry UI to build web interfaces. Cover its React components, blocks, shaders, animations, installation workflow, and what makes it stand out. Explain what the examples and source code reveal about its design and development approach. Base your answer on the website, cite relevant pages, and distinguish documented features from inference.`,
 );
 const groups = [
-  { title: "Pages", links: [{ label: "Home", href: "/" }, ...browseSection.links, { label: "Sponsor", href: "/sponser" }, { label: "Privacy", href: "/privacy" }] },
+  {
+    title: "Pages",
+    links: [
+      { label: "Home", href: "/" },
+      ...browseSection.links,
+      { label: "Sponsor", href: "/sponser" },
+      { label: "Privacy", href: "/privacy" },
+    ],
+  },
   {
     title: "Ask AI",
     links: [
@@ -32,7 +40,17 @@ const groups = [
 ];
 
 const Footer = memo(function Footer() {
-  return <FooterMain groups={groups} quickLinks={browseSection.links} homeHref="/" githubHref={repository} xHref={xProfile} sponsorHref="/sponser" className="md:sticky" />;
+  return (
+    <FooterMain
+      groups={groups}
+      quickLinks={browseSection.links}
+      homeHref="/"
+      githubHref={repository}
+      xHref={xProfile}
+      sponsorHref="/sponser"
+      className="md:sticky"
+    />
+  );
 });
 
 export default Footer;

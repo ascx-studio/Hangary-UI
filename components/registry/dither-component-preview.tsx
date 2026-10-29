@@ -9,7 +9,11 @@ type DitherComponentPreviewProps = ComponentProps<"section"> & {
 };
 
 const DitherComponentPreview = memo(function DitherComponentPreview({
-  children, className, fullBleed = false, frameWidth = 20, ...props
+  children,
+  className,
+  fullBleed = false,
+  frameWidth = 20,
+  ...props
 }: DitherComponentPreviewProps) {
   return (
     <SharedPreviewLayout dataSlot="component-preview" className="mx-auto mb-10 w-full max-w-7xl">

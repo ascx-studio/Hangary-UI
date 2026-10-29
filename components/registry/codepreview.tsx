@@ -24,12 +24,18 @@ Prism.languages.insertBefore("bash", "function", {
 const prismTheme: PrismTheme = {
   plain: { color: "var(--card-foreground)", backgroundColor: "transparent" },
   styles: [
-    { types: ["comment", "prolog", "doctype", "cdata"], style: { color: "var(--muted-foreground)", fontStyle: "italic" } },
+    {
+      types: ["comment", "prolog", "doctype", "cdata"],
+      style: { color: "var(--muted-foreground)", fontStyle: "italic" },
+    },
     { types: ["punctuation", "operator"], style: { color: "var(--muted-foreground)" } },
     { types: ["keyword", "tag", "selector", "atrule"], style: { color: "var(--code-primary)" } },
     { types: ["string", "char", "attr-value", "url"], style: { color: "var(--code-info)" } },
     { types: ["number", "boolean", "constant"], style: { color: "var(--code-warning)" } },
-    { types: ["function", "class-name", "property", "attr-name"], style: { color: "var(--card-foreground)" } },
+    {
+      types: ["function", "class-name", "property", "attr-name"],
+      style: { color: "var(--card-foreground)" },
+    },
     { types: ["builtin", "important", "command"], style: { color: "var(--code-primary)" } },
   ],
 };
@@ -46,12 +52,21 @@ export default function CodePreview({
   ...props
 }: CodePreviewProps) {
   const normalized = language.toLowerCase();
-  const languageId = ({ js: "javascript", ts: "typescript", sh: "bash", shell: "bash", html: "markup", xml: "markup", py: "python" } as Record<string, string>)[normalized] ?? normalized;
+  const languageId =
+    (
+      {
+        js: "javascript",
+        ts: "typescript",
+        sh: "bash",
+        shell: "bash",
+        html: "markup",
+        xml: "markup",
+        py: "python",
+      } as Record<string, string>
+    )[normalized] ?? normalized;
 
   return (
-    <div
-      className={cn(styles.entrance, "min-w-0")}
-    >
+    <div className={cn(styles.entrance, "min-w-0")}>
       <pre
         tabIndex={0}
         aria-label={`${language} code`}
@@ -67,7 +82,9 @@ export default function CodePreview({
             <code className={`font-mono language-${normalized}`}>
               {tokens.map((line, index) => (
                 <span key={index} {...getLineProps({ line })}>
-                  {line.map((token, tokenIndex) => <span key={tokenIndex} {...getTokenProps({ token })} />)}
+                  {line.map((token, tokenIndex) => (
+                    <span key={tokenIndex} {...getTokenProps({ token })} />
+                  ))}
                   {index < tokens.length - 1 ? "\n" : null}
                 </span>
               ))}

@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { AspectRatio } from "@/registry/components/aspect-ratio";
@@ -37,16 +44,34 @@ import { AspectRatio } from "@/components/hangry-ui/components/aspect-ratio";
 
 <AspectRatio ratio={9 / 16} className="overflow-hidden border border-border">
   {/* Image or other content */}
-</AspectRatio>
+</AspectRatio>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"ratio"}</code></TableCell><TableCell><code className="break-words">{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>{"Optional."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"ratio"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1"}</code>
+      </TableCell>
+      <TableCell>{"Optional."}</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 `ratio` is the numeric width divided by height and defaults to `1`: use `16 / 9` for landscape, `9 / 16` for portrait, or `1` for a square. Standard div props, children, className, style, and ref are forwarded.

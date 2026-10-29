@@ -3,11 +3,35 @@
 import { memo, type ReactNode } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion, type HTMLMotionProps } from "motion/react";
-import { CircleCheck, CircleDashed, CircleX, Clock3, SearchCheck, Send, TriangleAlert } from "lucide-react";
+import {
+  CircleCheck,
+  CircleDashed,
+  CircleX,
+  Clock3,
+  SearchCheck,
+  Send,
+  TriangleAlert,
+} from "lucide-react";
 
 interface BadgeProps extends Omit<HTMLMotionProps<"span">, "children"> {
   children?: ReactNode;
-  variant?: "pending" | "in-progress" | "submitted" | "in-review" | "success" | "failed" | "expired" | "neutral" | "info" | "warning" | "error" | "blue" | "purple" | "pink" | "teal" | "orange";
+  variant?:
+    | "pending"
+    | "in-progress"
+    | "submitted"
+    | "in-review"
+    | "success"
+    | "failed"
+    | "expired"
+    | "neutral"
+    | "info"
+    | "warning"
+    | "error"
+    | "blue"
+    | "purple"
+    | "pink"
+    | "teal"
+    | "orange";
 }
 
 const statuses = {
@@ -39,7 +63,12 @@ const styles = {
   orange: "bg-orange-500/10 text-orange-500",
 };
 
-export const Badge = memo(function Badge({ children, variant = "success", className = "", ...props }: BadgeProps = {}) {
+export const Badge = memo(function Badge({
+  children,
+  variant = "success",
+  className = "",
+  ...props
+}: BadgeProps = {}) {
   const status = variant in statuses ? statuses[variant as keyof typeof statuses] : undefined;
   const Icon = status?.icon;
   const reducedMotion = useReducedMotion();

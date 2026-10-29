@@ -3,6 +3,10 @@ import { LightBackground, type LightBackgroundProps } from "./light-background.s
 
 export type LightRayBackgroundProps = LightBackgroundProps;
 
-export const LightRayBackground = memo(function LightRayBackground({ intensity = 1, speed = 0.1, ...props }: LightRayBackgroundProps = {}) {
+export const LightRayBackground = memo(function LightRayBackground({
+  intensity = 1,
+  speed = 0.1,
+  ...props
+}: LightRayBackgroundProps = {}) {
   return <LightBackground {...props} intensity={intensity} speed={speed} variant="light-ray" />;
 });

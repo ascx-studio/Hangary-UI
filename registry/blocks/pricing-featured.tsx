@@ -63,10 +63,7 @@ export const PricingFeatured = memo(function PricingFeatured({
             key={plan.name}
             title=""
             description=""
-            className={cn(
-              "max-w-none!",
-              plan.featured && "border-primary shadow-lg",
-            )}
+            className={cn("max-w-none!", plan.featured && "border-primary shadow-lg")}
             footer={
               <Button
                 href={plan.href}
@@ -93,11 +90,7 @@ export const PricingFeatured = memo(function PricingFeatured({
               <ul className="space-y-3 text-sm">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
-                    <Check
-                      size={16}
-                      aria-hidden="true"
-                      className="mt-0.5 shrink-0 text-primary"
-                    />
+                    <Check size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-primary" />
                     {feature}
                   </li>
                 ))}

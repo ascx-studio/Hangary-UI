@@ -15,9 +15,7 @@
           "target": "@components/hangry-ui/components/guide-card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       }
@@ -126,10 +124,7 @@
           "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "meta": {
         "category": "blocks"
       },
@@ -196,10 +191,7 @@
           "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "meta": {
         "category": "blocks"
       },
@@ -266,10 +258,7 @@
           "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "meta": {
         "category": "blocks"
       },
@@ -341,9 +330,7 @@
           "target": "public/1.png"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       },
@@ -405,9 +392,7 @@
           "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       },
@@ -474,9 +459,7 @@
           "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       },
@@ -533,9 +516,7 @@
           "target": "@components/hangry-ui/components/frame-card.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       }
@@ -584,10 +565,7 @@
           "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
-      "dependencies": [
-        "motion@^14.3.0",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["motion@^14.3.0", "lucide-react@^1.48.0"],
       "meta": {
         "category": "components"
       },
@@ -669,9 +647,7 @@
           "target": "public/1.png"
         }
       ],
-      "dependencies": [
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["motion@^14.3.0"],
       "meta": {
         "category": "components"
       },
@@ -748,9 +724,7 @@
           "target": "public/1.png"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       },
@@ -810,9 +784,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
+      "dependencies": ["cn@^0.2.6"]
     },
     {
       "name": "linear-gradient-background",
@@ -911,10 +883,7 @@
           "target": "@components/hangry-ui/components/badge.tsx"
         }
       ],
-      "dependencies": [
-        "lucide-react@^1.48.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
       },
@@ -971,10 +940,7 @@
           "target": "@components/hangry-ui/components/banner.tsx"
         }
       ],
-      "dependencies": [
-        "lucide-react@^1.48.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
       }
@@ -999,10 +965,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1066,10 +1029,7 @@
           "target": "@components/hangry-ui/components/card.tsx"
         }
       ],
-      "dependencies": [
-        "lucide-react@^1.48.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
       },
@@ -1129,9 +1089,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6"
-      ]
+      "dependencies": ["cn@^0.2.6"]
     },
     {
       "name": "breadcrumb",
@@ -1246,11 +1204,7 @@
           "target": "@components/hangry-ui/components/button.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
       },
@@ -1403,11 +1357,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1474,11 +1424,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1550,11 +1496,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1625,10 +1567,7 @@
           "target": "@components/hangry-ui/components/lightbox.tsx"
         }
       ],
-      "dependencies": [
-        "lucide-react@^1.48.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
       },
@@ -1713,11 +1652,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1794,11 +1729,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1880,11 +1811,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -1941,9 +1868,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "motion@^14.3.0"
-      ]
+      "dependencies": ["motion@^14.3.0"]
     },
     {
       "name": "mechanical-keyboard",
@@ -1960,10 +1885,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0"
-      ]
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0"]
     },
     {
       "name": "metal-wallet",
@@ -1985,10 +1907,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0"
-      ]
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0"]
     },
     {
       "name": "nav-line",
@@ -2015,10 +1934,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2072,9 +1988,7 @@
           "target": "@components/hangry-ui/components/outline.tsx"
         }
       ],
-      "dependencies": [
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["motion@^14.3.0"],
       "meta": {
         "category": "components"
       },
@@ -2159,11 +2073,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2245,11 +2155,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2331,11 +2237,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "@ridemountainpig/svgl-react@^1.0.18",
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2407,10 +2309,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ]
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"]
     },
     {
       "name": "pricing",
@@ -2442,10 +2341,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2542,10 +2438,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2617,10 +2510,7 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "lucide-react@^1.48.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2687,10 +2577,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0"
-      ]
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0"]
     },
     {
       "name": "table",
@@ -2704,9 +2591,7 @@
           "target": "@components/hangry-ui/components/table.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       }
@@ -2743,11 +2628,7 @@
           "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
         }
       ],
-      "dependencies": [
-        "vgpu@^0.6.0",
-        "@vgpu/wgsl@^0.6.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["vgpu@^0.6.0", "@vgpu/wgsl@^0.6.0", "motion@^14.3.0"],
       "meta": {
         "category": "shader"
       }
@@ -2784,11 +2665,7 @@
           "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
         }
       ],
-      "dependencies": [
-        "vgpu@^0.6.0",
-        "@vgpu/wgsl@^0.6.0",
-        "motion@^14.3.0"
-      ],
+      "dependencies": ["vgpu@^0.6.0", "@vgpu/wgsl@^0.6.0", "motion@^14.3.0"],
       "meta": {
         "category": "shader"
       }
@@ -2805,9 +2682,7 @@
           "target": "@components/hangry-ui/components/tabs.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       },
@@ -2872,9 +2747,7 @@
       "meta": {
         "category": "components"
       },
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -2994,9 +2867,7 @@
           "target": "@components/hangry-ui/components/accordion.tsx"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6"
-      ],
+      "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
       },
@@ -3030,12 +2901,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3077,12 +2943,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -3164,12 +3025,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "components"
       }
@@ -3196,12 +3052,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3253,12 +3104,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -3335,12 +3181,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3377,12 +3218,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3444,12 +3280,7 @@
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3511,12 +3342,7 @@
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3578,12 +3404,7 @@
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3645,12 +3466,7 @@
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3712,12 +3528,7 @@
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3779,12 +3590,7 @@
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3816,12 +3622,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }
@@ -3853,12 +3654,7 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         }
       ],
-      "dependencies": [
-        "cn@^0.2.6",
-        "motion@^14.3.0",
-        "vgpu@0.6.0",
-        "@vgpu/wgsl@0.6.0"
-      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
       }

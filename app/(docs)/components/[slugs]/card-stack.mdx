@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { CardStack } from "@/registry/components/card-stack";
@@ -36,12 +43,74 @@ import { CardStack } from "@/components/hangry-ui/components/card-stack";
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"items"}</code></TableCell><TableCell><code className="break-words">{"readonly CardStackItem[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Up to three visible layers with unique "}<code>{"id"}</code>{" and "}<code>{"title"}</code>{", plus optional "}<code>{"description"}</code>{", "}<code>{"src"}</code>{", "}<code>{"alt"}</code>{", or "}<code>{"children"}</code>{". The selected card displays its content; the remaining cards form selectable background layers. An empty array renders nothing."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"label"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Card stack"}</code></TableCell><TableCell>{"Accessible name for the stack. Defaults to "}<code>{"\"Card stack\""}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the wrapper. Defaults to full width with a 672px maximum."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"items"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"readonly CardStackItem[]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Up to three visible layers with unique "}
+        <code>{"id"}</code>
+        {" and "}
+        <code>{"title"}</code>
+        {", plus optional "}
+        <code>{"description"}</code>
+        {", "}
+        <code>{"src"}</code>
+        {", "}
+        <code>{"alt"}</code>
+        {", or "}
+        <code>{"children"}</code>
+        {
+          ". The selected card displays its content; the remaining cards form selectable background layers. An empty array renders nothing."
+        }
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"label"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Card stack"}</code>
+      </TableCell>
+      <TableCell>
+        {"Accessible name for the stack. Defaults to "}
+        <code>{'"Card stack"'}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"See description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Additional classes on the wrapper. Defaults to full width with a 672px maximum."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

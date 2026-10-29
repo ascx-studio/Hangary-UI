@@ -2,9 +2,15 @@ import type { Metadata, ResolvedMetadata } from "next";
 import { homepage } from "@/registry.json";
 
 export const siteUrl = new URL(homepage).origin;
-export const siteDescription = "React UI components, page blocks, and vgpu WebGPU shaders. Explore live previews, Tailwind CSS styling, and install components with shadcn.";
+export const siteDescription =
+  "React UI components, page blocks, and vgpu WebGPU shaders. Explore live previews, Tailwind CSS styling, and install components with shadcn.";
 
-export function pageMetadata(path: string, title: string, description: string, parent?: ResolvedMetadata): Metadata {
+export function pageMetadata(
+  path: string,
+  title: string,
+  description: string,
+  parent?: ResolvedMetadata,
+): Metadata {
   return {
     title,
     description,
@@ -29,12 +35,17 @@ export function pageMetadata(path: string, title: string, description: string, p
 
 /** Only GPU-backed items should target vgpu/WebGPU queries. */
 export function usesVgpu(item: { dependencies?: string[] }): boolean {
-  return item.dependencies?.some(dependency => /^vgpu(?:@|$)/.test(dependency)) ?? false;
+  return item.dependencies?.some((dependency) => /^vgpu(?:@|$)/.test(dependency)) ?? false;
 }
 
-export function registrySeo(item: { title: string; description: string; dependencies?: string[] }, category: string) {
+export function registrySeo(
+  item: { title: string; description: string; dependencies?: string[] },
+  category: string,
+) {
   if (category === "shader") {
-    const technology = usesVgpu(item) ? "vgpu WebGPU shader for React" : "React background component";
+    const technology = usesVgpu(item)
+      ? "vgpu WebGPU shader for React"
+      : "React background component";
     return {
       title: `${item.title} – ${usesVgpu(item) ? "vgpu React Shader" : "React Background"}`,
       description: `${item.title}, a ${technology}. ${item.description} Live preview, props, and shadcn install.`,
@@ -46,7 +57,17 @@ export function registrySeo(item: { title: string; description: string; dependen
   };
 }
 
-export function registryStructuredData(item: { name: string; title: string; description: string; dependencies?: string[]; files: { path: string }[] }, category: string, path: string) {
+export function registryStructuredData(
+  item: {
+    name: string;
+    title: string;
+    description: string;
+    dependencies?: string[];
+    files: { path: string }[];
+  },
+  category: string,
+  path: string,
+) {
   const seo = registrySeo(item, category);
   const url = new URL(path.split("#")[0], siteUrl).href;
   return {
@@ -66,7 +87,9 @@ export function registryStructuredData(item: { name: string; title: string; desc
       description: item.description,
       codeRepository: "https://github.com/ascx-studio/ui",
       codeSampleType: "full solution",
-      programmingLanguage: item.files.some(file => file.path.endsWith(".wgsl")) ? ["TypeScript", "WGSL"] : ["TypeScript"],
+      programmingLanguage: item.files.some((file) => file.path.endsWith(".wgsl"))
+        ? ["TypeScript", "WGSL"]
+        : ["TypeScript"],
       runtimePlatform: usesVgpu(item) ? "React, WebGPU, vgpu" : "React",
     },
   };

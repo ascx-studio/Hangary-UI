@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { PricingFeatured } from "@/registry/blocks/pricing-featured";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
@@ -8,7 +15,9 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsHeader name="pricing-featured" />
 
-<ComponentPreview id="pricing-featured" className="h-full w-full"><PricingFeatured /></ComponentPreview>
+<ComponentPreview id="pricing-featured" className="h-full w-full">
+  <PricingFeatured />
+</ComponentPreview>
 
 <DocsReveal stagger>
 
@@ -23,18 +32,62 @@ A focused two-plan pricing block with a highlighted recommended plan.
 ```tsx
 import { PricingFeatured } from "@/components/hangry-ui/blocks/pricing-featured";
 
-<PricingFeatured />
+<PricingFeatured />;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Simple pricing for focused teams"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Choose the plan that fits how you build today."}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"plans"}</code></TableCell><TableCell><code>{"{ name: string; description: string; price: string; features: string[]; href: string; label?: string; featured?: boolean; }[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Simple pricing for focused teams"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Choose the plan that fits how you build today."}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"plans"}</code>
+      </TableCell>
+      <TableCell>
+        <code>
+          {
+            "{ name: string; description: string; price: string; features: string[]; href: string; label?: string; featured?: boolean; }[]"
+          }
+        </code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

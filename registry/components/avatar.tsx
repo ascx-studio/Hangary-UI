@@ -9,12 +9,7 @@ interface AvatarProps {
   className?: string;
 }
 
-export function Avatar({
-  src,
-  name = "Alex Morgan",
-  size = 48,
-  className = "",
-}: AvatarProps = {}) {
+export function Avatar({ src, name = "Alex Morgan", size = 48, className = "" }: AvatarProps = {}) {
   const [failedSrc, setFailedSrc] = useState<string>();
   const initials = name
     .trim()

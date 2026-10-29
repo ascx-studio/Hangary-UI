@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { Card } from "@/registry/components/card";
 import { FooterMinimal } from "@/registry/blocks/footer-minimal";
 import { CodeBlock } from "@/registry/components/code-block";
@@ -35,16 +42,22 @@ import { FooterMinimal } from "@/components/hangry-ui/blocks/footer-minimal";
   copyright="© 2026 Acme"
   githubHref="#github"
   groups={[
-    { title: "Pages", links: [
-      { label: "Home", href: "#home" },
-      { label: "Components", href: "#components" },
-      { label: "Blocks", href: "#blocks" },
-    ] },
-    { title: "More", links: [
-      { label: "Shaders", href: "#shaders" },
-      { label: "Sponsor", href: "#sponsor" },
-      { label: "Privacy", href: "#privacy" },
-    ] },
+    {
+      title: "Pages",
+      links: [
+        { label: "Home", href: "#home" },
+        { label: "Components", href: "#components" },
+        { label: "Blocks", href: "#blocks" },
+      ],
+    },
+    {
+      title: "More",
+      links: [
+        { label: "Shaders", href: "#shaders" },
+        { label: "Sponsor", href: "#sponsor" },
+        { label: "Privacy", href: "#privacy" },
+      ],
+    },
   ]}
   callout={{
     title: "Build something new",
@@ -52,23 +65,118 @@ import { FooterMinimal } from "@/components/hangry-ui/blocks/footer-minimal";
     label: "Get started",
     href: "#components",
   }}
-/>
+/>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"brand"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"Hangry UI"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"homeHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#home"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"groups"}</code></TableCell><TableCell><code>{"{ title: string; links: { label: string; href: string; }[]; }[]"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"githubHref"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"#github"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"copyright"}</code></TableCell><TableCell><code>{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"callout"}</code></TableCell><TableCell><code>{"{ title: string; description: string; label: string; href: string; }"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-<TableRow><TableCell><code>{"action"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>Optional.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"brand"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Hangry UI"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"homeHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"#home"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"groups"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"{ title: string; links: { label: string; href: string; }[]; }[]"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"githubHref"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"#github"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"copyright"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"callout"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"{ title: string; description: string; label: string; href: string; }"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"action"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>Optional.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

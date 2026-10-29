@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { LightRayBackground } from "@/registry/shader/light-ray-background";
@@ -29,20 +36,76 @@ import { LightRayBackground } from "@/components/hangry-ui/shader/light-ray-back
 
 <LightRayBackground speed={0.1} interactive className="grid place-items-center p-12">
   <h2 className="typography-section-title text-white">Follow the light.</h2>
-</LightRayBackground>
+</LightRayBackground>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"speed"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"0.1"}</code></TableCell><TableCell>Nonnegative pulse animation speed. Set 0 to stop pulse travel.</TableCell></TableRow>
-<TableRow><TableCell><code>{"intensity"}</code></TableCell><TableCell><code>{"number"}</code></TableCell><TableCell><code>{"1"}</code></TableCell><TableCell>Background brightness, clamped to 0–2.</TableCell></TableRow>
-<TableRow><TableCell><code>{"interactive"}</code></TableCell><TableCell><code>{"boolean"}</code></TableCell><TableCell><code>{"true"}</code></TableCell><TableCell>Steer the strands with the pointer and trigger a surge on press.</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code>{"ReactNode"}</code></TableCell><TableCell>—</TableCell><TableCell>Content displayed above the shader.</TableCell></TableRow>
-<TableRow><TableCell>Native div props</TableCell><TableCell><code>{"ComponentProps"}</code></TableCell><TableCell>—</TableCell><TableCell>Classes, styles, IDs, and accessibility attributes on the container.</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"speed"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"0.1"}</code>
+      </TableCell>
+      <TableCell>Nonnegative pulse animation speed. Set 0 to stop pulse travel.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"intensity"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1"}</code>
+      </TableCell>
+      <TableCell>Background brightness, clamped to 0–2.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"interactive"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"true"}</code>
+      </TableCell>
+      <TableCell>Steer the strands with the pointer and trigger a surge on press.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Content displayed above the shader.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Native div props</TableCell>
+      <TableCell>
+        <code>{"ComponentProps"}</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Classes, styles, IDs, and accessibility attributes on the container.</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

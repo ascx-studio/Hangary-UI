@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { ScaleCard } from "@/registry/components/scale-card";
@@ -27,20 +34,92 @@ import { ScaleCard } from "@/components/hangry-ui/components/scale-card";
 
 <div className="overflow-hidden px-16 py-24">
   <ScaleCard src="/1.png" alt="Glowing white butterflies on a dark background" size={8} />
-</div>
+</div>;
 ```
 
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"src"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"/1.png"}</code></TableCell><TableCell>{"Image URL. Defaults to "}<code>{"/1.png"}</code>{" from the public directory."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"alt"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"Glowing white butterflies on a dark background"}</code></TableCell><TableCell>{"Image description. Provide text describing your own image."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"size"}</code></TableCell><TableCell><code className="break-words">{"number"}</code></TableCell><TableCell><code>{"8"}</code></TableCell><TableCell>{"Spacing between ruler marks in pixels. Defaults to "}<code>{"8"}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"children"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Optional content to display instead of the image."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the wrapper. Defaults to 288px wide with a 9:10 card ratio."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"src"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"/1.png"}</code>
+      </TableCell>
+      <TableCell>
+        {"Image URL. Defaults to "}
+        <code>{"/1.png"}</code>
+        {" from the public directory."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"alt"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"Glowing white butterflies on a dark background"}</code>
+      </TableCell>
+      <TableCell>{"Image description. Provide text describing your own image."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"size"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"number"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"8"}</code>
+      </TableCell>
+      <TableCell>
+        {"Spacing between ruler marks in pixels. Defaults to "}
+        <code>{"8"}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"See description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"Optional content to display instead of the image."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"See description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Additional classes on the wrapper. Defaults to 288px wide with a 9:10 card ratio."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 - Native div attributes are forwarded to the wrapper.

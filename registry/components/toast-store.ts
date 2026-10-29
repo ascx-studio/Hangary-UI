@@ -23,7 +23,7 @@ const listeners = new Set<() => void>();
 
 function publish(next: readonly Notification[]) {
   notifications = next;
-  listeners.forEach(listener => listener());
+  listeners.forEach((listener) => listener());
 }
 
 function show(message: string, options: ToastOptions = {}) {
@@ -33,18 +33,25 @@ function show(message: string, options: ToastOptions = {}) {
 }
 
 export const toast = Object.assign(show, {
-  neutral: (message: string, options?: ToastOptions) => show(message, { ...options, variant: "neutral" }),
+  neutral: (message: string, options?: ToastOptions) =>
+    show(message, { ...options, variant: "neutral" }),
   info: (message: string, options?: ToastOptions) => show(message, { ...options, variant: "info" }),
-  success: (message: string, options?: ToastOptions) => show(message, { ...options, variant: "success" }),
-  warning: (message: string, options?: ToastOptions) => show(message, { ...options, variant: "warning" }),
-  error: (message: string, options?: ToastOptions) => show(message, { ...options, variant: "error" }),
-  dismiss: (id?: number) => publish(id === undefined ? empty : notifications.filter(item => item.id !== id)),
+  success: (message: string, options?: ToastOptions) =>
+    show(message, { ...options, variant: "success" }),
+  warning: (message: string, options?: ToastOptions) =>
+    show(message, { ...options, variant: "warning" }),
+  error: (message: string, options?: ToastOptions) =>
+    show(message, { ...options, variant: "error" }),
+  dismiss: (id?: number) =>
+    publish(id === undefined ? empty : notifications.filter((item) => item.id !== id)),
 });
 
 export const toastStore = {
   subscribe(listener: () => void) {
     listeners.add(listener);
-    return () => { listeners.delete(listener); };
+    return () => {
+      listeners.delete(listener);
+    };
   },
   getSnapshot: () => notifications,
   getServerSnapshot: () => empty,

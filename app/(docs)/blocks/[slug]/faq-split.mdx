@@ -1,4 +1,11 @@
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/registry/components/table";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
 import { FaqSplit } from "@/registry/blocks/faq-split";
@@ -41,15 +48,102 @@ import { FaqSplit } from "@/components/hangry-ui/blocks/faq-split";
 ## Props
 
 <Table className="min-w-[40rem]">
-<TableHeader><TableRow><TableHead>Prop</TableHead><TableHead>Type</TableHead><TableHead>Default</TableHead><TableHead>Description</TableHead></TableRow></TableHeader>
-<TableBody>
-<TableRow><TableCell><code>{"title"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"A few things you might be wondering."}</code></TableCell><TableCell>{"Section heading."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"description"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"The details, without the guesswork."}</code></TableCell><TableCell>{"Supporting text. Pass an empty string to omit it."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"items"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Questions with unique "}<code>{"id"}</code>{", "}<code>{"question"}</code>{", and React "}<code>{"answer"}</code>{" content."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"multiple"}</code></TableCell><TableCell><code className="break-words">{"boolean"}</code></TableCell><TableCell><code>{"false"}</code></TableCell><TableCell>{"Allow more than one answer to stay open. Defaults to "}<code>{"false"}</code>{"."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"defaultOpenId"}</code></TableCell><TableCell><code className="break-words">{"string"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"The question to open initially. Defaults to none."}</TableCell></TableRow>
-<TableRow><TableCell><code>{"className"}</code></TableCell><TableCell><code className="break-words">{"See description"}</code></TableCell><TableCell><code>{"\u2014"}</code></TableCell><TableCell>{"Additional classes on the section. Native section attributes are forwarded."}</TableCell></TableRow>
-</TableBody>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"A few things you might be wondering."}</code>
+      </TableCell>
+      <TableCell>{"Section heading."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"The details, without the guesswork."}</code>
+      </TableCell>
+      <TableCell>{"Supporting text. Pass an empty string to omit it."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"items"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"See description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Questions with unique "}
+        <code>{"id"}</code>
+        {", "}
+        <code>{"question"}</code>
+        {", and React "}
+        <code>{"answer"}</code>
+        {" content."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"multiple"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"boolean"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"false"}</code>
+      </TableCell>
+      <TableCell>
+        {"Allow more than one answer to stay open. Defaults to "}
+        <code>{"false"}</code>
+        {"."}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"defaultOpenId"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>{"The question to open initially. Defaults to none."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"See description"}</code>
+      </TableCell>
+      <TableCell>
+        <code>{"\u2014"}</code>
+      </TableCell>
+      <TableCell>
+        {"Additional classes on the section. Native section attributes are forwarded."}
+      </TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 
 ## Dependencies

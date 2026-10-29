@@ -30,15 +30,22 @@ export const BrandPalette = memo(function BrandPalette({
     <section aria-label="Brand color palette" className={cn("w-[640px] max-w-full", className)}>
       <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
         {colors.map((color, index) => (
-          <li key={color.token}
+          <li
+            key={color.token}
             aria-label={color.name}
-            className={cn("flex min-w-0 flex-col items-start justify-end gap-8 border border-white/15 p-4 text-left", index < 3 ? "h-52" : "h-36")}
+            className={cn(
+              "flex min-w-0 flex-col items-start justify-end gap-8 border border-white/15 p-4 text-left",
+              index < 3 ? "h-52" : "h-36",
+            )}
             style={{ backgroundColor: color.hex, color: color.foreground }}
-          >
-          </li>
+          ></li>
         ))}
       </ul>
-      <div aria-hidden="true" className="mt-2 h-24 border border-border" style={{ background: "linear-gradient(120deg, #05dc7f, #00664e 50%, #152e2b)" }} />
+      <div
+        aria-hidden="true"
+        className="mt-2 h-24 border border-border"
+        style={{ background: "linear-gradient(120deg, #05dc7f, #00664e 50%, #152e2b)" }}
+      />
     </section>
   );
 });
