@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           url: new URL(getRegistryItemHref(item), registryHomepage).toString(),
           changeFrequency: "monthly" as const,
           priority: 0.6,
+          images: [new URL(`/previews/${item.name}.png`, registryHomepage).toString()],
         })),
     ),
   ];
