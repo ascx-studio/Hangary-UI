@@ -1,0 +1,58 @@
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { Toc } from "@/registry/components/toc";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="toc" />
+
+<ComponentPreview>
+  <div className="flex w-full justify-center">
+    <Toc
+      items={[
+        { id: "installation", label: "Installation" },
+        { id: "how-to-use", label: "How to use", level: 2 },
+        { id: "props", label: "Props", level: 2 },
+        { id: "dependencies", label: "Dependencies" },
+      ]}
+    />
+  </div>
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A Notion-style list of heading links with nested indentation, subtle hover backgrounds, and active-section tracking. Use level 1, 2, or 3 to reflect your heading hierarchy. Motion and smooth scrolling respect reduced motion.
+
+## Installation
+
+<InstallationMenu name="toc" />
+
+## How to use
+
+```tsx
+import { Toc } from "@/components/hangry-ui/components/toc";
+
+<Toc
+  items={[
+    { id: "overview", label: "Overview" },
+    { id: "installation", label: "Installation" },
+    { id: "usage", label: "Usage" },
+  ]}
+/>;
+```
+
+Match each item ID to a heading on the page. Add `scroll-mt-24` to headings when using a fixed header. Add `className="sticky top-24"` to keep the card visible beside an article.
+
+## Props
+
+| Prop      | Type      | Default           | Description                                                  |
+| --------- | --------- | ----------------- | ------------------------------------------------------------ |
+| items     | TocItem[] | Required          | Unique heading IDs, labels, and optional level (1, 2, or 3). |
+| title     | string    | Table of contents | Navigation label and heading.                                |
+| className | string    | Empty             | Additional classes on the navigation.                        |
+
+## Dependencies
+
+<DocsDependencies name="toc" />
+
+</DocsReveal>

@@ -230,6 +230,12 @@
           "slug": "light-ray-frame-card",
           "description": "Curved white strands with glowing pulses flowing around your content.",
           "group": "Cards"
+        },
+        {
+          "label": "Table of Contents",
+          "slug": "toc",
+          "description": "A compact card with heading links and an animated active indicator.",
+          "group": "Navigation"
         }
       ]
     },

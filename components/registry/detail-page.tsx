@@ -4,6 +4,7 @@ import { logCatalogDetailRendered } from "@/lib/posthog-logger";
 import JsonLd from "@/components/seo/JsonLd";
 import { registryStructuredData, siteUrl } from "@/lib/seo";
 import DocsPageEntrance from "@/components/registry/docs-page-entrance";
+import DocsToc from "@/components/registry/docs-toc";
 
 export default async function DetailPage({
   name,
@@ -52,6 +53,7 @@ export default async function DetailPage({
         }}
       />
       <JsonLd data={registryStructuredData(item, category, getRegistryItemHref(item))} />
+      <DocsToc />
       <Content />
     </DocsPageEntrance>
   );
