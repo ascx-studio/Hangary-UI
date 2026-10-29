@@ -19,7 +19,7 @@ const InstallActions = memo(function InstallActions({ name }: { name: string }) 
   const [copied, setCopied] = useState<string>();
   const [error, setError] = useState(false);
   const menuRef = useRef<HTMLDetailsElement>(null);
-  const copiedTimer = useRef<ReturnType<typeof setTimeout>>();
+  const copiedTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const Icon = managers[manager].icon;
 
   useEffect(() => () => clearTimeout(copiedTimer.current), []);
