@@ -33,11 +33,11 @@ export const informationPages = {
       },
       {
         title: "Analytics and session replay",
-        text: "When analytics is configured, the site uses PostHog for page views, interface interactions, errors, performance measurements, and session replay. The current implementation initializes analytics unless a rejection is stored. Choosing Reject analytics opts out of subsequent client-side capture. Choosing Accept analytics enables it, and dismissing the analytics notice currently records acceptance. Replay masks input fields, blocks hidden and file inputs, and masks elements marked as sensitive. Request headers, request bodies, and console-log recording are disabled in replay configuration. Do not enter confidential information into public component demos.",
+        text: "When analytics is configured, the site uses PostHog for page views, interface interactions, errors, performance measurements, and session replay. Analytics starts by default unless a rejection is stored. Use the controls below to reject or accept analytics at any time. Session replay is disabled on localhost and loopback addresses. Replay masks input fields, blocks hidden and file inputs, and masks elements marked as sensitive. Request headers, request bodies, and console-log recording are disabled in replay configuration. Do not enter confidential information into public component demos.",
       },
       {
         title: "Browser storage and preferences",
-        text: "The site stores the analytics choice in local storage under hangry-ui-analytics-consent and remembers the documentation sidebar preference in local storage. PostHog may also use browser persistence when enabled. You can remove these stored values through your browser's site-data settings; clearing them resets the saved choice and may display the analytics notice again. A rejection applies to client-side analytics and does not disable ordinary hosting requests or server-side operational logging.",
+        text: "The site stores the analytics choice in local storage under hangry-ui-analytics-consent and remembers the documentation sidebar preference in local storage. PostHog may also use browser persistence when enabled. You can change your analytics choice above or remove these stored values through your browser's site-data settings; clearing them resets the saved choice and enables analytics by default. A rejection applies to client-side analytics and does not disable ordinary hosting requests or server-side operational logging.",
       },
       {
         title: "External links and project contact",
