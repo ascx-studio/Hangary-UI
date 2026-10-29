@@ -23,6 +23,14 @@ export function pageMetadata(
       siteName: "Hangry UI",
       locale: "en_GB",
       type: "website",
+      videos: [
+        {
+          url: new URL("/opengraph-video.webm", siteUrl).href,
+          type: "video/webm",
+          width: 2902,
+          height: 1668,
+        },
+      ],
     },
     twitter: {
       ...parent?.twitter,
