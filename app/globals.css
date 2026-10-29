@@ -282,3 +282,35 @@ overscroll-behavior: none;
   line-height: 1.5rem;
   color: var(--muted-foreground);
 }
+
+/* Keep the outgoing page still while the incoming page fills the viewport. */
+::view-transition-group(.page-rise) {
+  animation-duration: 450ms;
+}
+
+::view-transition-old(.page-rise) {
+  animation: none;
+  z-index: 1;
+}
+
+::view-transition-new(.page-rise) {
+  animation: page-rise 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  z-index: 2;
+}
+
+@keyframes page-rise {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(.page-rise),
+  ::view-transition-old(.page-rise),
+  ::view-transition-new(.page-rise) {
+    animation: none;
+  }
+}
