@@ -2,6 +2,7 @@
 
 import {
   cloneElement,
+  isValidElement,
   useEffect,
   useId,
   useState,
@@ -92,9 +93,17 @@ export function Tooltip({
         }}
         style={{ "--tooltip-offset": `${Math.max(0, sideOffset)}px` } as CSSProperties}
       >
-        {cloneElement(children, {
-          "aria-describedby": [children.props["aria-describedby"], id].filter(Boolean).join(" "),
-        })}
+        {isValidElement(children) ? (
+          cloneElement(children, {
+            "aria-describedby": [children.props?.["aria-describedby"], id]
+              .filter(Boolean)
+              .join(" "),
+          })
+        ) : (
+          <span tabIndex={0} aria-describedby={id}>
+            {children as ReactNode}
+          </span>
+        )}
         <div
           id={id}
           role="tooltip"
