@@ -58,7 +58,9 @@
         "lucide-react@^1.48.0",
         "@ridemountainpig/svgl-react@^1.0.18"
       ],
-      "meta": { "category": "blocks" },
+      "meta": {
+        "category": "blocks"
+      },
       "css": {
         "@utility typography-page-title": {
           "font-size": "2.25rem",
@@ -956,6 +958,47 @@
       "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
+      }
+    },
+    {
+      "name": "consent-banner",
+      "type": "registry:component",
+      "title": "Consent Banner",
+      "description": "A compact analytics consent notice with accept, reject, and optional dismiss actions.",
+      "files": [
+        {
+          "path": "registry/components/consent-banner.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/consent-banner.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react@^1.48.0", "cn@^0.2.6"],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
       }
     },
     {
@@ -1990,6 +2033,62 @@
       }
     },
     {
+      "name": "share-menu",
+      "type": "registry:component",
+      "title": "Share Menu",
+      "description": "A share dropdown with AI links, native sharing, copy fallback, and optional NFC.",
+      "files": [
+        {
+          "path": "registry/components/share-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/share-menu.tsx"
+        },
+        {
+          "path": "registry/components/toast.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/toast.tsx"
+        },
+        {
+          "path": "registry/components/toast-store.ts",
+          "type": "registry:lib",
+          "target": "@components/hangry-ui/components/toast-store.ts"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react@^1.48.0",
+        "motion@^14.3.0",
+        "@ridemountainpig/svgl-react@^1.0.18",
+        "cn@^0.2.6"
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-section-title": {
+          "font-size": "1.5rem",
+          "line-height": "2rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)"
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
+    },
+    {
       "name": "outline",
       "type": "registry:component",
       "title": "Outline",
@@ -2871,6 +2970,46 @@
       }
     },
     {
+      "name": "error-page",
+      "title": "Hangry 404",
+      "description": "The Hangry 404 page with its confused mascot illustration and recovery links.",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "registry/blocks/error-page.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/blocks/error-page.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6"],
+      "meta": {
+        "category": "blocks"
+      },
+      "css": {
+        "@utility typography-page-title": {
+          "font-size": "2.25rem",
+          "line-height": "2.5rem",
+          "font-weight": "600",
+          "letter-spacing": "-0.025em",
+          "color": "var(--foreground)",
+          "@media (width >= 40rem)": {
+            "font-size": "3rem",
+            "line-height": "1"
+          }
+        },
+        "@utility typography-body": {
+          "font-size": "1rem",
+          "line-height": "1.75rem",
+          "color": "var(--muted-foreground)"
+        }
+      }
+    },
+    {
       "name": "accordion",
       "title": "Accordion",
       "description": "Composable expandable sections with native keyboard interaction and single or multiple open items.",
@@ -3718,6 +3857,28 @@
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
         "category": "shader"
+      }
+    },
+    {
+      "name": "toc",
+      "type": "registry:component",
+      "title": "Table of Contents",
+      "description": "A Notion-style table of contents with indented heading links and active-section tracking.",
+      "files": [
+        {
+          "path": "registry/components/toc.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/toc.tsx"
+        },
+        {
+          "path": "registry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        }
+      ],
+      "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
+      "meta": {
+        "category": "components"
       }
     }
   ]

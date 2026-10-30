@@ -34,6 +34,12 @@
           "group": "Feedback & Overlays"
         },
         {
+          "label": "Consent Banner",
+          "slug": "consent-banner",
+          "description": "An analytics consent notice with accept, reject, and optional dismiss actions.",
+          "group": "Feedback & Overlays"
+        },
+        {
           "label": "Border Highlight",
           "slug": "border-highlight",
           "description": "A glowing border that follows your pointer with spring motion.",
@@ -172,6 +178,12 @@
           "group": "Navigation"
         },
         {
+          "label": "Share Menu",
+          "slug": "share-menu",
+          "description": "A share dropdown with AI links and optional NFC sharing.",
+          "group": "Controls"
+        },
+        {
           "label": "Outline",
           "slug": "outline",
           "description": "A keyboard-accessible table of contents with an animated active-heading indicator.",
@@ -218,6 +230,12 @@
           "slug": "light-ray-frame-card",
           "description": "Curved white strands with glowing pulses flowing around your content.",
           "group": "Cards"
+        },
+        {
+          "label": "Table of Contents",
+          "slug": "toc",
+          "description": "A compact card with heading links and an animated active indicator.",
+          "group": "Navigation"
         }
       ]
     },
@@ -336,6 +354,12 @@
           "label": "404 Centered",
           "slug": "not-found",
           "description": "A centered 404 page with oversized numerals and clear recovery links.",
+          "group": "Error Pages"
+        },
+        {
+          "label": "Hangry 404",
+          "slug": "error-page",
+          "description": "The Hangry 404 page with its mascot illustration and recovery links.",
           "group": "Error Pages"
         }
       ]

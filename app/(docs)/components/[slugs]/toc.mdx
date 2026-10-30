@@ -1,0 +1,152 @@
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { Toc } from "@/registry/components/toc";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/registry/components/table";
+
+<DocsHeader name="toc" />
+
+<ComponentPreview>
+  <div className="flex w-full justify-center">
+    <Toc
+      items={[
+        { id: "installation", label: "Installation" },
+        { id: "how-to-use", label: "How to use", level: 2 },
+        { id: "props", label: "Props", level: 2 },
+        { id: "dependencies", label: "Dependencies" },
+      ]}
+    />
+  </div>
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A Notion-style list of heading links with nested indentation, subtle hover backgrounds, and active-section tracking. Use level 1, 2, or 3 to reflect your heading hierarchy. Motion and smooth scrolling respect reduced motion.
+
+## Installation
+
+<InstallationMenu name="toc" />
+
+## How to use
+
+```tsx
+import { Toc } from "@/components/hangry-ui/components/toc";
+
+<Toc
+  items={[
+    { id: "overview", label: "Overview" },
+    { id: "installation", label: "Installation" },
+    { id: "usage", label: "Usage" },
+  ]}
+/>;
+```
+
+Match each item ID to an element on the page. The TOC highlights every listed target visible in the viewport. `level` controls indentation and marker width: level 1 is the longest, level 2 is shorter, and level 3 is shortest. The docs page also adds its title and preview to the TOC automatically.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>items</code>
+      </TableCell>
+      <TableCell>
+        <code>{"TocItem[]"}</code>
+      </TableCell>
+      <TableCell>Required</TableCell>
+      <TableCell>
+        Ordered links to page elements. Each item has an id, label, and optional level.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>title</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>{'"Table of contents"'}</code>
+      </TableCell>
+      <TableCell>Accessible label for the navigation.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>
+        <code>{'""'}</code>
+      </TableCell>
+      <TableCell>Additional classes applied to the navigation rail.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+### TocItem
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Field</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Required</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>id</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>ID of the target element on the page.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>label</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>Text shown in the expanded table.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>level</code>
+      </TableCell>
+      <TableCell>
+        <code>{"1 | 2 | 3"}</code>
+      </TableCell>
+      <TableCell>No</TableCell>
+      <TableCell>Deeper levels use shorter, indented markers.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+<DocsDependencies name="toc" />
+
+</DocsReveal>

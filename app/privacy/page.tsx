@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/layout/Container";
 import Footer from "@/components/layout/Footer";
+import { AnalyticsPreferences } from "@/components/AnalyticsPreferences";
 import { informationPages } from "@/lib/site-content";
 import { pageMetadata } from "@/lib/seo";
 
@@ -25,6 +26,11 @@ export default function PrivacyPage() {
               <section key={section.title}>
                 <h2 className={"typography-section-title"}>{section.title}</h2>
                 <p className={`mt-4 typography-body`}>{section.text}</p>
+                {section.title === "Analytics and session replay" && (
+                  <div className="mt-5">
+                    <AnalyticsPreferences />
+                  </div>
+                )}
               </section>
             ))}
           </div>

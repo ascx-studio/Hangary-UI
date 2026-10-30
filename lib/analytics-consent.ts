@@ -17,6 +17,8 @@ export function getAnalyticsConsent(): AnalyticsConsent | null {
 }
 
 export function syncAnalyticsConsent() {
+  const localHost = ["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname);
+
   if (getAnalyticsConsent() === "rejected") {
     if (initialized) posthog.opt_out_capturing();
     return;
@@ -43,7 +45,7 @@ export function syncAnalyticsConsent() {
     capture_dead_clicks: true,
     capture_performance: { web_vitals: true, network_timing: true },
     disable_external_dependency_loading: true,
-    disable_session_recording: false,
+    disable_session_recording: localHost,
     session_recording: {
       maskAllInputs: true,
       blockSelector: 'input[type="hidden"], input[type="file"], [data-private]',

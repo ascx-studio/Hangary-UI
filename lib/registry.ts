@@ -1,5 +1,3 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
 import registry from "@/registry.json";
 import packageJson from "@/package.json";
 
@@ -42,9 +40,7 @@ const unavailablePaths = new Set(
 );
 // Keep source entries intact; omit unavailable components from the documentation catalog.
 const items: RegistryItem[] = registry.items.filter(
-  (item) =>
-    !unavailablePaths.has(item.files[0]?.path) &&
-    item.files.every((file) => existsSync(path.resolve(process.cwd(), file.path))),
+  (item) => !unavailablePaths.has(item.files[0]?.path),
 );
 const categories: RegistryCategory[] = ["components", "blocks", "shader", "utils"];
 

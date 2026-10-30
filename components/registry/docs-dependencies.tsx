@@ -13,7 +13,11 @@ const DocsDependencies = memo(function DocsDependencies({ name }: { name: string
     ),
   ];
   return dependencies.length ? (
-    <ul aria-label="Dependencies" className="m-0 flex list-none flex-wrap gap-3 p-0">
+    <section aria-labelledby={`${name}-dependencies`} className="mt-10">
+      <h2 id={`${name}-dependencies`} className="typography-section-title mb-4">
+        Dependencies
+      </h2>
+      <ul aria-label="Dependencies" className="m-0 flex list-none flex-wrap gap-3 p-0">
       {dependencies.map((dependency) => {
         const Icon = icons[dependency as keyof typeof icons] ?? Package;
         return (
@@ -26,9 +30,10 @@ const DocsDependencies = memo(function DocsDependencies({ name }: { name: string
           </li>
         );
       })}
-    </ul>
+      </ul>
+    </section>
   ) : (
-    <p className="typography-body">No additional packages required.</p>
+    null
   );
 });
 

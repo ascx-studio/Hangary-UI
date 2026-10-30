@@ -3,8 +3,8 @@ import { Geist } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import ConsentBanner from "@/components/ConsentBanner";
 import { Toaster } from "@/registry/components/toast";
+import PageTransition from "@/components/layout/page-transition";
 import { pageMetadata, siteDescription, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -37,8 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${paperMono.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        {children}
-        <ConsentBanner />
+        <PageTransition>{children}</PageTransition>
         <Toaster />
         <Analytics />
         <SpeedInsights />

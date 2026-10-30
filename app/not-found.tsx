@@ -1,5 +1,5 @@
-import Error from "@/components/Error";
+import { ErrorPage } from "@/registry/blocks/error-page";
 
 export default function NotFound() {
-  return <Error />;
+  return <ErrorPage />;
 }
