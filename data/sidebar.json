@@ -242,6 +242,12 @@
           "slug": "toc",
           "description": "A compact card with heading links and an animated active indicator.",
           "group": "Navigation"
+        },
+        {
+          "label": "Command",
+          "slug": "command",
+          "description": "Search grouped actions with keyboard navigation and shortcut hints.",
+          "group": "Navigation"
         }
       ]
     },

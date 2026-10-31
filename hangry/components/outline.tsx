@@ -26,6 +26,7 @@ export interface OutlineProps extends Omit<ComponentProps<"nav">, "children"> {
   title?: string;
   variant?: "default" | "sidebar";
   track?: "line" | "trail";
+  onNavigate?: () => void;
 }
 
 const outlineTrailWidth = 24.5;
@@ -62,6 +63,7 @@ export const Outline = memo(function Outline({
   title = "On this page",
   variant = "default",
   track = "line",
+  onNavigate,
   className = "",
   ...props
 }: OutlineProps) {
@@ -123,6 +125,7 @@ export const Outline = memo(function Outline({
 
   function activate(item: OutlineItem) {
     if (item.href) {
+      onNavigate?.();
       router.push(item.href);
       return;
     }
@@ -253,7 +256,17 @@ export const Outline = memo(function Outline({
                         : -1
                     }
                     onClick={(event) => {
-                      if (item.href) return;
+                      if (item.href) {
+                        if (
+                          !event.defaultPrevented &&
+                          !event.metaKey &&
+                          !event.ctrlKey &&
+                          !event.altKey &&
+                          !event.shiftKey
+                        )
+                          onNavigate?.();
+                        return;
+                      }
                       event.preventDefault();
                       activate(item);
                     }}

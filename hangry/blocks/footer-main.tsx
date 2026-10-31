@@ -44,11 +44,11 @@ export const FooterMain = memo(function FooterMain({
         data-slot="footer-main"
         {...props}
         className={cn(
-          "bottom-0 z-0 w-full shrink-0 overflow-hidden border-t border-border/50 bg-background",
+          "relative bottom-0 z-0 w-full shrink-0 overflow-hidden border-t border-border/50 bg-background",
           className,
         )}
       >
-        <div className="mx-auto w-full max-w-7xl px-6 pt-14 md:px-10 md:pt-20">
+        <div className="relative z-10 mx-auto w-full max-w-7xl rounded-t-2xl bg-background/30 px-6 pt-14 md:px-10 md:pt-20">
           <div className="grid grid-cols-2 gap-x-6 gap-y-12 pb-14 sm:grid-cols-3 md:gap-x-10 md:pb-20 lg:grid-cols-[1.2fr_repeat(3,minmax(0,1fr))]">
             <motion.div
               className="col-span-2 space-y-5 motion-reduce:opacity-100! motion-reduce:transform-none! sm:col-span-3 lg:col-span-1"

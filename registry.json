@@ -4447,6 +4447,46 @@
       "meta": {
         "category": "shader"
       }
+    },
+    {
+      "name": "command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "A searchable command menu with a category dropdown, keyboard navigation, shortcuts, and disabled states.",
+      "dependencies": ["cn@^0.2.6", "lucide-react", "motion"],
+      "files": [
+        {
+          "path": "hangry/components/command.tsx",
+          "type": "registry:component",
+          "target": "@components/hangary-ui/components/command.tsx"
+        },
+        {
+          "path": "hangry/components/kbd.tsx",
+          "type": "registry:component",
+          "target": "@components/hangary-ui/components/kbd.tsx"
+        },
+        {
+          "path": "hangry/components/theme-switcher.tsx",
+          "type": "registry:component",
+          "target": "@components/hangary-ui/components/theme-switcher.tsx"
+        },
+        {
+          "path": "hangry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangary-ui/components/button.tsx"
+        }
+      ],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
+      }
     }
   ]
 }

@@ -69,7 +69,7 @@ overscroll-behavior: none;
   --sidebar-ring: var(--ring);
   --font-sans: var(--font-geist-sans), sans-serif;
   --font-serif: "Georgia", serif;
-  --font-mono: var(--font-paper-mono), monospace;
+  --font-mono: var(--font-geist-mono), var(--font-paper-mono), monospace;
   --radius: 0.5rem;
   --shadow-x: 0px;
   --shadow-y: 4px;
@@ -131,7 +131,7 @@ overscroll-behavior: none;
   --sidebar-ring: var(--ring);
   --font-sans: var(--font-geist-sans), sans-serif;
   --font-serif: "Georgia", serif;
-  --font-mono: var(--font-paper-mono), monospace;
+  --font-mono: var(--font-geist-mono), var(--font-paper-mono), monospace;
   --radius: 0.5rem;
   --shadow-x: 0px;
   --shadow-y: 10px;
@@ -190,7 +190,7 @@ overscroll-behavior: none;
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-sans: var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-paper-mono), monospace;
+  --font-mono: var(--font-geist-mono), var(--font-paper-mono), monospace;
   --font-serif: var(--font-serif);
 
   --radius-sm: calc(var(--radius) - 4px);

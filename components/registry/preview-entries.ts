@@ -1,3 +1,4 @@
+import { Command } from "@/hangry/components/command";
 import { KoiPondBackground } from "@/hangry/shader/koi-pond-background";
 import { BinaryFlowerGarden } from "@/hangry/shader/binary-flower-garden";
 import { PhotonCorridorBackground } from "@/hangry/shader/photon-corridor-background";
@@ -82,6 +83,7 @@ import { Tooltip } from "@/hangry/components/tooltip";
 import { NotFound } from "@/hangry/blocks/not-found";
 
 export const previewEntries = {
+  command: { component: Command, category: "components" },
   "koi-pond-background": { component: KoiPondBackground, category: "shader" },
   "photon-corridor-background": { component: PhotonCorridorBackground, category: "shader" },
   "plasma-rift-background": { component: PlasmaRiftBackground, category: "shader" },
@@ -124,7 +126,7 @@ export const previewEntries = {
   badge: { component: Badge, category: "components" },
   banner: { component: Banner, category: "components" },
   "border-highlight": { component: BorderHighlight, category: "components" },
-  "sheet": { component: Sheet, category: "components" },
+  sheet: { component: Sheet, category: "components" },
   "brand-palette": { component: BrandPalette, category: "components" },
   breadcrumb: { component: Breadcrumb, category: "components" },
   button: { component: Button, category: "components" },

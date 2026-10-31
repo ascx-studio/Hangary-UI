@@ -310,11 +310,11 @@ const CodeBlockRenderer = memo(function CodeBlockRenderer({
             ? `${packageManager} installation command`
             : `${language || "Plain text"} code`
       }
-      className="flex max-w-full gap-4 overflow-x-auto p-4 font-mono text-sm leading-6 focus-visible:outline-2 focus-visible:outline-ring"
+      className="flex max-w-full gap-4 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden p-4 font-[family-name:var(--font-geist-mono)] text-sm leading-6 focus-visible:outline-2 focus-visible:outline-ring"
     >
       <Highlight prism={Prism} code={code} language={languageId} theme={prismTheme}>
         {({ tokens, getLineProps, getTokenProps }) => (
-          <code className="min-w-max font-mono">
+          <code className="min-w-max font-[family-name:var(--font-geist-mono)]">
             {tokens.map((line, index) => (
               <div key={index} {...getLineProps({ line })} className="flex min-w-full">
                 {showLineNumbers && (
