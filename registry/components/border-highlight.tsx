@@ -16,7 +16,7 @@ export const BorderHighlight = memo(function BorderHighlight({
     <Card
       title="Follow the edge"
       description="Move your pointer around this card to reveal a glowing border."
-      className="max-w-none border-0 bg-transparent shadow-none"
+      className="max-w-none border-0"
     />
   ),
   className,

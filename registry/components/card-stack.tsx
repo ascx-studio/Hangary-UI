@@ -76,7 +76,7 @@ export const CardStack = memo(function CardStack({
             <Card
               title=""
               description=""
-              className="relative h-full w-full! max-w-none! overflow-hidden border-border! bg-card! p-0! shadow-md! dark:shadow-[0_-1px_0_rgb(255_255_255/0.08),0_-8px_20px_rgb(0_0_0/0.65),0_24px_48px_-16px_rgb(0_0_0/0.8)]!"
+              className="relative h-full w-full! max-w-none! overflow-hidden p-0!"
             >
               <Button
                 variant="ghost"

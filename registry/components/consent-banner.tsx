@@ -37,7 +37,7 @@ export const ConsentBanner = memo(function ConsentBanner({
       aria-describedby={`${id}-description`}
       className={`w-full max-w-sm ${className}`}
     >
-      <Card size="sm" className="max-w-none rounded-none bg-background shadow-xl">
+      <Card size="sm" className="max-w-none rounded-none [--surface-color:var(--background)]">
         <CardHeader>
           <CardTitle id={`${id}-title`}>{title}</CardTitle>
           <CardDescription id={`${id}-description`}>{description}</CardDescription>

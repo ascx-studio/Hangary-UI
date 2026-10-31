@@ -1,5 +1,4 @@
 import { AspectRatio } from "@/registry/components/aspect-ratio";
-import { Card } from "@/registry/components/card";
 import { getRegistryItemHref, getRegistryItems, type RegistryCategory } from "@/lib/registry";
 import { usesVgpu } from "@/lib/seo";
 import Image from "next/image";
@@ -86,7 +85,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
   return (
     <Suspense>
       <CatalogTabs filters={filters.map((group) => group.title)}>
-        <Card size="sm" className="w-fit max-w-full overflow-x-auto p-0">
+        <div className="w-fit max-w-full overflow-x-auto">
           <TabsList className="bg-transparent" aria-label={`Filter ${category} by category`}>
             {filters.map((group) => (
               <TabsTrigger key={group.title} value={group.title}>
@@ -94,7 +93,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
               </TabsTrigger>
             ))}
           </TabsList>
-        </Card>
+        </div>
         {filters.map((group) => (
           <TabsContent key={group.title} value={group.title}>
             {renderGroup(group)}

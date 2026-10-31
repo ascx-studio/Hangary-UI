@@ -173,7 +173,7 @@ export const ShareMenu = memo(function ShareMenu({
         aria-controls={menuId}
         aria-label="Share"
         title="Share"
-        className="flex size-9 items-center justify-center bg-muted text-foreground hover:bg-accent hover:text-accent-foreground"
+        className="flex size-9 items-center justify-center rounded-md surface-raised [--surface-color:var(--muted)] text-foreground hover:[--surface-bottom:color-mix(in_srgb,var(--secondary)_18%,var(--card))] hover:text-foreground"
       >
         <Share className="size-3.5" aria-hidden="true" />
       </motion.button>
@@ -187,7 +187,7 @@ export const ShareMenu = memo(function ShareMenu({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: reduced ? 0 : -6, scale: reduced ? 1 : 0.97 }}
             transition={{ duration: reduced ? 0 : 0.12 }}
-            className="absolute top-[calc(100%+6px)] z-50 min-w-55 border border-border bg-popover py-1.5 shadow-xl shadow-black/40"
+            className="absolute top-[calc(100%+6px)] z-50 min-w-55 rounded-lg surface-raised [--surface-color:var(--popover)] py-1.5"
           >
             <button type="button" role="menuitem" onClick={copyLink} className={row}>
               <Copy className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />

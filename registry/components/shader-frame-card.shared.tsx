@@ -37,7 +37,7 @@ export const ShaderFrameCard = memo(function ShaderFrameCard({
           : { duration: 0.2, ease: "easeOut", y: { type: "spring", stiffness: 220, damping: 26 } }
       }
       className={cn(
-        "relative isolate w-full min-w-0 max-w-md overflow-hidden rounded-xl bg-card shadow-sm",
+        "relative isolate w-full min-w-0 max-w-md overflow-hidden rounded-xl bg-card",
         className,
       )}
       style={{ padding: inset, ...style }}

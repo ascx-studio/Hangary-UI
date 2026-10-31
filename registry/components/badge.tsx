@@ -80,7 +80,7 @@ export const Badge = memo(function Badge({
       viewport={{ once: true, amount: 0.5 }}
       whileHover={reducedMotion ? undefined : { y: -2, scale: 1.03 }}
       transition={{ duration: reducedMotion ? 0 : 0.35, ease: "easeOut" }}
-      className={`inline-flex items-center gap-2 rounded-lg border-0 px-3 py-2 typography-label ${styles[variant]} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-lg surface-raised surface-status px-3 py-2 typography-label ${styles[variant]} ${className}`}
       {...props}
     >
       {Icon && <Icon aria-hidden="true" className="size-[1.15em] shrink-0" strokeWidth={2.25} />}

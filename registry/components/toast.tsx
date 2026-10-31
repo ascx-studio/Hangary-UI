@@ -103,7 +103,7 @@ export const Toast = memo(function Toast({
           }}
           className={`w-full max-w-sm ${className}`}
         >
-          <Card title="" description="" className="h-full w-full! max-w-none! p-4! shadow-lg">
+          <Card title="" description="" className="h-full w-full! max-w-none! p-4!">
             <div className="flex items-start gap-3">
               <Icon aria-hidden="true" className={`mt-0.5 size-5 shrink-0 ${color}`} />
               <div

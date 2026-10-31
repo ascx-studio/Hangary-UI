@@ -102,7 +102,7 @@ export const Toc = memo(function Toc({
       </ul>
 
       <div className="pointer-events-none absolute right-0 top-1/2 z-50 w-80 max-w-[calc(100vw-2rem)] -translate-y-1/2 opacity-0 transition-opacity duration-150 group-hover/toc:pointer-events-auto group-hover/toc:opacity-100 group-focus-within/toc:pointer-events-auto group-focus-within/toc:opacity-100">
-        <Card size="sm" className="w-80 max-w-[calc(100vw-2rem)] p-3 shadow-xl">
+        <Card size="sm" className="w-80 max-w-[calc(100vw-2rem)] p-3">
           <p className="sr-only">{title}</p>
           <ul className="max-h-[70vh] space-y-0.5 overflow-y-auto">
             {items.map((item) => (

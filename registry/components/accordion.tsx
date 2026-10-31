@@ -31,7 +31,10 @@ const Accordion = memo(function Accordion({
       <div
         {...props}
         data-slot="accordion"
-        className={cn("w-full divide-y divide-border border-y border-border", className)}
+        className={cn(
+          "surface-raised w-full overflow-hidden rounded-lg divide-y divide-border",
+          className,
+        )}
       >
         {children}
       </div>

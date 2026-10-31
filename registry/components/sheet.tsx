@@ -32,13 +32,18 @@ export const Sheet = memo(function Sheet({
   const closing = useRef(false);
 
   const horizontal = side === "left" || side === "right";
-  const translate = (value: string | number) => horizontal ? { x: value, y: 0 } : { x: 0, y: value };
-  const offset = side === "left" || side === "top" ? "calc(-100% - var(--spacing) * 4)" : "calc(100% + var(--spacing) * 4)";
+  const translate = (value: string | number) =>
+    horizontal ? { x: value, y: 0 } : { x: 0, y: value };
+  const offset =
+    side === "left" || side === "top"
+      ? "calc(-100% - var(--spacing) * 4)"
+      : "calc(100% + var(--spacing) * 4)";
   const placement = {
     bottom: "inset-x-0 bottom-4 top-auto mx-auto max-h-[85dvh] w-full sm:max-w-xl",
     top: "inset-x-0 top-4 bottom-auto mx-auto max-h-[85dvh] w-full sm:max-w-xl",
     left: "top-1/2 bottom-auto left-4 right-auto -translate-y-1/2 max-h-[calc(100dvh-var(--spacing)*8)] w-[calc(100%-var(--spacing)*8)] sm:max-w-md",
-    right: "top-1/2 bottom-auto right-4 left-auto -translate-y-1/2 max-h-[calc(100dvh-var(--spacing)*8)] w-[calc(100%-var(--spacing)*8)] sm:max-w-md",
+    right:
+      "top-1/2 bottom-auto right-4 left-auto -translate-y-1/2 max-h-[calc(100dvh-var(--spacing)*8)] w-[calc(100%-var(--spacing)*8)] sm:max-w-md",
   }[side];
   const expandedWidth = horizontal ? "calc(100% - var(--spacing) * 8)" : "100%";
   const expandedHeight = horizontal ? "calc(100dvh - var(--spacing) * 8)" : "auto";
@@ -135,7 +140,7 @@ export const Sheet = memo(function Sheet({
           aria-labelledby={`${id}-title`}
           aria-describedby={`${id}-description`}
           data-side={side}
-          className={`fixed my-0 max-w-none overflow-x-hidden overflow-y-auto rounded-lg border border-border bg-card p-0 text-card-foreground shadow-xl backdrop:bg-black/60 ${placement}`}
+          className={`fixed my-0 max-w-none overflow-x-hidden overflow-y-auto rounded-lg surface-raised p-0 text-card-foreground backdrop:bg-black/60 ${placement}`}
         >
           {horizontal && (
             <div
@@ -144,7 +149,11 @@ export const Sheet = memo(function Sheet({
               className={`pointer-events-none absolute top-1/2 z-10 h-10 w-1 -translate-y-1/2 bg-muted-foreground/40 ${side === "left" ? "right-2" : "left-2"}`}
             />
           )}
-          <Card title="" description="" className={`relative max-w-none! border-0! ${horizontal ? "min-h-full" : ""}`}>
+          <Card
+            title=""
+            description=""
+            className={`relative max-w-none! border-0! ${horizontal ? "min-h-full" : ""}`}
+          >
             <m.div
               className="absolute right-3 top-3 z-10"
               initial="hidden"
@@ -166,7 +175,11 @@ export const Sheet = memo(function Sheet({
               </Button>
             </m.div>
             {!horizontal && (
-              <div aria-hidden="true" data-slot="sheet-handle" className="mx-auto mb-6 h-1 w-10 bg-muted-foreground/40" />
+              <div
+                aria-hidden="true"
+                data-slot="sheet-handle"
+                className="mx-auto mb-6 h-1 w-10 bg-muted-foreground/40"
+              />
             )}
             <m.div
               initial="hidden"

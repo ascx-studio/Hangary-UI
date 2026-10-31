@@ -18,6 +18,14 @@
       "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -139,6 +147,12 @@
         "category": "blocks"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -206,6 +220,12 @@
         "category": "blocks"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -273,6 +293,12 @@
         "category": "blocks"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -345,6 +371,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -407,6 +439,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -474,6 +512,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -529,6 +573,14 @@
       "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -580,6 +632,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -662,6 +720,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -739,6 +803,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -899,6 +969,19 @@
       "dependencies": [],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        }
       }
     },
     {
@@ -918,6 +1001,17 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -973,6 +1067,19 @@
       "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        }
       }
     },
     {
@@ -1002,6 +1109,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-section-title": {
           "font-size": "1.5rem",
           "line-height": "2rem",
@@ -1038,6 +1151,12 @@
       },
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1105,6 +1224,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1213,6 +1338,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1280,6 +1411,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1358,6 +1495,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1430,6 +1573,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1497,6 +1651,12 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1569,6 +1729,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1624,6 +1795,14 @@
       "dependencies": [],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -1725,6 +1904,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1802,6 +1992,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1884,6 +2085,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2007,6 +2219,12 @@
       },
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2089,6 +2307,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-section-title": {
           "font-size": "1.5rem",
           "line-height": "2rem",
@@ -2202,6 +2426,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2284,6 +2519,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2366,6 +2612,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2436,7 +2693,20 @@
       "meta": {
         "category": "blocks"
       },
-      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"]
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        }
+      }
     },
     {
       "name": "pricing",
@@ -2470,6 +2740,17 @@
       },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2569,6 +2850,17 @@
       },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2641,6 +2933,17 @@
       },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2733,6 +3036,14 @@
       "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -2846,6 +3157,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2908,6 +3225,12 @@
       },
       "dependencies": ["cn@^0.2.6"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -3071,6 +3394,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-body": {
           "font-size": "1rem",
           "line-height": "1.75rem",
@@ -3154,6 +3483,12 @@
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -3362,6 +3697,12 @@
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -4009,6 +4350,14 @@
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     }
   ]

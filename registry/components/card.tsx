@@ -28,9 +28,9 @@ const Card = memo(function Card({
 }: CardProps) {
   const hasLegacyContent = Boolean(title || description || footer);
   const classes = cn(
-    "group/card flex w-full max-w-sm flex-col rounded-lg border border-border bg-card text-base leading-7 shadow-md inset-shadow-sm inset-shadow-foreground/5",
+    "group/card flex w-full max-w-sm flex-col rounded-lg surface-raised text-base leading-7",
     "outline-ring focus-visible:outline-[length:var(--focus-ring-width,2px)] focus-visible:outline-offset-[var(--focus-ring-offset,2px)]",
-    "[a&]:transition-colors [a&]:duration-[var(--duration-fast,150ms)] [a&]:ease-out [a&]:hover:bg-muted motion-reduce:transition-none",
+    "[a&]:transition-colors [a&]:duration-[var(--duration-fast,150ms)] [a&]:ease-out [a&]:hover:[--surface-bottom:var(--muted)] motion-reduce:transition-none",
     cardSizes[size],
     className,
   );

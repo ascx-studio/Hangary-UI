@@ -7,13 +7,18 @@ type ButtonProps = {
 export function buttonClassName(variant: ButtonProps["variant"] = "primary", className = "") {
   const styles = {
     primary:
-      "border border-emerald-700/40 bg-linear-to-b from-emerald-300 to-emerald-400 text-neutral-950 shadow-[0_1px_2px_rgb(0_0_0/0.18),0_4px_8px_-2px_rgb(0_102_78/0.25)] hover:from-emerald-200 hover:to-emerald-300",
-    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      "[--button-color:var(--color-emerald-400)] [--button-top:var(--color-emerald-300)] [--button-stroke-top:var(--color-emerald-200)] [--button-stroke-bottom:var(--color-emerald-700)] text-neutral-950",
+    secondary: "[--button-color:var(--secondary)] text-secondary-foreground",
     ghost: "bg-transparent text-foreground hover:bg-muted",
-    destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-    outline: "border border-border text-foreground hover:bg-muted",
+    destructive: "[--button-color:var(--destructive)] text-destructive-foreground",
+    outline:
+      "[--button-color:var(--background)] [--button-top:var(--background)] [--button-bottom:var(--muted)] [--button-stroke-top:var(--border)] [--button-stroke-bottom:color-mix(in_srgb,var(--foreground)_25%,var(--border))] text-foreground hover:[--button-top:var(--muted)]",
   };
-  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400 disabled:pointer-events-none disabled:opacity-50 ${styles[variant] ?? styles.primary} ${className}`;
+  const surface =
+    variant === "ghost"
+      ? ""
+      : "border border-transparent [background:linear-gradient(to_bottom,var(--button-top,color-mix(in_srgb,var(--button-color)_88%,white)),var(--button-bottom,var(--button-color)))_padding-box,linear-gradient(to_bottom,var(--button-stroke-top,color-mix(in_srgb,var(--button-color)_65%,white)),var(--button-stroke-bottom,color-mix(in_srgb,var(--button-color)_65%,black)))_border-box] shadow-[0_1px_2px_rgb(0_0_0/0.12),0_4px_8px_-2px_rgb(0_0_0/0.18)] hover:[--button-top:color-mix(in_srgb,var(--button-color)_78%,white)]";
+  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold  transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 ${surface} ${styles[variant] ?? styles.primary} ${className}`;
 }
 
 export const Button = memo(function Button({

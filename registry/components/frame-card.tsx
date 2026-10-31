@@ -28,7 +28,7 @@ export const FrameCard = memo(function FrameCard({
       data-slot="frame-card"
       {...props}
       className={cn(
-        "relative min-w-0 w-full rounded-lg border border-border px-4 sm:px-6 md:px-8",
+        "relative min-w-0 w-full rounded-lg surface-raised px-4 sm:px-6 md:px-8",
         className,
       )}
     >

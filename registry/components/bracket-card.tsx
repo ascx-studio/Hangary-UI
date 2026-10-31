@@ -50,7 +50,7 @@ export const BracketCard = memo(function BracketCard({
         title=""
         description=""
         className={cn(
-          "w-full! max-w-none! bg-background! p-6! shadow-none! sm:p-8!",
+          "w-full! max-w-none! bg-background! p-6! sm:p-8!",
           variant === "brackets" ? "border-dashed" : "border-transparent!",
         )}
       >

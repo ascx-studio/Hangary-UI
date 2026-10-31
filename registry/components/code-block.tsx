@@ -189,7 +189,11 @@ export function CodeBlock({
         >
           {header}
           {(["bun", "npm", "pnpm", "yarn"] as const).map((option) => (
-            <TabsContent key={option} value={option} className="overflow-hidden rounded-lg border border-border">
+            <TabsContent
+              key={option}
+              value={option}
+              className="overflow-hidden rounded-lg surface-raised"
+            >
               {selectedManager === option ? content : null}
             </TabsContent>
           ))}
@@ -214,7 +218,7 @@ export function CodeBlock({
           )}
         </GuideCard>
       ) : (
-        <div className="overflow-hidden rounded-lg border border-border">{content}</div>
+        <div className="overflow-hidden rounded-lg surface-raised">{content}</div>
       )}
       <span
         role="status"

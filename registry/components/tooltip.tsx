@@ -39,7 +39,7 @@ export function Tooltip({
   children = (
     <button
       type="button"
-      className="border border-border px-4 py-2 text-sm focus-visible:outline-2 focus-visible:outline-ring"
+      className="rounded-md surface-raised px-4 py-2 text-sm focus-visible:outline-2 focus-visible:outline-ring"
     >
       Hover or focus me
     </button>
@@ -123,7 +123,7 @@ export function Tooltip({
                   title=""
                   description=""
                   className={cn(
-                    "w-max max-w-full shadow-lg",
+                    "w-max max-w-full",
                     title || description
                       ? "w-64 p-3! text-base"
                       : "px-3! py-1.5! text-base leading-7",

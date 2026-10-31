@@ -52,7 +52,7 @@ export const Banner = memo(function Banner({
       viewport={{ once: true, amount: 0.2 }}
       whileHover={reducedMotion ? undefined : { y: -2, scale: 1.005 }}
       transition={{ duration: reducedMotion ? 0 : 0.2, ease: "easeOut" }}
-      className={`flex items-start gap-4 rounded-xl border-0 px-5 py-4 text-base leading-7 ${statusStyles[variant]} ${className}`}
+      className={`flex items-start gap-4 rounded-xl surface-raised surface-status px-5 py-4 text-base leading-7 ${statusStyles[variant]} ${className}`}
     >
       {Icon && <Icon aria-hidden="true" className="mt-0.5 size-6 shrink-0" strokeWidth={2} />}
       <div className="min-w-0 flex-1">
