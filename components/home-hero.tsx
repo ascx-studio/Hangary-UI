@@ -13,7 +13,7 @@ import {
   MotionDark,
   MotionLight,
 } from "@ridemountainpig/svgl-react";
-import { Button } from "@/registry/components/button";
+import { Button, buttonClassName } from "@/registry/components/button";
 import { LogoAnimation } from "@/registry/components/logo-animation";
 import Logo from "@/components/ui/Logo";
 import Container from "@/components/layout/Container";
@@ -55,7 +55,7 @@ export default function HomeHero() {
           <Link
             href="/components"
             transitionTypes={["hero-components"]}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+            className={buttonClassName()}
           >
             Explore components
             <ArrowRight size={16} aria-hidden="true" />
@@ -81,7 +81,10 @@ export default function HomeHero() {
             Tailwind CSS
           </span>
           <span className="inline-flex items-center gap-2">
-            <MotionDark className="invert dark:invert-0 hidden size-4 dark:block" aria-hidden="true" />
+            <MotionDark
+              className="invert dark:invert-0 hidden size-4 dark:block"
+              aria-hidden="true"
+            />
             <MotionLight className="size-4 dark:hidden" aria-hidden="true" />
             Motion
           </span>

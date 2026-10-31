@@ -17,13 +17,27 @@ export const brandColors: BrandColor[] = [
   { name: "Black", hex: "#000000", foreground: "#dbe3e6", token: "--color-black" },
 ];
 
+export const lightModeColors: BrandColor[] = [
+  { name: "Paper", hex: "#f4faf6", foreground: "#113c32", token: "--color-light-paper" },
+  { name: "Surface", hex: "#d8eee2", foreground: "#113c32", token: "--color-light-surface" },
+  { name: "Ink", hex: "#113c32", foreground: "#f4faf6", token: "--color-light-ink" },
+  { name: "Emerald", hex: "#007c58", foreground: "#f4faf6", token: "--color-light-emerald" },
+  { name: "Cyan", hex: "#008bb8", foreground: "#000000", token: "--color-light-cyan" },
+  { name: "Blue", hex: "#285ee8", foreground: "#f4faf6", token: "--color-light-blue" },
+  { name: "Violet", hex: "#8244d8", foreground: "#f4faf6", token: "--color-light-violet" },
+  { name: "Rose", hex: "#d63c83", foreground: "#000000", token: "--color-light-rose" },
+  { name: "Gold", hex: "#d7931d", foreground: "#113c32", token: "--color-light-gold" },
+];
+
 export type BrandPaletteProps = {
   colors?: BrandColor[];
+  showLabels?: boolean;
   className?: string;
 };
 
 export const BrandPalette = memo(function BrandPalette({
   colors = brandColors,
+  showLabels = false,
   className,
 }: BrandPaletteProps = {}) {
   return (
@@ -38,13 +52,22 @@ export const BrandPalette = memo(function BrandPalette({
               index < 3 ? "h-52" : "h-36",
             )}
             style={{ backgroundColor: color.hex, color: color.foreground }}
-          ></li>
+          >
+            {showLabels && (
+              <div className="space-y-1">
+                <span className="block text-sm font-medium">{color.name}</span>
+                <code className="text-xs">{color.hex}</code>
+              </div>
+            )}
+          </li>
         ))}
       </ul>
       <div
         aria-hidden="true"
         className="mt-2 h-24 border border-border"
-        style={{ background: "linear-gradient(120deg, #05dc7f, #00664e 50%, #152e2b)" }}
+        style={{
+          background: `linear-gradient(120deg, ${colors.map((color) => color.hex).join(", ")})`,
+        }}
       />
     </section>
   );

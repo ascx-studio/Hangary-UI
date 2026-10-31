@@ -1,3 +1,5 @@
+import { lightBlue, lightCyan, lightPaper } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -45,9 +47,12 @@ fn hash(p: vec2f) -> f32 { return fract(sin(dot(p, vec2f(127.1, 311.7))) * 43758
   let grain = (hash(floor(uv * cfg.metrics.xy)) - 0.5) * 0.025;
   let value = 1.0 - exp(-max(light + haze + grain + 0.008, 0.0) * cfg.metrics.w * 1.4);
   if (theme.mode.x > 0.5) {
-    let paper = vec3f(0.94, 0.95, 0.97);
-    let graphite = vec3f(0.08, 0.12, 0.18);
-    return vec4f(mix(paper, graphite, clamp((dots * (0.2 + pulse * 1.8) + bloom * pulse * 0.55) * fade * walls * cfg.metrics.w, 0.0, 1.0)), 1.0);
+    let paper = lightPaper();
+    let pigment = mix(lightBlue(), lightCyan(), clamp(pulse * 0.8, 0.0, 1.0));
+    let wallStrength = select(0.75, 1.0, horizontal);
+    let trail = (dots * (0.65 + pulse * 2.4) + bloom * (0.08 + pulse * 0.75)) * fade * wallStrength * cfg.metrics.w;
+    let coverage = 1.0 - exp(-trail * 3.2);
+    return vec4f(mix(paper, pigment, coverage), 1.0);
   }
   return vec4f(vec3f(value), 1.0);
 }

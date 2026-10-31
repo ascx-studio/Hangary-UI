@@ -1,3 +1,5 @@
+import { lightCyan, lightEmerald, lightSurface } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -28,8 +30,8 @@ fn ellipse(p: vec2f, r: vec2f) -> f32 { return (length(p / r) - 1.0) * min(r.x, 
   let caustic = exp(-focus * focus * 28.0) * (0.45 + 0.25 * sin(water.x + water.y + t * 0.25));
   let nearest = 0.5 + 0.2 * waveA;
   let texture = fract(sin(dot(floor(p * 1800.0), vec2f(12.9898, 78.233))) * 43758.5453);
-  let deepWater = select(vec3f(0.045, 0.13, 0.085), vec3f(0.35, 0.62, 0.56), theme.mode.x > 0.5);
-  let shallowWater = select(vec3f(0.19, 0.34, 0.22), vec3f(0.72, 0.84, 0.67), theme.mode.x > 0.5);
+  let deepWater = select(vec3f(0.045, 0.13, 0.085), mix(lightEmerald(), lightCyan(), 0.28), theme.mode.x > 0.5);
+  let shallowWater = select(vec3f(0.19, 0.34, 0.22), mix(lightSurface(), lightEmerald(), 0.16), theme.mode.x > 0.5);
   var color = mix(deepWater, shallowWater, nearest * 0.8 + texture * 0.15);
   // Rounded submerged stones, with a light-facing bevel and offset shadows.
   for (var rock = 0; rock < 5; rock++) {

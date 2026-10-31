@@ -1,3 +1,5 @@
+import { lightBlue, lightCyan, lightPaper, lightRose, lightSurface, lightViolet } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -67,7 +69,7 @@ fn getPosition(index: f32, time: f32) -> vec2f {
     vec3f(0.102, 0.102, 0.181)
   );
 
-  let lightColors = array<vec3f, 5>(vec3f(1.0, 0.83, 0.9), vec3f(0.72, 0.9, 0.97), vec3f(0.65, 0.78, 0.98), vec3f(0.83, 0.9, 0.94), vec3f(0.96, 0.93, 0.98));
+  let lightColors = array<vec3f, 5>(mix(lightRose(), lightPaper(), 0.5), mix(lightCyan(), lightPaper(), 0.45), mix(lightBlue(), lightPaper(), 0.35), mix(lightViolet(), lightPaper(), 0.45), lightSurface());
   var color = vec3f(0.0);
   var totalWeight = 0.0;
   for (var index = 0.0; index < 5.0; index += 1.0) {

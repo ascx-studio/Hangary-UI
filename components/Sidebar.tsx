@@ -215,12 +215,11 @@ export default function Sidebar({
                 <ThemeToggle />
                 <m.button
                   type="button"
-                  whileHover={reducedMotion ? undefined : { scale: 1.04 }}
                   whileTap={reducedMotion ? undefined : { scale: 0.96 }}
                   onClick={() => setSidebarOpen(false)}
                   aria-label="Close sidebar"
                   title="Close sidebar"
-                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring"
+                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-sidebar-foreground/10 hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring motion-reduce:transition-none"
                 >
                   <PanelLeftClose size={22} aria-hidden="true" />
                 </m.button>
@@ -240,12 +239,11 @@ export default function Sidebar({
             <div className="pointer-events-none absolute inset-y-0 left-0 flex w-16 min-h-0 flex-col gap-2 px-0 py-6">
               <m.button
                 type="button"
-                whileHover={reducedMotion ? undefined : { scale: 1.04 }}
                 whileTap={reducedMotion ? undefined : { scale: 0.96 }}
                 onClick={() => setSidebarOpen(true)}
                 aria-label="Open sidebar"
                 title="Open sidebar"
-                className="pointer-events-auto ml-3 group/toggle relative inline-flex size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors duration-200 ease-out hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring motion-reduce:transition-none"
+                className="pointer-events-auto ml-3 group/toggle relative inline-flex size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors duration-200 ease-out hover:bg-sidebar-foreground/10 hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring motion-reduce:transition-none"
               >
                 <span
                   aria-hidden="true"

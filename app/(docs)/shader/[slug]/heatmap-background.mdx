@@ -18,6 +18,7 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 <ComponentPreview fullBleed>
   <HeatmapBackground
     colors={["#000000", "#1f1f1f", "#152e2b", "#00664e", "#05dc7f", "#05dc7f", "#dbe3e6"]}
+    lightColors={["#f4faf6", "#b4f2d0", "#05dc7f", "#00b77c", "#007c58", "#008bb8", "#285ee8"]}
     className="h-full w-full"
   />
 </ComponentPreview>
@@ -57,6 +58,12 @@ import { HeatmapBackground } from "@/components/hangry-ui/shader/heatmap-backgro
     </TableRow>
   </TableHeader>
   <TableBody>
+    <TableRow>
+      <TableCell><code>lightColors</code></TableCell>
+      <TableCell>Seven hex colors</TableCell>
+      <TableCell>Vivid light-mode thermal palette</TableCell>
+      <TableCell>Light-mode palette without white mixing. Defaults to colors when a custom colors palette is supplied.</TableCell>
+    </TableRow>
     <TableRow>
       <TableCell><code>colors</code></TableCell>
       <TableCell>Seven hex colors</TableCell>

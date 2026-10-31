@@ -872,6 +872,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -2762,6 +2767,11 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
           "path": "registry/shader/wordmark-shader.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
@@ -2802,6 +2812,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         },
         {
           "path": "registry/shader/wordmark-shader.shared.tsx",
@@ -3083,6 +3098,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3125,6 +3145,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3207,6 +3232,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3239,6 +3269,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3266,6 +3301,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3313,6 +3353,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3390,6 +3435,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3427,6 +3477,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3459,6 +3514,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3506,6 +3566,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         },
         {
           "path": "registry/shader/canvas.tsx",
@@ -3565,6 +3630,11 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
           "path": "registry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
@@ -3605,6 +3675,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3652,6 +3727,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         },
         {
           "path": "registry/shader/canvas.tsx",
@@ -3711,6 +3791,11 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
           "path": "registry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
@@ -3756,6 +3841,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3805,6 +3895,11 @@
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
           "path": "registry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
@@ -3845,6 +3940,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3877,6 +3977,11 @@
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "registry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],

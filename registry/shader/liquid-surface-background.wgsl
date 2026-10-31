@@ -1,3 +1,5 @@
+import { lightCyan, lightSurface, lightViolet } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -39,8 +41,8 @@ fn surfaceHeight(p: vec2f, t: f32, mouse: vec2f) -> f32 {
   let chrome = vec3f(0.1, 0.12, 0.16) + normal.z * 0.2 + rainbow * fresnel * 0.75;
   let vignette = 1.0 - smoothstep(0.4, 1.3, length(p));
   if (theme.mode.x > 0.5) {
-    let pearl = vec3f(0.72, 0.83, 0.88) + normal.z * 0.08;
-    let iridescence = rainbow * fresnel * 0.16;
+    let pearl = mix(lightSurface(), lightCyan(), 0.2) + normal.z * 0.08;
+    let iridescence = mix(lightCyan(), lightViolet(), rainbow) * fresnel * 0.24;
     let lightColor = pearl + iridescence + vec3f(specular * 0.25) + vec3f(0.1, 0.18, 0.22) * cursorSpecular;
     return vec4f(clamp(lightColor * (0.85 + vignette * 0.15) * cfg.metrics.w, vec3f(0.0), vec3f(1.0)), 1.0);
   }

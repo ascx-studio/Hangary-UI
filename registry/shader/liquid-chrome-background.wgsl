@@ -1,3 +1,5 @@
+import { lightCyan, lightSurface } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -20,7 +22,7 @@ fn studio(reflection: vec3f, blur: f32) -> vec3f {
   let rim = exp(-pow((radius - 1.0) / (0.05 + blur * 1.5), 2.0));
   let wall = smoothstep(1.2, 1.7, radius) * (0.45 + 0.2 * sin(atan2(p.y, p.x) * 3.0));
   if (theme.mode.x > 0.5) {
-    let studioWall = vec3f(0.72, 0.79, 0.85);
+    let studioWall = mix(lightSurface(), lightCyan(), 0.12);
     let blackFlag = softbox(p, vec2f(-0.1, 0.1), vec2f(0.07, 0.48), soft * 1.4);
     return studioWall * (1.0 - blackFlag * 0.85) + vec3f(1.0, 0.98, 0.94) * key * 1.4 + vec3f(side * 0.6 + rim * 0.3);
   }

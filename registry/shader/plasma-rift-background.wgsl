@@ -1,3 +1,5 @@
+import { lightBlue, lightEmerald, lightPaper } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -45,8 +47,8 @@ struct VSOut {
   let energy = (core * 2.7 + halo) * broken * centerFade * vignette * cfg.metrics.w;
   if (theme.mode.x > 0.5) {
     let ribbon = clamp(energy * 0.65 + core * 0.4, 0.0, 1.0);
-    let mineral = mix(vec3f(0.05, 0.25, 0.55), vec3f(0.08, 0.48, 0.27), colorPhase * 0.5 + 0.5);
-    return vec4f(mix(vec3f(0.93, 0.97, 0.96), mineral, ribbon), 1.0);
+    let mineral = mix(lightBlue(), lightEmerald(), colorPhase * 0.5 + 0.5);
+    return vec4f(mix(lightPaper(), mineral, ribbon), 1.0);
   }
   let color = tint * energy + vec3f(core * core * 0.8 * broken * centerFade * vignette * cfg.metrics.w);
   return vec4f(clamp(color, vec3f(0.0), vec3f(1.0)), 1.0);

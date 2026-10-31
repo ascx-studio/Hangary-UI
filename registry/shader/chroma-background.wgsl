@@ -1,3 +1,5 @@
+import { lightCyan, lightPaper, lightRose, lightViolet } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -35,7 +37,8 @@ struct Config {
   let vignette = 1.0 - smoothstep(0.35, 1.25, length(p)) * 0.5;
   let grain = fract(sin(dot(floor(uv * cfg.metrics.xy), vec2f(12.9898, 78.233))) * 43758.5453) - 0.5;
   if (theme.mode.x > 0.5) {
-    let pigment = mix(vec3f(0.97, 0.93, 0.98), spectrum * 0.65 + 0.12, glow * vignette * 0.55 * cfg.metrics.w);
+    let dye = (lightRose() * spectrum.r + lightCyan() * spectrum.g + lightViolet() * spectrum.b) / max(spectrum.r + spectrum.g + spectrum.b, 0.001);
+    let pigment = mix(lightPaper(), dye, glow * vignette * 0.78 * cfg.metrics.w);
     return vec4f(pigment + vec3f(grain * cfg.settings.y * 0.3), 1.0);
   }
   var color = vec3f(0.008, 0.006, 0.02) + pow(max(spectrum, vec3f(0.0)), vec3f(1.25)) * glow * vignette * cfg.metrics.w;

@@ -47,8 +47,8 @@ const ProximityDash = memo(function ProximityDash({
       aria-hidden="true"
       data-nav-line=""
       className={cn(
-        "block h-px shrink-0 transition-colors group-hover:bg-foreground group-focus-visible:bg-foreground group-aria-[current=page]:bg-foreground group-aria-[current=location]:bg-foreground",
-        highlighted ? "bg-foreground" : "bg-muted-foreground/40",
+        "block h-0.5 dark:h-px shrink-0 transition-colors group-hover:bg-secondary dark:group-hover:bg-foreground group-focus-visible:bg-secondary dark:group-focus-visible:bg-foreground group-aria-[current=page]:bg-secondary dark:group-aria-[current=page]:bg-foreground group-aria-[current=location]:bg-secondary dark:group-aria-[current=location]:bg-foreground",
+        highlighted ? "bg-secondary dark:bg-foreground" : "bg-foreground/60 dark:bg-muted-foreground/40",
       )}
       initial={false}
       animate={{ width }}

@@ -5,7 +5,7 @@ import Container from "@/components/layout/Container";
 import Footer from "@/components/layout/Footer";
 import * as motion from "motion/react-client";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
-import { Button } from "@/registry/components/button";
+import { Button, buttonClassName } from "@/registry/components/button";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import {
   ReactDark,
@@ -94,7 +94,7 @@ export default function Page() {
             <SpotlightReveal
               variant="default"
               alt="Hangry UI"
-              className="aspect-1337/336 h-auto w-full max-w-6xl mask-[linear-gradient(to_bottom,black_35%,transparent_100%)]"
+              className="aspect-1337/336 h-auto w-full max-w-6xl mask-[linear-gradient(to_bottom,black_65%,transparent_100%)] dark:mask-[linear-gradient(to_bottom,black_35%,transparent_100%)]"
             />
           </motion.div>
           <div className="relative -mt-4 flex w-full flex-col items-start text-left sm:-mt-8 lg:-mt-12">
@@ -128,7 +128,7 @@ export default function Page() {
               <Link
                 href="/components"
                 transitionTypes={["hero-components"]}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+                className={buttonClassName()}
               >
                 Explore components
                 <ArrowRight size={16} aria-hidden="true" />

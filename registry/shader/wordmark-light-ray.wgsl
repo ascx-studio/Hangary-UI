@@ -1,3 +1,5 @@
+import { lightBlue, lightPaper } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -25,7 +27,7 @@ struct Config {
   }
   if (theme.mode.x > 0.5) {
     let beam = clamp(trail * 0.35 + halo * 0.5 + core * 0.8, 0.0, 1.0);
-    return vec4f(mix(vec3f(0.94, 0.97, 0.99), vec3f(0.02, 0.25, 0.5), beam), 1.0);
+    return vec4f(mix(lightPaper(), lightBlue(), beam), 1.0);
   }
   let color = vec3f(0.025, 0.045, 0.065)
     + vec3f(0.1, 0.45, 0.8) * trail * 0.65

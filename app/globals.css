@@ -11,6 +11,15 @@ overscroll-behavior: none;
 
 /* Brand palette sampled from public/pallet.png. Black uses Tailwind's built-in token. */
 @theme {
+  --color-light-paper: #f4faf6;
+  --color-light-surface: #d8eee2;
+  --color-light-ink: #113c32;
+  --color-light-emerald: #007c58;
+  --color-light-cyan: #008bb8;
+  --color-light-blue: #285ee8;
+  --color-light-violet: #8244d8;
+  --color-light-rose: #d63c83;
+  --color-light-gold: #d7931d;
   --color-spring-green: #05dc7f;
   --color-brand-green: #00664e;
   --color-dark-green: #152e2b;

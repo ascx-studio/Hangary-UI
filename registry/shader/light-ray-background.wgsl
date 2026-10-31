@@ -1,3 +1,5 @@
+import { lightCyan, lightPaper } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -76,7 +78,7 @@ fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   let light = (lines * 0.12 + glow) * cfg.metrics.w * fade;
   if (theme.mode.x > 0.5) {
     let beam = 1.0 - exp(-light * 1.8);
-    return vec4f(mix(vec3f(0.93, 0.96, 0.98), vec3f(0.04, 0.2, 0.32), beam), 1.0);
+    return vec4f(mix(lightPaper(), lightCyan(), beam), 1.0);
   }
   return vec4f(vec3f(1.0 - exp(-light * 1.4)), 1.0);
 }

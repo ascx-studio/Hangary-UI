@@ -3,7 +3,7 @@ import { cn } from "cn";
 
 export function Table({ className, ...props }: ComponentProps<"table">) {
   return (
-    <div className="w-full overflow-x-auto border border-border">
+    <div className="w-full overflow-x-auto rounded-lg border border-border">
       <table
         {...props}
         data-slot="table"

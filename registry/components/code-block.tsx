@@ -189,7 +189,7 @@ export function CodeBlock({
         >
           {header}
           {(["bun", "npm", "pnpm", "yarn"] as const).map((option) => (
-            <TabsContent key={option} value={option} className="border border-border">
+            <TabsContent key={option} value={option} className="overflow-hidden rounded-lg border border-border">
               {selectedManager === option ? content : null}
             </TabsContent>
           ))}
@@ -214,7 +214,7 @@ export function CodeBlock({
           )}
         </GuideCard>
       ) : (
-        <div className="border border-border">{content}</div>
+        <div className="overflow-hidden rounded-lg border border-border">{content}</div>
       )}
       <span
         role="status"

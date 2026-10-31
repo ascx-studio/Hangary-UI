@@ -1,3 +1,5 @@
+import { lightBlue, lightCyan, lightPaper } from "./light-palette.shared.wgsl";
+
 struct Theme { mode: vec4f };
 @group(1) @binding(0) var<uniform> theme: Theme;
 
@@ -23,9 +25,11 @@ struct Config {
   let energy = (led * (0.11 + scan * 0.5 + hover * 0.65) + halo * (scan + hover) * 0.07) * variation;
   let vignette = 1.0 - smoothstep(0.2, 0.85, length(uv - 0.5)) * 0.5;
   if (theme.mode.x > 0.5) {
-    let board = vec3f(0.9, 0.94, 0.97);
-    let dotColor = vec3f(0.04, 0.22, 0.4);
-    return vec4f(mix(board, dotColor, clamp(energy * vignette * cfg.metrics.w, 0.0, 1.0)), 1.0);
+    let board = lightPaper();
+    let solidDot = 1.0 - smoothstep(1.8, 2.7, radius);
+    let dotColor = mix(lightBlue(), lightCyan(), clamp(scan * 0.75 + hover * 0.25, 0.0, 1.0));
+    let coverage = solidDot * (0.8 + scan * 0.2 + hover * 0.15) * variation * cfg.metrics.w;
+    return vec4f(mix(board, dotColor, clamp(coverage, 0.0, 1.0)), 1.0);
   }
   let color = vec3f(0.008, 0.012, 0.018) + vec3f(0.62, 0.8, 1.0) * energy * vignette * cfg.metrics.w;
   return vec4f(color, 1.0);

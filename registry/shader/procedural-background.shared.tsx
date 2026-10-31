@@ -45,6 +45,7 @@ export const ProceduralBackground = memo(function ProceduralBackground({
   settings,
   palette,
   fallback,
+  lightFallback,
   speed = 0.2,
   intensity = 0.9,
   interactive = true,
@@ -57,6 +58,7 @@ export const ProceduralBackground = memo(function ProceduralBackground({
   settings: readonly [number, number, number?, number?];
   palette?: Record<string, number[]>;
   fallback?: string;
+  lightFallback?: string;
 }) {
   const reducedMotion = useReducedMotion();
   const x = useSpring(0.5, { stiffness: 100, damping: 22 });
@@ -74,7 +76,7 @@ export const ProceduralBackground = memo(function ProceduralBackground({
       {...props}
       shader={shaders[variant]}
       label={`${variant}-background`}
-      lightFallback={variant === "heatmap" && fallback ? fallback : lightFallbacks[variant]}
+      lightFallback={lightFallback ?? lightFallbacks[variant]}
       fallback={fallback ?? fallbacks[variant]}
       fallbackContent={
         variant === "ascii" ? (

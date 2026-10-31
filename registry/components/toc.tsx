@@ -93,7 +93,7 @@ export const Toc = memo(function Toc({
                 width: item.level === 3 ? 12 : item.level === 2 ? 20 : 32,
                 marginLeft: ((item.level ?? 1) - 1) * 6,
               }}
-              className="block h-px rounded-full bg-muted-foreground/40 transition-colors hover:bg-foreground hover:shadow-[0_0_5px_1px_color-mix(in_srgb,var(--foreground)_65%,transparent)] focus-visible:bg-foreground focus-visible:shadow-[0_0_5px_1px_color-mix(in_srgb,var(--foreground)_65%,transparent)] focus-visible:outline-none data-[active=true]:bg-foreground data-[active=true]:shadow-[0_0_5px_1px_color-mix(in_srgb,var(--foreground)_65%,transparent)]"
+              className="block h-0.5 dark:h-px rounded-full bg-foreground/60 dark:bg-muted-foreground/40 transition-colors hover:bg-secondary dark:hover:bg-foreground dark:hover:shadow-[0_0_5px_1px_color-mix(in_srgb,var(--foreground)_65%,transparent)] focus-visible:bg-secondary dark:focus-visible:bg-foreground dark:focus-visible:shadow-[0_0_5px_1px_color-mix(in_srgb,var(--foreground)_65%,transparent)] focus-visible:outline-none data-[active=true]:bg-secondary dark:data-[active=true]:bg-foreground dark:data-[active=true]:shadow-[0_0_5px_1px_color-mix(in_srgb,var(--foreground)_65%,transparent)]"
             >
               <span className="sr-only">{item.label}</span>
             </motion.a>
@@ -124,7 +124,7 @@ export const Toc = memo(function Toc({
                     });
                     setActive(new Set([item.id]));
                   }}
-                  className={`block rounded-md px-2 py-1.5 text-sm leading-5 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground focus-visible:outline-none data-[active=true]:bg-muted data-[active=true]:text-foreground ${hovered === item.id ? "bg-muted text-foreground" : ""}`}
+                  className={`block rounded-md px-2 py-1.5 text-sm leading-5 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground focus-visible:outline-none data-[active=true]:bg-secondary/15 dark:data-[active=true]:bg-muted data-[active=true]:text-foreground ${hovered === item.id ? "bg-muted text-foreground" : ""}`}
                 >
                   {item.label}
                 </a>
