@@ -5,7 +5,12 @@ import { useReducedMotion } from "motion/react";
 import { createShaderRenderer } from "./shader-renderer.shared";
 
 type RendererOptions = Parameters<typeof createShaderRenderer>[2];
-interface WordmarkShaderProps {
+export interface WordmarkSourceProps {
+  src?: string;
+  alt?: string;
+}
+
+interface WordmarkShaderProps extends WordmarkSourceProps {
   shader: Parameters<typeof createShaderRenderer>[1];
   label: string;
   uniforms: (
@@ -15,7 +20,7 @@ interface WordmarkShaderProps {
     hovering: boolean,
   ) => ReturnType<RendererOptions["uniforms"]>;
   surface?: RendererOptions["surface"];
-  screenBlend?: boolean;
+  baseBrightness?: number;
 }
 
 export const WordmarkShader = memo(function WordmarkShader({
@@ -23,8 +28,11 @@ export const WordmarkShader = memo(function WordmarkShader({
   label,
   uniforms,
   surface,
-  screenBlend,
+  baseBrightness = 0,
+  src = "/wordmark.svg",
+  alt = "Hangry UI",
 }: WordmarkShaderProps) {
+  const image = `url(${JSON.stringify(src)})`;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const markRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
@@ -66,23 +74,31 @@ export const WordmarkShader = memo(function WordmarkShader({
   }, [shader, label, uniforms, surface, reducedMotion]);
 
   return (
-    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-black">
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-black isolate">
       <div
         ref={markRef}
+        role={alt ? "img" : undefined}
+        aria-label={alt || undefined}
+        aria-hidden={alt ? undefined : true}
         className="aspect-[1337/336] w-[88%]"
         style={{
-          mixBlendMode: screenBlend ? "screen" : undefined,
-          maskImage: "url('/wordmark.svg')",
+          backgroundImage: image,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          maskImage: image,
           maskPosition: "center",
           maskRepeat: "no-repeat",
           maskSize: "contain",
-          WebkitMaskImage: "url('/wordmark.svg')",
+          WebkitMaskImage: image,
           WebkitMaskPosition: "center",
           WebkitMaskRepeat: "no-repeat",
           WebkitMaskSize: "contain",
         }}
       >
-        <canvas ref={canvasRef} aria-hidden="true" className="block h-full w-full" />
+        <div className="h-full w-full mix-blend-multiply" style={{ opacity: 1 - baseBrightness }}>
+          <canvas ref={canvasRef} aria-hidden="true" className="block h-full w-full grayscale" />
+        </div>
       </div>
     </div>
   );

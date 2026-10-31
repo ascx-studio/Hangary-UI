@@ -4,6 +4,7 @@ import { logCatalogDetailRendered } from "@/lib/posthog-logger";
 import JsonLd from "@/components/seo/JsonLd";
 import { registryStructuredData, siteUrl } from "@/lib/seo";
 import DocsPageEntrance from "@/components/registry/docs-page-entrance";
+import Footer from "@/components/layout/Footer";
 import DocsToc from "@/components/registry/docs-toc";
 
 export default async function DetailPage({
@@ -27,34 +28,37 @@ export default async function DetailPage({
     utils: "Utilities",
   }[category];
   return (
-    <DocsPageEntrance
-      key={`${category}:${name}`}
-      className="w-full min-w-0 px-6 py-10 sm:px-10 md:px-12 md:py-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-4xl"
-    >
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Hangry UI", item: siteUrl },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: categoryTitle,
-              item: `${siteUrl}/${category}`,
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: item.title,
-              item: new URL(getRegistryItemHref(item), siteUrl).href,
-            },
-          ],
-        }}
-      />
-      <JsonLd data={registryStructuredData(item, category, getRegistryItemHref(item))} />
-      <DocsToc />
-      <Content />
-    </DocsPageEntrance>
+    <div className="isolate flex min-h-dvh w-full min-w-0 flex-col">
+      <DocsPageEntrance
+        key={`${category}:${name}`}
+        className="relative z-10 min-h-dvh w-full min-w-0 flex-1 bg-background px-6 py-10 sm:px-10 md:px-12 md:py-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-4xl"
+      >
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Hangry UI", item: siteUrl },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: categoryTitle,
+                item: `${siteUrl}/${category}`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: item.title,
+                item: new URL(getRegistryItemHref(item), siteUrl).href,
+              },
+            ],
+          }}
+        />
+        <JsonLd data={registryStructuredData(item, category, getRegistryItemHref(item))} />
+        <DocsToc />
+        <Content />
+      </DocsPageEntrance>
+      <Footer />
+    </div>
   );
 }

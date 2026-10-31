@@ -1,3 +1,6 @@
+import Link from "next/link";
+import Logo from "@/components/ui/Logo";
+import ThemeToggle from "@/components/theme-toggle";
 import Container from "@/components/layout/Container";
 import Footer from "@/components/layout/Footer";
 import * as motion from "motion/react-client";
@@ -13,6 +16,16 @@ export default function Page() {
   return (
     <div className="isolate flex min-h-dvh w-full min-w-0 flex-col">
       <main className="relative z-10 flex min-h-dvh flex-1 flex-col bg-background">
+        <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+          <Link
+            href="/"
+            aria-label="Hangry UI home"
+            className="rounded-sm focus-visible:outline-2 focus-visible:outline-ring"
+          >
+            <Logo variant="logo" className="size-10" priority />
+          </Link>
+          <ThemeToggle />
+        </header>
         <JsonLd
           data={{
             "@context": "https://schema.org",
@@ -105,10 +118,14 @@ export default function Page() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Button href="/components" variant="primary">
+              <Link
+                href="/components"
+                transitionTypes={["hero-components"]}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+              >
                 Explore components
                 <ArrowRight size={16} aria-hidden="true" />
-              </Button>
+              </Link>
               <Button href="https://github.com/ascx-studio/ui" variant="outline">
                 Star on GitHub
                 <ArrowUpRight size={16} aria-hidden="true" />

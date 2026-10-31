@@ -11,11 +11,18 @@ struct Config {
   let cell = floor(grid);
   let point = (cell + 0.5) * cellSize / cfg.metrics.xy;
   let time = cfg.metrics.z;
-  let field = sin(point.x * 4.0 + time * 0.9) * cos(point.y * 3.2 - time * 0.6)
-    + sin((point.x + point.y) * 3.0 - time * 0.45) * 0.5;
+  // Sample the ribbon pattern at cell centers so each glyph has one density.
+  let aspect = cfg.metrics.x / cfg.metrics.y;
+  let p = (point - 0.5) * vec2f(aspect, 1.0);
+  let warped = p + vec2f(
+    sin(p.y * 5.0 + time * 0.65),
+    cos(p.x * 4.0 - time * 0.5)
+  ) * 0.12;
+  let radius = length(warped * vec2f(0.85, 1.15));
+  let ribbon = pow(0.5 + 0.5 * cos(radius * 26.0 - time * 1.2), 3.0);
   let delta = (cell + 0.5) * cellSize - cfg.pointer.xy * cfg.metrics.xy;
   let hover = exp(-dot(delta, delta) / 18000.0) * cfg.pointer.z;
-  let brightness = clamp(0.42 + field * 0.24 + hover * 0.4, 0.0, 1.0);
+  let brightness = clamp(0.04 + ribbon * 0.9 + hover * 0.4, 0.0, 1.0);
   let character = u32(brightness * 9.0);
   let glyphs = array<u32, 10>(
     0u, 131072u, 131200u, 31744u, 1016800u,
@@ -28,5 +35,5 @@ struct Config {
   }
   let gradient = 0.5 + 0.5 * cos(vec3f(0.0, 2.1, 4.2) + point.x * 3.0 + point.y * 2.0 + time * 0.12);
   let tint = mix(vec3f(0.95, 0.18, 0.72), vec3f(0.15, 0.85, 1.0), gradient);
-  return vec4f(vec3f(0.012, 0.006, 0.035) + tint * ink * (0.25 + brightness * 0.9) * cfg.metrics.w, 1.0);
+  return vec4f(vec3f(0.012, 0.006, 0.035) + tint * ink * (0.12 + brightness * 0.95) * cfg.metrics.w, 1.0);
 }

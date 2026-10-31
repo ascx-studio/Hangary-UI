@@ -1064,15 +1064,15 @@
       }
     },
     {
-      "name": "bottom-sheet",
+      "name": "sheet",
       "type": "registry:component",
-      "title": "Bottom Sheet",
-      "description": "A bottom-aligned modal sheet with native focus management and Escape dismissal.",
+      "title": "Sheet",
+      "description": "A modal sheet that opens from any edge, with native focus management and Escape dismissal.",
       "files": [
         {
-          "path": "registry/components/bottom-sheet.tsx",
+          "path": "registry/components/sheet.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/components/bottom-sheet.tsx"
+          "target": "@components/hangry-ui/components/sheet.tsx"
         },
         {
           "path": "registry/components/button.tsx",
@@ -3145,7 +3145,7 @@
     {
       "name": "dithered-logo",
       "title": "Dithered Logo",
-      "description": "A configurable logo silhouette filled with the animated ordered-dither shader.",
+      "description": "An animated ordered-dither logo that preserves source image colors, with an optional foreground override.",
       "type": "registry:component",
       "files": [
         {
@@ -3181,7 +3181,7 @@
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
-        "category": "components"
+        "category": "shader"
       }
     },
     {
@@ -3246,7 +3246,7 @@
     {
       "name": "light-ray-frame-card",
       "title": "Light Ray Frame Card",
-      "description": "Curved white strands with glowing pulses flowing around your content.",
+      "description": "A sweeping light ray with a soft glow flowing around your content.",
       "type": "registry:component",
       "files": [
         {
@@ -3265,24 +3265,19 @@
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/shader/light-ray-background.tsx",
+          "path": "registry/shader/ray-field-background.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/shader/light-ray-background.tsx"
+          "target": "@components/hangry-ui/shader/ray-field-background.tsx"
         },
         {
-          "path": "registry/shader/light-background.shared.tsx",
+          "path": "registry/shader/canvas.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/shader/light-background.shared.tsx"
+          "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/led-background.wgsl",
+          "path": "registry/shader/wordmark-light-ray.wgsl",
           "type": "registry:file",
-          "target": "@components/hangry-ui/shader/led-background.wgsl"
-        },
-        {
-          "path": "registry/shader/light-ray-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
+          "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl"
         },
         {
           "path": "registry/shader/shader-renderer.shared.ts",

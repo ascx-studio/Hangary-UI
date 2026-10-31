@@ -21,7 +21,7 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsReveal stagger>
 
-A logo silhouette filled with flowing, two-color ordered dithering. Uses the existing Dither Background shader and a CSS image mask.
+A logo with flowing ordered dithering that preserves the source image’s colors. Uses the existing Dither Background shader, image compositing, and a CSS image mask.
 
 ## Installation
 
@@ -36,7 +36,6 @@ import { DitheredLogo } from "@/components/hangry-ui/components/dithered-logo";
   src="/your-logo.svg"
   alt="Your brand"
   ratio={2}
-  color={[0.02, 0.86, 0.5]}
   pixelSize={3}
   speed={0.4}
   className="max-w-md"
@@ -65,7 +64,7 @@ import { DitheredLogo } from "@/components/hangry-ui/components/dithered-logo";
       <TableCell>
         <code>{"/logo.svg"}</code>
       </TableCell>
-      <TableCell>SVG or transparent image used as the alpha mask.</TableCell>
+      <TableCell>SVG or transparent image providing the logo colors and alpha mask.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>
@@ -99,9 +98,9 @@ import { DitheredLogo } from "@/components/hangry-ui/components/dithered-logo";
         <code>{"[number, number, number]"}</code>
       </TableCell>
       <TableCell>
-        <code>{"[0.02, 0.86, 0.5]"}</code>
+        <code>{"Source image"}</code>
       </TableCell>
-      <TableCell>Foreground RGB channels from 0 to 1.</TableCell>
+      <TableCell>Optional foreground RGB override, with channels from 0 to 1. Omit to preserve the source logo colors.</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>

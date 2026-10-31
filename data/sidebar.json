@@ -46,9 +46,9 @@
           "group": "Visual Effects"
         },
         {
-          "label": "Bottom Sheet",
-          "slug": "bottom-sheet",
-          "description": "A bottom-aligned modal sheet with native focus management and Escape dismissal.",
+          "label": "Sheet",
+          "slug": "sheet",
+          "description": "A modal sheet that opens from any edge, with native focus management and Escape dismissal.",
           "group": "Feedback & Overlays"
         },
         {
@@ -220,15 +220,9 @@
           "group": "Feedback & Overlays"
         },
         {
-          "label": "Dithered Logo",
-          "slug": "dithered-logo",
-          "description": "A configurable logo silhouette filled with the animated ordered-dither shader.",
-          "group": "Media"
-        },
-        {
           "label": "Light Ray Frame Card",
           "slug": "light-ray-frame-card",
-          "description": "Curved white strands with glowing pulses flowing around your content.",
+          "description": "A sweeping light ray with a soft glow flowing around your content.",
           "group": "Cards"
         },
         {
@@ -416,16 +410,22 @@
           "group": "Backgrounds"
         },
         {
+          "label": "Dithered Logo",
+          "slug": "dithered-logo",
+          "description": "Animated ordered dithering that preserves the source logo colors.",
+          "group": "Logos & Wordmarks"
+        },
+        {
           "label": "Wordmark LED",
           "slug": "wordmark-led",
           "description": "A bright LED matrix with a sweeping highlight across the wordmark.",
-          "group": "Wordmarks"
+          "group": "Logos & Wordmarks"
         },
         {
           "label": "Wordmark Light Ray",
           "slug": "wordmark-light-ray",
           "description": "A continuous blue-white light ray with a soft glow and fading trail across the wordmark.",
-          "group": "Wordmarks"
+          "group": "Logos & Wordmarks"
         },
         {
           "label": "Ray Field",

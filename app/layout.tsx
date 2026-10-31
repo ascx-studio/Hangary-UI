@@ -34,9 +34,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${paperMono.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try { document.documentElement.classList.toggle('dark', localStorage.getItem('theme') !== 'light'); } catch {}`,
+          }}
+        />
         <PageTransition>{children}</PageTransition>
         <Toaster />
         <Analytics />

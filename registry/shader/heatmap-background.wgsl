@@ -1,11 +1,14 @@
 struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
 @group(0) @binding(0) var<uniform> cfg: Config;
 
+struct Palette { color0: vec4f, color1: vec4f, color2: vec4f, color3: vec4f, color4: vec4f, color5: vec4f, color6: vec4f };
+@group(0) @binding(1) var<uniform> palette: Palette;
+
 fn thermal(value: f32) -> vec3f {
-  let t = clamp(value, 0.0, 1.0) * 4.0;
-  let colors = array<vec3f, 5>(vec3f(0.015, 0.01, 0.15), vec3f(0.05, 0.15, 0.8),
-    vec3f(0.0, 0.8, 0.65), vec3f(1.0, 0.85, 0.08), vec3f(1.0, 0.08, 0.02));
-  let index = min(u32(t), 3u);
+  let t = clamp(value, 0.0, 1.0) * 6.0;
+  let colors = array<vec3f, 7>(palette.color0.rgb, palette.color1.rgb, palette.color2.rgb,
+    palette.color3.rgb, palette.color4.rgb, palette.color5.rgb, palette.color6.rgb);
+  let index = min(u32(t), 5u);
   return mix(colors[index], colors[index + 1u], smoothstep(0.0, 1.0, t - f32(index)));
 }
 

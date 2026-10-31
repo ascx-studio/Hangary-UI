@@ -122,7 +122,7 @@ export const Outline = memo(function Outline({
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: reducedMotion ? 0 : 0.035 } },
           }}
-          className="relative space-y-1 before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-border before:content-['']"
+          className={`relative space-y-1 ${variant === "sidebar" ? "" : "before:absolute before:inset-y-0 before:left-0 before:w-px before:bg-border before:content-['']"}`}
         >
           {items.map((item, index) => {
             const active = item.href

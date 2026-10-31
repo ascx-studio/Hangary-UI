@@ -299,13 +299,14 @@ export const previewProps: Record<string, PreviewProp[]> = {
     { name: "children", type: "ReactNode", required: false, control: null },
     { name: "className", type: "string", required: false, control: "text" },
   ],
-  "bottom-sheet": [
+  "sheet": [
+    { name: "side", type: '"top" | "right" | "bottom" | "left"', required: false, control: "select", options: ["top", "right", "bottom", "left"], defaultValue: "bottom" },
     {
       name: "triggerLabel",
       type: "string",
       required: false,
       control: "text",
-      defaultValue: "Open bottom sheet",
+      defaultValue: "Open sheet",
     },
     {
       name: "title",

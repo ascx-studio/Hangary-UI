@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       "*.wgsl": wgslTurbopackRule({ minify: true }),
     },
   },
+  async redirects() {
+    return [{ source: "/components/dithered-logo", destination: "/shader/dithered-logo", permanent: true }];
+  },
   async rewrites() {
     return posthogHost ? [{ source: "/ingest/:path*", destination: `${posthogHost}/:path*` }] : [];
   },

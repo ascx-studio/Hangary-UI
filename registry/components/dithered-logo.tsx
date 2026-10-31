@@ -38,8 +38,12 @@ export const DitheredLogo = memo(function DitheredLogo({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 isolate"
         style={{
+          backgroundImage: color ? undefined : mask,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
           maskImage: mask,
           maskSize: "contain",
           maskRepeat: "no-repeat",
@@ -53,11 +57,11 @@ export const DitheredLogo = memo(function DitheredLogo({
         <DitherBackground
           interactive
           interactionRef={interactionRef}
-          color={color}
+          color={color ?? [1, 1, 1]}
           backgroundColor={backgroundColor}
           pixelSize={pixelSize}
           speed={speed}
-          className="h-full min-h-0 w-full border-0"
+          className={cn("h-full min-h-0 w-full border-0", !color && "mix-blend-multiply")}
         />
       </div>
     </AspectRatio>

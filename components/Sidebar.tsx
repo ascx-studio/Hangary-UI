@@ -126,30 +126,17 @@ function Navigation({
             groupTitles.map((title) => {
               const links = toLinks(entries.filter((item) => item.group === title));
               return (
-                <details
+                <Outline
                   key={title}
-                  open={links.some((link) => pathname === link.href) || undefined}
-                  className="group/subcategory border-l border-border"
-                >
-                  <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between gap-2 pl-4 text-sm leading-6 text-muted-foreground hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring [&::-webkit-details-marker]:hidden">
-                    {title}
-                    <ChevronDown
-                      size={14}
-                      aria-hidden="true"
-                      className="mr-2 transition-transform group-open/subcategory:rotate-180 motion-reduce:transition-none"
-                    />
-                  </summary>
-                  <Outline
-                    title={title}
-                    variant="sidebar"
-                    items={links.map((link) => ({
-                      id: link.href,
-                      label: link.label,
-                      href: link.href,
-                    }))}
-                    className="ml-4 w-auto! [&_h2]:sr-only"
-                  />
-                </details>
+                  title={title}
+                  variant="sidebar"
+                  items={links.map((link) => ({
+                    id: link.href,
+                    label: link.label,
+                    href: link.href,
+                  }))}
+                  className="mt-6 w-full"
+                />
               );
             })}
         </div>
@@ -208,7 +195,7 @@ export default function Sidebar({
             animate={{ opacity: 1 }}
             exit={reducedMotion ? undefined : { opacity: 0 }}
             transition={{ duration: reducedMotion ? 0 : 0.24, ease: "easeOut" }}
-            className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden border-r border-sidebar-border px-4 py-6 text-sidebar-foreground md:flex ${className}`}
+            className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden px-4 py-6 text-sidebar-foreground md:flex ${className}`}
           >
             <m.div
               initial={reducedMotion ? false : { opacity: 0, y: 4 }}
@@ -273,7 +260,7 @@ export default function Sidebar({
           </m.aside>
         )}
       </AnimatePresence>
-      <details className="group border-b border-sidebar-border bg-sidebar text-sidebar-foreground md:hidden">
+      <details className="group bg-sidebar text-sidebar-foreground md:hidden">
         <summary className="flex cursor-pointer list-none items-center gap-3 p-4 focus-visible:outline-2 focus-visible:outline-sidebar-ring [&::-webkit-details-marker]:hidden">
           <PanelLeft size={20} aria-hidden="true" />
           <span className="flex-1 text-sm font-semibold">Library navigation</span>

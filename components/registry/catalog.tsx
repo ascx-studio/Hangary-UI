@@ -5,7 +5,9 @@ import { usesVgpu } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import SharedPreviewLayout from "@/components/registry/shared-preview-layout";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/components/tabs";
+import { TabsContent, TabsList, TabsTrigger } from "@/registry/components/tabs";
+import { Suspense } from "react";
+import { CatalogTabs } from "./catalog-tabs";
 import sidebarData from "@/data/sidebar.json";
 
 export default function Catalog({ category }: Readonly<{ category: RegistryCategory }>) {
@@ -73,21 +75,23 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
 
   const filters = [{ title: "All", items }, ...groups];
   return (
-    <Tabs defaultValue="All" className="mt-8">
-      <Card size="sm" className="w-fit max-w-full overflow-x-auto p-0">
-        <TabsList className="bg-transparent" aria-label={`Filter ${category} by category`}>
-          {filters.map((group) => (
-            <TabsTrigger key={group.title} value={group.title}>
-              {group.title}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Card>
-      {filters.map((group) => (
-        <TabsContent key={group.title} value={group.title}>
-          {renderGroup(group)}
-        </TabsContent>
-      ))}
-    </Tabs>
+    <Suspense>
+      <CatalogTabs filters={filters.map((group) => group.title)}>
+        <Card size="sm" className="w-fit max-w-full overflow-x-auto p-0">
+          <TabsList className="bg-transparent" aria-label={`Filter ${category} by category`}>
+            {filters.map((group) => (
+              <TabsTrigger key={group.title} value={group.title}>
+                {group.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Card>
+        {filters.map((group) => (
+          <TabsContent key={group.title} value={group.title}>
+            {renderGroup(group)}
+          </TabsContent>
+        ))}
+      </CatalogTabs>
+    </Suspense>
   );
 }

@@ -34,6 +34,8 @@ export interface ProceduralBackgroundProps extends ComponentProps<"div"> {
 export const ProceduralBackground = memo(function ProceduralBackground({
   variant,
   settings,
+  palette,
+  fallback,
   speed = 0.2,
   intensity = 0.9,
   interactive = true,
@@ -44,6 +46,8 @@ export const ProceduralBackground = memo(function ProceduralBackground({
 }: ProceduralBackgroundProps & {
   variant: keyof typeof shaders;
   settings: readonly [number, number, number?, number?];
+  palette?: Record<string, number[]>;
+  fallback?: string;
 }) {
   const reducedMotion = useReducedMotion();
   const x = useSpring(0.5, { stiffness: 100, damping: 22 });
@@ -61,7 +65,7 @@ export const ProceduralBackground = memo(function ProceduralBackground({
       {...props}
       shader={shaders[variant]}
       label={`${variant}-background`}
-      fallback={fallbacks[variant]}
+      fallback={fallback ?? fallbacks[variant]}
       fallbackContent={
         variant === "ascii" ? (
           <pre className="absolute inset-0 overflow-hidden whitespace-pre-wrap p-4 font-mono text-xs leading-4 text-emerald-400/25">
@@ -85,6 +89,7 @@ export const ProceduralBackground = memo(function ProceduralBackground({
       fps={variant === "liquid-chrome" ? 60 : 30}
       dpr={variant === "liquid-chrome" ? [1, 1.5] : 1}
       uniforms={(time, size) => ({
+        ...(variant === "heatmap" ? { palette } : {}),
         cfg: {
           metrics: [size[0], size[1], time * rate, brightness],
           pointer: [x.get(), y.get(), interactive && !reducedMotion ? hover.get() : 0, 0],

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState } from "react";
 import * as motion from "motion/react-client";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -43,10 +45,10 @@ export default function HomeHero() {
           with details worth slowing down for.
         </p>
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
-          <Button href="/components" variant="primary">
+          <Link href="/components" transitionTypes={["hero-components"]} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400">
             Explore components
             <ArrowRight size={16} aria-hidden="true" />
-          </Button>
+          </Link>
           <Button href="https://github.com/ascx-studio/ui" variant="outline">
             Star on GitHub
             <ArrowUpRight size={16} aria-hidden="true" />

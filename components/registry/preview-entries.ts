@@ -28,7 +28,7 @@ import { Avatar } from "@/registry/components/avatar";
 import { Badge } from "@/registry/components/badge";
 import { Banner } from "@/registry/components/banner";
 import { BorderHighlight } from "@/registry/components/border-highlight";
-import { BottomSheet } from "@/registry/components/bottom-sheet";
+import { Sheet } from "@/registry/components/sheet";
 import { BrandPalette } from "@/registry/components/brand-palette";
 import { Breadcrumb } from "@/registry/components/breadcrumb";
 import { Button } from "@/registry/components/button";
@@ -98,7 +98,7 @@ export const previewEntries = {
   "led-background": { component: LedBackground, category: "shader" },
   "light-ray-frame-card": { component: LightRayFrameCard, category: "components" },
   "topographic-contour-map": { component: TopographicContourMap, category: "shader" },
-  "dithered-logo": { component: DitheredLogo, category: "components" },
+  "dithered-logo": { component: DitheredLogo, category: "shader" },
   "dithering-frame-card": { component: DitheringFrameCard, category: "components" },
   "dither-background": { component: DitherBackground, category: "shader" },
   accordion: { component: Accordion, category: "components" },
@@ -121,7 +121,7 @@ export const previewEntries = {
   badge: { component: Badge, category: "components" },
   banner: { component: Banner, category: "components" },
   "border-highlight": { component: BorderHighlight, category: "components" },
-  "bottom-sheet": { component: BottomSheet, category: "components" },
+  "sheet": { component: Sheet, category: "components" },
   "brand-palette": { component: BrandPalette, category: "components" },
   breadcrumb: { component: Breadcrumb, category: "components" },
   button: { component: Button, category: "components" },

@@ -8,39 +8,41 @@ import {
 } from "@/registry/components/table";
 import { CodeBlock } from "@/registry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
-import { BottomSheet } from "@/registry/components/bottom-sheet";
+import { Sheet } from "@/registry/components/sheet";
 import { Button } from "@/registry/components/button";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
 import DocsDependencies from "@/components/registry/docs-dependencies";
 
-<DocsHeader name="bottom-sheet" />
+<DocsHeader name="sheet" />
 
 <ComponentPreview className="h-full w-full">
   <div className="flex flex-wrap items-center justify-center gap-4">
-    <BottomSheet triggerLabel="View details" title="Project details" />
-    <BottomSheet triggerLabel="Open quick actions" title="Quick actions">
+    <Sheet side="bottom" triggerLabel="Bottom sheet" title="Project details" />
+    <Sheet side="top" triggerLabel="Top sheet" title="Project details" />
+    <Sheet side="left" triggerLabel="Left sheet" title="Project details" />
+    <Sheet side="right" triggerLabel="Right sheet" title="Quick actions">
       <Button>Create project</Button>
-    </BottomSheet>
+    </Sheet>
   </div>
 </ComponentPreview>
 
 <DocsReveal stagger>
 
-A bottom-aligned modal sheet with native focus management and Escape dismissal.
+A modal sheet that opens from any edge, with native focus management and Escape dismissal.
 
 ## Installation
 
-<InstallationMenu name="bottom-sheet" />
+<InstallationMenu name="sheet" />
 
 ## How to use
 
 ```tsx
-import { BottomSheet } from "@/components/hangry-ui/components/bottom-sheet";
+import { Sheet } from "@/components/hangry-ui/components/sheet";
 
-<BottomSheet title="Quick actions">
+<Sheet side="right" title="Quick actions">
   <p>Choose your next step.</p>
-</BottomSheet>;
+</Sheet>;
 ```
 
 ## Props
@@ -56,6 +58,12 @@ import { BottomSheet } from "@/components/hangry-ui/components/bottom-sheet";
   </TableHeader>
   <TableBody>
     <TableRow>
+      <TableCell><code>side</code></TableCell>
+      <TableCell><code>"top" | "right" | "bottom" | "left"</code></TableCell>
+      <TableCell><code>"bottom"</code></TableCell>
+      <TableCell>The edge the sheet opens from.</TableCell>
+    </TableRow>
+    <TableRow>
       <TableCell>
         <code className="break-words">{"triggerLabel"}</code>
       </TableCell>
@@ -63,7 +71,7 @@ import { BottomSheet } from "@/components/hangry-ui/components/bottom-sheet";
         <code className="break-words">{"string"}</code>
       </TableCell>
       <TableCell>
-        <code className="break-words">{'"Open bottom sheet"'}</code>
+        <code className="break-words">{'"Open sheet"'}</code>
       </TableCell>
       <TableCell>{"Label of the button that opens the sheet."}</TableCell>
     </TableRow>
@@ -120,6 +128,6 @@ import { BottomSheet } from "@/components/hangry-ui/components/bottom-sheet";
   </TableBody>
 </Table>
 
-<DocsDependencies name="bottom-sheet" />
+<DocsDependencies name="sheet" />
 
 </DocsReveal>

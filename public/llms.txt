@@ -41,10 +41,9 @@ Use the installation command on the relevant documentation page for other compon
 
 ## Component documentation
 
-- [Light Ray Frame Card](https://ui.razeev.com/components/light-ray-frame-card): Curved white strands with glowing pulses flowing around your content.
+- [Light Ray Frame Card](https://ui.razeev.com/components/light-ray-frame-card): A sweeping light ray with a soft glow flowing around your content.
 
 
-- [Dithered Logo](https://ui.razeev.com/components/dithered-logo): A configurable logo silhouette filled with the animated ordered-dither shader.
 
 - [Dithering Frame Card](https://ui.razeev.com/components/dithering-frame-card): A readable content card surrounded by an animated ordered-dither shader frame.
 
@@ -55,7 +54,7 @@ Use the installation command on the relevant documentation page for other compon
 - [Badge](https://ui.razeev.com/components/badge): Status badges with matching icons, tinted backgrounds, square corners, and reduced-motion-aware hover animation.
 - [Banner](https://ui.razeev.com/components/banner): A status banner with matching icons, optional descriptions, and reduced-motion-aware hover animation.
 - [Border Highlight](https://ui.razeev.com/components/border-highlight): A glowing border that follows your pointer with spring motion.
-- [Bottom Sheet](https://ui.razeev.com/components/bottom-sheet): A bottom-aligned modal sheet with native focus management and Escape dismissal.
+- [Sheet](https://ui.razeev.com/components/sheet): A modal sheet that opens from any edge, with native focus management and Escape dismissal.
 - [Brand Palette](https://ui.razeev.com/components/brand-palette): Six brand color swatches and a green gradient.
 - [Breadcrumb](https://ui.razeev.com/components/breadcrumb): A breadcrumb navigation trail with links and a current-page indicator.
 - [Button](https://ui.razeev.com/components/button): An accessible button with primary, secondary, ghost, destructive, and outline variants.
@@ -83,6 +82,7 @@ Use the installation command on the relevant documentation page for other compon
 
 ## Shader documentation
 
+- [Dithered Logo](https://ui.razeev.com/shader/dithered-logo): A configurable logo silhouette filled with the animated ordered-dither shader.
 - [Liquid Chrome Background](https://ui.razeev.com/shader/liquid-chrome-background): Flowing silver folds with studio reflections, sharp metallic highlights, and pointer-driven ripples.
 
 - [Heatmap Background](https://ui.razeev.com/shader/heatmap-background): Flowing thermal colors move from cool blue through green and yellow to hot red.
