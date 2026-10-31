@@ -4415,6 +4415,38 @@
           "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
         }
       }
+    },
+    {
+      "name": "binary-flower-garden",
+      "type": "registry:component",
+      "title": "Binary Flower Garden",
+      "description": "Interactive WebGPU WGSL floral field simulation with real-time binary matrix glyph sampling and petal physics.",
+      "dependencies": ["vgpu", "@vgpu/wgsl", "motion"],
+      "files": [
+        {
+          "path": "hangry/shader/canvas.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/canvas.tsx"
+        },
+        {
+          "path": "hangry/shader/shader-renderer.shared.ts",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/binary-flower-garden.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/shader/binary-flower-garden.tsx"
+        },
+        {
+          "path": "hangry/shader/binary-flower-garden.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/binary-flower-garden.wgsl"
+        }
+      ],
+      "meta": {
+        "category": "shader"
+      }
     }
   ]
 }

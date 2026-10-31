@@ -1,0 +1,82 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/hangry/components/table";
+import DitherComponentPreview from "@/components/registry/dither-component-preview";
+import { BinaryFlowerGarden } from "@/hangry/shader/binary-flower-garden";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="binary-flower-garden" />
+
+<DitherComponentPreview fullBleed>
+  <BinaryFlowerGarden className="h-full w-full" />
+</DitherComponentPreview>
+
+<DocsReveal stagger>
+
+Interactive physics-driven floral stems oscillating in a simulated wind field, featuring petal collision mechanics and shedding dynamics. Rendered directly through hardware-accelerated WebGPU WGSL fragment shaders with real-time binary glyph matrix sampling.
+
+The breeze occasionally drops a random petal. Click any flower head to shed petals that flutter down to the ground. Each shed petal starts growing back automatically three seconds after it lands on the soil. Double-click to trigger a radial blooming animation and regrow missing petals. Drag flowers into each other to cause collisions and petal drops.
+
+Inspired by [Sam Who’s post on X](https://x.com/samwhoo/status/2116317667921625158?a=f3RiaTTBcEl1adG_NJ4&s=20) and [Bloom filters](https://samwho.dev/bloom-filters).
+
+## Installation
+
+<InstallationMenu name="binary-flower-garden" />
+
+## How to use
+
+Import the component and optionally set the theme, wind speed, or custom classes. Set `windSpeed` from 0 (off) to 3× normal. Changing wind speed keeps growth and petal regrowth running at their normal pace.
+
+```tsx
+import { BinaryFlowerGarden } from "@/hangry/shader/binary-flower-garden";
+
+export default function BloomDemo() {
+  return (
+    <div className="w-full max-w-5xl mx-auto p-4">
+      <BinaryFlowerGarden windSpeed={1} className="h-[32rem] w-full" />
+    </div>
+  );
+}
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell className="font-mono text-xs">windSpeed</TableCell>
+      <TableCell className="font-mono text-xs">number</TableCell>
+      <TableCell className="font-mono text-xs">1</TableCell>
+      <TableCell>Wind speed multiplier, from 0 (off) to 3. Respects reduced motion.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-mono text-xs">dark</TableCell>
+      <TableCell className="font-mono text-xs">boolean</TableCell>
+      <TableCell className="font-mono text-xs">true</TableCell>
+      <TableCell>Sets theme to dark mode (#141416) or light mode (#f5f5f7).</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-mono text-xs">className</TableCell>
+      <TableCell className="font-mono text-xs">string</TableCell>
+      <TableCell className="font-mono text-xs">-</TableCell>
+      <TableCell>Additional CSS class names to apply to container.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+</DocsReveal>

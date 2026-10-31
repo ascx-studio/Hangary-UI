@@ -21,7 +21,11 @@ export interface PostProcessOptions {
 
 interface ShaderRendererOptions {
   label: string;
-  uniforms: (time: number, size: readonly [number, number]) => Bindings;
+  uniforms: (
+    time: number,
+    size: readonly [number, number],
+    gpu?: Awaited<ReturnType<typeof init>>,
+  ) => Bindings;
   animated?: boolean;
   fps?: number;
   surface?: SurfaceOptions;
@@ -97,7 +101,7 @@ export function createShaderRenderer(
     light = themeAware && !document.documentElement.classList.contains("dark");
     shader = effect(gpu, source, {
       label,
-      set: { ...uniforms(0, (scene ?? output).size), theme: theme() },
+      set: { ...uniforms(0, (scene ?? output).size, gpu), theme: theme() },
     });
     postShader = postProcess
       ? effect(gpu, postProcess.source, {
@@ -128,7 +132,7 @@ export function createShaderRenderer(
       if (!output || !shader || disposed) return;
       const time = animated ? (performance.now() - startedAt) / 1000 : 0;
       const renderTarget = scene ?? output;
-      shader.set({ ...uniforms(time, renderTarget.size), theme: theme() });
+      shader.set({ ...uniforms(time, renderTarget.size, gpu!), theme: theme() });
       if (postShader && scene && sceneSampler) {
         postShader.set({
           theme: theme(),

@@ -380,6 +380,12 @@
           "group": "Backgrounds"
         },
         {
+          "label": "Binary Flower Garden",
+          "slug": "binary-flower-garden",
+          "description": "Interactive WebGPU WGSL floral field simulation with real-time binary matrix glyph sampling and petal physics.",
+          "group": "Interactive"
+        },
+        {
           "label": "Photon Corridor",
           "slug": "photon-corridor-background",
           "description": "Monochrome light trails stream through a dark perspective corridor.",

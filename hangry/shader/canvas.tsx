@@ -1,12 +1,23 @@
 "use client";
 
-import { memo, useEffect, useRef, type ReactNode, type ComponentProps } from "react";
+import {
+  memo,
+  useEffect,
+  useRef,
+  type ReactNode,
+  type ComponentProps,
+  type RefObject,
+} from "react";
 import { useReducedMotion } from "motion/react";
-import { createShaderRenderer, type PostProcessOptions } from "@/hangry/shader/shader-renderer.shared";
+import {
+  createShaderRenderer,
+  type PostProcessOptions,
+} from "@/hangry/shader/shader-renderer.shared";
 import { cn } from "cn";
 
 type RendererOptions = Parameters<typeof createShaderRenderer>[2];
 export interface CanvasProps extends ComponentProps<"div"> {
+  canvasRef?: RefObject<HTMLCanvasElement | null>;
   shader: Parameters<typeof createShaderRenderer>[1];
   label?: string;
   fallback: string;
@@ -22,6 +33,7 @@ export interface CanvasProps extends ComponentProps<"div"> {
 /** Shared rendering only; consumers own uniforms and pointer behavior. */
 export const Canvas = memo(function Canvas({
   shader,
+  canvasRef: externalCanvasRef,
   label = "shader-canvas",
   fallback,
   lightFallback,
@@ -35,7 +47,8 @@ export const Canvas = memo(function Canvas({
   children,
   ...props
 }: CanvasProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const internalCanvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = externalCanvasRef ?? internalCanvasRef;
   const latestUniforms = useRef(uniforms);
   const rendererRef = useRef<ReturnType<typeof createShaderRenderer> | null>(null);
   const reducedMotion = useReducedMotion();
@@ -49,7 +62,7 @@ export const Canvas = memo(function Canvas({
     if (!canvasRef.current) return;
     const renderer = createShaderRenderer(canvasRef.current, shader, {
       label,
-      uniforms: (time, size) => latestUniforms.current(time, size),
+      uniforms: (time, size, gpu) => latestUniforms.current(time, size, gpu),
       animated: animated && !reducedMotion,
       fps,
       surface: { dpr: minDpr === maxDpr ? minDpr : [minDpr, maxDpr] },
@@ -60,7 +73,7 @@ export const Canvas = memo(function Canvas({
       renderer.dispose();
       rendererRef.current = null;
     };
-  }, [shader, label, animated, reducedMotion, fps, minDpr, maxDpr, postProcess]);
+  }, [shader, label, animated, reducedMotion, fps, minDpr, maxDpr, postProcess, canvasRef]);
   return (
     <div
       {...props}
