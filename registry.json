@@ -1474,6 +1474,11 @@
           "target": "@components/hangry-ui/components/code-block.tsx"
         },
         {
+          "path": "registry/components/copy-feedback.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/copy-feedback.shared.tsx"
+        },
+        {
           "path": "registry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"

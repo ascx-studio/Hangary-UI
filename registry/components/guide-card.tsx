@@ -24,7 +24,7 @@ export const GuideCard = memo(function GuideCard({
     <div
       data-slot="guide-card"
       className={cn(
-        "relative isolate min-w-0 w-full rounded-lg surface-raised [--guide-inset:2rem] sm:[--guide-inset:3rem]",
+        "relative isolate min-w-0 w-full [--guide-inset:2rem] sm:[--guide-inset:3rem]",
         className,
       )}
       {...props}

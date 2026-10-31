@@ -15,7 +15,8 @@ import {
   TypeScript,
   Yarn,
 } from "@ridemountainpig/svgl-react";
-import { Check, Copy, FileCode } from "lucide-react";
+import { FileCode } from "lucide-react";
+import { CopyFeedback } from "./copy-feedback.shared";
 import { Highlight, type PrismTheme } from "prism-react-renderer";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
@@ -156,11 +157,7 @@ export function CodeBlock({
           onClick={copyCode}
           className="absolute right-2 top-2 inline-flex size-9 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
         >
-          {currentResult?.success ? (
-            <Check size={16} aria-hidden="true" />
-          ) : (
-            <Copy size={16} aria-hidden="true" />
-          )}
+          <CopyFeedback copied={currentResult?.success} />
         </button>
       )}
       <CodeBlockRenderer
@@ -207,7 +204,7 @@ export function CodeBlock({
               <TabsList
                 variant="line"
                 aria-label="Code file"
-                className="absolute left-[calc(var(--guide-inset)+8px)] top-[calc(var(--guide-inset)-1.5rem-6px)] z-10 bg-background p-0"
+                className="absolute left-[calc(var(--guide-inset)+8px)] top-[calc(var(--guide-inset)-1.5rem-6px)] z-10 p-0"
               >
                 <TabsTrigger value="code" className="min-h-5 py-0">
                   <CodeLanguageLabel language={displayedLanguage} filename={filename} />
@@ -269,7 +266,7 @@ function CodeBlockHeader({
         onClick={onCopy}
         className="ml-auto inline-flex size-9 shrink-0 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
       >
-        {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+        <CopyFeedback copied={copied} />
       </button>
     </div>
   );

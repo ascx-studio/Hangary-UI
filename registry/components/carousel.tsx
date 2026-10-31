@@ -78,7 +78,7 @@ export const Carousel = memo(function Carousel({
         <AspectRatio
           id={id}
           ratio={9 / 16}
-          className="overflow-hidden rounded-lg surface-raised"
+          className="overflow-hidden rounded-lg border border-border bg-card"
         >
           <AnimatePresence initial={false} custom={navigation.direction}>
             <m.div
