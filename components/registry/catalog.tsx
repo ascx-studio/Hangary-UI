@@ -56,8 +56,17 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                     alt={`${item.title} ${category === "shader" && usesVgpu(item) ? "vgpu WebGPU shader" : "React component"} preview`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full object-cover ${category === "shader" ? "hidden dark:block" : ""}`}
                   />
+                  {category === "shader" && (
+                    <Image
+                      src={`/previews/light/${item.name}.png`}
+                      alt={`${item.title} light mode preview`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="h-full w-full object-cover dark:hidden"
+                    />
+                  )}
                 </AspectRatio>
               </SharedPreviewLayout>
               <h3 className={`mt-5 typography-section-title`}>{item.title}</h3>

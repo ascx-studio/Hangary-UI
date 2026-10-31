@@ -25,6 +25,14 @@ export const SpotlightReveal = memo(function SpotlightReveal({
 }: SpotlightRevealProps = {}) {
   const reducedMotion = useReducedMotion();
   const artwork = variant === "stroke" ? strokeSrc : src;
+  const lightArtwork =
+    artwork === "/wordmark.svg"
+      ? "/wordmark-light.svg"
+      : artwork === "/wordmark-stroke.svg"
+        ? "/wordmark-stroke-light.svg"
+        : artwork === "/footerart.svg"
+          ? "/footerart-light.svg"
+          : artwork;
   const x = useSpring(0, { stiffness: 300, damping: 30 });
   const y = useSpring(0, { stiffness: 300, damping: 30 });
   const mask = useMotionTemplate`radial-gradient(circle 120px at ${x}px ${y}px, black 20%, transparent 100%)`;
@@ -65,8 +73,21 @@ export const SpotlightReveal = memo(function SpotlightReveal({
           unoptimized
           sizes="(max-width: 896px) 100vw, 896px"
           alt={alt}
-          className="select-none object-contain"
+          className={cn(
+            "select-none object-contain",
+            lightArtwork !== artwork && "hidden dark:block",
+          )}
         />
+        {lightArtwork !== artwork && (
+          <Image
+            src={lightArtwork}
+            fill
+            unoptimized
+            sizes="(max-width: 896px) 100vw, 896px"
+            alt={alt}
+            className="select-none object-contain dark:hidden"
+          />
+        )}
       </motion.div>
       <motion.div
         aria-hidden="true"
@@ -81,8 +102,21 @@ export const SpotlightReveal = memo(function SpotlightReveal({
           unoptimized
           sizes="640px"
           alt=""
-          className="select-none object-contain"
+          className={cn(
+            "select-none object-contain",
+            lightArtwork !== artwork && "hidden dark:block",
+          )}
         />
+        {lightArtwork !== artwork && (
+          <Image
+            src={lightArtwork}
+            fill
+            unoptimized
+            sizes="(max-width: 896px) 100vw, 896px"
+            alt=""
+            className="select-none object-contain dark:hidden"
+          />
+        )}
       </motion.div>
     </motion.div>
   );

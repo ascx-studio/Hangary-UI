@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config {
   metrics: vec4f, // width, height, terrain scale, time
   contours: vec4f, // density, line width, reserved
@@ -51,8 +54,10 @@ fn palette(height: f32) -> vec3f {
   let majorLevel = level / 4.0;
   let majorDistance = abs(fract(majorLevel + 0.5) - 0.5) / max(fwidth(majorLevel), 0.0001);
   let major = 1.0 - smoothstep(cfg.contours.y * 0.7, cfg.contours.y * 0.7 + 0.8, majorDistance);
-  let color = mix(cfg.background.rgb, palette(height), max(line * 0.35, major * 0.7));
+  let paper = select(cfg.background.rgb, vec3f(0.96, 0.95, 0.9), theme.mode.x > 0.5);
+  let contourInk = select(palette(height), mix(vec3f(0.22, 0.15, 0.07), palette(height) * 0.48, 0.6), theme.mode.x > 0.5);
+  let color = mix(paper, contourInk, max(line * 0.35, major * 0.7));
 
   let fade = select(1.0, smoothstep(0.0, 0.65, uv.x), cfg.options.y > 0.5);
-  return vec4f(mix(cfg.background.rgb, color, fade), 1.0);
+  return vec4f(mix(paper, color, fade), 1.0);
 }

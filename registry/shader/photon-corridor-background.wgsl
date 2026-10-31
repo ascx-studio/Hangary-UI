@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
 @group(0) @binding(0) var<uniform> cfg: Config;
 fn hash(p: vec2f) -> f32 { return fract(sin(dot(p, vec2f(127.1, 311.7))) * 43758.5453); }
@@ -41,5 +44,10 @@ fn hash(p: vec2f) -> f32 { return fract(sin(dot(p, vec2f(127.1, 311.7))) * 43758
   let haze = exp(-abs(across) * 1.5) * fade * walls * 0.035;
   let grain = (hash(floor(uv * cfg.metrics.xy)) - 0.5) * 0.025;
   let value = 1.0 - exp(-max(light + haze + grain + 0.008, 0.0) * cfg.metrics.w * 1.4);
+  if (theme.mode.x > 0.5) {
+    let paper = vec3f(0.94, 0.95, 0.97);
+    let graphite = vec3f(0.08, 0.12, 0.18);
+    return vec4f(mix(paper, graphite, clamp((dots * (0.2 + pulse * 1.8) + bloom * pulse * 0.55) * fade * walls * cfg.metrics.w, 0.0, 1.0)), 1.0);
+  }
   return vec4f(vec3f(value), 1.0);
 }

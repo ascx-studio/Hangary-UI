@@ -108,13 +108,13 @@ export const LightBackground = memo(function LightBackground({
       ref={hostRef}
       data-slot={`${variant}-background`}
       className={cn(
-        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-black",
+        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-background",
         className,
       )}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden dark:block"
           style={
             variant === "led"
               ? {
@@ -126,6 +126,15 @@ export const LightBackground = memo(function LightBackground({
                     "repeating-conic-gradient(from 12deg, #000 0deg 5deg, #333 5.2deg 5.5deg, #000 5.8deg 12deg)",
                 }
           }
+        />
+        <div
+          className="absolute inset-0 dark:hidden"
+          style={{
+            background:
+              variant === "led"
+                ? "radial-gradient(circle, #234a67 1px, #e6f0f7 2px) 0 0 / 16px 16px"
+                : "repeating-conic-gradient(from 12deg, #edf5fa 0deg 5deg, #57758c 5.2deg 5.5deg, #edf5fa 5.8deg 12deg)",
+          }}
         />
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full opacity-0" />
       </div>

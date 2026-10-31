@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config {
   // Surface width, height, pixel size, and elapsed animation time.
   metrics: vec4f,
@@ -55,5 +58,8 @@ struct Config {
   // Clear space around the cursor so the pixels visibly move away from it.
   let cleared = step(22.0 * hover, cursorDistance);
   let ink = step(threshold, brightness) * cellMask * cleared;
+  if (theme.mode.x > 0.5) {
+    return vec4f(mix(vec3f(0.92, 0.96, 0.94), cfg.foreground.rgb * 0.45, ink), 1.0);
+  }
   return vec4f(mix(cfg.background.rgb, cfg.foreground.rgb, ink), 1.0);
 }

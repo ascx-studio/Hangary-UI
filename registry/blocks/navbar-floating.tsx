@@ -112,7 +112,7 @@ export const NavbarFloating = memo(function NavbarFloating({
               aria-label="GitHub repository"
               className="inline-flex size-9 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring"
             >
-              <GitHubDark width={18} height={18} aria-hidden="true" />
+              <GitHubDark className="invert dark:invert-0" width={18} height={18} aria-hidden="true" />
             </a>
           )}
           {account && (

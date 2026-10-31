@@ -35,6 +35,7 @@ export const PhotonCorridorBackground = memo(function PhotonCorridorBackground({
       {...props}
       shader={shader}
       label="photon-corridor-background"
+      lightFallback="repeating-conic-gradient(from 15deg at center, #f0f2f7 0deg 8deg, #52647b 8.2deg 8.5deg, #f0f2f7 9deg 15deg)"
       fallback="radial-gradient(ellipse at center, #030303 10%, transparent 50%), repeating-conic-gradient(from 15deg at center, #050505 0deg 8deg, #555 8.2deg 8.5deg, #080808 9deg 15deg)"
       animated={rate > 0 || interactive}
       uniforms={(time, size) => ({

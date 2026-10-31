@@ -90,7 +90,7 @@ export const PricingFeatured = memo(function PricingFeatured({
               <ul className="space-y-3 text-sm">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
-                    <Check size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-primary" />
+                    <Check size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-secondary dark:text-primary" />
                     {feature}
                   </li>
                 ))}

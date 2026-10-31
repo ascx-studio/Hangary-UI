@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Params {
   time: vec4f,  // x: seconds, y: pointer x (0..1), z: pointer y (0..1), w: hover strength
 };
@@ -36,5 +39,9 @@ fn led_hash(cell: vec2f) -> f32 {
   let variation = 0.82 + led_hash(cell) * 0.18;
   let energy = led * (IDLE + scan * 0.9 + hover_glow * 1.0) * variation;
 
+  if (theme.mode.x > 0.5) {
+    let coverage = led * (0.5 + scan * 0.65 + hover_glow * 0.8) * variation;
+    return vec4f(vec3f(1.0 - min(coverage, 1.0)), 1.0);
+  }
   return vec4f(vec3f(min(energy, 1.0)), 1.0);
 }

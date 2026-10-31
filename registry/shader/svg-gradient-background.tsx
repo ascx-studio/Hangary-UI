@@ -20,7 +20,7 @@ export const SvgGradientBackground = memo(function SvgGradientBackground({
       {...props}
       data-slot="svg-gradient-background"
       className={cn(
-        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-black",
+        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-background",
         className,
       )}
     >
@@ -28,10 +28,16 @@ export const SvgGradientBackground = memo(function SvgGradientBackground({
         aria-hidden="true"
         viewBox="0 0 160 278"
         preserveAspectRatio="xMidYMid slice"
-        className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full [&_path[fill=white]]:fill-slate-500 dark:[&_path[fill=white]]:fill-white"
       >
         <g clipPath={`url(#${clipId})`}>
-          <rect width="160" height="278" rx="20" fill="black" fillOpacity="0.7" />
+          <rect
+            width="160"
+            height="278"
+            rx="20"
+            className="fill-sky-50 dark:fill-black"
+            fillOpacity="0.7"
+          />
           <g filter={`url(#${blueBlurId})`}>
             <path
               d="M75 118.265C27.4 105.865 -11.8333 123.432 -25.5 133.765L-32.5 251.265L168 257.765V146.265C156.833 142.098 122.6 130.665 75 118.265Z"

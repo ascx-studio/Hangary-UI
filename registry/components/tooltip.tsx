@@ -134,7 +134,7 @@ export function Tooltip({
                     {icon && (
                       <span
                         aria-hidden="true"
-                        className="flex size-8 shrink-0 items-center justify-center border border-primary/20 bg-primary/10 text-primary"
+                        className="flex size-8 shrink-0 items-center justify-center border border-primary/20 bg-primary/10 text-secondary dark:text-primary"
                       >
                         {icon}
                       </span>

@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config {
   metrics: vec4f,
   pointer: vec4f,
@@ -34,7 +37,13 @@ fn surfaceHeight(p: vec2f, t: f32, mouse: vec2f) -> f32 {
   let fresnel = pow(1.0 - max(0.0, dot(normal, viewDirection)), 3.0);
   let rainbow = 0.5 + 0.5 * cos(normal.y * 6.0 + vec3f(0.0, 2.0, 4.0) + time * 0.5);
   let chrome = vec3f(0.1, 0.12, 0.16) + normal.z * 0.2 + rainbow * fresnel * 0.75;
-  let color = (chrome + vec3f(1.0) * specular * 0.9 + vec3f(0.6, 0.9, 1.0) * cursorSpecular * 1.4) * cfg.metrics.w;
   let vignette = 1.0 - smoothstep(0.4, 1.3, length(p));
+  if (theme.mode.x > 0.5) {
+    let pearl = vec3f(0.72, 0.83, 0.88) + normal.z * 0.08;
+    let iridescence = rainbow * fresnel * 0.16;
+    let lightColor = pearl + iridescence + vec3f(specular * 0.25) + vec3f(0.1, 0.18, 0.22) * cursorSpecular;
+    return vec4f(clamp(lightColor * (0.85 + vignette * 0.15) * cfg.metrics.w, vec3f(0.0), vec3f(1.0)), 1.0);
+  }
+  let color = (chrome + vec3f(1.0) * specular * 0.9 + vec3f(0.6, 0.9, 1.0) * cursorSpecular * 1.4) * cfg.metrics.w;
   return vec4f(clamp(color * vignette, vec3f(0.0), vec3f(1.0)), 1.0);
 }

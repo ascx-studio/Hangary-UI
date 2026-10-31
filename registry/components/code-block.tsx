@@ -47,14 +47,26 @@ const prismTheme: PrismTheme = {
       style: { color: "var(--muted-foreground)", fontStyle: "italic" },
     },
     { types: ["punctuation", "operator"], style: { color: "var(--muted-foreground)" } },
-    { types: ["keyword", "tag", "selector", "atrule"], style: { color: "var(--primary)" } },
-    { types: ["string", "char", "attr-value", "url"], style: { color: "var(--info)" } },
-    { types: ["number", "boolean", "constant"], style: { color: "var(--warning)" } },
+    {
+      types: ["keyword", "tag", "selector", "atrule"],
+      style: { color: "color-mix(in oklab, var(--primary) 40%, var(--foreground))" },
+    },
+    {
+      types: ["string", "char", "attr-value", "url"],
+      style: { color: "color-mix(in oklab, var(--info) 40%, var(--foreground))" },
+    },
+    {
+      types: ["number", "boolean", "constant"],
+      style: { color: "color-mix(in oklab, var(--warning) 35%, var(--foreground))" },
+    },
     {
       types: ["function", "class-name", "property", "attr-name"],
       style: { color: "var(--card-foreground)" },
     },
-    { types: ["builtin", "important", "command"], style: { color: "var(--primary)" } },
+    {
+      types: ["builtin", "important", "command"],
+      style: { color: "color-mix(in oklab, var(--primary) 40%, var(--foreground))" },
+    },
   ],
 };
 

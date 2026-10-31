@@ -15,11 +15,11 @@ interface BannerProps {
 }
 
 const statusStyles = {
-  neutral: "bg-neutral-500/10 text-neutral-500",
-  info: "bg-sky-500/10 text-sky-500",
-  success: "bg-green-500/10 text-green-600 dark:text-green-400",
-  warning: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-  error: "bg-red-500/10 text-red-500",
+  neutral: "bg-neutral-500/10 text-neutral-700 dark:text-neutral-400",
+  info: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
+  success: "bg-green-500/10 text-green-700 dark:text-green-400",
+  warning: "bg-amber-500/10 text-amber-700 dark:text-amber-400",
+  error: "bg-red-500/10 text-red-700 dark:text-red-400",
 };
 
 const statusIcons = {

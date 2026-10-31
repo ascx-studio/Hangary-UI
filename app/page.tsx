@@ -7,7 +7,14 @@ import * as motion from "motion/react-client";
 import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
 import { Button } from "@/registry/components/button";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { ReactDark, Nextjs, TailwindCSS, MotionDark } from "@ridemountainpig/svgl-react";
+import {
+  ReactDark,
+  ReactLight,
+  Nextjs,
+  TailwindCSS,
+  MotionDark,
+  MotionLight,
+} from "@ridemountainpig/svgl-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteDescription, siteUrl } from "@/lib/seo";
 import { contactEmail } from "@/lib/site-content";
@@ -139,7 +146,8 @@ export default function Page() {
             >
               <span className="text-muted-foreground">Built with</span>
               <span className="inline-flex items-center gap-2">
-                <ReactDark className="size-4" aria-hidden="true" />
+                <ReactDark className="hidden size-4 dark:block" aria-hidden="true" />
+                <ReactLight className="size-4 dark:hidden" aria-hidden="true" />
                 React
               </span>
               <span className="inline-flex items-center gap-2">
@@ -151,7 +159,8 @@ export default function Page() {
                 Tailwind CSS
               </span>
               <span className="inline-flex items-center gap-2">
-                <MotionDark className="size-4" aria-hidden="true" />
+                <MotionDark className="hidden size-4 dark:block" aria-hidden="true" />
+                <MotionLight className="size-4 dark:hidden" aria-hidden="true" />
                 Motion
               </span>
             </motion.div>

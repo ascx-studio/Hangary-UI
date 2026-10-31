@@ -37,7 +37,7 @@ export const PricingBracket = memo(function PricingBracket({
             <ul className="mt-6 space-y-3 text-sm">
               {plan.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
-                  <Check size={16} className="mt-0.5 text-primary" aria-hidden="true" />
+                  <Check size={16} className="mt-0.5 text-secondary dark:text-primary" aria-hidden="true" />
                   {feature}
                 </li>
               ))}

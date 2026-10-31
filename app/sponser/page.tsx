@@ -113,7 +113,7 @@ export default function SponsorPage() {
                   href="https://github.com/ascx-studio/ui"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center bg-neutral-800 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+                  className="inline-flex min-h-11 items-center justify-center bg-secondary px-5 py-2 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
                 >
                   Star on GitHub
                 </a>

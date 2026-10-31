@@ -25,6 +25,15 @@ const fallbacks = {
     "radial-gradient(ellipse at 40% 35%, #f64b17, #f7c522 20%, #0c997c 45%, #183497 70%, #080c31)",
 };
 
+const lightFallbacks = {
+  "liquid-chrome":
+    "linear-gradient(125deg, #bdcad8, #f8fafc 24%, #283949 32%, #dbe5ee 60%, #f8fafc 80%)",
+  chroma:
+    "radial-gradient(ellipse at 20% 30%, #d7c4ef, transparent 65%), radial-gradient(ellipse at 80% 70%, #b3e5eb, transparent 65%), linear-gradient(135deg, #f7edf9, #e5ecf7)",
+  ascii: "linear-gradient(135deg, #e8f5ed, #c3dfd0, #edf7f0)",
+  heatmap: "linear-gradient(135deg, #c6d6f1, #6bd8ff, #ffe77a, #ff9a1f, #ff4d00)",
+};
+
 export interface ProceduralBackgroundProps extends ComponentProps<"div"> {
   speed?: number;
   interactive?: boolean;
@@ -65,6 +74,7 @@ export const ProceduralBackground = memo(function ProceduralBackground({
       {...props}
       shader={shaders[variant]}
       label={`${variant}-background`}
+      lightFallback={variant === "heatmap" && fallback ? fallback : lightFallbacks[variant]}
       fallback={fallback ?? fallbacks[variant]}
       fallbackContent={
         variant === "ascii" ? (
@@ -80,8 +90,14 @@ export const ProceduralBackground = memo(function ProceduralBackground({
                 "radial-gradient(ellipse at 18% 30%, #e73cff 0%, transparent 42%), radial-gradient(ellipse at 78% 24%, #00d9ff 0%, transparent 45%), radial-gradient(ellipse at 72% 78%, #00ff9d 0%, transparent 42%), linear-gradient(135deg, #160d25, #0c1533)",
               backgroundSize: "145% 145%",
             }}
-            animate={reducedMotion ? undefined : { x: ["-8%", "8%", "-8%"], y: ["5%", "-5%", "5%"], rotate: [0, 4, 0] }}
-            transition={reducedMotion ? undefined : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            animate={
+              reducedMotion
+                ? undefined
+                : { x: ["-8%", "8%", "-8%"], y: ["5%", "-5%", "5%"], rotate: [0, 4, 0] }
+            }
+            transition={
+              reducedMotion ? undefined : { duration: 7, repeat: Infinity, ease: "easeInOut" }
+            }
           />
         ) : undefined
       }

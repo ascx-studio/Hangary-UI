@@ -111,7 +111,7 @@ export const FooterStacked = memo(function FooterStacked({
             href={githubHref}
             className="inline-flex min-h-9 items-center gap-2 hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
           >
-            <GitHubDark width={16} height={16} aria-hidden="true" />
+            <GitHubDark className="invert dark:invert-0" width={16} height={16} aria-hidden="true" />
             GitHub
           </a>
         )}

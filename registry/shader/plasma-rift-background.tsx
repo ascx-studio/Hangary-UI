@@ -34,6 +34,7 @@ export const PlasmaRiftBackground = memo(function PlasmaRiftBackground({
       {...props}
       shader={shader}
       label="plasma-rift-background"
+      lightFallback="radial-gradient(ellipse at center, #eef7f5 22%, #287c91 27%, #a6d9bd 30%, #eef7f5 36%, #eef7f5 60%, #35746e 63%, #eef7f5 67%)"
       fallback="radial-gradient(ellipse at center, #02100d 5%, #000 25%, #376b66 28%, #b9fff2 29%, #000 34%, #000 60%, #35746e 63%, #000 67%)"
       animated={rate > 0 || interactive}
       uniforms={(time, size) => ({

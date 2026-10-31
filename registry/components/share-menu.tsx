@@ -133,7 +133,7 @@ export const ShareMenu = memo(function ShareMenu({
     { label: "Open in Grok", icon: GrokDark, href: `https://grok.com/?q=${prompt}` },
   ];
   const row =
-    "flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm text-zinc-200 hover:bg-zinc-700/50 hover:text-white focus-visible:bg-zinc-700/50 focus-visible:outline-none";
+    "flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm text-popover-foreground hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:outline-none";
 
   return (
     <div
@@ -173,7 +173,7 @@ export const ShareMenu = memo(function ShareMenu({
         aria-controls={menuId}
         aria-label="Share"
         title="Share"
-        className="flex size-9 items-center justify-center bg-zinc-800 text-white hover:bg-zinc-700"
+        className="flex size-9 items-center justify-center bg-muted text-foreground hover:bg-accent hover:text-accent-foreground"
       >
         <Share className="size-3.5" aria-hidden="true" />
       </motion.button>
@@ -187,10 +187,10 @@ export const ShareMenu = memo(function ShareMenu({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: reduced ? 0 : -6, scale: reduced ? 1 : 0.97 }}
             transition={{ duration: reduced ? 0 : 0.12 }}
-            className="absolute top-[calc(100%+6px)] z-50 min-w-55 border border-zinc-700/60 bg-zinc-900 py-1.5 shadow-xl shadow-black/40"
+            className="absolute top-[calc(100%+6px)] z-50 min-w-55 border border-border bg-popover py-1.5 shadow-xl shadow-black/40"
           >
             <button type="button" role="menuitem" onClick={copyLink} className={row}>
-              <Copy className="size-4 shrink-0 text-zinc-400" aria-hidden="true" />
+              <Copy className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
               Copy link
             </button>
             {items.map(({ label, icon: Icon, href }) => (
@@ -203,7 +203,10 @@ export const ShareMenu = memo(function ShareMenu({
                 onClick={() => setOpen(false)}
                 className={row}
               >
-                <Icon className="size-4 shrink-0 text-zinc-400" aria-hidden="true" />
+                <Icon
+                  className={`size-4 shrink-0 text-muted-foreground ${Icon === ClaudeAI ? "" : "invert dark:invert-0"}`}
+                  aria-hidden="true"
+                />
                 {label}
               </a>
             ))}
@@ -214,16 +217,16 @@ export const ShareMenu = memo(function ShareMenu({
                     animate={reduced ? undefined : { rotate: 360 }}
                     transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
                   >
-                    <LoaderCircle className="size-4 text-zinc-400" />
+                    <LoaderCircle className="size-4 text-muted-foreground" />
                   </motion.span>
                 ) : (
-                  <Nfc className="size-4 text-zinc-400" />
+                  <Nfc className="size-4 text-muted-foreground" />
                 )}
                 {writingNfc ? "Cancel NFC sharing" : "Share with NFC"}
               </button>
             )}
             <button type="button" role="menuitem" onClick={share} className={row}>
-              <Share className="size-4 shrink-0 text-zinc-400" aria-hidden="true" />
+              <Share className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
               Other apps
             </button>
           </motion.div>

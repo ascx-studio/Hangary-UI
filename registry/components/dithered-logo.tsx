@@ -56,6 +56,7 @@ export const DitheredLogo = memo(function DitheredLogo({
       >
         <DitherBackground
           interactive
+          themeAware={false}
           interactionRef={interactionRef}
           color={color ?? [1, 1, 1]}
           backgroundColor={backgroundColor}

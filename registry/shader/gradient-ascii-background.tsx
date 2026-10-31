@@ -28,7 +28,7 @@ export const GradientAsciiBackground = memo(function GradientAsciiBackground({
     <div
       {...props}
       data-slot="gradient-ascii-background"
-      className={cn("relative isolate min-h-96 overflow-hidden bg-[#09051a]", className)}
+      className={cn("relative isolate min-h-96 overflow-hidden bg-background", className)}
       onPointerMove={(event) => {
         if (event.pointerType === "touch") return;
         const bounds = event.currentTarget.getBoundingClientRect();
@@ -46,6 +46,7 @@ export const GradientAsciiBackground = memo(function GradientAsciiBackground({
         role="img"
         shader={shader}
         label="gradient-ascii-background"
+        lightFallback="linear-gradient(135deg, #f5f2fa, #c4dce8 48%, #f5e3ef)"
         fallback="linear-gradient(135deg, #180b3d, #073b68 48%, #062b2e)"
         className="absolute inset-0 -z-10 h-full min-h-0 border-0 bg-transparent"
         animated={rate > 0}

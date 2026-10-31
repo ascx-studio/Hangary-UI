@@ -49,7 +49,7 @@ export const LiquidSurfaceBackground = memo(function LiquidSurfaceBackground({
     <div
       {...props}
       data-slot="liquid-surface-background"
-      className={cn("relative isolate min-h-96 overflow-hidden bg-[#090b12]", className)}
+      className={cn("relative isolate min-h-96 overflow-hidden bg-background", className)}
       onPointerMove={(event) => {
         onPointerMove?.(event);
         if (!interactive || event.pointerType === "touch") return;
@@ -71,6 +71,7 @@ export const LiquidSurfaceBackground = memo(function LiquidSurfaceBackground({
         role="img"
         shader={shader}
         label="liquid-surface-background"
+        lightFallback="radial-gradient(ellipse at 30% 20%, #fff 0%, transparent 30%), linear-gradient(135deg, #b8d4e0, #eff7fa 48%, #a3c3cf)"
         fallback="radial-gradient(ellipse at 30% 20%, #edf5ff 0%, transparent 18%), radial-gradient(ellipse at 70% 70%, #315c91 0%, transparent 35%), linear-gradient(135deg, #090b12, #33465e 48%, #0b1019)"
         className="absolute inset-0 -z-10 h-full min-h-0 border-0 bg-transparent"
         animated={rate > 0}

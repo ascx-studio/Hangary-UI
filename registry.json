@@ -42,9 +42,19 @@
           "target": "public/wordmark.svg"
         },
         {
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
+        },
+        {
           "path": "public/footerart.svg",
           "type": "registry:file",
           "target": "public/footerart.svg"
+        },
+        {
+          "path": "public/footerart-light.svg",
+          "type": "registry:file",
+          "target": "public/footerart-light.svg"
         },
         {
           "path": "registry/lib/navigation.shared.ts",
@@ -2683,9 +2693,19 @@
           "target": "public/wordmark-stroke.svg"
         },
         {
+          "path": "public/wordmark-stroke-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-stroke-light.svg"
+        },
+        {
           "path": "public/wordmark.svg",
           "type": "registry:file",
           "target": "public/wordmark.svg"
+        },
+        {
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
         }
       ],
       "meta": {
@@ -2732,6 +2752,11 @@
           "target": "public/wordmark.svg"
         },
         {
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
+        },
+        {
           "path": "registry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
@@ -2767,6 +2792,11 @@
           "path": "public/wordmark.svg",
           "type": "registry:file",
           "target": "public/wordmark.svg"
+        },
+        {
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
         },
         {
           "path": "registry/shader/shader-renderer.shared.ts",

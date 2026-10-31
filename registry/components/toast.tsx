@@ -33,10 +33,10 @@ interface ToastProps {
 
 const statuses = {
   neutral: { icon: Info, color: "text-muted-foreground" },
-  info: { icon: Info, color: "text-sky-500" },
-  success: { icon: CircleCheck, color: "text-emerald-500" },
-  warning: { icon: TriangleAlert, color: "text-amber-500" },
-  error: { icon: CircleX, color: "text-red-500" },
+  info: { icon: Info, color: "text-sky-700 dark:text-sky-400" },
+  success: { icon: CircleCheck, color: "text-emerald-700 dark:text-emerald-400" },
+  warning: { icon: TriangleAlert, color: "text-amber-700 dark:text-amber-400" },
+  error: { icon: CircleX, color: "text-red-700 dark:text-red-400" },
 };
 
 export const Toast = memo(function Toast({

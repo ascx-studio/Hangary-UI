@@ -45,22 +45,22 @@ const statuses = {
 };
 
 const styles = {
-  pending: "bg-orange-500/10 text-orange-500",
-  "in-progress": "bg-sky-500/10 text-sky-500",
-  submitted: "bg-violet-500/10 text-violet-500",
-  "in-review": "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
-  success: "bg-green-500/10 text-green-600 dark:text-green-400",
-  failed: "bg-red-500/10 text-red-500",
-  expired: "bg-neutral-500/10 text-neutral-500",
-  neutral: "bg-neutral-500/10 text-neutral-500",
-  info: "bg-sky-500/10 text-sky-500",
-  warning: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-  error: "bg-red-500/10 text-red-500",
-  blue: "bg-blue-500/10 text-blue-500",
-  purple: "bg-purple-500/10 text-purple-500",
-  pink: "bg-pink-500/10 text-pink-500",
-  teal: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
-  orange: "bg-orange-500/10 text-orange-500",
+  pending: "bg-orange-500/10 text-orange-700 dark:text-orange-400",
+  "in-progress": "bg-sky-500/10 text-sky-700 dark:text-sky-400",
+  submitted: "bg-violet-500/10 text-violet-700 dark:text-violet-400",
+  "in-review": "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400",
+  success: "bg-green-500/10 text-green-700 dark:text-green-400",
+  failed: "bg-red-500/10 text-red-700 dark:text-red-400",
+  expired: "bg-neutral-500/10 text-neutral-700 dark:text-neutral-400",
+  neutral: "bg-neutral-500/10 text-neutral-700 dark:text-neutral-400",
+  info: "bg-sky-500/10 text-sky-700 dark:text-sky-400",
+  warning: "bg-amber-500/10 text-amber-700 dark:text-amber-400",
+  error: "bg-red-500/10 text-red-700 dark:text-red-400",
+  blue: "bg-blue-500/10 text-blue-700 dark:text-blue-400",
+  purple: "bg-purple-500/10 text-purple-700 dark:text-purple-400",
+  pink: "bg-pink-500/10 text-pink-700 dark:text-pink-400",
+  teal: "bg-teal-500/10 text-teal-700 dark:text-teal-400",
+  orange: "bg-orange-500/10 text-orange-700 dark:text-orange-400",
 };
 
 export const Badge = memo(function Badge({

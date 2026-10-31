@@ -64,6 +64,7 @@ export const PastelMascotBackground = memo(function PastelMascotBackground({
           role="img"
           shader={shader}
           label="pastel-mascot-gradient"
+          lightFallback="radial-gradient(ellipse at 28% 25%, #ffd4e5, transparent 44%), radial-gradient(ellipse at 72% 30%, #b8e5f7, transparent 48%), linear-gradient(135deg, #d4e5f0, #f5edf9)"
           fallback="radial-gradient(ellipse at 28% 25%, #ff7bb8, transparent 44%), radial-gradient(ellipse at 72% 30%, #58bff5, transparent 48%), radial-gradient(ellipse at 55% 75%, #315bb5, #15142b 70%)"
           fallbackContent={
             <motion.div

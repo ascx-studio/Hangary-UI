@@ -19,7 +19,7 @@ export const LinearGradientBackground = memo(function LinearGradientBackground({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 bg-linear-to-b from-emerald-950 to-emerald-400"
+        className="pointer-events-none absolute inset-0 z-0 bg-linear-to-b from-emerald-50 to-emerald-200 dark:from-emerald-950 dark:to-emerald-400"
       />
       {children}
     </div>

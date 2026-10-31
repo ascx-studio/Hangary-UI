@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config {
   metrics: vec4f,   // x: width px, y: height px, z: time s, w: intensity
   pointer: vec4f,   // xy: pointer in 0..1 (y up), z: pull strength
@@ -40,6 +43,11 @@ struct VSOut {
   let centerFade = smoothstep(0.015, 0.15, radius);
   let vignette = 1.0 - smoothstep(0.65, 1.5, radius);
   let energy = (core * 2.7 + halo) * broken * centerFade * vignette * cfg.metrics.w;
+  if (theme.mode.x > 0.5) {
+    let ribbon = clamp(energy * 0.65 + core * 0.4, 0.0, 1.0);
+    let mineral = mix(vec3f(0.05, 0.25, 0.55), vec3f(0.08, 0.48, 0.27), colorPhase * 0.5 + 0.5);
+    return vec4f(mix(vec3f(0.93, 0.97, 0.96), mineral, ribbon), 1.0);
+  }
   let color = tint * energy + vec3f(core * core * 0.8 * broken * centerFade * vignette * cfg.metrics.w);
   return vec4f(clamp(color, vec3f(0.0), vec3f(1.0)), 1.0);
 }

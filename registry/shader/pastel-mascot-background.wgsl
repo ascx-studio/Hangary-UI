@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config {
   metrics: vec4f, // width, height, time, intensity
   pointer: vec4f, // normalized position, hover amount
@@ -64,13 +67,14 @@ fn getPosition(index: f32, time: f32) -> vec2f {
     vec3f(0.102, 0.102, 0.181)
   );
 
+  let lightColors = array<vec3f, 5>(vec3f(1.0, 0.83, 0.9), vec3f(0.72, 0.9, 0.97), vec3f(0.65, 0.78, 0.98), vec3f(0.83, 0.9, 0.94), vec3f(0.96, 0.93, 0.98));
   var color = vec3f(0.0);
   var totalWeight = 0.0;
   for (var index = 0.0; index < 5.0; index += 1.0) {
     let position = getPosition(index, time);
     let distance = pow(length(sampleUv - position), 3.5);
     let weight = 1.0 / (distance + 0.001);
-    color += colors[u32(index)] * weight;
+    color += select(colors[u32(index)], lightColors[u32(index)], theme.mode.x > 0.5) * weight;
     totalWeight += weight;
   }
 

@@ -11,6 +11,7 @@ import { GitHubDark } from "@ridemountainpig/svgl-react";
 import sidebarData from "@/data/sidebar.json";
 import { browseSection } from "@/data/Navlinks";
 import type { RegistryCategory } from "@/lib/registry";
+import ThemeToggle from "@/components/theme-toggle";
 import Logo from "@/components/ui/Logo";
 import { Outline } from "@/registry/components/outline";
 import {
@@ -166,7 +167,7 @@ function SidebarFooter() {
         rel="noreferrer"
         className={linkClass}
       >
-        <GitHubDark className="size-4" aria-hidden="true" />
+        <GitHubDark className="invert dark:invert-0 size-4" aria-hidden="true" />
         GitHub
       </a>
     </nav>
@@ -210,17 +211,20 @@ export default function Sidebar({
               >
                 <Logo variant="wordmark" className="w-36" />
               </Link>
-              <m.button
-                type="button"
-                whileHover={reducedMotion ? undefined : { scale: 1.04 }}
-                whileTap={reducedMotion ? undefined : { scale: 0.96 }}
-                onClick={() => setSidebarOpen(false)}
-                aria-label="Close sidebar"
-                title="Close sidebar"
-                className="inline-flex size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring"
-              >
-                <PanelLeftClose size={22} aria-hidden="true" />
-              </m.button>
+              <div className="flex items-center gap-1">
+                <ThemeToggle />
+                <m.button
+                  type="button"
+                  whileHover={reducedMotion ? undefined : { scale: 1.04 }}
+                  whileTap={reducedMotion ? undefined : { scale: 0.96 }}
+                  onClick={() => setSidebarOpen(false)}
+                  aria-label="Close sidebar"
+                  title="Close sidebar"
+                  className="inline-flex size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-sidebar-ring"
+                >
+                  <PanelLeftClose size={22} aria-hidden="true" />
+                </m.button>
+              </div>
             </m.div>
             <Navigation category={category} />
             <SidebarFooter />
@@ -285,6 +289,9 @@ export default function Sidebar({
             disclosure?.querySelector("summary")?.focus();
           }}
         >
+          <div className="mb-4 flex justify-end">
+            <ThemeToggle />
+          </div>
           <Navigation category={category} />
           <SidebarFooter />
         </div>

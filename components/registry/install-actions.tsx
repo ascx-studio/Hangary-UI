@@ -53,7 +53,7 @@ const InstallActions = memo(function InstallActions({ name }: { name: string }) 
           aria-label="Open in v0"
           className="h-11 shrink-0 px-3! text-sm font-semibold"
         >
-          Open in <V0Dark className="size-5 " aria-hidden="true" />
+          Open in <V0Dark className="invert dark:invert-0 size-5 " aria-hidden="true" />
         </Button>
       </Tooltip>
       <Tooltip content="Copy AI installation prompt" side="bottom">

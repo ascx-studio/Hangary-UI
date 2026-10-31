@@ -10,6 +10,7 @@ export interface CanvasProps extends ComponentProps<"div"> {
   shader: Parameters<typeof createShaderRenderer>[1];
   label?: string;
   fallback: string;
+  lightFallback: string;
   fallbackContent?: ReactNode;
   uniforms: RendererOptions["uniforms"];
   animated?: boolean;
@@ -23,6 +24,7 @@ export const Canvas = memo(function Canvas({
   shader,
   label = "shader-canvas",
   fallback,
+  lightFallback,
   fallbackContent,
   uniforms,
   animated = true,
@@ -64,13 +66,16 @@ export const Canvas = memo(function Canvas({
       {...props}
       data-slot={label}
       className={cn(
-        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-black",
+        "hangry-background relative isolate min-h-96 overflow-hidden border border-border bg-background",
         className,
       )}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0" style={{ backgroundImage: fallback }} />
-        {fallbackContent}
+        <div className="absolute inset-0 dark:hidden" style={{ backgroundImage: lightFallback }} />
+        <div className="absolute inset-0 hidden dark:block">
+          <div className="absolute inset-0" style={{ backgroundImage: fallback }} />
+          {fallbackContent}
+        </div>
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full opacity-0" />
       </div>
       {children}

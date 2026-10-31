@@ -12,6 +12,7 @@ const defaultBackground: Color = [0.02, 0.04, 0.035];
 
 export interface DitherBackgroundProps extends Omit<ComponentProps<"div">, "color"> {
   color?: Color;
+  themeAware?: boolean;
   backgroundColor?: Color;
   pixelSize?: number;
   speed?: number;
@@ -21,6 +22,7 @@ export interface DitherBackgroundProps extends Omit<ComponentProps<"div">, "colo
 
 export const DitherBackground = memo(function DitherBackground({
   color = defaultColor,
+  themeAware = true,
   backgroundColor = defaultBackground,
   pixelSize = 3,
   speed = 0.4,
@@ -93,6 +95,7 @@ export const DitherBackground = memo(function DitherBackground({
 
     const renderer = createShaderRenderer(canvas, ditherShader, {
       label: "dither-background",
+      themeAware,
       fps: 30,
       animated: !reducedMotion && (rate > 0 || interactive),
       uniforms: (time, size) => {
@@ -113,6 +116,7 @@ export const DitherBackground = memo(function DitherBackground({
     });
     return cleanup;
   }, [
+    themeAware,
     pixels,
     rate,
     r,
@@ -136,19 +140,28 @@ export const DitherBackground = memo(function DitherBackground({
         className,
       )}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{ backgroundColor: `rgb(${br * 255} ${bg * 255} ${bb * 255})` }}
-      >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(rgb(${r * 255} ${g * 255} ${b * 255}) 30%, transparent 31%)`,
-            backgroundSize: `${pixels * 2}px ${pixels * 2}px`,
-            maskImage: "radial-gradient(ellipse at center, black, transparent 80%)",
-          }}
-        />
+          className={cn("absolute inset-0", themeAware && "hidden dark:block")}
+          style={{ backgroundColor: `rgb(${br * 255} ${bg * 255} ${bb * 255})` }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(rgb(${r * 255} ${g * 255} ${b * 255}) 30%, transparent 31%)`,
+              backgroundSize: `${pixels * 2}px ${pixels * 2}px`,
+              maskImage: "radial-gradient(ellipse at center, black, transparent 80%)",
+            }}
+          />
+        </div>
+        {themeAware && (
+          <div
+            className="absolute inset-0 dark:hidden"
+            style={{
+              background: `radial-gradient(rgb(${r * 115} ${g * 115} ${b * 115}) 30%, #ebf5ef 31%) 0 0 / ${pixels * 2}px ${pixels * 2}px`,
+            }}
+          />
+        )}
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full opacity-0" />
       </div>
       {children}

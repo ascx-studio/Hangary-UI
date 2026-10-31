@@ -1,7 +1,5 @@
 "use client";
 
-
-
 import { memo, useState, type ComponentProps } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
@@ -35,7 +33,7 @@ export const MeshGradientBackground = memo(function MeshGradientBackground({
       {...props}
       data-slot="mesh-gradient-background"
       className={cn(
-        "relative isolate min-h-96 overflow-hidden border border-border bg-[#1a1a2e]",
+        "relative isolate min-h-96 overflow-hidden border border-border bg-background",
         className,
       )}
       onPointerMove={(event) => {
@@ -58,6 +56,7 @@ export const MeshGradientBackground = memo(function MeshGradientBackground({
         role="img"
         shader={shader}
         label="mesh-gradient-background"
+        lightFallback="radial-gradient(ellipse at 28% 25%, #ffd4e5, transparent 44%), radial-gradient(ellipse at 72% 30%, #b8e5f7, transparent 48%), linear-gradient(135deg, #d4e5f0, #f5edf9)"
         fallback="radial-gradient(ellipse at 28% 25%, #ffb3d9, transparent 44%), radial-gradient(ellipse at 72% 30%, #87ceeb, transparent 48%), radial-gradient(ellipse at 55% 75%, #4a90e2, transparent 58%), radial-gradient(ellipse at 20% 72%, #2c3e50, #1a1a2e 72%)"
         fallbackContent={
           <motion.div

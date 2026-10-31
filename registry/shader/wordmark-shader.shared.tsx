@@ -33,6 +33,7 @@ export const WordmarkShader = memo(function WordmarkShader({
   alt = "Hangry UI",
 }: WordmarkShaderProps) {
   const image = `url(${JSON.stringify(src)})`;
+  const lightImage = src === "/wordmark.svg" ? 'url("/wordmark-light.svg")' : image;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const markRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
@@ -46,6 +47,7 @@ export const WordmarkShader = memo(function WordmarkShader({
     let hovering = false;
     const renderer = createShaderRenderer(canvas, shader, {
       label,
+      themeMask: true,
       surface,
       animated: !reducedMotion,
       uniforms: (time) => uniforms(time, x, y, hovering),
@@ -74,29 +76,35 @@ export const WordmarkShader = memo(function WordmarkShader({
   }, [shader, label, uniforms, surface, reducedMotion]);
 
   return (
-    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-black isolate">
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-white dark:bg-background isolate">
       <div
         ref={markRef}
         role={alt ? "img" : undefined}
         aria-label={alt || undefined}
         aria-hidden={alt ? undefined : true}
-        className="aspect-[1337/336] w-[88%]"
-        style={{
-          backgroundImage: image,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          maskImage: image,
-          maskPosition: "center",
-          maskRepeat: "no-repeat",
-          maskSize: "contain",
-          WebkitMaskImage: image,
-          WebkitMaskPosition: "center",
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskSize: "contain",
-        }}
+        className="isolate aspect-[1337/336] w-[88%] bg-(image:--wordmark-light) dark:bg-(image:--wordmark-dark)"
+        style={
+          {
+            "--wordmark-light": lightImage,
+            "--wordmark-dark": image,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+            maskImage: image,
+            maskPosition: "center",
+            maskRepeat: "no-repeat",
+            maskSize: "contain",
+            WebkitMaskImage: image,
+            WebkitMaskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskSize: "contain",
+          } as import("react").CSSProperties
+        }
       >
-        <div className="h-full w-full mix-blend-multiply" style={{ opacity: 1 - baseBrightness }}>
+        <div
+          className="h-full w-full mix-blend-screen dark:mix-blend-multiply"
+          style={{ opacity: 1 - baseBrightness }}
+        >
           <canvas ref={canvasRef} aria-hidden="true" className="block h-full w-full grayscale" />
         </div>
       </div>

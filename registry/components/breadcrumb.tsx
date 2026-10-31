@@ -19,21 +19,21 @@ export function Breadcrumb({
         {items.map((item, index) => (
           <li key={`${item.label}-${index}`} className="flex items-center gap-2">
             {index > 0 && (
-              <span aria-hidden="true" className="text-neutral-600">
+              <span aria-hidden="true" className="text-muted-foreground">
                 /
               </span>
             )}
             {item.href && index < items.length - 1 ? (
               <a
                 href={item.href}
-                className="text-neutral-400 hover:text-white focus-visible:outline-2 focus-visible:outline-emerald-400"
+                className="text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-emerald-400"
               >
                 {item.label}
               </a>
             ) : (
               <span
                 aria-current={index === items.length - 1 ? "page" : undefined}
-                className="text-white"
+                className="text-foreground"
               >
                 {item.label}
               </span>

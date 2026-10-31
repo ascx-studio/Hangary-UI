@@ -26,6 +26,8 @@ interface ShaderRendererOptions {
   fps?: number;
   surface?: SurfaceOptions;
   postProcess?: PostProcessOptions;
+  themeAware?: boolean;
+  themeMask?: boolean;
 }
 
 /** Owns one canvas effect. Components supply bindings and retain their own input/UI logic. */
@@ -39,12 +41,17 @@ export function createShaderRenderer(
     fps = 60,
     surface: surfaceOptions = { dpr: 1 },
     postProcess,
+    themeAware = true,
+    themeMask = false,
   }: ShaderRendererOptions,
 ) {
   let disposed = false;
   let gpu: Awaited<ReturnType<typeof init>> | undefined;
   let output: ReturnType<typeof surface> | undefined;
   let scene: ReturnType<typeof target> | undefined;
+  let themeObserver: MutationObserver | undefined;
+  let light = themeAware && !document.documentElement.classList.contains("dark");
+  const theme = () => ({ mode: [Number(light), Number(themeMask), 0, 0] });
   let sceneSampler: ReturnType<typeof sampler> | undefined;
   let shader: ReturnType<typeof effect> | undefined;
   let postShader: ReturnType<typeof effect> | undefined;
@@ -60,6 +67,7 @@ export function createShaderRenderer(
     disposed = true;
     loop?.stop();
     observer?.disconnect();
+    themeObserver?.disconnect();
     cancelAnimationFrame(pendingFrame);
     unsubscribeResize?.();
     shader?.dispose();
@@ -86,11 +94,16 @@ export function createShaderRenderer(
     sceneSampler = postProcess
       ? sampler(gpu, { minFilter: "linear", magFilter: "linear" })
       : undefined;
-    shader = effect(gpu, source, { label, set: uniforms(0, (scene ?? output).size) });
+    light = themeAware && !document.documentElement.classList.contains("dark");
+    shader = effect(gpu, source, {
+      label,
+      set: { ...uniforms(0, (scene ?? output).size), theme: theme() },
+    });
     postShader = postProcess
       ? effect(gpu, postProcess.source, {
           label: postProcess.label,
           set: {
+            theme: theme(),
             scene: scene,
             sceneSampler,
             ...postProcess.uniforms?.(0, output.size),
@@ -101,13 +114,13 @@ export function createShaderRenderer(
     await postShader?.compile(output);
     if (disposed) return;
     const startedAt = performance.now();
-    if (postProcess && output && scene && postShader && sceneSampler) {
+    if (output && scene && sceneSampler) {
       unsubscribeResize = output.onResize(({ width, height }) => {
         scene?.resize([width, height]);
         postShader?.set({
           scene,
           sceneSampler,
-          ...postProcess.uniforms?.(0, [width, height]),
+          ...postProcess?.uniforms?.(0, [width, height]),
         });
       });
     }
@@ -115,9 +128,10 @@ export function createShaderRenderer(
       if (!output || !shader || disposed) return;
       const time = animated ? (performance.now() - startedAt) / 1000 : 0;
       const renderTarget = scene ?? output;
-      shader.set(uniforms(time, renderTarget.size));
+      shader.set({ ...uniforms(time, renderTarget.size), theme: theme() });
       if (postShader && scene && sceneSampler) {
         postShader.set({
+          theme: theme(),
           scene,
           sceneSampler,
           ...postProcess?.uniforms?.(time, output.size),
@@ -125,10 +139,20 @@ export function createShaderRenderer(
         currentFrame.pass(scene, shader);
         currentFrame.pass(output, postShader);
       } else {
-        currentFrame.pass(output, shader);
+        currentFrame.pass(scene ?? output, shader);
       }
       canvas.style.opacity = "1";
     };
+    if (themeAware) {
+      themeObserver = new MutationObserver(() => {
+        light = themeAware && !document.documentElement.classList.contains("dark");
+        render();
+      });
+      themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    }
     if (animated) loop = frameLoop(gpu, draw, { fps });
     else {
       observer = new ResizeObserver(render);

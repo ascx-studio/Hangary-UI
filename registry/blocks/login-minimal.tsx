@@ -152,7 +152,7 @@ function LoginForm({
               disabled={loading || !onProviderLogin}
               onClick={() => onProviderLogin?.("github")}
             >
-              <GitHubDark width={16} height={16} aria-hidden="true" />
+              <GitHubDark className="invert dark:invert-0" width={16} height={16} aria-hidden="true" />
               GitHub
             </Button>
           </div>

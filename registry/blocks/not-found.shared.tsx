@@ -53,12 +53,12 @@ export const NotFoundLayout = memo(function NotFoundLayout({
           {terminal ? (
             <div className="space-y-3 font-mono text-sm">
               <p className="text-muted-foreground">$ find requested-page</p>
-              <p className="text-emerald-500">Error 404: resource not found</p>
+              <p className="text-emerald-700 dark:text-emerald-500">Error 404: resource not found</p>
               <p className="text-muted-foreground">→ Try a different destination.</p>
             </div>
           ) : (
             <span className="select-none font-mono text-[clamp(5rem,18cqw,10rem)] leading-none font-semibold tracking-tighter text-foreground/15">
-              404<span className="text-emerald-500">.</span>
+              404<span className="text-emerald-700 dark:text-emerald-500">.</span>
             </span>
           )}
         </div>

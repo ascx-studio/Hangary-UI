@@ -33,7 +33,7 @@ export const RayFieldBackground = memo(function RayFieldBackground({
     <div
       {...props}
       data-slot="ray-field-background"
-      className={cn("relative isolate min-h-96 overflow-hidden bg-[#02070d]", className)}
+      className={cn("relative isolate min-h-96 overflow-hidden bg-background", className)}
       onPointerMove={(event) => {
         onPointerMove?.(event);
         if (!interactive || reducedMotion || event.pointerType === "touch") return;
@@ -55,6 +55,7 @@ export const RayFieldBackground = memo(function RayFieldBackground({
         role="img"
         shader={shader}
         label="ray-field-background"
+        lightFallback="linear-gradient(100deg, #f0f7fc 30%, #164880 50%, #f0f7fc 65%)"
         fallback="radial-gradient(ellipse at 50% 50%, #1d5f9a 0%, transparent 28%), linear-gradient(110deg, #02070d, #071522 48%, #02070d)"
         className="absolute inset-0 -z-10 h-full min-h-0 border-0 bg-transparent"
         animated={rate > 0}

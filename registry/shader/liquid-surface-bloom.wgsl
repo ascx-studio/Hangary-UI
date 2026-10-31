@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 @group(0) @binding(0) var scene: texture_2d<f32>;
 @group(0) @binding(1) var sceneSampler: sampler;
 
@@ -25,7 +28,7 @@ fn brightSample(uv: vec2f) -> vec3f {
 @fragment
 fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   let base = textureSample(scene, sceneSampler, uv);
-  if (bloom.enabled < 0.5) {
+  if (bloom.enabled < 0.5 || theme.mode.x > 0.5) {
     return base;
   }
 

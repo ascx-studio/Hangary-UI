@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
 @group(0) @binding(0) var<uniform> cfg: Config;
 
@@ -18,6 +21,11 @@ struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
   var ink = 0.0;
   if (all(local >= vec2i(0)) && all(local < vec2i(5))) {
     ink = f32((glyphs[character] >> u32(local.y * 5 + local.x)) & 1u);
+  }
+  if (theme.mode.x > 0.5) {
+    let paper = vec3f(0.91, 0.96, 0.93);
+    let inkColor = mix(vec3f(0.02, 0.22, 0.16), vec3f(0.0, 0.43, 0.3), brightness);
+    return vec4f(mix(paper, inkColor, ink * (0.35 + brightness * 0.65) * cfg.metrics.w), 1.0);
   }
   let tint = mix(vec3f(0.08, 0.55, 0.35), vec3f(0.55, 1.0, 0.85), brightness);
   return vec4f(vec3f(0.005, 0.012, 0.01) + tint * ink * (0.3 + brightness * 0.7) * cfg.metrics.w, 1.0);

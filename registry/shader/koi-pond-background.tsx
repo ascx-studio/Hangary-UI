@@ -34,6 +34,7 @@ export const KoiPondBackground = memo(function KoiPondBackground({
       {...props}
       shader={shader}
       label="koi-pond-background"
+      lightFallback="radial-gradient(ellipse at 35% 45%, #b8d6ab, #599e8f 70%)"
       fallback="radial-gradient(ellipse at 35% 45%, #355b3d, #102a1c 70%)"
       animated={rate > 0 || interactive}
       uniforms={(time, size) => {

@@ -5,7 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 import * as motion from "motion/react-client";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { ReactDark, Nextjs, TailwindCSS, MotionDark } from "@ridemountainpig/svgl-react";
+import {
+  ReactDark,
+  ReactLight,
+  Nextjs,
+  TailwindCSS,
+  MotionDark,
+  MotionLight,
+} from "@ridemountainpig/svgl-react";
 import { Button } from "@/registry/components/button";
 import { LogoAnimation } from "@/registry/components/logo-animation";
 import Logo from "@/components/ui/Logo";
@@ -45,7 +52,11 @@ export default function HomeHero() {
           with details worth slowing down for.
         </p>
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
-          <Link href="/components" transitionTypes={["hero-components"]} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400">
+          <Link
+            href="/components"
+            transitionTypes={["hero-components"]}
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-emerald-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-colors hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+          >
             Explore components
             <ArrowRight size={16} aria-hidden="true" />
           </Link>
@@ -57,7 +68,8 @@ export default function HomeHero() {
         <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-sm">
           <span className="text-muted-foreground">Built with</span>
           <span className="inline-flex items-center gap-2">
-            <ReactDark className="size-4" aria-hidden="true" />
+            <ReactDark className="hidden size-4 dark:block" aria-hidden="true" />
+            <ReactLight className="size-4 dark:hidden" aria-hidden="true" />
             React
           </span>
           <span className="inline-flex items-center gap-2">
@@ -69,7 +81,8 @@ export default function HomeHero() {
             Tailwind CSS
           </span>
           <span className="inline-flex items-center gap-2">
-            <MotionDark className="size-4" aria-hidden="true" />
+            <MotionDark className="invert dark:invert-0 hidden size-4 dark:block" aria-hidden="true" />
+            <MotionLight className="size-4 dark:hidden" aria-hidden="true" />
             Motion
           </span>
         </div>

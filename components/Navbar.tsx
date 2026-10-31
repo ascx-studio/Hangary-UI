@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Heart, Menu, X } from "lucide-react";
 import { GitHubDark } from "@ridemountainpig/svgl-react";
+import ThemeToggle from "@/components/theme-toggle";
 import Logo from "@/components/ui/Logo";
 import { browseSection } from "@/data/Navlinks";
 
@@ -31,6 +32,7 @@ export default function Navbar() {
             <Logo variant="logo" className="size-10" />
           </Link>
           <div className="flex shrink-0 items-center justify-end gap-2 lg:col-start-3 lg:row-start-1">
+            <ThemeToggle />
             <Link href="/sponser" aria-label="Sponser" title="Sponser" className={iconLinkClass}>
               <Heart size={19} aria-hidden="true" />
             </Link>
@@ -42,7 +44,7 @@ export default function Navbar() {
               title="GitHub"
               className={iconLinkClass}
             >
-              <GitHubDark className="size-5" aria-hidden="true" />
+              <GitHubDark className="invert dark:invert-0 size-5" aria-hidden="true" />
             </a>
             <details className="group relative lg:hidden">
               <summary

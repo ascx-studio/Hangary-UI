@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
 @group(0) @binding(0) var<uniform> cfg: Config;
 
@@ -9,7 +12,13 @@ fn thermal(value: f32) -> vec3f {
   let colors = array<vec3f, 7>(palette.color0.rgb, palette.color1.rgb, palette.color2.rgb,
     palette.color3.rgb, palette.color4.rgb, palette.color5.rgb, palette.color6.rgb);
   let index = min(u32(t), 5u);
-  return mix(colors[index], colors[index + 1u], smoothstep(0.0, 1.0, t - f32(index)));
+  let blend = smoothstep(0.0, 1.0, t - f32(index));
+  if (theme.mode.x > 0.5) {
+    let coldLift = 0.3 * (1.0 - f32(index) / 6.0);
+    let nextLift = 0.3 * (1.0 - f32(index + 1u) / 6.0);
+    return mix(mix(colors[index], vec3f(0.96, 0.98, 1.0), coldLift), mix(colors[index + 1u], vec3f(0.96, 0.98, 1.0), nextLift), blend);
+  }
+  return mix(colors[index], colors[index + 1u], blend);
 }
 
 @fragment fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {

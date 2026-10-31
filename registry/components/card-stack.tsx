@@ -76,14 +76,14 @@ export const CardStack = memo(function CardStack({
             <Card
               title=""
               description=""
-              className="relative h-full w-full! max-w-none! overflow-hidden border-white/15! bg-black! p-0! shadow-[0_-1px_0_rgb(255_255_255/0.08),0_-8px_20px_rgb(0_0_0/0.65),0_24px_48px_-16px_rgb(0_0_0/0.8)]!"
+              className="relative h-full w-full! max-w-none! overflow-hidden border-border! bg-card! p-0! shadow-md! dark:shadow-[0_-1px_0_rgb(255_255_255/0.08),0_-8px_20px_rgb(0_0_0/0.65),0_24px_48px_-16px_rgb(0_0_0/0.8)]!"
             >
               <Button
                 variant="ghost"
                 aria-label={`Show ${item.title}`}
                 aria-pressed={depth === 0}
                 onClick={() => setSelectedId(item.id)}
-                className="absolute inset-x-0 top-0 z-10 h-5! min-h-0! w-full p-0! hover:bg-white/5 focus-visible:outline-offset-[-2px]"
+                className="absolute inset-x-0 top-0 z-10 h-5! min-h-0! w-full p-0! hover:bg-muted focus-visible:outline-offset-[-2px]"
               />
               {depth === 0 && (
                 <motion.div
@@ -93,9 +93,9 @@ export const CardStack = memo(function CardStack({
                   className="p-6 sm:p-10"
                 >
                   <div className="mb-6 h-0.5 w-16 bg-primary" />
-                  <h3 className={`typography-section-title text-white!`}>{item.title}</h3>
+                  <h3 className={`typography-section-title text-card-foreground!`}>{item.title}</h3>
                   {item.description && (
-                    <p className={`mt-3 typography-body text-white/60!`}>{item.description}</p>
+                    <p className={`mt-3 typography-body text-muted-foreground!`}>{item.description}</p>
                   )}
                   {item.children ??
                     (item.src && (

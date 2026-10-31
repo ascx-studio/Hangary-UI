@@ -1,3 +1,6 @@
+struct Theme { mode: vec4f };
+@group(1) @binding(0) var<uniform> theme: Theme;
+
 struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
 @group(0) @binding(0) var<uniform> cfg: Config;
 
@@ -16,6 +19,11 @@ fn studio(reflection: vec3f, blur: f32) -> vec3f {
   let ground = softbox(p, vec2f(-0.1, -0.55), vec2f(0.45, 0.06), soft);
   let rim = exp(-pow((radius - 1.0) / (0.05 + blur * 1.5), 2.0));
   let wall = smoothstep(1.2, 1.7, radius) * (0.45 + 0.2 * sin(atan2(p.y, p.x) * 3.0));
+  if (theme.mode.x > 0.5) {
+    let studioWall = vec3f(0.72, 0.79, 0.85);
+    let blackFlag = softbox(p, vec2f(-0.1, 0.1), vec2f(0.07, 0.48), soft * 1.4);
+    return studioWall * (1.0 - blackFlag * 0.85) + vec3f(1.0, 0.98, 0.94) * key * 1.4 + vec3f(side * 0.6 + rim * 0.3);
+  }
   return vec3f(0.018) + vec3f(1.0, 0.98, 0.96) * key * 2.8
     + vec3f(0.93, 0.97, 1.0) * side * 2.0 + vec3f(ground * 0.8 + rim * 1.1 + wall);
 }

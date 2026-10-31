@@ -66,8 +66,17 @@ export const FooterMain = memo(function FooterMain({
                   alt="Hangry UI"
                   width={160}
                   height={40}
-                  className="h-auto w-40"
+                  className={cn("h-auto w-40", logoSrc === "/wordmark.svg" && "hidden dark:block")}
                 />
+                {logoSrc === "/wordmark.svg" && (
+                  <Image
+                    src="/wordmark-light.svg"
+                    alt="Hangry UI"
+                    width={160}
+                    height={40}
+                    className="h-auto w-40 dark:hidden"
+                  />
+                )}
               </Link>
               <p className={"typography-caption"}>{copyright}</p>
             </motion.div>
@@ -111,7 +120,7 @@ export const FooterMain = memo(function FooterMain({
                 <span aria-hidden="true">𝕏</span>
               </a>
               <a href={githubHref} aria-label="Hangry UI on GitHub" className={linkClass}>
-                <GitHubDark className="size-6" aria-hidden="true" />
+                <GitHubDark className="invert dark:invert-0 size-6" aria-hidden="true" />
               </a>
               <Link href={sponsorHref} aria-label="Sponsor Hangry UI" className={linkClass}>
                 <Heart size={23} aria-hidden="true" />

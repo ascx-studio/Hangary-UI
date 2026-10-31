@@ -25,7 +25,7 @@ export function Avatar({ src, name = "Alex Morgan", size = 48, className = "" }:
       role="img"
       aria-label={name}
       style={{ width: size, height: size }}
-      className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-border bg-emerald-400/15 text-sm font-semibold text-emerald-300 ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-border bg-emerald-400/15 text-sm font-semibold text-emerald-800 dark:text-emerald-300 ${className}`}
     >
       {src && failedSrc !== src ? (
         <img

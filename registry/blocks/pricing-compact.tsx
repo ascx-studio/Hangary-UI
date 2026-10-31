@@ -133,7 +133,7 @@ export function PricingCompact({
                       <Check
                         size={16}
                         aria-hidden="true"
-                        className="mt-0.5 shrink-0 text-primary"
+                        className="mt-0.5 shrink-0 text-secondary dark:text-primary"
                       />
                       {feature}
                     </li>
