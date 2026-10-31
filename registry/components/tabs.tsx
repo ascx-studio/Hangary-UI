@@ -22,6 +22,7 @@ const TabsContext = createContext<{
   id: string;
   value?: string;
   orientation: "horizontal" | "vertical";
+  variant: "default" | "line";
   select: (value: string) => void;
 } | null>(null);
 
@@ -50,7 +51,7 @@ export function Tabs({
     [value, onValueChange],
   );
   const context = useMemo(
-    () => ({ id, value: value ?? selected, orientation, select }),
+    () => ({ id, value: value ?? selected, orientation, variant: "default" as const, select }),
     [id, value, selected, orientation, select],
   );
   return (
@@ -73,7 +74,7 @@ export function Tabs({
 function tabsListVariants({ variant = "default" }: { variant?: "default" | "line" } = {}) {
   return cn(
     "group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
-    variant === "line" ? "gap-1 bg-transparent" : "rounded-lg bg-muted p-0.5",
+    variant === "line" ? "gap-1 bg-transparent" : "rounded-lg bg-muted dark:bg-[#131313] p-0.5",
   );
 }
 
@@ -83,41 +84,46 @@ export function TabsList({
   onKeyDown,
   ...props
 }: ComponentProps<"div"> & { variant?: "default" | "line" }) {
-  const { orientation } = useTabs();
+  const tabs = useTabs();
+  const { orientation } = tabs;
   return (
-    <div
-      {...props}
-      role="tablist"
-      aria-orientation={orientation}
-      data-slot="tabs-list"
-      data-variant={variant}
-      className={cn(tabsListVariants({ variant }), className)}
-      onKeyDown={(event) => {
-        onKeyDown?.(event);
-        if (event.defaultPrevented) return;
-        const tabs = [
-          ...event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]:not(:disabled)'),
-        ].filter((tab) => tab.closest('[role="tablist"]') === event.currentTarget);
-        const index = tabs.indexOf(event.target as HTMLButtonElement);
-        if (index < 0) return;
-        const forward = orientation === "horizontal" ? "ArrowRight" : "ArrowDown";
-        const backward = orientation === "horizontal" ? "ArrowLeft" : "ArrowUp";
-        const next =
-          event.key === "Home"
-            ? tabs[0]
-            : event.key === "End"
-              ? tabs.at(-1)
-              : event.key === forward
-                ? tabs[(index + 1) % tabs.length]
-                : event.key === backward
-                  ? tabs[(index - 1 + tabs.length) % tabs.length]
-                  : undefined;
-        if (!next) return;
-        event.preventDefault();
-        next.focus();
-        next.click();
-      }}
-    />
+    <TabsContext.Provider value={{ ...tabs, variant }}>
+      <div
+        {...props}
+        role="tablist"
+        aria-orientation={orientation}
+        data-slot="tabs-list"
+        data-variant={variant}
+        className={cn(tabsListVariants({ variant }), className)}
+        onKeyDown={(event) => {
+          onKeyDown?.(event);
+          if (event.defaultPrevented) return;
+          const triggers = [
+            ...event.currentTarget.querySelectorAll<HTMLButtonElement>(
+              '[role="tab"]:not(:disabled)',
+            ),
+          ].filter((tab) => tab.closest('[role="tablist"]') === event.currentTarget);
+          const index = triggers.indexOf(event.target as HTMLButtonElement);
+          if (index < 0) return;
+          const forward = orientation === "horizontal" ? "ArrowRight" : "ArrowDown";
+          const backward = orientation === "horizontal" ? "ArrowLeft" : "ArrowUp";
+          const next =
+            event.key === "Home"
+              ? triggers[0]
+              : event.key === "End"
+                ? triggers.at(-1)
+                : event.key === forward
+                  ? triggers[(index + 1) % triggers.length]
+                  : event.key === backward
+                    ? triggers[(index - 1 + triggers.length) % triggers.length]
+                    : undefined;
+          if (!next) return;
+          event.preventDefault();
+          next.focus();
+          next.click();
+        }}
+      />
+    </TabsContext.Provider>
   );
 }
 
@@ -145,7 +151,9 @@ export function TabsTrigger({
       data-active={active ? "" : undefined}
       className={cn(
         "relative inline-flex min-h-8 flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-3 py-1 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start",
-        "data-active:bg-secondary/15 dark:data-active:bg-card data-active:text-foreground group-data-[variant=line]/tabs-list:border-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-[variant=line]/tabs-list:data-active:after:opacity-100 group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:-bottom-1 group-data-[orientation=horizontal]/tabs:after:h-0.5 group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5",
+        tabs.variant === "line"
+          ? "data-active:bg-transparent data-active:text-foreground after:absolute after:bg-foreground after:opacity-0 after:transition-opacity data-active:after:opacity-100 group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:-bottom-1 group-data-[orientation=horizontal]/tabs:after:h-0.5 group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5"
+          : "data-active:bg-secondary/15 dark:data-active:bg-[#282727] data-active:text-foreground",
         className,
       )}
       onClick={(event) => {

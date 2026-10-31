@@ -32,6 +32,7 @@ import { Sheet } from "@/registry/components/sheet";
 import { BrandPalette } from "@/registry/components/brand-palette";
 import { Breadcrumb } from "@/registry/components/breadcrumb";
 import { Button } from "@/registry/components/button";
+import { ThemeSwitcher } from "@/registry/components/theme-switcher";
 import { ScaleCard } from "@/registry/components/scale-card";
 import { CardStack } from "@/registry/components/card-stack";
 import { ToastDemo } from "@/components/registry/toast-demo";
@@ -61,6 +62,7 @@ import { MechanicalKeyboard } from "@/registry/components/mechanical-keyboard";
 import { MetalWallet } from "@/registry/components/metal-wallet";
 import { NavLine } from "@/registry/components/nav-line";
 import { Outline } from "@/registry/components/outline";
+import { OutlineTrail } from "@/registry/components/outline-trail";
 import { Navbar } from "@/registry/blocks/navbar";
 import { NavbarAligned } from "@/registry/blocks/navbar-aligned";
 import { NavbarFloating } from "@/registry/blocks/navbar-floating";
@@ -125,6 +127,7 @@ export const previewEntries = {
   "brand-palette": { component: BrandPalette, category: "components" },
   breadcrumb: { component: Breadcrumb, category: "components" },
   button: { component: Button, category: "components" },
+  "theme-switcher": { component: ThemeSwitcher, category: "components" },
   card: { component: Card, category: "components" },
   carousel: { component: Carousel, category: "components" },
   "code-block": { component: CodeBlock, category: "components" },
@@ -141,6 +144,7 @@ export const previewEntries = {
   "metal-wallet": { component: MetalWallet, category: "components" },
   "nav-line": { component: NavLine, category: "components" },
   outline: { component: Outline, category: "components" },
+  "outline-trail": { component: OutlineTrail, category: "components" },
   navbar: { component: Navbar, category: "blocks" },
   "navbar-aligned": { component: NavbarAligned, category: "blocks" },
   "navbar-floating": { component: NavbarFloating, category: "blocks" },

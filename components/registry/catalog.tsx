@@ -86,7 +86,7 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
     <Suspense>
       <CatalogTabs filters={filters.map((group) => group.title)}>
         <div className="w-fit max-w-full overflow-x-auto">
-          <TabsList className="bg-transparent" aria-label={`Filter ${category} by category`}>
+          <TabsList aria-label={`Filter ${category} by category`}>
             {filters.map((group) => (
               <TabsTrigger key={group.title} value={group.title}>
                 {group.title}

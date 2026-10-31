@@ -45,20 +45,23 @@ const prismTheme: PrismTheme = {
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata"],
-      style: { color: "var(--muted-foreground)", fontStyle: "italic" },
+      style: { color: "light-dark(#557267, #94a8a0)", fontStyle: "italic" },
     },
-    { types: ["punctuation", "operator"], style: { color: "var(--muted-foreground)" } },
+    {
+      types: ["punctuation", "operator"],
+      style: { color: "light-dark(#315d50, #a6b3ad)" },
+    },
     {
       types: ["keyword", "tag", "selector", "atrule"],
-      style: { color: "color-mix(in oklab, var(--primary) 40%, var(--foreground))" },
+      style: { color: "light-dark(#00664e, #05dc7f)" },
     },
     {
       types: ["string", "char", "attr-value", "url"],
-      style: { color: "color-mix(in oklab, var(--info) 40%, var(--foreground))" },
+      style: { color: "light-dark(#285ee8, #6bd8ff)" },
     },
     {
       types: ["number", "boolean", "constant"],
-      style: { color: "color-mix(in oklab, var(--warning) 35%, var(--foreground))" },
+      style: { color: "light-dark(#a85d00, #ffe77a)" },
     },
     {
       types: ["function", "class-name", "property", "attr-name"],
@@ -66,7 +69,7 @@ const prismTheme: PrismTheme = {
     },
     {
       types: ["builtin", "important", "command"],
-      style: { color: "color-mix(in oklab, var(--primary) 40%, var(--foreground))" },
+      style: { color: "light-dark(#8244d8, #c29aff)" },
     },
   ],
 };
@@ -311,7 +314,7 @@ const CodeBlockRenderer = memo(function CodeBlockRenderer({
     >
       <Highlight prism={Prism} code={code} language={languageId} theme={prismTheme}>
         {({ tokens, getLineProps, getTokenProps }) => (
-          <code className="min-w-max">
+          <code className="min-w-max font-mono">
             {tokens.map((line, index) => (
               <div key={index} {...getLineProps({ line })} className="flex min-w-full">
                 {showLineNumbers && (

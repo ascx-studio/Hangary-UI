@@ -190,6 +190,12 @@
           "group": "Navigation"
         },
         {
+          "label": "Outline Trail",
+          "slug": "outline-trail",
+          "description": "A section outline with an active indicator following a shaped SVG path.",
+          "group": "Navigation"
+        },
+        {
           "label": "Spotlight Reveal",
           "slug": "spotlight-reveal",
           "description": "Reveal image color through a pointer-following spotlight.",
@@ -206,6 +212,12 @@
           "slug": "tabs",
           "description": "A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation.",
           "group": "Navigation"
+        },
+        {
+          "label": "Theme Switcher",
+          "slug": "theme-switcher",
+          "description": "A compact control that switches between light and dark themes and remembers the selection.",
+          "group": "Controls"
         },
         {
           "label": "Tooltip",

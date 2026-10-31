@@ -1,0 +1,31 @@
+import { ThemeSwitcher } from "@/registry/components/theme-switcher";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="theme-switcher" />
+
+<ComponentPreview className="min-h-40">
+  <ThemeSwitcher />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A compact control that switches the page between light and dark themes and remembers the selection.
+
+## Installation
+
+<InstallationMenu name="theme-switcher" />
+
+## How to use
+
+```tsx
+import { ThemeSwitcher } from "@/components/hangry-ui/components/theme-switcher";
+
+<ThemeSwitcher />
+```
+
+<DocsDependencies name="theme-switcher" />
+
+</DocsReveal>

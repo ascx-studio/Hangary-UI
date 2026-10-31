@@ -31,7 +31,7 @@ export default async function DetailPage({
     <div className="isolate flex min-h-dvh w-full min-w-0 flex-col">
       <DocsPageEntrance
         key={`${category}:${name}`}
-        className="relative z-10 min-h-dvh w-full min-w-0 flex-1 bg-background px-6 py-10 sm:px-10 md:px-12 md:py-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-4xl"
+        className="relative z-10 min-h-dvh w-full min-w-0 flex-1 bg-background px-6 pt-6 pb-10 sm:px-10 md:px-12 md:pb-14 [&>*:not([data-slot=component-preview])]:mx-auto [&>*:not([data-slot=component-preview])]:w-full [&>*:not([data-slot=component-preview])]:max-w-4xl"
       >
         <JsonLd
           data={{

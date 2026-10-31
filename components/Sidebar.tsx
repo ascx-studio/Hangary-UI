@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Heart, PanelLeft, PanelLeftClose } from "lucide-react";
+import { ChevronDown, PanelLeft, PanelLeftClose } from "lucide-react";
 import { useSyncExternalStore } from "react";
 import { AnimatePresence, LazyMotion, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import { NavLine } from "@/registry/components/nav-line";
-import { GitHubDark } from "@ridemountainpig/svgl-react";
 import sidebarData from "@/data/sidebar.json";
 import { browseSection } from "@/data/Navlinks";
 import type { RegistryCategory } from "@/lib/registry";
 import ThemeToggle from "@/components/theme-toggle";
 import Logo from "@/components/ui/Logo";
 import { Outline } from "@/registry/components/outline";
+import { OutlineTrail } from "@/registry/components/outline-trail";
 import {
   getSidebarOpen,
   getServerSidebarOpen,
@@ -37,31 +37,31 @@ function Navigation({
     }));
   const entries: { label: string; slug: string; description?: string; group?: string }[] =
     categoryConfig?.items ?? [];
-  const groupTitles = [...new Set(entries.flatMap((item) => (item.group ? [item.group] : [])))];
+  const groupTitles = [
+    ...new Set(entries.flatMap((item) => (item.group ? [item.group] : []))),
+  ].sort((a, b) => a.localeCompare(b));
   const sections = categoryConfig?.items.length
     ? [
         {
           title: categoryConfig.title,
-          links: toLinks(collapsed ? entries : entries.filter((item) => !item.group)),
+          links: toLinks(collapsed ? entries : entries.filter((item) => !item.group)).sort((a, b) =>
+            a.label.localeCompare(b.label),
+          ),
         },
       ]
     : [
         {
           title: browseSection.sidebarLabel,
-          links: browseSection.links.map(({ label, href, description }) => ({
-            label,
-            href,
-            description,
-          })),
+          links: browseSection.links
+            .map(({ label, href, description }) => ({ label, href, description }))
+            .sort((a, b) => a.label.localeCompare(b.label)),
         },
       ];
   sections.push({
     title: "Other",
-    links: browseSection.links.map(({ label, href, description }) => ({
-      label,
-      href,
-      description,
-    })),
+    links: browseSection.links
+      .map(({ label, href, description }) => ({ label, href, description }))
+      .sort((a, b) => a.label.localeCompare(b.label)),
   });
 
   if (collapsed) {
@@ -104,73 +104,75 @@ function Navigation({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-6">
-      {sections.map((section) => (
-        <div
-          key={section.title}
-          className={
-            section.title === "Other"
-              ? "mt-auto shrink-0 border-t border-sidebar-border pt-4"
-              : "min-h-0 overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden"
-          }
-        >
-          <Outline
-            title={section.title}
-            variant="sidebar"
-            items={section.links.map((link) => ({
-              id: link.href,
-              label: link.label,
-              href: link.href,
-            }))}
-            className="w-full"
-          />
-          {section.title === categoryConfig?.title &&
-            groupTitles.map((title) => {
-              const links = toLinks(entries.filter((item) => item.group === title));
-              return (
-                <Outline
-                  key={title}
-                  title={title}
-                  variant="sidebar"
-                  items={links.map((link) => ({
-                    id: link.href,
-                    label: link.label,
-                    href: link.href,
-                  }))}
-                  className="mt-6 w-full"
-                />
-              );
-            })}
-        </div>
-      ))}
+      {sections.map((section) => {
+        const links = section.links.map((link) => ({
+          id: link.href,
+          label: link.label,
+          href: link.href,
+        }));
+        if (section.title === "Other") {
+          const active = section.links.some(
+            (link) => pathname === link.href || pathname.startsWith(`${link.href}/`),
+          );
+          return (
+            <details
+              key={section.title}
+              open={active}
+              className="group/other mt-auto shrink-0 border-t border-sidebar-border pt-4"
+            >
+              <summary className="mb-3 flex cursor-pointer list-none items-center justify-between typography-label text-muted-foreground/80 pl-2 [&::-webkit-details-marker]:hidden">
+                Other
+                <ChevronDown size={16} aria-hidden="true" className="group-open/other:rotate-180" />
+              </summary>
+              <Outline
+                title="Other"
+                variant="sidebar"
+                items={links}
+                className="w-full pl-2 [&>h2]:hidden"
+              />
+            </details>
+          );
+        }
+        return (
+          <div
+            key={section.title}
+            className="min-h-0 overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden"
+          >
+            {links.length > 0 && groupTitles.length === 0 && (
+              <Outline
+                title={section.title}
+                variant="sidebar"
+                items={links}
+                className="w-full pl-2"
+              />
+            )}
+            {section.title === categoryConfig?.title && groupTitles.length > 0 && (
+              <OutlineTrail
+                title={section.title}
+                items={[
+                  ...links,
+                  ...groupTitles.flatMap((title) => {
+                    const groupLinks = toLinks(entries.filter((item) => item.group === title)).sort(
+                      (a, b) => a.label.localeCompare(b.label),
+                    );
+                    return [
+                      { id: `group-${title}`, label: title },
+                      ...groupLinks.map((link) => ({
+                        id: link.href,
+                        label: link.label,
+                        href: link.href,
+                        indent: true,
+                      })),
+                    ];
+                  }),
+                ]}
+                className="w-full pl-2 [&>h2]:hidden"
+              />
+            )}
+          </div>
+        );
+      })}
     </div>
-  );
-}
-
-function SidebarFooter() {
-  const linkClass =
-    "inline-flex items-center gap-2 rounded-sm py-2 text-sm text-muted-foreground hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring";
-  return (
-    <nav
-      aria-label="Sponser and community"
-      className="flex shrink-0 items-center justify-center gap-3 pt-8"
-    >
-      <Link href="/sponser" className={linkClass}>
-        <Heart size={16} aria-hidden="true" />
-        Sponser
-      </Link>
-      <span aria-hidden="true" className="text-muted-foreground">
-        |
-      </span>
-      <a
-        href="https://github.com/ascx-studio/ui"
-        target="_blank"
-        rel="noreferrer"
-        className={linkClass}
-      >
-        <GitHubDark className="invert dark:invert-0 size-4" aria-hidden="true" />
-        GitHub
-      </a>
-    </nav>
   );
 }
 
@@ -184,6 +186,8 @@ export default function Sidebar({
     getServerSidebarOpen,
   );
   const reducedMotion = useReducedMotion();
+  const categoryConfig = sidebarData.categories[category as keyof typeof sidebarData.categories];
+  const currentPage = categoryConfig?.title ?? "Library";
   return (
     <LazyMotion features={loadFeatures} strict>
       <AnimatePresence initial={false} mode="wait">
@@ -196,22 +200,36 @@ export default function Sidebar({
             animate={{ opacity: 1 }}
             exit={reducedMotion ? undefined : { opacity: 0 }}
             transition={{ duration: reducedMotion ? 0 : 0.24, ease: "easeOut" }}
-            className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden px-4 py-6 text-sidebar-foreground md:flex ${className}`}
+            className={`sticky top-0 hidden h-dvh w-70 shrink-0 flex-col overflow-y-auto scrollbar-none [&::-webkit-scrollbar]:hidden sidebar-surface [--surface-color:var(--muted)] dark:[--surface-color:#131313] px-4 py-6 text-sidebar-foreground md:flex ${className}`}
           >
             <m.div
               initial={reducedMotion ? false : { opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reducedMotion ? 0 : 0.18 }}
-              className="mb-6 flex shrink-0 items-center justify-between gap-2"
+              className="mb-6 flex shrink-0 items-center gap-2"
             >
-              <Link
-                href="/"
-                aria-label="Hangry UI home"
-                className="focus-visible:outline-2 focus-visible:outline-ring"
-              >
-                <Logo variant="wordmark" className="w-36" />
-              </Link>
-              <div className="flex items-center gap-1">
+              <nav aria-label="Breadcrumb" className="min-w-0 flex-1 overflow-hidden">
+                <ol className="flex min-w-0 flex-nowrap items-center gap-1.5 whitespace-nowrap text-xs">
+                  <li className="shrink-0">
+                    <Link href="/" aria-label="Hangry UI home">
+                      <Logo variant="wordmark" className="w-18" />
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="shrink-0 text-muted-foreground">
+                    /
+                  </li>
+                  <li className="min-w-0 flex-1 overflow-hidden whitespace-nowrap">
+                    <Link
+                      href={`/${category}`}
+                      aria-label={`Go to ${currentPage}`}
+                      className="block truncate text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                    >
+                      {currentPage}
+                    </Link>
+                  </li>
+                </ol>
+              </nav>
+              <div className="flex shrink-0 items-center gap-1">
                 <ThemeToggle />
                 <m.button
                   type="button"
@@ -226,7 +244,6 @@ export default function Sidebar({
               </div>
             </m.div>
             <Navigation category={category} />
-            <SidebarFooter />
           </m.aside>
         ) : (
           <m.aside
@@ -262,7 +279,7 @@ export default function Sidebar({
           </m.aside>
         )}
       </AnimatePresence>
-      <details className="group bg-sidebar text-sidebar-foreground md:hidden">
+      <details className="group sidebar-surface [--surface-color:var(--muted)] text-sidebar-foreground dark:[--surface-color:#131313] md:hidden">
         <summary className="flex cursor-pointer list-none items-center gap-3 p-4 focus-visible:outline-2 focus-visible:outline-sidebar-ring [&::-webkit-details-marker]:hidden">
           <PanelLeft size={20} aria-hidden="true" />
           <span className="flex-1 text-sm font-semibold">Library navigation</span>
@@ -291,7 +308,6 @@ export default function Sidebar({
             <ThemeToggle />
           </div>
           <Navigation category={category} />
-          <SidebarFooter />
         </div>
       </details>
     </LazyMotion>

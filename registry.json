@@ -2390,6 +2390,35 @@
       }
     },
     {
+      "name": "outline-trail",
+      "type": "registry:component",
+      "title": "Outline Trail",
+      "description": "A section outline with a shaped SVG track and a clipped active segment that follows the current section.",
+      "files": [
+        {
+          "path": "registry/components/outline-trail.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/outline-trail.tsx"
+        },
+        {
+          "path": "registry/components/outline.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/outline.tsx"
+        }
+      ],
+      "dependencies": ["motion@^14.3.0"],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        }
+      }
+    },
+    {
       "name": "navbar",
       "title": "Navbar",
       "type": "registry:block",
@@ -3206,6 +3235,28 @@
           "line-height": "1.5rem",
           "color": "var(--muted-foreground)"
         }
+      }
+    },
+    {
+      "name": "theme-switcher",
+      "type": "registry:component",
+      "title": "Theme Switcher",
+      "description": "A compact control that switches between light and dark themes and remembers the selection.",
+      "files": [
+        {
+          "path": "registry/components/theme-switcher.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/theme-switcher.tsx"
+        },
+        {
+          "path": "registry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react@^1.48.0"],
+      "meta": {
+        "category": "components"
       }
     },
     {

@@ -7,6 +7,7 @@ import { Toaster } from "@/registry/components/toast";
 import PageTransition from "@/components/layout/page-transition";
 import { pageMetadata, siteDescription, siteUrl } from "@/lib/seo";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${paperMono.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        <script
+        <Script
+          id="theme-toggle"
           dangerouslySetInnerHTML={{
             __html: `try { document.documentElement.classList.toggle('dark', localStorage.getItem('theme') !== 'light'); } catch {}`,
           }}
