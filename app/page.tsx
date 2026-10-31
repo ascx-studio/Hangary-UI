@@ -1,10 +1,20 @@
+import Link from "next/link";
+import Logo from "@/components/ui/Logo";
+import ThemeToggle from "@/components/theme-toggle";
 import Container from "@/components/layout/Container";
 import Footer from "@/components/layout/Footer";
 import * as motion from "motion/react-client";
-import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
-import { Button } from "@/registry/components/button";
+import { SpotlightReveal } from "@/hangry/components/spotlight-reveal";
+import { Button, buttonClassName } from "@/hangry/components/button";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { ReactDark, Nextjs, TailwindCSS, MotionDark } from "@ridemountainpig/svgl-react";
+import {
+  ReactDark,
+  ReactLight,
+  Nextjs,
+  TailwindCSS,
+  MotionDark,
+  MotionLight,
+} from "@ridemountainpig/svgl-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteDescription, siteUrl } from "@/lib/seo";
 import { contactEmail } from "@/lib/site-content";
@@ -13,6 +23,16 @@ export default function Page() {
   return (
     <div className="isolate flex min-h-dvh w-full min-w-0 flex-col">
       <main className="relative z-10 flex min-h-dvh flex-1 flex-col bg-background">
+        <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+          <Link
+            href="/"
+            aria-label="Hangry UI home"
+            className="rounded-sm focus-visible:outline-2 focus-visible:outline-ring"
+          >
+            <Logo variant="logo" className="size-10" priority />
+          </Link>
+          <ThemeToggle />
+        </header>
         <JsonLd
           data={{
             "@context": "https://schema.org",
@@ -74,7 +94,7 @@ export default function Page() {
             <SpotlightReveal
               variant="default"
               alt="Hangry UI"
-              className="aspect-1337/336 h-auto w-full max-w-6xl mask-[linear-gradient(to_bottom,black_35%,transparent_100%)]"
+              className="aspect-1337/336 h-auto w-full max-w-6xl mask-[linear-gradient(to_bottom,black_65%,transparent_100%)] dark:mask-[linear-gradient(to_bottom,black_35%,transparent_100%)]"
             />
           </motion.div>
           <div className="relative -mt-4 flex w-full flex-col items-start text-left sm:-mt-8 lg:-mt-12">
@@ -105,10 +125,14 @@ export default function Page() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Button href="/components" variant="primary">
+              <Link
+                href="/components"
+                transitionTypes={["hero-components"]}
+                className={buttonClassName()}
+              >
                 Explore components
                 <ArrowRight size={16} aria-hidden="true" />
-              </Button>
+              </Link>
               <Button href="https://github.com/ascx-studio/ui" variant="outline">
                 Star on GitHub
                 <ArrowUpRight size={16} aria-hidden="true" />
@@ -122,7 +146,8 @@ export default function Page() {
             >
               <span className="text-muted-foreground">Built with</span>
               <span className="inline-flex items-center gap-2">
-                <ReactDark className="size-4" aria-hidden="true" />
+                <ReactDark className="hidden size-4 dark:block" aria-hidden="true" />
+                <ReactLight className="size-4 dark:hidden" aria-hidden="true" />
                 React
               </span>
               <span className="inline-flex items-center gap-2">
@@ -134,7 +159,8 @@ export default function Page() {
                 Tailwind CSS
               </span>
               <span className="inline-flex items-center gap-2">
-                <MotionDark className="size-4" aria-hidden="true" />
+                <MotionDark className="hidden size-4 dark:block" aria-hidden="true" />
+                <MotionLight className="size-4 dark:hidden" aria-hidden="true" />
                 Motion
               </span>
             </motion.div>

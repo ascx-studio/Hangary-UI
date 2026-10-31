@@ -5,10 +5,10 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from "@/registry/components/table";
-import { CodeBlock } from "@/registry/components/code-block";
+} from "@/hangry/components/table";
+import { CodeBlock } from "@/hangry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
-import { HeatmapBackground } from "@/registry/shader/heatmap-background";
+import { HeatmapBackground } from "@/hangry/shader/heatmap-background";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
 import DocsDependencies from "@/components/registry/docs-dependencies";
@@ -16,12 +16,16 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 <DocsHeader name="heatmap-background" />
 
 <ComponentPreview fullBleed>
-  <HeatmapBackground className="h-full w-full" />
+  <HeatmapBackground
+    colors={["#000000", "#1f1f1f", "#152e2b", "#00664e", "#05dc7f", "#05dc7f", "#dbe3e6"]}
+    lightColors={["#f4faf6", "#b4f2d0", "#05dc7f", "#00b77c", "#007c58", "#008bb8", "#285ee8"]}
+    className="h-full w-full"
+  />
 </ComponentPreview>
 
 <DocsReveal stagger>
 
-Flowing thermal colors move from cool blue through green and yellow to hot red. Hover to add heat around the pointer. The temperatures are decorative and do not represent measured data.
+Flowing thermal colors move from deep blue through cyan and yellow to hot orange. Hover to add heat around the pointer. The temperatures are decorative and do not represent measured data.
 
 Heatmap Background is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
 
@@ -34,7 +38,10 @@ Heatmap Background is a vgpu-powered React UI component that renders a WGSL shad
 ```tsx
 import { HeatmapBackground } from "@/components/hangry-ui/shader/heatmap-background";
 
-<HeatmapBackground scale={1.5} speed={0.2} intensity={0.9} className="grid place-items-center p-12">
+<HeatmapBackground
+  colors={["#112069", "#1f3ca3", "#3265e7", "#6bd8ff", "#ffe77a", "#ff9a1f", "#ff4d00"]}
+  scale={1.5} speed={0.2} intensity={0.9} className="grid place-items-center p-12"
+>
   <h2 className="typography-section-title text-white">Turn up the heat.</h2>
 </HeatmapBackground>;
 ```
@@ -51,6 +58,18 @@ import { HeatmapBackground } from "@/components/hangry-ui/shader/heatmap-backgro
     </TableRow>
   </TableHeader>
   <TableBody>
+    <TableRow>
+      <TableCell><code>lightColors</code></TableCell>
+      <TableCell>Seven hex colors</TableCell>
+      <TableCell>Vivid light-mode thermal palette</TableCell>
+      <TableCell>Light-mode palette without white mixing. Defaults to colors when a custom colors palette is supplied.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><code>colors</code></TableCell>
+      <TableCell>Seven hex colors</TableCell>
+      <TableCell>Blue → cyan → yellow → orange</TableCell>
+      <TableCell>Seven #RRGGBB stops, ordered from cold to hot. Invalid stops use the default palette.</TableCell>
+    </TableRow>
     <TableRow>
       <TableCell>
         <code>{"scale"}</code>

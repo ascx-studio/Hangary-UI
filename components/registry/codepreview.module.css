@@ -22,9 +22,9 @@
 
 .preview {
   /* Blend theme accents toward the foreground for readable code in either theme. */
-  --code-primary: color-mix(in oklab, var(--primary) 65%, var(--foreground));
-  --code-info: color-mix(in oklab, var(--info) 55%, var(--foreground));
-  --code-warning: color-mix(in oklab, var(--warning) 55%, var(--foreground));
+  --code-primary: color-mix(in oklab, var(--primary) 40%, var(--foreground));
+  --code-info: color-mix(in oklab, var(--info) 40%, var(--foreground));
+  --code-warning: color-mix(in oklab, var(--warning) 35%, var(--foreground));
   --code-destructive: color-mix(in oklab, var(--destructive) 65%, var(--foreground));
 
   background: var(--card);

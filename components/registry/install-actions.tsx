@@ -3,9 +3,9 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { Bun, NPM, PnpmDark, V0Dark } from "@ridemountainpig/svgl-react";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
-import { toast } from "@/registry/components/toast";
-import { Tooltip } from "@/registry/components/tooltip";
-import { Button } from "@/registry/components/button";
+import { toast } from "@/hangry/components/toast";
+import { Tooltip } from "@/hangry/components/tooltip";
+import { Button } from "@/hangry/components/button";
 
 const managers = {
   bun: { icon: Bun, prefix: "bunx" },
@@ -53,7 +53,7 @@ const InstallActions = memo(function InstallActions({ name }: { name: string }) 
           aria-label="Open in v0"
           className="h-11 shrink-0 px-3! text-sm font-semibold"
         >
-          Open in <V0Dark className="size-5 " aria-hidden="true" />
+          Open in <V0Dark className="invert dark:invert-0 size-5 " aria-hidden="true" />
         </Button>
       </Tooltip>
       <Tooltip content="Copy AI installation prompt" side="bottom">

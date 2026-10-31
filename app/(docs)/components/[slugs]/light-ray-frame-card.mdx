@@ -5,12 +5,12 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from "@/registry/components/table";
-import { CodeBlock } from "@/registry/components/code-block";
+} from "@/hangry/components/table";
+import { CodeBlock } from "@/hangry/components/code-block";
 import ComponentPreview from "@/components/registry/dither-component-preview";
-import { LightRayFrameCard } from "@/registry/components/light-ray-frame-card";
-import { CardHeader, CardTitle, CardDescription, CardFooter } from "@/registry/components/card";
-import { Button } from "@/registry/components/button";
+import { LightRayFrameCard } from "@/hangry/components/light-ray-frame-card";
+import { CardHeader, CardTitle, CardDescription, CardFooter } from "@/hangry/components/card";
+import { Button } from "@/hangry/components/button";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
 import DocsDependencies from "@/components/registry/docs-dependencies";
@@ -21,9 +21,7 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
   <LightRayFrameCard frameWidth={16}>
     <CardHeader>
       <CardTitle>Follow the light.</CardTitle>
-      <CardDescription>
-        Curved white strands with glowing pulses flowing around your content.
-      </CardDescription>
+      <CardDescription>A sweeping light ray with a soft glow flowing around your content.</CardDescription>
     </CardHeader>
     <CardFooter>
       <Button>Start creating</Button>
@@ -33,7 +31,7 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsReveal stagger>
 
-Curved white strands with glowing pulses flowing around your content. Uses Light Ray Background at a brighter intensity for the frame.
+A sweeping light ray with a soft glow flowing around your content. Uses Ray Field Background, clipped to the frame around the card.
 
 ## Installation
 

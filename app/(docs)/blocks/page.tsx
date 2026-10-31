@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
 import Catalog from "@/components/registry/catalog";
 import { pageMetadata } from "@/lib/seo";
@@ -14,15 +15,18 @@ export async function generateMetadata(_props: unknown, parent: ResolvingMetadat
 
 export default function Page() {
   return (
-    <div className="page-entrance w-full min-w-0">
-      <Container className="p-4">
-        <h1 className={"typography-page-title"}>Blocks</h1>
-        <p className={`mt-5 typography-body`}>
-          Complete sections for your next page. Explore their previews and adapt the details to your
-          project.
-        </p>
-        <Catalog category="blocks" />
-      </Container>
+    <div className="page-entrance isolate flex min-h-dvh w-full min-w-0 flex-col">
+      <div className="relative z-10 min-h-dvh w-full flex-1 bg-background">
+        <Container className="p-4">
+          <h1 className={"typography-page-title"}>Blocks</h1>
+          <p className={`mt-5 typography-body`}>
+            Complete sections for your next page. Explore their previews and adapt the details to
+            your project.
+          </p>
+          <Catalog category="blocks" />
+        </Container>
+      </div>
+      <Footer />
     </div>
   );
 }

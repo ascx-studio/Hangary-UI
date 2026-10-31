@@ -23,7 +23,7 @@ export function OpenInV0({
         className,
       )}
     >
-      <V0Dark aria-hidden="true" />
+      <V0Dark className="invert dark:invert-0" aria-hidden="true" />
     </a>
   );
 }

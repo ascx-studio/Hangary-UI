@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image, { type ImageProps } from "next/image";
 
 export type LogoVariant = "logo" | "wordmark";
@@ -22,18 +23,34 @@ type LogoProps = Readonly<{
 }> &
   Pick<ImageProps, "className" | "priority" | "sizes" | "style">;
 
-export default function Logo({ variant = "wordmark", ...imageProps }: LogoProps) {
+const Logo = memo(function Logo({ variant = "wordmark", ...imageProps }: LogoProps) {
   const logo = logoVariants[variant];
   const { style, ...props } = imageProps;
 
   return (
-    <Image
-      src={logo.src}
-      alt={logo.alt}
-      width={logo.width}
-      height={logo.height}
-      style={{ height: "auto", ...style }}
-      {...props}
-    />
+    <>
+      <Image
+        src={logo.src}
+        alt={logo.alt}
+        width={logo.width}
+        height={logo.height}
+        style={{ height: "auto", ...style }}
+        {...props}
+        className={`${props.className ?? ""} ${variant === "wordmark" ? "hidden dark:block" : ""}`}
+      />
+      {variant === "wordmark" && (
+        <Image
+          src="/wordmark-light.svg"
+          alt={logo.alt}
+          width={logo.width}
+          height={logo.height}
+          style={{ height: "auto", ...style }}
+          {...props}
+          className={`${props.className ?? ""} dark:hidden`}
+        />
+      )}
+    </>
   );
-}
+});
+
+export default Logo;

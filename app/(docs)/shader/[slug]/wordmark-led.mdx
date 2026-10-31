@@ -5,9 +5,9 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from "@/registry/components/table";
+} from "@/hangry/components/table";
 import ComponentPreview from "@/components/registry/dither-component-preview";
-import { WordmarkLed } from "@/registry/shader/wordmark-led";
+import { WordmarkLed } from "@/hangry/shader/wordmark-led";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
 import DocsDependencies from "@/components/registry/docs-dependencies";
@@ -23,6 +23,8 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 A field of individually pulsing WebGPU LEDs fills the complete wordmark instead of the source example's triangular light area.
 
 Wordmark LED is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
+The source image supplies the colors. Pass `src` to use your own logo and `alt` for its accessible label.
 
 ## Installation
 

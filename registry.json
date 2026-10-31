@@ -10,7 +10,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/guide-card.tsx",
+          "path": "hangry/components/guide-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/guide-card.tsx"
         }
@@ -18,6 +18,14 @@
       "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -27,12 +35,12 @@
       "type": "registry:block",
       "files": [
         {
-          "path": "registry/blocks/footer-main.tsx",
+          "path": "hangry/blocks/footer-main.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/footer-main.tsx"
         },
         {
-          "path": "registry/components/spotlight-reveal.tsx",
+          "path": "hangry/components/spotlight-reveal.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/spotlight-reveal.tsx"
         },
@@ -42,12 +50,22 @@
           "target": "public/wordmark.svg"
         },
         {
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
+        },
+        {
           "path": "public/footerart.svg",
           "type": "registry:file",
           "target": "public/footerart.svg"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "public/footerart-light.svg",
+          "type": "registry:file",
+          "target": "public/footerart-light.svg"
+        },
+        {
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -109,17 +127,17 @@
       "type": "registry:block",
       "files": [
         {
-          "path": "registry/blocks/faq.tsx",
+          "path": "hangry/blocks/faq.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/faq.tsx"
         },
         {
-          "path": "registry/blocks/faq.shared.tsx",
+          "path": "hangry/blocks/faq.shared.tsx",
           "type": "registry:lib",
           "target": "@components/hangry-ui/blocks/faq.shared.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -129,6 +147,12 @@
         "category": "blocks"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -176,17 +200,17 @@
       "type": "registry:block",
       "files": [
         {
-          "path": "registry/blocks/faq-cards.tsx",
+          "path": "hangry/blocks/faq-cards.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/faq-cards.tsx"
         },
         {
-          "path": "registry/blocks/faq.shared.tsx",
+          "path": "hangry/blocks/faq.shared.tsx",
           "type": "registry:lib",
           "target": "@components/hangry-ui/blocks/faq.shared.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -196,6 +220,12 @@
         "category": "blocks"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -243,17 +273,17 @@
       "type": "registry:block",
       "files": [
         {
-          "path": "registry/blocks/faq-split.tsx",
+          "path": "hangry/blocks/faq-split.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/faq-split.tsx"
         },
         {
-          "path": "registry/blocks/faq.shared.tsx",
+          "path": "hangry/blocks/faq.shared.tsx",
           "type": "registry:lib",
           "target": "@components/hangry-ui/blocks/faq.shared.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -263,6 +293,12 @@
         "category": "blocks"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -310,17 +346,17 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/striped-card.tsx",
+          "path": "hangry/components/striped-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/striped-card.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/components/aspect-ratio.tsx",
+          "path": "hangry/components/aspect-ratio.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
@@ -335,6 +371,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -382,12 +424,12 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/bracket-card.tsx",
+          "path": "hangry/components/bracket-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/bracket-card.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -397,6 +439,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -444,17 +492,17 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/corner-card.tsx",
+          "path": "hangry/components/corner-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/corner-card.tsx"
         },
         {
-          "path": "registry/components/bracket-card.tsx",
+          "path": "hangry/components/bracket-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/bracket-card.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -464,6 +512,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -511,7 +565,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/frame-card.tsx",
+          "path": "hangry/components/frame-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/frame-card.tsx"
         }
@@ -519,6 +573,14 @@
       "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -528,7 +590,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/iphone-17.tsx",
+          "path": "hangry/components/iphone-17.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/iphone-17.tsx"
         }
@@ -545,22 +607,22 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/toast-store.ts",
+          "path": "hangry/components/toast-store.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/components/toast-store.ts"
         },
         {
-          "path": "registry/components/toast.tsx",
+          "path": "hangry/components/toast.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/toast.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -570,6 +632,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -617,17 +685,17 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/card-stack.tsx",
+          "path": "hangry/components/card-stack.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card-stack.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
@@ -652,6 +720,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -699,22 +773,22 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/scale-card.tsx",
+          "path": "hangry/components/scale-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/scale-card.tsx"
         },
         {
-          "path": "registry/components/scales.tsx",
+          "path": "hangry/components/scales.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/scales.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/components/aspect-ratio.tsx",
+          "path": "hangry/components/aspect-ratio.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
@@ -729,6 +803,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -776,7 +856,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/aspect-ratio.tsx",
+          "path": "hangry/components/aspect-ratio.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         }
@@ -793,7 +873,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/linear-gradient-background.tsx",
+          "path": "hangry/shader/linear-gradient-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/linear-gradient-background.tsx"
         }
@@ -810,7 +890,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/gradient-grid-background.tsx",
+          "path": "hangry/shader/gradient-grid-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/gradient-grid-background.tsx"
         }
@@ -827,7 +907,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/svg-gradient-background.tsx",
+          "path": "hangry/shader/svg-gradient-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/svg-gradient-background.tsx"
         }
@@ -844,24 +924,29 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/mesh-gradient-background.tsx",
+          "path": "hangry/shader/mesh-gradient-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/mesh-gradient-background.tsx"
         },
         {
-          "path": "registry/shader/pastel-mascot-background.wgsl",
+          "path": "hangry/shader/pastel-mascot-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/pastel-mascot-background.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -876,7 +961,7 @@
       "description": "A profile image with initials and an image-error fallback.",
       "files": [
         {
-          "path": "registry/components/avatar.tsx",
+          "path": "hangry/components/avatar.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/avatar.tsx"
         }
@@ -884,6 +969,19 @@
       "dependencies": [],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        }
       }
     },
     {
@@ -893,7 +991,7 @@
       "description": "Status badges with matching icons, tinted backgrounds, square corners, and reduced-motion-aware hover animation.",
       "files": [
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         }
@@ -903,6 +1001,17 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -950,7 +1059,7 @@
       "description": "A status banner with matching icons, optional descriptions, and reduced-motion-aware hover animation.",
       "files": [
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         }
@@ -958,6 +1067,19 @@
       "dependencies": ["lucide-react@^1.48.0", "motion@^14.3.0"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        }
       }
     },
     {
@@ -967,17 +1089,17 @@
       "description": "A compact analytics consent notice with accept, reject, and optional dismiss actions.",
       "files": [
         {
-          "path": "registry/components/consent-banner.tsx",
+          "path": "hangry/components/consent-banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/consent-banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -987,6 +1109,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-section-title": {
           "font-size": "1.5rem",
           "line-height": "2rem",
@@ -1008,12 +1136,12 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/border-highlight.tsx",
+          "path": "hangry/components/border-highlight.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/border-highlight.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -1023,6 +1151,12 @@
       },
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1064,23 +1198,23 @@
       }
     },
     {
-      "name": "bottom-sheet",
+      "name": "sheet",
       "type": "registry:component",
-      "title": "Bottom Sheet",
-      "description": "A bottom-aligned modal sheet with native focus management and Escape dismissal.",
+      "title": "Sheet",
+      "description": "A modal sheet that opens from any edge, with native focus management and Escape dismissal.",
       "files": [
         {
-          "path": "registry/components/bottom-sheet.tsx",
+          "path": "hangry/components/sheet.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/components/bottom-sheet.tsx"
+          "target": "@components/hangry-ui/components/sheet.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -1090,6 +1224,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1137,7 +1277,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/brand-palette.tsx",
+          "path": "hangry/components/brand-palette.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/brand-palette.tsx"
         }
@@ -1154,7 +1294,7 @@
       "description": "A breadcrumb navigation trail with links and a current-page indicator.",
       "files": [
         {
-          "path": "registry/components/breadcrumb.tsx",
+          "path": "hangry/components/breadcrumb.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/breadcrumb.tsx"
         }
@@ -1171,7 +1311,7 @@
       "description": "An accessible button with primary, secondary, ghost, destructive, and outline variants.",
       "files": [
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -1188,7 +1328,7 @@
       "description": "A flexible content card with primary, secondary, ghost, and destructive variants, plus a body and footer.",
       "files": [
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -1198,6 +1338,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1245,17 +1391,17 @@
       "description": "An animated, swipeable carousel with direct slide selection and accessible controls.",
       "files": [
         {
-          "path": "registry/components/carousel.tsx",
+          "path": "hangry/components/carousel.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/carousel.tsx"
         },
         {
-          "path": "registry/components/aspect-ratio.tsx",
+          "path": "hangry/components/aspect-ratio.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -1265,6 +1411,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1312,22 +1464,27 @@
       "description": "A scrollable code block with a filename, optional line numbers, and a copy button.",
       "files": [
         {
-          "path": "registry/components/guide-card.tsx",
+          "path": "hangry/components/guide-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/guide-card.tsx"
         },
         {
-          "path": "registry/components/code-block.tsx",
+          "path": "hangry/components/code-block.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/code-block.tsx"
         },
         {
-          "path": "registry/components/tabs.tsx",
+          "path": "hangry/components/copy-feedback.shared.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/copy-feedback.shared.tsx"
+        },
+        {
+          "path": "hangry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
         },
         {
-          "path": "registry/components/toast-store.ts",
+          "path": "hangry/components/toast-store.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/components/toast-store.ts"
         }
@@ -1343,6 +1500,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1390,22 +1553,22 @@
       "description": "Column, minimal, and stacked footer layouts.",
       "files": [
         {
-          "path": "registry/blocks/footer.tsx",
+          "path": "hangry/blocks/footer.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/footer.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -1415,6 +1578,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1462,17 +1636,17 @@
       "description": "A compact footer with inline navigation and a copyright bar.",
       "files": [
         {
-          "path": "registry/blocks/footer-minimal.tsx",
+          "path": "hangry/blocks/footer-minimal.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/footer-minimal.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -1482,6 +1656,12 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1529,22 +1709,22 @@
       "description": "A centered footer with stacked brand details and navigation.",
       "files": [
         {
-          "path": "registry/blocks/footer-stacked.tsx",
+          "path": "hangry/blocks/footer-stacked.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/footer-stacked.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -1554,6 +1734,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1601,7 +1792,7 @@
       "description": "A styled keyboard key or shortcut hint.",
       "files": [
         {
-          "path": "registry/components/kbd.tsx",
+          "path": "hangry/components/kbd.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/kbd.tsx"
         }
@@ -1609,6 +1800,14 @@
       "dependencies": [],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -1618,7 +1817,7 @@
       "description": "Open an image in an accessible, reduced-motion-aware modal viewer.",
       "files": [
         {
-          "path": "registry/components/lightbox.tsx",
+          "path": "hangry/components/lightbox.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/lightbox.tsx"
         }
@@ -1675,27 +1874,27 @@
       "description": "A card login form with provider buttons, password visibility, and loading and error states.",
       "files": [
         {
-          "path": "registry/blocks/login.tsx",
+          "path": "hangry/blocks/login.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/login.tsx"
         },
         {
-          "path": "registry/blocks/login-minimal.tsx",
+          "path": "hangry/blocks/login-minimal.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
@@ -1710,6 +1909,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1757,22 +1967,22 @@
       "description": "An unframed login form for embedding in your own layout.",
       "files": [
         {
-          "path": "registry/blocks/login-minimal.tsx",
+          "path": "hangry/blocks/login-minimal.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
@@ -1787,6 +1997,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1834,27 +2055,27 @@
       "description": "A login form beside a brand and testimonial panel.",
       "files": [
         {
-          "path": "registry/blocks/login-split.tsx",
+          "path": "hangry/blocks/login-split.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/login-split.tsx"
         },
         {
-          "path": "registry/blocks/login-minimal.tsx",
+          "path": "hangry/blocks/login-minimal.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/login-minimal.tsx"
         },
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
@@ -1869,6 +2090,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -1916,7 +2148,7 @@
       "description": "A reusable logo animation that draws SVG shapes and fades in other artwork.",
       "files": [
         {
-          "path": "registry/components/logo-animation.tsx",
+          "path": "hangry/components/logo-animation.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/logo-animation.tsx"
         }
@@ -1933,7 +2165,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/mechanical-keyboard.tsx",
+          "path": "hangry/components/mechanical-keyboard.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/mechanical-keyboard.tsx"
         }
@@ -1950,12 +2182,12 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/metal-wallet.tsx",
+          "path": "hangry/components/metal-wallet.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/metal-wallet.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -1972,17 +2204,17 @@
       "description": "A wave-shaped navigation rail with spring animations and hover previews.",
       "files": [
         {
-          "path": "registry/components/nav-line.tsx",
+          "path": "hangry/components/nav-line.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/nav-line.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/components/tooltip.tsx",
+          "path": "hangry/components/tooltip.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tooltip.tsx"
         }
@@ -1992,6 +2224,12 @@
       },
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2039,27 +2277,27 @@
       "description": "A share dropdown with AI links, native sharing, copy fallback, and optional NFC.",
       "files": [
         {
-          "path": "registry/components/share-menu.tsx",
+          "path": "hangry/components/share-menu.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/share-menu.tsx"
         },
         {
-          "path": "registry/components/toast.tsx",
+          "path": "hangry/components/toast.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/toast.tsx"
         },
         {
-          "path": "registry/components/toast-store.ts",
+          "path": "hangry/components/toast-store.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/components/toast-store.ts"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -2074,6 +2312,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-section-title": {
           "font-size": "1.5rem",
           "line-height": "2rem",
@@ -2095,7 +2339,7 @@
       "description": "A single-page table of contents with active heading tracking, keyboard navigation, and a sliding indicator.",
       "files": [
         {
-          "path": "registry/components/outline.tsx",
+          "path": "hangry/components/outline.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/outline.tsx"
         }
@@ -2146,38 +2390,67 @@
       }
     },
     {
+      "name": "outline-trail",
+      "type": "registry:component",
+      "title": "Outline Trail",
+      "description": "A section outline with a shaped SVG track and a clipped active segment that follows the current section.",
+      "files": [
+        {
+          "path": "hangry/components/outline-trail.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/outline-trail.tsx"
+        },
+        {
+          "path": "hangry/components/outline.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/outline.tsx"
+        }
+      ],
+      "dependencies": ["motion@^14.3.0"],
+      "meta": {
+        "category": "components"
+      },
+      "css": {
+        "@utility typography-label": {
+          "font-size": "0.875rem",
+          "line-height": "1.25rem",
+          "font-weight": "500"
+        }
+      }
+    },
+    {
       "name": "navbar",
       "title": "Navbar",
       "type": "registry:block",
       "description": "Centered, left-aligned, and floating navigation layouts.",
       "files": [
         {
-          "path": "registry/blocks/navbar.tsx",
+          "path": "hangry/blocks/navbar.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/navbar.tsx"
         },
         {
-          "path": "registry/components/avatar.tsx",
+          "path": "hangry/components/avatar.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -2187,6 +2460,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2234,32 +2518,32 @@
       "description": "A navbar with navigation links beside the brand.",
       "files": [
         {
-          "path": "registry/blocks/navbar-aligned.tsx",
+          "path": "hangry/blocks/navbar-aligned.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/navbar-aligned.tsx"
         },
         {
-          "path": "registry/components/avatar.tsx",
+          "path": "hangry/components/avatar.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -2269,6 +2553,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2316,32 +2611,32 @@
       "description": "An inset navbar with a bordered surface and shadow.",
       "files": [
         {
-          "path": "registry/blocks/navbar-floating.tsx",
+          "path": "hangry/blocks/navbar-floating.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/navbar-floating.tsx"
         },
         {
-          "path": "registry/components/avatar.tsx",
+          "path": "hangry/components/avatar.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/avatar.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/banner.tsx",
+          "path": "hangry/components/banner.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/banner.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/lib/navigation.shared.ts",
+          "path": "hangry/lib/navigation.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/lib/navigation.shared.ts"
         }
@@ -2351,6 +2646,17 @@
       },
       "dependencies": ["@ridemountainpig/svgl-react@^1.0.18", "cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2398,54 +2704,22 @@
       "description": "A focused two-plan pricing block with a highlighted recommended plan.",
       "files": [
         {
-          "path": "registry/blocks/pricing-featured.tsx",
+          "path": "hangry/blocks/pricing-featured.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/pricing-featured.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/card.tsx"
-        }
-      ],
-      "meta": {
-        "category": "blocks"
-      },
-      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"]
-    },
-    {
-      "name": "pricing",
-      "title": "Pricing",
-      "type": "registry:block",
-      "description": "A pricing card grid with featured plans and monthly or yearly billing.",
-      "files": [
-        {
-          "path": "registry/blocks/pricing.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/blocks/pricing.tsx"
-        },
-        {
-          "path": "registry/components/badge.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/badge.tsx"
-        },
-        {
-          "path": "registry/components/button.tsx",
-          "type": "registry:component",
-          "target": "@components/hangry-ui/components/button.tsx"
-        },
-        {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -2455,6 +2729,62 @@
       },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        }
+      }
+    },
+    {
+      "name": "pricing",
+      "title": "Pricing",
+      "type": "registry:block",
+      "description": "A pricing card grid with featured plans and monthly or yearly billing.",
+      "files": [
+        {
+          "path": "hangry/blocks/pricing.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/blocks/pricing.tsx"
+        },
+        {
+          "path": "hangry/components/badge.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/badge.tsx"
+        },
+        {
+          "path": "hangry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        },
+        {
+          "path": "hangry/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/card.tsx"
+        }
+      ],
+      "meta": {
+        "category": "blocks"
+      },
+      "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2502,17 +2832,17 @@
       "description": "Pricing plans framed with bracket cards.",
       "files": [
         {
-          "path": "registry/blocks/pricing-bracket.tsx",
+          "path": "hangry/blocks/pricing-bracket.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/pricing-bracket.tsx"
         },
         {
-          "path": "registry/components/bracket-card.tsx",
+          "path": "hangry/components/bracket-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/bracket-card.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -2529,22 +2859,22 @@
       "description": "Pricing plans presented as compact horizontal rows.",
       "files": [
         {
-          "path": "registry/blocks/pricing-compact.tsx",
+          "path": "hangry/blocks/pricing-compact.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/pricing-compact.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -2554,6 +2884,17 @@
       },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2601,22 +2942,22 @@
       "description": "A pricing comparison table with billing controls.",
       "files": [
         {
-          "path": "registry/blocks/pricing-comparison.tsx",
+          "path": "hangry/blocks/pricing-comparison.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/pricing-comparison.tsx"
         },
         {
-          "path": "registry/components/badge.tsx",
+          "path": "hangry/components/badge.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/badge.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         },
         {
-          "path": "registry/components/table.tsx",
+          "path": "hangry/components/table.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/table.tsx"
         }
@@ -2626,6 +2967,17 @@
       },
       "dependencies": ["cn@^0.2.6", "lucide-react@^1.48.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
+        "@utility surface-status": {
+          "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+          "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+          "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2673,7 +3025,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/spotlight-reveal.tsx",
+          "path": "hangry/components/spotlight-reveal.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/spotlight-reveal.tsx"
         },
@@ -2683,9 +3035,19 @@
           "target": "public/wordmark-stroke.svg"
         },
         {
+          "path": "public/wordmark-stroke-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-stroke-light.svg"
+        },
+        {
           "path": "public/wordmark.svg",
           "type": "registry:file",
           "target": "public/wordmark.svg"
+        },
+        {
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
         }
       ],
       "meta": {
@@ -2700,7 +3062,7 @@
       "description": "A responsive, composable table with headers, rows, cells, a caption, and an optional footer.",
       "files": [
         {
-          "path": "registry/components/table.tsx",
+          "path": "hangry/components/table.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/table.tsx"
         }
@@ -2708,6 +3070,14 @@
       "dependencies": ["cn@^0.2.6"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     },
     {
@@ -2717,12 +3087,12 @@
       "description": "A pulsing WebGPU LED matrix across the complete wordmark.",
       "files": [
         {
-          "path": "registry/shader/wordmark-led.tsx",
+          "path": "hangry/shader/wordmark-led.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/wordmark-led.tsx"
         },
         {
-          "path": "registry/shader/wordmark-led.wgsl",
+          "path": "hangry/shader/wordmark-led.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/wordmark-led.wgsl"
         },
@@ -2732,12 +3102,22 @@
           "target": "public/wordmark.svg"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
+        },
+        {
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/wordmark-shader.shared.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/wordmark-shader.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
         }
@@ -2754,12 +3134,12 @@
       "description": "A continuous blue-white light ray with a soft glow and fading trail across the wordmark.",
       "files": [
         {
-          "path": "registry/shader/wordmark-light-ray.tsx",
+          "path": "hangry/shader/wordmark-light-ray.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/wordmark-light-ray.tsx"
         },
         {
-          "path": "registry/shader/wordmark-light-ray.wgsl",
+          "path": "hangry/shader/wordmark-light-ray.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl"
         },
@@ -2769,12 +3149,22 @@
           "target": "public/wordmark.svg"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "public/wordmark-light.svg",
+          "type": "registry:file",
+          "target": "public/wordmark-light.svg"
+        },
+        {
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/wordmark-shader.shared.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/wordmark-shader.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/wordmark-shader.shared.tsx"
         }
@@ -2791,7 +3181,7 @@
       "description": "A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation.",
       "files": [
         {
-          "path": "registry/components/tabs.tsx",
+          "path": "hangry/components/tabs.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tabs.tsx"
         }
@@ -2801,6 +3191,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2842,18 +3238,40 @@
       }
     },
     {
+      "name": "theme-switcher",
+      "type": "registry:component",
+      "title": "Theme Switcher",
+      "description": "A compact control that switches between light and dark themes and remembers the selection.",
+      "files": [
+        {
+          "path": "hangry/components/theme-switcher.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/theme-switcher.tsx"
+        },
+        {
+          "path": "hangry/components/button.tsx",
+          "type": "registry:component",
+          "target": "@components/hangry-ui/components/button.tsx"
+        }
+      ],
+      "dependencies": ["lucide-react@^1.48.0"],
+      "meta": {
+        "category": "components"
+      }
+    },
+    {
       "name": "tooltip",
       "type": "registry:component",
       "title": "Tooltip",
       "description": "Hover and focus previews built with the Card component.",
       "files": [
         {
-          "path": "registry/components/tooltip.tsx",
+          "path": "hangry/components/tooltip.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/tooltip.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -2863,6 +3281,12 @@
       },
       "dependencies": ["cn@^0.2.6"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -2910,17 +3334,17 @@
       "type": "registry:block",
       "files": [
         {
-          "path": "registry/blocks/not-found.tsx",
+          "path": "hangry/blocks/not-found.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/not-found.tsx"
         },
         {
-          "path": "registry/blocks/not-found.shared.tsx",
+          "path": "hangry/blocks/not-found.shared.tsx",
           "type": "registry:lib",
           "target": "@components/hangry-ui/blocks/not-found.shared.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -2976,12 +3400,12 @@
       "type": "registry:block",
       "files": [
         {
-          "path": "registry/blocks/error-page.tsx",
+          "path": "hangry/blocks/error-page.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/blocks/error-page.tsx"
         },
         {
-          "path": "registry/components/button.tsx",
+          "path": "hangry/components/button.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/button.tsx"
         }
@@ -3016,7 +3440,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/accordion.tsx",
+          "path": "hangry/components/accordion.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/accordion.tsx"
         }
@@ -3026,6 +3450,12 @@
         "category": "components"
       },
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-body": {
           "font-size": "1rem",
           "line-height": "1.75rem",
@@ -3040,19 +3470,24 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/dither-background.tsx",
+          "path": "hangry/shader/dither-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/dither-background.tsx"
         },
         {
-          "path": "registry/shader/dither-background.wgsl",
+          "path": "hangry/shader/dither-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/dither-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3067,38 +3502,49 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/dithering-frame-card.tsx",
+          "path": "hangry/components/dithering-frame-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/dithering-frame-card.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/shader/dither-background.tsx",
+          "path": "hangry/shader/dither-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/dither-background.tsx"
         },
         {
-          "path": "registry/shader/dither-background.wgsl",
+          "path": "hangry/shader/dither-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/dither-background.wgsl"
         },
         {
-          "path": "registry/components/shader-frame-card.shared.tsx",
+          "path": "hangry/components/shader-frame-card.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/shader-frame-card.shared.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -3145,26 +3591,26 @@
     {
       "name": "dithered-logo",
       "title": "Dithered Logo",
-      "description": "A configurable logo silhouette filled with the animated ordered-dither shader.",
+      "description": "An animated ordered-dither logo that preserves source image colors, with an optional foreground override.",
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/dithered-logo.tsx",
+          "path": "hangry/components/dithered-logo.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/dithered-logo.tsx"
         },
         {
-          "path": "registry/components/aspect-ratio.tsx",
+          "path": "hangry/components/aspect-ratio.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/aspect-ratio.tsx"
         },
         {
-          "path": "registry/shader/dither-background.tsx",
+          "path": "hangry/shader/dither-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/dither-background.tsx"
         },
         {
-          "path": "registry/shader/dither-background.wgsl",
+          "path": "hangry/shader/dither-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/dither-background.wgsl"
         },
@@ -3174,14 +3620,19 @@
           "target": "public/logo.svg"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "meta": {
-        "category": "components"
+        "category": "shader"
       }
     },
     {
@@ -3191,24 +3642,29 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/pastel-mascot-background.tsx",
+          "path": "hangry/shader/pastel-mascot-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/pastel-mascot-background.tsx"
         },
         {
-          "path": "registry/shader/pastel-mascot-background.wgsl",
+          "path": "hangry/shader/pastel-mascot-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/pastel-mascot-background.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3223,19 +3679,24 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/topographic-contour-map.tsx",
+          "path": "hangry/shader/topographic-contour-map.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/topographic-contour-map.tsx"
         },
         {
-          "path": "registry/shader/topographic-contour-map.wgsl",
+          "path": "hangry/shader/topographic-contour-map.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/topographic-contour-map.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3246,52 +3707,58 @@
     {
       "name": "light-ray-frame-card",
       "title": "Light Ray Frame Card",
-      "description": "Curved white strands with glowing pulses flowing around your content.",
+      "description": "A sweeping light ray with a soft glow flowing around your content.",
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/components/light-ray-frame-card.tsx",
+          "path": "hangry/components/light-ray-frame-card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/light-ray-frame-card.tsx"
         },
         {
-          "path": "registry/components/shader-frame-card.shared.tsx",
+          "path": "hangry/components/shader-frame-card.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/shader-frame-card.shared.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         },
         {
-          "path": "registry/shader/light-ray-background.tsx",
+          "path": "hangry/shader/ray-field-background.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/shader/light-ray-background.tsx"
+          "target": "@components/hangry-ui/shader/ray-field-background.tsx"
         },
         {
-          "path": "registry/shader/light-background.shared.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
-          "target": "@components/hangry-ui/shader/light-background.shared.tsx"
+          "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/led-background.wgsl",
+          "path": "hangry/shader/wordmark-light-ray.wgsl",
           "type": "registry:file",
-          "target": "@components/hangry-ui/shader/led-background.wgsl"
+          "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl"
         },
         {
-          "path": "registry/shader/light-ray-background.wgsl",
-          "type": "registry:file",
-          "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
-        },
-        {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
       "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        },
         "@utility typography-page-title": {
           "font-size": "2.25rem",
           "line-height": "2.5rem",
@@ -3342,29 +3809,34 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/led-background.tsx",
+          "path": "hangry/shader/led-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/led-background.tsx"
         },
         {
-          "path": "registry/shader/light-background.shared.tsx",
+          "path": "hangry/shader/light-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/light-background.shared.tsx"
         },
         {
-          "path": "registry/shader/led-background.wgsl",
+          "path": "hangry/shader/led-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/led-background.wgsl"
         },
         {
-          "path": "registry/shader/light-ray-background.wgsl",
+          "path": "hangry/shader/light-ray-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3379,29 +3851,34 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/light-ray-background.tsx",
+          "path": "hangry/shader/light-ray-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/light-ray-background.tsx"
         },
         {
-          "path": "registry/shader/light-background.shared.tsx",
+          "path": "hangry/shader/light-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/light-background.shared.tsx"
         },
         {
-          "path": "registry/shader/led-background.wgsl",
+          "path": "hangry/shader/led-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/led-background.wgsl"
         },
         {
-          "path": "registry/shader/light-ray-background.wgsl",
+          "path": "hangry/shader/light-ray-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/light-ray-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3416,24 +3893,29 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/ray-field-background.tsx",
+          "path": "hangry/shader/ray-field-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/ray-field-background.tsx"
         },
         {
-          "path": "registry/shader/wordmark-light-ray.wgsl",
+          "path": "hangry/shader/wordmark-light-ray.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/wordmark-light-ray.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3448,47 +3930,52 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/chroma-background.tsx",
+          "path": "hangry/shader/chroma-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/chroma-background.tsx"
         },
         {
-          "path": "registry/shader/procedural-background.shared.tsx",
+          "path": "hangry/shader/procedural-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
         },
         {
-          "path": "registry/shader/chroma-background.wgsl",
+          "path": "hangry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/ascii-background.wgsl",
+          "path": "hangry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
         },
         {
-          "path": "registry/shader/heatmap-background.wgsl",
+          "path": "hangry/shader/heatmap-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
         },
         {
-          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "path": "hangry/shader/liquid-chrome-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/plasma-rift-background.wgsl",
+          "path": "hangry/shader/plasma-rift-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
@@ -3505,47 +3992,52 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/ascii-background.tsx",
+          "path": "hangry/shader/ascii-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/ascii-background.tsx"
         },
         {
-          "path": "registry/shader/procedural-background.shared.tsx",
+          "path": "hangry/shader/procedural-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
         },
         {
-          "path": "registry/shader/chroma-background.wgsl",
+          "path": "hangry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/ascii-background.wgsl",
+          "path": "hangry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
         },
         {
-          "path": "registry/shader/heatmap-background.wgsl",
+          "path": "hangry/shader/heatmap-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
         },
         {
-          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "path": "hangry/shader/liquid-chrome-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/plasma-rift-background.wgsl",
+          "path": "hangry/shader/plasma-rift-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
@@ -3562,24 +4054,29 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/gradient-ascii-background.tsx",
+          "path": "hangry/shader/gradient-ascii-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/gradient-ascii-background.tsx"
         },
         {
-          "path": "registry/shader/gradient-ascii-background.wgsl",
+          "path": "hangry/shader/gradient-ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/gradient-ascii-background.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3594,47 +4091,52 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/heatmap-background.tsx",
+          "path": "hangry/shader/heatmap-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/heatmap-background.tsx"
         },
         {
-          "path": "registry/shader/procedural-background.shared.tsx",
+          "path": "hangry/shader/procedural-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
         },
         {
-          "path": "registry/shader/chroma-background.wgsl",
+          "path": "hangry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/ascii-background.wgsl",
+          "path": "hangry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
         },
         {
-          "path": "registry/shader/heatmap-background.wgsl",
+          "path": "hangry/shader/heatmap-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
         },
         {
-          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "path": "hangry/shader/liquid-chrome-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/plasma-rift-background.wgsl",
+          "path": "hangry/shader/plasma-rift-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
@@ -3651,47 +4153,52 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/liquid-chrome-background.tsx",
+          "path": "hangry/shader/liquid-chrome-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/liquid-chrome-background.tsx"
         },
         {
-          "path": "registry/shader/procedural-background.shared.tsx",
+          "path": "hangry/shader/procedural-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
         },
         {
-          "path": "registry/shader/chroma-background.wgsl",
+          "path": "hangry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/ascii-background.wgsl",
+          "path": "hangry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
         },
         {
-          "path": "registry/shader/heatmap-background.wgsl",
+          "path": "hangry/shader/heatmap-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
         },
         {
-          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "path": "hangry/shader/liquid-chrome-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/plasma-rift-background.wgsl",
+          "path": "hangry/shader/plasma-rift-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
@@ -3708,29 +4215,34 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/liquid-surface-background.tsx",
+          "path": "hangry/shader/liquid-surface-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/liquid-surface-background.tsx"
         },
         {
-          "path": "registry/shader/liquid-surface-background.wgsl",
+          "path": "hangry/shader/liquid-surface-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-surface-background.wgsl"
         },
         {
-          "path": "registry/shader/liquid-surface-bloom.wgsl",
+          "path": "hangry/shader/liquid-surface-bloom.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-surface-bloom.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3745,47 +4257,52 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/plasma-rift-background.tsx",
+          "path": "hangry/shader/plasma-rift-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/plasma-rift-background.tsx"
         },
         {
-          "path": "registry/shader/procedural-background.shared.tsx",
+          "path": "hangry/shader/procedural-background.shared.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/procedural-background.shared.tsx"
         },
         {
-          "path": "registry/shader/chroma-background.wgsl",
+          "path": "hangry/shader/chroma-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/chroma-background.wgsl"
         },
         {
-          "path": "registry/shader/ascii-background.wgsl",
+          "path": "hangry/shader/ascii-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/ascii-background.wgsl"
         },
         {
-          "path": "registry/shader/heatmap-background.wgsl",
+          "path": "hangry/shader/heatmap-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/heatmap-background.wgsl"
         },
         {
-          "path": "registry/shader/liquid-chrome-background.wgsl",
+          "path": "hangry/shader/liquid-chrome-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/liquid-chrome-background.wgsl"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
+        },
+        {
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/plasma-rift-background.wgsl",
+          "path": "hangry/shader/plasma-rift-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/plasma-rift-background.wgsl"
         }
@@ -3802,24 +4319,29 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/photon-corridor-background.tsx",
+          "path": "hangry/shader/photon-corridor-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/photon-corridor-background.tsx"
         },
         {
-          "path": "registry/shader/photon-corridor-background.wgsl",
+          "path": "hangry/shader/photon-corridor-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/photon-corridor-background.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3834,24 +4356,29 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "registry/shader/koi-pond-background.tsx",
+          "path": "hangry/shader/koi-pond-background.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/koi-pond-background.tsx"
         },
         {
-          "path": "registry/shader/koi-pond-background.wgsl",
+          "path": "hangry/shader/koi-pond-background.wgsl",
           "type": "registry:file",
           "target": "@components/hangry-ui/shader/koi-pond-background.wgsl"
         },
         {
-          "path": "registry/shader/canvas.tsx",
+          "path": "hangry/shader/canvas.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/shader/canvas.tsx"
         },
         {
-          "path": "registry/shader/shader-renderer.shared.ts",
+          "path": "hangry/shader/shader-renderer.shared.ts",
           "type": "registry:lib",
           "target": "@components/hangry-ui/shader/shader-renderer.shared.ts"
+        },
+        {
+          "path": "hangry/shader/light-palette.shared.wgsl",
+          "type": "registry:file",
+          "target": "@components/hangry-ui/shader/light-palette.shared.wgsl"
         }
       ],
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0", "vgpu@0.6.0", "@vgpu/wgsl@0.6.0"],
@@ -3866,12 +4393,12 @@
       "description": "A Notion-style table of contents with indented heading links and active-section tracking.",
       "files": [
         {
-          "path": "registry/components/toc.tsx",
+          "path": "hangry/components/toc.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/toc.tsx"
         },
         {
-          "path": "registry/components/card.tsx",
+          "path": "hangry/components/card.tsx",
           "type": "registry:component",
           "target": "@components/hangry-ui/components/card.tsx"
         }
@@ -3879,6 +4406,14 @@
       "dependencies": ["cn@^0.2.6", "motion@^14.3.0"],
       "meta": {
         "category": "components"
+      },
+      "css": {
+        "@utility surface-raised": {
+          "border-width": "1px",
+          "border-color": "transparent",
+          "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+          "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+        }
       }
     }
   ]

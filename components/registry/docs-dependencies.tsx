@@ -1,9 +1,20 @@
 import { memo } from "react";
-import { MotionDark, VercelDark, ReactDark } from "@ridemountainpig/svgl-react";
+import {
+  MotionDark,
+  MotionLight,
+  VercelDark,
+  VercelLight,
+  ReactDark,
+  ReactLight,
+} from "@ridemountainpig/svgl-react";
 import { Package } from "lucide-react";
 import { getRegistryItem } from "@/lib/registry";
 
-const icons = { motion: MotionDark, vgpu: VercelDark, react: ReactDark };
+const icons = {
+  motion: [MotionLight, MotionDark],
+  vgpu: [VercelLight, VercelDark],
+  react: [ReactLight, ReactDark],
+} as const;
 const DocsDependencies = memo(function DocsDependencies({ name }: { name: string }) {
   const dependencies = [
     ...new Set(
@@ -18,23 +29,25 @@ const DocsDependencies = memo(function DocsDependencies({ name }: { name: string
         Dependencies
       </h2>
       <ul aria-label="Dependencies" className="m-0 flex list-none flex-wrap gap-3 p-0">
-      {dependencies.map((dependency) => {
-        const Icon = icons[dependency as keyof typeof icons] ?? Package;
-        return (
-          <li
-            key={dependency}
-            className="inline-flex items-center gap-2.5 rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground"
-          >
-            <Icon aria-hidden="true" className="size-5 shrink-0" />
-            <span>{dependency === "motion" ? "Motion" : dependency}</span>
-          </li>
-        );
-      })}
+        {dependencies.map((dependency) => {
+          const [LightIcon, DarkIcon] = icons[dependency as keyof typeof icons] ?? [
+            Package,
+            Package,
+          ];
+          return (
+            <li
+              key={dependency}
+              className="inline-flex items-center gap-2.5 rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground"
+            >
+              <LightIcon aria-hidden="true" className="size-5 shrink-0 dark:hidden" />
+              <DarkIcon aria-hidden="true" className="hidden size-5 shrink-0 dark:block" />
+              <span>{dependency === "motion" ? "Motion" : dependency}</span>
+            </li>
+          );
+        })}
       </ul>
     </section>
-  ) : (
-    null
-  );
+  ) : null;
 });
 
 export default DocsDependencies;

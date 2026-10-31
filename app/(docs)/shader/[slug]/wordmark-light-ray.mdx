@@ -5,9 +5,9 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from "@/registry/components/table";
+} from "@/hangry/components/table";
 import ComponentPreview from "@/components/registry/dither-component-preview";
-import { WordmarkLightRay } from "@/registry/shader/wordmark-light-ray";
+import { WordmarkLightRay } from "@/hangry/shader/wordmark-light-ray";
 import DocsHeader from "@/components/registry/docs-header";
 import InstallationMenu from "@/components/registry/installation-menu";
 import DocsDependencies from "@/components/registry/docs-dependencies";
@@ -20,9 +20,11 @@ import DocsDependencies from "@/components/registry/docs-dependencies";
 
 <DocsReveal stagger>
 
-A continuous blue-white light ray sweeps across the wordmark with a bright core, soft glow, and fading trail. Hover the mark to pull the beam toward the pointer.
+A continuous light ray in the source logo’s colors sweeps across the wordmark with a bright core, soft glow, and fading trail. Hover the mark to pull the beam toward the pointer.
 
 Wordmark Light Ray is a vgpu-powered React UI component that renders a WGSL shader through WebGPU. It supports reduced motion and provides a fallback for browsers without WebGPU.
+
+The source image supplies the colors. Pass `src` to use your own logo and `alt` for its accessible label.
 
 ## Installation
 

@@ -1,11 +1,12 @@
-import { AspectRatio } from "@/registry/components/aspect-ratio";
-import { Card } from "@/registry/components/card";
+import { AspectRatio } from "@/hangry/components/aspect-ratio";
 import { getRegistryItemHref, getRegistryItems, type RegistryCategory } from "@/lib/registry";
 import { usesVgpu } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import SharedPreviewLayout from "@/components/registry/shared-preview-layout";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/components/tabs";
+import { TabsContent, TabsList, TabsTrigger } from "@/hangry/components/tabs";
+import { Suspense } from "react";
+import { CatalogTabs } from "./catalog-tabs";
 import sidebarData from "@/data/sidebar.json";
 
 export default function Catalog({ category }: Readonly<{ category: RegistryCategory }>) {
@@ -54,8 +55,17 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
                     alt={`${item.title} ${category === "shader" && usesVgpu(item) ? "vgpu WebGPU shader" : "React component"} preview`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full object-cover ${category === "shader" ? "hidden dark:block" : ""}`}
                   />
+                  {category === "shader" && (
+                    <Image
+                      src={`/previews/light/${item.name}.png`}
+                      alt={`${item.title} light mode preview`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="h-full w-full object-cover dark:hidden"
+                    />
+                  )}
                 </AspectRatio>
               </SharedPreviewLayout>
               <h3 className={`mt-5 typography-section-title`}>{item.title}</h3>
@@ -73,21 +83,23 @@ export default function Catalog({ category }: Readonly<{ category: RegistryCateg
 
   const filters = [{ title: "All", items }, ...groups];
   return (
-    <Tabs defaultValue="All" className="mt-8">
-      <Card size="sm" className="w-fit max-w-full overflow-x-auto p-0">
-        <TabsList className="bg-transparent" aria-label={`Filter ${category} by category`}>
-          {filters.map((group) => (
-            <TabsTrigger key={group.title} value={group.title}>
-              {group.title}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Card>
-      {filters.map((group) => (
-        <TabsContent key={group.title} value={group.title}>
-          {renderGroup(group)}
-        </TabsContent>
-      ))}
-    </Tabs>
+    <Suspense>
+      <CatalogTabs filters={filters.map((group) => group.title)}>
+        <div className="w-fit max-w-full overflow-x-auto">
+          <TabsList aria-label={`Filter ${category} by category`}>
+            {filters.map((group) => (
+              <TabsTrigger key={group.title} value={group.title}>
+                {group.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+        {filters.map((group) => (
+          <TabsContent key={group.title} value={group.title}>
+            {renderGroup(group)}
+          </TabsContent>
+        ))}
+      </CatalogTabs>
+    </Suspense>
   );
 }

@@ -1,0 +1,94 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/hangry/components/table";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { OutlineTrail } from "@/hangry/components/outline-trail";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="outline-trail" />
+
+<ComponentPreview>
+  <OutlineTrail
+    items={[
+      { id: "installation", label: "Installation" },
+      { id: "how-to-use", label: "How to use" },
+      { id: "props", label: "Props" },
+    ]}
+  />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A table of contents with a shaped SVG track and a clipped active segment that follows the current section.
+
+## Installation
+
+<InstallationMenu name="outline-trail" />
+
+## How to use
+
+```tsx
+import { OutlineTrail } from "@/components/hangry-ui/components/outline-trail";
+
+<OutlineTrail
+  items={[
+    { id: "overview", label: "Overview" },
+    { id: "installation", label: "Installation" },
+    { id: "usage", label: "Usage" },
+  ]}
+/>;
+```
+
+`items` uses the same shape as Outline. Entries without `href` track page headings; entries with `href` navigate between routes.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>items</code>
+      </TableCell>
+      <TableCell>
+        <code>{"{ id: string; label: string; href?: string }[]"}</code>
+      </TableCell>
+      <TableCell>Section headings or route links to display along the trail.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>title</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Visible heading and accessible navigation label.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Additional classes for the navigation container.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+<DocsDependencies name="outline-trail" />
+
+</DocsReveal>

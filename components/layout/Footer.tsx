@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { FooterMain } from "@/registry/blocks/footer-main";
+import { FooterMain } from "@/hangry/blocks/footer-main";
 import { browseSection } from "@/data/Navlinks";
 import { siteUrl } from "@/lib/seo";
 

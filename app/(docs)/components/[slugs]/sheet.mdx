@@ -1,0 +1,133 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/hangry/components/table";
+import { CodeBlock } from "@/hangry/components/code-block";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import { Sheet } from "@/hangry/components/sheet";
+import { Button } from "@/hangry/components/button";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="sheet" />
+
+<ComponentPreview className="h-full w-full">
+  <div className="flex flex-wrap items-center justify-center gap-4">
+    <Sheet side="bottom" triggerLabel="Bottom sheet" title="Project details" />
+    <Sheet side="top" triggerLabel="Top sheet" title="Project details" />
+    <Sheet side="left" triggerLabel="Left sheet" title="Project details" />
+    <Sheet side="right" triggerLabel="Right sheet" title="Quick actions">
+      <Button>Create project</Button>
+    </Sheet>
+  </div>
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A modal sheet that opens from any edge, with native focus management and Escape dismissal.
+
+## Installation
+
+<InstallationMenu name="sheet" />
+
+## How to use
+
+```tsx
+import { Sheet } from "@/components/hangry-ui/components/sheet";
+
+<Sheet side="right" title="Quick actions">
+  <p>Choose your next step.</p>
+</Sheet>;
+```
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><code>side</code></TableCell>
+      <TableCell><code>"top" | "right" | "bottom" | "left"</code></TableCell>
+      <TableCell><code>"bottom"</code></TableCell>
+      <TableCell>The edge the sheet opens from.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code className="break-words">{"triggerLabel"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"Open sheet"'}</code>
+      </TableCell>
+      <TableCell>{"Label of the button that opens the sheet."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code className="break-words">{"title"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'"Make yourself at home"'}</code>
+      </TableCell>
+      <TableCell>{"Accessible dialog title."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code className="break-words">{"description"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">
+          {'"A little space for your next action. Press Escape or close to return."'}
+        </code>
+      </TableCell>
+      <TableCell>{"Accessible dialog description."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code className="break-words">{"children"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"ReactNode"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"—"}</code>
+      </TableCell>
+      <TableCell>{"Sheet body content."}</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code className="break-words">{"className"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{"string"}</code>
+      </TableCell>
+      <TableCell>
+        <code className="break-words">{'""'}</code>
+      </TableCell>
+      <TableCell>{"Additional CSS classes on the component root."}</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+<DocsDependencies name="sheet" />
+
+</DocsReveal>
