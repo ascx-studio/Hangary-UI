@@ -8,8 +8,8 @@ struct Config { metrics: vec4f, pointer: vec4f, settings: vec4f };
 
 fn softbox(p: vec2f, center: vec2f, size: vec2f, softness: f32) -> f32 {
   let q = abs(p - center) - size;
-  let distance = length(max(q, vec2f(0))) + min(max(q.x, q.y), 0.0);
-  return 1.0 - smoothstep(-softness, softness, distance);
+  let boxDistance = length(max(q, vec2f(0.0))) + min(max(q.x, q.y), 0.0);
+  return 1.0 - smoothstep(-softness, softness, boxDistance);
 }
 
 fn studio(reflection: vec3f, blur: f32) -> vec3f {
@@ -41,15 +41,15 @@ fn shade(slope: vec2f, view: vec3f, blur: f32) -> vec3f {
 }
 
 fn tonemap(color: vec3f) -> vec3f {
-  return clamp((color * (2.51 * color + 0.03)) / (color * (2.43 * color + 0.59) + 0.14), vec3f(0), vec3f(1));
+  return clamp((color * (2.51 * color + 0.03)) / (color * (2.43 * color + 0.59) + 0.14), vec3f(0.0), vec3f(1.0));
 }
 
 @fragment fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   let aspect = cfg.metrics.x / cfg.metrics.y;
-  let original = (uv - 0.5) * vec2f(aspect, 1.0) * cfg.settings.x;
-  var p = original;
-  var rowX = vec2f(1, 0);
-  var rowY = vec2f(0, 1);
+  let origin = (uv - 0.5) * vec2f(aspect, 1.0) * cfg.settings.x;
+  var p = origin;
+  var rowX = vec2f(1.0, 0.0);
+  var rowY = vec2f(0.0, 1.0);
   let time = cfg.metrics.z;
   // Carry the warp derivatives forward for a smooth surface normal.
   for (var octave = 1; octave <= 4; octave++) {
@@ -69,22 +69,27 @@ fn tonemap(color: vec3f) -> vec3f {
   let sharpness = 1.45;
   let bevel = tanh(sharpness * sin(phase));
   var slope = sharpness * cos(phase) * (1.0 - bevel * bevel) / tanh(sharpness) * across;
+
+  // Pointer ripple. The radial slope has to fade to zero at the cursor itself,
+  // otherwise the surface forms a sharp cone there instead of a smooth dip.
   let cursor = (cfg.pointer.xy - 0.5) * vec2f(aspect, 1.0) * cfg.settings.x;
-  let delta = original - cursor;
-  let distance = length(delta);
-  let ripple = exp(-distance * distance * 3.0) * (9.0 * cos(distance * 9.0 - time) - 6.0 * distance * sin(distance * 9.0 - time));
-  slope += delta / max(distance, 0.001) * ripple * cfg.pointer.z * 0.1;
+  let delta = origin - cursor;
+  let dist = length(delta);
+  let wave = 9.0 * dist - time;
+  let ripple = exp(-dist * dist * 3.0) * (9.0 * cos(wave) - 6.0 * dist * sin(wave));
+  let centerFade = smoothstep(0.0, 0.3, dist);
+  slope += delta / max(dist, 0.001) * ripple * centerFade * cfg.pointer.z * 0.1;
 
   // Integrate across the steepest pixel footprint to soften thin reflections.
   let stepX = dpdx(slope);
   let stepY = dpdy(slope);
   let sweep = select(stepY, stepX, dot(stepX, stepX) > dot(stepY, stepY));
   let blur = cfg.settings.z * 0.35 + length(sweep) * 0.15;
-  let view = normalize(vec3f(original * 0.08, -1));
-  var light = vec3f(0);
-  for (var sample = 0; sample < 4; sample++) {
-    let offset = (f32(sample) + 0.5) / 4.0 - 0.5;
-    light += shade(slope + sweep * offset, view, blur);
+  let view = normalize(vec3f(origin * 0.08, -1.0));
+  var light = vec3f(0.0);
+  for (var tap = 0; tap < 4; tap++) {
+    let spread = (f32(tap) + 0.5) / 4.0 - 0.5;
+    light += shade(slope + sweep * spread, view, blur);
   }
   let color = pow(tonemap(light * 0.25 * cfg.settings.w * cfg.metrics.w), vec3f(1.0 / 2.2));
   return vec4f(color, 1.0);

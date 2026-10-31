@@ -36,7 +36,7 @@ fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   var glow = brightSample(uv) * 0.22;
   var totalWeight = 0.22;
 
-  let ring1 = array<vec2f, 4>(
+  var ring1 = array<vec2f, 4>(
     vec2f(-1.0, -1.0),
     vec2f(1.0, -1.0),
     vec2f(-1.0, 1.0),
@@ -47,7 +47,7 @@ fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
     totalWeight += 0.14;
   }
 
-  let ring2 = array<vec2f, 4>(
+  var ring2 = array<vec2f, 4>(
     vec2f(0.0, 2.4),
     vec2f(0.0, -2.4),
     vec2f(2.4, 0.0),
@@ -59,22 +59,22 @@ fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   }
 
   let diagonal = 4.5 * 0.707;
-  let ring3 = array<vec2f, 4>(
+  var ring3 = array<vec2f, 4>(
     vec2f(-diagonal, -diagonal),
     vec2f(diagonal, -diagonal),
     vec2f(-diagonal, diagonal),
     vec2f(diagonal, diagonal)
   );
   for (var i = 0; i < 4; i++) {
-    let offset = ring3[i] * texel;
-    let sampleValue = brightSample(uv + offset);
-    let red = brightSample(uv + offset * 1.08).r;
-    let blue = brightSample(uv + offset * 0.92).b;
-    glow += vec3f(red, sampleValue.g, blue) * 0.055;
+    let tapOffset = ring3[i] * texel;
+    let centerTap = brightSample(uv + tapOffset);
+    let red = brightSample(uv + tapOffset * 1.08).r;
+    let blue = brightSample(uv + tapOffset * 0.92).b;
+    glow += vec3f(red, centerTap.g, blue) * 0.055;
     totalWeight += 0.055;
   }
 
-  let ring4 = array<vec2f, 4>(
+  var ring4 = array<vec2f, 4>(
     vec2f(0.0, 7.5),
     vec2f(0.0, -7.5),
     vec2f(7.5, 0.0),
@@ -86,7 +86,12 @@ fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
   }
 
   glow = glow / totalWeight * bloom.intensity * 2.2;
-  let combined = base.rgb + glow;
-  let toneMapped = combined / (vec3f(1.0) + combined * 0.15);
-  return vec4f(toneMapped, base.a);
+
+  // Screen-blend the glow over the scene. Pixels with no glow stay exactly as
+  // they were, and the result can never exceed 1, so highlights roll off
+  // instead of clipping. The old curve darkened the whole frame whenever
+  // bloom was on.
+  let spread = vec3f(1.0) - exp(-glow);
+  let combined = vec3f(1.0) - (vec3f(1.0) - base.rgb) * (vec3f(1.0) - spread);
+  return vec4f(combined, base.a);
 }
