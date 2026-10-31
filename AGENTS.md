@@ -15,6 +15,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Import declarative Motion elements with `import * as motion from 'motion/react-client';` and use `motion.div`, `motion.svg`, `motion.path`, etc. Motion elements alone do not require a `"use client"` directive on the containing component.
 - Reuse available components (for example Card, Button, and AspectRatio) before recreating their structure with raw elements. Use semantic HTML for layout where no suitable component exists.
 - Add `"use client"` only when necessary to establish a client boundary for state, effects, event handlers, browser APIs, or interactive dependencies. Keep static components server-compatible; `memo` alone does not require `"use client"`.
+- Use Suspense at real async or lazy-loading boundaries with an appropriate fallback; do not wrap synchronous UI just to add a boundary. Keep lazy dialogs mounted while their exit animations finish.
+
+## Accessibility
+
+- Prefer native interactive elements such as `button`, `a`/`Link`, `input`, and `summary`. Put activation handlers on those controls, not non-interactive layout containers such as `div` or `span` (Sonar rules `typescript:S6848`, `typescript:S6847`, and `typescript:S1082`).
+- When no native equivalent exists, use an accurate interactive role and support focus, tabbing, keyboard, mouse, and touch. Do not add an unrelated role merely to suppress a warning.
+- Use `<output>` for status results instead of adding `role="status"` to a generic element (`typescript:S6819`).
 
 ## Shader implementation and verification
 

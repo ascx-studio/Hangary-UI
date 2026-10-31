@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/hangry/components/toast";
@@ -14,12 +13,12 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const paperMono = localFont({
-  src: "../public/paper-mono/PaperMono.woff2",
-  variable: "--font-paper-mono",
-  weight: "100 800",
-  display: "swap",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
+
+
 
 export const metadata: Metadata = {
   ...pageMetadata("/", "React UI Components & vgpu Shaders", siteDescription),
@@ -36,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${paperMono.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <Script

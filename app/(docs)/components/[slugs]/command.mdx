@@ -1,0 +1,134 @@
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/hangry/components/table";
+import CommandDemo from "@/components/registry/command-demo";
+import ComponentPreview from "@/components/registry/dither-component-preview";
+import DocsHeader from "@/components/registry/docs-header";
+import InstallationMenu from "@/components/registry/installation-menu";
+import DocsDependencies from "@/components/registry/docs-dependencies";
+
+<DocsHeader name="command" />
+
+<ComponentPreview>
+  <CommandDemo />
+</ComponentPreview>
+
+<DocsReveal stagger>
+
+A searchable command menu with a Page filter, keyboard navigation, shortcuts, and a sliding selection highlight. Choose All pages to search every command, or select a page category to filter the results. Search matches labels, categories, and keywords. Disabled commands remain visible and are skipped by keyboard navigation.
+
+Click the ⌘ K button in the demo, or press ⌘ K / Ctrl K, to open the palette. Escape clears the search first, then closes the palette. A click outside or selecting a command also closes it and returns focus to the button.
+
+## Installation
+
+<InstallationMenu name="command" />
+
+## How to use
+
+Use a client component when handling selections. Give each item a unique, stable `id`.
+
+```tsx
+"use client";
+
+import { Command } from "@/components/hangry-ui/components/command";
+
+export default function CommandMenu() {
+  return (
+    <Command
+      items={[
+        { id: "home", label: "Go home", group: "Navigation", keywords: ["dashboard"] },
+        { id: "settings", label: "Settings", group: "Account", shortcut: "⌘ ," },
+      ]}
+      onSelect={(item) => console.log(item.id)}
+    />
+  );
+}
+```
+
+Focus the search field, use ↑ and ↓ to move between enabled results, then press Enter to select. Escape clears the search. Shortcut labels are visual hints; bind application shortcuts in your own code. This is an inline menu and does not register a global keyboard shortcut or open a dialog.
+
+## Props
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Prop</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Default</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <code>items</code>
+      </TableCell>
+      <TableCell>
+        <code>readonly CommandItem[]</code>
+      </TableCell>
+      <TableCell>Example commands</TableCell>
+      <TableCell>
+        Actions with unique IDs, labels, optional groups, keywords, shortcuts, and disabled states.
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>onSelect</code>
+      </TableCell>
+      <TableCell>
+        <code>(item: CommandItem) =&gt; void</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Called when an enabled command is selected with Enter or a click.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>placeholder</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Type a command or search…</TableCell>
+      <TableCell>Search field placeholder.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>label</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>Search commands</TableCell>
+      <TableCell>Accessible label for the search field.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>emptyMessage</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>No commands found.</TableCell>
+      <TableCell>Message displayed when the search has no results.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <code>className</code>
+      </TableCell>
+      <TableCell>
+        <code>string</code>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>Additional classes for the menu container.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+<DocsDependencies name="command" />
+
+</DocsReveal>

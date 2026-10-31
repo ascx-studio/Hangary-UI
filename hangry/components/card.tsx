@@ -67,7 +67,7 @@ const CardHeader = memo(function CardHeader({ className, ...props }: ComponentPr
     <header
       data-slot="card-header"
       className={cn(
-        "grid auto-rows-min items-start gap-x-4 gap-y-2 has-[[data-slot=card-action]]:grid-cols-[1fr_auto]",
+        "grid auto-rows-min items-start gap-x-4 gap-y-2 has-data-[slot=card-action]:grid-cols-[1fr_auto]",
         className,
       )}
       {...props}
@@ -84,9 +84,9 @@ const CardTitle = memo(function CardTitle({ className, ...props }: ComponentProp
 const CardDescription = memo(function CardDescription({
   className,
   ...props
-}: ComponentProps<"p">) {
+}: ComponentProps<"div">) {
   return (
-    <p
+    <div
       data-slot="card-description"
       className={cn("col-start-1", "typography-body", className)}
       {...props}

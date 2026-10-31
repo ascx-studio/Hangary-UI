@@ -242,6 +242,12 @@
           "slug": "toc",
           "description": "A compact card with heading links and an animated active indicator.",
           "group": "Navigation"
+        },
+        {
+          "label": "Command",
+          "slug": "command",
+          "description": "Search grouped actions with keyboard navigation and shortcut hints.",
+          "group": "Navigation"
         }
       ]
     },
@@ -378,6 +384,12 @@
           "slug": "koi-pond-background",
           "description": "Four koi react to the pointer in a green pond with rocks, grass, and click ripples.",
           "group": "Backgrounds"
+        },
+        {
+          "label": "Binary Flower Garden",
+          "slug": "binary-flower-garden",
+          "description": "Interactive WebGPU WGSL floral field simulation with real-time binary matrix glyph sampling and petal physics.",
+          "group": "Interactive"
         },
         {
           "label": "Photon Corridor",
