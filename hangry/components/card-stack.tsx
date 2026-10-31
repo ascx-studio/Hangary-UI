@@ -3,8 +3,8 @@
 import { memo, useState, type ReactNode } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
-import { Card } from "./card";
-import { Button } from "./button";
+import { Card } from "@/hangry/components/card";
+import { Button } from "@/hangry/components/button";
 
 export interface CardStackItem {
   id: string;

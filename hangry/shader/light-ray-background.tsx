@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { LightBackground, type LightBackgroundProps } from "./light-background.shared";
+import { LightBackground, type LightBackgroundProps } from "@/hangry/shader/light-background.shared";
 
 export type LightRayBackgroundProps = LightBackgroundProps;
 

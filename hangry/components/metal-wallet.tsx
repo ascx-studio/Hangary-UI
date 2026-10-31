@@ -4,7 +4,7 @@ import { memo, useId, useState } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
 import { cn } from "cn";
-import { Button } from "./button";
+import { Button } from "@/hangry/components/button";
 
 const springGreen = "var(--color-spring-green, #05dc7f)";
 const green = "var(--color-brand-green, #00664e)";

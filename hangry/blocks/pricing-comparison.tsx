@@ -3,8 +3,8 @@
 import { useId, useState, type ComponentProps } from "react";
 import { Check } from "lucide-react";
 import { cn } from "cn";
-import { Badge } from "../components/badge";
-import { Button } from "../components/button";
+import { Badge } from "@/hangry/components/badge";
+import { Button } from "@/hangry/components/button";
 import {
   Table,
   TableHeader,
@@ -13,7 +13,7 @@ import {
   TableHead,
   TableCell,
   TableCaption,
-} from "../components/table";
+} from "@/hangry/components/table";
 
 interface PricingProps extends Omit<ComponentProps<"section">, "title"> {
   title?: string;

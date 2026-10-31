@@ -1,5 +1,5 @@
 import { memo, type ComponentProps } from "react";
-import { Button } from "../components/button";
+import { Button } from "@/hangry/components/button";
 
 export type NotFoundProps = ComponentProps<"section"> & {
   title?: string;

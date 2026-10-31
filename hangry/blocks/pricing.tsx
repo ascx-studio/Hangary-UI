@@ -3,9 +3,9 @@
 import { memo, useId, useState, type ComponentProps } from "react";
 import { Check } from "lucide-react";
 import { cn } from "cn";
-import { Badge } from "../components/badge";
-import { Card } from "../components/card";
-import { Button } from "../components/button";
+import { Badge } from "@/hangry/components/badge";
+import { Card } from "@/hangry/components/card";
+import { Button } from "@/hangry/components/button";
 
 interface PricingProps extends Omit<ComponentProps<"section">, "title"> {
   title?: string;

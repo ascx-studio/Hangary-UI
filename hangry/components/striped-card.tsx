@@ -1,7 +1,7 @@
 import { memo, type ComponentProps } from "react";
 import { cn } from "cn";
-import { Card } from "./card";
-import { AspectRatio } from "./aspect-ratio";
+import { Card } from "@/hangry/components/card";
+import { AspectRatio } from "@/hangry/components/aspect-ratio";
 
 interface StripedCardProps extends ComponentProps<"div"> {
   src?: string;

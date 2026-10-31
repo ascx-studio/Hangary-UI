@@ -2,7 +2,7 @@ import { memo } from "react";
 import {
   ProceduralBackground,
   type ProceduralBackgroundProps,
-} from "./procedural-background.shared";
+} from "@/hangry/shader/procedural-background.shared";
 
 export interface LiquidChromeBackgroundProps extends ProceduralBackgroundProps {
   scale?: number;

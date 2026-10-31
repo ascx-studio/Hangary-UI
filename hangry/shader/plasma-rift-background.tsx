@@ -2,9 +2,9 @@
 
 import { memo } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
-import { Canvas } from "./canvas";
-import type { ProceduralBackgroundProps } from "./procedural-background.shared";
-import shader from "./plasma-rift-background.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import type { ProceduralBackgroundProps } from "@/hangry/shader/procedural-background.shared";
+import shader from "@/hangry/shader/plasma-rift-background.wgsl";
 
 export type PlasmaRiftBackgroundProps = ProceduralBackgroundProps;
 

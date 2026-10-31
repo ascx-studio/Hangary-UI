@@ -1,7 +1,7 @@
 import { memo } from "react";
-import { CardDescription, CardHeader, CardTitle } from "./card";
-import { ShaderFrameCard, type ShaderFrameCardProps } from "./shader-frame-card.shared";
-import { DitherBackground, type DitherBackgroundProps } from "../shader/dither-background";
+import { CardDescription, CardHeader, CardTitle } from "@/hangry/components/card";
+import { ShaderFrameCard, type ShaderFrameCardProps } from "@/hangry/components/shader-frame-card.shared";
+import { DitherBackground, type DitherBackgroundProps } from "@/hangry/shader/dither-background";
 
 type DitheringFrameCardProps = ShaderFrameCardProps &
   Pick<DitherBackgroundProps, "color" | "backgroundColor" | "pixelSize" | "speed">;

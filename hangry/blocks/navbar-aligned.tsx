@@ -4,11 +4,11 @@ import { memo, useId, useRef, useState, type ComponentProps, type ReactNode } fr
 import { Heart, Menu, X } from "lucide-react";
 import { cn } from "cn";
 import { GitHubDark } from "@ridemountainpig/svgl-react";
-import { samplePageLinks } from "../lib/navigation.shared";
-import { Avatar } from "../components/avatar";
-import { Badge } from "../components/badge";
-import { Banner } from "../components/banner";
-import { Button } from "../components/button";
+import { samplePageLinks } from "@/hangry/lib/navigation.shared";
+import { Avatar } from "@/hangry/components/avatar";
+import { Badge } from "@/hangry/components/badge";
+import { Banner } from "@/hangry/components/banner";
+import { Button } from "@/hangry/components/button";
 
 interface NavbarProps extends ComponentProps<"header"> {
   brand?: string;

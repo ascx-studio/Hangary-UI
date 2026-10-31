@@ -1,7 +1,7 @@
 import { memo, useId, type ComponentProps, type ReactNode } from "react";
 import { Plus } from "lucide-react";
 import { cn } from "cn";
-import { Card } from "../components/card";
+import { Card } from "@/hangry/components/card";
 
 export interface FaqItem {
   id: string;

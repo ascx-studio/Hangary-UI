@@ -3,8 +3,8 @@
 import { memo, type ComponentProps } from "react";
 import { Check } from "lucide-react";
 import { cn } from "cn";
-import { BracketCard } from "../components/bracket-card";
-import { Button } from "../components/button";
+import { BracketCard } from "@/hangry/components/bracket-card";
+import { Button } from "@/hangry/components/button";
 
 export const PricingBracket = memo(function PricingBracket({
   title = "Plans with room to grow",

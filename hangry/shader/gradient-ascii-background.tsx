@@ -2,8 +2,8 @@
 
 import { memo, useState, type ComponentProps } from "react";
 import { cn } from "cn";
-import { Canvas } from "./canvas";
-import shader from "./gradient-ascii-background.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import shader from "@/hangry/shader/gradient-ascii-background.wgsl";
 
 export type GradientAsciiBackgroundProps = ComponentProps<"div"> & {
   cellSize?: number;

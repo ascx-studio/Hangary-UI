@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { memo, useEffect, useMemo, useState, type ReactNode, type RefObject } from "react";
 import { cn } from "cn";
-import { Tooltip } from "./tooltip";
+import { Tooltip } from "@/hangry/components/tooltip";
 import { LazyMotion, domAnimation, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 

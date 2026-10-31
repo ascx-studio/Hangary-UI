@@ -6,8 +6,8 @@ import Link from "next/link";
 import { Heart } from "lucide-react";
 import { GitHubDark } from "@ridemountainpig/svgl-react";
 import Image from "next/image";
-import { SpotlightReveal } from "../components/spotlight-reveal";
-import { sampleMainFooterGroups, samplePageLinks } from "../lib/navigation.shared";
+import { SpotlightReveal } from "@/hangry/components/spotlight-reveal";
+import { sampleMainFooterGroups, samplePageLinks } from "@/hangry/lib/navigation.shared";
 
 type FooterLink = { label: string; href: string };
 interface FooterMainProps extends Omit<ComponentProps<"footer">, "children"> {

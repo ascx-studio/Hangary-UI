@@ -12,7 +12,7 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "cn";
-import { Card } from "./card";
+import { Card } from "@/hangry/components/card";
 import { AnimatePresence, LazyMotion, domAnimation, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 

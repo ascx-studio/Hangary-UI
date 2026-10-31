@@ -2,10 +2,10 @@
 
 import { memo, useEffect, useRef, type ComponentProps } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
-import { createShaderRenderer } from "./shader-renderer.shared";
+import { createShaderRenderer } from "@/hangry/shader/shader-renderer.shared";
 import { cn } from "cn";
-import ledShader from "./led-background.wgsl";
-import lightRayShader from "./light-ray-background.wgsl";
+import ledShader from "@/hangry/shader/led-background.wgsl";
+import lightRayShader from "@/hangry/shader/light-ray-background.wgsl";
 
 export interface LightBackgroundProps extends ComponentProps<"div"> {
   speed?: number;

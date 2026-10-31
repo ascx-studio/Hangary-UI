@@ -4,7 +4,7 @@ import { memo, type ReactNode } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion, type HTMLMotionProps } from "motion/react";
 import { cn } from "cn";
-import { Card } from "./card";
+import { Card } from "@/hangry/components/card";
 
 export type ShaderFrameCardProps = Omit<HTMLMotionProps<"div">, "color" | "children"> & {
   frameWidth?: number;

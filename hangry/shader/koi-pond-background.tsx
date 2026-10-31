@@ -2,8 +2,8 @@
 
 import { memo, useRef, type ComponentProps } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
-import { Canvas } from "./canvas";
-import shader from "./koi-pond-background.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import shader from "@/hangry/shader/koi-pond-background.wgsl";
 
 export interface KoiPondBackgroundProps extends ComponentProps<"div"> {
   speed?: number;

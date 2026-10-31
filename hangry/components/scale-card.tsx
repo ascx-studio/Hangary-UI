@@ -1,7 +1,7 @@
 import { memo, type ComponentProps, type ReactNode } from "react";
-import { AspectRatio } from "./aspect-ratio";
-import { Card } from "./card";
-import { Scales } from "./scales";
+import { AspectRatio } from "@/hangry/components/aspect-ratio";
+import { Card } from "@/hangry/components/card";
+import { Scales } from "@/hangry/components/scales";
 
 interface ScaleCardProps extends ComponentProps<"div"> {
   src?: string;

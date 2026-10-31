@@ -1,7 +1,7 @@
 import { memo } from "react";
-import { CardDescription, CardHeader, CardTitle } from "./card";
-import { ShaderFrameCard, type ShaderFrameCardProps } from "./shader-frame-card.shared";
-import { RayFieldBackground } from "../shader/ray-field-background";
+import { CardDescription, CardHeader, CardTitle } from "@/hangry/components/card";
+import { ShaderFrameCard, type ShaderFrameCardProps } from "@/hangry/components/shader-frame-card.shared";
+import { RayFieldBackground } from "@/hangry/shader/ray-field-background";
 
 type LightRayFrameCardProps = ShaderFrameCardProps & { speed?: number };
 

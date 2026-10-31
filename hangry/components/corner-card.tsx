@@ -1,5 +1,5 @@
 import { memo, type ComponentProps } from "react";
-import { BracketCard } from "./bracket-card";
+import { BracketCard } from "@/hangry/components/bracket-card";
 
 export const CornerCard = memo(function CornerCard(props: ComponentProps<"div"> = {}) {
   return <BracketCard data-slot="corner-card" {...props} variant="corners" />;

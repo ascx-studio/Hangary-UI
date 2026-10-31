@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 import { Moon, Sun } from "lucide-react";
-import { Button } from "./button";
+import { Button } from "@/hangry/components/button";
 
 export const ThemeSwitcher = memo(function ThemeSwitcher() {
   return (

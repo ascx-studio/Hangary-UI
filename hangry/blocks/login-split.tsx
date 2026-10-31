@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentProps, ReactNode } from "react";
-import { LoginMinimal } from "./login-minimal";
+import { LoginMinimal } from "@/hangry/blocks/login-minimal";
 
 interface LoginProps extends Omit<ComponentProps<"form">, "title" | "action"> {
   title?: string;

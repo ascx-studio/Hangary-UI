@@ -3,7 +3,7 @@
 import { memo, useEffect, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import * as motion from "motion/react-client";
-import { Card } from "./card";
+import { Card } from "@/hangry/components/card";
 
 export type TocItem = { id: string; label: string; level?: 1 | 2 | 3 };
 type TocProps = { items: TocItem[]; title?: string; className?: string };

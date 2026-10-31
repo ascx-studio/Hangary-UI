@@ -1,6 +1,6 @@
 import { memo, type ComponentProps } from "react";
 import { cn } from "cn";
-import { Card } from "./card";
+import { Card } from "@/hangry/components/card";
 
 interface BracketCardProps extends ComponentProps<"div"> {
   variant?: "brackets" | "corners";

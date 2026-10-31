@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Eye, EyeOff } from "lucide-react";
 import { Google, GitHubDark } from "@ridemountainpig/svgl-react";
 import { cn } from "cn";
-import { Banner } from "../components/banner";
-import { Button } from "../components/button";
-import { Card } from "../components/card";
+import { Banner } from "@/hangry/components/banner";
+import { Button } from "@/hangry/components/button";
+import { Card } from "@/hangry/components/card";
 
 interface LoginProps extends Omit<ComponentProps<"form">, "title" | "action"> {
   title?: string;

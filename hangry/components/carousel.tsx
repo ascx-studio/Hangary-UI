@@ -13,8 +13,8 @@ import { AnimatePresence, LazyMotion, domMax, useReducedMotion } from "motion/re
 import * as m from "motion/react-m";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "cn";
-import { Button } from "./button";
-import { AspectRatio } from "./aspect-ratio";
+import { Button } from "@/hangry/components/button";
+import { AspectRatio } from "@/hangry/components/aspect-ratio";
 
 interface CarouselProps {
   children?: ReactNode;

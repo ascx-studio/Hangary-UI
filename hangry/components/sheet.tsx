@@ -4,8 +4,8 @@ import { memo, useId, useRef, type ReactNode } from "react";
 import { X } from "lucide-react";
 import { LazyMotion, domAnimation, useAnimationControls, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
-import { Button } from "./button";
-import { Card } from "./card";
+import { Button } from "@/hangry/components/button";
+import { Card } from "@/hangry/components/card";
 
 interface SheetProps {
   side?: "top" | "right" | "bottom" | "left";

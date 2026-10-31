@@ -2,8 +2,8 @@ import { memo, type ComponentProps, type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "cn";
 import { GitHubDark } from "@ridemountainpig/svgl-react";
-import { sampleFooterGroups } from "../lib/navigation.shared";
-import { Card } from "../components/card";
+import { sampleFooterGroups } from "@/hangry/lib/navigation.shared";
+import { Card } from "@/hangry/components/card";
 
 interface FooterProps extends ComponentProps<"footer"> {
   brand?: string;

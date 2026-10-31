@@ -2,9 +2,9 @@
 
 import { memo, useEffect, useRef, type ComponentProps, type RefObject } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
-import { createShaderRenderer } from "./shader-renderer.shared";
+import { createShaderRenderer } from "@/hangry/shader/shader-renderer.shared";
 import { cn } from "cn";
-import ditherShader from "./dither-background.wgsl";
+import ditherShader from "@/hangry/shader/dither-background.wgsl";
 
 type Color = readonly [number, number, number];
 const defaultColor: Color = [0.02, 0.86, 0.5];

@@ -3,11 +3,11 @@
 import { memo, type ComponentProps } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion, useSpring } from "motion/react";
-import { Canvas } from "./canvas";
-import chromaShader from "./chroma-background.wgsl";
-import asciiShader from "./ascii-background.wgsl";
-import heatmapShader from "./heatmap-background.wgsl";
-import liquidChromeShader from "./liquid-chrome-background.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import chromaShader from "@/hangry/shader/chroma-background.wgsl";
+import asciiShader from "@/hangry/shader/ascii-background.wgsl";
+import heatmapShader from "@/hangry/shader/heatmap-background.wgsl";
+import liquidChromeShader from "@/hangry/shader/liquid-chrome-background.wgsl";
 
 const shaders = {
   chroma: chromaShader,

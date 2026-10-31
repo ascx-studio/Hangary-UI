@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useRef, type ReactNode, type ComponentProps } from "react";
 import { useReducedMotion } from "motion/react";
-import { createShaderRenderer, type PostProcessOptions } from "./shader-renderer.shared";
+import { createShaderRenderer, type PostProcessOptions } from "@/hangry/shader/shader-renderer.shared";
 import { cn } from "cn";
 
 type RendererOptions = Parameters<typeof createShaderRenderer>[2];

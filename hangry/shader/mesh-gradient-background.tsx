@@ -4,8 +4,8 @@ import { memo, useState, type ComponentProps } from "react";
 import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
 import { cn } from "cn";
-import { Canvas } from "./canvas";
-import shader from "./pastel-mascot-background.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import shader from "@/hangry/shader/pastel-mascot-background.wgsl";
 
 export type MeshGradientBackgroundProps = ComponentProps<"div"> & {
   speed?: number;

@@ -12,12 +12,12 @@ import {
 import * as motion from "motion/react-client";
 import { AnimatePresence, useReducedMotion } from "motion/react";
 import { CircleCheck, CircleX, Info, TriangleAlert, X } from "lucide-react";
-import { Card } from "./card";
-import { Button } from "./button";
-import { toast, toastStore, type ToastVariant } from "./toast-store";
+import { Card } from "@/hangry/components/card";
+import { Button } from "@/hangry/components/button";
+import { toast, toastStore, type ToastVariant } from "@/hangry/components/toast-store";
 
-export { toast } from "./toast-store";
-export type { ToastOptions, ToastVariant } from "./toast-store";
+export { toast } from "@/hangry/components/toast-store";
+export type { ToastOptions, ToastVariant } from "@/hangry/components/toast-store";
 
 interface ToastProps {
   message?: string;

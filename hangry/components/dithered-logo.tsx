@@ -2,8 +2,8 @@
 
 import { memo, useRef, type ComponentProps } from "react";
 import { cn } from "cn";
-import { AspectRatio } from "./aspect-ratio";
-import { DitherBackground, type DitherBackgroundProps } from "../shader/dither-background";
+import { AspectRatio } from "@/hangry/components/aspect-ratio";
+import { DitherBackground, type DitherBackgroundProps } from "@/hangry/shader/dither-background";
 
 type DitheredLogoProps = Omit<ComponentProps<"div">, "color" | "children"> &
   Pick<DitherBackgroundProps, "color" | "backgroundColor" | "pixelSize" | "speed"> & {

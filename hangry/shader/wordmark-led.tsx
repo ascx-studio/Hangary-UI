@@ -1,8 +1,8 @@
 "use client";
 
 import { memo } from "react";
-import { WordmarkShader, type WordmarkSourceProps } from "./wordmark-shader.shared";
-import wordmarkLedShader from "./wordmark-led.wgsl";
+import { WordmarkShader, type WordmarkSourceProps } from "@/hangry/shader/wordmark-shader.shared";
+import wordmarkLedShader from "@/hangry/shader/wordmark-led.wgsl";
 
 const surface = { dpr: [1, 2] as const };
 const uniforms = (time: number, x: number, y: number, hovering: boolean) => ({

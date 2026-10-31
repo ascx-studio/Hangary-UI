@@ -2,8 +2,8 @@
 
 import { memo, type ComponentProps } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
-import { Canvas } from "./canvas";
-import shader from "./photon-corridor-background.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import shader from "@/hangry/shader/photon-corridor-background.wgsl";
 
 export interface PhotonCorridorBackgroundProps extends ComponentProps<"div"> {
   speed?: number;

@@ -3,8 +3,8 @@
 import { memo, type ComponentProps } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
 import { cn } from "cn";
-import { Canvas } from "./canvas";
-import shader from "./wordmark-light-ray.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import shader from "@/hangry/shader/wordmark-light-ray.wgsl";
 
 export type RayFieldBackgroundProps = ComponentProps<"div"> & {
   speed?: number;

@@ -4,7 +4,7 @@ import { memo, type PointerEvent, type ReactNode } from "react";
 import * as motion from "motion/react-client";
 import { useMotionTemplate, useReducedMotion, useSpring } from "motion/react";
 import { cn } from "cn";
-import { Card } from "./card";
+import { Card } from "@/hangry/components/card";
 
 export type BorderHighlightProps = {
   children?: ReactNode;

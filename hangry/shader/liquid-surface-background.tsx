@@ -2,9 +2,9 @@
 
 import { memo, useState, type ComponentProps } from "react";
 import { cn } from "cn";
-import { Canvas } from "./canvas";
-import shader from "./liquid-surface-background.wgsl";
-import bloomShader from "./liquid-surface-bloom.wgsl";
+import { Canvas } from "@/hangry/shader/canvas";
+import shader from "@/hangry/shader/liquid-surface-background.wgsl";
+import bloomShader from "@/hangry/shader/liquid-surface-bloom.wgsl";
 
 const liquidSurfaceBloom = {
   label: "liquid-surface-bloom",

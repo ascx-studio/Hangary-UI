@@ -1,7 +1,7 @@
 "use client";
 
 import { memo } from "react";
-import { Outline, type OutlineProps } from "./outline";
+import { Outline, type OutlineProps } from "@/hangry/components/outline";
 
 export type OutlineTrailProps = Omit<OutlineProps, "track">;
 

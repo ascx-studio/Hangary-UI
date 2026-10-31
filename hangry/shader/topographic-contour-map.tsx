@@ -2,9 +2,9 @@
 
 import { memo, useEffect, useRef, type ComponentProps } from "react";
 import { useReducedMotion, useSpring } from "motion/react";
-import { createShaderRenderer } from "./shader-renderer.shared";
+import { createShaderRenderer } from "@/hangry/shader/shader-renderer.shared";
 import { cn } from "cn";
-import topoShader from "./topographic-contour-map.wgsl";
+import topoShader from "@/hangry/shader/topographic-contour-map.wgsl";
 
 type Color = readonly [number, number, number];
 const defaultBackground: Color = [0.012, 0.012, 0.012];

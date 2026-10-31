@@ -16,7 +16,7 @@ import {
   Yarn,
 } from "@ridemountainpig/svgl-react";
 import { FileCode } from "lucide-react";
-import { CopyFeedback } from "./copy-feedback.shared";
+import { CopyFeedback } from "@/hangry/components/copy-feedback.shared";
 import { Highlight, type PrismTheme } from "prism-react-renderer";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
@@ -28,9 +28,9 @@ import "prismjs/components/prism-json";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-markup";
 import "prismjs/components/prism-python";
-import { toast } from "./toast-store";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
-import { GuideCard } from "./guide-card";
+import { toast } from "@/hangry/components/toast-store";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/hangry/components/tabs";
+import { GuideCard } from "@/hangry/components/guide-card";
 
 Prism.languages.insertBefore("bash", "function", {
   command: {

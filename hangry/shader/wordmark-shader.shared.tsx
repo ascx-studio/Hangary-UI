@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useRef } from "react";
 import { useReducedMotion } from "motion/react";
-import { createShaderRenderer } from "./shader-renderer.shared";
+import { createShaderRenderer } from "@/hangry/shader/shader-renderer.shared";
 
 type RendererOptions = Parameters<typeof createShaderRenderer>[2];
 export interface WordmarkSourceProps {
