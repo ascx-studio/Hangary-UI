@@ -1,6 +1,6 @@
 import { isValidElement, type ComponentProps } from "react";
-import { CodeBlock } from "@/registry/components/code-block";
-import { Card } from "@/registry/components/card";
+import { CodeBlock } from "@/hangry/components/code-block";
+import { Card } from "@/hangry/components/card";
 import type { MDXComponents } from "mdx/types";
 import ComponentPreview from "@/components/registry/component-preview";
 import DocsReveal from "@/components/registry/docs-reveal";

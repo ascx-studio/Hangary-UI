@@ -1,5 +1,5 @@
 import { memo, type ComponentProps } from "react";
-import { Button } from "@/registry/components/button";
+import { Button } from "@/hangry/components/button";
 
 export type ErrorPageProps = ComponentProps<"main">;
 

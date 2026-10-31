@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-switcher",
+  "title": "Theme Switcher",
+  "description": "A compact control that switches between light and dark themes and remembers the selection.",
+  "dependencies": [
+    "lucide-react@^1.48.0"
+  ],
+  "files": [
+    {
+      "path": "hangry/components/theme-switcher.tsx",
+      "content": "\"use client\";\n\nimport { memo } from \"react\";\nimport { Moon, Sun } from \"lucide-react\";\nimport { Button } from \"./button\";\n\nexport const ThemeSwitcher = memo(function ThemeSwitcher() {\n  return (\n    <Button\n      variant=\"ghost\"\n      aria-label=\"Toggle light and dark mode\"\n      className=\"size-11 p-0!\"\n      onClick={() => {\n        const dark = document.documentElement.classList.toggle(\"dark\");\n        try {\n          localStorage.setItem(\"theme\", dark ? \"dark\" : \"light\");\n        } catch {\n          // The switch still works when browser storage is unavailable.\n        }\n      }}\n    >\n      <Sun aria-hidden=\"true\" size={20} className=\"hidden dark:block\" />\n      <Moon aria-hidden=\"true\" size={20} className=\"dark:hidden\" />\n    </Button>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/theme-switcher.tsx"
+    },
+    {
+      "path": "hangry/components/button.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\n\ntype ButtonProps = {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\";\n} & ((ComponentProps<\"button\"> & { href?: never }) | (ComponentProps<\"a\"> & { href: string }));\n\nexport function buttonClassName(variant: ButtonProps[\"variant\"] = \"primary\", className = \"\") {\n  const styles = {\n    primary:\n      \"[--button-color:var(--color-emerald-400)] [--button-top:var(--color-emerald-300)] [--button-stroke-top:var(--color-emerald-200)] [--button-stroke-bottom:var(--color-emerald-700)] text-neutral-950\",\n    secondary: \"[--button-color:var(--secondary)] text-secondary-foreground\",\n    ghost: \"bg-transparent text-foreground hover:bg-muted\",\n    destructive: \"[--button-color:var(--destructive)] text-destructive-foreground\",\n    outline:\n      \"[--button-color:var(--background)] [--button-top:var(--background)] [--button-bottom:var(--muted)] [--button-stroke-top:var(--border)] [--button-stroke-bottom:color-mix(in_srgb,var(--foreground)_25%,var(--border))] text-foreground hover:[--button-top:var(--muted)]\",\n  };\n  const surface =\n    variant === \"ghost\"\n      ? \"\"\n      : \"border border-transparent [background:linear-gradient(to_bottom,var(--button-top,color-mix(in_srgb,var(--button-color)_88%,white)),var(--button-bottom,var(--button-color)))_padding-box,linear-gradient(to_bottom,var(--button-stroke-top,color-mix(in_srgb,var(--button-color)_65%,white)),var(--button-stroke-bottom,color-mix(in_srgb,var(--button-color)_65%,black)))_border-box] shadow-[0_1px_2px_rgb(0_0_0/0.12),0_4px_8px_-2px_rgb(0_0_0/0.18)] hover:[--button-top:color-mix(in_srgb,var(--button-color)_78%,white)]\";\n  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold  transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 ${surface} ${styles[variant] ?? styles.primary} ${className}`;\n}\n\nexport const Button = memo(function Button({\n  children = \"Get started\",\n  variant = \"primary\",\n  className = \"\",\n  ...props\n}: ButtonProps = {}) {\n  const classes = buttonClassName(variant, className);\n\n  if (props.href !== undefined) {\n    return (\n      <a className={classes} {...props}>\n        {children}\n      </a>\n    );\n  }\n\n  return (\n    <button type=\"button\" className={classes} {...props}>\n      {children}\n    </button>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/button.tsx"
+    }
+  ],
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

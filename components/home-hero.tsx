@@ -13,8 +13,8 @@ import {
   MotionDark,
   MotionLight,
 } from "@ridemountainpig/svgl-react";
-import { Button, buttonClassName } from "@/registry/components/button";
-import { LogoAnimation } from "@/registry/components/logo-animation";
+import { Button, buttonClassName } from "@/hangry/components/button";
+import { LogoAnimation } from "@/hangry/components/logo-animation";
 import Logo from "@/components/ui/Logo";
 import Container from "@/components/layout/Container";
 

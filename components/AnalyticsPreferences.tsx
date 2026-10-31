@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useSyncExternalStore } from "react";
-import { Button } from "@/registry/components/button";
+import { Button } from "@/hangry/components/button";
 import {
   getAnalyticsConsent,
   setAnalyticsConsent,

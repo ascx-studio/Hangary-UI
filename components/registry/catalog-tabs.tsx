@@ -2,7 +2,7 @@
 
 import { memo, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
-import { Tabs } from "@/registry/components/tabs";
+import { Tabs } from "@/hangry/components/tabs";
 
 export const CatalogTabs = memo(function CatalogTabs({
   filters,

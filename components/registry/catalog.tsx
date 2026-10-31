@@ -1,10 +1,10 @@
-import { AspectRatio } from "@/registry/components/aspect-ratio";
+import { AspectRatio } from "@/hangry/components/aspect-ratio";
 import { getRegistryItemHref, getRegistryItems, type RegistryCategory } from "@/lib/registry";
 import { usesVgpu } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import SharedPreviewLayout from "@/components/registry/shared-preview-layout";
-import { TabsContent, TabsList, TabsTrigger } from "@/registry/components/tabs";
+import { TabsContent, TabsList, TabsTrigger } from "@/hangry/components/tabs";
 import { Suspense } from "react";
 import { CatalogTabs } from "./catalog-tabs";
 import sidebarData from "@/data/sidebar.json";

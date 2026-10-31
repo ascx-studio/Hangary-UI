@@ -2,7 +2,7 @@
 
 import { memo, useId } from "react";
 import { X } from "lucide-react";
-import { Button } from "@/registry/components/button";
+import { Button } from "@/hangry/components/button";
 import {
   Card,
   CardAction,
@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/components/card";
+} from "@/hangry/components/card";
 
 type ConsentBannerProps = {
   onAccept: () => void;

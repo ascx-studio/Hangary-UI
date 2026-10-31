@@ -1,1 +1,1 @@
-export { ErrorPage as default } from "@/registry/blocks/error-page";
+export { ErrorPage as default } from "@/hangry/blocks/error-page";

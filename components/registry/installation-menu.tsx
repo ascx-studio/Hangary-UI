@@ -5,8 +5,8 @@ import * as motion from "motion/react-client";
 import { useReducedMotion } from "motion/react";
 import { memo, useState } from "react";
 import { Bun, NPM, PnpmDark } from "@ridemountainpig/svgl-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/components/tabs";
-import { CodeBlock } from "@/registry/components/code-block";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/hangry/components/tabs";
+import { CodeBlock } from "@/hangry/components/code-block";
 
 const managers = [
   { name: "bun", prefix: "bunx", icon: Bun },

@@ -1,3 +1,3 @@
 "use client";
 
-export { ThemeSwitcher as default } from "@/registry/components/theme-switcher";
+export { ThemeSwitcher as default } from "@/hangry/components/theme-switcher";

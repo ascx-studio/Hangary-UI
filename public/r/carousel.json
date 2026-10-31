@@ -1,0 +1,81 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "carousel",
+  "title": "Carousel",
+  "description": "An animated, swipeable carousel with direct slide selection and accessible controls.",
+  "dependencies": [
+    "cn@^0.2.6",
+    "lucide-react@^1.48.0",
+    "motion@^14.3.0"
+  ],
+  "files": [
+    {
+      "path": "hangry/components/carousel.tsx",
+      "content": "\"use client\";\n\nimport {\n  Children,\n  memo,\n  useEffect,\n  useId,\n  useState,\n  type KeyboardEvent,\n  type ReactNode,\n} from \"react\";\nimport { AnimatePresence, LazyMotion, domMax, useReducedMotion } from \"motion/react\";\nimport * as m from \"motion/react-m\";\nimport { ChevronLeft, ChevronRight } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { Button } from \"./button\";\nimport { AspectRatio } from \"./aspect-ratio\";\n\ninterface CarouselProps {\n  children?: ReactNode;\n  label?: string;\n  className?: string;\n}\n\nexport const Carousel = memo(function Carousel({\n  children,\n  label = \"Featured collection\",\n  className,\n}: CarouselProps = {}) {\n  const slides =\n    children === undefined\n      ? [\"A fresh perspective.\", \"Space to explore.\", \"Something worth making.\"]\n      : Children.toArray(children);\n  const [navigation, setNavigation] = useState({ position: 0, direction: 1 });\n  const id = useId();\n  const reducedMotion = useReducedMotion();\n  const index = navigation.position % slides.length;\n  useEffect(() => {\n    if (slides.length < 2 || reducedMotion) return;\n    const timer = window.setInterval(\n      () =>\n        setNavigation((previous) => ({\n          position: ((previous.position % slides.length) + 1) % slides.length,\n          direction: 1,\n        })),\n      4000,\n    );\n    return () => window.clearInterval(timer);\n  }, [index, slides.length, reducedMotion]);\n  if (!slides.length) return null;\n  const select = (next: number) =>\n    setNavigation((previous) => ({\n      position: next,\n      direction: next > previous.position % slides.length ? 1 : -1,\n    }));\n  const move = (step: number) =>\n    setNavigation((previous) => ({\n      position: ((previous.position % slides.length) + step + slides.length) % slides.length,\n      direction: step > 0 ? 1 : -1,\n    }));\n  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {\n    if (event.key === \"ArrowLeft\" || event.key === \"ArrowRight\") {\n      event.preventDefault();\n      move(event.key === \"ArrowLeft\" ? -1 : 1);\n    } else if (event.key === \"Home\" || event.key === \"End\") {\n      event.preventDefault();\n      select(event.key === \"Home\" ? 0 : slides.length - 1);\n    }\n  };\n\n  return (\n    <LazyMotion features={domMax} strict>\n      <section\n        aria-roledescription=\"carousel\"\n        aria-label={label}\n        className={cn(\"w-full max-w-sm\", className)}\n      >\n        <AspectRatio\n          id={id}\n          ratio={9 / 16}\n          className=\"overflow-hidden rounded-lg border border-border bg-card\"\n        >\n          <AnimatePresence initial={false} custom={navigation.direction}>\n            <m.div\n              key={`${slides.length}-${index}`}\n              role=\"group\"\n              aria-roledescription=\"slide\"\n              aria-label={`${index + 1} of ${slides.length}`}\n              className={cn(\n                \"absolute inset-0 flex touch-pan-y items-center justify-center will-change-transform\",\n                \"typography-section-title\",\n              )}\n              custom={navigation.direction}\n              variants={{\n                enter: { opacity: 0, scale: reducedMotion ? 1 : 0.98 },\n                visible: { opacity: 1, scale: 1 },\n                exit: { opacity: 0, scale: reducedMotion ? 1 : 1.02 },\n              }}\n              initial=\"enter\"\n              animate=\"visible\"\n              exit=\"exit\"\n              transition={\n                reducedMotion\n                  ? { duration: 0 }\n                  : { type: \"spring\", stiffness: 170, damping: 28, mass: 1 }\n              }\n              drag={slides.length > 1 ? \"x\" : false}\n              dragConstraints={{ left: 0, right: 0 }}\n              dragElastic={0.25}\n              dragMomentum={false}\n              dragTransition={{ bounceStiffness: 230, bounceDamping: 30 }}\n              onDragEnd={(_, info) => {\n                if (Math.abs(info.offset.x) > 40 || Math.abs(info.velocity.x) > 500) {\n                  const direction = Math.abs(info.offset.x) > 40 ? info.offset.x : info.velocity.x;\n                  move(direction < 0 ? 1 : -1);\n                }\n              }}\n            >\n              {slides[index]}\n            </m.div>\n          </AnimatePresence>\n        </AspectRatio>\n        <div className=\"mt-4 flex items-center justify-between gap-3\">\n          {slides.length > 1 && (\n            <div className=\"flex items-center\" aria-label=\"Choose slide\">\n              {slides.map((_, slideIndex) => (\n                <button\n                  key={slideIndex}\n                  type=\"button\"\n                  aria-label={`Go to slide ${slideIndex + 1}`}\n                  aria-current={slideIndex === index ? \"true\" : undefined}\n                  aria-controls={id}\n                  onClick={() => select(slideIndex)}\n                  onKeyDown={onKeyDown}\n                  className=\"flex size-7 items-center justify-center focus-visible:outline-2 focus-visible:outline-ring\"\n                >\n                  <m.span\n                    aria-hidden=\"true\"\n                    animate={{ width: slideIndex === index ? 20 : 8 }}\n                    transition={\n                      reducedMotion\n                        ? { duration: 0 }\n                        : { type: \"spring\", stiffness: 250, damping: 30 }\n                    }\n                    className={cn(\n                      \"relative h-1 overflow-hidden\",\n                      slideIndex === index\n                        ? \"bg-muted-foreground/40\"\n                        : \"bg-muted-foreground/40 hover:bg-muted-foreground\",\n                    )}\n                  >\n                    {slideIndex === index && (\n                      <m.span\n                        key={index}\n                        className=\"absolute inset-0 origin-left bg-foreground\"\n                        initial={{ scaleX: 0 }}\n                        animate={{ scaleX: 1 }}\n                        transition={\n                          reducedMotion ? { duration: 0 } : { duration: 4, ease: \"linear\" }\n                        }\n                      />\n                    )}\n                  </m.span>\n                </button>\n              ))}\n            </div>\n          )}\n          <div className=\"ml-auto flex items-center gap-2\">\n            <Button\n              variant=\"ghost\"\n              aria-label=\"Previous slide\"\n              aria-controls={id}\n              disabled={slides.length < 2}\n              onClick={() => move(-1)}\n              onKeyDown={onKeyDown}\n              className=\"size-11 shrink-0 p-0!\"\n            >\n              <ChevronLeft size={20} aria-hidden=\"true\" />\n            </Button>\n            <Button\n              variant=\"ghost\"\n              aria-label=\"Next slide\"\n              aria-controls={id}\n              disabled={slides.length < 2}\n              onClick={() => move(1)}\n              onKeyDown={onKeyDown}\n              className=\"size-11 shrink-0 p-0!\"\n            >\n              <ChevronRight size={20} aria-hidden=\"true\" />\n            </Button>\n          </div>\n        </div>\n        <p aria-live=\"polite\" aria-atomic=\"true\" className=\"sr-only\">\n          Slide {index + 1} of {slides.length}\n        </p>\n      </section>\n    </LazyMotion>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/carousel.tsx"
+    },
+    {
+      "path": "hangry/components/aspect-ratio.tsx",
+      "content": "import { memo, type ComponentProps, type CSSProperties } from \"react\";\nimport { cn } from \"cn\";\n\ninterface AspectRatioProps extends ComponentProps<\"div\"> {\n  ratio?: number;\n}\n\nexport const AspectRatio = memo(function AspectRatio({\n  ratio = 1,\n  className,\n  style,\n  ...props\n}: AspectRatioProps = {}) {\n  return (\n    <div\n      data-slot=\"aspect-ratio\"\n      style={{ \"--ratio\": ratio, ...style } as CSSProperties}\n      className={cn(\"relative aspect-(--ratio)\", className)}\n      {...props}\n    />\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/aspect-ratio.tsx"
+    },
+    {
+      "path": "hangry/components/button.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\n\ntype ButtonProps = {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\";\n} & ((ComponentProps<\"button\"> & { href?: never }) | (ComponentProps<\"a\"> & { href: string }));\n\nexport function buttonClassName(variant: ButtonProps[\"variant\"] = \"primary\", className = \"\") {\n  const styles = {\n    primary:\n      \"[--button-color:var(--color-emerald-400)] [--button-top:var(--color-emerald-300)] [--button-stroke-top:var(--color-emerald-200)] [--button-stroke-bottom:var(--color-emerald-700)] text-neutral-950\",\n    secondary: \"[--button-color:var(--secondary)] text-secondary-foreground\",\n    ghost: \"bg-transparent text-foreground hover:bg-muted\",\n    destructive: \"[--button-color:var(--destructive)] text-destructive-foreground\",\n    outline:\n      \"[--button-color:var(--background)] [--button-top:var(--background)] [--button-bottom:var(--muted)] [--button-stroke-top:var(--border)] [--button-stroke-bottom:color-mix(in_srgb,var(--foreground)_25%,var(--border))] text-foreground hover:[--button-top:var(--muted)]\",\n  };\n  const surface =\n    variant === \"ghost\"\n      ? \"\"\n      : \"border border-transparent [background:linear-gradient(to_bottom,var(--button-top,color-mix(in_srgb,var(--button-color)_88%,white)),var(--button-bottom,var(--button-color)))_padding-box,linear-gradient(to_bottom,var(--button-stroke-top,color-mix(in_srgb,var(--button-color)_65%,white)),var(--button-stroke-bottom,color-mix(in_srgb,var(--button-color)_65%,black)))_border-box] shadow-[0_1px_2px_rgb(0_0_0/0.12),0_4px_8px_-2px_rgb(0_0_0/0.18)] hover:[--button-top:color-mix(in_srgb,var(--button-color)_78%,white)]\";\n  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold  transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 ${surface} ${styles[variant] ?? styles.primary} ${className}`;\n}\n\nexport const Button = memo(function Button({\n  children = \"Get started\",\n  variant = \"primary\",\n  className = \"\",\n  ...props\n}: ButtonProps = {}) {\n  const classes = buttonClassName(variant, className);\n\n  if (props.href !== undefined) {\n    return (\n      <a className={classes} {...props}>\n        {children}\n      </a>\n    );\n  }\n\n  return (\n    <button type=\"button\" className={classes} {...props}>\n      {children}\n    </button>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/button.tsx"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    },
+    "@utility typography-page-title": {
+      "font-size": "2.25rem",
+      "line-height": "2.5rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)",
+      "@media (width >= 40rem)": {
+        "font-size": "3rem",
+        "line-height": "1"
+      }
+    },
+    "@utility typography-section-title": {
+      "font-size": "1.5rem",
+      "line-height": "2rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)"
+    },
+    "@utility typography-subsection-title": {
+      "font-size": "1.25rem",
+      "line-height": "1.75rem",
+      "font-weight": "600"
+    },
+    "@utility typography-body": {
+      "font-size": "1rem",
+      "line-height": "1.75rem",
+      "color": "var(--muted-foreground)"
+    },
+    "@utility typography-label": {
+      "font-size": "0.875rem",
+      "line-height": "1.25rem",
+      "font-weight": "500"
+    },
+    "@utility typography-caption": {
+      "font-size": "0.875rem",
+      "line-height": "1.5rem",
+      "color": "var(--muted-foreground)"
+    }
+  },
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

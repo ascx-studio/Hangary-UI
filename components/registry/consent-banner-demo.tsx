@@ -1,7 +1,7 @@
 "use client";
 
 import { memo } from "react";
-import { ConsentBanner } from "@/registry/components/consent-banner";
+import { ConsentBanner } from "@/hangry/components/consent-banner";
 
 const keepVisible = () => undefined;
 

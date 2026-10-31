@@ -3,9 +3,9 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { Bun, NPM, PnpmDark, V0Dark } from "@ridemountainpig/svgl-react";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
-import { toast } from "@/registry/components/toast";
-import { Tooltip } from "@/registry/components/tooltip";
-import { Button } from "@/registry/components/button";
+import { toast } from "@/hangry/components/toast";
+import { Tooltip } from "@/hangry/components/tooltip";
+import { Button } from "@/hangry/components/button";
 
 const managers = {
   bun: { icon: Bun, prefix: "bunx" },

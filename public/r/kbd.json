@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "A styled keyboard key or shortcut hint.",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "hangry/components/kbd.tsx",
+      "content": "import type { ComponentProps } from \"react\";\n\ninterface KbdProps extends ComponentProps<\"kbd\"> {\n  label?: string;\n}\n\nexport function Kbd({ children, label = \"⌘ K\", className = \"\", ...props }: KbdProps = {}) {\n  return (\n    <kbd\n      className={`inline-flex min-h-7 items-center justify-center rounded-md surface-raised border-b-2 [--surface-color:var(--muted)] px-2 font-mono text-xs text-foreground ${className}`}\n      {...props}\n    >\n      {children ?? label}\n    </kbd>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/kbd.tsx"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    }
+  },
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

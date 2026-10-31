@@ -1,0 +1,91 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-comparison",
+  "title": "Pricing Comparison",
+  "description": "A pricing comparison table with billing controls.",
+  "dependencies": [
+    "cn@^0.2.6",
+    "lucide-react@^1.48.0"
+  ],
+  "files": [
+    {
+      "path": "hangry/blocks/pricing-comparison.tsx",
+      "content": "\"use client\";\n\nimport { useId, useState, type ComponentProps } from \"react\";\nimport { Check } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { Badge } from \"../components/badge\";\nimport { Button } from \"../components/button\";\nimport {\n  Table,\n  TableHeader,\n  TableBody,\n  TableRow,\n  TableHead,\n  TableCell,\n  TableCaption,\n} from \"../components/table\";\n\ninterface PricingProps extends Omit<ComponentProps<\"section\">, \"title\"> {\n  title?: string;\n  description?: string;\n  defaultBilling?: \"monthly\" | \"yearly\";\n  plans?: {\n    name: string;\n    description: string;\n    monthlyPrice: number;\n    yearlyPrice: number;\n    features: string[];\n    href: string;\n    label?: string;\n    featured?: boolean;\n  }[];\n}\n\nexport function PricingComparison({\n  title = \"A plan for every next step\",\n  description = \"Start small. Make room as you grow.\",\n  defaultBilling = \"monthly\",\n  plans = [\n    {\n      name: \"Starter\",\n      description: \"For your next side project.\",\n      monthlyPrice: 0,\n      yearlyPrice: 0,\n      features: [\"1 workspace\", \"Core components\", \"Community support\"],\n      href: \"/signup\",\n      label: \"Start for free\",\n    },\n    {\n      name: \"Pro\",\n      description: \"For ideas ready to grow.\",\n      monthlyPrice: 19,\n      yearlyPrice: 15,\n      features: [\"Unlimited workspaces\", \"All components and blocks\", \"Priority support\"],\n      href: \"/signup?plan=pro\",\n      featured: true,\n    },\n    {\n      name: \"Team\",\n      description: \"For building together.\",\n      monthlyPrice: 49,\n      yearlyPrice: 39,\n      features: [\"Everything in Pro\", \"Team collaboration\", \"Dedicated support\"],\n      href: \"/signup?plan=team\",\n    },\n  ],\n  className,\n  children,\n  ...props\n}: PricingProps = {}) {\n  const [billing, setBilling] = useState(defaultBilling);\n  const id = useId();\n  const actionClass =\n    \"inline-flex min-h-11 w-full items-center justify-center border border-border px-4 py-2 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-ring\";\n  function price(plan: (typeof plans)[number]) {\n    return billing === \"yearly\" ? plan.yearlyPrice : plan.monthlyPrice;\n  }\n  return (\n    <section\n      {...props}\n      aria-labelledby={props[\"aria-labelledby\"] ?? `${id}-title`}\n      data-slot=\"pricing\"\n      data-layout=\"comparison\"\n      className={cn(\"@container w-full space-y-8 text-foreground\", className)}\n    >\n      <div className=\"text-center\">\n        <h2 id={`${id}-title`} className={\"typography-section-title\"}>\n          {title}\n        </h2>\n        <p className={`mt-3 typography-body`}>{description}</p>\n      </div>\n      <div role=\"group\" aria-label=\"Billing period\" className=\"flex justify-center gap-1\">\n        <Button\n          variant={billing === \"monthly\" ? \"primary\" : \"secondary\"}\n          aria-pressed={billing === \"monthly\"}\n          onClick={() => setBilling(\"monthly\")}\n        >\n          Monthly\n        </Button>\n        <Button\n          variant={billing === \"yearly\" ? \"primary\" : \"secondary\"}\n          aria-pressed={billing === \"yearly\"}\n          onClick={() => setBilling(\"yearly\")}\n        >\n          Yearly\n        </Button>\n      </div>\n      <p aria-live=\"polite\" className=\"text-center text-xs text-muted-foreground\">\n        {billing === \"yearly\"\n          ? \"Monthly prices shown. Billed once a year.\"\n          : \"Billed monthly. Switch to yearly for lower monthly prices.\"}\n      </p>\n      {\n        <Table>\n          <TableCaption>Compare plans. All prices are in USD.</TableCaption>\n          <TableHeader>\n            <TableRow>\n              <TableHead>Plan</TableHead>\n              <TableHead>Price / month</TableHead>\n              <TableHead>Includes</TableHead>\n              <TableHead>Get started</TableHead>\n            </TableRow>\n          </TableHeader>\n          <TableBody>\n            {plans.map((plan) => (\n              <TableRow key={plan.name} data-state={plan.featured ? \"selected\" : undefined}>\n                <TableCell>\n                  <span className=\"font-semibold\">{plan.name}</span>\n                  {plan.featured && (\n                    <div className=\"mt-2\">\n                      <Badge variant=\"info\">Popular</Badge>\n                    </div>\n                  )}\n                </TableCell>\n                <TableCell>\n                  <span className=\"text-lg font-semibold\">${price(plan)}</span>\n                  {billing === \"yearly\" && (\n                    <p className=\"mt-1 text-xs text-muted-foreground\">${price(plan) * 12} / year</p>\n                  )}\n                </TableCell>\n                <TableCell>\n                  <ul className=\"space-y-2\">\n                    {plan.features.map((feature) => (\n                      <li key={feature} className=\"flex items-start gap-2\">\n                        <Check size={14} aria-hidden=\"true\" className=\"mt-1 shrink-0\" />\n                        {feature}\n                      </li>\n                    ))}\n                  </ul>\n                </TableCell>\n                <TableCell>\n                  <a\n                    href={plan.href}\n                    aria-label={`${plan.label ?? \"Get started\"} with ${plan.name}`}\n                    className={cn(actionClass, \"whitespace-nowrap hover:bg-muted\")}\n                  >\n                    {plan.label ?? \"Get started\"}\n                  </a>\n                </TableCell>\n              </TableRow>\n            ))}\n          </TableBody>\n        </Table>\n      }\n      {children}\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/blocks/pricing-comparison.tsx"
+    },
+    {
+      "path": "hangry/components/badge.tsx",
+      "content": "\"use client\";\n\nimport { memo, type ReactNode } from \"react\";\nimport * as motion from \"motion/react-client\";\nimport { useReducedMotion, type HTMLMotionProps } from \"motion/react\";\nimport {\n  CircleCheck,\n  CircleDashed,\n  CircleX,\n  Clock3,\n  SearchCheck,\n  Send,\n  TriangleAlert,\n} from \"lucide-react\";\n\ninterface BadgeProps extends Omit<HTMLMotionProps<\"span\">, \"children\"> {\n  children?: ReactNode;\n  variant?:\n    | \"pending\"\n    | \"in-progress\"\n    | \"submitted\"\n    | \"in-review\"\n    | \"success\"\n    | \"failed\"\n    | \"expired\"\n    | \"neutral\"\n    | \"info\"\n    | \"warning\"\n    | \"error\"\n    | \"blue\"\n    | \"purple\"\n    | \"pink\"\n    | \"teal\"\n    | \"orange\";\n}\n\nconst statuses = {\n  pending: { label: \"Pending\", icon: TriangleAlert },\n  \"in-progress\": { label: \"In progress\", icon: CircleDashed },\n  submitted: { label: \"Submitted\", icon: Send },\n  \"in-review\": { label: \"In review\", icon: SearchCheck },\n  success: { label: \"Success\", icon: CircleCheck },\n  failed: { label: \"Failed\", icon: CircleX },\n  expired: { label: \"Expired\", icon: Clock3 },\n};\n\nconst styles = {\n  pending: \"bg-orange-500/10 text-orange-700 dark:text-orange-400\",\n  \"in-progress\": \"bg-sky-500/10 text-sky-700 dark:text-sky-400\",\n  submitted: \"bg-violet-500/10 text-violet-700 dark:text-violet-400\",\n  \"in-review\": \"bg-yellow-500/10 text-yellow-700 dark:text-yellow-400\",\n  success: \"bg-green-500/10 text-green-700 dark:text-green-400\",\n  failed: \"bg-red-500/10 text-red-700 dark:text-red-400\",\n  expired: \"bg-neutral-500/10 text-neutral-700 dark:text-neutral-400\",\n  neutral: \"bg-neutral-500/10 text-neutral-700 dark:text-neutral-400\",\n  info: \"bg-sky-500/10 text-sky-700 dark:text-sky-400\",\n  warning: \"bg-amber-500/10 text-amber-700 dark:text-amber-400\",\n  error: \"bg-red-500/10 text-red-700 dark:text-red-400\",\n  blue: \"bg-blue-500/10 text-blue-700 dark:text-blue-400\",\n  purple: \"bg-purple-500/10 text-purple-700 dark:text-purple-400\",\n  pink: \"bg-pink-500/10 text-pink-700 dark:text-pink-400\",\n  teal: \"bg-teal-500/10 text-teal-700 dark:text-teal-400\",\n  orange: \"bg-orange-500/10 text-orange-700 dark:text-orange-400\",\n};\n\nexport const Badge = memo(function Badge({\n  children,\n  variant = \"success\",\n  className = \"\",\n  ...props\n}: BadgeProps = {}) {\n  const status = variant in statuses ? statuses[variant as keyof typeof statuses] : undefined;\n  const Icon = status?.icon;\n  const reducedMotion = useReducedMotion();\n\n  return (\n    <motion.span\n      initial={reducedMotion ? false : { opacity: 0, y: 20 }}\n      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}\n      viewport={{ once: true, amount: 0.5 }}\n      whileHover={reducedMotion ? undefined : { y: -2, scale: 1.03 }}\n      transition={{ duration: reducedMotion ? 0 : 0.35, ease: \"easeOut\" }}\n      className={`inline-flex items-center gap-2 rounded-lg surface-raised surface-status px-3 py-2 typography-label ${styles[variant]} ${className}`}\n      {...props}\n    >\n      {Icon && <Icon aria-hidden=\"true\" className=\"size-[1.15em] shrink-0\" strokeWidth={2.25} />}\n      {children ?? status?.label ?? \"New release\"}\n    </motion.span>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/badge.tsx"
+    },
+    {
+      "path": "hangry/components/button.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\n\ntype ButtonProps = {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\";\n} & ((ComponentProps<\"button\"> & { href?: never }) | (ComponentProps<\"a\"> & { href: string }));\n\nexport function buttonClassName(variant: ButtonProps[\"variant\"] = \"primary\", className = \"\") {\n  const styles = {\n    primary:\n      \"[--button-color:var(--color-emerald-400)] [--button-top:var(--color-emerald-300)] [--button-stroke-top:var(--color-emerald-200)] [--button-stroke-bottom:var(--color-emerald-700)] text-neutral-950\",\n    secondary: \"[--button-color:var(--secondary)] text-secondary-foreground\",\n    ghost: \"bg-transparent text-foreground hover:bg-muted\",\n    destructive: \"[--button-color:var(--destructive)] text-destructive-foreground\",\n    outline:\n      \"[--button-color:var(--background)] [--button-top:var(--background)] [--button-bottom:var(--muted)] [--button-stroke-top:var(--border)] [--button-stroke-bottom:color-mix(in_srgb,var(--foreground)_25%,var(--border))] text-foreground hover:[--button-top:var(--muted)]\",\n  };\n  const surface =\n    variant === \"ghost\"\n      ? \"\"\n      : \"border border-transparent [background:linear-gradient(to_bottom,var(--button-top,color-mix(in_srgb,var(--button-color)_88%,white)),var(--button-bottom,var(--button-color)))_padding-box,linear-gradient(to_bottom,var(--button-stroke-top,color-mix(in_srgb,var(--button-color)_65%,white)),var(--button-stroke-bottom,color-mix(in_srgb,var(--button-color)_65%,black)))_border-box] shadow-[0_1px_2px_rgb(0_0_0/0.12),0_4px_8px_-2px_rgb(0_0_0/0.18)] hover:[--button-top:color-mix(in_srgb,var(--button-color)_78%,white)]\";\n  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold  transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 ${surface} ${styles[variant] ?? styles.primary} ${className}`;\n}\n\nexport const Button = memo(function Button({\n  children = \"Get started\",\n  variant = \"primary\",\n  className = \"\",\n  ...props\n}: ButtonProps = {}) {\n  const classes = buttonClassName(variant, className);\n\n  if (props.href !== undefined) {\n    return (\n      <a className={classes} {...props}>\n        {children}\n      </a>\n    );\n  }\n\n  return (\n    <button type=\"button\" className={classes} {...props}>\n      {children}\n    </button>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/button.tsx"
+    },
+    {
+      "path": "hangry/components/table.tsx",
+      "content": "import type { ComponentProps } from \"react\";\nimport { cn } from \"cn\";\n\nexport function Table({ className, ...props }: ComponentProps<\"table\">) {\n  return (\n    <div className=\"w-full overflow-x-auto rounded-lg border border-border\">\n      <table\n        {...props}\n        data-slot=\"table\"\n        className={cn(\"w-full caption-bottom text-left text-sm text-foreground\", className)}\n      />\n    </div>\n  );\n}\n\nexport function TableHeader({ className, ...props }: ComponentProps<\"thead\">) {\n  return (\n    <thead\n      {...props}\n      data-slot=\"table-header\"\n      className={cn(\"bg-muted text-muted-foreground [&_tr]:border-b\", className)}\n    />\n  );\n}\n\nexport function TableBody({ className, ...props }: ComponentProps<\"tbody\">) {\n  return (\n    <tbody\n      {...props}\n      data-slot=\"table-body\"\n      className={cn(\"[&_tr:last-child]:border-0\", className)}\n    />\n  );\n}\n\nexport function TableFooter({ className, ...props }: ComponentProps<\"tfoot\">) {\n  return (\n    <tfoot\n      {...props}\n      data-slot=\"table-footer\"\n      className={cn(\"border-t border-border bg-muted font-medium\", className)}\n    />\n  );\n}\n\nexport function TableRow({ className, ...props }: ComponentProps<\"tr\">) {\n  return (\n    <tr\n      {...props}\n      data-slot=\"table-row\"\n      className={cn(\n        \"border-b border-border transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted\",\n        className,\n      )}\n    />\n  );\n}\n\nexport function TableHead({ className, scope = \"col\", ...props }: ComponentProps<\"th\">) {\n  return (\n    <th\n      {...props}\n      scope={scope}\n      data-slot=\"table-head\"\n      className={cn(\"px-4 py-3 align-middle font-medium\", className)}\n    />\n  );\n}\n\nexport function TableCell({ className, ...props }: ComponentProps<\"td\">) {\n  return <td {...props} data-slot=\"table-cell\" className={cn(\"px-4 py-3 align-top\", className)} />;\n}\n\nexport function TableCaption({ className, ...props }: ComponentProps<\"caption\">) {\n  return (\n    <caption\n      {...props}\n      data-slot=\"table-caption\"\n      className={cn(\"border-t border-border px-4 py-3 text-sm text-muted-foreground\", className)}\n    />\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/table.tsx"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    },
+    "@utility surface-status": {
+      "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+      "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+      "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+    },
+    "@utility typography-page-title": {
+      "font-size": "2.25rem",
+      "line-height": "2.5rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)",
+      "@media (width >= 40rem)": {
+        "font-size": "3rem",
+        "line-height": "1"
+      }
+    },
+    "@utility typography-section-title": {
+      "font-size": "1.5rem",
+      "line-height": "2rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)"
+    },
+    "@utility typography-subsection-title": {
+      "font-size": "1.25rem",
+      "line-height": "1.75rem",
+      "font-weight": "600"
+    },
+    "@utility typography-body": {
+      "font-size": "1rem",
+      "line-height": "1.75rem",
+      "color": "var(--muted-foreground)"
+    },
+    "@utility typography-label": {
+      "font-size": "0.875rem",
+      "line-height": "1.25rem",
+      "font-weight": "500"
+    },
+    "@utility typography-caption": {
+      "font-size": "0.875rem",
+      "line-height": "1.5rem",
+      "color": "var(--muted-foreground)"
+    }
+  },
+  "meta": {
+    "category": "blocks"
+  },
+  "type": "registry:block"
+}

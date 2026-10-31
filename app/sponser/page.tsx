@@ -1,6 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import * as motion from "motion/react-client";
-import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
+import { SpotlightReveal } from "@/hangry/components/spotlight-reveal";
 import Container from "@/components/layout/Container";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "A composable tabbed interface with default and line variants, horizontal and vertical layouts, and keyboard navigation.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "hangry/components/tabs.tsx",
+      "content": "\"use client\";\n\nimport {\n  createContext,\n  useContext,\n  useId,\n  useState,\n  useCallback,\n  useMemo,\n  type ComponentProps,\n} from \"react\";\nimport { cn } from \"cn\";\n\ninterface TabsProps extends Omit<ComponentProps<\"div\">, \"defaultValue\" | \"onChange\"> {\n  value?: string;\n  defaultValue?: string;\n  onValueChange?: (value: string) => void;\n  orientation?: \"horizontal\" | \"vertical\";\n}\n\nconst TabsContext = createContext<{\n  id: string;\n  value?: string;\n  orientation: \"horizontal\" | \"vertical\";\n  variant: \"default\" | \"line\";\n  select: (value: string) => void;\n} | null>(null);\n\nfunction useTabs() {\n  const context = useContext(TabsContext);\n  if (!context) throw new Error(\"Tabs components must be rendered inside Tabs.\");\n  return context;\n}\n\nexport function Tabs({\n  className,\n  value,\n  defaultValue,\n  onValueChange,\n  orientation = \"horizontal\",\n  children,\n  ...props\n}: TabsProps) {\n  const id = useId();\n  const [selected, setSelected] = useState(defaultValue);\n  const select = useCallback(\n    (next: string) => {\n      if (value === undefined) setSelected(next);\n      onValueChange?.(next);\n    },\n    [value, onValueChange],\n  );\n  const context = useMemo(\n    () => ({ id, value: value ?? selected, orientation, variant: \"default\" as const, select }),\n    [id, value, selected, orientation, select],\n  );\n  return (\n    <TabsContext.Provider value={context}>\n      <div\n        {...props}\n        data-slot=\"tabs\"\n        data-orientation={orientation}\n        className={cn(\n          \"group/tabs flex w-full gap-2 data-[orientation=horizontal]:flex-col\",\n          className,\n        )}\n      >\n        {children}\n      </div>\n    </TabsContext.Provider>\n  );\n}\n\nfunction tabsListVariants({ variant = \"default\" }: { variant?: \"default\" | \"line\" } = {}) {\n  return cn(\n    \"group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col\",\n    variant === \"line\" ? \"gap-1 bg-transparent\" : \"rounded-lg bg-muted dark:bg-[#131313] p-0.5\",\n  );\n}\n\nexport function TabsList({\n  className,\n  variant = \"default\",\n  onKeyDown,\n  ...props\n}: ComponentProps<\"div\"> & { variant?: \"default\" | \"line\" }) {\n  const tabs = useTabs();\n  const { orientation } = tabs;\n  return (\n    <TabsContext.Provider value={{ ...tabs, variant }}>\n      <div\n        {...props}\n        role=\"tablist\"\n        aria-orientation={orientation}\n        data-slot=\"tabs-list\"\n        data-variant={variant}\n        className={cn(tabsListVariants({ variant }), className)}\n        onKeyDown={(event) => {\n          onKeyDown?.(event);\n          if (event.defaultPrevented) return;\n          const triggers = [\n            ...event.currentTarget.querySelectorAll<HTMLButtonElement>(\n              '[role=\"tab\"]:not(:disabled)',\n            ),\n          ].filter((tab) => tab.closest('[role=\"tablist\"]') === event.currentTarget);\n          const index = triggers.indexOf(event.target as HTMLButtonElement);\n          if (index < 0) return;\n          const forward = orientation === \"horizontal\" ? \"ArrowRight\" : \"ArrowDown\";\n          const backward = orientation === \"horizontal\" ? \"ArrowLeft\" : \"ArrowUp\";\n          const next =\n            event.key === \"Home\"\n              ? triggers[0]\n              : event.key === \"End\"\n                ? triggers.at(-1)\n                : event.key === forward\n                  ? triggers[(index + 1) % triggers.length]\n                  : event.key === backward\n                    ? triggers[(index - 1 + triggers.length) % triggers.length]\n                    : undefined;\n          if (!next) return;\n          event.preventDefault();\n          next.focus();\n          next.click();\n        }}\n      />\n    </TabsContext.Provider>\n  );\n}\n\nexport function TabsTrigger({\n  className,\n  value,\n  disabled,\n  onClick,\n  ...props\n}: Omit<ComponentProps<\"button\">, \"value\"> & { value: string }) {\n  const tabs = useTabs();\n  const active = !disabled && tabs.value === value;\n  const key = encodeURIComponent(value);\n  return (\n    <button\n      {...props}\n      type=\"button\"\n      role=\"tab\"\n      id={`${tabs.id}-tab-${key}`}\n      aria-controls={`${tabs.id}-panel-${key}`}\n      aria-selected={active}\n      disabled={disabled}\n      tabIndex={active || (tabs.value === undefined && !disabled) ? 0 : -1}\n      data-slot=\"tabs-trigger\"\n      data-active={active ? \"\" : undefined}\n      className={cn(\n        \"relative inline-flex min-h-8 flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-3 py-1 text-sm font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start\",\n        tabs.variant === \"line\"\n          ? \"data-active:bg-transparent data-active:text-foreground after:absolute after:bg-foreground after:opacity-0 after:transition-opacity data-active:after:opacity-100 group-data-[orientation=horizontal]/tabs:after:inset-x-0 group-data-[orientation=horizontal]/tabs:after:-bottom-1 group-data-[orientation=horizontal]/tabs:after:h-0.5 group-data-[orientation=vertical]/tabs:after:inset-y-0 group-data-[orientation=vertical]/tabs:after:-right-1 group-data-[orientation=vertical]/tabs:after:w-0.5\"\n          : \"data-active:bg-secondary/15 dark:data-active:bg-[#282727] data-active:text-foreground\",\n        className,\n      )}\n      onClick={(event) => {\n        onClick?.(event);\n        if (!event.defaultPrevented && !disabled) tabs.select(value);\n      }}\n    />\n  );\n}\n\nexport function TabsContent({\n  className,\n  value,\n  ...props\n}: ComponentProps<\"div\"> & { value: string }) {\n  const tabs = useTabs();\n  const key = encodeURIComponent(value);\n  return (\n    <div\n      {...props}\n      role=\"tabpanel\"\n      id={`${tabs.id}-panel-${key}`}\n      aria-labelledby={`${tabs.id}-tab-${key}`}\n      hidden={tabs.value !== value}\n      tabIndex={0}\n      data-slot=\"tabs-content\"\n      className={cn(\n        \"min-w-0 flex-1 rounded-lg focus-visible:outline-2 focus-visible:outline-ring\",\n        \"typography-body\",\n        className,\n      )}\n    />\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/tabs.tsx"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    },
+    "@utility typography-page-title": {
+      "font-size": "2.25rem",
+      "line-height": "2.5rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)",
+      "@media (width >= 40rem)": {
+        "font-size": "3rem",
+        "line-height": "1"
+      }
+    },
+    "@utility typography-section-title": {
+      "font-size": "1.5rem",
+      "line-height": "2rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)"
+    },
+    "@utility typography-subsection-title": {
+      "font-size": "1.25rem",
+      "line-height": "1.75rem",
+      "font-weight": "600"
+    },
+    "@utility typography-body": {
+      "font-size": "1rem",
+      "line-height": "1.75rem",
+      "color": "var(--muted-foreground)"
+    },
+    "@utility typography-label": {
+      "font-size": "0.875rem",
+      "line-height": "1.25rem",
+      "font-weight": "500"
+    },
+    "@utility typography-caption": {
+      "font-size": "0.875rem",
+      "line-height": "1.5rem",
+      "color": "var(--muted-foreground)"
+    }
+  },
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

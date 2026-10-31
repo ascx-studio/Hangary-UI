@@ -6,14 +6,14 @@ import { ChevronDown, PanelLeft, PanelLeftClose } from "lucide-react";
 import { useSyncExternalStore } from "react";
 import { AnimatePresence, LazyMotion, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
-import { NavLine } from "@/registry/components/nav-line";
+import { NavLine } from "@/hangry/components/nav-line";
 import sidebarData from "@/data/sidebar.json";
 import { browseSection } from "@/data/Navlinks";
 import type { RegistryCategory } from "@/lib/registry";
 import ThemeToggle from "@/components/theme-toggle";
 import Logo from "@/components/ui/Logo";
-import { Outline } from "@/registry/components/outline";
-import { OutlineTrail } from "@/registry/components/outline-trail";
+import { Outline } from "@/hangry/components/outline";
+import { OutlineTrail } from "@/hangry/components/outline-trail";
 import {
   getSidebarOpen,
   getServerSidebarOpen,

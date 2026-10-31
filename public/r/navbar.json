@@ -1,0 +1,104 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navbar",
+  "title": "Navbar",
+  "description": "Centered, left-aligned, and floating navigation layouts.",
+  "dependencies": [
+    "@ridemountainpig/svgl-react@^1.0.18",
+    "cn@^0.2.6",
+    "lucide-react@^1.48.0"
+  ],
+  "files": [
+    {
+      "path": "hangry/blocks/navbar.tsx",
+      "content": "\"use client\";\n\nimport { memo, useId, useRef, useState, type ComponentProps, type ReactNode } from \"react\";\nimport { Heart, Menu, X } from \"lucide-react\";\nimport { cn } from \"cn\";\nimport { GitHubDark } from \"@ridemountainpig/svgl-react\";\nimport { samplePageLinks } from \"../lib/navigation.shared\";\nimport { Avatar } from \"../components/avatar\";\nimport { Badge } from \"../components/badge\";\nimport { Banner } from \"../components/banner\";\nimport { Button } from \"../components/button\";\n\ninterface NavbarProps extends ComponentProps<\"header\"> {\n  brand?: string;\n  logo?: ReactNode;\n  homeHref?: string;\n  links?: {\n    label: string;\n    href: string;\n  }[];\n  activeHref?: string;\n  announcement?: string;\n  badge?: string;\n  supportHref?: string;\n  githubHref?: string;\n  account?: {\n    name: string;\n    src?: string;\n    href: string;\n  };\n}\n\nexport const Navbar = memo(function Navbar({\n  brand = \"Hangry UI\",\n  logo,\n  homeHref = \"#home\",\n  links = samplePageLinks,\n  activeHref,\n  announcement,\n  badge = \"\",\n  supportHref = \"#sponsor\",\n  githubHref = \"#github\",\n  account,\n  className,\n  children,\n  ...props\n}: NavbarProps = {}) {\n  const [open, setOpen] = useState(false);\n  const menuId = useId();\n  const toggle = useRef<HTMLButtonElement>(null);\n  function closeMenu() {\n    setOpen(false);\n    toggle.current?.focus();\n  }\n  return (\n    <header\n      {...props}\n      data-slot=\"navbar\"\n      data-layout=\"centered\"\n      className={cn(\n        \"@container w-full text-foreground\",\n        \"border border-border bg-background\",\n        className,\n      )}\n    >\n      {announcement && (\n        <Banner\n          message={announcement}\n          dismissible={false}\n          className=\"border-0 border-b border-border\"\n        />\n      )}\n      <div\n        className={cn(\n          \"grid grid-cols-[1fr_auto] items-center gap-4 px-5 py-4\",\n          \"@4xl:grid-cols-[1fr_auto_1fr]\",\n        )}\n      >\n        <a\n          href={homeHref}\n          className=\"flex w-fit items-center gap-2 text-lg font-semibold focus-visible:outline-2 focus-visible:outline-ring\"\n        >\n          {logo}\n          <span>{brand}</span>\n          {badge && <Badge variant=\"neutral\">{badge}</Badge>}\n        </a>\n        <nav\n          aria-label=\"Primary navigation\"\n          className={cn(\"hidden items-center gap-6 @4xl:flex\", \"justify-center\")}\n        >\n          {links.map((link) => (\n            <a\n              key={link.href}\n              href={link.href}\n              aria-current={activeHref === link.href ? \"page\" : undefined}\n              className=\"text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring aria-[current=page]:text-foreground\"\n            >\n              {link.label}\n            </a>\n          ))}\n        </nav>\n        <div className=\"flex items-center justify-end gap-2\">\n          {supportHref && (\n            <a\n              href={supportHref}\n              aria-label=\"Support the project\"\n              className=\"inline-flex size-9 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring\"\n            >\n              <Heart size={18} aria-hidden=\"true\" />\n            </a>\n          )}\n          {githubHref && (\n            <a\n              href={githubHref}\n              aria-label=\"GitHub repository\"\n              className=\"inline-flex size-9 items-center justify-center hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring\"\n            >\n              <GitHubDark className=\"invert dark:invert-0\" width={18} height={18} aria-hidden=\"true\" />\n            </a>\n          )}\n          {account && (\n            <a\n              href={account.href}\n              aria-label={`${account.name}'s account`}\n              className=\"focus-visible:outline-2 focus-visible:outline-ring\"\n            >\n              <Avatar name={account.name} src={account.src} size={32} />\n            </a>\n          )}\n          <Button\n            ref={toggle}\n            variant=\"ghost\"\n            className=\"min-h-9 px-2 @4xl:hidden\"\n            aria-label={open ? \"Close navigation\" : \"Open navigation\"}\n            aria-expanded={open}\n            aria-controls={menuId}\n            onClick={() => setOpen(!open)}\n          >\n            {open ? <X size={18} aria-hidden=\"true\" /> : <Menu size={18} aria-hidden=\"true\" />}\n          </Button>\n        </div>\n      </div>\n      <nav\n        id={menuId}\n        aria-label=\"Mobile navigation\"\n        hidden={!open}\n        className=\"border-t border-border px-5 py-3 @4xl:hidden\"\n        onKeyDown={(event) => {\n          if (event.key === \"Escape\") {\n            event.preventDefault();\n            closeMenu();\n          }\n        }}\n      >\n        {links.map((link) => (\n          <a\n            key={link.href}\n            href={link.href}\n            aria-current={activeHref === link.href ? \"page\" : undefined}\n            onClick={() => setOpen(false)}\n            className=\"block px-2 py-3 text-sm text-muted-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring aria-[current=page]:text-foreground\"\n          >\n            {link.label}\n          </a>\n        ))}\n      </nav>\n      {children}\n    </header>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/blocks/navbar.tsx"
+    },
+    {
+      "path": "hangry/components/avatar.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\n\ninterface AvatarProps {\n  src?: string;\n  name?: string;\n  size?: number;\n  className?: string;\n}\n\nexport function Avatar({ src, name = \"Alex Morgan\", size = 48, className = \"\" }: AvatarProps = {}) {\n  const [failedSrc, setFailedSrc] = useState<string>();\n  const initials = name\n    .trim()\n    .split(/\\s+/)\n    .slice(0, 2)\n    .map((word) => word[0])\n    .join(\"\")\n    .toUpperCase();\n  // Registry consumers can use any React framework and image URL.\n  /* eslint-disable @next/next/no-img-element */\n  return (\n    <span\n      role=\"img\"\n      aria-label={name}\n      style={{ width: size, height: size }}\n      className={`inline-flex shrink-0 items-center justify-center overflow-hidden border border-border bg-emerald-400/15 text-sm font-semibold text-emerald-800 dark:text-emerald-300 ${className}`}\n    >\n      {src && failedSrc !== src ? (\n        <img\n          src={src}\n          alt=\"\"\n          width={size}\n          height={size}\n          onError={() => setFailedSrc(src)}\n          className=\"h-full w-full object-cover\"\n        />\n      ) : (\n        initials || \"?\"\n      )}\n    </span>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/avatar.tsx"
+    },
+    {
+      "path": "hangry/components/badge.tsx",
+      "content": "\"use client\";\n\nimport { memo, type ReactNode } from \"react\";\nimport * as motion from \"motion/react-client\";\nimport { useReducedMotion, type HTMLMotionProps } from \"motion/react\";\nimport {\n  CircleCheck,\n  CircleDashed,\n  CircleX,\n  Clock3,\n  SearchCheck,\n  Send,\n  TriangleAlert,\n} from \"lucide-react\";\n\ninterface BadgeProps extends Omit<HTMLMotionProps<\"span\">, \"children\"> {\n  children?: ReactNode;\n  variant?:\n    | \"pending\"\n    | \"in-progress\"\n    | \"submitted\"\n    | \"in-review\"\n    | \"success\"\n    | \"failed\"\n    | \"expired\"\n    | \"neutral\"\n    | \"info\"\n    | \"warning\"\n    | \"error\"\n    | \"blue\"\n    | \"purple\"\n    | \"pink\"\n    | \"teal\"\n    | \"orange\";\n}\n\nconst statuses = {\n  pending: { label: \"Pending\", icon: TriangleAlert },\n  \"in-progress\": { label: \"In progress\", icon: CircleDashed },\n  submitted: { label: \"Submitted\", icon: Send },\n  \"in-review\": { label: \"In review\", icon: SearchCheck },\n  success: { label: \"Success\", icon: CircleCheck },\n  failed: { label: \"Failed\", icon: CircleX },\n  expired: { label: \"Expired\", icon: Clock3 },\n};\n\nconst styles = {\n  pending: \"bg-orange-500/10 text-orange-700 dark:text-orange-400\",\n  \"in-progress\": \"bg-sky-500/10 text-sky-700 dark:text-sky-400\",\n  submitted: \"bg-violet-500/10 text-violet-700 dark:text-violet-400\",\n  \"in-review\": \"bg-yellow-500/10 text-yellow-700 dark:text-yellow-400\",\n  success: \"bg-green-500/10 text-green-700 dark:text-green-400\",\n  failed: \"bg-red-500/10 text-red-700 dark:text-red-400\",\n  expired: \"bg-neutral-500/10 text-neutral-700 dark:text-neutral-400\",\n  neutral: \"bg-neutral-500/10 text-neutral-700 dark:text-neutral-400\",\n  info: \"bg-sky-500/10 text-sky-700 dark:text-sky-400\",\n  warning: \"bg-amber-500/10 text-amber-700 dark:text-amber-400\",\n  error: \"bg-red-500/10 text-red-700 dark:text-red-400\",\n  blue: \"bg-blue-500/10 text-blue-700 dark:text-blue-400\",\n  purple: \"bg-purple-500/10 text-purple-700 dark:text-purple-400\",\n  pink: \"bg-pink-500/10 text-pink-700 dark:text-pink-400\",\n  teal: \"bg-teal-500/10 text-teal-700 dark:text-teal-400\",\n  orange: \"bg-orange-500/10 text-orange-700 dark:text-orange-400\",\n};\n\nexport const Badge = memo(function Badge({\n  children,\n  variant = \"success\",\n  className = \"\",\n  ...props\n}: BadgeProps = {}) {\n  const status = variant in statuses ? statuses[variant as keyof typeof statuses] : undefined;\n  const Icon = status?.icon;\n  const reducedMotion = useReducedMotion();\n\n  return (\n    <motion.span\n      initial={reducedMotion ? false : { opacity: 0, y: 20 }}\n      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}\n      viewport={{ once: true, amount: 0.5 }}\n      whileHover={reducedMotion ? undefined : { y: -2, scale: 1.03 }}\n      transition={{ duration: reducedMotion ? 0 : 0.35, ease: \"easeOut\" }}\n      className={`inline-flex items-center gap-2 rounded-lg surface-raised surface-status px-3 py-2 typography-label ${styles[variant]} ${className}`}\n      {...props}\n    >\n      {Icon && <Icon aria-hidden=\"true\" className=\"size-[1.15em] shrink-0\" strokeWidth={2.25} />}\n      {children ?? status?.label ?? \"New release\"}\n    </motion.span>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/badge.tsx"
+    },
+    {
+      "path": "hangry/components/banner.tsx",
+      "content": "\"use client\";\n\nimport { memo, useState, type ReactNode } from \"react\";\nimport * as motion from \"motion/react-client\";\nimport { useReducedMotion } from \"motion/react\";\nimport { CircleCheck, CircleX, Info, TriangleAlert } from \"lucide-react\";\n\ninterface BannerProps {\n  variant?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\";\n  children?: ReactNode;\n  message?: string;\n  description?: string;\n  dismissible?: boolean;\n  className?: string;\n}\n\nconst statusStyles = {\n  neutral: \"bg-neutral-500/10 text-neutral-700 dark:text-neutral-400\",\n  info: \"bg-sky-500/10 text-sky-700 dark:text-sky-400\",\n  success: \"bg-green-500/10 text-green-700 dark:text-green-400\",\n  warning: \"bg-amber-500/10 text-amber-700 dark:text-amber-400\",\n  error: \"bg-red-500/10 text-red-700 dark:text-red-400\",\n};\n\nconst statusIcons = {\n  neutral: Info,\n  info: Info,\n  success: CircleCheck,\n  warning: TriangleAlert,\n  error: CircleX,\n};\n\nexport const Banner = memo(function Banner({\n  variant = \"info\",\n  children,\n  message = \"A little update. A lot of possibilities. Explore what's new.\",\n  description,\n  dismissible = true,\n  className = \"\",\n}: BannerProps = {}) {\n  const Icon = statusIcons[variant];\n  const reducedMotion = useReducedMotion();\n  const [dismissed, setDismissed] = useState(false);\n\n  if (dismissed) return null;\n\n  return (\n    <motion.div\n      role={variant === \"error\" ? \"alert\" : \"status\"}\n      initial={reducedMotion ? false : { opacity: 0, y: 10 }}\n      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}\n      viewport={{ once: true, amount: 0.2 }}\n      whileHover={reducedMotion ? undefined : { y: -2, scale: 1.005 }}\n      transition={{ duration: reducedMotion ? 0 : 0.2, ease: \"easeOut\" }}\n      className={`flex items-start gap-4 rounded-xl surface-raised surface-status px-5 py-4 text-base leading-7 ${statusStyles[variant]} ${className}`}\n    >\n      {Icon && <Icon aria-hidden=\"true\" className=\"mt-0.5 size-6 shrink-0\" strokeWidth={2} />}\n      <div className=\"min-w-0 flex-1\">\n        <div className=\"font-semibold\">{children ?? message}</div>\n        {description && <p className=\"mt-1 text-sm leading-6 opacity-90\">{description}</p>}\n      </div>\n      {dismissible && (\n        <button\n          type=\"button\"\n          aria-label=\"Dismiss banner\"\n          onClick={() => setDismissed(true)}\n          className=\"flex size-9 shrink-0 items-center justify-center hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-current\"\n        >\n          <span aria-hidden=\"true\">×</span>\n        </button>\n      )}\n    </motion.div>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/banner.tsx"
+    },
+    {
+      "path": "hangry/components/button.tsx",
+      "content": "import { memo, type ComponentProps } from \"react\";\n\ntype ButtonProps = {\n  variant?: \"primary\" | \"secondary\" | \"ghost\" | \"destructive\" | \"outline\";\n} & ((ComponentProps<\"button\"> & { href?: never }) | (ComponentProps<\"a\"> & { href: string }));\n\nexport function buttonClassName(variant: ButtonProps[\"variant\"] = \"primary\", className = \"\") {\n  const styles = {\n    primary:\n      \"[--button-color:var(--color-emerald-400)] [--button-top:var(--color-emerald-300)] [--button-stroke-top:var(--color-emerald-200)] [--button-stroke-bottom:var(--color-emerald-700)] text-neutral-950\",\n    secondary: \"[--button-color:var(--secondary)] text-secondary-foreground\",\n    ghost: \"bg-transparent text-foreground hover:bg-muted\",\n    destructive: \"[--button-color:var(--destructive)] text-destructive-foreground\",\n    outline:\n      \"[--button-color:var(--background)] [--button-top:var(--background)] [--button-bottom:var(--muted)] [--button-stroke-top:var(--border)] [--button-stroke-bottom:color-mix(in_srgb,var(--foreground)_25%,var(--border))] text-foreground hover:[--button-top:var(--muted)]\",\n  };\n  const surface =\n    variant === \"ghost\"\n      ? \"\"\n      : \"border border-transparent [background:linear-gradient(to_bottom,var(--button-top,color-mix(in_srgb,var(--button-color)_88%,white)),var(--button-bottom,var(--button-color)))_padding-box,linear-gradient(to_bottom,var(--button-stroke-top,color-mix(in_srgb,var(--button-color)_65%,white)),var(--button-stroke-bottom,color-mix(in_srgb,var(--button-color)_65%,black)))_border-box] shadow-[0_1px_2px_rgb(0_0_0/0.12),0_4px_8px_-2px_rgb(0_0_0/0.18)] hover:[--button-top:color-mix(in_srgb,var(--button-color)_78%,white)]\";\n  return `inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold  transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 ${surface} ${styles[variant] ?? styles.primary} ${className}`;\n}\n\nexport const Button = memo(function Button({\n  children = \"Get started\",\n  variant = \"primary\",\n  className = \"\",\n  ...props\n}: ButtonProps = {}) {\n  const classes = buttonClassName(variant, className);\n\n  if (props.href !== undefined) {\n    return (\n      <a className={classes} {...props}>\n        {children}\n      </a>\n    );\n  }\n\n  return (\n    <button type=\"button\" className={classes} {...props}>\n      {children}\n    </button>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/button.tsx"
+    },
+    {
+      "path": "hangry/lib/navigation.shared.ts",
+      "content": "export const samplePageLinks = [\n  { label: \"Home\", href: \"#home\" },\n  { label: \"Components\", href: \"#components\" },\n  { label: \"Blocks\", href: \"#blocks\" },\n  { label: \"Shaders\", href: \"#shaders\" },\n  { label: \"Sponsor\", href: \"#sponsor\" },\n  { label: \"Privacy\", href: \"#privacy\" },\n];\n\nexport const sampleFooterGroups = [\n  { title: \"Pages\", links: samplePageLinks.slice(0, 3) },\n  { title: \"More\", links: samplePageLinks.slice(3) },\n];\n\nexport const sampleMainFooterGroups = [\n  { title: \"Pages\", links: samplePageLinks },\n  {\n    title: \"Ask AI\",\n    links: [\n      { label: \"Gemini\", href: \"#gemini\" },\n      { label: \"Claude\", href: \"#claude\" },\n      { label: \"ChatGPT\", href: \"#chatgpt\" },\n      { label: \"Perplexity\", href: \"#perplexity\" },\n      { label: \"Grok\", href: \"#grok\" },\n    ],\n  },\n  {\n    title: \"Connect\",\n    links: [\n      { label: \"X\", href: \"#x\" },\n      { label: \"GitHub\", href: \"#github\" },\n      { label: \"Sponsor\", href: \"#sponsor\" },\n      { label: \"Support the project\", href: \"#support\" },\n    ],\n  },\n];\n",
+      "type": "registry:lib",
+      "target": "@components/hangry-ui/lib/navigation.shared.ts"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    },
+    "@utility surface-status": {
+      "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+      "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+      "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+    },
+    "@utility typography-page-title": {
+      "font-size": "2.25rem",
+      "line-height": "2.5rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)",
+      "@media (width >= 40rem)": {
+        "font-size": "3rem",
+        "line-height": "1"
+      }
+    },
+    "@utility typography-section-title": {
+      "font-size": "1.5rem",
+      "line-height": "2rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)"
+    },
+    "@utility typography-subsection-title": {
+      "font-size": "1.25rem",
+      "line-height": "1.75rem",
+      "font-weight": "600"
+    },
+    "@utility typography-body": {
+      "font-size": "1rem",
+      "line-height": "1.75rem",
+      "color": "var(--muted-foreground)"
+    },
+    "@utility typography-label": {
+      "font-size": "0.875rem",
+      "line-height": "1.25rem",
+      "font-weight": "500"
+    },
+    "@utility typography-caption": {
+      "font-size": "0.875rem",
+      "line-height": "1.5rem",
+      "color": "var(--muted-foreground)"
+    }
+  },
+  "meta": {
+    "category": "blocks"
+  },
+  "type": "registry:block"
+}

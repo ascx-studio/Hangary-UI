@@ -1,4 +1,4 @@
-import { ErrorPage } from "@/registry/blocks/error-page";
+import { ErrorPage } from "@/hangry/blocks/error-page";
 
 export default function NotFound() {
   return <ErrorPage />;

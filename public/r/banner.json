@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "banner",
+  "title": "Banner",
+  "description": "A status banner with matching icons, optional descriptions, and reduced-motion-aware hover animation.",
+  "dependencies": [
+    "lucide-react@^1.48.0",
+    "motion@^14.3.0"
+  ],
+  "files": [
+    {
+      "path": "hangry/components/banner.tsx",
+      "content": "\"use client\";\n\nimport { memo, useState, type ReactNode } from \"react\";\nimport * as motion from \"motion/react-client\";\nimport { useReducedMotion } from \"motion/react\";\nimport { CircleCheck, CircleX, Info, TriangleAlert } from \"lucide-react\";\n\ninterface BannerProps {\n  variant?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"error\";\n  children?: ReactNode;\n  message?: string;\n  description?: string;\n  dismissible?: boolean;\n  className?: string;\n}\n\nconst statusStyles = {\n  neutral: \"bg-neutral-500/10 text-neutral-700 dark:text-neutral-400\",\n  info: \"bg-sky-500/10 text-sky-700 dark:text-sky-400\",\n  success: \"bg-green-500/10 text-green-700 dark:text-green-400\",\n  warning: \"bg-amber-500/10 text-amber-700 dark:text-amber-400\",\n  error: \"bg-red-500/10 text-red-700 dark:text-red-400\",\n};\n\nconst statusIcons = {\n  neutral: Info,\n  info: Info,\n  success: CircleCheck,\n  warning: TriangleAlert,\n  error: CircleX,\n};\n\nexport const Banner = memo(function Banner({\n  variant = \"info\",\n  children,\n  message = \"A little update. A lot of possibilities. Explore what's new.\",\n  description,\n  dismissible = true,\n  className = \"\",\n}: BannerProps = {}) {\n  const Icon = statusIcons[variant];\n  const reducedMotion = useReducedMotion();\n  const [dismissed, setDismissed] = useState(false);\n\n  if (dismissed) return null;\n\n  return (\n    <motion.div\n      role={variant === \"error\" ? \"alert\" : \"status\"}\n      initial={reducedMotion ? false : { opacity: 0, y: 10 }}\n      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}\n      viewport={{ once: true, amount: 0.2 }}\n      whileHover={reducedMotion ? undefined : { y: -2, scale: 1.005 }}\n      transition={{ duration: reducedMotion ? 0 : 0.2, ease: \"easeOut\" }}\n      className={`flex items-start gap-4 rounded-xl surface-raised surface-status px-5 py-4 text-base leading-7 ${statusStyles[variant]} ${className}`}\n    >\n      {Icon && <Icon aria-hidden=\"true\" className=\"mt-0.5 size-6 shrink-0\" strokeWidth={2} />}\n      <div className=\"min-w-0 flex-1\">\n        <div className=\"font-semibold\">{children ?? message}</div>\n        {description && <p className=\"mt-1 text-sm leading-6 opacity-90\">{description}</p>}\n      </div>\n      {dismissible && (\n        <button\n          type=\"button\"\n          aria-label=\"Dismiss banner\"\n          onClick={() => setDismissed(true)}\n          className=\"flex size-9 shrink-0 items-center justify-center hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-current\"\n        >\n          <span aria-hidden=\"true\">×</span>\n        </button>\n      )}\n    </motion.div>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/banner.tsx"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    },
+    "@utility surface-status": {
+      "--surface-color": "color-mix(in srgb, currentColor 10%, var(--card))",
+      "--surface-stroke-top": "color-mix(in srgb, currentColor 25%, var(--card))",
+      "--surface-stroke-bottom": "color-mix(in srgb, currentColor 45%, var(--card))"
+    }
+  },
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

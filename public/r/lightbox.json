@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lightbox",
+  "title": "Lightbox",
+  "description": "Open an image in an accessible, reduced-motion-aware modal viewer.",
+  "dependencies": [
+    "lucide-react@^1.48.0",
+    "motion@^14.3.0"
+  ],
+  "files": [
+    {
+      "path": "hangry/components/lightbox.tsx",
+      "content": "\"use client\";\n\nimport { memo, useEffect, useRef, useState, type ComponentProps } from \"react\";\nimport * as motion from \"motion/react-client\";\nimport { useReducedMotion } from \"motion/react\";\nimport { X } from \"lucide-react\";\n\n/* eslint-disable @next/next/no-img-element */\n\ninterface LightboxProps extends Omit<ComponentProps<\"button\">, \"children\" | \"onClick\" | \"type\"> {\n  src: string;\n  alt: string;\n  caption?: string;\n  triggerLabel?: string;\n}\n\nexport const Lightbox = memo(function Lightbox({\n  src,\n  alt,\n  caption,\n  triggerLabel = \"View image\",\n  className = \"\",\n  ...props\n}: LightboxProps) {\n  const [open, setOpen] = useState(false);\n  const [zoom, setZoom] = useState(1);\n  const dialogRef = useRef<HTMLDialogElement>(null);\n  const reducedMotion = useReducedMotion();\n\n  useEffect(() => {\n    const dialog = dialogRef.current;\n    if (!dialog) return;\n\n    if (!open) {\n      if (dialog.open) dialog.close();\n      return;\n    }\n\n    if (!dialog.open) dialog.showModal();\n    const scrollY = window.scrollY;\n    const previousPosition = document.body.style.position;\n    const previousTop = document.body.style.top;\n    const previousWidth = document.body.style.width;\n    document.body.style.position = \"fixed\";\n    document.body.style.top = `-${scrollY}px`;\n    document.body.style.width = \"100%\";\n\n    return () => {\n      document.body.style.position = previousPosition;\n      document.body.style.top = previousTop;\n      document.body.style.width = previousWidth;\n      window.scrollTo(0, scrollY);\n    };\n  }, [open]);\n\n  return (\n    <>\n      <button\n        {...props}\n        type=\"button\"\n        aria-label={`Open image: ${alt}`}\n        onClick={() => {\n          setZoom(1);\n          setOpen(true);\n        }}\n        className={`mx-auto flex w-fit items-center gap-3 border border-border bg-background py-1.5 pl-1.5 pr-4 text-sm font-medium text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-ring ${className}`}\n      >\n        <img src={src} alt=\"\" loading=\"lazy\" className=\"size-12 object-cover\" />\n        {triggerLabel}\n      </button>\n\n      <dialog\n        ref={dialogRef}\n        aria-label={caption ?? alt}\n        onClose={() => setOpen(false)}\n        className=\"m-auto max-h-[90dvh] max-w-[92vw] overflow-visible border-0 bg-transparent p-0 text-foreground backdrop:bg-black/80\"\n      >\n        <button\n          type=\"button\"\n          tabIndex={-1}\n          aria-label=\"Close image overlay\"\n          onClick={() => dialogRef.current?.close()}\n          className=\"fixed inset-0 z-0 size-full border-0 bg-transparent p-0\"\n        />\n        <motion.div\n          initial={reducedMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}\n          animate={\n            open || reducedMotion\n              ? { opacity: 1, y: 0, scale: 1 }\n              : { opacity: 0, y: 12, scale: 0.98 }\n          }\n          transition={{ duration: reducedMotion ? 0 : 0.22, ease: \"easeOut\" }}\n          className=\"relative z-10 flex max-h-[90dvh] max-w-[92vw] flex-col items-center gap-3 pt-12\"\n        >\n          <button\n            type=\"button\"\n            aria-label=\"Close image\"\n            onClick={() => dialogRef.current?.close()}\n            className=\"absolute right-0 top-0 inline-flex size-10 items-center justify-center border border-border bg-background text-foreground focus-visible:outline-2 focus-visible:outline-ring\"\n          >\n            <X aria-hidden=\"true\" className=\"size-5\" />\n          </button>\n          <div className=\"max-h-[82dvh] max-w-[92vw] overflow-auto scrollbar-none [&::-webkit-scrollbar]:hidden\">\n            <button\n              type=\"button\"\n              aria-label={zoom > 1 ? \"Reset image zoom\" : \"Zoom image\"}\n              title=\"Double-click to zoom or reset\"\n              onDoubleClick={() => setZoom((value) => (value > 1 ? 1 : 2))}\n              onKeyDown={(event) => {\n                if (event.key !== \"Enter\" && event.key !== \" \") return;\n                event.preventDefault();\n                setZoom((value) => (value > 1 ? 1 : 2));\n              }}\n              data-zoomed={zoom > 1}\n              className=\"block cursor-zoom-in border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-ring data-[zoomed=true]:cursor-zoom-out\"\n            >\n              <img\n                src={src}\n                alt={alt}\n                className=\"max-h-[82dvh] max-w-[92vw] origin-center object-contain\"\n                style={{\n                  transform: `scale(${zoom})`,\n                  transition: reducedMotion ? \"none\" : \"transform 180ms ease-out\",\n                }}\n              />\n            </button>\n          </div>\n          {caption && <p className={`typography-caption text-center text-white`}>{caption}</p>}\n        </motion.div>\n      </dialog>\n    </>\n  );\n});\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/lightbox.tsx"
+    }
+  ],
+  "css": {
+    "@utility typography-page-title": {
+      "font-size": "2.25rem",
+      "line-height": "2.5rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)",
+      "@media (width >= 40rem)": {
+        "font-size": "3rem",
+        "line-height": "1"
+      }
+    },
+    "@utility typography-section-title": {
+      "font-size": "1.5rem",
+      "line-height": "2rem",
+      "font-weight": "600",
+      "letter-spacing": "-0.025em",
+      "color": "var(--foreground)"
+    },
+    "@utility typography-subsection-title": {
+      "font-size": "1.25rem",
+      "line-height": "1.75rem",
+      "font-weight": "600"
+    },
+    "@utility typography-body": {
+      "font-size": "1rem",
+      "line-height": "1.75rem",
+      "color": "var(--muted-foreground)"
+    },
+    "@utility typography-label": {
+      "font-size": "0.875rem",
+      "line-height": "1.25rem",
+      "font-weight": "500"
+    },
+    "@utility typography-caption": {
+      "font-size": "0.875rem",
+      "line-height": "1.5rem",
+      "color": "var(--muted-foreground)"
+    }
+  },
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

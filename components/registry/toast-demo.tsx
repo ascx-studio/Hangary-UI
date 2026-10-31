@@ -1,8 +1,8 @@
 "use client";
 
 import { memo } from "react";
-import { toast } from "@/registry/components/toast";
-import { Button } from "@/registry/components/button";
+import { toast } from "@/hangry/components/toast";
+import { Button } from "@/hangry/components/button";
 
 const messages = {
   neutral: "A little update for you.",

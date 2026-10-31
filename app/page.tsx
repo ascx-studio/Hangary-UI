@@ -4,8 +4,8 @@ import ThemeToggle from "@/components/theme-toggle";
 import Container from "@/components/layout/Container";
 import Footer from "@/components/layout/Footer";
 import * as motion from "motion/react-client";
-import { SpotlightReveal } from "@/registry/components/spotlight-reveal";
-import { Button, buttonClassName } from "@/registry/components/button";
+import { SpotlightReveal } from "@/hangry/components/spotlight-reveal";
+import { Button, buttonClassName } from "@/hangry/components/button";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import {
   ReactDark,

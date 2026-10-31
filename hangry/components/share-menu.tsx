@@ -5,7 +5,7 @@ import { Copy, LoaderCircle, Nfc, Share } from "lucide-react";
 import { ClaudeAI, GrokDark, OpenAIDark, XDark } from "@ridemountainpig/svgl-react";
 import { AnimatePresence, useReducedMotion } from "motion/react";
 import * as motion from "motion/react-client";
-import { toast } from "@/registry/components/toast";
+import { toast } from "@/hangry/components/toast";
 
 type NfcReader = {
   write: (

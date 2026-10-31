@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useEffect, useRef, useState } from "react";
-import { Toc, type TocItem } from "@/registry/components/toc";
+import { Toc, type TocItem } from "@/hangry/components/toc";
 
 const DocsToc = memo(function DocsToc() {
   const rootRef = useRef<HTMLDivElement>(null);

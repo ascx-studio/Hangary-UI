@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useRef } from "react";
-import { NavLine } from "@/registry/components/nav-line";
+import { NavLine } from "@/hangry/components/nav-line";
 
 const sections = [
   { label: "Overview", description: "A compact rail that follows your position as you scroll." },

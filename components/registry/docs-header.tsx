@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Breadcrumb } from "@/registry/components/breadcrumb";
+import { Breadcrumb } from "@/hangry/components/breadcrumb";
 import { getRegistryCategory, getRegistryItem } from "@/lib/registry";
 import InstallActions from "./install-actions";
 

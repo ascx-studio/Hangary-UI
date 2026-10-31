@@ -7,10 +7,10 @@ const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST?.replace(/\/$/, "");
 const nextConfig: NextConfig = {
   // Detail pages read registry source as text, without importing consumer code.
   outputFileTracingIncludes: {
-    "/components/*": ["./registry/**/*"],
-    "/blocks/*": ["./registry/**/*"],
-    "/shader/*": ["./registry/**/*"],
-    "/utils/*": ["./registry/**/*"],
+    "/components/*": ["./hangry/**/*"],
+    "/blocks/*": ["./hangry/**/*"],
+    "/shader/*": ["./hangry/**/*"],
+    "/utils/*": ["./hangry/**/*"],
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   turbopack: {

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table",
+  "title": "Table",
+  "description": "A responsive, composable table with headers, rows, cells, a caption, and an optional footer.",
+  "dependencies": [
+    "cn@^0.2.6"
+  ],
+  "files": [
+    {
+      "path": "hangry/components/table.tsx",
+      "content": "import type { ComponentProps } from \"react\";\nimport { cn } from \"cn\";\n\nexport function Table({ className, ...props }: ComponentProps<\"table\">) {\n  return (\n    <div className=\"w-full overflow-x-auto rounded-lg border border-border\">\n      <table\n        {...props}\n        data-slot=\"table\"\n        className={cn(\"w-full caption-bottom text-left text-sm text-foreground\", className)}\n      />\n    </div>\n  );\n}\n\nexport function TableHeader({ className, ...props }: ComponentProps<\"thead\">) {\n  return (\n    <thead\n      {...props}\n      data-slot=\"table-header\"\n      className={cn(\"bg-muted text-muted-foreground [&_tr]:border-b\", className)}\n    />\n  );\n}\n\nexport function TableBody({ className, ...props }: ComponentProps<\"tbody\">) {\n  return (\n    <tbody\n      {...props}\n      data-slot=\"table-body\"\n      className={cn(\"[&_tr:last-child]:border-0\", className)}\n    />\n  );\n}\n\nexport function TableFooter({ className, ...props }: ComponentProps<\"tfoot\">) {\n  return (\n    <tfoot\n      {...props}\n      data-slot=\"table-footer\"\n      className={cn(\"border-t border-border bg-muted font-medium\", className)}\n    />\n  );\n}\n\nexport function TableRow({ className, ...props }: ComponentProps<\"tr\">) {\n  return (\n    <tr\n      {...props}\n      data-slot=\"table-row\"\n      className={cn(\n        \"border-b border-border transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted\",\n        className,\n      )}\n    />\n  );\n}\n\nexport function TableHead({ className, scope = \"col\", ...props }: ComponentProps<\"th\">) {\n  return (\n    <th\n      {...props}\n      scope={scope}\n      data-slot=\"table-head\"\n      className={cn(\"px-4 py-3 align-middle font-medium\", className)}\n    />\n  );\n}\n\nexport function TableCell({ className, ...props }: ComponentProps<\"td\">) {\n  return <td {...props} data-slot=\"table-cell\" className={cn(\"px-4 py-3 align-top\", className)} />;\n}\n\nexport function TableCaption({ className, ...props }: ComponentProps<\"caption\">) {\n  return (\n    <caption\n      {...props}\n      data-slot=\"table-caption\"\n      className={cn(\"border-t border-border px-4 py-3 text-sm text-muted-foreground\", className)}\n    />\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/hangry-ui/components/table.tsx"
+    }
+  ],
+  "css": {
+    "@utility surface-raised": {
+      "border-width": "1px",
+      "border-color": "transparent",
+      "background": "linear-gradient(to bottom, color-mix(in srgb, var(--surface-color, var(--card)) 97%, white), var(--surface-bottom, color-mix(in srgb, var(--surface-color, var(--card)) 95%, var(--foreground)))) padding-box, linear-gradient(to bottom, var(--surface-stroke-top, color-mix(in srgb, var(--border) 75%, var(--foreground))), var(--surface-stroke-bottom, var(--border))) border-box",
+      "box-shadow": "0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -8px rgb(0 0 0 / 0.25)"
+    }
+  },
+  "meta": {
+    "category": "components"
+  },
+  "type": "registry:component"
+}

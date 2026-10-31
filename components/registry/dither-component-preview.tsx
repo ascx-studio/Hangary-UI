@@ -1,6 +1,6 @@
 import { memo, type ComponentProps } from "react";
 import { cn } from "@/lib/cn";
-import { DitheringFrameCard } from "@/registry/components/dithering-frame-card";
+import { DitheringFrameCard } from "@/hangry/components/dithering-frame-card";
 import SharedPreviewLayout from "./shared-preview-layout";
 
 type DitherComponentPreviewProps = ComponentProps<"section"> & {
